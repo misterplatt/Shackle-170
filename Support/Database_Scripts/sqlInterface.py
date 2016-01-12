@@ -68,20 +68,18 @@ def connectDB( db ) :
 	
 	return
 
-#Not meant for direct calls in script.
-#Use only in isolation with direct call at the base of this file to create table after recode
-#this will be changed very shortly
-def createTable ( ) :
+#accepts name of new table, followed by dictionary of varibles and sql datatypes
+def createTable ( name, typedict) :
 	global cnx
 	
 	cursor = cnx.cursor()
 	
-	command = "CREATE TABLE buglist ( "
-	command += " bugname varchar(30), "
-	command += " bugnumber int(5), "
-	command += " assignedto varchar (30), "
-	command += " corrected boolean DEFAULT 0, "
-	command += " datecorrect date );"
+	command = "CREATE TABLE %s ( " % (name)
+	
+	for key in typedict :
+		command += " %s %s," % ( key, typedict[key] )
+	command = command[:-1]
+	command += " );"
 	
 	cursor.execute(command)
 	pass
@@ -99,6 +97,11 @@ def performQuery( filepath ) :
 	#return
 	pass
 
+def rawQuery( command ) :
+	cursor = cnx.cursor()
+	cusor.execute(command)
+	print cursor.fetchall()
+	return
 	
 #Expected File Format
 # Ln 1 : TableName
@@ -143,6 +146,7 @@ def init( ) :
 	except ValueError : 
 		displayUsage( )
 		exit( )
+		
 	
 	
 init( )
