@@ -1,5 +1,7 @@
 ShackleGameBugDB :
 	buglist( bugname : varchar(30),
+		  bugdesc : varchar(150)
+		  reposteps : varchar(200)
 		  bugnumber : int(5),
 		  assignedto : varchar (30),
 		  corrected : boolean DEFAULT 0,

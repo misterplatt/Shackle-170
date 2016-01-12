@@ -99,7 +99,7 @@ def performQuery( filepath ) :
 
 def rawQuery( command ) :
 	cursor = cnx.cursor()
-	cusor.execute(command)
+	cursor.execute(command)
 	print cursor.fetchall()
 	return
 	
@@ -150,5 +150,6 @@ def init( ) :
 	
 	
 init( )
+rawQuery ( "show columns from buglist ")
 if (cnx != None ) :
 	cnx.close()
