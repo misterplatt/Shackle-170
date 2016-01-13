@@ -1,0 +1,50 @@
+Initialize engine version: 5.2.3f1 (f3d16a1fa2dd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 980 (ID=0x13c0)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\work\unettut\UNET Tut\unettest_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\work\unettut\UNET Tut\unettest_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\work\unettut\UNET Tut\unettest_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading D:\work\unettut\UNET Tut\unettest_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: D:\work\unettut\UNET Tut\unettest_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\work\unettut\UNET Tut\unettest_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\work\unettut\UNET Tut\unettest_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\work\unettut\UNET Tut\unettest_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\work\unettut\UNET Tut\unettest_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\work\unettut\UNET Tut\unettest_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\work\unettut\UNET Tut\unettest_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.102 seconds
+desktop: 2560x1440 60Hz; virtual: 4480x1440 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: D:\work\unettut\UNET Tut\unettest_Data\Managed\System.dll (this message is harmless)
+Setting up 3 worker threads for Enlighten.
+  Thread -> id: 450c -> priority: 1 
+  Thread -> id: 42b4 -> priority: 1 
+  Thread -> id: 32e8 -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.296339 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 279.
+Total: 0.138395 ms (FindLiveObjects: 0.010550 ms CreateObjectMapping: 0.012722 ms MarkObjects: 0.111088 ms  DeleteObjects: 0.003723 ms)
+
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:7777}
+UNet Client Disconnect Error: Timeout
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.233968 ms
+Multiple NetworkManagers detected in the scene. Only one NetworkManager can exist at a time. The duplicate NetworkManager will not be used.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 290.
+Total: 0.142739 ms (FindLiveObjects: 0.008688 ms CreateObjectMapping: 0.010240 ms MarkObjects: 0.119466 ms  DeleteObjects: 0.004033 ms)
+
