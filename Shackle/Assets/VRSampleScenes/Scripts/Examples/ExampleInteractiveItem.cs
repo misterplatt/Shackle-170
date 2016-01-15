@@ -60,6 +60,7 @@ namespace VRStandardAssets.Examples
         {
             Debug.Log("Show click state");
             m_Renderer.material = m_ClickedMaterial;
+            Destroy(gameObject);
         }
 
 
