@@ -58,4 +58,13 @@ public class spt_inventory : MonoBehaviour {
             activeItem = inventory.Last;
         }
     }
+
+    void sendItem() {
+        //activeItem is removed from local list
+        //previousItem is set as new active
+        //call to the server is made to sending object name
+        //to other client to find
+        //the object and add it to their inventory
+        //do an inventorysync
+    }
 }
