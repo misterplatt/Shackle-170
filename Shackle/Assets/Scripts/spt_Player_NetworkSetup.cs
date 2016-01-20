@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 
-public class spt_Player_NetworkSetup : NetworkBehaviour {
+public class Player_NetworkSetup : NetworkBehaviour {
 
     [SerializeField]
     Camera FPSCharacterCam;
@@ -20,5 +20,10 @@ public class spt_Player_NetworkSetup : NetworkBehaviour {
             audiolistener.enabled = true;
         }
 
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
 	}
 }

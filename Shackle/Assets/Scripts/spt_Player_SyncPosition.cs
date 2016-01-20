@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 
-public class spt_Player_SyncPosition : NetworkBehaviour {
+public class Player_SyncPosition : NetworkBehaviour {
     [SyncVar]
     private Vector3 syncPos;
 
