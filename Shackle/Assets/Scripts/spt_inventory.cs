@@ -1,13 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
-public class spt_inventory : MonoBehaviour {
+public class spt_inventory : NetworkBehaviour {
 
+    [SyncVar]
     public static LinkedList<GameObject> inventory;
 
     public LinkedListNode<GameObject> activeItem;
-
     public GameObject object1;
+
+    //flag to trigger server sync on inventory change
+    bool invChange = false;
+
+    //Network Vars
 
     // Use this for initialization
     void Start () {
@@ -35,6 +41,7 @@ public class spt_inventory : MonoBehaviour {
 
     public void pickUp(GameObject item) {
         inventory.AddLast(item);
+        invChange = true;
     }
 
     void cycleRight() {
@@ -66,5 +73,28 @@ public class spt_inventory : MonoBehaviour {
         //to other client to find
         //the object and add it to their inventory
         //do an inventorysync
+    }
+
+    //Network Functions
+
+    //CmdProvideInventoryToServer syncs local player inventory to the server copy of 
+    //varable. This is temporarily using a list of GameObjects to test performance impact.
+    [Command]
+    void CmdProvideInventoryToServer( LinkedList<GameObject> pInv ) {
+        inventory = pInv;
+    }
+
+    [ClientCallback]
+    void transmitInventory() {
+        if (isLocalPlayer)
+        {
+            //Additional conditions for actual transmission.
+            if (invChange)
+            {
+                //update serverside inventory then clear inv change flag
+                CmdProvideInventoryToServer(inventory);
+                invChange = false;
+            }
+        }
     }
 }
