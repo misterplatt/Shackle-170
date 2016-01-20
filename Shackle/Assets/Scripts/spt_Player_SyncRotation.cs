@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 
-public class Player_SyncRotation : NetworkBehaviour {
+public class spt_Player_SyncRotation : NetworkBehaviour {
     //need to sync game object for player and fps rot
     [SyncVar]
     private Quaternion syncPlayerRotation;
