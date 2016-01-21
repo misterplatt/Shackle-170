@@ -3,7 +3,7 @@ using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_interactiveButton : MonoBehaviour
+    public class spt_interactiveMovable : MonoBehaviour
     {
 
         [SerializeField]
@@ -12,6 +12,28 @@ namespace VRStandardAssets.Examples
         private Material m_DownMaterial;
         [SerializeField]
         private Material m_UpMaterial;
+
+        private bool mouseHeld = false;
+        public bool xAxis = true;
+        public bool yAxis = false;
+        //
+        void Update()
+        {
+            //when mouse is held use right thumbstick to move object based on object's axis boolean
+            if (mouseHeld == true)
+            {
+                if (xAxis == true)
+                {
+                    transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime);
+                }
+                else if (yAxis == true)
+                {
+                    transform.Translate(new Vector3(0, 0, spt_playerControls.leftThumb("Vertical")) * Time.deltaTime);
+                }
+            }
+            //stop moving when button is released
+            if (spt_playerControls.aButtonPressed() == false) mouseHeld = false;
+        }
 
         //Access to InteractiveItem script
         [SerializeField]
@@ -41,11 +63,12 @@ namespace VRStandardAssets.Examples
             m_Renderer.material = m_OverMaterial;
         }
 
-        //Handle the Down event, modified so that the reticle doesn't need to stay over object to interact
+        //Handle the Down event
         private void HandleDown()
         {
             Debug.Log("Show down state");
             m_Renderer.material = m_DownMaterial;
+            mouseHeld = true;
         }
 
         //Handle the Up event
@@ -58,4 +81,3 @@ namespace VRStandardAssets.Examples
     }
 
 }
-    

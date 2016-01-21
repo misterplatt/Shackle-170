@@ -3,12 +3,9 @@ using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_interactiveSwitch : MonoBehaviour
+    public class spt_interactivePickUp : MonoBehaviour
     {
-        [SerializeField]
-        private Material m_StateOneMaterial;
-        [SerializeField ]
-        private Material m_StateTwoMaterial;
+
 
 
         //Access to InteractiveItem script
@@ -29,19 +26,11 @@ namespace VRStandardAssets.Examples
             m_InteractiveItem.OnClick -= HandleClick;
         }
 
-        //Handle the Click event, alternates states on every press
+        //Handle the Click event
         private void HandleClick()
         {
             Debug.Log("Show click state");
-            currentState = !currentState;
-            if ( currentState == true)
-            {
-                m_Renderer.material = m_StateOneMaterial;
-            }
-            else if (currentState == false)
-            {
-                m_Renderer.material = m_StateTwoMaterial;
-            }   
+            Destroy(gameObject);
         }
     }
 }

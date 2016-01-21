@@ -23,7 +23,7 @@ public class spt_playerControls : MonoBehaviour
         startButtonPressed();
     }
 
-    bool aButtonPressed()
+    public static bool aButtonPressed()
     {
         if (Input.GetButton("aButton"))
         {
@@ -63,6 +63,12 @@ public class spt_playerControls : MonoBehaviour
         rb.AddForce(movement * speed);
     }
 
+    public static float leftThumb(string s) {
+        if (s == "Horizontal") return Input.GetAxis("leftThumbstickHoriz");
+        else if (s == "Vertical") return Input.GetAxis("leftThumbstickVert");
+        return 0;
+    }
+
     bool startButtonPressed()
     {
         if (Input.GetButton("startButton"))
@@ -86,6 +92,7 @@ public class spt_playerControls : MonoBehaviour
             //code for cycling the inventory to the right
         }
     }
+
     void rightThumbstickMoved()
     {
         //float moveHorizontal = Input.GetAxis("rightThumbstickHoriz");
