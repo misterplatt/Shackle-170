@@ -1,12 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections.Generic;
+using System;
 
-public class spt_inventory : MonoBehaviour {
+public class spt_inventory : NetworkBehaviour {
 
-    public static LinkedList<GameObject> inventory;
+    [SerializeField]
+    public LinkedList<GameObject> inventory;
+    [SerializeField]
+    private bool invChanged;
+
 
     public LinkedListNode<GameObject> activeItem;
-
     public GameObject object1;
 
     // Use this for initialization
@@ -67,4 +72,52 @@ public class spt_inventory : MonoBehaviour {
         //the object and add it to their inventory
         //do an inventorysync
     }
+
+    //Network Functions
+
+    //Server command accepts a string representation of
+    //Items (**which are assumed to exist in scene**)
+    //This could be made faster by using a central hash of items
+    //and referencing using integers in this msg, but this 
+    //is satisfactory.
+    [Command]
+    void CmdProvideInventoryToServer ( string invMsg ) {
+        inventory = new LinkedList<GameObject>();
+        translateNetworkInvMsg(invMsg);
+    }
+
+    void translateNetworkInvMsg( string invMsg )
+    {
+        string[] itemsNames = invMsg.Split( new string[] { "," }, StringSplitOptions.RemoveEmptyEntries );
+
+        for (int index = 0; index < itemsNames.Length; ++index )
+        {
+            inventory.AddLast( GameObject.Find( itemsNames[index] ) );
+        }
+    }
+
+    string createInvMsg()
+    {
+        string msg = "";
+
+        for (LinkedListNode<GameObject> iter = inventory.First; iter != null; iter = iter.Next) {
+            msg += iter.Value.name;
+            if ( iter.Next != null ){ msg += ","; }
+        }
+
+        return msg;
+    }
+
+    [ClientCallback]
+    void TransmitInventory() {
+        if (isLocalPlayer) {
+            //If an inventory has been changed, time to perform a serverside sync.
+            if ( invChanged ) {
+                CmdProvideInventoryToServer( createInvMsg() );
+                invChanged = false;
+            }
+        }
+    }
+	
 }
+
