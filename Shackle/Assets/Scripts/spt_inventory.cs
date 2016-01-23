@@ -12,17 +12,25 @@ public class spt_inventory : NetworkBehaviour {
 
 
     public LinkedListNode<GameObject> activeItem;
-    public GameObject object1;
 
     // Use this for initialization
     void Start () {
-        activeItem = new LinkedListNode<GameObject>(object1);
+        activeItem = null;//new LinkedListNode<GameObject>(object1);
         inventory = new LinkedList<GameObject>();
-        inventory.AddLast(activeItem);
+        //inventory.AddLast(activeItem);
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(invChanged)
+        {
+            TransmitInventory();
+        }
+
+        //control section
+        if (!isLocalPlayer) return;
+
         if (Input.GetKeyDown(KeyCode.Space)) {
             Debug.Log(activeItem.Value);
         }
@@ -36,10 +44,25 @@ public class spt_inventory : NetworkBehaviour {
         if (Input.GetKeyDown(KeyCode.A)){
             cycleLeft();
         }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            invChanged = true;
+            TransmitInventory();
+        }
+        //for debug inv printing
+        if (Input.GetKeyDown(KeyCode.M) )
+        {
+            Debug.Log("Inventory Report : " + createInvMsg());
+        }
+        if (Input.GetKeyDown(KeyCode.N) )
+        {
+            DebugServerPntInv();
+        }
     }
 
     public void pickUp(GameObject item) {
         inventory.AddLast(item);
+        invChanged = true;
     }
 
     void cycleRight() {
@@ -64,6 +87,8 @@ public class spt_inventory : NetworkBehaviour {
         }
     }
 
+    //in order to do this we need to differentiate between player instances
+    // perhaps if we post a tag on connection to note which is player and which is not.
     void sendItem() {
         //activeItem is removed from local list
         //previousItem is set as new active
@@ -71,6 +96,7 @@ public class spt_inventory : NetworkBehaviour {
         //to other client to find
         //the object and add it to their inventory
         //do an inventorysync
+        invChanged = true;
     }
 
     //Network Functions
@@ -104,11 +130,10 @@ public class spt_inventory : NetworkBehaviour {
             msg += iter.Value.name;
             if ( iter.Next != null ){ msg += ","; }
         }
-
         return msg;
     }
 
-    [ClientCallback]
+    [Client]
     void TransmitInventory() {
         if (isLocalPlayer) {
             //If an inventory has been changed, time to perform a serverside sync.
@@ -117,6 +142,20 @@ public class spt_inventory : NetworkBehaviour {
                 invChanged = false;
             }
         }
+    }
+
+    void DebugServerPntInv() {
+        if (!isServer) return;
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("pc");
+
+        for ( int index = 0; index < players.Length; ++index )
+        {
+            Debug.Log("Player " + index + ": " + (isLocalPlayer ? "Local" : "NonLocal") + "\n" );
+            spt_inventory pInv = players[index].GetComponent<spt_inventory>();
+            Debug.Log("Inv : " + pInv.createInvMsg() + "\n");
+        }
+
     }
 	
 }
