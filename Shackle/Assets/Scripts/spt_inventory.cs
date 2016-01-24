@@ -17,7 +17,7 @@ public class spt_inventory : NetworkBehaviour {
     void Start () {
         activeItem = null;//new LinkedListNode<GameObject>(object1);
         inventory = new LinkedList<GameObject>();
-        //inventory.AddLast(activeItem);
+        
     }
 	
 	// Update is called once per frame
@@ -27,21 +27,25 @@ public class spt_inventory : NetworkBehaviour {
         {
             TransmitInventory();
         }
-
+        //Debug.Log(activeItem.Value);
         //control section
-        if (!isLocalPlayer) return;
+        //if (!isLocalPlayer) return;
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
             Debug.Log(activeItem.Value);
         }
-        if (Input.GetKeyDown(KeyCode.R)){
+        if (Input.GetKeyDown(KeyCode.R))
+        {
             pickUp(GameObject.Find("Remote"));
             pickUp(GameObject.Find("Black Tar Heroin"));
         }
-        if (Input.GetKeyDown(KeyCode.D)){
+        if (Input.GetKeyDown(KeyCode.D))
+        {
             cycleRight();
         }
-        if (Input.GetKeyDown(KeyCode.A)){
+        if (Input.GetKeyDown(KeyCode.A))
+        {
             cycleLeft();
         }
         if (Input.GetKeyDown(KeyCode.Z))
@@ -61,8 +65,17 @@ public class spt_inventory : NetworkBehaviour {
     }
 
     public void pickUp(GameObject item) {
-        inventory.AddLast(item);
-        invChanged = true;
+        if (activeItem == null)
+        {
+            activeItem = new LinkedListNode<GameObject>(item);
+            inventory.AddLast(activeItem);
+        }
+        else
+        {
+            inventory.AddLast(item);
+            invChanged = true;
+        }
+        
     }
 
     void cycleRight() {

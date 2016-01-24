@@ -6,14 +6,14 @@ namespace VRStandardAssets.Examples
     public class spt_interactivePickUp : MonoBehaviour
     {
 
-
-
         //Access to InteractiveItem script
         [SerializeField]
         private VRInteractiveItem m_InteractiveItem;
         [SerializeField]
         private Renderer m_Renderer;
         bool currentState = false;
+
+        public spt_inventory inventory;
 
         private void OnEnable()
         {
@@ -30,7 +30,8 @@ namespace VRStandardAssets.Examples
         private void HandleClick()
         {
             Debug.Log("Show click state");
-            Destroy(gameObject);
+            inventory.pickUp(gameObject);
+            gameObject.SetActive(false);  //Discuss how to handle this!
         }
     }
 }
