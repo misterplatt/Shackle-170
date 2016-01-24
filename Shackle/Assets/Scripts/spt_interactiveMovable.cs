@@ -16,7 +16,8 @@ namespace VRStandardAssets.Examples
         private bool mouseHeld = false;
         public bool xAxis = true;
         public bool yAxis = false;
-        //
+        public float speed = 1;
+
         void Update()
         {
             //when mouse is held use right thumbstick to move object based on object's axis boolean
@@ -24,11 +25,11 @@ namespace VRStandardAssets.Examples
             {
                 if (xAxis == true)
                 {
-                    transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime);
+                    transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime * speed);
                 }
                 else if (yAxis == true)
                 {
-                    transform.Translate(new Vector3(0, 0, spt_playerControls.leftThumb("Vertical")) * Time.deltaTime);
+                    transform.Translate(new Vector3(0, 0, spt_playerControls.leftThumb("Vertical")) * Time.deltaTime * speed);
                 }
             }
             //stop moving when button is released

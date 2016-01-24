@@ -33,7 +33,7 @@ public class spt_playerControls : MonoBehaviour
         else return false;
     }
 
-    bool bButtonPressed()
+    public static bool bButtonPressed()
     {
         if (Input.GetButton("bButton"))
         {
@@ -95,9 +95,20 @@ public class spt_playerControls : MonoBehaviour
 
     void rightThumbstickMoved()
     {
-        //float moveHorizontal = Input.GetAxis("rightThumbstickHoriz");
-        //float moveVertical = Input.GetAxis("leftThumbstickVert");
+        float moveHorizontal = Input.GetAxis("rightThumbstickHoriz");
+        float moveVertical = Input.GetAxis("rightThumbstickVert");
+        Debug.Log("Right Thumbstick Hori:" + moveHorizontal);
+        Debug.Log("Right Thumbstick Vert:" + moveVertical);
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        rb.AddForce(movement * speed);
         //Add code to rotate the current item being inspected
 
+    }
+
+    public static float rightThumb(string s)
+    {
+        if (s == "Horizontal") return Input.GetAxis("rightThumbstickHoriz");
+        else if (s == "Vertical") return Input.GetAxis("rightThumbstickVert");
+        return 0;
     }
 }
