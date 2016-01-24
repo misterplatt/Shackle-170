@@ -18,6 +18,7 @@ GameObject:
   - 114: {fileID: 11433290}
   - 114: {fileID: 11441254}
   - 114: {fileID: 11440114}
+  - 114: {fileID: 11478400}
   m_Layer: 0
   m_Name: Player
   m_TagString: pc
@@ -445,6 +446,18 @@ MonoBehaviour:
   playerTransform: {fileID: 403430}
   camTransform: {fileID: 435308}
   lerpRate: 15
+--- !u!114 &11478400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f5cde5ec803774c801835aa7d28e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerUniqueName: 
 --- !u!114 &11481442
 MonoBehaviour:
   m_ObjectHideFlags: 1

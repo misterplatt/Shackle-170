@@ -61,7 +61,7 @@ public class spt_inventory : NetworkBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.N) )
         {
-            DebugServerPntInv();
+            DebugServerPntPlayers();
         }
     }
 
@@ -170,6 +170,29 @@ public class spt_inventory : NetworkBehaviour {
             Debug.Log("Inv : " + pInv.createInvMsg() + "\n");
         }
 
+    }
+
+    void DebugServerPntPlayers() {
+        if (!isServer) return;
+
+        foreach (KeyValuePair<NetworkInstanceId, NetworkIdentity> pair in NetworkServer.objects) {
+            Debug.Log( pair.Key.ToString() );
+            Debug.Log(pair.Value.ToString());
+
+        }
+        
+        /*
+        foreach (NetworkConnection player in NetworkServer.connections) {
+            if (player == null) continue;
+            Debug.Log("Player : ID : " + player.connectionId + ", IP :" + player.address + " Connected? " + player.isReady);
+            
+            foreach ( NetworkInstanceId id in player.clientOwnedObjects ) {
+                Debug.Log( "ID : " + id.ToString() );
+                Debug.Log("Value : " + id.Value );
+            }
+            
+        }
+        */
     }
 	
 }
