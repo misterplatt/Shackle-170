@@ -29,7 +29,7 @@ public class spt_inventory : NetworkBehaviour {
         }
         //Debug.Log(activeItem.Value);
         //control section
-        //if (!isLocalPlayer) return;
+        if (!isLocalPlayer) return;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -53,6 +53,7 @@ public class spt_inventory : NetworkBehaviour {
             invChanged = true;
             TransmitInventory();
         }
+
         //for debug inv printing
         if (Input.GetKeyDown(KeyCode.M) )
         {

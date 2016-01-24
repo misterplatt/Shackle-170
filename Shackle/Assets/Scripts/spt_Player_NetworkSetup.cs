@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 
-public class Player_NetworkSetup : NetworkBehaviour {
+public class spt_Player_NetworkSetup : NetworkBehaviour {
 
     [SerializeField]
     Camera FPSCharacterCam;
@@ -21,9 +21,5 @@ public class Player_NetworkSetup : NetworkBehaviour {
         }
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }

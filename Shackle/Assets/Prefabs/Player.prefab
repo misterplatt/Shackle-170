@@ -17,9 +17,10 @@ GameObject:
   - 114: {fileID: 11481442}
   - 114: {fileID: 11433290}
   - 114: {fileID: 11441254}
+  - 114: {fileID: 11440114}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: pc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,6 +419,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTransform: {fileID: 403430}
   lerpRate: 15
+--- !u!114 &11440114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c81280c37c8ba4588722ced71f79f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invChanged: 0
 --- !u!114 &11441254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -512,6 +525,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: pc
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
