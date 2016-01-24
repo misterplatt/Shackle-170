@@ -36,24 +36,26 @@ namespace VRStandardAssets.Examples
         }
 
         void Start() {
-            //Store object's original position
+            //Store object's original position and rotation
             startPoint = transform.position;
             startRotation = transform.rotation;
         }
 
         void Update() {
+            //If the object has been clicked in the world, lerp it in front of the player and enable rotation with right thumbstick
             if (currentState == true)
             {
                 transform.position = Vector3.Lerp(transform.position, endPoint.position, Time.deltaTime * lerpSpeed);
                 transform.Rotate(new Vector3(spt_playerControls.rightThumb("Vertical"), spt_playerControls.rightThumb("Horizontal"), 0) * Time.deltaTime * rotationSpeed, Space.World);
             }
-            else if (currentState == false) {
+            //If B is pressed, return the object to it's default position and rotation
+            else if (currentState == false && transform.position != startPoint) {
                 Debug.Log("SENDBACK");
                 transform.position = Vector3.Lerp(transform.position, startPoint, Time.deltaTime * lerpSpeed);
                 transform.rotation = startRotation;
             }
-            Debug.Log(startPoint);
-            //stop moving when button b button is pressed
+            
+            //Return object when button b button is pressed
             if (spt_playerControls.bButtonPressed() == true) {
                 currentState = false;
                 m_Renderer.material = m_StateTwoMaterial;

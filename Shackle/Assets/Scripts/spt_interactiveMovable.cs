@@ -16,7 +16,7 @@ namespace VRStandardAssets.Examples
         private bool mouseHeld = false;
         public bool xAxis = true;
         public bool yAxis = false;
-        public float speed = 1;
+        public float moveSpeed = 1;
 
         void Update()
         {
@@ -25,11 +25,11 @@ namespace VRStandardAssets.Examples
             {
                 if (xAxis == true)
                 {
-                    transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime * speed);
+                    transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime * moveSpeed);
                 }
                 else if (yAxis == true)
                 {
-                    transform.Translate(new Vector3(0, 0, spt_playerControls.leftThumb("Vertical")) * Time.deltaTime * speed);
+                    transform.Translate(new Vector3(0, 0, spt_playerControls.leftThumb("Vertical")) * Time.deltaTime * moveSpeed);
                 }
             }
             //stop moving when button is released
@@ -48,7 +48,6 @@ namespace VRStandardAssets.Examples
             m_InteractiveItem.OnDown += HandleDown;
             m_InteractiveItem.OnUp += HandleUp;
         }
-
 
         private void OnDisable()
         {
