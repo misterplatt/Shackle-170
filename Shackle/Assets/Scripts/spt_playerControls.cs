@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using XInputDotNetPure; // Required in C#
 
 public class spt_playerControls : MonoBehaviour
 {
     private Rigidbody rb;
     public float speed;
+    static PlayerIndex playerIndex;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
     }
 
     // fixedUpdate is called before any physics calculations
@@ -17,12 +19,14 @@ public class spt_playerControls : MonoBehaviour
     {
         aButtonPressed();
         bButtonPressed();
+        xButtonPressed();
         rightThumbstickButtonPressed();
         leftThumbstickMoved();
         triggers();
         startButtonPressed();
     }
 
+    // Checks if A button is pressed, which is used for general interaction in the world
     public static bool aButtonPressed()
     {
         if (Input.GetButton("aButton"))
@@ -30,9 +34,13 @@ public class spt_playerControls : MonoBehaviour
             Debug.Log("SUCCESS for A button");
             return true;
         }
-        else return false;
+        else
+        {
+            return false;
+        }
     }
 
+    // Checks if B button is pressed, which is used as a return
     public static bool bButtonPressed()
     {
         if (Input.GetButton("bButton"))
@@ -43,7 +51,22 @@ public class spt_playerControls : MonoBehaviour
         else return false;
     }
 
-    bool rightThumbstickButtonPressed()
+    // Checks if X button is pressed, which is used for passing items between players
+    // For now X button starts the controller vibration
+    public static bool xButtonPressed()
+    {
+        if (Input.GetButton("xButton"))
+        {
+            GamePad.SetVibration(playerIndex, 1.0f, 1.0f);
+
+            Debug.Log("SUCCESS for x button");
+            return true;
+        }
+        else return false;
+    }
+
+    // Checks if the right thumbstick is pressed, which is used for toggling the flashlight
+    public static bool rightThumbstickButtonPressed()
     {
         if (Input.GetButton("rightThumbstickButton"))
         {
@@ -53,33 +76,40 @@ public class spt_playerControls : MonoBehaviour
         else return false;
     }
 
+    // Checks if left thumbstick is moved, which is used to move player chairs
     void leftThumbstickMoved()
     {
         float moveHorizontal = Input.GetAxis("leftThumbstickHoriz");
         float moveVertical = Input.GetAxis("leftThumbstickVert");
-        Debug.Log("Left Thumbstick Hori:" + moveHorizontal);
-        Debug.Log("Left Thumbstick Vert:" + moveVertical);
+        //Debug.Log("Left Thumbstick Hori:" + moveHorizontal);
+        //Debug.Log("Left Thumbstick Vert:" + moveVertical);
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.AddForce(movement * speed);
     }
 
+    // Checks if the string being passed is either Horizontal or Vertical which comes from the game object's properties
+    // This is used to keep objects manipulated/moved in the desired axis
     public static float leftThumb(string s) {
         if (s == "Horizontal") return Input.GetAxis("leftThumbstickHoriz");
         else if (s == "Vertical") return Input.GetAxis("leftThumbstickVert");
         return 0;
     }
 
-    bool startButtonPressed()
+    // Checks if start button is pressed, which is used for opening the menu
+    // For now it is used to stop the controller vibrations
+    public static bool startButtonPressed()
     {
         if (Input.GetButton("startButton"))
         {
+            GamePad.SetVibration(playerIndex, 0, 0);
             Debug.Log("SUCCESS for Start button");
             return true;
         }
         else return false;
     }
 
-    void triggers()
+    // Checks if either of the triggers are pressed, which is used for cycling through the inventory
+    public static void triggers()
     {
         if (Input.GetAxis("triggers") < 0)
         {
@@ -93,6 +123,7 @@ public class spt_playerControls : MonoBehaviour
         }
     }
 
+    // Checks if the right thumbstick is moved , which is used for rotating and manipulating the field of view when interacting with an object
     void rightThumbstickMoved()
     {
         float moveHorizontal = Input.GetAxis("rightThumbstickHoriz");
@@ -101,10 +132,11 @@ public class spt_playerControls : MonoBehaviour
         Debug.Log("Right Thumbstick Vert:" + moveVertical);
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.AddForce(movement * speed);
-        //Add code to rotate the current item being inspected
 
     }
 
+    // Checks if the string being passed is either Horizontal or Vertical which comes from the game object's properties
+    // This is used to keep objects manipulated/moved in the desired axis
     public static float rightThumb(string s)
     {
         if (s == "Horizontal") return Input.GetAxis("rightThumbstickHoriz");
