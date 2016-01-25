@@ -57,11 +57,17 @@ public class spt_inventory : NetworkBehaviour {
         //for debug inv printing
         if (Input.GetKeyDown(KeyCode.M) )
         {
-            Debug.Log("Inventory Report : " + createInvMsg());
+            DebugServerPntInv();
         }
         if (Input.GetKeyDown(KeyCode.N) )
         {
-            DebugServerPntPlayers();
+            //DebugServerPntPlayers();
+
+            sendItem();
+        }
+        if (Input.GetKeyDown(KeyCode.B) )
+        {
+            Debug.Log("Inventory Report : " + createInvMsg());
         }
     }
 
@@ -77,6 +83,16 @@ public class spt_inventory : NetworkBehaviour {
             invChanged = true;
         }
         
+    }
+
+    //remove item from inv linked list. 
+    //support function for sending items.
+    public void removeItm(string item)
+    {
+        for (LinkedListNode<GameObject> iter = inventory.First; iter != null; iter = iter.Next)
+        {
+            if (iter.Value.name == item) inventory.Remove(iter.Value);
+        }
     }
 
     void cycleRight() {
@@ -104,13 +120,9 @@ public class spt_inventory : NetworkBehaviour {
     //in order to do this we need to differentiate between player instances
     // perhaps if we post a tag on connection to note which is player and which is not.
     void sendItem() {
-        //activeItem is removed from local list
-        //previousItem is set as new active
-        //call to the server is made to sending object name
-        //to other client to find
-        //the object and add it to their inventory
-        //do an inventorysync
-        invChanged = true;
+        CmdSendItem(transform.gameObject.name, "Black Tar Heroin");
+        //inventory.Remove(activeItem.Value);
+        inventory.Remove(GameObject.Find("Black Tar Heroin"));
     }
 
     //Network Functions
@@ -124,6 +136,28 @@ public class spt_inventory : NetworkBehaviour {
     void CmdProvideInventoryToServer ( string invMsg ) {
         inventory = new LinkedList<GameObject>();
         translateNetworkInvMsg(invMsg);
+    }
+
+    [Command]
+    void CmdSendItem( string pGiver, string itemName )
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("pc");
+        GameObject giver = null;
+        GameObject reciever = null;
+
+        foreach (GameObject player in players) {
+            if (player.name == pGiver) giver = player;
+            else reciever = player;
+        }
+
+        //Delete itemName from giver
+        giver.GetComponent<spt_inventory>().removeItm(itemName);
+        reciever.GetComponent<spt_inventory>().pickUp(GameObject.Find(itemName));
+
+        //give itemName to reciever
+
+        //force sync
+
     }
 
     void translateNetworkInvMsg( string invMsg )
