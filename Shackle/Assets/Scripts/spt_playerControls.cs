@@ -143,4 +143,25 @@ public class spt_playerControls : MonoBehaviour
         else if (s == "Vertical") return Input.GetAxis("rightThumbstickVert");
         return 0;
     }
+
+    // Uses the left motor to create a rougher vibration pattern
+    public static void roughVibration()
+    {
+        //GamePad.SetVibration(playerIndex, Input.GetAxis("leftThumbstickVert"), 0);
+        GamePad.SetVibration(playerIndex, 1.0f, 0);
+    }
+
+    // Uses the right motor to create a smoother vibration pattern
+    public static void smoothVibration()
+    {
+        // GamePad.SetVibration(playerIndex, 0, Input.GetAxis("leftThumbstickVert"));
+        GamePad.SetVibration(playerIndex, 0, 1.0f);
+    }
+
+    // Uses both the left and right motors to create a greater vibration 
+    public static void simulVibration()
+    {
+        // GamePad.SetVibration(playerIndex, Input.GetAxis("leftThumbstickVert"), Input.GetAxis("leftThumbstickVert"));
+        GamePad.SetVibration(playerIndex, 1.0f, 1.0f);
+    }
 }
