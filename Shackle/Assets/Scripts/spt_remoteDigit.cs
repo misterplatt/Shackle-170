@@ -3,6 +3,7 @@ using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
 {
+    //Script that handles player interaction with digit buttons on the remote
     public class spt_remoteDigit : MonoBehaviour
     {
         [SerializeField]
@@ -35,18 +36,23 @@ namespace VRStandardAssets.Examples
         {
             Debug.Log("Show click state");
             currentState = !currentState;
+            //Highlight digit button and send it's number to remoteManager
             if (currentState == true)
             {
                 m_Renderer.material = m_StateTwoMaterial;
                 rManager.enterChannelNumber(gameObject.name);
             }
+            //Un-highlight digit button and remove it's number from remoteManager
             else if (currentState == false)
             {
                 m_Renderer.material = m_StateOneMaterial;
+                rManager.enterChannelNumber("-");
             }
         }
 
-        void deactivateButton()
+        //Function that gets broadcast by spt_remoteManager and spt_remoteEnter to 
+        //revert digit material, indicating it has been unselected
+        void deactivateDigit()
         {
             m_Renderer.material = m_StateOneMaterial;
             currentState = false;

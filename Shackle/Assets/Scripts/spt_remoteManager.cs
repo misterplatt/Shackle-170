@@ -23,11 +23,12 @@ public class spt_remoteManager : MonoBehaviour {
         if (channelNumber[0] == "-") channelNumber[0] = num;
         else if (channelNumber[1] == "-") channelNumber[1] = num;
         else {
-            BroadcastMessage("deactivateButton");
+            BroadcastMessage("deactivateDigit");
             clearChannelNumber();
         } 
     }
 
+    //Quick function to clear the current channel number, called by remoteEnter
     public static void clearChannelNumber()
     {
         channelNumber[0] = "-";

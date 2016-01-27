@@ -17,6 +17,14 @@ namespace VRStandardAssets.Examples
         public bool xAxis = true;
         public bool yAxis = false;
         public float moveSpeed = 1;
+        public float minDistance = 0;
+        public float maxDistance = 5;
+
+        //public Vector3 initialPosition; FOR LIMITER
+
+        void Start() {
+            //initialPosition = transform.position; FOR LIMITER
+        }
 
         void Update()
         {
@@ -26,6 +34,7 @@ namespace VRStandardAssets.Examples
                 if (xAxis == true)
                 {
                     transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime * moveSpeed);
+                    //transform.position = new Vector3(Mathf.Clamp(transform.position.z - initialPosition.z, 0F, 3.0F), transform.position.y, transform.position.z); LIMITER: NOT WORKING
                 }
                 else if (yAxis == true)
                 {
