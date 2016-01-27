@@ -2160,6 +2160,8 @@ MonoBehaviour:
   xAxis: 1
   yAxis: 0
   moveSpeed: 1
+  minDistance: 0
+  maxDistance: 5
   m_InteractiveItem: {fileID: 1283355047}
   m_Renderer: {fileID: 1283355048}
 --- !u!114 &1283355047
@@ -2990,7 +2992,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1803400212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79286968d2ec1c94e9f2be33174a04ad, type: 3}
+  m_Script: {fileID: 11500000, guid: 9dad0c594d39ae44f83fd8bbaba99046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_OverMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}

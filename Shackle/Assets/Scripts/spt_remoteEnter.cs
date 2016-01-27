@@ -17,6 +17,7 @@ namespace VRStandardAssets.Examples
         [SerializeField]
         private Renderer m_Renderer;
         bool currentState = false;
+        private bool m_GazeOver;
 
         private void OnEnable()
         {
