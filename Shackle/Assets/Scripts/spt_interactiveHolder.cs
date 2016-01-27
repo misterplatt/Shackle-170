@@ -3,7 +3,7 @@ using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_interactiveButton : MonoBehaviour
+    public class spt_interactiveHolder: MonoBehaviour
     {
 
         [SerializeField]
