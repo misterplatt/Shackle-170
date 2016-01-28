@@ -19,7 +19,7 @@ namespace VRStandardAssets.Examples
         [SerializeField]
         private Renderer m_Renderer;
 
-        private bool m_GazeOver;
+       // private bool m_GazeOver;
 
         private void OnEnable()
         {
@@ -45,14 +45,19 @@ namespace VRStandardAssets.Examples
         {
             Debug.Log("Show over state");
             m_Renderer.material = m_OverMaterial;
-            m_GazeOver = true;
+           // m_GazeOver = true;
         }
 
         //Handle the Down event, modified so that the reticle doesn't need to stay over object to interact
         private void HandleDown()
         {
-            Debug.Log("Show down state");
-            m_Renderer.material = m_DownMaterial;
+            // User must press A to interact with the object, negates the case of user holding A previous to interaction
+            if (Input.GetButtonDown("aButton"))
+            {
+                Debug.Log(Input.GetButtonDown("aButton"));
+                Debug.Log("Show down state");
+                m_Renderer.material = m_DownMaterial;
+            }
         }
 
         //Handle the Up event
@@ -65,7 +70,7 @@ namespace VRStandardAssets.Examples
         private void HandleOut()
         {
             // When the user looks away from the rendering of the scene, hide the radial.
-            m_GazeOver = false;
+           // m_GazeOver = false;
             m_Renderer.material = m_UpMaterial;
         }
 
