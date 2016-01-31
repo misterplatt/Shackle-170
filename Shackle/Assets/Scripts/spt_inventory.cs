@@ -37,8 +37,8 @@ public class spt_inventory : NetworkBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            pickUp(GameObject.Find("Remote"));
-            pickUp(GameObject.Find("Black Tar Heroin"));
+           pickUp(GameObject.Find("Remote"));
+           // pickUp(GameObject.Find("Black Tar Heroin"));
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -76,6 +76,7 @@ public class spt_inventory : NetworkBehaviour {
         {
             activeItem = new LinkedListNode<GameObject>(item);
             inventory.AddLast(activeItem);
+            Debug.Log(item);
         }
         else
         {

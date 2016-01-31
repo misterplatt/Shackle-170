@@ -15,7 +15,7 @@ namespace VRStandardAssets.Examples
 
         private bool mouseHeld = false;
         public bool xAxis = true;
-        public bool yAxis = false;
+        public bool zAxis = false;
         public float moveSpeed = 1;
         public float minDistance = 0;
         public float maxDistance = 5;
@@ -36,7 +36,7 @@ namespace VRStandardAssets.Examples
                     transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime * moveSpeed);
                     //transform.position = new Vector3(Mathf.Clamp(transform.position.z - initialPosition.z, 0F, 3.0F), transform.position.y, transform.position.z); LIMITER: NOT WORKING
                 }
-                else if (yAxis == true)
+                else if (zAxis == true)
                 {
                     transform.Translate(new Vector3(0, 0, spt_playerControls.leftThumb("Vertical")) * Time.deltaTime * moveSpeed);
                 }

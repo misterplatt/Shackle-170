@@ -66,6 +66,10 @@ namespace VRStandardAssets.Utils
             // This if statement is to gather information about the mouse when the button is up.
             if (Input.GetButtonUp ("Fire1"))
             {
+                // If anything has subscribed to OnUp call it.
+                if (OnUp != null)
+                    OnUp();
+
                 // When Fire1 is released record the position of the mouse.
                 m_MouseUpPosition = new Vector2 (Input.mousePosition.x, Input.mousePosition.y);
 
@@ -82,12 +86,8 @@ namespace VRStandardAssets.Utils
                 OnSwipe(swipe);
 
             // This if statement is to trigger events based on the information gathered before.
-            if(Input.GetButtonUp ("Fire1"))
+            if(Input.GetButtonDown ("Fire1")) //CHANGED FROM BUTTONUP
             {
-                // If anything has subscribed to OnUp call it.
-                if (OnUp != null)
-                    OnUp();
-
                 // If the time between the last release of Fire1 and now is less
                 // than the allowed double click time then it's a double click.
                 if (Time.time - m_LastMouseUpTime < m_DoubleClickTime)

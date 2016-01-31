@@ -31,7 +31,7 @@ namespace VRStandardAssets.Examples
         {
             Debug.Log("Show click state");
             inventory.pickUp(gameObject);
-            gameObject.SetActive(false);  //Discuss how to handle this!
+            gameObject.SetActive(false);
         }
     }
 }

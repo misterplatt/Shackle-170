@@ -3,7 +3,7 @@ using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_interactiveHolder: MonoBehaviour
+    public class spt_interactiveGatedHolder : MonoBehaviour
     {
 
         [SerializeField]
@@ -19,7 +19,12 @@ namespace VRStandardAssets.Examples
         [SerializeField]
         private Renderer m_Renderer;
 
-       // private bool m_GazeOver;
+        // private bool m_GazeOver;
+        public spt_inventory inventoryScript;
+        public string gateItemName;
+        public float holdTime;
+        private float timer = 0;
+        private bool holding = false;
 
         private void OnEnable()
         {
@@ -45,17 +50,25 @@ namespace VRStandardAssets.Examples
         {
             Debug.Log("Show over state");
             m_Renderer.material = m_OverMaterial;
-           // m_GazeOver = true;
+            // m_GazeOver = true;
         }
 
         //Handle the Down event, modified so that the reticle doesn't need to stay over object to interact
         private void HandleDown()
         {
             // User must press A to interact with the object, negates the case of user holding A previous to interaction
-            if (Input.GetButtonDown("aButton"))
+            if (Input.GetButtonDown("aButton") && inventoryScript.activeItem.Value.name == gateItemName)
             {
+                holding = true;
                 Debug.Log("Show down state");
-                m_Renderer.material = m_DownMaterial;
+                //m_Renderer.material = m_DownMaterial;
+            }
+            if (holding)
+            {
+                timer += Time.deltaTime;
+                if (timer >= holdTime) {
+                    m_Renderer.material = m_DownMaterial;
+                }
             }
         }
 
@@ -64,13 +77,15 @@ namespace VRStandardAssets.Examples
         {
             Debug.Log("Show up state");
             m_Renderer.material = m_UpMaterial;
+            holding = false;
         }
 
         private void HandleOut()
         {
             // When the user looks away from the rendering of the scene, hide the radial.
-           // m_GazeOver = false;
+            // m_GazeOver = false;
             m_Renderer.material = m_UpMaterial;
+            holding = false;
         }
 
     }
