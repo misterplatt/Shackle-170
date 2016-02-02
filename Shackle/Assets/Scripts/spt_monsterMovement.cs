@@ -9,14 +9,14 @@ using System.IO;
 using System;
 
 public class spt_monsterMovement : MonoBehaviour {
-
+    
     // Handle on the players (so the monster always knows where they are).
     public GameObject players;
     
     // Array of waypoints, the graph that holds the waypoints, as well as the script that instantiates the graph itself 
     public Transform[] waypoints;
     private int[][] waypointGraph;
-    private spt_createGraphForTestingEnvironment graphScript;
+    private spt_createGraphForGarage graphScript;
 
     // The waypoint that the monster is currently travelling toward
     private int currentWaypoint;
@@ -46,17 +46,18 @@ public class spt_monsterMovement : MonoBehaviour {
 	void Start () {
 
         //Gets the waypoint graph from another script, then sets the first waypoint to the center of the room.
-        graphScript = GameObject.FindObjectOfType(typeof(spt_createGraphForTestingEnvironment)) as spt_createGraphForTestingEnvironment;
-        waypointGraph = graphScript.getWaypointGraph();
+        graphScript = GameObject.FindObjectOfType(typeof(spt_createGraphForGarage)) as spt_createGraphForGarage;
+        waypointGraph = graphScript.getWaypointGraph();       
+        print(waypointGraph);
         agent = GetComponent<NavMeshAgent>();
-        agent.SetDestination(waypoints[26].position);
-        currentWaypoint = 26;
+        agent.SetDestination(waypoints[16].position);
+        currentWaypoint = 16;
         
         // Sets the initial anger level of the monster to zero.
         angerLevel = 0;
         
         // Handle on the gui (used for testing)
-        gui = GameObject.FindWithTag("gui").GetComponent<Text>();
+        //gui = GameObject.FindWithTag("gui").GetComponent<Text>();
 
         //Begins the gradual anger depreciation over time.
         InvokeRepeating("angerDepreciation", 1, 1);
@@ -70,16 +71,16 @@ public class spt_monsterMovement : MonoBehaviour {
 	void Update () {
 
         // Chooses a new destination if the monster is within a certain distance of its current one.
-        if (agent.remainingDistance < 2 && currentWaypoint != 999){
+        if (agent.remainingDistance <= 2 && currentWaypoint != 999){
             chooseDestination();
         }
 
         //If the monster is past a certain amount of anger, initiate an attack.
-        if (angerLevel >= lowerThreshold)
-            attack();
+        //if (angerLevel >= lowerThreshold)
+        //    attack();
 
         // Update the GUI with the current anger level of the monster.
-        gui.text = ("Anger level: " + angerLevel + "%");
+        //gui.text = ("Anger level: " + angerLevel + "%");
 	}
 
     // Used to choose a new destination for the monster based on its current destination (used for wandering).
