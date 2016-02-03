@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 896852e9979f0514bb7d0a3fd55a56d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  devtool_EventList:
+  devtool_PuzzleStates:
   - EventA
   - EventB
 --- !u!4 &728259852

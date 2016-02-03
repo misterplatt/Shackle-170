@@ -5,84 +5,63 @@ using System.Collections.Generic;
 using System;
 
 
-using LogicPair = System.Collections.Generic.KeyValuePair<string, bool>;
+//using LogicPair = System.Collections.Generic.KeyValuePair<string, bool>;
+
+
+public struct LogicPair
+{ 
+    public bool state;
+    public string name;
+
+    public LogicPair(string _name="", bool _state=false) { state = _state; name = _name; }
+
+    public override bool Equals(System.Object obj) {
+        if (obj == null) return false;
+
+        //attempt cast
+        LogicPair cValue = (LogicPair)obj;
+
+        //Struct is non-nullable value, so no null check required.
+        return this.name.Equals(cValue.name);
+    }
+}
+
+//required for network code generation
+public class SyncListLogicPair : SyncListStruct<LogicPair> { }
 
 public class spt_NetworkPuzzleLogic : NetworkBehaviour {
-
     [SerializeField]
-    public Dictionary<string, bool> PuzzleStates = new Dictionary<string, bool>();
-    public List<string> devtool_EventList = new List<string>();
-    
-    void Update()
-    {
-        if ( Input.GetKeyDown( KeyCode.L ) )
-        {
+    public SyncListLogicPair PuzzleStates = new SyncListLogicPair();
+    public List<string> devtool_PuzzleStates = new List<string>();
+
+    void Start() {
+        if (!isServer) return;
+        for (int index = 0; index < devtool_PuzzleStates.Count; ++index) {
+            PuzzleStates.Add( new LogicPair( devtool_PuzzleStates[index], false ));
+        }
+    }
+
+    void Update() {
+        //if (!isServer) return;
+
+        if (Input.GetKeyDown(KeyCode.L)) {
             dbg_logEvents();
         }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            transmitLogic();
-        }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            PuzzleStates["EventB"] = true;
+        
+        if (Input.GetKeyDown(KeyCode.J)) {
+            if (!isServer) return;
+            PuzzleStates[ PuzzleStates.IndexOf( new LogicPair("EventB", false) ) ] = new LogicPair("EventB", true);
         }
     }
 
-    //Debug Function to print LogicPairs
-    void Start()
-    {
-        for(int index = 0; index < devtool_EventList.Count; ++index)
-        {
-            PuzzleStates[devtool_EventList[index]] = false;
+    void dbg_logEvents() {
+        Debug.Log("SyncList Size : " + PuzzleStates.Count);
+        foreach (LogicPair lPair in PuzzleStates) {
+            Debug.Log("PuzzleEvent Name : " + lPair.name + " -> State : " + lPair.state);
         }
     }
-
-    void dbg_logEvents()
-    {
-       foreach (LogicPair lPair in PuzzleStates)
-        {
-            Debug.Log("Key : " + lPair.Key + " -> Value : " + lPair.Value );
-        }
-    }
-
-    [Client]
-    void transmitLogic()
-    {
-        if (isLocalPlayer)
-        {
-            Debug.Log("Test");
-            Cmd_SyncLogic(createLogicMsg());
-        }
-    }
-
-    [Command]
-    void Cmd_SyncLogic( string logMsg )
-    {
-        Debug.Log("Command Execution");
-        translateLogMsg(logMsg);
-    }
-
-    //Create a string representing the logic pair key and values as a comma seperated list
-    //each key and value is delimited by a colon.
-    string createLogicMsg() {
-        string logMsg = "";
-
-        foreach(LogicPair lPair in PuzzleStates)
-        {
-            logMsg += lPair.Key + ":" + lPair.Value + ",";
-        }
-        Debug.Log(logMsg);
-        return logMsg;
-    }
-
-    void translateLogMsg( string msg )
-    {
-        string[] logPairs = msg.Split(new string[] { ",", ":" }, StringSplitOptions.RemoveEmptyEntries);
-
-        for (int index = 0; index < logPairs.Length; index+=2)
-        {
-            PuzzleStates[logPairs[index]] = logPairs[index + 1] == "True" ? true : false;
-        }
+    
+    public void updatePuzzleState( string name, bool state) {
+        PuzzleStates[PuzzleStates.IndexOf(new LogicPair(name, false))] = new LogicPair(name, state);
     }
 }
