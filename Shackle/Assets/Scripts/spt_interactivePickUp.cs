@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using VRStandardAssets.Utils;
+using UnityEngine.UI;
 
 namespace VRStandardAssets.Examples
 {
@@ -14,6 +15,7 @@ namespace VRStandardAssets.Examples
         bool currentState = false;
 
         public spt_inventory inventory;
+        public spt_inventoryUI inventUI;
 
         private void OnEnable()
         {
@@ -31,6 +33,7 @@ namespace VRStandardAssets.Examples
         {
             Debug.Log("Show click state");
             inventory.pickUp(gameObject);
+            inventUI.inventorySpriteOn(gameObject.name);
             gameObject.SetActive(false);
         }
     }
