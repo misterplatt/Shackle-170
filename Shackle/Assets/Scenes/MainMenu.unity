@@ -142,7 +142,7 @@ MonoBehaviour:
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: MainMenu
-  m_OnlineScene: LevelTemplate
+  m_OnlineScene: SpookyGarage
   m_SpawnPrefabs: []
   m_CustomConfig: 0
   m_MaxConnections: 4
@@ -195,6 +195,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!1001 &959669523
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 403430, guid: a05707cc7223e744d8d9d0f87417e769, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.4978013
+      objectReference: {fileID: 0}
+    - target: {fileID: 403430, guid: a05707cc7223e744d8d9d0f87417e769, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.1026039
+      objectReference: {fileID: 0}
+    - target: {fileID: 403430, guid: a05707cc7223e744d8d9d0f87417e769, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 5.847953
+      objectReference: {fileID: 0}
+    - target: {fileID: 403430, guid: a05707cc7223e744d8d9d0f87417e769, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 403430, guid: a05707cc7223e744d8d9d0f87417e769, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 403430, guid: a05707cc7223e744d8d9d0f87417e769, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 403430, guid: a05707cc7223e744d8d9d0f87417e769, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 403430, guid: a05707cc7223e744d8d9d0f87417e769, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481442, guid: a05707cc7223e744d8d9d0f87417e769, type: 2}
+      propertyPath: FPSCharacterCam
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481442, guid: a05707cc7223e744d8d9d0f87417e769, type: 2}
+      propertyPath: audiolistener
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441254, guid: a05707cc7223e744d8d9d0f87417e769, type: 2}
+      propertyPath: camTransform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236592, guid: a05707cc7223e744d8d9d0f87417e769, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133454, guid: a05707cc7223e744d8d9d0f87417e769, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a05707cc7223e744d8d9d0f87417e769, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1333064385
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +342,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1898434342
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,4 +403,4 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3

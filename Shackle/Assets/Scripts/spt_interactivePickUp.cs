@@ -6,6 +6,7 @@ namespace VRStandardAssets.Examples
 {
     public class spt_interactivePickUp : MonoBehaviour
     {
+        public spt_player_NetworkPuzzleLogic spt;
 
         //Access to InteractiveItem script
         [SerializeField]
