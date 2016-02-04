@@ -52,13 +52,13 @@ public class spt_inventory : NetworkBehaviour {
            pickUp(GameObject.Find("Remote"));
            // pickUp(GameObject.Find("Black Tar Heroin"));
         }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            cycleRight();
-        }
-        if (Input.GetKeyDown(KeyCode.A))
+        if (spt_playerControls.triggers() == -1 || Input.GetKeyDown(KeyCode.A))
         {
             cycleLeft();
+        }
+        if (spt_playerControls.triggers() == 1 || Input.GetKeyDown(KeyCode.D))
+        {
+            cycleRight();
         }
         if (Input.GetKeyDown(KeyCode.Z))
         {

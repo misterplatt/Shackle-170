@@ -221,6 +221,26 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d63e0889898a3db459e8001e1587b188, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &372239517 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 115912, guid: 119233e7057651a4b91a253364a338a0, type: 2}
+  m_PrefabInternal: {fileID: 1456927349}
+--- !u!114 &372239519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 372239517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6613b91fe707742489527bd440ad2f65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableYaw: 1
+  autoRecenterPitch: 1
+  autoRecenterRoll: 1
+  HorizontalAndVerticalKey: 308
+  RollKey: 306
 --- !u!1 &572866665
 GameObject:
   m_ObjectHideFlags: 0

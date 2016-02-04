@@ -8,6 +8,7 @@ public class spt_playerControls : MonoBehaviour
     public float speed;
     static PlayerIndex playerIndex;
 
+    private bool axisInUse = false;
 
     void Start()
     {
@@ -24,6 +25,8 @@ public class spt_playerControls : MonoBehaviour
         leftThumbstickMoved();
         triggers();
         startButtonPressed();
+        rightBumperPressed();
+        leftBumperPressed();
     }
 
     // Checks if A button is pressed, which is used for general interaction in the world
@@ -68,7 +71,7 @@ public class spt_playerControls : MonoBehaviour
     // Checks if the right thumbstick is pressed, which is used for toggling the flashlight
     public static bool rightThumbstickButtonPressed()
     {
-        if (Input.GetButton("rightThumbstickButton"))
+        if (Input.GetButtonDown("rightThumbstickButton"))
         {
             Debug.Log("SUCCESS for RightThumbstick button");
             return true;
@@ -109,18 +112,43 @@ public class spt_playerControls : MonoBehaviour
     }
 
     // Checks if either of the triggers are pressed, which is used for cycling through the inventory
-    public static void triggers()
+    public static int triggers()
     {
         if (Input.GetAxis("triggers") < 0)
         {
-            Debug.Log("LEFT TRIGGER HIT");
+            //Debug.Log("LEFT TRIGGER HIT");
+            return -1;
             //code for cycling the inventory to the left
         }
         else if (Input.GetAxis("triggers") > 0)
         {
-            Debug.Log("RIGHT TRIGGER HIT");
+            //Debug.Log("RIGHT TRIGGER HIT");
+            return 1;
             //code for cycling the inventory to the right
         }
+        else return 0;
+    }
+
+    // Checks if rightBumper button is pressed, which is used as a return
+    public static bool rightBumperPressed()
+    {
+        if (Input.GetButton("rightBumper"))
+        {
+            Debug.Log("rightBumper");
+            return true;
+        }
+        else return false;
+    }
+
+    // Checks if leftBumper button is pressed, which is used as a return
+    public static bool leftBumperPressed()
+    {
+        if (Input.GetButton("leftBumper"))
+        {
+            Debug.Log("leftBumper");
+            return true;
+        }
+        else return false;
     }
 
     // Checks if the right thumbstick is moved , which is used for rotating and manipulating the field of view when interacting with an object
