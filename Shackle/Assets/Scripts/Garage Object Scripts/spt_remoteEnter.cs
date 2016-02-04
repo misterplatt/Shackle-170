@@ -37,8 +37,12 @@ namespace VRStandardAssets.Examples
         {
             //Debug.Log("Current Channel: " + spt_remoteManager.channelNumber[0] + " " + spt_remoteManager.channelNumber[1]);
             //If the player presses enter with the correct player number in remote manager, turn on the TV
-            if (spt_remoteManager.channelNumber[0] == "1" && spt_remoteManager.channelNumber[1] == "2") {
-                Debug.Log("TV IS ON!$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+            if (spt_remoteManager.channelNumber[0] == "4" && spt_remoteManager.channelNumber[1] == "9") {
+                //PLACEHOLDER UNTIL NETWORK LOGIC
+                if (GameObject.Find("Static").activeSelf == true) {
+                    Debug.Log("TV IS ON!$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+
+                }
             }
             //Highlight button briefly, deactivate all digits, and clear channel number
             m_Renderer.material = m_StateTwoMaterial;

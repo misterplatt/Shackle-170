@@ -4,15 +4,12 @@ using UnityEngine.UI;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_interactivePickUp : MonoBehaviour
+    public class spt_extensionCord : MonoBehaviour
     {
         //Access to InteractiveItem script
         [SerializeField]
         private VRInteractiveItem m_InteractiveItem;
-        bool currentState = false;
-
-        public spt_inventory inventory;
-        public spt_inventoryUI inventUI;
+        bool once = false;
 
         private void OnEnable()
         {
@@ -28,10 +25,11 @@ namespace VRStandardAssets.Examples
         //Handle the Click event
         private void HandleClick()
         {
-            Debug.Log("Show click state");
-            inventory.pickUp(gameObject);
-            //inventUI.inventorySpriteOn(gameObject.name);
-            gameObject.SetActive(false);
+            if (!once)
+            {
+                transform.eulerAngles = new Vector3(0, 90, -17); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
+                once = true;
+            }
         }
     }
 }

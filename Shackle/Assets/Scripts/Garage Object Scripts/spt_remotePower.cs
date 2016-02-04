@@ -3,11 +3,11 @@ using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_interactiveSwitch : MonoBehaviour
+    public class spt_remotePower : MonoBehaviour
     {
         [SerializeField]
         private Material m_StateOneMaterial;
-        [SerializeField ]
+        [SerializeField]
         private Material m_StateTwoMaterial;
 
 
@@ -16,7 +16,9 @@ namespace VRStandardAssets.Examples
         private VRInteractiveItem m_InteractiveItem;
         [SerializeField]
         private Renderer m_Renderer;
-        bool currentState = false;
+
+        private bool currentState = false;
+        public GameObject TV_static;
 
         private void OnEnable()
         {
@@ -32,16 +34,17 @@ namespace VRStandardAssets.Examples
         //Handle the Click event, alternates states on every press
         private void HandleClick()
         {
-            Debug.Log("Show click state");
             currentState = !currentState;
-            if ( currentState == true)
+            if (currentState == true)
             {
                 m_Renderer.material = m_StateOneMaterial;
+                TV_static.SetActive(true); //PLACEHOLDER UNTIL NETWORK LOGIC
             }
             else if (currentState == false)
             {
                 m_Renderer.material = m_StateTwoMaterial;
-            }   
+                TV_static.SetActive(false); //PLACEHOLDER UNTIL NETWORK LOGIC
+            }
         }
     }
 }
