@@ -34,16 +34,19 @@ namespace VRStandardAssets.Examples
         //Handle the Click event, alternates states on every press
         private void HandleClick()
         {
-            currentState = !currentState;
-            if (currentState == true)
-            {
-                m_Renderer.material = m_StateOneMaterial;
-                TV_static.SetActive(true); //PLACEHOLDER UNTIL NETWORK LOGIC
-            }
-            else if (currentState == false)
-            {
-                m_Renderer.material = m_StateTwoMaterial;
-                TV_static.SetActive(false); //PLACEHOLDER UNTIL NETWORK LOGIC
+            //PLACEHOLDER UNTIL NETWORK LOGIC*****************************************************************
+            if (GameObject.Find("Extension_Cord").transform.rotation.z < 0) {
+                currentState = !currentState;
+                if (currentState == true)
+                {
+                    m_Renderer.material = m_StateOneMaterial;
+                    TV_static.SetActive(true); //PLACEHOLDER UNTIL NETWORK LOGIC*******************************
+                }
+                else if (currentState == false)
+                {
+                    m_Renderer.material = m_StateTwoMaterial;
+                    TV_static.SetActive(false); //PLACEHOLDER UNTIL NETWORK LOGIC*******************************
+                }
             }
         }
     }
