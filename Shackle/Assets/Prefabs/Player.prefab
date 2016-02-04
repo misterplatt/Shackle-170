@@ -34,6 +34,7 @@ GameObject:
   - 114: {fileID: 11440114}
   - 114: {fileID: 11478400}
   - 114: {fileID: 11416486}
+  - 114: {fileID: 11427580}
   m_Layer: 0
   m_Name: Player
   m_TagString: pc
@@ -58,6 +59,7 @@ GameObject:
   - 114: {fileID: 11485400}
   - 114: {fileID: 11481586}
   - 114: {fileID: 11416764}
+  - 114: {fileID: 11448762}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -428,6 +430,18 @@ MonoBehaviour:
     i15: 105
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &11427580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b8d73c6c44d47c4e8147ec37f2ce2e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderScale: 1.4
 --- !u!114 &11427764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -528,6 +542,22 @@ MonoBehaviour:
   playerTransform: {fileID: 403430}
   camTransform: {fileID: 0}
   lerpRate: 15
+--- !u!114 &11448762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6613b91fe707742489527bd440ad2f65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableYaw: 1
+  autoRecenterPitch: 1
+  autoRecenterRoll: 1
+  HorizontalAndVerticalKey: 308
+  RollKey: 306
 --- !u!114 &11472426
 MonoBehaviour:
   m_ObjectHideFlags: 1
