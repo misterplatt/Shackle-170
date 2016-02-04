@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.Collections.Generic;
 using System;
+using VRStandardAssets.Utils;
 
 public class spt_inventory : NetworkBehaviour {
 
@@ -9,9 +11,19 @@ public class spt_inventory : NetworkBehaviour {
     public LinkedList<GameObject> inventory;
     [SerializeField]
     private bool invChanged;
-
+    [SerializeField]
+    public Texture itemText1;
+    public Texture itemText2;
+    public Texture itemText3;
 
     public LinkedListNode<GameObject> activeItem;
+    private GameObject itemSprite;
+    private GameObject itemSelected;
+    private GameObject selector;
+    
+    public float lerpSpeed = 5;
+    private Vector3 startPos;
+    private Vector3 endPos;
 
     // Use this for initialization
     void Start () {
@@ -76,11 +88,17 @@ public class spt_inventory : NetworkBehaviour {
         {
             activeItem = new LinkedListNode<GameObject>(item);
             inventory.AddLast(activeItem);
+            inventorySpriteOn(item.name);
+            inventorySelectionOn(item.name);
+            selector = GameObject.Find(item.name + "Sel");
+
+
             Debug.Log(item);
         }
         else
         {
             inventory.AddLast(item);
+            inventorySpriteOn(item.name);
             invChanged = true;
         }
         
@@ -101,6 +119,7 @@ public class spt_inventory : NetworkBehaviour {
         if (activeItem.Next != null) {
            Debug.Log("Moving right");
            activeItem = activeItem.Next;
+           inventorySelection(activeItem.Value.name);            
         } else {
             Debug.Log("Looping");
             activeItem = inventory.First;
@@ -211,7 +230,7 @@ public class spt_inventory : NetworkBehaviour {
         if (!isServer) return;
 
         foreach (KeyValuePair<NetworkInstanceId, NetworkIdentity> pair in NetworkServer.objects) {
-            Debug.Log( pair.Key.ToString() );
+            Debug.Log(pair.Key.ToString() );
             Debug.Log(pair.Value.ToString());
 
         }
@@ -229,6 +248,40 @@ public class spt_inventory : NetworkBehaviour {
         }
         */
     }
-	
+
+
+    //Takes in the gameObject's name and searches for the sprite that corresponds to it and enables the rawImage so the inventory sprite will show
+    public void inventorySpriteOn(string itemName)
+    {
+        itemSprite = GameObject.Find(itemName + "Spr");
+        itemSprite.GetComponent<RawImage>().enabled = true;
+    }
+
+    public void inventorySelectionOn(string itemName)
+    {
+        itemSelected = GameObject.Find(itemName);
+        selector = GameObject.Find("Selector");
+        selector.transform.position = Vector3.Lerp(selector.transform.position, itemSelected.transform.position, Time.deltaTime * lerpSpeed);
+        selector.GetComponent<RawImage>().enabled = true;
+    }
+
+    public void inventorySelection(string itemName)
+    {
+        selector = GameObject.Find("Selector");
+        startPos = selector.transform.position;
+        endPos = itemSelected.transform.position;
+        itemSelected = GameObject.Find(itemName + "Spr");
+        selector.transform.localPosition = Vector3.Lerp(startPos, endPos, Time.deltaTime * lerpSpeed);
+
+
+    }
+
+    //Takes in the gameObject's name and searches for the sprite that corresponds to it and disables the rawImage so the inventory sprite will dissappear
+    public void inventorySpriteOff(string itemName)
+    {
+        itemSprite = GameObject.Find(itemName + "Spr");
+        itemSprite.GetComponent<RawImage>().enabled = false;
+    }
+
 }
 
