@@ -50,6 +50,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 466336}
+  - 114: {fileID: 11440652}
   - 20: {fileID: 2027558}
   - 92: {fileID: 9244622}
   - 124: {fileID: 12492118}
@@ -61,8 +62,8 @@ GameObject:
   - 114: {fileID: 11416764}
   - 114: {fileID: 11448762}
   m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
+  m_Name: pCam
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -528,6 +529,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invChanged: 0
+  selectionBar: {fileID: 0}
+  handObj: {fileID: 0}
+  reticleTex: {fileID: 0}
+  handSprite: {fileID: 0}
+  lerpSpeed: 5
+--- !u!114 &11440652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 160
+    i1: 87
+    i2: 7
+    i3: 204
+    i4: 114
+    i5: 35
+    i6: 231
+    i7: 68
+    i8: 216
+    i9: 217
+    i10: 208
+    i11: 248
+    i12: 116
+    i13: 23
+    i14: 231
+    i15: 105
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &11441254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -540,7 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 403430}
-  camTransform: {fileID: 0}
+  camTransform: {fileID: 466336}
   lerpRate: 15
 --- !u!114 &11448762
 MonoBehaviour:
@@ -668,8 +706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52dc207173ad8144cba0c3b661bc7762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FPSCharacterCam: {fileID: 0}
-  audiolistener: {fileID: 0}
+  FPSCharacterCam: {fileID: 2027558}
+  audiolistener: {fileID: 8133454}
 --- !u!114 &11481586
 MonoBehaviour:
   m_ObjectHideFlags: 1
