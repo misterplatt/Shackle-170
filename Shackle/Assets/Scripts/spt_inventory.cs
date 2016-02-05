@@ -12,16 +12,14 @@ public class spt_inventory : NetworkBehaviour {
     [SerializeField]
     private bool invChanged;
 
+    public GameObject selectionBar;
     public GameObject handObj;
     public Texture handSprite;
 
     public LinkedListNode<GameObject> activeItem;
     
-    private GameObject itemSprite;
-    private GameObject itemSelected;
-    private GameObject selector;
-    
     public float lerpSpeed = 5;
+    private int activeSlotNumber = 1;
     private Vector3 startPos;
     private Vector3 endPos;
 
@@ -98,9 +96,6 @@ public class spt_inventory : NetworkBehaviour {
         {
             activeItem = new LinkedListNode<GameObject>(item);
             inventory.AddLast(activeItem);
-            inventorySpriteOn(item.name);
-            inventorySelectionOn(item.name);
-            selector = GameObject.Find(item.name + "Sel");
             Debug.Log(item);
         }
         else
@@ -118,12 +113,13 @@ public class spt_inventory : NetworkBehaviour {
         int slotNumber = 0; //Which slot to change
         //Run over the newly modified list, setting inventory Textures according to new list positions, remove any trailing textures
         for (LinkedListNode<GameObject> i = inventory.First; i != null; i = i.Next) {
-            Debug.Log("Visualizing...");
+            //Debug.Log("Visualizing...");
             slotNumber++; //Increment slot number
+
             if (slotNumber == 1) continue; //If it's the hand, skip it
-            if (i.Next == null) GameObject.Find("InventorySlot" + (slotNumber + 1)).GetComponent<RawImage>().texture = null;
-            //Otherwise, set the UI Slot's texture to i's Value's texture
-            Debug.Log("Changing slot " + slotNumber + " texture");
+            if (i.Next == null) GameObject.Find("InventorySlot" + (slotNumber + 1)).GetComponent<RawImage>().texture = null; //Removes trailing sprite if list is shortened
+
+            //Otherwise, set the UI Slot's texture to i's Value's texture (the Texture on the objects's GUI Texture opponent)
             GameObject.Find("InventorySlot" + slotNumber).GetComponent<RawImage>().texture = i.Value.GetComponent<GUITexture>().texture;
         }
     }
@@ -132,6 +128,7 @@ public class spt_inventory : NetworkBehaviour {
     //support function for sending items.
     public void removeItm(string item)
     {
+        if (item == "Hand") return; //Check to ensure you can't remove the hand
         for (LinkedListNode<GameObject> iter = inventory.First; iter != null; iter = iter.Next)
         {
             if (iter.Value.name == item) inventory.Remove(iter.Value);
@@ -142,12 +139,16 @@ public class spt_inventory : NetworkBehaviour {
     void cycleRight() {
         if (inventory.Count == 0) return;
         if (activeItem.Next != null) {
-           Debug.Log("Moving right");
-           activeItem = activeItem.Next;
+            Debug.Log("Moving right");
+            activeItem = activeItem.Next;
+            activeSlotNumber += 1;
         } else {
             Debug.Log("Looping");
             activeItem = inventory.First;
+            activeSlotNumber = 1;
         }
+        //Move selection bar below the new active item
+        selectionBar.transform.position = new Vector3(GameObject.Find("InventorySlot" + activeSlotNumber).transform.position.x, selectionBar.transform.position.y, selectionBar.transform.position.z);
     }
 
     void cycleLeft(){
@@ -155,10 +156,13 @@ public class spt_inventory : NetworkBehaviour {
         if (activeItem.Previous != null){
             Debug.Log("Moving left");
             activeItem = activeItem.Previous;
+            activeSlotNumber -= 1;
         } else {
             Debug.Log("Looping");
             activeItem = inventory.Last;
+            activeSlotNumber = inventory.Count;
         }
+        selectionBar.transform.position = new Vector3(GameObject.Find("InventorySlot" + activeSlotNumber).transform.position.x, selectionBar.transform.position.y, selectionBar.transform.position.z);
     }
 
     //in order to do this we need to differentiate between player instances
@@ -185,6 +189,7 @@ public class spt_inventory : NetworkBehaviour {
     [Command]
     void CmdSendItem( string pGiver, string itemName )
     {
+        if (itemName == "Hand") return; //Check to ensure you can't remove the hand
         GameObject[] players = GameObject.FindGameObjectsWithTag("pc");
         GameObject giver = null;
         GameObject reciever = null;
@@ -272,30 +277,5 @@ public class spt_inventory : NetworkBehaviour {
         }
         */
     }
-
-
-    //Takes in the gameObject's name and searches for the sprite that corresponds to it and enables the rawImage so the inventory sprite will show
-    public void inventorySpriteOn(string itemName)
-    {
-        itemSprite = GameObject.Find(itemName + "Spr");
-        itemSprite.GetComponent<RawImage>().enabled = true;
-    }
-
-    public void inventorySelectionOn(string itemName)
-    {
-        itemSelected = GameObject.Find(itemName);
-        selector = GameObject.Find("Selector");
-        selector.transform.position = Vector3.Lerp(selector.transform.position, itemSelected.transform.position, Time.deltaTime * lerpSpeed);
-        selector.GetComponent<RawImage>().enabled = true;
-    }
-
-
-    //Takes in the gameObject's name and searches for the sprite that corresponds to it and disables the rawImage so the inventory sprite will dissappear
-    public void inventorySpriteOff(string itemName)
-    {
-        itemSprite = GameObject.Find(itemName + "Spr");
-        itemSprite.GetComponent<RawImage>().enabled = false;
-    }
-
 }
 
