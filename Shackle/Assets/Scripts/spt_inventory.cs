@@ -14,6 +14,7 @@ public class spt_inventory : NetworkBehaviour {
 
     public GameObject selectionBar;
     public GameObject handObj;
+    public GameObject reticleTex;
     public Texture handSprite;
 
     public LinkedListNode<GameObject> activeItem;
@@ -108,8 +109,15 @@ public class spt_inventory : NetworkBehaviour {
         
     }
 
+    public void reticleUpdate()
+    {
+        reticleTex = GameObject.Find("GUIReticle");
+        reticleTex.GetComponent<RawImage>().texture = activeItem.Value.GetComponent<GUITexture>().texture;
+    }
+
     //Function to update the visual UI representation of the invetory list. Called on pickup and remove.
-    public void visualizeList() {
+    public void visualizeList()
+    {
         int slotNumber = 0; //Which slot to change
         //Run over the newly modified list, setting inventory Textures according to new list positions, remove any trailing textures
         for (LinkedListNode<GameObject> i = inventory.First; i != null; i = i.Next) {
@@ -142,10 +150,12 @@ public class spt_inventory : NetworkBehaviour {
             Debug.Log("Moving right");
             activeItem = activeItem.Next;
             activeSlotNumber += 1;
+            reticleUpdate();
         } else {
             Debug.Log("Looping");
             activeItem = inventory.First;
             activeSlotNumber = 1;
+            reticleUpdate();
         }
         //Move selection bar below the new active item
         selectionBar.transform.position = new Vector3(GameObject.Find("InventorySlot" + activeSlotNumber).transform.position.x, selectionBar.transform.position.y, selectionBar.transform.position.z);
@@ -157,10 +167,12 @@ public class spt_inventory : NetworkBehaviour {
             Debug.Log("Moving left");
             activeItem = activeItem.Previous;
             activeSlotNumber -= 1;
+            reticleUpdate();
         } else {
             Debug.Log("Looping");
             activeItem = inventory.Last;
             activeSlotNumber = inventory.Count;
+            reticleUpdate();
         }
         selectionBar.transform.position = new Vector3(GameObject.Find("InventorySlot" + activeSlotNumber).transform.position.x, selectionBar.transform.position.y, selectionBar.transform.position.z);
     }

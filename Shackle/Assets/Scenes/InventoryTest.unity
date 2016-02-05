@@ -93,6 +93,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 104168503}
+  - 131: {fileID: 104168504}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -112,6 +113,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1072210199}
   m_RootOrder: 0
+--- !u!131 &104168504
+GUITexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 104168502}
+  m_Enabled: 0
+  m_Texture: {fileID: 2800000, guid: 5c8f7a7dd34f79343be5e37d6bbbfab5, type: 3}
+  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+  m_PixelInset:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  m_LeftBorder: 0
+  m_RightBorder: 0
+  m_TopBorder: 0
+  m_BottomBorder: 0
 --- !u!1 &572866665
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,6 +514,36 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e274f601941d9364c8e4929cca40b071, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1000535091 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 159312, guid: d09bb22337125b14289fd373cfb9a2c4, type: 2}
+  m_PrefabInternal: {fileID: 1210338684}
+--- !u!114 &1000535093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1000535091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color: {r: 0.7019608, g: 0.41960785, b: 0.9529412, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Texture: {fileID: 2800000, guid: 5c8f7a7dd34f79343be5e37d6bbbfab5, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &1047431323
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,7 +870,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11466242, guid: d09bb22337125b14289fd373cfb9a2c4, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11466242, guid: d09bb22337125b14289fd373cfb9a2c4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d09bb22337125b14289fd373cfb9a2c4, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1352954721 stripped
@@ -947,6 +1002,7 @@ MonoBehaviour:
   invChanged: 0
   selectionBar: {fileID: 1517976283}
   handObj: {fileID: 104168502}
+  reticleTex: {fileID: 0}
   handSprite: {fileID: 2800000, guid: bf44ff9d393e79d4b8bf5284fae905b3, type: 3}
   lerpSpeed: 5
 --- !u!4 &1645025113
