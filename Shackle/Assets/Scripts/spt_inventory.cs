@@ -11,12 +11,12 @@ public class spt_inventory : NetworkBehaviour {
     public LinkedList<GameObject> inventory;
     [SerializeField]
     private bool invChanged;
-    [SerializeField]
-    public Texture itemText1;
-    public Texture itemText2;
-    public Texture itemText3;
+
+    public GameObject handObj;
+    public Texture handSprite;
 
     public LinkedListNode<GameObject> activeItem;
+    
     private GameObject itemSprite;
     private GameObject itemSelected;
     private GameObject selector;
@@ -27,9 +27,17 @@ public class spt_inventory : NetworkBehaviour {
 
     // Use this for initialization
     void Start () {
-        activeItem = null;//new LinkedListNode<GameObject>(object1);
+        //activeItem = null;//new LinkedListNode<GameObject>(object1);
+
+        //Initialize inventory with hand as active object, set slot 1 sprite as well
         inventory = new LinkedList<GameObject>();
-        
+        activeItem = new LinkedListNode<GameObject>(handObj);
+        inventory.AddLast(activeItem);
+        GameObject.Find("InventorySlot1").GetComponent<RawImage>().texture = handSprite;
+
+        //inventorySpriteOn(item.name);
+        //inventorySelectionOn(item.name);
+        //selector = GameObject.Find(item.name + "Sel");
     }
 	
 	// Update is called once per frame
@@ -50,7 +58,10 @@ public class spt_inventory : NetworkBehaviour {
         if (Input.GetKeyDown(KeyCode.R))
         {
            pickUp(GameObject.Find("Remote"));
-           // pickUp(GameObject.Find("Black Tar Heroin"));
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            removeItm("Remote");
         }
         if (spt_playerControls.triggers() == -1 || Input.GetKeyDown(KeyCode.A))
         {
@@ -74,7 +85,6 @@ public class spt_inventory : NetworkBehaviour {
         if (Input.GetKeyDown(KeyCode.N) )
         {
             //DebugServerPntPlayers();
-
             sendItem();
         }
         if (Input.GetKeyDown(KeyCode.B) )
@@ -91,17 +101,31 @@ public class spt_inventory : NetworkBehaviour {
             inventorySpriteOn(item.name);
             inventorySelectionOn(item.name);
             selector = GameObject.Find(item.name + "Sel");
-
-
             Debug.Log(item);
         }
         else
         {
             inventory.AddLast(item);
-            inventorySpriteOn(item.name);
+            //inventorySpriteOn(item.name);
             invChanged = true;
+            visualizeList();
         }
         
+    }
+
+    //Function to update the visual UI representation of the invetory list. Called on pickup and remove.
+    public void visualizeList() {
+        int slotNumber = 0; //Which slot to change
+        //Run over the newly modified list, setting inventory Textures according to new list positions, remove any trailing textures
+        for (LinkedListNode<GameObject> i = inventory.First; i != null; i = i.Next) {
+            Debug.Log("Visualizing...");
+            slotNumber++; //Increment slot number
+            if (slotNumber == 1) continue; //If it's the hand, skip it
+            if (i.Next == null) GameObject.Find("InventorySlot" + (slotNumber + 1)).GetComponent<RawImage>().texture = null;
+            //Otherwise, set the UI Slot's texture to i's Value's texture
+            Debug.Log("Changing slot " + slotNumber + " texture");
+            GameObject.Find("InventorySlot" + slotNumber).GetComponent<RawImage>().texture = i.Value.GetComponent<GUITexture>().texture;
+        }
     }
 
     //remove item from inv linked list. 
@@ -112,6 +136,7 @@ public class spt_inventory : NetworkBehaviour {
         {
             if (iter.Value.name == item) inventory.Remove(iter.Value);
         }
+        visualizeList();
     }
 
     void cycleRight() {
@@ -119,7 +144,6 @@ public class spt_inventory : NetworkBehaviour {
         if (activeItem.Next != null) {
            Debug.Log("Moving right");
            activeItem = activeItem.Next;
-           inventorySelection(activeItem.Value.name);            
         } else {
             Debug.Log("Looping");
             activeItem = inventory.First;
@@ -186,7 +210,7 @@ public class spt_inventory : NetworkBehaviour {
 
         for (int index = 0; index < itemsNames.Length; ++index )
         {
-            inventory.AddLast( GameObject.Find( itemsNames[index] ) );
+            inventory.AddLast(GameObject.Find( itemsNames[index]));
         }
     }
 
@@ -265,16 +289,6 @@ public class spt_inventory : NetworkBehaviour {
         selector.GetComponent<RawImage>().enabled = true;
     }
 
-    public void inventorySelection(string itemName)
-    {
-        selector = GameObject.Find("Selector");
-        startPos = selector.transform.position;
-        endPos = itemSelected.transform.position;
-        itemSelected = GameObject.Find(itemName + "Spr");
-        selector.transform.localPosition = Vector3.Lerp(startPos, endPos, Time.deltaTime * lerpSpeed);
-
-
-    }
 
     //Takes in the gameObject's name and searches for the sprite that corresponds to it and disables the rawImage so the inventory sprite will dissappear
     public void inventorySpriteOff(string itemName)

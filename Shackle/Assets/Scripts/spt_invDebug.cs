@@ -5,8 +5,8 @@ public class spt_invDebug : MonoBehaviour {
 
     public GameObject invObj;
 
-	// Update is called once per frame
-	void Update () {
+    // Script for offline inventory testing. Press I to activate.
+    void Update () {
         if (Input.GetKeyDown(KeyCode.I)) invObj.SetActive(true);
 	}
 }
