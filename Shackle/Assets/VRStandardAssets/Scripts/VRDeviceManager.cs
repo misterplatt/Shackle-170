@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.VR;
 
 namespace VRStandardAssets.Utils
 {
     // This class exists to setup the device on a per platform basis.
     // The class uses the singleton pattern so that only one object exists.
-    public class VRDeviceManager : MonoBehaviour
+    public class VRDeviceManager : NetworkBehaviour
     {
         [SerializeField] private float m_RenderScale = 1.4f;
 
@@ -30,6 +31,8 @@ namespace VRStandardAssets.Utils
 
         private void Awake ()
         {
+            if (!isLocalPlayer) return;
+            
             if (s_Instance == null)
             {
                 s_Instance = this;

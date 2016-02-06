@@ -29,8 +29,8 @@ public class spt_monster_interaction : MonoBehaviour {
         }
 	}
 
-    void interactWithObject(string item){
-        network.updatePuzzleState(item, false);
+    void interactWithObject(string evtName, string item){
+        network.updatePuzzleState(evtName, false, item);
     }
 
     void updateTime(){
