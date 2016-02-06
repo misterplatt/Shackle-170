@@ -8,7 +8,7 @@ using VRStandardAssets.Utils;
 public class spt_inventory : NetworkBehaviour {
 
     [SerializeField]
-    public LinkedList<GameObject> inventory;
+    public LinkedList<GameObject> inventory = new LinkedList<GameObject>();
     [SerializeField]
     private bool invChanged;
 
@@ -17,7 +17,7 @@ public class spt_inventory : NetworkBehaviour {
     public GameObject reticleTex;
     public Texture handSprite;
 
-    public LinkedListNode<GameObject> activeItem;
+    public LinkedListNode<GameObject> activeItem = null;
     
     public float lerpSpeed = 5;
     private int activeSlotNumber = 1;

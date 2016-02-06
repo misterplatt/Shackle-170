@@ -7,14 +7,14 @@ public class spt_player_NetworkPuzzleLogic : NetworkBehaviour {
 	void Update() {
         if (!isLocalPlayer) return;
         if (Input.GetKeyDown(KeyCode.K)) {
-            Cmd_UpdatePuzzleLogic("EventA", true);
+            Cmd_UpdatePuzzleLogic("EventA", true, "EventA_itm");
         }
     }
     
     [Command]
-    public void Cmd_UpdatePuzzleLogic(string name, bool state) {
+    public void Cmd_UpdatePuzzleLogic(string name, bool state, string itmName) {
         GameObject pLogic = NetworkServer.FindLocalObject( GameObject.Find("PuzzleLogic").GetComponent<NetworkIdentity>().netId );
         spt_NetworkPuzzleLogic logScript = pLogic.GetComponent<spt_NetworkPuzzleLogic>();
-        logScript.updatePuzzleState(name, state);
+        logScript.updatePuzzleState(name, state, itmName);
     }
 }

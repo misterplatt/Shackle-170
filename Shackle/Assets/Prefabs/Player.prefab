@@ -50,7 +50,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 466336}
-  - 114: {fileID: 11440652}
   - 20: {fileID: 2027558}
   - 92: {fileID: 9244622}
   - 124: {fileID: 12492118}
@@ -534,38 +533,6 @@ MonoBehaviour:
   reticleTex: {fileID: 0}
   handSprite: {fileID: 0}
   lerpSpeed: 5
---- !u!114 &11440652
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 141786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 160
-    i1: 87
-    i2: 7
-    i3: 204
-    i4: 114
-    i5: 35
-    i6: 231
-    i7: 68
-    i8: 216
-    i9: 217
-    i10: 208
-    i11: 248
-    i12: 116
-    i13: 23
-    i14: 231
-    i15: 105
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
 --- !u!114 &11441254
 MonoBehaviour:
   m_ObjectHideFlags: 1
