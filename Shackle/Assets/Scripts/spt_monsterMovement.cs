@@ -1,6 +1,6 @@
 ﻿//Created by: Lauren Cunningham
 
-/** This file is the one that ultimately governs the monster's behaviors. **/
+/** This file is the one that ultimately governs the monster's movements and motivation. **/
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,8 +30,6 @@ public class spt_monsterMovement : MonoBehaviour {
     private float fieldOfViewDegrees = 110f;
     private int visibilityDistance = 20;
 
-    private Text gui;
-
     // A boolean used to track if the monster has warned the players that it is unhappy
     private bool hasGivenWarning;
 
@@ -51,13 +49,10 @@ public class spt_monsterMovement : MonoBehaviour {
         print(waypointGraph);
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(waypoints[16].position);
-        currentWaypoint = 16;
+        currentWaypoint = 0;
         
         // Sets the initial anger level of the monster to zero.
         angerLevel = 0;
-        
-        // Handle on the gui (used for testing)
-        //gui = GameObject.FindWithTag("gui").GetComponent<Text>();
 
         //Begins the gradual anger depreciation over time.
         InvokeRepeating("angerDepreciation", 1, 1);
@@ -76,11 +71,9 @@ public class spt_monsterMovement : MonoBehaviour {
         }
 
         //If the monster is past a certain amount of anger, initiate an attack.
-        //if (angerLevel >= lowerThreshold)
-        //    attack();
+        if (angerLevel >= lowerThreshold)
+            attack();
 
-        // Update the GUI with the current anger level of the monster.
-        //gui.text = ("Anger level: " + angerLevel + "%");
 	}
 
     // Used to choose a new destination for the monster based on its current destination (used for wandering).
