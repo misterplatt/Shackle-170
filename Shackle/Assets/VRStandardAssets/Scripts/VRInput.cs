@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace VRStandardAssets.Utils
 {
@@ -7,7 +8,7 @@ namespace VRStandardAssets.Utils
     // It has events that can be subscribed to by classes that need specific input.
     // This class must exist in every scene and so can be attached to the main
     // camera for ease.
-    public class VRInput : MonoBehaviour
+    public class VRInput : NetworkBehaviour
     {
         //Swipe directions
         public enum SwipeDirection
@@ -18,7 +19,6 @@ namespace VRStandardAssets.Utils
             LEFT,
             RIGHT
         };
-
 
         public event Action<SwipeDirection> OnSwipe;                // Called every frame passing in the swipe, including if there is no swipe.
         public event Action OnClick;                                // Called when Fire1 is released and it's not a double click.
@@ -44,6 +44,7 @@ namespace VRStandardAssets.Utils
 
         private void Update()
         {
+            if (!isLocalPlayer) return;
             CheckInput();
         }
 

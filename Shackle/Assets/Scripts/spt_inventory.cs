@@ -41,7 +41,7 @@ public class spt_inventory : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        if (!isLocalPlayer) return;
         if(invChanged)
         {
             TransmitInventory();

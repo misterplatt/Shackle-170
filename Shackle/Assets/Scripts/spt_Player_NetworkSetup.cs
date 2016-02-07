@@ -13,13 +13,15 @@ public class spt_Player_NetworkSetup : NetworkBehaviour {
 	
         if(isLocalPlayer)
         {
-            GameObject.Find("Main Camera").SetActive(false);
+            Debug.Log("Test");
+            GameObject mCam = GameObject.Find("Main Camera");
+            if (mCam != null) { GameObject.Find("Main Camera").SetActive(false); Debug.Log("TEST"); }
             GetComponent<CharacterController>().enabled = true;
-            GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
+            //GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
             FPSCharacterCam.enabled = true;
             audiolistener.enabled = true;
         }
-
+        
 	}
-
+    
 }

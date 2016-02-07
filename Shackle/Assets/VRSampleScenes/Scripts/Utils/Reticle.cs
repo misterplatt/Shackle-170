@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 namespace VRStandardAssets.Utils
@@ -7,7 +8,7 @@ namespace VRStandardAssets.Utils
     // It is used as a visual aid for aiming. The position of the
     // reticle is either at a default position in space or on the
     // surface of a VRInteractiveItem as determined by the VREyeRaycaster.
-    public class Reticle : MonoBehaviour
+    public class Reticle : NetworkBehaviour
     {
         [SerializeField] private float m_DefaultDistance = 5f;      // The default distance away from the camera the reticle is placed.
         [SerializeField] private bool m_UseNormal;                  // Whether the reticle should be placed parallel to a surface.
@@ -30,8 +31,9 @@ namespace VRStandardAssets.Utils
         public Transform ReticleTransform { get { return m_ReticleTransform; } }
 
 
-        private void Awake()
-        {
+        private void Awake() {
+            if (!isLocalPlayer) return;
+           
             // Store the original scale and rotation.
             m_OriginalScale = m_ReticleTransform.localScale;
             m_OriginalRotation = m_ReticleTransform.localRotation;

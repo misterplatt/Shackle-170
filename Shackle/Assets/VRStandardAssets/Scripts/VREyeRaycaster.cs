@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace VRStandardAssets.Utils
 {
@@ -7,7 +8,7 @@ namespace VRStandardAssets.Utils
     // this class casts a ray into the scene and if it finds
     // a VRInteractiveItem it exposes it for other classes to use.
     // This script should be generally be placed on the camera.
-    public class VREyeRaycaster : MonoBehaviour
+    public class VREyeRaycaster : NetworkBehaviour
     {
         public event Action<RaycastHit> OnRaycasthit;                   // This event is called every frame that the user's gaze is over a collider.
 
@@ -53,6 +54,7 @@ namespace VRStandardAssets.Utils
 
         private void Update()
         {
+            if (!isLocalPlayer) return;
             EyeRaycast();
         }
 

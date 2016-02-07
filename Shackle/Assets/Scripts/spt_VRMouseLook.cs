@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.VR;
 
-public class spt_VRMouseLook : MonoBehaviour {
+public class spt_VRMouseLook : NetworkBehaviour {
 	
 #if UNITY_EDITOR
 
@@ -20,6 +21,7 @@ public class spt_VRMouseLook : MonoBehaviour {
 	private float mouseZ = 0;
 
 	void Awake() {
+        if (!isLocalPlayer) return;
 		// get the vr camera so we can align our forward with it
 		Camera vrCamera = gameObject.GetComponentInChildren<Camera>();
 		vrCameraTransform = vrCamera.transform;
@@ -33,7 +35,8 @@ public class spt_VRMouseLook : MonoBehaviour {
 	}
 
 	void Update () {
-		bool rolled = false;
+        if (!isLocalPlayer) return;
+        bool rolled = false;
 		bool pitched = false;
 		if (Input.GetKey(HorizontalAndVerticalKey)) {
 			pitched = true;
