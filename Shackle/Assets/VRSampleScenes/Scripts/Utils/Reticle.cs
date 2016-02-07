@@ -33,7 +33,7 @@ namespace VRStandardAssets.Utils
 
         private void Awake() {
             if (!isLocalPlayer) return;
-           
+
             // Store the original scale and rotation.
             m_OriginalScale = m_ReticleTransform.localScale;
             m_OriginalRotation = m_ReticleTransform.localRotation;

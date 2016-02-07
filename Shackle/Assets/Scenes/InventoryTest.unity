@@ -1002,7 +1002,7 @@ MonoBehaviour:
   invChanged: 0
   selectionBar: {fileID: 1517976283}
   handObj: {fileID: 104168502}
-  reticleTex: {fileID: 0}
+  reticleTex: {fileID: 1000535091}
   handSprite: {fileID: 2800000, guid: bf44ff9d393e79d4b8bf5284fae905b3, type: 3}
   lerpSpeed: 5
 --- !u!4 &1645025113

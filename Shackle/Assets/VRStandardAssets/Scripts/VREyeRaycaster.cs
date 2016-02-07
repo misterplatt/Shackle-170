@@ -54,13 +54,17 @@ namespace VRStandardAssets.Utils
 
         private void Update()
         {
-            if (!isLocalPlayer) return;
+            if (!isLocalPlayer) {
+                Debug.Log(isLocalPlayer);
+                return;
+            } 
             EyeRaycast();
         }
 
       
         private void EyeRaycast()
         {
+            Debug.Log("IMMA FIRING MY RAYCAST");
             // Show the debug ray if required
             if (m_ShowDebugRay)
             {
