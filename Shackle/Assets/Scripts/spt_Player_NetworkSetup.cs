@@ -20,7 +20,8 @@ public class spt_Player_NetworkSetup : NetworkBehaviour {
             //GetComponent<CharacterController>().enabled = true;
             //GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
             FPSCharacterCam.enabled = true;
-            audiolistener.enabled = true;
+            //Commented audiolistener out to get the basic background music to work
+            //audiolistener.enabled = true;
         }
         
 	}

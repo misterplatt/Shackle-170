@@ -528,7 +528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DefaultDistance: 200
   m_UseNormal: 0
-  m_Image: {fileID: 11480436}
+  m_Image: {fileID: 0}
   m_ReticleTransform: {fileID: 22469814}
   m_Camera: {fileID: 492582}
 --- !u!114 &11426626
@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FPSCharacterCam: {fileID: 2073800}
-  audiolistener: {fileID: 8127402}
+  audiolistener: {fileID: 0}
 --- !u!114 &11439608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -694,6 +694,7 @@ MonoBehaviour:
   handObj: {fileID: 133696}
   reticleTex: {fileID: 185876}
   handSprite: {fileID: 2800000, guid: bf44ff9d393e79d4b8bf5284fae905b3, type: 3}
+  none: {fileID: 0}
   lerpSpeed: 5
 --- !u!114 &11467964
 MonoBehaviour:
@@ -1142,7 +1143,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: audiolistener
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 166426}
