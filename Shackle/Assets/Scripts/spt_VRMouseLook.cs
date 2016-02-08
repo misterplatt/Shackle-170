@@ -20,10 +20,12 @@ public class spt_VRMouseLook : NetworkBehaviour {
 	private float mouseY = 0;
 	private float mouseZ = 0;
 
-	void Awake() {
+    public Camera vrCamera;
+
+	void Start() {
         if (!isLocalPlayer) return;
 		// get the vr camera so we can align our forward with it
-		Camera vrCamera = gameObject.GetComponent<Camera>();
+		vrCamera = gameObject.GetComponent<Camera>();
 		vrCameraTransform = vrCamera.transform;
 
 		// create a hierarchy to enable us to additionally rotate the vr camera

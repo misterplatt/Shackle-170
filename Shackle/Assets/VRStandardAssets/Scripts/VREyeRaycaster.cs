@@ -64,7 +64,6 @@ namespace VRStandardAssets.Utils
       
         private void EyeRaycast()
         {
-            Debug.Log("IMMA FIRING MY RAYCAST");
             // Show the debug ray if required
             if (m_ShowDebugRay)
             {

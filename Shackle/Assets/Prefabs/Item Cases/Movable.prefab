@@ -26,9 +26,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164110}
-  m_LocalRotation: {x: 0, y: 0.23234212, z: 0, w: 0.97263414}
-  m_LocalPosition: {x: 0.245, y: 2.462, z: 0.423}
-  m_LocalScale: {x: 0.20243603, y: 0.20243607, z: 0.20243607}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.395, y: -1.608, z: 4.328}
+  m_LocalScale: {x: 0.6785658, y: 0.39260578, z: 0.5936441}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -76,11 +76,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa1c05ec88452f459d92407ec51f33c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OverMaterial: {fileID: 0}
-  m_DownMaterial: {fileID: 0}
-  m_UpMaterial: {fileID: 0}
-  xAxis: 1
-  yAxis: 0
+  m_OverMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
+  m_DownMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
+  m_UpMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
+  xAxis: 0
+  zAxis: 1
   moveSpeed: 1
   minDistance: 0
   maxDistance: 5

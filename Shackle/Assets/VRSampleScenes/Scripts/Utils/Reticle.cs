@@ -20,7 +20,6 @@ namespace VRStandardAssets.Utils
         private Vector3 m_OriginalScale;                            // Since the scale of the reticle changes, the original scale needs to be stored.
         private Quaternion m_OriginalRotation;                      // Used to store the original rotation of the reticle.
 
-
         public bool UseNormal
         {
             get { return m_UseNormal; }

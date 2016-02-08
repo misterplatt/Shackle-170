@@ -16,6 +16,7 @@ public class spt_inventory : NetworkBehaviour {
     public GameObject handObj;
     public GameObject reticleTex;
     public Texture handSprite;
+    public Texture none;
 
     public LinkedListNode<GameObject> activeItem = null;
     
@@ -125,7 +126,7 @@ public class spt_inventory : NetworkBehaviour {
             slotNumber++; //Increment slot number
 
             if (slotNumber == 1) continue; //If it's the hand, skip it
-            if (i.Next == null) GameObject.Find("InventorySlot" + (slotNumber + 1)).GetComponent<RawImage>().texture = null; //Removes trailing sprite if list is shortened
+            if (i.Next == null) GameObject.Find("InventorySlot" + (slotNumber + 1)).GetComponent<RawImage>().texture = none; //Removes trailing sprite if list is shortened
 
             //Otherwise, set the UI Slot's texture to i's Value's texture (the Texture on the objects's GUI Texture opponent)
             GameObject.Find("InventorySlot" + slotNumber).GetComponent<RawImage>().texture = i.Value.GetComponent<GUITexture>().texture;
