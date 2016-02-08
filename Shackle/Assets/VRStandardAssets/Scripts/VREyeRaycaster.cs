@@ -80,6 +80,9 @@ namespace VRStandardAssets.Utils
                 VRInteractiveItem interactible = hit.collider.GetComponent<VRInteractiveItem>(); //attempt to get the VRInteractiveItem on the hit object
                 m_CurrentInteractible = interactible;
 
+                //If the object hit by the raycast has a VRInteractiveItem Script, tell that object to get the inventory script from the raycasting player
+                if (interactible != null) hit.transform.SendMessage("RetrieveInventoryScript", gameObject);
+                
                 // If we hit an interactive item and it's not the same as the last interactive item, then call Over
                 if (interactible && interactible != m_LastInteractible)
                     interactible.Over(); 

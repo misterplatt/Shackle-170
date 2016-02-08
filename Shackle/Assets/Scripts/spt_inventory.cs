@@ -32,6 +32,7 @@ public class spt_inventory : NetworkBehaviour {
         //Initialize inventory with hand as active object, set slot 1 sprite as well
         inventory = new LinkedList<GameObject>();
         activeItem = new LinkedListNode<GameObject>(handObj);
+        Debug.Log(activeItem.Value);
         inventory.AddLast(activeItem);
         transform.Find("VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
 
@@ -47,10 +48,16 @@ public class spt_inventory : NetworkBehaviour {
         {
             TransmitInventory();
         }
-        //Debug.Log(activeItem.Value);
+        if (spt_playerControls.triggers() == -1 || Input.GetKeyDown(KeyCode.A))
+        {
+            cycleLeft();
+        }
+        if (spt_playerControls.triggers() == 1 || Input.GetKeyDown(KeyCode.D))
+        {
+            cycleRight();
+        }
+        
         //control section
-        //if (!isLocalPlayer) return;
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log(activeItem.Value);
@@ -62,14 +69,6 @@ public class spt_inventory : NetworkBehaviour {
         if (Input.GetKeyDown(KeyCode.T))
         {
             removeItm("Remote");
-        }
-        if (spt_playerControls.triggers() == -1 || Input.GetKeyDown(KeyCode.A))
-        {
-            cycleLeft();
-        }
-        if (spt_playerControls.triggers() == 1 || Input.GetKeyDown(KeyCode.D))
-        {
-            cycleRight();
         }
         if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -94,16 +93,17 @@ public class spt_inventory : NetworkBehaviour {
     }
 
     public void pickUp(GameObject item) {
+        Debug.Log(activeItem);
         if (activeItem == null)
         {
             activeItem = new LinkedListNode<GameObject>(item);
             inventory.AddLast(activeItem);
             Debug.Log(item);
+            visualizeList();
         }
         else
         {
             inventory.AddLast(item);
-            //inventorySpriteOn(item.name);
             invChanged = true;
             visualizeList();
         }

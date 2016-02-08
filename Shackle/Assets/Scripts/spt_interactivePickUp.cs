@@ -13,6 +13,10 @@ namespace VRStandardAssets.Examples
 
         public spt_inventory inventory;
 
+        void Start() {
+            inventory = GameObject.Find("Camera Player").GetComponent<spt_inventory>();
+        }
+
         private void OnEnable()
         {
             m_InteractiveItem.OnClick += HandleClick;

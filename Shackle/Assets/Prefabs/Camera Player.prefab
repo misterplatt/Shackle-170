@@ -146,7 +146,6 @@ GameObject:
   - 20: {fileID: 2073800}
   - 92: {fileID: 9293622}
   - 124: {fileID: 12432630}
-  - 81: {fileID: 8127402}
   - 114: {fileID: 11428516}
   - 114: {fileID: 11400358}
   - 114: {fileID: 11484294}
@@ -335,13 +334,6 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
---- !u!81 &8127402
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166426}
-  m_Enabled: 0
 --- !u!92 &9293622
 Behaviour:
   m_ObjectHideFlags: 1
@@ -694,7 +686,7 @@ MonoBehaviour:
   handObj: {fileID: 133696}
   reticleTex: {fileID: 185876}
   handSprite: {fileID: 2800000, guid: bf44ff9d393e79d4b8bf5284fae905b3, type: 3}
-  none: {fileID: 0}
+  none: {fileID: 2800000, guid: 88c302bfc0cdab44bb3b036c0b598054, type: 3}
   lerpSpeed: 5
 --- !u!114 &11467964
 MonoBehaviour:
