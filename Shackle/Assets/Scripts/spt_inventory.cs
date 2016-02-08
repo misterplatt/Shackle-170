@@ -27,12 +27,12 @@ public class spt_inventory : NetworkBehaviour {
     // Use this for initialization
     void Start () {
         //activeItem = null;//new LinkedListNode<GameObject>(object1);
-
+        if (!isLocalPlayer) return;
         //Initialize inventory with hand as active object, set slot 1 sprite as well
         inventory = new LinkedList<GameObject>();
         activeItem = new LinkedListNode<GameObject>(handObj);
         inventory.AddLast(activeItem);
-        GameObject.Find("InventorySlot1").GetComponent<RawImage>().texture = handSprite;
+        transform.Find("VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
 
         //inventorySpriteOn(item.name);
         //inventorySelectionOn(item.name);
