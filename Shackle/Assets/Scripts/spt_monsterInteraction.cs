@@ -6,7 +6,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class spt_monster_interaction : MonoBehaviour {
+public class spt_monsterInteraction : MonoBehaviour {
 
     // Connection between the monster and the networked puzzle states
     private spt_NetworkPuzzleLogic network;

@@ -22,30 +22,21 @@ public class spt_angerObject : MonoBehaviour {
     // For setting the initial amount that the object angers the monster
     public int angerNum;
 
-    // Handle on the renderer, and visibility interval (for testing purposes).
-    private Renderer rend;
-    public int visibleToggleInterval;
-
     //Handle on the monster so its position can be tracked and anger can be updated.
-    private spt_monsterMovement monster;
+    private spt_monsterMotivation monster;
 
     // Is this action a flashlight-tracker?
     public bool isFlashlight;
     
     // Use this for initialization
 	void Start () {
-        rend = GetComponent<Renderer>();
-        rend.enabled = false;
-
-        monster = GameObject.FindObjectOfType<spt_monsterMovement>();
 
         if (isFlashlight)
-            data = new spt_flashlightClass(angerNum, rend);
+            data = new spt_flashlightClass(angerNum);
         else
-            data = new spt_baseAngerClass(angerNum, rend);
+            data = new spt_baseAngerClass(angerNum);
 
-        // toggles the visibility of objects on an interval (for testing purposes)
-        InvokeRepeating("toggleVisibility", visibleToggleInterval, visibleToggleInterval);
+        monster = GameObject.FindObjectOfType<spt_monsterMotivation>();
 
         // Performs the "per-tick" calculations needed on actions with a duration (like the flashlight).
         InvokeRepeating("incrementTimer", data.getDuration(), data.getDuration());

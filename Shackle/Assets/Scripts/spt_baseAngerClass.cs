@@ -23,16 +23,12 @@ public class spt_baseAngerClass{
     protected float duration = 0;
     protected int angerIncrease = 0;
 
-    // For toggling the visibility of standins (for testing purposes).
-    protected Renderer rend;
-
     // Default constructor for this class. Private so that it cannot be used (forces the use of the other constructor).
     private spt_baseAngerClass() { }
 
     // Other constructor. Requires the user to pass an integer, which will be used for the anger value.
-    public spt_baseAngerClass(int a, Renderer r){
+    public spt_baseAngerClass(int a){
         anger = a;
-        rend = r;
     }
 
     // Sets the visibility
@@ -55,11 +51,9 @@ public class spt_baseAngerClass{
     public void toggleVisibility(){
         if (isVisible){
             setVisible(false);
-            rend.enabled = false;
         }
         else{
             setVisible(true);
-            rend.enabled = true;
             hasBeenSeen = false;
         }
     }
