@@ -14,7 +14,7 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -66,7 +66,8 @@ LightmapSettings:
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000001, guid: e10302af5de16324fb8e25fcff1db955,
+    type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
 NavMeshSettings:
@@ -318,8 +319,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
   triggersEvent: 0
-  isTriggered: 0
   eventName: 
+  isTriggered: 0
+  hasBeenTouched: 0
 --- !u!1001 &97768106
 Prefab:
   m_ObjectHideFlags: 0
@@ -935,8 +937,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
   triggersEvent: 0
-  isTriggered: 0
   eventName: 
+  isTriggered: 0
+  hasBeenTouched: 0
 --- !u!65 &534444304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1144,8 +1147,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
   triggersEvent: 0
-  isTriggered: 0
   eventName: 
+  isTriggered: 0
+  hasBeenTouched: 0
 --- !u!65 &648225338
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1541,8 +1545,10 @@ GameObject:
   - 33: {fileID: 935497225}
   - 65: {fileID: 935497224}
   - 23: {fileID: 935497223}
+  - 114: {fileID: 935497228}
   - 114: {fileID: 935497226}
   - 114: {fileID: 935497227}
+  - 114: {fileID: 935497229}
   m_Layer: 0
   m_Name: Extension_Cord
   m_TagString: Untagged
@@ -1619,9 +1625,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
+  triggersEvent: 1
+  eventName: extCordPlugged
   isTriggered: 0
-  eventName: 
+  hasBeenTouched: 0
 --- !u!114 &935497227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1634,6 +1641,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractiveItem: {fileID: 935497226}
+--- !u!114 &935497228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 935497221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &935497229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 935497221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fc5e8fa246488a4f8c4da6502cec871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &962717679
 GameObject:
   m_ObjectHideFlags: 0
@@ -2069,8 +2119,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
   triggersEvent: 0
-  isTriggered: 0
   eventName: 
+  isTriggered: 0
+  hasBeenTouched: 0
 --- !u!1 &1220160093
 GameObject:
   m_ObjectHideFlags: 0
@@ -2623,6 +2674,7 @@ GameObject:
   - 33: {fileID: 1620778224}
   - 65: {fileID: 1620778223}
   - 23: {fileID: 1620778222}
+  - 114: {fileID: 1620778227}
   - 114: {fileID: 1620778226}
   - 114: {fileID: 1620778225}
   m_Layer: 0
@@ -2717,8 +2769,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
   triggersEvent: 0
-  isTriggered: 0
   eventName: 
+  isTriggered: 0
+  hasBeenTouched: 0
+--- !u!114 &1620778227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1620778220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!1 &1657905173
 GameObject:
   m_ObjectHideFlags: 0
@@ -3171,8 +3256,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
   triggersEvent: 0
-  isTriggered: 0
   eventName: 
+  isTriggered: 0
+  hasBeenTouched: 0
 --- !u!65 &1936999529
 BoxCollider:
   m_ObjectHideFlags: 0

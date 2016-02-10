@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace VRStandardAssets.Utils
 {
@@ -7,7 +8,7 @@ namespace VRStandardAssets.Utils
     // that should react to input based on the user's gaze.
     // It contains events that can be subscribed to by classes that
     // need to know about input specifics to this gameobject.
-    public class VRInteractiveItem : MonoBehaviour
+    public class VRInteractiveItem : NetworkBehaviour
     {
         public event Action OnOver;             // Called when the gaze moves over this object
         public event Action OnOut;              // Called when the gaze leaves this object
@@ -18,8 +19,12 @@ namespace VRStandardAssets.Utils
 
         public spt_inventory inventoryScript;
         public bool triggersEvent;
-        public bool isTriggered;
         public string eventName;
+
+        [SyncVar]
+        public bool isTriggered;
+        [SyncVar]
+        public bool hasBeenTouched;
 
         public void RetrieveInventoryScript(GameObject raycastingPlayer) {
             inventoryScript = raycastingPlayer.GetComponent<spt_inventory>();

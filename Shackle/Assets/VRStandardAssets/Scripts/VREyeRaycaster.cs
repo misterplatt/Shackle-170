@@ -18,7 +18,7 @@ namespace VRStandardAssets.Utils
         [SerializeField] private Reticle m_Reticle;                     // The reticle, if applicable.
         [SerializeField] private VRInput m_VrInput;                     // Used to call input based events on the current VRInteractiveItem.
         [SerializeField] private bool m_ShowDebugRay;                   // Optionally show the debug ray.
-        [SerializeField] private float m_DebugRayLength = 5f;           // Debug ray length.
+        [SerializeField] private float m_DebugRayLength = 7f;           // Debug ray length.
         [SerializeField] private float m_DebugRayDuration = 1f;         // How long the Debug ray will remain visible.
         [SerializeField] private float m_RayLength = 500f;              // How far into the scene the ray is cast.
 
@@ -55,7 +55,7 @@ namespace VRStandardAssets.Utils
         private void Update()
         {
             if (!isLocalPlayer) {
-                Debug.Log(isLocalPlayer);
+                //Debug.Log(isLocalPlayer);
                 return;
             }
 
@@ -64,6 +64,15 @@ namespace VRStandardAssets.Utils
                 GetComponent<spt_player_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("debug", true, "debug_item");
             }
             EyeRaycast();
+        }
+
+
+        [Command]
+        public void Cmd_touchObject(string itmName) {
+            //not that kind of touch, you pervs.
+            Debug.Log("Touched");
+            GameObject itemObj = NetworkServer.FindLocalObject(GameObject.Find(itmName).GetComponent<NetworkIdentity>().netId);
+            itemObj.GetComponent<VRInteractiveItem>().hasBeenTouched = true;
         }
 
       
@@ -82,17 +91,23 @@ namespace VRStandardAssets.Utils
             // Do the raycast forweards to see if we hit an interactive item
             if (Physics.Raycast(ray, out hit, m_RayLength, ~m_ExclusionLayers))
             {
+                Debug.Log("casting");
                 VRInteractiveItem interactible = hit.collider.GetComponent<VRInteractiveItem>(); //attempt to get the VRInteractiveItem on the hit object
+                Debug.Log(hit.collider.gameObject.name);
                 m_CurrentInteractible = interactible;
 
                 //If the object hit by the raycast has a VRInteractiveItem Script, tell that object to get the inventory script from the raycasting player
                 if (interactible != null) {
+                    Debug.Log(interactible.gameObject.name);
                     hit.transform.SendMessage("RetrieveInventoryScript", gameObject);
 
                     //furthermore check and see if any puzzle logic needs to be updated.
                     if ( interactible.isTriggered ) {
                         GetComponent<spt_player_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic(interactible.eventName, true, interactible.gameObject.name);
                     }
+                    Debug.Log("Interactable hit");
+                    //also ensure we flag that this has been interacted with.
+                    Cmd_touchObject(interactible.gameObject.name);
                 }
                 
 
