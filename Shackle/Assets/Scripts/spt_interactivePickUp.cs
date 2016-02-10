@@ -11,10 +11,10 @@ namespace VRStandardAssets.Examples
         private VRInteractiveItem m_InteractiveItem;
         bool currentState = false;
 
-        public spt_inventory inventory;
+        public spt_inventory inventoryScript;
 
         void Start() {
-            inventory = GameObject.Find("Camera Player").GetComponent<spt_inventory>();
+            //inventory = GameObject.Find("Camera Player").GetComponent<spt_inventory>();
         }
 
         private void OnEnable()
@@ -32,8 +32,9 @@ namespace VRStandardAssets.Examples
         private void HandleClick()
         {
             Debug.Log("Show click state");
-            inventory.pickUp(gameObject);
-            gameObject.SetActive(false);
+            inventoryScript = GetComponent<VRInteractiveItem>().inventoryScript;
+            inventoryScript.pickUp(gameObject);
+            //gameObject.SetActive(false); PLACEHOLDER: Can no longer deactivate without breaking inventory
         }
     }
 }

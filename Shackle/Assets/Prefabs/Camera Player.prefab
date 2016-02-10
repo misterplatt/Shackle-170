@@ -682,7 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invChanged: 0
-  selectionBar: {fileID: 103972, guid: 863a0315eb7aa5349ba3dd88bfdbc120, type: 2}
+  selectionBar: {fileID: 189422}
   handObj: {fileID: 133696}
   reticleTex: {fileID: 185876}
   handSprite: {fileID: 2800000, guid: bf44ff9d393e79d4b8bf5284fae905b3, type: 3}

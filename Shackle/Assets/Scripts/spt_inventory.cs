@@ -61,14 +61,15 @@ public class spt_inventory : NetworkBehaviour {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log(activeItem.Value);
+            //visualizeList();
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.K))
         {
-           pickUp(GameObject.Find("Remote"));
+           pickUp(GameObject.Find("mdl_key"));
         }
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.L))
         {
-            removeItm("Remote");
+            removeItm("mdl_key");
         }
         if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -93,7 +94,7 @@ public class spt_inventory : NetworkBehaviour {
     }
 
     public void pickUp(GameObject item) {
-        Debug.Log(activeItem);
+        //Debug.Log(activeItem);
         if (activeItem == null)
         {
             activeItem = new LinkedListNode<GameObject>(item);
@@ -105,6 +106,7 @@ public class spt_inventory : NetworkBehaviour {
         {
             inventory.AddLast(item);
             invChanged = true;
+            Debug.Log("invChanged");
             visualizeList();
         }
         
@@ -122,7 +124,7 @@ public class spt_inventory : NetworkBehaviour {
         int slotNumber = 0; //Which slot to change
         //Run over the newly modified list, setting inventory Textures according to new list positions, remove any trailing textures
         for (LinkedListNode<GameObject> i = inventory.First; i != null; i = i.Next) {
-            //Debug.Log("Visualizing...");
+            Debug.Log("Visualizing..." + i.Value);
             slotNumber++; //Increment slot number
 
             if (slotNumber == 1) continue; //If it's the hand, skip it
@@ -159,7 +161,7 @@ public class spt_inventory : NetworkBehaviour {
             reticleUpdate();
         }
         //Move selection bar below the new active item
-        selectionBar.transform.position = new Vector3(GameObject.Find("InventorySlot" + activeSlotNumber).transform.position.x, selectionBar.transform.position.y, selectionBar.transform.position.z);
+        selectionBar.transform.localPosition = new Vector3(GameObject.Find("InventorySlot" + activeSlotNumber).transform.localPosition.x, selectionBar.transform.localPosition.y, selectionBar.transform.localPosition.z);
     }
 
     void cycleLeft(){
@@ -172,10 +174,11 @@ public class spt_inventory : NetworkBehaviour {
         } else {
             Debug.Log("Looping");
             activeItem = inventory.Last;
+            Debug.Log(activeItem.Value);
             activeSlotNumber = inventory.Count;
             reticleUpdate();
         }
-        selectionBar.transform.position = new Vector3(GameObject.Find("InventorySlot" + activeSlotNumber).transform.position.x, selectionBar.transform.position.y, selectionBar.transform.position.z);
+        selectionBar.transform.localPosition = new Vector3(GameObject.Find("InventorySlot" + activeSlotNumber).transform.localPosition.x, selectionBar.transform.localPosition.y, selectionBar.transform.localPosition.z);
     }
 
     //in order to do this we need to differentiate between player instances
