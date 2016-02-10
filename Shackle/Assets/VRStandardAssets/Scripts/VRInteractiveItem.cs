@@ -17,6 +17,9 @@ namespace VRStandardAssets.Utils
         public event Action OnDown;             // Called when Fire1 is pressed whilst the gaze is over this object.
 
         public spt_inventory inventoryScript;
+        public bool triggersEvent;
+        public bool isTriggered;
+        public string eventName;
 
         public void RetrieveInventoryScript(GameObject raycastingPlayer) {
             inventoryScript = raycastingPlayer.GetComponent<spt_inventory>();

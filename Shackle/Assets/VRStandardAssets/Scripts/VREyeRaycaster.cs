@@ -57,7 +57,12 @@ namespace VRStandardAssets.Utils
             if (!isLocalPlayer) {
                 Debug.Log(isLocalPlayer);
                 return;
-            } 
+            }
+
+            //Debug for seeing if event change worked
+            if (Input.GetKeyDown(KeyCode.K)) {
+                GetComponent<spt_player_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("debug", true, "debug_item");
+            }
             EyeRaycast();
         }
 
@@ -81,8 +86,16 @@ namespace VRStandardAssets.Utils
                 m_CurrentInteractible = interactible;
 
                 //If the object hit by the raycast has a VRInteractiveItem Script, tell that object to get the inventory script from the raycasting player
-                if (interactible != null) hit.transform.SendMessage("RetrieveInventoryScript", gameObject);
+                if (interactible != null) {
+                    hit.transform.SendMessage("RetrieveInventoryScript", gameObject);
+
+                    //furthermore check and see if any puzzle logic needs to be updated.
+                    if ( interactible.isTriggered ) {
+                        GetComponent<spt_player_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic(interactible.eventName, true, interactible.gameObject.name);
+                    }
+                }
                 
+
                 // If we hit an interactive item and it's not the same as the last interactive item, then call Over
                 if (interactible && interactible != m_LastInteractible)
                     interactible.Over(); 
