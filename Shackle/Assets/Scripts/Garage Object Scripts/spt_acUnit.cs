@@ -49,7 +49,7 @@ namespace VRStandardAssets.Examples
                 timer += Time.deltaTime;
                 if (timer >= holdTime)
                 {
-                    transform.Translate(new Vector3(0, 0, -2)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
+                    GameObject.Find("screwDoor").transform.Translate(new Vector3(0, 0, -2)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
                 }
             }
         }
