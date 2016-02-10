@@ -20,7 +20,7 @@ public class spt_trigger_extCord : spt_BasicPuzzleTrigger
         if (!isServer) return;
 
         if (triggerCheck()) {
-            GameObject.Find("NetworkPuzzleLogic").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("extCordPlugged", true, this.gameObject.name);
+            GetComponent<VRStandardAssets.Utils.VRInteractiveItem>().isTriggered = true;
         }
     }
 

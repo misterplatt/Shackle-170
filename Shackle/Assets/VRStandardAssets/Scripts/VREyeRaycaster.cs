@@ -99,6 +99,8 @@ namespace VRStandardAssets.Utils
                 //If the object hit by the raycast has a VRInteractiveItem Script, tell that object to get the inventory script from the raycasting player
                 if (interactible != null) {
                     Debug.Log(interactible.gameObject.name);
+
+                    //This will most likely need a Cmd written for it. Let me test it first -R
                     hit.transform.SendMessage("RetrieveInventoryScript", gameObject);
 
                     //furthermore check and see if any puzzle logic needs to be updated.
@@ -107,7 +109,8 @@ namespace VRStandardAssets.Utils
                     }
                     Debug.Log("Interactable hit");
                     //also ensure we flag that this has been interacted with.
-                    Cmd_touchObject(interactible.gameObject.name);
+
+                    if( Input.GetButtonDown( "Fire1" ) ) Cmd_touchObject(interactible.gameObject.name);
                 }
                 
 
