@@ -44,10 +44,10 @@ namespace VRStandardAssets.Examples
                 Debug.Log("Show down state");
                 //m_Renderer.material = m_DownMaterial;
             }
-            if (holding)
+            if (holding || holdTime == 0)
             {
                 timer += Time.deltaTime;
-                if (timer >= holdTime)
+                if (timer >= holdTime || holdTime == 0)
                 {
                     GameObject.Find("screwDoor").transform.Translate(new Vector3(0, 0, -2)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
                 }

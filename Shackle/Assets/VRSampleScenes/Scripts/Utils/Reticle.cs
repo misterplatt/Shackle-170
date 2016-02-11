@@ -12,7 +12,7 @@ namespace VRStandardAssets.Utils
     {
         [SerializeField] private float m_DefaultDistance = 5f;      // The default distance away from the camera the reticle is placed.
         [SerializeField] private bool m_UseNormal;                  // Whether the reticle should be placed parallel to a surface.
-        [SerializeField] private Image m_Image;                     // Reference to the image component that represents the reticle.
+        [SerializeField] private RawImage m_Image;                  // Reference to the image component that represents the reticle.
         [SerializeField] private Transform m_ReticleTransform;      // We need to affect the reticle's transform.
         [SerializeField] private Transform m_Camera;                // The reticle is always placed relative to the camera.
 
@@ -30,11 +30,12 @@ namespace VRStandardAssets.Utils
         public Transform ReticleTransform { get { return m_ReticleTransform; } }
 
 
-        private void Awake() {
+        private void Start() {
             if (!isLocalPlayer) return;
 
             // Store the original scale and rotation.
             m_OriginalScale = m_ReticleTransform.localScale;
+            Debug.Log(m_ReticleTransform.localScale + " $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
             m_OriginalRotation = m_ReticleTransform.localRotation;
         }
 

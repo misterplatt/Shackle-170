@@ -91,14 +91,14 @@ namespace VRStandardAssets.Utils
             // Do the raycast forweards to see if we hit an interactive item
             if (Physics.Raycast(ray, out hit, m_RayLength, ~m_ExclusionLayers))
             {
-                Debug.Log("casting");
+                //Debug.Log("casting");
                 VRInteractiveItem interactible = hit.collider.GetComponent<VRInteractiveItem>(); //attempt to get the VRInteractiveItem on the hit object
                 Debug.Log(hit.collider.gameObject.name);
                 m_CurrentInteractible = interactible;
 
                 //If the object hit by the raycast has a VRInteractiveItem Script, tell that object to get the inventory script from the raycasting player
                 if (interactible != null) {
-                    Debug.Log(interactible.gameObject.name);
+                    //Debug.Log(interactible.gameObject.name);
 
                     //This will most likely need a Cmd written for it. Let me test it first -R
                     hit.transform.SendMessage("RetrieveInventoryScript", gameObject);
@@ -127,8 +127,7 @@ namespace VRStandardAssets.Utils
                 m_LastInteractible = interactible;
 
                 // Something was hit, set at the hit position.
-                if (m_Reticle)
-                    m_Reticle.SetPosition(hit);
+                if (m_Reticle) m_Reticle.SetPosition(hit);
 
                 if (OnRaycasthit != null)
                     OnRaycasthit(hit);
@@ -140,8 +139,7 @@ namespace VRStandardAssets.Utils
                 m_CurrentInteractible = null;
 
                 // Position the reticle at default distance.
-                if (m_Reticle)
-                    m_Reticle.SetPosition();
+                if (m_Reticle) m_Reticle.SetPosition();
             }
         }
 

@@ -47,7 +47,7 @@ namespace VRStandardAssets.Examples
             if (holding)
             {
                 timer += Time.deltaTime;
-                if (timer >= holdTime)
+                if (timer >= holdTime || holdTime == 0)
                 {
                     transform.Translate(new Vector3(0, 1, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
                 }
