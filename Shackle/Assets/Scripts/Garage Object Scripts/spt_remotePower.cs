@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_remotePower : MonoBehaviour
+    public class spt_remotePower : NetworkBehaviour
     {
+        public static bool TVPowered = false;
         [SerializeField]
         private Material m_StateOneMaterial;
         [SerializeField]
@@ -34,6 +36,8 @@ namespace VRStandardAssets.Examples
         //Handle the Click event, alternates states on every press
         private void HandleClick()
         {
+           
+
             //PLACEHOLDER UNTIL NETWORK LOGIC*****************************************************************
             if (GameObject.Find("Extension_Cord").transform.rotation.z < 0) {
                 currentState = !currentState;

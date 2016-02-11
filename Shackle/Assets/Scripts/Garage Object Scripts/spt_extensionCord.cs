@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using VRStandardAssets.Utils;
 using UnityEngine.UI;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_extensionCord : MonoBehaviour
+    public class spt_extensionCord : NetworkBehaviour
     {
+        public static bool extCodePlugged = false;
+
         //Access to InteractiveItem script
         [SerializeField]
         private VRInteractiveItem m_InteractiveItem;
@@ -16,6 +19,9 @@ namespace VRStandardAssets.Examples
             m_InteractiveItem.OnClick += HandleClick;
         }
 
+        void Update() {
+            if (extCodePlugged) Debug.Log("Triggered");
+        }
 
         private void OnDisable()
         {
@@ -27,6 +33,8 @@ namespace VRStandardAssets.Examples
         {
             if (!once)
             {
+                spt_WorldState.worldStateChanged = true;
+                extCodePlugged = true;
                 transform.eulerAngles = new Vector3(0, 90, -17); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
                 once = true;
             }

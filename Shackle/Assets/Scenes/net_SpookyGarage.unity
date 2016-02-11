@@ -538,7 +538,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &199363621
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +756,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!1 &230882344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,6 +1305,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbad6eb230778f342a3a73ccab8e7489, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &401988467 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: fbad6eb230778f342a3a73ccab8e7489, type: 3}
+  m_PrefabInternal: {fileID: 401988466}
 --- !u!1 &412353860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,7 +2861,6 @@ GameObject:
   - 114: {fileID: 935497228}
   - 114: {fileID: 935497226}
   - 114: {fileID: 935497227}
-  - 114: {fileID: 935497229}
   m_Layer: 0
   m_Name: Extension_Cord
   m_TagString: Untagged
@@ -2982,17 +2985,6 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
---- !u!114 &935497229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 935497221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fc5e8fa246488a4f8c4da6502cec871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &962717679
 GameObject:
   m_ObjectHideFlags: 0
@@ -3282,7 +3274,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!1 &1141348362
 GameObject:
   m_ObjectHideFlags: 0
@@ -3681,6 +3673,78 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: a69c27d10c54fa740b03dce0b045319c, type: 3}
   m_PrefabInternal: {fileID: 1181093238}
+--- !u!1 &1185700719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1185700722}
+  - 114: {fileID: 1185700721}
+  - 114: {fileID: 1185700720}
+  m_Layer: 0
+  m_Name: WorldState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1185700720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1185700719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cae5588277e0d6545bc0c85a6b79b11a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1185700721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1185700719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!4 &1185700722
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1185700719}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.6922402, y: -0.670461, z: 5.710784}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
 --- !u!1 &1198958051
 GameObject:
   m_ObjectHideFlags: 0
@@ -3853,97 +3917,6 @@ MonoBehaviour:
   eventName: 
   isTriggered: 0
   hasBeenTouched: 0
---- !u!1 &1220160093
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1220160094}
-  - 114: {fileID: 1220160096}
-  - 114: {fileID: 1220160095}
-  m_Layer: 0
-  m_Name: NetworkPuzzleLogic
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1220160094
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1220160093}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7775016, y: 1.9631312, z: 6.5243554}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
---- !u!114 &1220160095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1220160093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 896852e9979f0514bb7d0a3fd55a56d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  devtool_PuzzleStates:
-  - eventName: extCordPlugged
-    item: {fileID: 935497221}
-    isMonstInteractable: 1
-  - eventName: acUnitOpen
-    item: {fileID: 412353860}
-    isMonstInteractable: 0
-  - eventName: garageDoorUnlocked
-    item: {fileID: 37981104}
-    isMonstInteractable: 0
-  - eventName: tvPowerPressed
-    item: {fileID: 353954623}
-    isMonstInteractable: 1
-  - eventName: garageDoorOpen
-    item: {fileID: 37981104}
-    isMonstInteractable: 0
-  - eventName: debug
-    item: {fileID: 1125376779}
-    isMonstInteractable: 0
---- !u!114 &1220160096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1220160093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!1 &1234757802
 GameObject:
   m_ObjectHideFlags: 0
@@ -4993,6 +4966,58 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1485271238}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1515300597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1515300599}
+  - 114: {fileID: 1515300598}
+  m_Layer: 0
+  m_Name: PuzzleStates
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1515300598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1515300597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817a23f18eb8e1c4bbfe232fbe2d8fe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  devtool_PuzzleStates:
+  - eventName: extCordPlugged
+    item: {fileID: 935497221}
+    isMonstInteractable: 1
+  - eventName: acUnitOpen
+    item: {fileID: 412353860}
+    isMonstInteractable: 0
+  - eventName: tvOn
+    item: {fileID: 401988467}
+    isMonstInteractable: 1
+  - eventName: garageDoorOpen
+    item: {fileID: 37981104}
+    isMonstInteractable: 0
+--- !u!4 &1515300599
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1515300597}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.95651793, y: -0.12243223, z: 4.9916983}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
 --- !u!1 &1539401783
 GameObject:
   m_ObjectHideFlags: 0
@@ -6198,22 +6223,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
+    i0: 150
+    i1: 39
+    i2: 128
+    i3: 173
+    i4: 156
+    i5: 26
+    i6: 175
+    i7: 20
+    i8: 40
+    i9: 126
+    i10: 153
+    i11: 167
+    i12: 207
+    i13: 34
+    i14: 18
+    i15: 93
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!33 &1969924442
