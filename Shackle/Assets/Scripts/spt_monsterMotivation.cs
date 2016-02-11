@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿//Created by: Lauren Cunningham
+
+/** This file is the one that ultimately governs the monster's motivation. **/
+
+using UnityEngine;
 using System.Collections;
 
 public class spt_monsterMotivation : MonoBehaviour {
@@ -118,5 +122,17 @@ public class spt_monsterMotivation : MonoBehaviour {
 
     public int getAnger(){
         return angerLevel;
+    }
+
+    public void raiseTheThreshold()
+    {
+        lowerThreshold = lowerThreshold + 25;
+        upperThreshold = upperThreshold + 25;
+    }
+
+    public void lowerTheThreshold()
+    {
+        lowerThreshold = lowerThreshold - 25;
+        upperThreshold = upperThreshold - 25;
     }
 }

@@ -1,6 +1,6 @@
 ﻿//Created by: Lauren Cunningham
 
-/** This file is the one that ultimately governs the monster's movements and motivation. **/
+/** This file is the one that ultimately governs the monster's movements. **/
 
 using UnityEngine;
 using System.Collections;

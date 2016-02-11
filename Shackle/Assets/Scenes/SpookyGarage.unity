@@ -317,6 +317,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  triggersEvent: 0
+  eventName: 
+  isTriggered: 0
+  hasBeenTouched: 0
 --- !u!1 &198115428
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,6 +654,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angerNum: 0
   isFlashlight: 0
+--- !u!114 &450784609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 450784607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45be8f06f0896bf40b2d881c1aff5527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &488438308
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +907,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  triggersEvent: 0
+  eventName: 
+  isTriggered: 0
+  hasBeenTouched: 0
 --- !u!65 &534444304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1098,6 +1117,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  triggersEvent: 0
+  eventName: 
+  isTriggered: 0
+  hasBeenTouched: 0
 --- !u!65 &648225338
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1204,6 +1227,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1cc0e71d7150674db7070e90a707f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &809498911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 809498908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2218422c13e8b364394c0e2174dcf596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &809498912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 809498908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c372ea00d43d13747a8dcadac847d48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &809498913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 809498908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa383fd42cae3af44b27fd53cf6a2027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: {fileID: 0}
 --- !u!1 &819589590
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,6 +1439,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  triggersEvent: 0
+  eventName: 
+  isTriggered: 0
+  hasBeenTouched: 0
 --- !u!114 &935497227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1735,6 +1796,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  triggersEvent: 0
+  eventName: 
+  isTriggered: 0
+  hasBeenTouched: 0
 --- !u!1001 &1219715146
 Prefab:
   m_ObjectHideFlags: 0
@@ -1803,7 +1868,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &1234757802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,6 +2428,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  triggersEvent: 0
+  eventName: 
+  isTriggered: 0
+  hasBeenTouched: 0
 --- !u!114 &1620778227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2945,6 +3014,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  triggersEvent: 0
+  eventName: 
+  isTriggered: 0
+  hasBeenTouched: 0
 --- !u!65 &1936999529
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -32,10 +32,12 @@ public class spt_monsterInteraction : MonoBehaviour {
         List<dev_LogicPair>.Enumerator e = network.devtool_PuzzleStates.GetEnumerator();
         int index = 0;
         while (e.MoveNext()){
-            interactableObjects[index] = e.Current.item;
-            interactableObjectNames[index] = e.Current.eventName;
-            weights[index] = 0.5;
-            index++;
+            if (e.Current.isMonstInteractable){
+                interactableObjects[index] = e.Current.item;
+                interactableObjectNames[index] = e.Current.eventName;
+                weights[index] = 0.5;
+                index++;
+            }
         }
 
         InvokeRepeating("updateTime", 1, 1);
@@ -65,6 +67,7 @@ public class spt_monsterInteraction : MonoBehaviour {
 
     // Function used to make updates to the network puzzle state communicator.
     void interactWithObject(string item, string itemName){
+        print("interacting with: " + itemName);
         network.updatePuzzleState(item, false, itemName);
     }
 
