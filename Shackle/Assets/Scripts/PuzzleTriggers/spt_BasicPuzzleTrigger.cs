@@ -4,7 +4,6 @@ using System.Collections;
 
 public class spt_BasicPuzzleTrigger : NetworkBehaviour {
 
-
     //this should contain the code that evaluates if a trigger needs to take place.
     public virtual bool triggerCheck() { return false; }
 

@@ -36,7 +36,7 @@ namespace VRStandardAssets.Examples
         private void HandleDown()
         {
             //Debug.Log("Current Channel: " + spt_remoteManager.channelNumber[0] + " " + spt_remoteManager.channelNumber[1]);
-            //If the player presses enter with the correct player number in remote manager, turn on the TV
+            //If the player presses enter with the correct player number in remote manager, change TV to green channel
             if (spt_remoteManager.channelNumber[0] == "4" && spt_remoteManager.channelNumber[1] == "9") {
                 //PLACEHOLDER UNTIL NETWORK LOGIC*************************************************************************************************
                 if (GameObject.Find("Static").activeSelf == true) {

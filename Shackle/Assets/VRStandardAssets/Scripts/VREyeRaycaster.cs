@@ -107,9 +107,11 @@ namespace VRStandardAssets.Utils
                     if ( interactible.isTriggered ) {
                         GetComponent<spt_player_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic(interactible.eventName, true, interactible.gameObject.name);
                     }
+
                     Debug.Log("Interactable hit");
                     //also ensure we flag that this has been interacted with.
 
+                    //If the player presses A while looking at an interactible, set that interactible to touched
                     if( Input.GetButtonDown( "Fire1" ) ) Cmd_touchObject(interactible.gameObject.name);
                 }
                 
