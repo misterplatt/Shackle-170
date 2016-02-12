@@ -17,13 +17,14 @@ namespace VRStandardAssets.Examples
         public bool xAxis = true;
         public bool zAxis = false;
         public float moveSpeed = 1;
-        public float minDistance = 0;
-        public float maxDistance = 5;
+        public float maxNegativeDistance = 0;
+        public float maxPositiveDistance = 2;
 
-        //public Vector3 initialPosition; FOR LIMITER
+        public Vector3 initialPosition; //FOR LIMITER
 
         void Start() {
-            //initialPosition = transform.position; FOR LIMITER
+            initialPosition = transform.position; //FOR LIMITER
+            Debug.LogWarning("Initial: " + initialPosition + " From Transform: " + transform.position);
         }
 
         void Update()
@@ -34,11 +35,14 @@ namespace VRStandardAssets.Examples
                 if (xAxis == true)
                 {
                     transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime * moveSpeed);
-                    //transform.position = new Vector3(Mathf.Clamp(transform.position.z - initialPosition.z, 0F, 3.0F), transform.position.y, transform.position.z); LIMITER: NOT WORKING
+                    Debug.LogWarning("Position" + (transform.position.z - initialPosition.z));
+                    transform.position = new Vector3(Mathf.Clamp(transform.position.x, initialPosition.x - maxNegativeDistance, initialPosition.x + maxPositiveDistance), transform.position.y, transform.position.z); //LIMITER: NOT WORKING
                 }
                 else if (zAxis == true)
                 {
                     transform.Translate(new Vector3(0, 0, spt_playerControls.leftThumb("Vertical")) * Time.deltaTime * moveSpeed);
+                    Debug.LogWarning("Position difference " + (transform.position.z - initialPosition.z));
+                    transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, initialPosition.z - maxNegativeDistance, initialPosition.z + maxPositiveDistance)); //LIMITER: NOT WORKING
                 }
             }
             //stop moving when button is released
@@ -69,14 +73,14 @@ namespace VRStandardAssets.Examples
         private void HandleOver()
         {
             Debug.Log("Show over state");
-            m_Renderer.material = m_OverMaterial;
+            if(m_OverMaterial != null) m_Renderer.material = m_OverMaterial;
         }
 
         //Handle the Down event
         private void HandleDown()
         {
             Debug.Log("Show down state");
-            m_Renderer.material = m_DownMaterial;
+            if (m_DownMaterial != null) m_Renderer.material = m_DownMaterial;
             mouseHeld = true;
         }
 
@@ -84,7 +88,7 @@ namespace VRStandardAssets.Examples
         private void HandleUp()
         {
             Debug.Log("Show up state");
-            m_Renderer.material = m_UpMaterial;
+            if (m_UpMaterial != null) m_Renderer.material = m_UpMaterial;
         }
 
     }

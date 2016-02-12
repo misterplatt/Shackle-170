@@ -37,6 +37,7 @@ public class spt_inventory : NetworkBehaviour {
         Debug.Log(activeItem.Value);
         inventory.AddLast(activeItem);
         transform.Find("VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
+        reticleUpdate();
 
         //inventorySpriteOn(item.name);
         //inventorySelectionOn(item.name);
