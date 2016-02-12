@@ -34,6 +34,13 @@ namespace VRStandardAssets.Examples
             m_InteractiveItem.OnClick -= HandleClick;
         }
 
+        //Function that activates all manipulation object's children's colliders on pickup, and deactivates on put down
+        public void childActive(bool state)
+        {
+            Debug.Log("RISE CHILDREN");
+            GetComponent<CapsuleCollider>().enabled = state;
+        }
+
         //Handle the Click event, alternates states on every press
         private void HandleClick()
         {

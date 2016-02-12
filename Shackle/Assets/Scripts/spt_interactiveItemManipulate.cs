@@ -39,6 +39,13 @@ namespace VRStandardAssets.Examples
             //Store object's original position and rotation
             startPoint = transform.position;
             startRotation = transform.rotation;
+            BroadcastMessage("childActive", false); //Deactivate all child colliders
+        }
+
+        //Called when the player looks at the object so it knows where to lerp to
+        public void RetrieveLookPoint(GameObject raycastingPlayer)
+        {
+            endPoint = raycastingPlayer.transform.Find("VRCameraUI/InspectPoint");
         }
 
         void Update() {
@@ -47,7 +54,7 @@ namespace VRStandardAssets.Examples
             {
                 //panelObj.SetActive(true); //USE IF VIGNETTE IS WANTED
                 //Debug.Log("Distance: " + Vector3.Distance(transform.position, endPoint.position));
-
+                BroadcastMessage("childActive", true);
                 //Only Lerp while reticle position is more than distanceBeforeLerp units away. Then, stop once reticle pos is less than than distanceBeforeFreeze
                 if (Vector3.Distance(transform.position, endPoint.position) > distanceBeforeLerp) outOfView = true;
                 if(outOfView == true) transform.position = Vector3.Lerp(transform.position, endPoint.position, Time.deltaTime * lerpSpeed);
@@ -59,7 +66,7 @@ namespace VRStandardAssets.Examples
 
             //If B is pressed, return the object to it's default position and rotation
             else if (currentState == false && transform.position != startPoint) {
-                Debug.Log("SENDBACK");
+                BroadcastMessage("childActive", false);
                 //panelObj.SetActive(false); //USE IF VIGNETTE IS WANTED
                 transform.position = Vector3.Lerp(transform.position, startPoint, Time.deltaTime * lerpSpeed);
                 transform.rotation = startRotation;

@@ -103,11 +103,12 @@ namespace VRStandardAssets.Utils
 
                     //This will most likely need a Cmd written for it. Let me test it first -R
                     hit.transform.SendMessage("RetrieveInventoryScript", gameObject);
-                    
+                    if (hit.transform.gameObject.GetComponent<VRStandardAssets.Examples.spt_interactiveItemManipulate>() != null) hit.transform.SendMessage("RetrieveLookPoint", gameObject);
+
                     //also ensure we flag that this has been interacted with.
 
                     //If the player presses A while looking at an interactible, set that interactible to touched
-                    if( Input.GetButtonDown( "Fire1" ) ) Cmd_touchObject(interactible.gameObject.name);
+                    if ( Input.GetButtonDown( "Fire1" ) ) Cmd_touchObject(interactible.gameObject.name);
                 }
                 
 

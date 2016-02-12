@@ -35,13 +35,13 @@ namespace VRStandardAssets.Examples
                 if (xAxis == true)
                 {
                     transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime * moveSpeed);
-                    Debug.LogWarning("Position" + (transform.position.z - initialPosition.z));
+                    //Clamps the object's X position to stay between the starting value +maxPosDistance or -maxMinDistance
                     transform.position = new Vector3(Mathf.Clamp(transform.position.x, initialPosition.x - maxNegativeDistance, initialPosition.x + maxPositiveDistance), transform.position.y, transform.position.z); //LIMITER: NOT WORKING
                 }
                 else if (zAxis == true)
                 {
                     transform.Translate(new Vector3(0, 0, spt_playerControls.leftThumb("Vertical")) * Time.deltaTime * moveSpeed);
-                    Debug.LogWarning("Position difference " + (transform.position.z - initialPosition.z));
+                    //Clamps the object's z position to stay between the starting value +maxPosDistance or -maxMinDistance
                     transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, initialPosition.z - maxNegativeDistance, initialPosition.z + maxPositiveDistance)); //LIMITER: NOT WORKING
                 }
             }
