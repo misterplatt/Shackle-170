@@ -1,0 +1,42 @@
+# Blender MTL File: 'TV.blend'
+# Material Count: 4
+
+newmtl Screen
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.032364 0.032364 0.032364
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Users/silviaordonez/Desktop/Shackle Work/3D Models/Texture/gray-texture-wallpaper-grey1.jpg
+
+newmtl Screen_plain-blak-gray.jpg.002
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.032364 0.032364 0.032364
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Users/silviaordonez/Desktop/plain-blak-gray.jpg
+
+newmtl TV
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.483058 0.483058 0.483058
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Users/silviaordonez/Desktop/Shackle Work/3D Models/Texture/gray-texture-wallpaper-grey1.jpg
+
+newmtl TV_gray-texture-wallpaper-grey1.jpg.003
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.483058 0.483058 0.483058
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Users/silviaordonez/Desktop/Shackle Work/3D Models/Texture/gray-texture-wallpaper-grey1.jpg
