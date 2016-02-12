@@ -5,6 +5,8 @@ namespace VRStandardAssets.Examples
 {
     public class spt_remoteEnter : MonoBehaviour
     {
+        public static bool correctChannel = false;
+
         [SerializeField]
         private Material m_StateOneMaterial;
         [SerializeField]
@@ -40,15 +42,18 @@ namespace VRStandardAssets.Examples
         //Handle the Click event, alternates states on every press
         private void HandleDown()
         {
-            //Debug.Log("Current Channel: " + spt_remoteManager.channelNumber[0] + " " + spt_remoteManager.channelNumber[1]);
-            //If the player presses enter with the correct player number in remote manager, change TV to green channel
-            if (spt_remoteManager.channelNumber[0] == "4" && spt_remoteManager.channelNumber[1] == "9") {
-                //PLACEHOLDER UNTIL NETWORK LOGIC*************************************************************************************************
-                if (GameObject.Find("Static").activeSelf == true) {
+            //If the TV is powered on and the input channel number is 49, set correctChannel puzzle state to true
+            if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == true)
+            {
+                if (spt_remoteManager.channelNumber[0] == "4" && spt_remoteManager.channelNumber[1] == "9")
+                {
+                    spt_WorldState.worldStateChanged = true;
+                    correctChannel = true;
                     Debug.Log("TV IS ON!$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-                    GameObject.Find("mdl_garageOpener").GetComponent<Rigidbody>().useGravity = true;
+                    GameObject.Find("mdl_garageOpener").GetComponent<Rigidbody>().useGravity = true; //MOVE TO A SCRIPT ON GARAGE OPENER
                 }
             }
+            //If the player presses enter with the correct player number in remote manager, change TV to green channel
             //Highlight button briefly, deactivate all digits, and clear channel number
             m_Renderer.material = m_StateTwoMaterial;
             BroadcastMessage("deactivateDigit");

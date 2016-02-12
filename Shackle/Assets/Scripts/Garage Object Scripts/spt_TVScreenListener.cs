@@ -2,7 +2,7 @@
 using UnityEngine.Networking;
 using System.Collections;
 
-public class spt_TVScreen : NetworkBehaviour {
+public class spt_TVScreenListener : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {

@@ -74,6 +74,11 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
             if (VRStandardAssets.Examples.spt_remotePower.TVPowered != PuzzleStates[0].state) {
                 GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("tvOn", VRStandardAssets.Examples.spt_remotePower.TVPowered, "TV");
             }
+            //If a player has pressed [4],[9], enter on the remote while TV is on, update server state
+            if (VRStandardAssets.Examples.spt_remoteEnter.correctChannel)
+            {
+                GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("correctChannelEntered", true, "TV");
+            }
 
             spt_WorldState.worldStateChanged = false;
 
