@@ -192,7 +192,7 @@ public class spt_inventory : NetworkBehaviour {
     // perhaps if we post a tag on connection to note which is player and which is not.
     void sendItem() {
         CmdSendItem(transform.gameObject.name, activeItem.Value.name);
-        inventory.Remove(GameObject.Find(activeItem.Value.name));
+        TransmitInventory();
     }
 
     //Network Functions
@@ -217,6 +217,7 @@ public class spt_inventory : NetworkBehaviour {
         GameObject giver = null;
         GameObject reciever = null;
 
+        
 
 
         foreach (GameObject player in players) {
