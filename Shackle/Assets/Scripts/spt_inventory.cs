@@ -191,9 +191,8 @@ public class spt_inventory : NetworkBehaviour {
     //in order to do this we need to differentiate between player instances
     // perhaps if we post a tag on connection to note which is player and which is not.
     void sendItem() {
-        CmdSendItem(transform.gameObject.name, "Black Tar Heroin");
-        //inventory.Remove(activeItem.Value);
-        inventory.Remove(GameObject.Find("Black Tar Heroin"));
+        CmdSendItem(transform.gameObject.name, activeItem.Value.name);
+        inventory.Remove(GameObject.Find(activeItem.Value.name));
     }
 
     //Network Functions
