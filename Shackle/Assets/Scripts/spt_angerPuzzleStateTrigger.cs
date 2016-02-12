@@ -3,7 +3,7 @@ using System;
 
 public class spt_angerPuzzleStateTrigger : MonoBehaviour {
 
-    private spt_Events network;
+    private spt_NetworkPuzzleLogic network;
     private bool indexInitialized = false;
     private int i;
     private bool triggered = false;
@@ -12,7 +12,7 @@ public class spt_angerPuzzleStateTrigger : MonoBehaviour {
     
     // Use this for initialization
 	void Start () {
-        network = GameObject.FindObjectOfType(typeof(spt_Events)) as spt_Events;
+        network = GameObject.FindObjectOfType(typeof(spt_NetworkPuzzleLogic)) as spt_NetworkPuzzleLogic;
         angerObject = gameObject.GetComponent<spt_angerObject>();
 	}
 	
@@ -20,9 +20,9 @@ public class spt_angerPuzzleStateTrigger : MonoBehaviour {
 	void Update () {
         if (!indexInitialized)
         {
-            for (int index = 0; index < network.devtool_PuzzleStates.Count; ++index)
+            for (int index = 0; index < network.PuzzleStates.Count; ++index)
             {
-                if (network.devtool_PuzzleStates[index].item.name == gameObject.name)
+                if (network.PuzzleStates[index].itemName == gameObject.name)
                 {
                     i = index;
                     indexInitialized = true;
@@ -32,14 +32,11 @@ public class spt_angerPuzzleStateTrigger : MonoBehaviour {
         }
         else
         {
-            //MARKED FOR CHANGE
-            /*
             if (network.PuzzleStates[i].state == true)
             {
                 triggered = true;
                 angerObject.toggleVisibility();
             }
-            */
         }
 	}
 }
