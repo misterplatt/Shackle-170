@@ -5,11 +5,6 @@ namespace VRStandardAssets.Examples
 {
     public class spt_interactiveItemManipulate : MonoBehaviour
     {
-        [SerializeField]
-        private Material m_StateOneMaterial;
-        [SerializeField]
-        private Material m_StateTwoMaterial;
-
 
         //Access to InteractiveItem script
         [SerializeField]

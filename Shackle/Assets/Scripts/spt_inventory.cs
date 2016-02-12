@@ -25,6 +25,8 @@ public class spt_inventory : NetworkBehaviour {
     private Vector3 startPos;
     private Vector3 endPos;
 
+    [SerializeField]private bool once = false;
+
     // Use this for initialization
     void Start () {
         //activeItem = null;//new LinkedListNode<GameObject>(object1);
@@ -48,15 +50,19 @@ public class spt_inventory : NetworkBehaviour {
         {
             TransmitInventory();
         }
-        if (spt_playerControls.triggers() == -1 || Input.GetKeyDown(KeyCode.A))
+        //Cycling controls
+        if ((spt_playerControls.triggers() == -1 || Input.GetKeyDown(KeyCode.A)) && !once)
         {
             cycleLeft();
+            once = true;
         }
-        if (spt_playerControls.triggers() == 1 || Input.GetKeyDown(KeyCode.D))
+        if ((spt_playerControls.triggers() == 1 || Input.GetKeyDown(KeyCode.D)) && !once)
         {
             cycleRight();
+            once = true;
         }
-        
+        if (spt_playerControls.triggers() == 0) once = false; //Prevents multiple cycles in one trigger press
+
         //control section
         if (Input.GetKeyDown(KeyCode.Space))
         {

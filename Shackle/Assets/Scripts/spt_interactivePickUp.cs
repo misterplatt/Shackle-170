@@ -35,6 +35,7 @@ namespace VRStandardAssets.Examples
             inventoryScript = GetComponent<VRInteractiveItem>().inventoryScript;
             inventoryScript.pickUp(gameObject);
             //gameObject.SetActive(false); PLACEHOLDER: Can no longer deactivate without breaking inventory
+            transform.position = Vector3.down * 1000;
         }
     }
 }
