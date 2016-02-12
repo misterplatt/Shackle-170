@@ -61,7 +61,7 @@ namespace VRStandardAssets.Utils
 
             //Debug for seeing if event change worked
             if (Input.GetKeyDown(KeyCode.K)) {
-                //GetComponent<spt_player_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("debug", true, "debug_item");
+                GetComponent<spt_player_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("debug", true, "debug_item");
             }
             EyeRaycast();
         }
@@ -105,7 +105,7 @@ namespace VRStandardAssets.Utils
 
                     //furthermore check and see if any puzzle logic needs to be updated.
                     if ( interactible.isTriggered ) {
-                        //GetComponent<spt_player_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic(interactible.eventName, true, interactible.gameObject.name);
+                        GetComponent<spt_player_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic(interactible.eventName, true, interactible.gameObject.name);
                     }
 
                     Debug.Log("Interactable hit");

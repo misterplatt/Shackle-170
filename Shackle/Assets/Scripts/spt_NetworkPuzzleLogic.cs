@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
+
 public struct LogicTuple
 { 
     public bool state;
@@ -29,43 +30,58 @@ public struct LogicTuple
     }
 }
 
+[Serializable]
+public struct dev_LogicPair
+{
+    [SerializeField]
+    public string eventName;
+    [SerializeField]
+    public GameObject item;
+    [SerializeField]
+    public bool isMonstInteractable;
+    [SerializeField]
+
+
+    public dev_LogicPair( string _eventName) {
+        this.eventName = _eventName;
+        this.item = null;
+        this.isMonstInteractable = false;
+    }
+
+}
 //required for network code generation
 public class SyncListLogicPair : SyncListStruct<LogicTuple> { }
 
 public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     [SerializeField]
     public SyncListLogicPair PuzzleStates = new SyncListLogicPair();
-    public spt_player_NetworkPuzzleLogic player;
+    public List<dev_LogicPair> devtool_PuzzleStates = new List<dev_LogicPair>();
 
     void Start() {
-
-        List<dev_LogicPair> devtool_PuzzleStates = GameObject.Find("PuzzleStates").GetComponent<spt_Events>().devtool_PuzzleStates;
-        
-        
+        if (!isServer) return;
         for (int index = 0; index < devtool_PuzzleStates.Count; ++index) {
-            PuzzleStates.Add(new LogicTuple(devtool_PuzzleStates[index].eventName,
+            PuzzleStates.Add( new LogicTuple( devtool_PuzzleStates[index].eventName, 
                                                 false,
                                                 devtool_PuzzleStates[index].item.name,
-                                                devtool_PuzzleStates[index].isMonstInteractable
+                                                devtool_PuzzleStates[index].isMonstInteractable 
             ));
 
 
 
         }
-        
     }
 
     void Update() {
         //if (!isServer) return;
 
-        dbg_logEvents();
-        if (spt_WorldState.worldStateChanged) {
-            
-            if (VRStandardAssets.Examples.spt_extensionCord.extCodePlugged) {
-                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("extCordPlugged", true, "Extension_Cord");
-            }
+        if (Input.GetKeyDown(KeyCode.L)) {
+            Debug.Log("Test");
+            dbg_logEvents();
+        }
         
-
+        if (Input.GetKeyDown(KeyCode.J)) {
+            if (!isServer) return;
+            PuzzleStates[ PuzzleStates.IndexOf( new LogicTuple("EventB", false, "EventB_itm") ) ] = new LogicTuple("EventB", true, "EventB_itm");
         }
     }
 
@@ -86,11 +102,5 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
         LogicTuple original_Tuple = PuzzleStates[PuzzleStates.IndexOf(new LogicTuple(name, false, itemName))];
         LogicTuple newTuple = new LogicTuple(original_Tuple.name, true, original_Tuple.itemName, original_Tuple.isMonsterInteractable);
         PuzzleStates[PuzzleStates.IndexOf(new LogicTuple(name, false, itemName))] = newTuple;
-    }
-
-    [Command]
-    public void Cmd_UpdatePuzzleLogic(string name, bool state, string itmName) {
-        spt_NetworkPuzzleLogic logScript = GetComponent<spt_NetworkPuzzleLogic>();
-        logScript.updatePuzzleState(name, state, itmName);
     }
 }

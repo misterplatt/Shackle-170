@@ -9,7 +9,7 @@ using System.Collections.Generic;
 public class spt_monsterInteraction : MonoBehaviour {
 
     // Connection between the monster and the networked puzzle states
-    private spt_Events network;
+    private spt_NetworkPuzzleLogic network;
 
     // Arrays of the actual interactable objects, their names (in the network), and the weight of each of those
     //  objects (changes how likely the monster is to interact with an object).
@@ -26,7 +26,7 @@ public class spt_monsterInteraction : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        network = GameObject.FindObjectOfType(typeof(spt_Events)) as spt_Events;
+        network = GameObject.FindObjectOfType(typeof(spt_NetworkPuzzleLogic)) as spt_NetworkPuzzleLogic;
         
         // Iterates through the puzzle logic communicator, gets all necessary data for item interaction (populates the above arrays)
         List<dev_LogicPair>.Enumerator e = network.devtool_PuzzleStates.GetEnumerator();
@@ -68,8 +68,7 @@ public class spt_monsterInteraction : MonoBehaviour {
     // Function used to make updates to the network puzzle state communicator.
     void interactWithObject(string item, string itemName){
         print("interacting with: " + itemName);
-        //MARKED FOR CHANGE
-        //network.updatePuzzleState(item, false, itemName);
+        network.updatePuzzleState(item, false, itemName);
     }
 
     // Function used to update the elapsed playthrough time. Called every second.
