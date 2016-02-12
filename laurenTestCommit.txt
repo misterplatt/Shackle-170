@@ -1,2 +1,0 @@
-This document was created to make sure Lauren could commit to the main
-repository.

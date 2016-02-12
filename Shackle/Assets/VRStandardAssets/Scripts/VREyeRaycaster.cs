@@ -21,7 +21,7 @@ namespace VRStandardAssets.Utils
         [SerializeField] private float m_DebugRayLength = 7f;           // Debug ray length.
         [SerializeField] private float m_DebugRayDuration = 1f;         // How long the Debug ray will remain visible.
         [SerializeField] private float m_RayLength = 500f;              // How far into the scene the ray is cast.
-
+        [SerializeField] public Vector3 rhit = new Vector3();
         
         private VRInteractiveItem m_CurrentInteractible;                //The current interactive item
         private VRInteractiveItem m_LastInteractible;                   //The last interactive item
@@ -91,24 +91,19 @@ namespace VRStandardAssets.Utils
             // Do the raycast forweards to see if we hit an interactive item
             if (Physics.Raycast(ray, out hit, m_RayLength, ~m_ExclusionLayers))
             {
-                Debug.Log("casting");
+                //set flashlight reference object transform
+                GameObject flashlightObj = transform.Find("pFlashLight").gameObject;
+                flashlightObj.transform.position = hit.point;
+
                 VRInteractiveItem interactible = hit.collider.GetComponent<VRInteractiveItem>(); //attempt to get the VRInteractiveItem on the hit object
-                Debug.Log(hit.collider.gameObject.name);
                 m_CurrentInteractible = interactible;
 
                 //If the object hit by the raycast has a VRInteractiveItem Script, tell that object to get the inventory script from the raycasting player
                 if (interactible != null) {
-                    Debug.Log(interactible.gameObject.name);
 
                     //This will most likely need a Cmd written for it. Let me test it first -R
                     hit.transform.SendMessage("RetrieveInventoryScript", gameObject);
-
-                    //furthermore check and see if any puzzle logic needs to be updated.
-                    if ( interactible.isTriggered ) {
-                        //GetComponent<spt_player_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic(interactible.eventName, true, interactible.gameObject.name);
-                    }
-
-                    Debug.Log("Interactable hit");
+                    
                     //also ensure we flag that this has been interacted with.
 
                     //If the player presses A while looking at an interactible, set that interactible to touched

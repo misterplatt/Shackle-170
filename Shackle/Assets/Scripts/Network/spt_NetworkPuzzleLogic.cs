@@ -6,6 +6,10 @@ using System;
 
 public struct LogicTuple
 { 
+    //Stores state (event has occured or not)
+    // name of event
+    // name of item whose interaction controls the state
+    // isMonsterInteractable is monster can fux wit dat yo.
     public bool state;
     public string name;
     public string itemName;
@@ -59,7 +63,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     void Update() {
         //if (!isServer) return;
 
-        dbg_logEvents();
+        //dbg_logEvents();
         if (spt_WorldState.worldStateChanged) {
 
             //If a player has plugged in the extension cord, command the server to update the state for other player

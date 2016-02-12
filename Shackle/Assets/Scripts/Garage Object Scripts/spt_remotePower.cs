@@ -38,7 +38,7 @@ namespace VRStandardAssets.Examples
         private void HandleClick()
         {
             //If the puzzle state extCordPlugged is true, modify the TVPowered state
-            if (GameObject.Find("PuzzleStates").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[0].state == true) {
+            if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[0].state == true) {
                 currentState = !currentState;
                 spt_WorldState.worldStateChanged = true;
                 TVPowered = currentState;

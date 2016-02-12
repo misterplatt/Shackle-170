@@ -9,7 +9,7 @@ using System.Collections.Generic;
 public class spt_monsterInteraction : MonoBehaviour {
 
     // Connection between the monster and the networked puzzle states
-    private spt_Events network;
+    private spt_NetworkPuzzleLogic network;
 
     // Arrays of the actual interactable objects, their names (in the network), and the weight of each of those
     //  objects (changes how likely the monster is to interact with an object).
@@ -26,17 +26,14 @@ public class spt_monsterInteraction : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        network = GameObject.FindObjectOfType(typeof(spt_Events)) as spt_Events;
+        network = GameObject.FindObjectOfType(typeof(spt_NetworkPuzzleLogic)) as spt_NetworkPuzzleLogic;
         
         // Iterates through the puzzle logic communicator, gets all necessary data for item interaction (populates the above arrays)
-        List<dev_LogicPair>.Enumerator e = network.devtool_PuzzleStates.GetEnumerator();
-        int index = 0;
-        while (e.MoveNext()){
-            if (e.Current.isMonstInteractable){
-                interactableObjects[index] = e.Current.item;
-                interactableObjectNames[index] = e.Current.eventName;
-                weights[index] = 0.5;
-                index++;
+        for(int i = 0; i < network.PuzzleStates.Count; i++){
+            if (network.PuzzleStates[i].isMonsterInteractable){
+                interactableObjects[i] = GameObject.Find(network.PuzzleStates[i].itemName);
+                interactableObjectNames[i] = network.PuzzleStates[i].name;
+                weights[i] = 0.5;
             }
         }
 
