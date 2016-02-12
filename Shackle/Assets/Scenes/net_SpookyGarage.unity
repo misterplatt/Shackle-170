@@ -14,7 +14,7 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -6394,8 +6394,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.046326596, y: 0.40298432, z: 0.33041176}
-  m_Center: {x: 0.0041243886, y: 0.18779166, z: -0.00442285}
+  m_Size: {x: 0.046326596, y: 0.04472585, z: 0.33041176}
+  m_Center: {x: 0.0041243886, y: 0.008662392, z: -0.00442285}
 --- !u!131 &1936999530
 GUITexture:
   m_ObjectHideFlags: 0
@@ -7194,6 +7194,8 @@ GameObject:
   - 4: {fileID: 2125305266}
   - 212: {fileID: 2125305268}
   - 95: {fileID: 2125305267}
+  - 114: {fileID: 2125305270}
+  - 114: {fileID: 2125305269}
   m_Layer: 0
   m_Name: Static
   m_TagString: Untagged
@@ -7260,6 +7262,49 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &2125305269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2125305265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf4c104168bf5b4c9ce4397bdbcc107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2125305270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2125305265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!1 &2130509051
 GameObject:
   m_ObjectHideFlags: 0

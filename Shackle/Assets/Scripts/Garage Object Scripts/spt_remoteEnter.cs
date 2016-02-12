@@ -32,6 +32,11 @@ namespace VRStandardAssets.Examples
             m_InteractiveItem.OnUp -= HandleUp;
         }
 
+        //Function that activates all manipulation object's children's colliders on pickup, and deactivates on put down
+        public void childActive(bool state) {
+            GetComponent<CapsuleCollider>().enabled = state;
+        }
+
         //Handle the Click event, alternates states on every press
         private void HandleDown()
         {
