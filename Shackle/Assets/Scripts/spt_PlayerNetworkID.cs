@@ -40,7 +40,7 @@ public class spt_PlayerNetworkID : NetworkBehaviour {
     }
 
     void Update() {
-        if (myTransform.name == "" || myTransform.name == "Player(Clone)") {
+        if (myTransform.name == "" || myTransform.name == "Camera Player(Clone)") {
             setIdentity();
         }
     }

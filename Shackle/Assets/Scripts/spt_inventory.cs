@@ -211,10 +211,13 @@ public class spt_inventory : NetworkBehaviour {
     [Command]
     void CmdSendItem( string pGiver, string itemName )
     {
+        
         if (itemName == "Hand") return; //Check to ensure you can't remove the hand
-        GameObject[] players = GameObject.FindGameObjectsWithTag("pc");
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         GameObject giver = null;
         GameObject reciever = null;
+
+
 
         foreach (GameObject player in players) {
             if (player.name == pGiver) giver = player;
@@ -266,7 +269,7 @@ public class spt_inventory : NetworkBehaviour {
     void DebugServerPntInv() {
         if (!isServer) return;
 
-        GameObject[] players = GameObject.FindGameObjectsWithTag("pc");
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
         for ( int index = 0; index < players.Length; ++index )
         {
