@@ -17,6 +17,7 @@ public class spt_flashlight : MonoBehaviour {
         if (spt_playerControls.rightThumbstickButtonPressed() || Input.GetKeyDown(KeyCode.F))
         {
             flashlight.enabled = !flashlight.enabled;
+            GameObject.Find("pFlashLight").GetComponent<spt_angerObject>().toggleVisibility();
         }
     }
 }

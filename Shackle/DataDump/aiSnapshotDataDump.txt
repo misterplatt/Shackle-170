@@ -1,0 +1,1 @@
+Datetime,Elapsed Time (in Seconds),Current Waypoint,Anger Level
