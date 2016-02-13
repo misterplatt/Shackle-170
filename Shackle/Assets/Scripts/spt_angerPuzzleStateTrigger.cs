@@ -12,30 +12,39 @@ public class spt_angerPuzzleStateTrigger : MonoBehaviour {
     
     // Use this for initialization
 	void Start () {
-        network = GameObject.FindObjectOfType(typeof(spt_NetworkPuzzleLogic)) as spt_NetworkPuzzleLogic;
         angerObject = gameObject.GetComponent<spt_angerObject>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (!indexInitialized)
+        if (network == null)
         {
-            for (int index = 0; index < network.PuzzleStates.Count; ++index)
-            {
-                if (network.PuzzleStates[index].itemName == gameObject.name)
-                {
-                    i = index;
-                    indexInitialized = true;
-                    break;
-                }
-            }
+            network = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
         }
         else
         {
-            if (network.PuzzleStates[i].state == true)
+            if (network.loaded && network.loaded == true)
             {
-                triggered = true;
-                angerObject.toggleVisibility();
+                if (!indexInitialized)
+                {
+                    for (int index = 0; index < network.PuzzleStates.Count; ++index)
+                    {
+                        if (network.PuzzleStates[index].itemName == gameObject.name)
+                        {
+                            i = index;
+                            indexInitialized = true;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    if (network.PuzzleStates[i].state == true)
+                    {
+                        triggered = true;
+                        angerObject.toggleVisibility();
+                    }
+                }
             }
         }
 	}

@@ -20,24 +20,37 @@ public class spt_DDA : MonoBehaviour {
     // Index in the checkpoint/puzzle state lists of the current task to be completed
     private int currentPuzzleStateIndex = 0;
 
+    private bool loadedTheNetwork = false;
+
 	// Use this for initialization
 	void Start () {
         
         // Gets the motivation script (for altering the threshold) and the network script (for getting puzzle states)
         motivationScript = GameObject.FindObjectOfType(typeof(spt_monsterMotivation)) as spt_monsterMotivation;
-        networkScript = GameObject.FindObjectOfType(typeof(spt_NetworkPuzzleLogic)) as spt_NetworkPuzzleLogic;
-        
-        //Populates the checkpoint list with puzzle states and their times.
-        //  Currently, the players have 30 seconds to complete each task.
-        for (int i = 0; i < networkScript.PuzzleStates.Count; i++){
-            checkpoints.Add(new puzzleStateWithCheckpointTime(networkScript.PuzzleStates[i].name, ((i + 1) * 30)));
-        }
-
-        InvokeRepeating("checkForDifficultyChange", 1, 1);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (networkScript == null)
+        {
+            networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
+        }
+        else
+        {
+            if (networkScript.loaded && networkScript.loaded == true && loadedTheNetwork == false)
+            {
+                //Populates the checkpoint list with puzzle states and their times.
+                //  Currently, the players have 30 seconds to complete each task.
+                for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
+                {
+                    checkpoints.Add(new puzzleStateWithCheckpointTime(networkScript.PuzzleStates[i].name, ((i + 1) * 30)));
+                }
+
+                InvokeRepeating("checkForDifficultyChange", 1, 1);
+                loadedTheNetwork = true;
+            }
+        }
 	}
 
     void raiseTheDifficulty(){

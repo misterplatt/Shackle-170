@@ -24,7 +24,6 @@ public class spt_monsterMovement : MonoBehaviour {
         //Gets the waypoint graph from another script, then sets the first waypoint to the center of the room.
         graphScript = GameObject.FindObjectOfType(typeof(spt_createGraphForGarage)) as spt_createGraphForGarage;
         waypointGraph = graphScript.getWaypointGraph();       
-        print(waypointGraph);
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(waypoints[16].position);
         currentWaypoint = 0;

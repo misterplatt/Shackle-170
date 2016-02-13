@@ -41,7 +41,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     public SyncListLogicPair PuzzleStates = new SyncListLogicPair();
     public spt_player_NetworkPuzzleLogic player;
     private spt_NetworkPuzzleLogic NPL;
-    bool loaded = false;
+    public bool loaded = false;
     void Start() {
 
         List<dev_LogicPair> devtool_PuzzleStates = GameObject.Find("PuzzleStates").GetComponent<spt_Events>().devtool_PuzzleStates;
@@ -57,7 +57,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
             
 
         }
-        loaded = true;
+        this.loaded = true;
     }
 
     void Update() {
