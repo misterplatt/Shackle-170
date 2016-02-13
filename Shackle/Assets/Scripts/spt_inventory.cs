@@ -6,302 +6,178 @@ using System;
 using VRStandardAssets.Utils;
 
 public class spt_inventory : NetworkBehaviour {
+    [SerializeField] SyncListString inventory = new SyncListString();
 
-    [SerializeField]
-    public LinkedList<GameObject> inventory = new LinkedList<GameObject>();
-    [SerializeField]
-    private bool invChanged;
-
+    //inventory stuff
     public GameObject selectionBar;
     public GameObject handObj;
     public GameObject reticleTex;
     public Texture handSprite;
     public Texture none;
 
-    public LinkedListNode<GameObject> activeItem = null;
-    
+    [SyncVar]
+    public bool invChanged = true;
+
+    public int activeItem = -1;
     public float lerpSpeed = 5;
     private int activeSlotNumber = 1;
     private Vector3 startPos;
     private Vector3 endPos;
 
-    [SerializeField]private bool once = false;
+    [SerializeField] private bool once = false;
 
-    // Use this for initialization
-    void Start () {
-        //activeItem = null;//new LinkedListNode<GameObject>(object1);
+    void Start() {
         if (!isLocalPlayer) return;
-        //Initialize inventory with hand as active object, set slot 1 sprite as well
-        inventory = new LinkedList<GameObject>();
-        activeItem = new LinkedListNode<GameObject>(handObj);
-        Debug.Log(activeItem.Value);
-        inventory.AddLast(activeItem);
+
+        //initialize Inventory with hand as active object, set slot 1 sprite
+
+        activeItem = 0;
+        inventory.Add("Hand");
         transform.Find("VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
         reticleUpdate();
-
-        //inventorySpriteOn(item.name);
-        //inventorySelectionOn(item.name);
-        //selector = GameObject.Find(item.name + "Sel");
     }
-	
-	// Update is called once per frame
-	void Update () {
+    
+    void Update() {
         if (!isLocalPlayer) return;
-        if(invChanged)
-        {
-            TransmitInventory();
-        }
-        //Cycling controls
-        if ((spt_playerControls.triggers() == -1 || Input.GetKeyDown(KeyCode.A)) && !once)
-        {
+
+        Debug.Log(spt_playerControls.triggers());
+        if (invChanged) visualList();
+        //cycling controls
+        /*
+        if ((spt_playerControls.triggers() == -1 || Input.GetKeyDown(KeyCode.A)) && !once) {
+            Debug.Log("Test");
             cycleLeft();
             once = true;
         }
-        if ((spt_playerControls.triggers() == 1 || Input.GetKeyDown(KeyCode.D)) && !once)
-        {
+        if ((spt_playerControls.triggers() == 1 || Input.GetKeyDown(KeyCode.D)) && !once) {
             cycleRight();
             once = true;
         }
         if (spt_playerControls.triggers() == 0) once = false; //Prevents multiple cycles in one trigger press
+        */
+        //ryans test stuff because his control does wierd stuff
+        if (Input.GetKeyDown(KeyCode.A)) cycleLeft();
+        if (Input.GetKeyDown(KeyCode.D)) cycleRight();
+        if (Input.GetKeyDown(KeyCode.N)) sendItem();
+        if (Input.GetKey(KeyCode.Q)) once = false;
 
-        //control section
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log(activeItem.Value);
-            //visualizeList();
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-           pickUp(GameObject.Find("mdl_key"));
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            removeItm("mdl_key");
-        }
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            invChanged = true;
-            TransmitInventory();
-        }
-
-        //for debug inv printing
-        if (Input.GetKeyDown(KeyCode.M) )
-        {
-            DebugServerPntInv();
-        }
-        if (Input.GetKeyDown(KeyCode.N) )
-        {
-            //DebugServerPntPlayers();
-            sendItem();
-        }
-        if (Input.GetKeyDown(KeyCode.B) )
-        {
-            Debug.Log("Inventory Report : " + createInvMsg());
-        }
     }
 
-    public void pickUp(GameObject item) {
-        //Debug.Log(activeItem);
-        if (activeItem == null)
-        {
-            activeItem = new LinkedListNode<GameObject>(item);
-            inventory.AddLast(activeItem);
-            Debug.Log(item);
-            visualizeList();
-        }
-        else
-        {
-            inventory.AddLast(item);
-            invChanged = true;
-            Debug.Log("invChanged");
-            visualizeList();
-        }
-        
+    //grab correct game object given the index
+    public GameObject retrieveObjectFromInventory(int index) {
+        return GameObject.Find(inventory[index]);
     }
 
-    public void reticleUpdate()
-    {
+    public void reticleUpdate() {
         reticleTex = GameObject.Find("GUIReticle");
-        reticleTex.GetComponent<RawImage>().texture = activeItem.Value.GetComponent<GUITexture>().texture;
+        Debug.Log(retrieveObjectFromInventory(activeItem));
+        reticleTex.GetComponent<RawImage>().texture = retrieveObjectFromInventory(activeItem).GetComponent<GUITexture>().texture;
     }
 
-    //Function to update the visual UI representation of the invetory list. Called on pickup and remove.
-    public void visualizeList()
-    {
-        int slotNumber = 0; //Which slot to change
-        //Run over the newly modified list, setting inventory Textures according to new list positions, remove any trailing textures
-        for (LinkedListNode<GameObject> i = inventory.First; i != null; i = i.Next) {
-            Debug.Log("Visualizing..." + i.Value);
-            slotNumber++; //Increment slot number
+    public void visualList() {
+        int slotNumber = 0;
 
-            if (slotNumber == 1) continue; //If it's the hand, skip it
-            if (i.Next == null) GameObject.Find("InventorySlot" + (slotNumber + 1)).GetComponent<RawImage>().texture = none; //Removes trailing sprite if list is shortened
+        //run over newly modified list, setting inventory textures according to new list positions. remove trailing tex
+        for (int index = 0; index < inventory.Count; ++index) {
+            GameObject thisObject = retrieveObjectFromInventory(index);
+
+            ++slotNumber;
+
+            //skip hand
+            if (slotNumber == 1) continue;
+
+            //this might be something we can put in a remove function instead
+            if (index + 1 == inventory.Count)
+                GameObject.Find("InventorySlot" + (slotNumber + 1)).GetComponent<RawImage>().texture = none;
 
             //Otherwise, set the UI Slot's texture to i's Value's texture (the Texture on the objects's GUI Texture opponent)
-            GameObject.Find("InventorySlot" + slotNumber).GetComponent<RawImage>().texture = i.Value.GetComponent<GUITexture>().texture;
+            GameObject.Find("InventorySlot" + slotNumber).GetComponent<RawImage>().texture = thisObject.GetComponent<GUITexture>().texture;
         }
+        invChanged = false;
     }
 
-    //remove item from inv linked list. 
-    //support function for sending items.
-    public void removeItm(string item)
-    {
-        if (item == "Hand") return; //Check to ensure you can't remove the hand
-        for (LinkedListNode<GameObject> iter = inventory.First; iter != null; iter = iter.Next)
-        {
-            if (iter.Value.name == item) inventory.Remove(iter.Value);
-        }
-        visualizeList();
+    public void pickUp ( GameObject item ) {
+        //should never be null
+        inventory.Insert( inventory.Count, item.name );
+        invChanged = true;
     }
 
+    //wrap c# list.remove() to remove inventory item from synclist
+    public void removeItm(string item) {
+        if (item == "Hand") return;
+        inventory.Remove(item);
+        invChanged = true;
+    }
+
+    //cycleright in inventory
     void cycleRight() {
+        Debug.Log("left");
         if (inventory.Count == 0) return;
-        if (activeItem.Next != null) {
-            Debug.Log("Moving right");
-            activeItem = activeItem.Next;
-            activeSlotNumber += 1;
-            reticleUpdate();
-        } else {
-            Debug.Log("Looping");
-            activeItem = inventory.First;
-            activeSlotNumber = 1;
-            reticleUpdate();
+
+        if(activeItem < inventory.Count-1) {
+            ++activeItem;
+            ++activeSlotNumber;
         }
+        else {
+            //case : loop from end to beginning
+            activeItem = 0;
+            activeSlotNumber = 1;            
+        }
+        reticleUpdate();
+
         //Move selection bar below the new active item
-        selectionBar.transform.localPosition = new Vector3(GameObject.Find("InventorySlot" + activeSlotNumber).transform.localPosition.x, selectionBar.transform.localPosition.y, selectionBar.transform.localPosition.z);
+        selectionBar.transform.localPosition = new Vector3(
+            GameObject.Find("InventorySlot" + activeSlotNumber).transform.localPosition.x, 
+            selectionBar.transform.localPosition.y, 
+            selectionBar.transform.localPosition.z );
     }
 
-    void cycleLeft(){
+    void cycleLeft() {
+        Debug.Log("left");
         if (inventory.Count == 0) return;
-        if (activeItem.Previous != null){
-            Debug.Log("Moving left");
-            activeItem = activeItem.Previous;
-            activeSlotNumber -= 1;
-            reticleUpdate();
-        } else {
-            Debug.Log("Looping");
-            activeItem = inventory.Last;
-            Debug.Log(activeItem.Value);
-            activeSlotNumber = inventory.Count;
-            reticleUpdate();
+
+        if(activeItem > 0) {
+            --activeItem;
+            --activeSlotNumber;
         }
-        selectionBar.transform.localPosition = new Vector3(GameObject.Find("InventorySlot" + activeSlotNumber).transform.localPosition.x, selectionBar.transform.localPosition.y, selectionBar.transform.localPosition.z);
+        else {
+            activeItem = inventory.Count - 1;
+            activeSlotNumber = inventory.Count;
+        }
+
+        //Move selection bar below the new active item
+        selectionBar.transform.localPosition = new Vector3(
+            GameObject.Find("InventorySlot" + activeSlotNumber).transform.localPosition.x,
+            selectionBar.transform.localPosition.y,
+            selectionBar.transform.localPosition.z);
     }
 
-    //in order to do this we need to differentiate between player instances
-    // perhaps if we post a tag on connection to note which is player and which is not.
     void sendItem() {
-        CmdSendItem(transform.gameObject.name, activeItem.Value.name);
-        TransmitInventory();
-    }
-
-    //Network Functions
-
-    //Server command accepts a string representation of
-    //Items (**which are assumed to exist in scene**)
-    //This could be made faster by using a central hash of items
-    //and referencing using integers in this msg, but this 
-    //is satisfactory.
-    [Command]
-    void CmdProvideInventoryToServer ( string invMsg ) {
-        inventory = new LinkedList<GameObject>();
-        translateNetworkInvMsg(invMsg);
+        CmdSendItem(transform.gameObject.name, inventory[activeItem]);
+        cycleLeft();
+        invChanged = true;
     }
 
     [Command]
-    void CmdSendItem( string pGiver, string itemName )
-    {
-        
-        if (itemName == "Hand") return; //Check to ensure you can't remove the hand
+    void CmdSendItem( string pGiver, string itemName ) {
+        if (itemName == "Hand") return;
+
+        //get players from scene
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         GameObject giver = null;
         GameObject reciever = null;
 
-        
-
-
+        //find player object giving and recieving
         foreach (GameObject player in players) {
             if (player.name == pGiver) giver = player;
             else reciever = player;
         }
 
-        //Delete itemName from giver
+        //remove object from giver
         giver.GetComponent<spt_inventory>().removeItm(itemName);
+
+        //give object to reciever
         reciever.GetComponent<spt_inventory>().pickUp(GameObject.Find(itemName));
-
-        //give itemName to reciever
-
-        //force sync
-
     }
 
-    void translateNetworkInvMsg( string invMsg )
-    {
-        string[] itemsNames = invMsg.Split( new string[] { "," }, StringSplitOptions.RemoveEmptyEntries );
-
-        for (int index = 0; index < itemsNames.Length; ++index )
-        {
-            inventory.AddLast(GameObject.Find( itemsNames[index]));
-        }
-    }
-
-    string createInvMsg()
-    {
-        string msg = "";
-
-        for (LinkedListNode<GameObject> iter = inventory.First; iter != null; iter = iter.Next) {
-            msg += iter.Value.name;
-            if ( iter.Next != null ){ msg += ","; }
-        }
-        return msg;
-    }
-
-    [Client]
-    void TransmitInventory() {
-        if (isLocalPlayer) {
-            //If an inventory has been changed, time to perform a serverside sync.
-            if ( invChanged ) {
-                CmdProvideInventoryToServer( createInvMsg() );
-                invChanged = false;
-            }
-        }
-    }
-
-    void DebugServerPntInv() {
-        if (!isServer) return;
-
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-
-        for ( int index = 0; index < players.Length; ++index )
-        {
-            Debug.Log("Player " + index + ": " + (isLocalPlayer ? "Local" : "NonLocal") + "\n" );
-            spt_inventory pInv = players[index].GetComponent<spt_inventory>();
-            Debug.Log("Inv : " + pInv.createInvMsg() + "\n");
-        }
-
-    }
-
-    void DebugServerPntPlayers() {
-        if (!isServer) return;
-
-        foreach (KeyValuePair<NetworkInstanceId, NetworkIdentity> pair in NetworkServer.objects) {
-            Debug.Log(pair.Key.ToString() );
-            Debug.Log(pair.Value.ToString());
-
-        }
-        
-        /*
-        foreach (NetworkConnection player in NetworkServer.connections) {
-            if (player == null) continue;
-            Debug.Log("Player : ID : " + player.connectionId + ", IP :" + player.address + " Connected? " + player.isReady);
-            
-            foreach ( NetworkInstanceId id in player.clientOwnedObjects ) {
-                Debug.Log( "ID : " + id.ToString() );
-                Debug.Log("Value : " + id.Value );
-            }
-            
-        }
-        */
-    }
 }
-

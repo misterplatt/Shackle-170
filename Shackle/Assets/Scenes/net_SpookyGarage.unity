@@ -5438,7 +5438,7 @@ MonoBehaviour:
     item: {fileID: 401988467}
     isMonstInteractable: 1
   - eventName: garageDoorOpen
-    item: {fileID: 0}
+    item: {fileID: 1019155234}
     isMonstInteractable: 0
 --- !u!4 &1515300599
 Transform:

@@ -572,6 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  loaded: 0
 --- !u!114 &11420184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -678,7 +679,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166426}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6613b91fe707742489527bd440ad2f65, type: 3}
   m_Name: 
@@ -772,13 +773,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c81280c37c8ba4588722ced71f79f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invChanged: 0
   selectionBar: {fileID: 189422}
   handObj: {fileID: 133696}
   reticleTex: {fileID: 185876}
   handSprite: {fileID: 2800000, guid: bf44ff9d393e79d4b8bf5284fae905b3, type: 3}
   none: {fileID: 2800000, guid: 88c302bfc0cdab44bb3b036c0b598054, type: 3}
+  activeItem: -1
   lerpSpeed: 5
+  once: 0
 --- !u!114 &11467964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1259,6 +1261,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

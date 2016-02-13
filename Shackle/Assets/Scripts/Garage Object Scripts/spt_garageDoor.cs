@@ -40,7 +40,7 @@ namespace VRStandardAssets.Examples
         {
             // User must press A to interact with the object, negates the case of user holding A previous to interaction
             //PLACEHOLDER UNTIL NETWORK LOGIC********************************************************************************************
-            if (Input.GetButtonDown("aButton") && inventoryScript.activeItem.Value.name == gateItemName && GameObject.Find("Garage_Lock").transform.position.x > 2.74)
+            if (Input.GetButtonDown("aButton") && inventoryScript.retrieveObjectFromInventory(inventoryScript.activeItem).name == gateItemName && GameObject.Find("Garage_Lock").transform.position.x > 2.74)
             {
                 holding = true;
                 Debug.Log("Show down state");

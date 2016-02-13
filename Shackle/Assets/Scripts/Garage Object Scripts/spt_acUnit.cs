@@ -38,7 +38,7 @@ namespace VRStandardAssets.Examples
         private void HandleDown()
         {
             // User must press A to interact with the object, negates the case of user holding A previous to interaction
-            if (Input.GetButtonDown("aButton") && inventoryScript.activeItem.Value.name == gateItemName)
+            if (Input.GetButtonDown("aButton") && inventoryScript.retrieveObjectFromInventory(inventoryScript.activeItem).name == gateItemName)//activeItem.Value.name == gateItemName)
             {
                 holding = true;
                 Debug.Log("Show down state");
