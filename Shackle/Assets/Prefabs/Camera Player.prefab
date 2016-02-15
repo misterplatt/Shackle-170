@@ -92,13 +92,14 @@ GameObject:
   - 224: {fileID: 22484848}
   - 222: {fileID: 22240544}
   - 114: {fileID: 11403998}
+  - 114: {fileID: 11476340}
   m_Layer: 5
   m_Name: WinMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &147322
 GameObject:
   m_ObjectHideFlags: 1
@@ -778,6 +779,7 @@ MonoBehaviour:
   reticleTex: {fileID: 185876}
   handSprite: {fileID: 2800000, guid: bf44ff9d393e79d4b8bf5284fae905b3, type: 3}
   none: {fileID: 2800000, guid: 88c302bfc0cdab44bb3b036c0b598054, type: 3}
+  invChanged: 1
   activeItem: -1
   lerpSpeed: 5
   once: 0
@@ -808,6 +810,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11476340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 971ec99a8c15c72468ee2b256557cf12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11478846
 MonoBehaviour:
   m_ObjectHideFlags: 1
