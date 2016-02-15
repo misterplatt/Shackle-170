@@ -27,19 +27,31 @@ public class spt_inventory : NetworkBehaviour {
     [SerializeField] private bool once = false;
 
     void Start() {
+        
         if (!isLocalPlayer)
         {
             invChanged = false;
             return;
         }
 
-        //initialize Inventory with hand as active object, set slot 1 sprite
 
-        activeItem = 0;
-        inventory.Add("Hand");
-        transform.Find("VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
-        reticleUpdate();
-        if(isServer) pickUp(GameObject.Find("mdl_screwDriver"));
+        //initialize Inventory with hand as active object, set slot 1 sprite
+        if (isServer)
+        {
+            activeItem = 0;
+            inventory.Add("Hand");
+            transform.Find("VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
+            reticleUpdate();
+        }
+        else
+        {
+            CmdinitSpawn(this.name);
+            transform.Find("VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
+            reticleUpdate();
+        }
+
+
+        if (isServer) pickUp(GameObject.Find("mdl_screwDriver"));
     }
     
     void Update() {
@@ -64,6 +76,7 @@ public class spt_inventory : NetworkBehaviour {
         if (Input.GetKeyDown(KeyCode.D)) cycleRight();
         if (Input.GetKeyDown(KeyCode.N)) sendItem();
         if (Input.GetKeyDown(KeyCode.E)) dbg_printInventory();
+        if (Input.GetKeyDown(KeyCode.F)) dbg_serverPrintInventory();
         if (Input.GetKeyDown(KeyCode.Q)) pickUp(GameObject.Find("mdl_screwDriver"));
 
     }
@@ -164,7 +177,27 @@ public class spt_inventory : NetworkBehaviour {
         invChanged = true;
     }
 
-    void dbg_printInventory()
+    public void dbg_serverPrintInventory()
+    {
+        if (!isServer) return;
+        int slot = 1;
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach ( GameObject player in players )
+        {
+            Debug.Log( "Player : " + player.name );
+            spt_inventory thisInv = player.GetComponent<spt_inventory>();
+            if (thisInv.inventory.Count == 0) Debug.Log("Empty");
+            for (int index = 0; index < thisInv.inventory.Count; ++index)
+            {
+                Debug.Log( player.name + " : Slot " + slot + " : " + thisInv.inventory[index]);
+
+            }
+            slot = 1;
+        }
+    }
+
+    public void dbg_printInventory()
     {
         int slot = 1;
 
@@ -172,6 +205,14 @@ public class spt_inventory : NetworkBehaviour {
         {
             Debug.Log("Slot " + slot++ + " : " + item);
         }
+    }
+
+    [Command]
+    void CmdinitSpawn(string pName)
+    {
+        Debug.Log(pName + " has connected.");
+
+        GameObject.Find(pName).GetComponent<spt_inventory>().inventory.Add("Hand");
     }
 
     [Command]
