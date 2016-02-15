@@ -14,11 +14,12 @@ public class spt_TVScreenListener : NetworkBehaviour {
         //If the tvOn network state is true, turn on the static
         //Debug.Log("TV Power " + GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state);
         if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true &&
-            GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == false) GetComponent<SpriteRenderer>().enabled = true;
+            GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == false)
+            GetComponent<SpriteRenderer>().enabled = true;
 
         //If tvOn and correctChannel are true, turn on the success screen
-        else if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true && 
-            GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true) Debug.Log("GREEN SCREEN BITCHES");
+        else if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true &&
+            GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true) GetComponent<SpriteRenderer>().color = Color.green;
 
         //Otherwise, turn the screen off
         else if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == false) GetComponent<SpriteRenderer>().enabled = false;

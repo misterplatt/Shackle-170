@@ -12,7 +12,7 @@ namespace VRStandardAssets.Examples
         private VRInteractiveItem m_InteractiveItem;
 
         // private bool m_GazeOver;
-        public spt_inventory inventoryScript;
+        public spt_inventory inventorySpt;
         public string gateItemName;
         public float holdTime;
         private float timer = 0;
@@ -39,8 +39,9 @@ namespace VRStandardAssets.Examples
         private void HandleDown()
         {
             // User must press A to interact with the object, negates the case of user holding A previous to interaction
-            //PLACEHOLDER UNTIL NETWORK LOGIC********************************************************************************************
-            if (Input.GetButtonDown("aButton") && inventoryScript.retrieveObjectFromInventory(inventoryScript.activeItem).name == gateItemName && GameObject.Find("Garage_Lock").transform.position.x > 2.74)
+            inventorySpt = GetComponent<VRInteractiveItem>().inventoryScript;
+            // User must press A to interact with the object, negates the case of user holding A previous to interaction
+            if (Input.GetButtonDown("aButton") && inventorySpt.retrieveObjectFromInventory(inventorySpt.activeItem).name == gateItemName && spt_garageLock.garageDoorUnlocked)
             {
                 holding = true;
                 Debug.Log("Show down state");

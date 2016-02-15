@@ -11,7 +11,7 @@ namespace VRStandardAssets.Examples
         private VRInteractiveItem m_InteractiveItem;
 
         // private bool m_GazeOver;
-        public spt_inventory inventoryScript;
+        public spt_inventory inventorySpt;
         public string gateItemName;
         public float holdTime;
         private float timer = 0;
@@ -37,8 +37,9 @@ namespace VRStandardAssets.Examples
         //Handle the Down event, modified so that the reticle doesn't need to stay over object to interact
         private void HandleDown()
         {
+            inventorySpt = GetComponent<VRInteractiveItem>().inventoryScript;
             // User must press A to interact with the object, negates the case of user holding A previous to interaction
-            if (Input.GetButtonDown("aButton") && inventoryScript.retrieveObjectFromInventory(inventoryScript.activeItem).name == gateItemName)//activeItem.Value.name == gateItemName)
+            if (Input.GetButtonDown("aButton") && inventorySpt.retrieveObjectFromInventory(inventorySpt.activeItem).name == gateItemName)
             {
                 holding = true;
                 Debug.Log("Show down state");
@@ -49,7 +50,7 @@ namespace VRStandardAssets.Examples
                 timer += Time.deltaTime;
                 if (timer >= holdTime || holdTime == 0)
                 {
-                    GameObject.Find("screwDoor").transform.Translate(new Vector3(0, 0, -2)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
+                    GameObject.Find("screwDoor").transform.Translate(new Vector3(-1.4f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
                 }
             }
         }

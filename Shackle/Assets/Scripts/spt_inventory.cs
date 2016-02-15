@@ -149,10 +149,11 @@ public class spt_inventory : NetworkBehaviour {
             activeItem = inventory.Count - 1;
             activeSlotNumber = inventory.Count;
         }
+        reticleUpdate();
 
         //Move selection bar below the new active item
         selectionBar.transform.localPosition = new Vector3(
-            GameObject.Find("InventorySlot" + activeSlotNumber).transform.localPosition.x,
+        GameObject.Find("InventorySlot" + activeSlotNumber).transform.localPosition.x,
             selectionBar.transform.localPosition.y,
             selectionBar.transform.localPosition.z);
     }

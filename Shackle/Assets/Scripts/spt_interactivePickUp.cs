@@ -11,7 +11,7 @@ namespace VRStandardAssets.Examples
         private VRInteractiveItem m_InteractiveItem;
         bool currentState = false;
 
-        public spt_inventory inventoryScript;
+        public spt_inventory inventorySpt;
 
         void Start() {
             //inventory = GameObject.Find("Camera Player").GetComponent<spt_inventory>();
@@ -32,8 +32,8 @@ namespace VRStandardAssets.Examples
         private void HandleClick()
         {
             Debug.Log("Show click state");
-            inventoryScript = GetComponent<VRInteractiveItem>().inventoryScript;
-            inventoryScript.pickUp(gameObject);
+            inventorySpt = GetComponent<VRInteractiveItem>().inventoryScript;
+            inventorySpt.pickUp(gameObject);
             //gameObject.SetActive(false); //Desired functionality
             transform.position = Vector3.down * 1000; //PLACEHOLDER: Sends objects to hell to prevent inventory breaking
         }

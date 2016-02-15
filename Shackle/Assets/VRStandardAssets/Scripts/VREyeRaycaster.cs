@@ -67,13 +67,13 @@ namespace VRStandardAssets.Utils
         }
 
 
-        [Command]
+        /*[Command]
         public void Cmd_touchObject(string itmName) {
             //not that kind of touch, you pervs.
             //Debug.Log("Touched");
             GameObject itemObj = NetworkServer.FindLocalObject(GameObject.Find(itmName).GetComponent<NetworkIdentity>().netId);
             itemObj.GetComponent<VRInteractiveItem>().hasBeenTouched = true;
-        }
+        }*/
 
       
         private void EyeRaycast()
@@ -108,7 +108,7 @@ namespace VRStandardAssets.Utils
                     //also ensure we flag that this has been interacted with.
 
                     //If the player presses A while looking at an interactible, set that interactible to touched
-                    if ( Input.GetButtonDown( "Fire1" ) ) Cmd_touchObject(interactible.gameObject.name);
+                    //if ( Input.GetButtonDown( "Fire1" ) ) Cmd_touchObject(interactible.gameObject.name);
                 }
                 
 

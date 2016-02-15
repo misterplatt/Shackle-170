@@ -49,8 +49,6 @@ namespace VRStandardAssets.Examples
                 {
                     spt_WorldState.worldStateChanged = true;
                     local_correctChannelEntered = true;
-                    Debug.Log("TV IS ON!$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-                    //GameObject.Find("mdl_garageOpener").GetComponent<Rigidbody>().useGravity = true; //MOVE TO A SCRIPT ON GARAGE OPENER
                 }
             }
             //If the player presses enter with the correct player number in remote manager, change TV to green channel
