@@ -56,6 +56,7 @@ namespace VRStandardAssets.Examples
             //If the player presses enter with the correct player number in remote manager, change TV to green channel
             //Highlight button briefly, deactivate all digits, and clear channel number
             m_Renderer.material = m_StateTwoMaterial;
+            Debug.Log("POWER PRESSED");
             BroadcastMessage("deactivateDigit");
             spt_remoteManager.clearChannelNumber();
         }

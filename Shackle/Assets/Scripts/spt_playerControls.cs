@@ -48,7 +48,7 @@ public class spt_playerControls : MonoBehaviour
     {
         if (Input.GetButton("bButton"))
         {
-            Debug.Log("SUCCESS for B button");
+            //Debug.Log("SUCCESS for B button");
             return true;
         }
         else return false;

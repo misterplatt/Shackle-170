@@ -20,7 +20,7 @@ namespace VRStandardAssets.Examples
         }
 
         void Update() {
-            if (local_extCordPlugged) Debug.Log("Triggered");
+            //if (local_extCordPlugged) Debug.Log("Triggered");
         }
 
         private void OnDisable()
