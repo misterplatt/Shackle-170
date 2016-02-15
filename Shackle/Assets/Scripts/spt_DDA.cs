@@ -44,7 +44,8 @@ public class spt_DDA : MonoBehaviour {
                 //  Currently, the players have 30 seconds to complete each task.
                 for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
                 {
-                    checkpoints.Add(new puzzleStateWithCheckpointTime(networkScript.PuzzleStates[i].name, ((i + 1) * 30)));
+                    if (networkScript.PuzzleStates[i].name == null || checkpoints == null) continue;
+                     checkpoints.Add(new puzzleStateWithCheckpointTime(networkScript.PuzzleStates[i].name, ((i + 1) * 30)));
                 }
 
                 InvokeRepeating("checkForDifficultyChange", 1, 1);

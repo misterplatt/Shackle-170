@@ -27,7 +27,11 @@ public class spt_inventory : NetworkBehaviour {
     [SerializeField] private bool once = false;
 
     void Start() {
-        if (!isLocalPlayer) return;
+        if (!isLocalPlayer)
+        {
+            invChanged = false;
+            return;
+        }
 
         //initialize Inventory with hand as active object, set slot 1 sprite
 
@@ -35,12 +39,12 @@ public class spt_inventory : NetworkBehaviour {
         inventory.Add("Hand");
         transform.Find("VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
         reticleUpdate();
+        if(isServer) pickUp(GameObject.Find("mdl_screwDriver"));
     }
     
     void Update() {
         if (!isLocalPlayer) return;
-
-        Debug.Log(spt_playerControls.triggers());
+        if (invChanged) Debug.Log("Inv Change");
         if (invChanged) visualList();
         //cycling controls
         /*
@@ -59,7 +63,8 @@ public class spt_inventory : NetworkBehaviour {
         if (Input.GetKeyDown(KeyCode.A)) cycleLeft();
         if (Input.GetKeyDown(KeyCode.D)) cycleRight();
         if (Input.GetKeyDown(KeyCode.N)) sendItem();
-        if (Input.GetKey(KeyCode.Q)) once = false;
+        if (Input.GetKeyDown(KeyCode.E)) dbg_printInventory();
+        if (Input.GetKeyDown(KeyCode.Q)) pickUp(GameObject.Find("mdl_screwDriver"));
 
     }
 
@@ -76,22 +81,24 @@ public class spt_inventory : NetworkBehaviour {
 
     public void visualList() {
         int slotNumber = 0;
-
+        //Debug.Log("Visualizing List...");
         //run over newly modified list, setting inventory textures according to new list positions. remove trailing tex
-        for (int index = 0; index < inventory.Count; ++index) {
-            GameObject thisObject = retrieveObjectFromInventory(index);
-
+        for (int index = 0; index <= inventory.Count; ++index) {
             ++slotNumber;
+            if (index == inventory.Count)
+            {
+                Debug.Log("Clear Slot Hit");
+                transform.Find("VRCameraUI/InventorySlot" + slotNumber).gameObject.GetComponent<RawImage>().texture = none;
+                break;
+            }
+            
+            GameObject thisObject = retrieveObjectFromInventory(index);
 
             //skip hand
             if (slotNumber == 1) continue;
 
-            //this might be something we can put in a remove function instead
-            if (index + 1 == inventory.Count)
-                GameObject.Find("InventorySlot" + (slotNumber + 1)).GetComponent<RawImage>().texture = none;
-
             //Otherwise, set the UI Slot's texture to i's Value's texture (the Texture on the objects's GUI Texture opponent)
-            GameObject.Find("InventorySlot" + slotNumber).GetComponent<RawImage>().texture = thisObject.GetComponent<GUITexture>().texture;
+            transform.Find("VRCameraUI/InventorySlot" + slotNumber).gameObject.GetComponent<RawImage>().texture = thisObject.GetComponent<GUITexture>().texture;
         }
         invChanged = false;
     }
@@ -111,7 +118,6 @@ public class spt_inventory : NetworkBehaviour {
 
     //cycleright in inventory
     void cycleRight() {
-        Debug.Log("left");
         if (inventory.Count == 0) return;
 
         if(activeItem < inventory.Count-1) {
@@ -133,7 +139,6 @@ public class spt_inventory : NetworkBehaviour {
     }
 
     void cycleLeft() {
-        Debug.Log("left");
         if (inventory.Count == 0) return;
 
         if(activeItem > 0) {
@@ -158,10 +163,20 @@ public class spt_inventory : NetworkBehaviour {
         invChanged = true;
     }
 
+    void dbg_printInventory()
+    {
+        int slot = 1;
+
+        foreach (string item in inventory)
+        {
+            Debug.Log("Slot " + slot++ + " : " + item);
+        }
+    }
+
     [Command]
     void CmdSendItem( string pGiver, string itemName ) {
         if (itemName == "Hand") return;
-
+        Debug.Log("Sending : " + itemName);
         //get players from scene
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         GameObject giver = null;
@@ -177,7 +192,12 @@ public class spt_inventory : NetworkBehaviour {
         giver.GetComponent<spt_inventory>().removeItm(itemName);
 
         //give object to reciever
-        reciever.GetComponent<spt_inventory>().pickUp(GameObject.Find(itemName));
+        spt_inventory recInventory = reciever.GetComponent<spt_inventory>();
+        recInventory.pickUp(GameObject.Find(itemName));
+        
+
+        //set remote invChange to true
+
     }
 
 }
