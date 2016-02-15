@@ -14,6 +14,7 @@ public class spt_garageOpenerListener : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true) GetComponent<Rigidbody>().useGravity = true;
+        //If the 
+        if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true) GetComponent<Rigidbody>().useGravity = true;
     }
 }
