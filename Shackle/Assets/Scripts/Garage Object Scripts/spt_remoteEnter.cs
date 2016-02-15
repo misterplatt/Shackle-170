@@ -43,20 +43,19 @@ namespace VRStandardAssets.Examples
         private void HandleDown()
         {
             //If the TV is powered on and the input channel number is 49, set correctChannel puzzle state to true
-            if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == true)
+            if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true)
             {
                 if (spt_remoteManager.channelNumber[0] == "4" && spt_remoteManager.channelNumber[1] == "9")
                 {
                     spt_WorldState.worldStateChanged = true;
                     local_correctChannelEntered = true;
                     Debug.Log("TV IS ON!$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-                    GameObject.Find("mdl_garageOpener").GetComponent<Rigidbody>().useGravity = true; //MOVE TO A SCRIPT ON GARAGE OPENER
+                    //GameObject.Find("mdl_garageOpener").GetComponent<Rigidbody>().useGravity = true; //MOVE TO A SCRIPT ON GARAGE OPENER
                 }
             }
             //If the player presses enter with the correct player number in remote manager, change TV to green channel
             //Highlight button briefly, deactivate all digits, and clear channel number
             m_Renderer.material = m_StateTwoMaterial;
-            Debug.Log("POWER PRESSED");
             BroadcastMessage("deactivateDigit");
             spt_remoteManager.clearChannelNumber();
         }

@@ -60,7 +60,6 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     void Update() {
         //if (!isServer) return;
 
-        //dbg_logEvents();
         if (Input.GetKeyDown(KeyCode.B)) dbg_logEvents();
         //If a state has been changed locally, find out which one and update the state's networked version
         if (spt_WorldState.worldStateChanged) {
@@ -69,7 +68,6 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
             if (VRStandardAssets.Examples.spt_extensionCord.local_extCordPlugged) {
                 Debug.Log("Updating extCordPlugged on the network to " + VRStandardAssets.Examples.spt_extensionCord.local_extCordPlugged);
                 GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("extCordPlugged", true, "Extension_Cord");
-                Debug.Log("extCordPlugged on the network is now " + PuzzleStates[0].state);
             }
             //If a player has pressed power while the extCord is plugged, update server state
             if (VRStandardAssets.Examples.spt_remotePower.local_TVpowerState != PuzzleStates[2].state) {
