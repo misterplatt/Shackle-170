@@ -70,7 +70,7 @@ namespace VRStandardAssets.Utils
         [Command]
         public void Cmd_touchObject(string itmName) {
             //not that kind of touch, you pervs.
-            Debug.Log("Touched");
+            //Debug.Log("Touched");
             GameObject itemObj = NetworkServer.FindLocalObject(GameObject.Find(itmName).GetComponent<NetworkIdentity>().netId);
             itemObj.GetComponent<VRInteractiveItem>().hasBeenTouched = true;
         }

@@ -60,22 +60,33 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     void Update() {
         //if (!isServer) return;
 
-        //dbg_logEvents();
+        if (Input.GetKeyDown(KeyCode.B)) dbg_logEvents();
+        //If a state has been changed locally, find out which one and update the state's networked version
         if (spt_WorldState.worldStateChanged) {
 
             //If a player has plugged in the extension cord, command the server to update the state for other player
-            if (VRStandardAssets.Examples.spt_extensionCord.extensionCordPlugged) {
+            if (VRStandardAssets.Examples.spt_extensionCord.local_extCordPlugged) {
+                Debug.Log("Updating extCordPlugged on the network to " + VRStandardAssets.Examples.spt_extensionCord.local_extCordPlugged);
                 GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("extCordPlugged", true, "Extension_Cord");
             }
             //If a player has pressed power while the extCord is plugged, update server state
-            if (VRStandardAssets.Examples.spt_remotePower.TVPowered != PuzzleStates[0].state) {
-                GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("tvOn", VRStandardAssets.Examples.spt_remotePower.TVPowered, "TV");
+            if (VRStandardAssets.Examples.spt_remotePower.local_TVpowerState != PuzzleStates[2].state) {
+                Debug.Log("Updating TVOn on the network to " + VRStandardAssets.Examples.spt_remotePower.local_TVpowerState);
+                GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("TVpowerState", VRStandardAssets.Examples.spt_remotePower.local_TVpowerState, "mdl_TV");
             }
             //If a player has pressed [4],[9], enter on the remote while TV is on, update server state
-            if (VRStandardAssets.Examples.spt_remoteEnter.correctChannel)
+            if (VRStandardAssets.Examples.spt_remoteEnter.local_correctChannelEntered)
             {
-                GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("correctChannelEntered", true, "TV");
+                Debug.Log("Updating correctChannelEntered on the network to " + VRStandardAssets.Examples.spt_remoteEnter.local_correctChannelEntered);
+                GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("correctChannelEntered", true, "mdl_TV");
             }
+            //If a player has used the garage door opener on the garage door, update server state
+            if (VRStandardAssets.Examples.spt_garageDoor.local_garageDoorOpen)
+            {
+                Debug.Log("Updating garageDoorOpen on the network to " + VRStandardAssets.Examples.spt_garageDoor.local_garageDoorOpen);
+                GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("garageDoorOpen", true, "mdl_garageDoor");
+            }
+            
 
             spt_WorldState.worldStateChanged = false;
 

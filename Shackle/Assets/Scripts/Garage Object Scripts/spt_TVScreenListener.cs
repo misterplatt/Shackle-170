@@ -11,7 +11,16 @@ public class spt_TVScreenListener : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true) GetComponent<SpriteRenderer>().enabled = true;
-        else GetComponent<SpriteRenderer>().enabled = false;
+        //If the tvOn network state is true, turn on the static
+        //Debug.Log("TV Power " + GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state);
+        if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true &&
+            GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == false) GetComponent<SpriteRenderer>().enabled = true;
+
+        //If tvOn and correctChannel are true, turn on the success screen
+        else if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true && 
+            GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true) Debug.Log("GREEN SCREEN BITCHES");
+
+        //Otherwise, turn the screen off
+        else if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == false) GetComponent<SpriteRenderer>().enabled = false;
     }
 }

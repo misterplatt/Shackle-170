@@ -72,14 +72,12 @@ namespace VRStandardAssets.Examples
         //Handle the Over event
         private void HandleOver()
         {
-            Debug.Log("Show over state");
             if(m_OverMaterial != null) m_Renderer.material = m_OverMaterial;
         }
 
         //Handle the Down event
         private void HandleDown()
         {
-            Debug.Log("Show down state");
             if (m_DownMaterial != null) m_Renderer.material = m_DownMaterial;
             mouseHeld = true;
         }
@@ -87,7 +85,6 @@ namespace VRStandardAssets.Examples
         //Handle the Up event
         private void HandleUp()
         {
-            Debug.Log("Show up state");
             if (m_UpMaterial != null) m_Renderer.material = m_UpMaterial;
         }
 

@@ -1,0 +1,50 @@
+# Blender MTL File: 'Garage Motor.blend'
+# Material Count: 5
+
+newmtl Cautious_Sign_
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.022698 0.022698 0.022698
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Users/silviaordonez/Desktop/Shackle Work/3D Models/Texture/ChainDrive_LiftMaster.jpg
+
+newmtl Motor
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.189393 0.189393 0.189393
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Users/silviaordonez/Desktop/Shackle Work/3D Models/Texture/ChainDrive_LiftMaster.jpg
+
+newmtl Motor_Sign_
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Users/silviaordonez/Desktop/Shackle Work/3D Models/Texture/ChainDrive_LiftMaster.jpg
+
+newmtl On_button
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.000000 0.001120
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl White_selection
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2

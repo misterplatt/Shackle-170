@@ -1,0 +1,42 @@
+# Blender MTL File: 'Garage Lock2.0.blend'
+# Material Count: 4
+
+newmtl General_Material
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.623979 0.616809 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Users/silviaordonez/Desktop/tileable-metal-patterns-1186243-o.jpg
+
+newmtl Material.003
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.470245 0.470245 0.470245
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Users/silviaordonez/Desktop/tileable-metal-patterns-1186243-o.jpg
+
+newmtl Material.003_tileable-metal-patterns-1186243-o.jpg.001
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.470245 0.470245 0.470245
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Users/silviaordonez/Desktop/tileable-metal-patterns-1186243-o.jpg
+
+newmtl Red_Lock
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.000000 0.000159
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Users/silviaordonez/Desktop/tileable-metal-patterns-1186243-o.jpg
