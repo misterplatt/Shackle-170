@@ -14,7 +14,7 @@ public class spt_garageOpenerListener : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        //If the 
+        //If the correctChannel network state is true, drop the garageOpener
         if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true) GetComponent<Rigidbody>().useGravity = true;
     }
 }

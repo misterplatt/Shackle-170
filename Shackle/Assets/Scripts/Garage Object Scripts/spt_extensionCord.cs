@@ -7,7 +7,7 @@ namespace VRStandardAssets.Examples
 {
     public class spt_extensionCord : NetworkBehaviour
     {
-        public static bool extensionCordPlugged = false;
+        public static bool local_extCordPlugged = false;
 
         //Access to InteractiveItem script
         [SerializeField]
@@ -20,7 +20,7 @@ namespace VRStandardAssets.Examples
         }
 
         void Update() {
-            if (extensionCordPlugged) Debug.Log("Triggered");
+            if (local_extCordPlugged) Debug.Log("Triggered");
         }
 
         private void OnDisable()
@@ -33,7 +33,7 @@ namespace VRStandardAssets.Examples
         {
             if (!once){
                 spt_WorldState.worldStateChanged = true;
-                extensionCordPlugged = true;
+                local_extCordPlugged = true;
                 transform.eulerAngles = new Vector3(0, 90, -17); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
                 once = true;
             }

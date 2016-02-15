@@ -5,7 +5,7 @@ namespace VRStandardAssets.Examples
 {
     public class spt_garageDoor : MonoBehaviour
     {
-        public static bool gDoorOpen;
+        public static bool local_garageDoorOpen;
 
         //Access to InteractiveItem script
         [SerializeField]
@@ -52,7 +52,7 @@ namespace VRStandardAssets.Examples
                 {
                     transform.Translate(new Vector3(0, 1, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
                     spt_WorldState.worldStateChanged = true;
-                    gDoorOpen = true;
+                    local_garageDoorOpen = true;
                     holding = false;
                 }
             }

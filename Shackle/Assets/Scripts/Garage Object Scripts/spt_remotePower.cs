@@ -6,7 +6,7 @@ namespace VRStandardAssets.Examples
 {
     public class spt_remotePower : NetworkBehaviour
     {
-        public static bool TVPowered = false;
+        public static bool local_TVpowerState = false;
 
         [SerializeField]
         private Material m_StateOneMaterial;
@@ -48,7 +48,7 @@ namespace VRStandardAssets.Examples
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[0].state == true) {
                 currentState = !currentState;
                 spt_WorldState.worldStateChanged = true;
-                TVPowered = currentState;
+                local_TVpowerState = currentState;
                 if (currentState == true) m_Renderer.material = m_StateOneMaterial;
                 else m_Renderer.material = m_StateTwoMaterial;
 

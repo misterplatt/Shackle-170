@@ -5,7 +5,7 @@ namespace VRStandardAssets.Examples
 {
     public class spt_remoteEnter : MonoBehaviour
     {
-        public static bool correctChannel = false;
+        public static bool local_correctChannelEntered = false;
 
         [SerializeField]
         private Material m_StateOneMaterial;
@@ -48,7 +48,7 @@ namespace VRStandardAssets.Examples
                 if (spt_remoteManager.channelNumber[0] == "4" && spt_remoteManager.channelNumber[1] == "9")
                 {
                     spt_WorldState.worldStateChanged = true;
-                    correctChannel = true;
+                    local_correctChannelEntered = true;
                     Debug.Log("TV IS ON!$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
                     GameObject.Find("mdl_garageOpener").GetComponent<Rigidbody>().useGravity = true; //MOVE TO A SCRIPT ON GARAGE OPENER
                 }
