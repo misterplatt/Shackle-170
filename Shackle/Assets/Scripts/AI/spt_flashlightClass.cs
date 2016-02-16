@@ -1,6 +1,10 @@
-﻿//Created by: Lauren Cunningham
-
-/** This is the flashlight class.
+﻿/* spt_flashlightClass.cs
+ * 
+ * Created by: Lauren Cunningham
+ * 
+ * Last Revision Date: 2/15/2016
+ * 
+ * This is the flashlight class.
  * This is a class that inerits from the base anger class, and is used to track the use of the players' flashlights. **/
 
 using UnityEngine;

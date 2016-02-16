@@ -1,6 +1,10 @@
-﻿//Created by: Lauren Cunningham
-
-/** This file is the one that governs all interactions between the monster and items in the environment. **/
+﻿/* spt_monsterInteraction.cs
+ * 
+ * Created by: Lauren Cunningham
+ * 
+ * Last Revision Date: 2/15/2016
+ * 
+ * This file is the one that governs all interactions between the monster and items in the environment. **/
 
 using UnityEngine;
 using System.Collections;
