@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿/* spt_monsterSnapshot.cs
+ * 
+ * Created by: Lauren Cunningham
+ * 
+ * Last Revision Date: 2/15/2016
+ * 
+ * This file takes a snapshot of the monster's state every second, and prints that data to a file.
+ * This file will be used to track the monster and help hilight the need for tweaks in its behaviors. */
+
+using UnityEngine;
 using System.Collections;
 using System.IO;
 using System;

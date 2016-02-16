@@ -1,6 +1,10 @@
-﻿//Created by: Lauren Cunningham
-
-/** This file is the one that handle the dynamic difficulty adjustment. **/
+﻿/* spt_DDA.cs
+ * 
+ * Created by: Lauren Cunningham
+ * 
+ * Last Revision Date: 2/15/2016
+ * 
+ * This file is the one that handle the dynamic difficulty adjustment. **/
 
 using UnityEngine;
 using System.Collections;

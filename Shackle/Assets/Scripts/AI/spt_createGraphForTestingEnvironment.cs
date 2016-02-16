@@ -1,7 +1,11 @@
-﻿// Created by: Lauren Cunningham
-
-// This file will be used to set up the undirected graph that will govern the monster's movement, specifically for the 
-    // monster testing environment. Another file like this will be created for each of Shackle's levels.
+﻿/* spt_createGraphForTestingEnvironment.cs
+ * 
+ * Created by: Lauren Cunningham
+ * 
+ * Last Revision Date: 2/15/2016
+ * 
+ * This file will be used to set up the undirected graph that will govern the monster's movement, specifically for the 
+ * monster testing environment. Another file like this will be created for each of Shackle's levels. */
 
 using UnityEngine;
 using System.Collections;

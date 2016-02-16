@@ -1,6 +1,10 @@
-﻿//Created by: Lauren Cunningham
-
-/** This file is attached to all objects that are used as anger increasers for the monster.
+﻿/* spt_angerObject.cs
+ * 
+ * Created by: Lauren Cunningham
+ * 
+ * Last Revision Date: 2/15/2016
+ *
+ * This file is attached to all objects that are used as anger increasers for the monster.
  *  It instantiates a custom-made base anger class variable for each that stores data regarding how the monster is affected by that object.
  *  
  *  In the scope of the world, any game object with this script attatched is an empty game object used to track the actions of the players within the world.

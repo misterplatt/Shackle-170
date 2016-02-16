@@ -1,6 +1,10 @@
-﻿//Created by: Lauren Cunningham
-
-/** This is the base anger class.
+﻿/* spt_baseAngerClass.cs
+ * 
+ * Created by: Lauren Cunningham
+ * 
+ * Last Revision Date: 2/15/2016
+ * 
+ * This is the base anger class.
  * It is the top of an inheritance heirarchy that is used to hold data regarding how the monster is affected by the players' actions. **/
 
 using UnityEngine;

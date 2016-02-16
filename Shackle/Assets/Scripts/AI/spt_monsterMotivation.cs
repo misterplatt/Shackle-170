@@ -1,6 +1,10 @@
-﻿//Created by: Lauren Cunningham
-
-/** This file is the one that ultimately governs the monster's motivation. **/
+﻿/* spt_monsterMotivation.cs
+ * 
+ * Created by: Lauren Cunningham
+ * 
+ * Last Revision Date: 2/15/2016
+ * 
+ * This file is the one that ultimately governs the monster's motivation. **/
 
 using UnityEngine;
 using System.Collections;
