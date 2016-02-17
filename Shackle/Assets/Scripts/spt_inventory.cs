@@ -58,7 +58,7 @@ public class spt_inventory : NetworkBehaviour {
         if (invChanged) Debug.Log("Inv Change");
         if (invChanged) visualList();
         //cycling controls
-        /*
+        
         if ((spt_playerControls.triggers() == -1 || Input.GetKeyDown(KeyCode.A)) && !once) {
             Debug.Log("Test");
             cycleLeft();
@@ -69,11 +69,11 @@ public class spt_inventory : NetworkBehaviour {
             once = true;
         }
         if (spt_playerControls.triggers() == 0) once = false; //Prevents multiple cycles in one trigger press
-        */
+        
         //ryans test stuff because his control does wierd stuff
         if (Input.GetKeyDown(KeyCode.A)) cycleLeft();
         if (Input.GetKeyDown(KeyCode.D)) cycleRight();
-        if (Input.GetKeyDown(KeyCode.N)) sendItem();
+        if (Input.GetKeyDown(KeyCode.N) || spt_playerControls.xButtonPressed() ) sendItem();
         if (Input.GetKeyDown(KeyCode.E)) dbg_printInventory();
         if (Input.GetKeyDown(KeyCode.F)) dbg_serverPrintInventory();
         if (Input.GetKeyDown(KeyCode.Q)) pickUp(GameObject.Find("mdl_screwDriver"));

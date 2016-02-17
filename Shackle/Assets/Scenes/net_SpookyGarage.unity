@@ -14,7 +14,7 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -6309,7 +6309,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2305364, guid: d888b0e63886d9b4f8903aa853e0085d, type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11443044, guid: d888b0e63886d9b4f8903aa853e0085d, type: 2}
