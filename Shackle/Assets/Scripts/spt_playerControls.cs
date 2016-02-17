@@ -60,8 +60,6 @@ public class spt_playerControls : MonoBehaviour
     {
         if (Input.GetButton("xButton"))
         {
-            GamePad.SetVibration(playerIndex, 1.0f, 1.0f);
-
             Debug.Log("SUCCESS for x button");
             return true;
         }
