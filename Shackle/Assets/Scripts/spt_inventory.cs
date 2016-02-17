@@ -46,12 +46,11 @@ public class spt_inventory : NetworkBehaviour {
         else
         {
             CmdinitSpawn(this.name);
-            transform.Find("VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
+            GameObject.Find(this.name).transform.Find("VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
             reticleUpdate();
         }
 
-
-        if (isServer) pickUp(GameObject.Find("mdl_screwDriver"));
+        
     }
     
     void Update() {
@@ -213,6 +212,7 @@ public class spt_inventory : NetworkBehaviour {
         Debug.Log(pName + " has connected.");
 
         GameObject.Find(pName).GetComponent<spt_inventory>().inventory.Add("Hand");
+        GameObject.Find(pName).transform.Find("VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
     }
 
     [Command]
