@@ -1,0 +1,6 @@
+PuzzleEvent, TimeCompleted
+extCordPlugged,-1
+acUnitOpen,-1
+TVpowerState,-1
+garageDoorOpen,-1
+correctChannelEntered,-1

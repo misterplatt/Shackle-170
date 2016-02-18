@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.IO;
 
 public struct LogicTuple
 { 
@@ -14,12 +16,14 @@ public struct LogicTuple
     public string name;
     public string itemName;
     public bool isMonsterInteractable;
+    public float timeStamp;
 
-    public LogicTuple(string _name="", bool _state=false, string _itemName="", bool interactable=false) {
+    public LogicTuple(string _name="", bool _state=false, string _itemName="", bool interactable=false, float completionTime=-1.0f) {
         state = _state;
         name = _name;
         itemName = _itemName;
         isMonsterInteractable = interactable;
+        timeStamp = completionTime;
     }
 
     public override bool Equals(System.Object obj) {
@@ -93,6 +97,10 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
         }
     }
 
+    void OnDestroy() {
+        outputMetrics();
+    }
+
     void dbg_logEvents() {
         Debug.Log("SyncList Size : " + PuzzleStates.Count);
         foreach (LogicTuple lPair in PuzzleStates) {
@@ -108,13 +116,27 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
         if (tIndex < 0) Debug.Log("Error : updatePuzzleState called with nonexistent puzzle event.");
 
         LogicTuple original_Tuple = PuzzleStates[PuzzleStates.IndexOf(new LogicTuple(name, false, itemName))];
-        LogicTuple newTuple = new LogicTuple(original_Tuple.name, true, original_Tuple.itemName, original_Tuple.isMonsterInteractable);
+        LogicTuple newTuple = new LogicTuple(original_Tuple.name, true, original_Tuple.itemName, original_Tuple.isMonsterInteractable, Time.time);
         PuzzleStates[PuzzleStates.IndexOf(new LogicTuple(name, false, itemName))] = newTuple;
+    }
+
+    public void outputMetrics() {
+        if (!isServer) return;
+
+        StreamWriter writer = new StreamWriter("DataDump/" + SceneManager.GetActiveScene().name + "_metrics.txt", true);
+        String metricLn = "";
+
+        foreach (LogicTuple pEvent in PuzzleStates) {
+            metricLn += pEvent.name + "," + pEvent.timeStamp;
+            writer.WriteLine(metricLn);
+            metricLn = "";
+        }
+
+        writer.Close();
     }
 
     [Command]
     public void Cmd_UpdatePuzzleLogic(string name, bool state, string itmName) {
-        spt_NetworkPuzzleLogic logScript = GetComponent<spt_NetworkPuzzleLogic>();
-        logScript.updatePuzzleState(name, state, itmName);
+        updatePuzzleState(name, state, itmName);
     }
 }

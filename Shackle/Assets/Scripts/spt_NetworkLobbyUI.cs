@@ -10,6 +10,14 @@ public class spt_NetworkLobbyUI : MonoBehaviour {
         manager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
     }
 
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.F12)) {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().outputMetrics();
+            manager.StopHost();
+            manager.StopClient();
+        }
+    }
+
     //clearly this shouldn't be used outside of development.
     public void connectLocal() {
         manager.networkAddress = "localhost";
