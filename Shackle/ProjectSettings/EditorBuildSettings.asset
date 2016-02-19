@@ -8,9 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
   - enabled: 0
-    path: Assets/Scenes/SpookyGarage.unity
+    path: Assets/Scenes/testingEnvironment/SpookyGarage.unity
   - enabled: 0
-    path: Assets/Scenes/LevelTemplate.unity
+    path: Assets/Scenes/testingEnvironment/LevelTemplate.unity
   - enabled: 1
     path: Assets/Scenes/net_SpookyGarage.unity
   - enabled: 0
