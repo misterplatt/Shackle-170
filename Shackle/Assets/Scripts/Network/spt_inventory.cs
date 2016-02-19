@@ -73,7 +73,7 @@ public class spt_inventory : NetworkBehaviour {
         //ryans test stuff because his control does wierd stuff
         if (Input.GetKeyDown(KeyCode.A)) cycleLeft();
         if (Input.GetKeyDown(KeyCode.D)) cycleRight();
-        if (Input.GetKeyDown(KeyCode.N) || spt_playerControls.xButtonPressed() ) sendItem();
+        if (Input.GetKeyDown(KeyCode.N) || Input.GetButtonDown("xButton"))sendItem();
         if (Input.GetKeyDown(KeyCode.E)) dbg_printInventory();
         if (Input.GetKeyDown(KeyCode.F)) dbg_serverPrintInventory();
         if (Input.GetKeyDown(KeyCode.Q)) pickUp(GameObject.Find("mdl_screwDriver"));
