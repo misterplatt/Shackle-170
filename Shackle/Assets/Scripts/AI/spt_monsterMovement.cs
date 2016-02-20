@@ -1,16 +1,34 @@
 ﻿/* spt_monsterMovement.cs
  * 
  * Created by: Lauren Cunningham
+ * Networking Modifications by : Ryan Connors
  * 
- * Last Revision Date: 2/15/2016
+ * Last Revision Date: 2/20/2016 : Networking
  * 
  * This file is the one that ultimately governs the monster's movements. **/
 
 using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 
-public class spt_monsterMovement : MonoBehaviour {
-    
+public class spt_monsterMovement : NetworkBehaviour {
+
+    // Networking syncing and lerping variables
+
+    //syncPos stores vector3 with monsters current location
+    [SyncVar]
+    private Vector3 syncPos;
+
+    //myTransform stores monsters transform for sync info
+    [SerializeField]
+    Transform myTransform;
+    //lerpRate, how often should the transform be sampled for networking
+    [SerializeField]
+    float lerpRate = 15;
+
+    private Vector3 lastPos;
+    private float threshold = 0.5f;
+
     // Array of waypoints, the graph that holds the waypoints, as well as the script that instantiates the graph itself 
     public Transform[] waypoints;
     private int[][] waypointGraph;
@@ -24,15 +42,17 @@ public class spt_monsterMovement : MonoBehaviour {
 
     // Use this for initialization
 	void Start () {
-
+        if (!isServer) return;
+        
         //Gets the waypoint graph from another script, then sets the first waypoint to the center of the room.
         graphScript = GameObject.FindObjectOfType(typeof(spt_createGraphForGarage)) as spt_createGraphForGarage;
         waypointGraph = graphScript.getWaypointGraph();       
         agent = GetComponent<NavMeshAgent>();
+        agent.enabled = true;
         agent.SetDestination(waypoints[16].position);
         currentWaypoint = 0;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
