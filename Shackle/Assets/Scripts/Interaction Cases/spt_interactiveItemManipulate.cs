@@ -3,14 +3,8 @@ using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_interactiveItemManipulate : MonoBehaviour
+    public class spt_interactiveItemManipulate : spt_baseInteractiveObject
     {
-
-        //Access to InteractiveItem script
-        [SerializeField]
-        private VRInteractiveItem m_InteractiveItem;
-        [SerializeField]
-        private Renderer m_Renderer;
 
         public float rotationSpeed = 70;
         public float lerpSpeed = 5;
@@ -24,18 +18,7 @@ namespace VRStandardAssets.Examples
         public Transform endPoint;
         //public GameObject panelObj; //USE IF VIGNETTE IS WANTED
 
-        private void OnEnable()
-        {
-            m_InteractiveItem.OnClick += HandleClick;
-        }
-
-
-        private void OnDisable()
-        {
-            m_InteractiveItem.OnClick -= HandleClick;
-        }
-
-        void Start() {
+       override protected void Start() {
             //Store object's original position and rotation
             startPoint = transform.position;
             startRotation = transform.rotation;
@@ -48,7 +31,7 @@ namespace VRStandardAssets.Examples
             endPoint = raycastingPlayer.transform.Find("VRCameraUI/InspectPoint");
         }
 
-        void Update() {
+        override protected void Update() {
             //If the object has been clicked (A button) in the world, lerp it in front of the player and enable rotation with right thumbstick
             if (currentState == true)
             {
@@ -80,9 +63,9 @@ namespace VRStandardAssets.Examples
         }
 
         //Handle the Click event, alternates states on every press
-        private void HandleClick()
+        override protected void clickSuccess()
         {
-            Debug.Log("Show click state");
+            //Debug.Log("Show click state");
             currentState = true;
             //m_Renderer.material = m_StateOneMaterial;
         }

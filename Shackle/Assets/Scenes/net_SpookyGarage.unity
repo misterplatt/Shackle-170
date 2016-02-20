@@ -143,6 +143,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 11099273}
+  selectionRadial: {fileID: 0}
   xAxis: 0
   zAxis: 1
   moveSpeed: 1
@@ -160,6 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!114 &11099274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,6 +689,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 199363624}
+  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 199363625}
@@ -704,6 +707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!23 &199363625
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1175,6 +1179,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 353954626}
+  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 9804dce6064691c41930dd6e9b3ac272, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 353954627}
@@ -1192,6 +1197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!23 &353954627
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1490,6 +1496,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 452523422}
+  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 452523423}
@@ -1507,6 +1514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!23 &452523423
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1740,6 +1748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!65 &534444304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2164,6 +2173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!65 &648225338
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2444,6 +2454,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 727363250}
+  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 727363251}
@@ -2460,6 +2471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!23 &727363251
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3127,6 +3139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!114 &935497227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3141,6 +3154,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 935497226}
+  selectionRadial: {fileID: 0}
 --- !u!114 &935497228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3435,6 +3449,7 @@ MonoBehaviour:
   gateItemName: mdl_garageOpener
   holdTime: 2
   m_InteractiveItem: {fileID: 1019155237}
+  selectionRadial: {fileID: 0}
 --- !u!4 &1019155236
 Transform:
   m_ObjectHideFlags: 0
@@ -3463,6 +3478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!114 &1019155238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3755,6 +3771,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1146800813}
+  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 1146800814}
@@ -3772,6 +3789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!23 &1146800814
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3868,6 +3886,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1148648213}
+  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 1148648214}
@@ -3885,6 +3904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!23 &1148648214
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4486,6 +4506,7 @@ MonoBehaviour:
   gateItemName: mdl_key
   holdTime: 2
   m_InteractiveItem: {fileID: 1304532217}
+  selectionRadial: {fileID: 0}
 --- !u!114 &1304532217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4498,6 +4519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!114 &1304532218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4636,6 +4658,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1314788442}
+  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 1314788443}
@@ -4653,6 +4676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!23 &1314788443
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5051,6 +5075,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1439087264}
+  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 1439087265}
@@ -5068,6 +5093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!23 &1439087265
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5164,6 +5190,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1449882866}
+  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 1449882867}
@@ -5181,6 +5208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!23 &1449882867
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5277,6 +5305,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1485271241}
+  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 1485271242}
@@ -5294,6 +5323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!23 &1485271242
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6315,6 +6345,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1936999528}
+  selectionRadial: {fileID: 0}
 --- !u!114 &1936999528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6327,6 +6358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!65 &1936999529
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6577,6 +6609,7 @@ MonoBehaviour:
   gateItemName: mdl_screwDriver
   holdTime: 2
   m_InteractiveItem: {fileID: 1963670078}
+  selectionRadial: {fileID: 0}
 --- !u!114 &1963670078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6589,6 +6622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!114 &1963670079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6769,8 +6803,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 499224d63632e9e478f1bdebd184598f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateItemName: Hand
+  holdTime: 0
   m_InteractiveItem: {fileID: 1969924438}
-  m_Renderer: {fileID: 1969924439}
+  selectionRadial: {fileID: 0}
   rotationSpeed: 70
   lerpSpeed: 5
   distanceBeforeLerp: 0.3
@@ -6788,6 +6824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!23 &1969924439
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7413,6 +7450,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 2140054945}
+  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 2140054946}
@@ -7430,6 +7468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
+  radial: {fileID: 0}
 --- !u!23 &2140054946
 MeshRenderer:
   m_ObjectHideFlags: 0
