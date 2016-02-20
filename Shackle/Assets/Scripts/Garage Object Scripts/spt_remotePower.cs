@@ -4,7 +4,7 @@ using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_remotePower : NetworkBehaviour
+    public class spt_remotePower : spt_baseInteractiveObject
     {
         public static bool local_TVpowerState = false;
 
@@ -12,27 +12,11 @@ namespace VRStandardAssets.Examples
         private Material m_StateOneMaterial;
         [SerializeField]
         private Material m_StateTwoMaterial;
-
-
-        //Access to InteractiveItem script
-        [SerializeField]
-        private VRInteractiveItem m_InteractiveItem;
         [SerializeField]
         private Renderer m_Renderer;
 
         private bool currentState = false;
         public GameObject TV_static;
-
-        private void OnEnable()
-        {
-            m_InteractiveItem.OnClick += HandleClick;
-        }
-
-
-        private void OnDisable()
-        {
-            m_InteractiveItem.OnClick -= HandleClick;
-        }
 
         //Function that activates all manipulation object's children's colliders on pickup, and deactivates on put down
         public void childActive(bool state)
@@ -42,7 +26,7 @@ namespace VRStandardAssets.Examples
         }
 
         //Handle the Click event, alternates states on every press
-        private void HandleClick()
+        override protected void clickSuccess()
         {
             //If the puzzle state extCordPlugged is true, modify the TVPowered state
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[0].state == true) {
@@ -55,5 +39,7 @@ namespace VRStandardAssets.Examples
                 TV_static.SetActive(true); //PLACEHOLDER UNTIL NETWORK LOGIC*******************************
             }
         }
+
+        protected override void HandleDown(){}
     }
 }

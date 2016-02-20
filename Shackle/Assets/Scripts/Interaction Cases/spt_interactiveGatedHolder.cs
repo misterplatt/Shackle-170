@@ -63,8 +63,7 @@ namespace VRStandardAssets.Examples
                 Debug.Log("Show down state");
                 //m_Renderer.material = m_DownMaterial;
             }
-            if (holding)
-            {
+            if (holding){
                 timer += Time.deltaTime;
                 if (timer >= holdTime || holdTime == 0) {
                     m_Renderer.material = m_DownMaterial;

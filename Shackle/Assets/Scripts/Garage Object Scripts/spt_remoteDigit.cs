@@ -4,32 +4,18 @@ using VRStandardAssets.Utils;
 namespace VRStandardAssets.Examples
 {
     //Script that handles player interaction with digit buttons on the remote
-    public class spt_remoteDigit : MonoBehaviour
+    public class spt_remoteDigit : spt_baseInteractiveObject
     {
         [SerializeField]
         private Material m_StateOneMaterial;
         [SerializeField]
         private Material m_StateTwoMaterial;
 
-        //Access to InteractiveItem script
-        [SerializeField]
-        private VRInteractiveItem m_InteractiveItem;
         [SerializeField]
         private Renderer m_Renderer;
         bool currentState = false;
 
         public spt_remoteManager rManager;
-
-        private void OnEnable()
-        {
-            m_InteractiveItem.OnClick += HandleClick;
-        }
-
-
-        private void OnDisable()
-        {
-            m_InteractiveItem.OnClick -= HandleClick;
-        }
 
         //Function that activates all manipulation object's children's colliders on pickup, and deactivates on put down
         public void childActive(bool state)
@@ -38,7 +24,7 @@ namespace VRStandardAssets.Examples
         }
 
         //Handle the Click event, alternates states on every press
-        private void HandleClick()
+        override protected void clickSuccess()
         {
             Debug.Log("Show click state");
             currentState = !currentState;
@@ -63,5 +49,7 @@ namespace VRStandardAssets.Examples
             m_Renderer.material = m_StateOneMaterial;
             currentState = false;
         }
+
+        protected override void HandleDown(){}
     }
 }

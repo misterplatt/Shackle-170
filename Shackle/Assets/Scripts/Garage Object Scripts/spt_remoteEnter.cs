@@ -3,7 +3,7 @@ using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_remoteEnter : MonoBehaviour
+    public class spt_remoteEnter : spt_baseInteractiveObject
     {
         public static bool local_correctChannelEntered = false;
 
@@ -13,26 +13,9 @@ namespace VRStandardAssets.Examples
         private Material m_StateTwoMaterial;
 
 
-        //Access to InteractiveItem script
-        [SerializeField]
-        private VRInteractiveItem m_InteractiveItem;
         [SerializeField]
         private Renderer m_Renderer;
         bool currentState = false;
-        private bool m_GazeOver;
-
-        private void OnEnable()
-        {
-            m_InteractiveItem.OnDown += HandleDown;
-            m_InteractiveItem.OnUp += HandleUp;
-        }
-
-
-        private void OnDisable()
-        {
-            m_InteractiveItem.OnDown -= HandleDown;
-            m_InteractiveItem.OnUp -= HandleUp;
-        }
 
         //Function that activates all manipulation object's children's colliders on pickup, and deactivates on put down
         public void childActive(bool state) {
@@ -40,7 +23,7 @@ namespace VRStandardAssets.Examples
         }
 
         //Handle the Click event, alternates states on every press
-        private void HandleDown()
+        override protected void holdSuccess()
         {
             //If the TV is powered on and the input channel number is 49, set correctChannel puzzle state to true
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true)
@@ -59,10 +42,12 @@ namespace VRStandardAssets.Examples
         }
 
         //Handle the Up event
-        private void HandleUp()
+        override protected void HandleUp()
         {
             m_Renderer.material = m_StateOneMaterial;
             Debug.Log("Released ENTER");
         }
+
+        protected override void clickSuccess(){}
     }
 }

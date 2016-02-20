@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 
 namespace VRStandardAssets.Utils
@@ -18,16 +19,11 @@ namespace VRStandardAssets.Utils
         public event Action OnDown;             // Called when Fire1 is pressed whilst the gaze is over this object.
 
         public spt_inventory inventoryScript;
-        public bool triggersEvent;
-        public string eventName;
-
-        [SyncVar]
-        public bool isTriggered;
-        [SyncVar]
-        public bool hasBeenTouched;
+        public Image radial;
 
         public void RetrieveInventoryScript(GameObject raycastingPlayer) {
             inventoryScript = raycastingPlayer.GetComponent<spt_inventory>();
+            radial = raycastingPlayer.GetComponentsInChildren<Image>()[0];
         }
 
         protected bool m_IsOver;

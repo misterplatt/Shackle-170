@@ -14,7 +14,7 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -99,9 +99,9 @@ GameObject:
   - 65: {fileID: 11099277}
   - 114: {fileID: 11099274}
   - 114: {fileID: 11099273}
-  - 114: {fileID: 11099272}
   - 114: {fileID: 11099276}
   - 114: {fileID: 11099275}
+  - 114: {fileID: 11099272}
   m_Layer: 0
   m_Name: mdl_bucket
   m_TagString: Untagged
@@ -137,20 +137,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 11099269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fa1c05ec88452f459d92407ec51f33c, type: 3}
+  m_Script: {fileID: 11500000, guid: b1cdedf024e17cf4c9f8250de3b0818b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OverMaterial: {fileID: 0}
-  m_DownMaterial: {fileID: 0}
-  m_UpMaterial: {fileID: 0}
+  gateItemName: Hand
+  holdTime: 0
+  m_InteractiveItem: {fileID: 11099273}
   xAxis: 0
   zAxis: 1
   moveSpeed: 1
   maxNegativeDistance: 0
   maxPositiveDistance: 1.4
-  initialPosition: {x: 0, y: 0, z: 0}
-  m_InteractiveItem: {fileID: 11099273}
-  m_Renderer: {fileID: 1885138789}
 --- !u!114 &11099273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,10 +160,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!114 &11099274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,9 +684,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33582869cbb2e584484f08c32fbebf92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateItemName: Hand
+  holdTime: 0
+  m_InteractiveItem: {fileID: 199363624}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
-  m_InteractiveItem: {fileID: 199363624}
   m_Renderer: {fileID: 199363625}
   rManager: {fileID: 1969924436}
 --- !u!114 &199363624
@@ -709,10 +704,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!23 &199363625
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1181,9 +1172,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d15558639d61ec4480ef6cb0668ec74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateItemName: Hand
+  holdTime: 0
+  m_InteractiveItem: {fileID: 353954626}
   m_StateOneMaterial: {fileID: 2100000, guid: 9804dce6064691c41930dd6e9b3ac272, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
-  m_InteractiveItem: {fileID: 353954626}
   m_Renderer: {fileID: 353954627}
   TV_static: {fileID: 0}
 --- !u!114 &353954626
@@ -1199,10 +1192,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 1
-  eventName: tvPowerPressed
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!23 &353954627
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1498,9 +1487,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33582869cbb2e584484f08c32fbebf92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateItemName: Hand
+  holdTime: 0
+  m_InteractiveItem: {fileID: 452523422}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
-  m_InteractiveItem: {fileID: 452523422}
   m_Renderer: {fileID: 452523423}
   rManager: {fileID: 1969924436}
 --- !u!114 &452523422
@@ -1516,10 +1507,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!23 &452523423
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1586,7 +1573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &488438309
 Transform:
   m_ObjectHideFlags: 0
@@ -1753,10 +1740,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!65 &534444304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2181,10 +2164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!65 &648225338
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2462,9 +2441,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5aa69106e43434289c07994c6128ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateItemName: Hand
+  holdTime: 0
+  m_InteractiveItem: {fileID: 727363250}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
-  m_InteractiveItem: {fileID: 727363250}
   m_Renderer: {fileID: 727363251}
 --- !u!114 &727363250
 MonoBehaviour:
@@ -2479,10 +2460,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!23 &727363251
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3150,10 +3127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 1
-  eventName: extCordPlugged
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!114 &935497227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3165,6 +3138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 475466822f19f6a4bb91d7e3aee30831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateItemName: Hand
+  holdTime: 0
   m_InteractiveItem: {fileID: 935497226}
 --- !u!114 &935497228
 MonoBehaviour:
@@ -3457,10 +3432,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61067fd23d8cd24d81383bac5237db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractiveItem: {fileID: 1019155237}
-  inventorySpt: {fileID: 0}
   gateItemName: mdl_garageOpener
-  holdTime: 0
+  holdTime: 2
+  m_InteractiveItem: {fileID: 1019155237}
 --- !u!4 &1019155236
 Transform:
   m_ObjectHideFlags: 0
@@ -3489,10 +3463,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!114 &1019155238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3782,9 +3752,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33582869cbb2e584484f08c32fbebf92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateItemName: Hand
+  holdTime: 0
+  m_InteractiveItem: {fileID: 1146800813}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
-  m_InteractiveItem: {fileID: 1146800813}
   m_Renderer: {fileID: 1146800814}
   rManager: {fileID: 1969924436}
 --- !u!114 &1146800813
@@ -3800,10 +3772,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!23 &1146800814
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3897,9 +3865,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33582869cbb2e584484f08c32fbebf92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateItemName: Hand
+  holdTime: 0
+  m_InteractiveItem: {fileID: 1148648213}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
-  m_InteractiveItem: {fileID: 1148648213}
   m_Renderer: {fileID: 1148648214}
   rManager: {fileID: 1969924436}
 --- !u!114 &1148648213
@@ -3915,10 +3885,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!23 &1148648214
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4226,7 +4192,7 @@ Transform:
   - {fileID: 885048209}
   - {fileID: 1817802639}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &1239764923
 GameObject:
   m_ObjectHideFlags: 0
@@ -4517,10 +4483,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ccaeaac1aaa214699491e96164a61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractiveItem: {fileID: 1304532217}
-  inventorySpt: {fileID: 0}
   gateItemName: mdl_key
-  holdTime: 0
+  holdTime: 2
+  m_InteractiveItem: {fileID: 1304532217}
 --- !u!114 &1304532217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4533,10 +4498,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!114 &1304532218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4672,9 +4633,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33582869cbb2e584484f08c32fbebf92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateItemName: Hand
+  holdTime: 0
+  m_InteractiveItem: {fileID: 1314788442}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
-  m_InteractiveItem: {fileID: 1314788442}
   m_Renderer: {fileID: 1314788443}
   rManager: {fileID: 1969924436}
 --- !u!114 &1314788442
@@ -4690,10 +4653,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!23 &1314788443
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5089,9 +5048,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33582869cbb2e584484f08c32fbebf92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateItemName: Hand
+  holdTime: 0
+  m_InteractiveItem: {fileID: 1439087264}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
-  m_InteractiveItem: {fileID: 1439087264}
   m_Renderer: {fileID: 1439087265}
   rManager: {fileID: 1969924436}
 --- !u!114 &1439087264
@@ -5107,10 +5068,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!23 &1439087265
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5204,9 +5161,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33582869cbb2e584484f08c32fbebf92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateItemName: Hand
+  holdTime: 0
+  m_InteractiveItem: {fileID: 1449882866}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
-  m_InteractiveItem: {fileID: 1449882866}
   m_Renderer: {fileID: 1449882867}
   rManager: {fileID: 1969924436}
 --- !u!114 &1449882866
@@ -5222,10 +5181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!23 &1449882867
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5319,9 +5274,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33582869cbb2e584484f08c32fbebf92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateItemName: Hand
+  holdTime: 0
+  m_InteractiveItem: {fileID: 1485271241}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
-  m_InteractiveItem: {fileID: 1485271241}
   m_Renderer: {fileID: 1485271242}
   rManager: {fileID: 1969924436}
 --- !u!114 &1485271241
@@ -5337,10 +5294,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!23 &1485271242
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6356,11 +6309,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1936999526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73c22da4052718045bd1646aa9ea5e25, type: 3}
+  m_Script: {fileID: 11500000, guid: eb57631ec0361ef4787aa9df0be8c754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateItemName: Hand
+  holdTime: 0
   m_InteractiveItem: {fileID: 1936999528}
-  inventorySpt: {fileID: 0}
 --- !u!114 &1936999528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6373,10 +6327,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!65 &1936999529
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6624,10 +6574,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beca05ed942816b419c55002a9fd8187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractiveItem: {fileID: 1963670078}
-  inventorySpt: {fileID: 0}
   gateItemName: mdl_screwDriver
-  holdTime: 0
+  holdTime: 2
+  m_InteractiveItem: {fileID: 1963670078}
 --- !u!114 &1963670078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6640,10 +6589,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!114 &1963670079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6843,10 +6788,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!23 &1969924439
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7469,9 +7410,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33582869cbb2e584484f08c32fbebf92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateItemName: Hand
+  holdTime: 0
+  m_InteractiveItem: {fileID: 2140054945}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
-  m_InteractiveItem: {fileID: 2140054945}
   m_Renderer: {fileID: 2140054946}
   rManager: {fileID: 1969924436}
 --- !u!114 &2140054945
@@ -7487,10 +7430,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScript: {fileID: 0}
-  triggersEvent: 0
-  eventName: 
-  isTriggered: 0
-  hasBeenTouched: 0
 --- !u!23 &2140054946
 MeshRenderer:
   m_ObjectHideFlags: 0

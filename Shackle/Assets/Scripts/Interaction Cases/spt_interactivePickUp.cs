@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using VRStandardAssets.Utils;
-using UnityEngine.UI;
 
 namespace VRStandardAssets.Examples
 {

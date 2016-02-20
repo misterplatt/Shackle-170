@@ -7,7 +7,7 @@ namespace VRStandardAssets.Examples
     {
         [SerializeField]
         private Material m_StateOneMaterial;
-        [SerializeField ]
+        [SerializeField]
         private Material m_StateTwoMaterial;
 
 
