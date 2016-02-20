@@ -56,7 +56,7 @@ public class spt_monsterInteraction : MonoBehaviour {
                 {
                     if (network.PuzzleStates[i].isMonsterInteractable)
                     {
-                        Debug.Log(network.PuzzleStates[i].itemName);
+
                         indecies[j] = i;
                         weights[j] = 0.5;
                         j++;

@@ -50,7 +50,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
         List<dev_LogicPair> devtool_PuzzleStates = GameObject.Find("PuzzleStates").GetComponent<spt_Events>().devtool_PuzzleStates;
         //NPL = GetComponent<spt_NetworkPuzzleLogic>();
-        Debug.Log(devtool_PuzzleStates.Count);
+
         for (int index = 0; index < devtool_PuzzleStates.Count; ++index) {
             PuzzleStates.Add(new LogicTuple(devtool_PuzzleStates[index].eventName,
                                     false,

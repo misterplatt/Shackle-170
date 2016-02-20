@@ -55,12 +55,12 @@ public class spt_inventory : NetworkBehaviour {
     
     void Update() {
         if (!isLocalPlayer) return;
-        if (invChanged) Debug.Log("Inv Change");
+
         if (invChanged) visualList();
         //cycling controls
         
         if ((spt_playerControls.triggers() == -1 || Input.GetKeyDown(KeyCode.A)) && !once) {
-            Debug.Log("Test");
+
             cycleLeft();
             once = true;
         }
@@ -87,7 +87,7 @@ public class spt_inventory : NetworkBehaviour {
 
     public void reticleUpdate() {
         reticleTex = GameObject.Find("GUIReticle");
-        Debug.Log(retrieveObjectFromInventory(activeItem));
+
         reticleTex.GetComponent<RawImage>().texture = retrieveObjectFromInventory(activeItem).GetComponent<GUITexture>().texture;
     }
 
@@ -99,7 +99,7 @@ public class spt_inventory : NetworkBehaviour {
             ++slotNumber;
             if (index == inventory.Count)
             {
-                Debug.Log("Clear Slot Hit");
+
                 transform.Find("VRCameraUI/InventorySlot" + slotNumber).gameObject.GetComponent<RawImage>().texture = none;
                 break;
             }

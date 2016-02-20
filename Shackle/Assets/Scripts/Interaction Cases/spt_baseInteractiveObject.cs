@@ -57,7 +57,7 @@ namespace VRStandardAssets.Examples
         //Handle the Over event
         virtual protected void HandleOver()
         {
-            Debug.Log("Show over state");
+
         }
 
 

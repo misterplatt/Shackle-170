@@ -13,7 +13,7 @@ public class spt_Player_NetworkSetup : NetworkBehaviour {
 	
         if(isLocalPlayer)
         {
-            Debug.Log("Test");
+
             //GameObject mCam = GameObject.Find("Main Camera");
             //if (mCam != null) { GameObject.Find("Main Camera").SetActive(false); Debug.Log("TEST"); }
             GetComponent<Camera>().enabled = true;
