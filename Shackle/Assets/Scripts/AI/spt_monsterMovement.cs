@@ -13,22 +13,6 @@ using System.Collections;
 
 public class spt_monsterMovement : NetworkBehaviour {
 
-    // Networking syncing and lerping variables
-
-    //syncPos stores vector3 with monsters current location
-    [SyncVar]
-    private Vector3 syncPos;
-
-    //myTransform stores monsters transform for sync info
-    [SerializeField]
-    Transform myTransform;
-    //lerpRate, how often should the transform be sampled for networking
-    [SerializeField]
-    float lerpRate = 15;
-
-    private Vector3 lastPos;
-    private float threshold = 0.5f;
-
     // Array of waypoints, the graph that holds the waypoints, as well as the script that instantiates the graph itself 
     public Transform[] waypoints;
     private int[][] waypointGraph;

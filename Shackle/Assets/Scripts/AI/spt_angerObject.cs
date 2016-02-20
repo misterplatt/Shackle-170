@@ -64,7 +64,6 @@ public class spt_angerObject : MonoBehaviour {
 
             //if the monster can immediately see the object that just came into existence...
             if (monster.canSeeSomething(this.transform)){
-
                 //Update the monster's anger with an increased field of view boost.
                 monster.updateAnger(data.getAnger() + data.getAnger());
             }

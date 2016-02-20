@@ -7,16 +7,18 @@
  * This file is the one that ultimately governs the monster's motivation. **/
 
 using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 
-public class spt_monsterMotivation : MonoBehaviour {
+public class spt_monsterMotivation : NetworkBehaviour {
     
     // Handle on the players (so the monster always knows where they are).
     public GameObject players;
     
     private spt_monsterMovement movementScript;
     
-    private int angerLevel;
+    [SyncVar]
+    public int angerLevel;
 
     // Used for motivation calculations
     private float fieldOfViewDegrees = 110f;
@@ -30,6 +32,7 @@ public class spt_monsterMotivation : MonoBehaviour {
 
     // Use this for initialization
 	void Start () {
+        if (!isServer) return; 
         movementScript = GameObject.FindObjectOfType(typeof(spt_monsterMovement)) as spt_monsterMovement;
 
         // Sets the initial anger level of the monster to zero.
@@ -40,7 +43,9 @@ public class spt_monsterMotivation : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {    
+	void Update () {
+        Debug.Log("Anger : " + angerLevel);
+        if (!isServer) return;    
         if (angerLevel >= lowerThreshold)
             attack();
 	}
@@ -58,15 +63,16 @@ public class spt_monsterMotivation : MonoBehaviour {
 
         // Ray drawn between the monster and the item
         Vector3 rayDirection = alteredItemPosition - alteredMonsterPosition;
-
+        
         // Detects if the item is even within the view of the monster
         if ((Vector3.Angle(rayDirection, transform.forward)) <= fieldOfViewDegrees * 0.5f)
         {
 
+            Debug.DrawRay(alteredMonsterPosition, rayDirection, Color.yellow, 1.0f, true);
             // Detects if the item is blocked by another object in the world
             if (Physics.Raycast(alteredMonsterPosition, rayDirection, out hit, visibilityDistance))
             {
-
+                Debug.DrawRay(alteredMonsterPosition, rayDirection, Color.red, 1.0f, true);
                 // Makes sure the object being looked at is something that angers the monster. MUST HAVE A "target" TAG
                 if (hit.transform.CompareTag("target"))
                 {
@@ -115,6 +121,7 @@ public class spt_monsterMotivation : MonoBehaviour {
     // Called evey second. Allows anger to depreciate over time.
     private void angerDepreciation()
     {
+        if (!isServer) return;
         if (angerLevel != 0)
             angerLevel = angerLevel - 1;
 
