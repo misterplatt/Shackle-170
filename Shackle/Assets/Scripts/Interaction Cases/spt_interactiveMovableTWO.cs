@@ -55,10 +55,12 @@ namespace VRStandardAssets.Examples
             if (spt_playerControls.aButtonPressed() == false) buttonHeld = false;
         }
 
-        override protected void HandleClick() { }
-
-        override protected void HandleDown() {
+        protected override void holdSuccess()
+        {
             buttonHeld = true;
         }
+
+        //Plugging HandleClick
+        override protected void HandleClick() { }
     }
 }
