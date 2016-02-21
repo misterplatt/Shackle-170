@@ -154,7 +154,6 @@ public class spt_inventory : NetworkBehaviour {
     //cycleright in inventory
     void cycleRight() {
         if (inventory.Count == 0) return;
-        Debug.Log("ActiveItem : " + activeItem);
 
         if(activeItem < inventory.Count-1) {
             ++activeItem;
@@ -250,7 +249,6 @@ public class spt_inventory : NetworkBehaviour {
     [Command]
     void CmdSendItem( string pGiver, string itemName ) {
         if (itemName == "Hand") return;
-        Debug.Log("Sending : " + itemName);
         //get players from scene
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         GameObject giver = null;
