@@ -242,4 +242,9 @@ public class spt_inventory : NetworkBehaviour {
 
     }
 
+    //Used by tooltip listener to see when player has picked up an object.
+    public int inventorySize() {
+        return inventory.Count;
+    }
+
 }
