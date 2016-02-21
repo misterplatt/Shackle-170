@@ -14,13 +14,14 @@ public class spt_inventory : NetworkBehaviour {
     public GameObject reticleTex;
     public Texture handSprite;
     public Texture none;
+    private int MAX_SLOTS = 4;
 
     [SyncVar]
     public bool invChanged = true;
 
     public int activeItem = -1;
     public float lerpSpeed = 5;
-    private int activeSlotNumber = 1;
+    private int activeSlotNumber = 0;
     private Vector3 startPos;
     private Vector3 endPos;
 
@@ -38,15 +39,17 @@ public class spt_inventory : NetworkBehaviour {
         //initialize Inventory with hand as active object, set slot 1 sprite
         if (isServer)
         {
+            
             activeItem = 0;
             inventory.Add("Hand");
-            transform.Find("VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
+            transform.Find("VRCameraUI/InventorySlot0").gameObject.GetComponent<RawImage>().texture = handSprite;
             reticleUpdate();
+            dpg_addInventory();
         }
         else
         {
             CmdinitSpawn(this.name);
-            GameObject.Find(this.name).transform.Find("VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
+            GameObject.Find(this.name).transform.Find("VRCameraUI/InventorySlot0").gameObject.GetComponent<RawImage>().texture = handSprite;
             reticleUpdate();
         }
 
@@ -72,8 +75,11 @@ public class spt_inventory : NetworkBehaviour {
         
         //ryans test stuff because his control does wierd stuff
         if (Input.GetKeyDown(KeyCode.A)) cycleLeft();
-        if (Input.GetKeyDown(KeyCode.D)) cycleRight();
-        if (Input.GetKeyDown(KeyCode.N) || Input.GetButtonDown("xButton"))sendItem();
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            cycleRight();
+        }
+        if (Input.GetKeyDown(KeyCode.N) || Input.GetButtonDown("xButton")) sendItem();
         if (Input.GetKeyDown(KeyCode.E)) dbg_printInventory();
         if (Input.GetKeyDown(KeyCode.F)) dbg_serverPrintInventory();
         if (Input.GetKeyDown(KeyCode.Q)) pickUp(GameObject.Find("mdl_screwDriver"));
@@ -91,6 +97,22 @@ public class spt_inventory : NetworkBehaviour {
         reticleTex.GetComponent<RawImage>().texture = retrieveObjectFromInventory(activeItem).GetComponent<GUITexture>().texture;
     }
 
+    public void visualList() {
+        for (int index = 1; index < MAX_SLOTS; ++index ) {
+            GameObject thisSlot = transform.Find("VRCameraUI/InventorySlot" + index).gameObject;
+            GameObject invItem = null;
+
+            if ( index >= inventory.Count )
+            {
+                thisSlot.GetComponent<RawImage>().texture = none;
+                break;
+            }
+            invItem = retrieveObjectFromInventory(index);
+            thisSlot.GetComponent<RawImage>().texture = invItem.GetComponent<GUITexture>().texture;
+        } 
+    }
+
+    /*
     public void visualList() {
         int slotNumber = 0;
         //Debug.Log("Visualizing List...");
@@ -114,8 +136,9 @@ public class spt_inventory : NetworkBehaviour {
         }
         invChanged = false;
     }
-
+    */
     public void pickUp ( GameObject item ) {
+        if (inventory.Count == 5) return;
         //should never be null
         inventory.Insert( inventory.Count, item.name );
         invChanged = true;
@@ -131,6 +154,7 @@ public class spt_inventory : NetworkBehaviour {
     //cycleright in inventory
     void cycleRight() {
         if (inventory.Count == 0) return;
+        Debug.Log("ActiveItem : " + activeItem);
 
         if(activeItem < inventory.Count-1) {
             ++activeItem;
@@ -139,7 +163,7 @@ public class spt_inventory : NetworkBehaviour {
         else {
             //case : loop from end to beginning
             activeItem = 0;
-            activeSlotNumber = 1;            
+            activeSlotNumber = 0;            
         }
         reticleUpdate();
 
@@ -159,7 +183,7 @@ public class spt_inventory : NetworkBehaviour {
         }
         else {
             activeItem = inventory.Count - 1;
-            activeSlotNumber = inventory.Count;
+            activeSlotNumber = inventory.Count - 1;
         }
         reticleUpdate();
 
@@ -196,6 +220,14 @@ public class spt_inventory : NetworkBehaviour {
         }
     }
 
+    public void dpg_addInventory()
+    {
+        inventory.Add("mdl_screwDriver");
+        inventory.Add("mdl_garageOpener");
+        inventory.Add("mdl_key");
+    //    inventory.Add("mdl_screwDriver");
+    }
+
     public void dbg_printInventory()
     {
         int slot = 1;
@@ -228,6 +260,12 @@ public class spt_inventory : NetworkBehaviour {
         foreach (GameObject player in players) {
             if (player.name == pGiver) giver = player;
             else reciever = player;
+        }
+
+        if ( reciever.GetComponent<spt_inventory>().inventory.Count == 5 )
+        {
+            Debug.Log("Tried to pass to full inventory.");
+            return;
         }
 
         //remove object from giver
