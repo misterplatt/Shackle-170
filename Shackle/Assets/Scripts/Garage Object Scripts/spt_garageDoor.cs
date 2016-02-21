@@ -1,4 +1,14 @@
-﻿using UnityEngine;
+﻿/*
+spt_garageDoor
+
+Author(s): Hayden Platt
+
+Revision 2
+
+Open the garage if opener is used on door for holdTime seconds.
+*/
+
+using UnityEngine;
 using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
@@ -7,10 +17,7 @@ namespace VRStandardAssets.Examples
     {
         public static bool local_garageDoorOpen;
 
-        //Plug HandleClick
-        override protected void HandleClick() { }
-
-        //Handle the Down event, modified so that the reticle doesn't need to stay over object to interact
+        //Open the garage if opener is used on door for holdTime seconds
         override protected void holdSuccess()
         {
             transform.Translate(new Vector3(0, 1, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
@@ -18,6 +25,9 @@ namespace VRStandardAssets.Examples
             local_garageDoorOpen = true;
             holding = false;
          }
+
+        //Plug HandleClick
+        override protected void HandleClick() { }
     }
 }
 

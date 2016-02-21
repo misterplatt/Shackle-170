@@ -1,13 +1,18 @@
-﻿using UnityEngine;
+﻿/*
+spt_TVScreenListener
+
+Author(s): Hayden Platt
+
+Revision 1
+
+Listens for event cues to show and alter TV screen sprite.
+*/
+
+using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
 
 public class spt_TVScreenListener : NetworkBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
 	
 	// Update is called once per frame
 	void Update () {
