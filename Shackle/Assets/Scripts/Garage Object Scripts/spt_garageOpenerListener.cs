@@ -20,6 +20,9 @@ public class spt_garageOpenerListener : NetworkBehaviour
     void Update()
     {
         //If the correctChannel network state is true, drop the garageOpener
-        if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true) GetComponent<Rigidbody>().useGravity = true;
+        if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true) {
+            GetComponent<BoxCollider2D>().enabled = true;
+            GetComponent<Rigidbody>().useGravity = true;
+        } 
     }
 }

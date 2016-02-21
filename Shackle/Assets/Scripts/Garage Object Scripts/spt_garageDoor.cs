@@ -20,10 +20,12 @@ namespace VRStandardAssets.Examples
         //Open the garage if opener is used on door for holdTime seconds
         override protected void holdSuccess()
         {
-            transform.Translate(new Vector3(0, 1, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
-            spt_WorldState.worldStateChanged = true;
-            local_garageDoorOpen = true;
-            holding = false;
+            if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[5].state == true) {
+                transform.Translate(new Vector3(0, 1, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
+                spt_WorldState.worldStateChanged = true;
+                local_garageDoorOpen = true;
+                holding = false;
+            }
          }
 
         //Plug HandleClick

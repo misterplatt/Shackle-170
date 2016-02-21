@@ -19,7 +19,7 @@ namespace VRStandardAssets.Examples
 
         public float rotationSpeed = 70;
         public float lerpSpeed = 5;
-        public float distanceBeforeLerp = .3f; //How far reticle can move from the object before the object lerps to it
+        public float distanceBeforeLerp = .6f; //How far reticle can move from the object before the object lerps to it
         public float distanceBeforeFreeze = .01f; //How close the reticle must be to the object before stopping the lerp
 
         bool currentState = false;
@@ -49,6 +49,7 @@ namespace VRStandardAssets.Examples
                 //panelObj.SetActive(true); //USE IF VIGNETTE IS WANTED
                 //Debug.Log("Distance: " + Vector3.Distance(transform.position, endPoint.position));
                 BroadcastMessage("childActive", true);
+                endPoint.tag = "manipulation";
                 //Only Lerp while reticle position is more than distanceBeforeLerp units away. Then, stop once reticle pos is less than than distanceBeforeFreeze
                 if (Vector3.Distance(transform.position, endPoint.position) > distanceBeforeLerp) outOfView = true;
                 if(outOfView == true) transform.position = Vector3.Lerp(transform.position, endPoint.position, Time.deltaTime * lerpSpeed);

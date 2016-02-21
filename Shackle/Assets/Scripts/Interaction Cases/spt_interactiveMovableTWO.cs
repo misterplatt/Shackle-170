@@ -38,6 +38,7 @@ namespace VRStandardAssets.Examples
             if (buttonHeld == true)
             {
                 Debug.Log("CLICKIN DA BUCKT");
+                if (transform.Find("movePath") != null) transform.Find("movePath").gameObject.GetComponent<SpriteRenderer>().enabled = true;
                 if (xAxis == true){
                     //Translate along local X axis
                     transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime * moveSpeed);
@@ -53,6 +54,7 @@ namespace VRStandardAssets.Examples
             }
             //stop moving when button is released
             if (spt_playerControls.aButtonPressed() == false) buttonHeld = false;
+            if (transform.Find("movePath") != null) transform.Find("movePath").gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
 
         override protected void HandleClick() { }

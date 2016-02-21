@@ -90,7 +90,13 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 Debug.Log("Updating garageDoorOpen on the network to " + VRStandardAssets.Examples.spt_garageDoor.local_garageDoorOpen);
                 GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("garageDoorOpen", true, "mdl_garageDoor");
             }
-            
+            //If a player has used the garage door opener on the garage door, update server state
+            if (VRStandardAssets.Examples.spt_garageLock.local_garageDoorUnlocked)
+            {
+                Debug.Log("Updating garageDoorOpen on the network to " + VRStandardAssets.Examples.spt_garageLock.local_garageDoorUnlocked);
+                GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("garageDoorUnlocked", true, "mdl_garageLock");
+            }
+
 
             spt_WorldState.worldStateChanged = false;
 
