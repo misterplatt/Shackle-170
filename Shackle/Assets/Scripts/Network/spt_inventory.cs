@@ -126,7 +126,7 @@ public class spt_inventory : NetworkBehaviour {
         invChanged = true;
     }
 
-    //cycleright in inventory
+    //cycle right in inventory
     void cycleRight() {
         if (inventory.Count == 0) return;
 
@@ -148,6 +148,7 @@ public class spt_inventory : NetworkBehaviour {
             selectionBar.transform.localPosition.z );
     }
 
+    //cycle left in inventory
     void cycleLeft() {
         if (inventory.Count == 0) return;
 
