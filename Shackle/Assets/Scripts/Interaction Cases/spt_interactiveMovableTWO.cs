@@ -57,10 +57,12 @@ namespace VRStandardAssets.Examples
             if (transform.Find("movePath") != null) transform.Find("movePath").gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
 
-        override protected void HandleClick() { }
-
-        override protected void HandleDown() {
+        protected override void holdSuccess()
+        {
             buttonHeld = true;
         }
+
+        //Plugging HandleClick
+        override protected void HandleClick() { }
     }
 }

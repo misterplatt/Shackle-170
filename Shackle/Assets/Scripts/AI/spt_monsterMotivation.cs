@@ -34,9 +34,10 @@ public class spt_monsterMotivation : NetworkBehaviour {
 
     // Use this for initialization
 	void Start () {
-        if (!isServer) return; 
+        if (!isServer) return;
+
         movementScript = GameObject.FindObjectOfType(typeof(spt_monsterMovement)) as spt_monsterMovement;
-        players = GameObject.FindGameObjectWithTag("Player");
+        players = getHost();
 
         // Sets the initial anger level of the monster to zero.
         angerLevel = 0;
@@ -47,11 +48,26 @@ public class spt_monsterMotivation : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (!isServer) return;
         Debug.Log("Anger : " + angerLevel);
-        if (!isServer) return;    
         if (angerLevel >= lowerThreshold)
             attack();
 	}
+
+    private GameObject getHost()
+    {
+        GameObject[] _players = GameObject.FindGameObjectsWithTag("Player");
+        
+        foreach ( GameObject player in _players)
+        {
+            if (player.GetComponent<NetworkIdentity>().isServer )
+            {
+                return player;
+            }
+        }
+
+        return null;
+    }
 
     //Determines if the monster can see an object from its current position.
     public bool canSeeSomething(Transform item)
@@ -120,6 +136,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
     // Increases the anger by an integer amount.
     public void updateAnger(int i)
     {
+        if (!isServer) return;
         angerLevel = angerLevel + i;
     }
 

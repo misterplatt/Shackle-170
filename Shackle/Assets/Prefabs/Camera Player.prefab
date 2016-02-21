@@ -221,6 +221,7 @@ GameObject:
   - 114: {fileID: 11439608}
   - 114: {fileID: 11409282}
   - 114: {fileID: 11428662}
+  - 114: {fileID: 11407024}
   - 114: {fileID: 11424404}
   - 114: {fileID: 11465100}
   - 114: {fileID: 11431718}
@@ -258,7 +259,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 469044}
   - 108: {fileID: 10859506}
-  - 114: {fileID: 11413856}
   m_Layer: 0
   m_Name: Flashlight
   m_TagString: Untagged
@@ -526,6 +526,18 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: You Win!
+--- !u!114 &11407024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0a244235c6222f40a0d1918a6552ff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashlight: {fileID: 0}
 --- !u!114 &11408094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -623,18 +635,6 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 
---- !u!114 &11413856
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 171172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0a244235c6222f40a0d1918a6552ff7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flashlight: {fileID: 0}
 --- !u!114 &11415882
 MonoBehaviour:
   m_ObjectHideFlags: 1
