@@ -1,4 +1,15 @@
-﻿using UnityEngine;
+﻿/*
+spt_remoteEnter
+
+Author(s): Hayden Platt, Dara Diba
+
+Revision 2
+
+Checks the current channel number when pressed.
+If it is 49, then set NPL state correctChannel to true.
+*/
+
+using UnityEngine;
 using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
@@ -48,6 +59,7 @@ namespace VRStandardAssets.Examples
             Debug.Log("Released ENTER");
         }
 
-        protected override void clickSuccess(){}
+        //Plugs the HandleClick function from base
+        protected override void HandleClick(){}
     }
 }

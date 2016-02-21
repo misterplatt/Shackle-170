@@ -1,4 +1,15 @@
-﻿using UnityEngine;
+﻿/*
+spt_garageLock
+
+Author(s): Hayden Platt
+
+Revision 2
+
+When the key is used on the lock for holdTime seconds,
+the lock's slide is moved out from within the garage.
+*/
+
+using UnityEngine;
 using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples

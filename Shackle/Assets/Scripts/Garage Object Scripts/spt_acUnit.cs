@@ -1,4 +1,15 @@
-﻿using UnityEngine;
+﻿/*
+spt_acUnit
+
+Author(s): Hayden Platt
+
+Revision 2
+
+Opens the AC unit if screwdriver is used on
+it for holdTime.
+*/
+
+using UnityEngine;
 using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
