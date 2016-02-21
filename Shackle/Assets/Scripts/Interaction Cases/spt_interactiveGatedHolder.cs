@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿/*
+spt_interactiveGatedHolder
+
+Author(s): Hayden Platt & Dara Diba
+
+Revision 1
+
+This shouldn't be necessary anymore
+*/
+using UnityEngine;
 using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples

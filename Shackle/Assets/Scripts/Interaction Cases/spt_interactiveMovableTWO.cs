@@ -1,4 +1,16 @@
-﻿using UnityEngine;
+﻿/*
+spt_interactiveItemMovableTWO
+
+Author(s): Hayden Platt,Dara Diba
+
+Revision 1
+
+Child of the base interactiveObject class
+Allows for an item to be moved a certain distance in the X or Z axis
+*/
+
+
+using UnityEngine;
 using VRStandardAssets.Utils;
 using System.Collections;
 

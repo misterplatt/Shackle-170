@@ -1,4 +1,15 @@
-﻿using UnityEngine;
+﻿/*
+spt_remoteDigit
+
+Author(s): Hayden Platt, Dara Diba
+
+Revision 2
+
+Script which resides on each remote button. When pressed,
+the name of the gameObject channelNumber string array in remote manager.
+*/
+
+using UnityEngine;
 using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
@@ -18,6 +29,7 @@ namespace VRStandardAssets.Examples
         public spt_remoteManager rManager;
 
         //Function that activates all manipulation object's children's colliders on pickup, and deactivates on put down
+        //Precon: There is a parent object that BroadcastMessage-calls this script
         public void childActive(bool state)
         {
             GetComponent<CapsuleCollider>().enabled = state;
@@ -50,6 +62,7 @@ namespace VRStandardAssets.Examples
             currentState = false;
         }
 
+        //Plug HandleDown function from base
         protected override void HandleDown(){}
     }
 }

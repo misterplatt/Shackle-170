@@ -1,4 +1,14 @@
-﻿using UnityEngine;
+﻿/*
+spt_interactiveItem
+
+Author(s): Hayden Platt,Dara Diba
+
+Revision 1
+
+Should be depracted at this point.
+*/
+
+using UnityEngine;
 using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
