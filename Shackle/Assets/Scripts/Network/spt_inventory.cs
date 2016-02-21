@@ -111,32 +111,7 @@ public class spt_inventory : NetworkBehaviour {
             thisSlot.GetComponent<RawImage>().texture = invItem.GetComponent<GUITexture>().texture;
         } 
     }
-
-    /*
-    public void visualList() {
-        int slotNumber = 0;
-        //Debug.Log("Visualizing List...");
-        //run over newly modified list, setting inventory textures according to new list positions. remove trailing tex
-        for (int index = 0; index <= inventory.Count; ++index) {
-            ++slotNumber;
-            if (index == inventory.Count)
-            {
-
-                transform.Find("VRCameraUI/InventorySlot" + slotNumber).gameObject.GetComponent<RawImage>().texture = none;
-                break;
-            }
-            
-            GameObject thisObject = retrieveObjectFromInventory(index);
-
-            //skip hand
-            if (slotNumber == 1) continue;
-
-            //Otherwise, set the UI Slot's texture to i's Value's texture (the Texture on the objects's GUI Texture opponent)
-            transform.Find("VRCameraUI/InventorySlot" + slotNumber).gameObject.GetComponent<RawImage>().texture = thisObject.GetComponent<GUITexture>().texture;
-        }
-        invChanged = false;
-    }
-    */
+    
     public void pickUp ( GameObject item ) {
         if (inventory.Count == 5) return;
         //should never be null
