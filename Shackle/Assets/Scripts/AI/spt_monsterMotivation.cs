@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 2/15/2016
+ * Last Revision Date: 2/21/2016
  * 
  * This file is the one that ultimately governs the monster's motivation. **/
 
@@ -16,6 +16,8 @@ public class spt_monsterMotivation : NetworkBehaviour {
     public GameObject players;
     
     private spt_monsterMovement movementScript;
+
+    private spt_monsterAudio audioScript;
     
     [SyncVar]
     public int angerLevel;
@@ -34,6 +36,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
 	void Start () {
         if (!isServer) return; 
         movementScript = GameObject.FindObjectOfType(typeof(spt_monsterMovement)) as spt_monsterMovement;
+        players = GameObject.FindGameObjectWithTag("Player");
 
         // Sets the initial anger level of the monster to zero.
         angerLevel = 0;
@@ -102,6 +105,8 @@ public class spt_monsterMotivation : NetworkBehaviour {
             if (hasGivenWarning == false){
                 // Play warning noise.
                 hasGivenWarning = true;
+                audioScript = GetComponent<spt_monsterAudio>();
+                audioScript.playWarningNoise();
             }
 
             // If the players have already been warned, it will attack
