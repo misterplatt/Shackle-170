@@ -44,7 +44,7 @@ public class spt_inventory : NetworkBehaviour {
             inventory.Add("Hand");
             transform.Find("VRCameraUI/InventorySlot0").gameObject.GetComponent<RawImage>().texture = handSprite;
             reticleUpdate();
-            dpg_addInventory();
+            //dpg_addInventory();
         }
         else
         {
