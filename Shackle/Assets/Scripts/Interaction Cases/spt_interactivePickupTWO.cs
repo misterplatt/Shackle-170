@@ -1,4 +1,16 @@
-﻿using UnityEngine;
+﻿/*
+spt_interactivePickupTWO
+
+Author(s): Hayden Platt,Dara Diba
+
+Revision 1
+
+Child of the base interactiveObject class
+Allows for an item to be picked up and added to the player's inventory
+*/
+
+
+using UnityEngine;
 using VRStandardAssets.Utils;
 using System.Collections;
 

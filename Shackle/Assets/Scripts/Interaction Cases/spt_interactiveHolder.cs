@@ -1,4 +1,14 @@
-﻿using UnityEngine;
+﻿/*
+spt_interactiveHolder
+
+Author(s): Hayden Platt,Dara Diba
+
+Revision 1
+
+This is the base class used in the heirarchy of item cases in the game.
+*/
+
+using UnityEngine;
 using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples

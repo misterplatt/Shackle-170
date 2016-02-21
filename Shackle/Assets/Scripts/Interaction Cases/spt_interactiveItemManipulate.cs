@@ -1,4 +1,15 @@
-﻿using UnityEngine;
+﻿/*
+spt_interactiveItemManipulate
+
+Author(s): Hayden Platt,Dara Diba
+
+Revision 2
+
+Child of the base interactiveObject class
+Allows for an item to lerp towards the player and allows the player to rotate and manipulate the item (e.g. the remote control lerps to the player and allows the player to press buttons on the controller)
+*/
+
+using UnityEngine;
 using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
