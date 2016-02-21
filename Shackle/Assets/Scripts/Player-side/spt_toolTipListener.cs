@@ -1,8 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
-
-/*
+﻿/*
 spt_toolTipListener
 
 Author(s): Hayden Platt
@@ -11,6 +7,10 @@ Revision 1
 
 Listens for event cues to show and hide tooltips.
 */
+
+using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
 public class spt_toolTipListener : MonoBehaviour {
 

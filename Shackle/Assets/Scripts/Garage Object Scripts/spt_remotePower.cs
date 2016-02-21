@@ -1,4 +1,15 @@
-﻿using UnityEngine;
+﻿/*
+spt_remotePower
+
+Author(s): Hayden Platt
+
+Revision 1
+
+Sets the NPL state TVOn if the extCordPlugged NPL state is true.
+*/
+
+
+using UnityEngine;
 using UnityEngine.Networking;
 using VRStandardAssets.Utils;
 

@@ -1,4 +1,15 @@
-﻿using UnityEngine;
+﻿/*
+spt_garageVictoryListener
+
+Author(s): Hayden Platt
+
+Revision 1
+
+Listens for NPL puzzle completion to show the 
+"YOU WIN" UI Text.
+*/
+
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 

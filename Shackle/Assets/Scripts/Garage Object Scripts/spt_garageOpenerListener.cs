@@ -1,16 +1,21 @@
-﻿using UnityEngine;
+﻿/*
+spt_garageOpenerListener
+
+Author(s): Hayden Platt
+
+Revision 1
+
+Listens for correctChannel NPL state. Once true,
+it applies gravity to the garageDoorOpener, dropping
+it on the floor.
+*/
+
+using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
 
 public class spt_garageOpenerListener : NetworkBehaviour
 {
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
