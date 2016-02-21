@@ -26,6 +26,7 @@ namespace VRStandardAssets.Examples
         public float moveSpeed = 1;
         public float maxNegativeDistance = 0;
         public float maxPositiveDistance = 2;
+        public GameObject optional_movePathImage;
 
         override protected void Start()
         {
@@ -37,8 +38,8 @@ namespace VRStandardAssets.Examples
             //When A is held, use left thumbstick to move object based on object's axis boolean
             if (buttonHeld == true)
             {
-                Debug.Log("CLICKIN DA BUCKT");
-                if (transform.Find("movePath") != null) transform.Find("movePath").gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                Debug.Log("CLICKIN DAT BUCKT");
+                if (optional_movePathImage != null) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = true;
                 if (xAxis == true){
                     //Translate along local X axis
                     transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime * moveSpeed);
@@ -53,8 +54,10 @@ namespace VRStandardAssets.Examples
                 }
             }
             //stop moving when button is released
-            if (spt_playerControls.aButtonPressed() == false) buttonHeld = false;
-            if (transform.Find("movePath") != null) transform.Find("movePath").gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            if (spt_playerControls.aButtonPressed() == false) {
+                buttonHeld = false;
+                if (optional_movePathImage != null) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
 
         protected override void holdSuccess()

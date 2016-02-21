@@ -62,6 +62,7 @@ namespace VRStandardAssets.Examples
             //If B is pressed, return the object to it's default position and rotation
             else if (currentState == false && transform.position != startPoint) {
                 BroadcastMessage("childActive", false);
+                BroadcastMessage("deactivateDigit");
                 //panelObj.SetActive(false); //USE IF VIGNETTE IS WANTED
                 transform.position = Vector3.Lerp(transform.position, startPoint, Time.deltaTime * lerpSpeed);
                 transform.rotation = startRotation;
