@@ -103,7 +103,6 @@ public class spt_inventory : NetworkBehaviour {
 
     public void visualList() {
         for (int index = 1; index < MAX_SLOTS; ++index ) {
-            Debug.Log("Updating Slot : " + index);
             GameObject thisSlot = transform.Find("VRCameraUI/InventorySlot" + index).gameObject;
             GameObject invItem = null;
 
