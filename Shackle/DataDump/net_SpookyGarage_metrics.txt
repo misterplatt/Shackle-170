@@ -9,3 +9,9 @@ acUnitOpen,-1
 TVpowerState,-1
 garageDoorOpen,-1
 correctChannelEntered,-1
+extCordPlugged,107.8706
+acUnitOpen,-1
+TVpowerState,89.33733
+garageDoorOpen,107.8706
+correctChannelEntered,107.8706
+garageDoorUnlocked,107.8706

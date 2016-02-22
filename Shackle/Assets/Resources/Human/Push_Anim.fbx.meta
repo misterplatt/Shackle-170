@@ -1,0 +1,1804 @@
+fileFormatVersion: 2
+guid: 95cd85e32c11aac499a20f5c4e62caac
+timeCreated: 1455038276
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: chair:Mesh
+    100002: copy
+    100004: //RootNode
+    100006: SK_Female_Rig_V1
+    100008: SK_Female_Rig_V1_ExtraNodes
+    100010: SK_Female_Rig_V1_HeadC
+    100012: SK_Female_Rig_V1_HeadCG
+    100014: SK_Female_Rig_V1_HeadCG2
+    100016: SK_Female_Rig_V1_HeadJ
+    100018: SK_Female_Rig_V1_JawC
+    100020: SK_Female_Rig_V1_JawCG
+    100022: SK_Female_Rig_V1_JawJ
+    100024: SK_Female_Rig_V1_lAnkleFKC
+    100026: SK_Female_Rig_V1_lAnkleFKCG
+    100028: SK_Female_Rig_V1_lAnkleIKLockLctr
+    100030: SK_Female_Rig_V1_lAnkleJ
+    100032: SK_Female_Rig_V1_lAnkleJFK
+    100034: SK_Female_Rig_V1_lAnkleJFKG1
+    100036: SK_Female_Rig_V1_lAnkleJFKG2
+    100038: SK_Female_Rig_V1_lAnkleJIK
+    100040: SK_Female_Rig_V1_lArmIKFKG
+    100042: SK_Female_Rig_V1_lArmLengthEndLctr
+    100044: SK_Female_Rig_V1_lArmLengthOriginLctr
+    100046: SK_Female_Rig_V1_lArmSwitchC
+    100048: SK_Female_Rig_V1_lArmSwitchCG
+    100050: SK_Female_Rig_V1_lBallFKC
+    100052: SK_Female_Rig_V1_lBallFKCG
+    100054: SK_Female_Rig_V1_lBallJ
+    100056: SK_Female_Rig_V1_lBallJFK
+    100058: SK_Female_Rig_V1_lBallJIK
+    100060: SK_Female_Rig_V1_lBallSwivel
+    100062: SK_Female_Rig_V1_lClavicleC
+    100064: SK_Female_Rig_V1_lClavicleCG
+    100066: SK_Female_Rig_V1_lClavicleCG2
+    100068: SK_Female_Rig_V1_lClavicleJ
+    100070: SK_Female_Rig_V1_lElbowFKC
+    100072: SK_Female_Rig_V1_lElbowFKCG
+    100074: SK_Female_Rig_V1_lElbowIKC
+    100076: SK_Female_Rig_V1_lElbowIKCG
+    100078: SK_Female_Rig_V1_lElbowIKLockLctr
+    100080: SK_Female_Rig_V1_lElbowJ
+    100082: SK_Female_Rig_V1_lElbowJFK
+    100084: SK_Female_Rig_V1_lElbowJFKG1
+    100086: SK_Female_Rig_V1_lElbowJFKG2
+    100088: SK_Female_Rig_V1_lElbowJIK
+    100090: SK_Female_Rig_V1_lFinger1J1
+    100092: SK_Female_Rig_V1_lFinger1J1C
+    100094: SK_Female_Rig_V1_lFinger1J1CG
+    100096: SK_Female_Rig_V1_lFinger1J1CRotG
+    100098: SK_Female_Rig_V1_lFinger1J2
+    100100: SK_Female_Rig_V1_lFinger1J2C
+    100102: SK_Female_Rig_V1_lFinger1J2CG
+    100104: SK_Female_Rig_V1_lFinger1J2CRotG
+    100106: SK_Female_Rig_V1_lFinger1J3
+    100108: SK_Female_Rig_V1_lFinger1J3C
+    100110: SK_Female_Rig_V1_lFinger1J3CG
+    100112: SK_Female_Rig_V1_lFinger1J3CRotG
+    100114: SK_Female_Rig_V1_lFinger2J1
+    100116: SK_Female_Rig_V1_lFinger2J1C
+    100118: SK_Female_Rig_V1_lFinger2J1CG
+    100120: SK_Female_Rig_V1_lFinger2J1CRotG
+    100122: SK_Female_Rig_V1_lFinger2J2
+    100124: SK_Female_Rig_V1_lFinger2J2C
+    100126: SK_Female_Rig_V1_lFinger2J2CG
+    100128: SK_Female_Rig_V1_lFinger2J2CRotG
+    100130: SK_Female_Rig_V1_lFinger2J3
+    100132: SK_Female_Rig_V1_lFinger2J3C
+    100134: SK_Female_Rig_V1_lFinger2J3CG
+    100136: SK_Female_Rig_V1_lFinger2J3CRotG
+    100138: SK_Female_Rig_V1_lFinger3J1
+    100140: SK_Female_Rig_V1_lFinger3J1C
+    100142: SK_Female_Rig_V1_lFinger3J1CG
+    100144: SK_Female_Rig_V1_lFinger3J1CRotG
+    100146: SK_Female_Rig_V1_lFinger3J2
+    100148: SK_Female_Rig_V1_lFinger3J2C
+    100150: SK_Female_Rig_V1_lFinger3J2CG
+    100152: SK_Female_Rig_V1_lFinger3J2CRotG
+    100154: SK_Female_Rig_V1_lFinger3J3
+    100156: SK_Female_Rig_V1_lFinger3J3C
+    100158: SK_Female_Rig_V1_lFinger3J3CG
+    100160: SK_Female_Rig_V1_lFinger3J3CRotG
+    100162: SK_Female_Rig_V1_lFinger4J1
+    100164: SK_Female_Rig_V1_lFinger4J1C
+    100166: SK_Female_Rig_V1_lFinger4J1CG
+    100168: SK_Female_Rig_V1_lFinger4J1CRotG
+    100170: SK_Female_Rig_V1_lFinger4J2
+    100172: SK_Female_Rig_V1_lFinger4J2C
+    100174: SK_Female_Rig_V1_lFinger4J2CG
+    100176: SK_Female_Rig_V1_lFinger4J2CRotG
+    100178: SK_Female_Rig_V1_lFinger4J3
+    100180: SK_Female_Rig_V1_lFinger4J3C
+    100182: SK_Female_Rig_V1_lFinger4J3CG
+    100184: SK_Female_Rig_V1_lFinger4J3CRotG
+    100186: SK_Female_Rig_V1_lFootBallPivot
+    100188: SK_Female_Rig_V1_lFootHeelPivot
+    100190: SK_Female_Rig_V1_lFootIKC
+    100192: SK_Female_Rig_V1_lFootIKCG
+    100194: SK_Female_Rig_V1_lFootInTilt
+    100196: SK_Female_Rig_V1_lFootOutTilt
+    100198: SK_Female_Rig_V1_lForearmJ
+    100200: SK_Female_Rig_V1_lHipFKC
+    100202: SK_Female_Rig_V1_lHipFKCG
+    100204: SK_Female_Rig_V1_lHipIKLockLctr
+    100206: SK_Female_Rig_V1_lHipJ
+    100208: SK_Female_Rig_V1_lHipJFK
+    100210: SK_Female_Rig_V1_lHipJIK
+    100212: SK_Female_Rig_V1_lKneeFKC
+    100214: SK_Female_Rig_V1_lKneeFKCG
+    100216: SK_Female_Rig_V1_lKneeIKC
+    100218: SK_Female_Rig_V1_lKneeIKCG
+    100220: SK_Female_Rig_V1_lKneeIKLockLctr
+    100222: SK_Female_Rig_V1_lKneeJ
+    100224: SK_Female_Rig_V1_lKneeJFK
+    100226: SK_Female_Rig_V1_lKneeJFKG1
+    100228: SK_Female_Rig_V1_lKneeJFKG2
+    100230: SK_Female_Rig_V1_lKneeJIK
+    100232: SK_Female_Rig_V1_lLegIKFKG
+    100234: SK_Female_Rig_V1_lLegLengthEndLctr
+    100236: SK_Female_Rig_V1_lLegLengthOriginLctr
+    100238: SK_Female_Rig_V1_lLegSwitchC
+    100240: SK_Female_Rig_V1_lLegSwitchCG
+    100242: SK_Female_Rig_V1_lPalmC
+    100244: SK_Female_Rig_V1_lPalmCG
+    100246: SK_Female_Rig_V1_lPalmJ
+    100248: SK_Female_Rig_V1_lShoulderFKC
+    100250: SK_Female_Rig_V1_lShoulderFKCG
+    100252: SK_Female_Rig_V1_lShoulderFKCG2
+    100254: SK_Female_Rig_V1_lShoulderIKLockLctr
+    100256: SK_Female_Rig_V1_lShoulderJ
+    100258: SK_Female_Rig_V1_lShoulderJFK
+    100260: SK_Female_Rig_V1_lShoulderJIK
+    100262: SK_Female_Rig_V1_lThumbJ1
+    100264: SK_Female_Rig_V1_lThumbJ1C
+    100266: SK_Female_Rig_V1_lThumbJ1CG
+    100268: SK_Female_Rig_V1_lThumbJ1CRotG
+    100270: SK_Female_Rig_V1_lThumbJ2
+    100272: SK_Female_Rig_V1_lThumbJ2C
+    100274: SK_Female_Rig_V1_lThumbJ2CG
+    100276: SK_Female_Rig_V1_lThumbJ2CRotG
+    100278: SK_Female_Rig_V1_lThumbJ3
+    100280: SK_Female_Rig_V1_lThumbJ3C
+    100282: SK_Female_Rig_V1_lThumbJ3CG
+    100284: SK_Female_Rig_V1_lThumbJ3CRotG
+    100286: SK_Female_Rig_V1_lToeIKC
+    100288: SK_Female_Rig_V1_lToeIKCG
+    100290: SK_Female_Rig_V1_lToeJ
+    100292: SK_Female_Rig_V1_lWristFKC
+    100294: SK_Female_Rig_V1_lWristFKCG
+    100296: SK_Female_Rig_V1_lWristIKC
+    100298: SK_Female_Rig_V1_lWristIKCG
+    100300: SK_Female_Rig_V1_lWristIKLockLctr
+    100302: SK_Female_Rig_V1_lWristJ
+    100304: SK_Female_Rig_V1_lWristJFK
+    100306: SK_Female_Rig_V1_lWristJFKG1
+    100308: SK_Female_Rig_V1_lWristJFKG2
+    100310: SK_Female_Rig_V1_lWristJG1
+    100312: SK_Female_Rig_V1_lWristJG2
+    100314: SK_Female_Rig_V1_lWristJIKProxy
+    100316: SK_Female_Rig_V1_lWristJIKProxyG1
+    100318: SK_Female_Rig_V1_lWristJIKProxyG2
+    100320: SK_Female_Rig_V1_MainC
+    100322: SK_Female_Rig_V1_MainHipC
+    100324: SK_Female_Rig_V1_MainHipCG
+    100326: SK_Female_Rig_V1_Neck01CurveC
+    100328: SK_Female_Rig_V1_Neck01CurveCG
+    100330: SK_Female_Rig_V1_Neck01J
+    100332: SK_Female_Rig_V1_Neck02CurveC
+    100334: SK_Female_Rig_V1_Neck02CurveCG
+    100336: SK_Female_Rig_V1_Neck02J
+    100338: SK_Female_Rig_V1_NeckLengthCX
+    100340: SK_Female_Rig_V1_NeckLengthCXlstr01
+    100342: SK_Female_Rig_V1_NeckLengthCXlstr01G
+    100344: SK_Female_Rig_V1_NeckLengthCXlstr02
+    100346: SK_Female_Rig_V1_NeckLengthCXlstr02G
+    100348: SK_Female_Rig_V1_NeckLengthCXlstr03
+    100350: SK_Female_Rig_V1_NeckLengthCXlstr03G
+    100352: SK_Female_Rig_V1_NeckMidIKC
+    100354: SK_Female_Rig_V1_NeckMidIKCG
+    100356: SK_Female_Rig_V1_NeckMidIKCG2
+    100358: SK_Female_Rig_V1_rAnkleFKC
+    100360: SK_Female_Rig_V1_rAnkleFKCG
+    100362: SK_Female_Rig_V1_rAnkleIKLockLctr
+    100364: SK_Female_Rig_V1_rAnkleJ
+    100366: SK_Female_Rig_V1_rAnkleJFK
+    100368: SK_Female_Rig_V1_rAnkleJFKG1
+    100370: SK_Female_Rig_V1_rAnkleJFKG2
+    100372: SK_Female_Rig_V1_rAnkleJIK
+    100374: SK_Female_Rig_V1_rArmIKFKG
+    100376: SK_Female_Rig_V1_rArmLengthEndLctr
+    100378: SK_Female_Rig_V1_rArmLengthOriginLctr
+    100380: SK_Female_Rig_V1_rArmSwitchC
+    100382: SK_Female_Rig_V1_rArmSwitchCG
+    100384: SK_Female_Rig_V1_rBallFKC
+    100386: SK_Female_Rig_V1_rBallFKCG
+    100388: SK_Female_Rig_V1_rBallJ
+    100390: SK_Female_Rig_V1_rBallJFK
+    100392: SK_Female_Rig_V1_rBallJIK
+    100394: SK_Female_Rig_V1_rBallSwivel
+    100396: SK_Female_Rig_V1_rClavicleC
+    100398: SK_Female_Rig_V1_rClavicleCG
+    100400: SK_Female_Rig_V1_rClavicleCG2
+    100402: SK_Female_Rig_V1_rClavicleJ
+    100404: SK_Female_Rig_V1_rElbowFKC
+    100406: SK_Female_Rig_V1_rElbowFKCG
+    100408: SK_Female_Rig_V1_rElbowIKC
+    100410: SK_Female_Rig_V1_rElbowIKCG
+    100412: SK_Female_Rig_V1_rElbowIKLockLctr
+    100414: SK_Female_Rig_V1_rElbowJ
+    100416: SK_Female_Rig_V1_rElbowJFK
+    100418: SK_Female_Rig_V1_rElbowJFKG1
+    100420: SK_Female_Rig_V1_rElbowJFKG2
+    100422: SK_Female_Rig_V1_rElbowJIK
+    100424: SK_Female_Rig_V1_rFinger1J1
+    100426: SK_Female_Rig_V1_rFinger1J1C
+    100428: SK_Female_Rig_V1_rFinger1J1CG
+    100430: SK_Female_Rig_V1_rFinger1J1CRotG
+    100432: SK_Female_Rig_V1_rFinger1J2
+    100434: SK_Female_Rig_V1_rFinger1J2C
+    100436: SK_Female_Rig_V1_rFinger1J2CG
+    100438: SK_Female_Rig_V1_rFinger1J2CRotG
+    100440: SK_Female_Rig_V1_rFinger1J3
+    100442: SK_Female_Rig_V1_rFinger1J3C
+    100444: SK_Female_Rig_V1_rFinger1J3CG
+    100446: SK_Female_Rig_V1_rFinger1J3CRotG
+    100448: SK_Female_Rig_V1_rFinger2J1
+    100450: SK_Female_Rig_V1_rFinger2J1C
+    100452: SK_Female_Rig_V1_rFinger2J1CG
+    100454: SK_Female_Rig_V1_rFinger2J1CRotG
+    100456: SK_Female_Rig_V1_rFinger2J2
+    100458: SK_Female_Rig_V1_rFinger2J2C
+    100460: SK_Female_Rig_V1_rFinger2J2CG
+    100462: SK_Female_Rig_V1_rFinger2J2CRotG
+    100464: SK_Female_Rig_V1_rFinger2J3
+    100466: SK_Female_Rig_V1_rFinger2J3C
+    100468: SK_Female_Rig_V1_rFinger2J3CG
+    100470: SK_Female_Rig_V1_rFinger2J3CRotG
+    100472: SK_Female_Rig_V1_rFinger3J1
+    100474: SK_Female_Rig_V1_rFinger3J1C
+    100476: SK_Female_Rig_V1_rFinger3J1CG
+    100478: SK_Female_Rig_V1_rFinger3J1CRotG
+    100480: SK_Female_Rig_V1_rFinger3J2
+    100482: SK_Female_Rig_V1_rFinger3J2C
+    100484: SK_Female_Rig_V1_rFinger3J2CG
+    100486: SK_Female_Rig_V1_rFinger3J2CRotG
+    100488: SK_Female_Rig_V1_rFinger3J3
+    100490: SK_Female_Rig_V1_rFinger3J3C
+    100492: SK_Female_Rig_V1_rFinger3J3CG
+    100494: SK_Female_Rig_V1_rFinger3J3CRotG
+    100496: SK_Female_Rig_V1_rFinger4J1
+    100498: SK_Female_Rig_V1_rFinger4J1C
+    100500: SK_Female_Rig_V1_rFinger4J1CG
+    100502: SK_Female_Rig_V1_rFinger4J1CRotG
+    100504: SK_Female_Rig_V1_rFinger4J2
+    100506: SK_Female_Rig_V1_rFinger4J2C
+    100508: SK_Female_Rig_V1_rFinger4J2CG
+    100510: SK_Female_Rig_V1_rFinger4J2CRotG
+    100512: SK_Female_Rig_V1_rFinger4J3
+    100514: SK_Female_Rig_V1_rFinger4J3C
+    100516: SK_Female_Rig_V1_rFinger4J3CG
+    100518: SK_Female_Rig_V1_rFinger4J3CRotG
+    100520: SK_Female_Rig_V1_rFootBallPivot
+    100522: SK_Female_Rig_V1_rFootHeelPivot
+    100524: SK_Female_Rig_V1_rFootIKC
+    100526: SK_Female_Rig_V1_rFootIKCG
+    100528: SK_Female_Rig_V1_rFootInTilt
+    100530: SK_Female_Rig_V1_rFootOutTilt
+    100532: SK_Female_Rig_V1_rForearmJ
+    100534: SK_Female_Rig_V1_rHipFKC
+    100536: SK_Female_Rig_V1_rHipFKCG
+    100538: SK_Female_Rig_V1_rHipIKLockLctr
+    100540: SK_Female_Rig_V1_rHipJ
+    100542: SK_Female_Rig_V1_rHipJFK
+    100544: SK_Female_Rig_V1_rHipJIK
+    100546: SK_Female_Rig_V1_rKneeFKC
+    100548: SK_Female_Rig_V1_rKneeFKCG
+    100550: SK_Female_Rig_V1_rKneeIKC
+    100552: SK_Female_Rig_V1_rKneeIKCG
+    100554: SK_Female_Rig_V1_rKneeIKLockLctr
+    100556: SK_Female_Rig_V1_rKneeJ
+    100558: SK_Female_Rig_V1_rKneeJFK
+    100560: SK_Female_Rig_V1_rKneeJFKG1
+    100562: SK_Female_Rig_V1_rKneeJFKG2
+    100564: SK_Female_Rig_V1_rKneeJIK
+    100566: SK_Female_Rig_V1_rLegIKFKG
+    100568: SK_Female_Rig_V1_rLegLengthEndLctr
+    100570: SK_Female_Rig_V1_rLegLengthOriginLctr
+    100572: SK_Female_Rig_V1_rLegSwitchC
+    100574: SK_Female_Rig_V1_rLegSwitchCG
+    100576: SK_Female_Rig_V1_ROOTJ
+    100578: SK_Female_Rig_V1_ROOTNodeJ
+    100580: SK_Female_Rig_V1_rPalmC
+    100582: SK_Female_Rig_V1_rPalmCG
+    100584: SK_Female_Rig_V1_rPalmJ
+    100586: SK_Female_Rig_V1_rShoulderFKC
+    100588: SK_Female_Rig_V1_rShoulderFKCG
+    100590: SK_Female_Rig_V1_rShoulderFKCG2
+    100592: SK_Female_Rig_V1_rShoulderIKLockLctr
+    100594: SK_Female_Rig_V1_rShoulderJ
+    100596: SK_Female_Rig_V1_rShoulderJFK
+    100598: SK_Female_Rig_V1_rShoulderJIK
+    100600: SK_Female_Rig_V1_rThumbJ1
+    100602: SK_Female_Rig_V1_rThumbJ1C
+    100604: SK_Female_Rig_V1_rThumbJ1CG
+    100606: SK_Female_Rig_V1_rThumbJ1CRotG
+    100608: SK_Female_Rig_V1_rThumbJ2
+    100610: SK_Female_Rig_V1_rThumbJ2C
+    100612: SK_Female_Rig_V1_rThumbJ2CG
+    100614: SK_Female_Rig_V1_rThumbJ2CRotG
+    100616: SK_Female_Rig_V1_rThumbJ3
+    100618: SK_Female_Rig_V1_rThumbJ3C
+    100620: SK_Female_Rig_V1_rThumbJ3CG
+    100622: SK_Female_Rig_V1_rThumbJ3CRotG
+    100624: SK_Female_Rig_V1_rToeIKC
+    100626: SK_Female_Rig_V1_rToeIKCG
+    100628: SK_Female_Rig_V1_rToeJ
+    100630: SK_Female_Rig_V1_rWristFKC
+    100632: SK_Female_Rig_V1_rWristFKCG
+    100634: SK_Female_Rig_V1_rWristIKC
+    100636: SK_Female_Rig_V1_rWristIKCG
+    100638: SK_Female_Rig_V1_rWristIKLockLctr
+    100640: SK_Female_Rig_V1_rWristJ
+    100642: SK_Female_Rig_V1_rWristJFK
+    100644: SK_Female_Rig_V1_rWristJFKG1
+    100646: SK_Female_Rig_V1_rWristJFKG2
+    100648: SK_Female_Rig_V1_rWristJG1
+    100650: SK_Female_Rig_V1_rWristJG2
+    100652: SK_Female_Rig_V1_rWristJIKProxy
+    100654: SK_Female_Rig_V1_rWristJIKProxyG1
+    100656: SK_Female_Rig_V1_rWristJIKProxyG2
+    100658: SK_Female_Rig_V1_SH_HeadJ
+    100660: SK_Female_Rig_V1_SH_HeadTipJ
+    100662: SK_Female_Rig_V1_SH_JawJ
+    100664: SK_Female_Rig_V1_SH_JawTipJ
+    100666: SK_Female_Rig_V1_SH_lAnkleJ
+    100668: SK_Female_Rig_V1_SH_lBallJ
+    100670: SK_Female_Rig_V1_SH_lClavicleJ
+    100672: SK_Female_Rig_V1_SH_lElbowJ
+    100674: SK_Female_Rig_V1_SH_lFinger1J1
+    100676: SK_Female_Rig_V1_SH_lFinger1J2
+    100678: SK_Female_Rig_V1_SH_lFinger1J3
+    100680: SK_Female_Rig_V1_SH_lFinger1JTip
+    100682: SK_Female_Rig_V1_SH_lFinger2J1
+    100684: SK_Female_Rig_V1_SH_lFinger2J2
+    100686: SK_Female_Rig_V1_SH_lFinger2J3
+    100688: SK_Female_Rig_V1_SH_lFinger2JTip
+    100690: SK_Female_Rig_V1_SH_lFinger3J1
+    100692: SK_Female_Rig_V1_SH_lFinger3J2
+    100694: SK_Female_Rig_V1_SH_lFinger3J3
+    100696: SK_Female_Rig_V1_SH_lFinger3JTip
+    100698: SK_Female_Rig_V1_SH_lFinger4J1
+    100700: SK_Female_Rig_V1_SH_lFinger4J2
+    100702: SK_Female_Rig_V1_SH_lFinger4J3
+    100704: SK_Female_Rig_V1_SH_lFinger4JTip
+    100706: SK_Female_Rig_V1_SH_lForearmJ
+    100708: SK_Female_Rig_V1_SH_lHipJ
+    100710: SK_Female_Rig_V1_SH_lKneeJ
+    100712: SK_Female_Rig_V1_SH_lPalmJ
+    100714: SK_Female_Rig_V1_SH_lShoulderJ
+    100716: SK_Female_Rig_V1_SH_lThumbJ1
+    100718: SK_Female_Rig_V1_SH_lThumbJ2
+    100720: SK_Female_Rig_V1_SH_lThumbJ3
+    100722: SK_Female_Rig_V1_SH_lThumbJTip
+    100724: SK_Female_Rig_V1_SH_lToeJ
+    100726: SK_Female_Rig_V1_SH_lWristJ
+    100728: SK_Female_Rig_V1_SH_Neck01J
+    100730: SK_Female_Rig_V1_SH_Neck02J
+    100732: SK_Female_Rig_V1_SH_rAnkleJ
+    100734: SK_Female_Rig_V1_SH_rBallJ
+    100736: SK_Female_Rig_V1_SH_rClavicleJ
+    100738: SK_Female_Rig_V1_SH_rElbowJ
+    100740: SK_Female_Rig_V1_SH_rFinger1J1
+    100742: SK_Female_Rig_V1_SH_rFinger1J2
+    100744: SK_Female_Rig_V1_SH_rFinger1J3
+    100746: SK_Female_Rig_V1_SH_rFinger1JTip
+    100748: SK_Female_Rig_V1_SH_rFinger2J1
+    100750: SK_Female_Rig_V1_SH_rFinger2J2
+    100752: SK_Female_Rig_V1_SH_rFinger2J3
+    100754: SK_Female_Rig_V1_SH_rFinger2JTip
+    100756: SK_Female_Rig_V1_SH_rFinger3J1
+    100758: SK_Female_Rig_V1_SH_rFinger3J2
+    100760: SK_Female_Rig_V1_SH_rFinger3J3
+    100762: SK_Female_Rig_V1_SH_rFinger3JTip
+    100764: SK_Female_Rig_V1_SH_rFinger4J1
+    100766: SK_Female_Rig_V1_SH_rFinger4J2
+    100768: SK_Female_Rig_V1_SH_rFinger4J3
+    100770: SK_Female_Rig_V1_SH_rFinger4JTip
+    100772: SK_Female_Rig_V1_SH_rForearmJ
+    100774: SK_Female_Rig_V1_SH_rHipJ
+    100776: SK_Female_Rig_V1_SH_rKneeJ
+    100778: SK_Female_Rig_V1_SH_ROOTJ
+    100780: SK_Female_Rig_V1_SH_rPalmJ
+    100782: SK_Female_Rig_V1_SH_rShoulderJ
+    100784: SK_Female_Rig_V1_SH_rThumbJ1
+    100786: SK_Female_Rig_V1_SH_rThumbJ2
+    100788: SK_Female_Rig_V1_SH_rThumbJ3
+    100790: SK_Female_Rig_V1_SH_rThumbJTip
+    100792: SK_Female_Rig_V1_SH_rToeJ
+    100794: SK_Female_Rig_V1_SH_rWristJ
+    100796: SK_Female_Rig_V1_SH_Spine01J
+    100798: SK_Female_Rig_V1_SH_Spine02J
+    100800: SK_Female_Rig_V1_SH_Spine03J
+    100802: SK_Female_Rig_V1_SH_SpineTopJ
+    100804: SK_Female_Rig_V1_Spine01CurveC
+    100806: SK_Female_Rig_V1_Spine01CurveCG
+    100808: SK_Female_Rig_V1_Spine01J
+    100810: SK_Female_Rig_V1_Spine02CurveC
+    100812: SK_Female_Rig_V1_Spine02CurveCG
+    100814: SK_Female_Rig_V1_Spine02J
+    100816: SK_Female_Rig_V1_Spine03CurveC
+    100818: SK_Female_Rig_V1_Spine03CurveCG
+    100820: SK_Female_Rig_V1_Spine03J
+    100822: SK_Female_Rig_V1_SpineLengthCX
+    100824: SK_Female_Rig_V1_SpineLengthCXlstr01
+    100826: SK_Female_Rig_V1_SpineLengthCXlstr01G
+    100828: SK_Female_Rig_V1_SpineLengthCXlstr02
+    100830: SK_Female_Rig_V1_SpineLengthCXlstr02G
+    100832: SK_Female_Rig_V1_SpineLengthCXlstr03
+    100834: SK_Female_Rig_V1_SpineLengthCXlstr03G
+    100836: SK_Female_Rig_V1_SpineMidIKC
+    100838: SK_Female_Rig_V1_SpineMidIKCG
+    100840: SK_Female_Rig_V1_SpineMidIKCG2
+    100842: SK_Female_Rig_V1_SpineTopIKC
+    100844: SK_Female_Rig_V1_SpineTopIKCG
+    100846: SK_Female_Rig_V1_SpineTopIKCG2
+    100848: SK_Female_Rig_V1_SpineTopJ
+    400000: chair:Mesh
+    400002: copy
+    400004: //RootNode
+    400006: SK_Female_Rig_V1
+    400008: SK_Female_Rig_V1_ExtraNodes
+    400010: SK_Female_Rig_V1_HeadC
+    400012: SK_Female_Rig_V1_HeadCG
+    400014: SK_Female_Rig_V1_HeadCG2
+    400016: SK_Female_Rig_V1_HeadJ
+    400018: SK_Female_Rig_V1_JawC
+    400020: SK_Female_Rig_V1_JawCG
+    400022: SK_Female_Rig_V1_JawJ
+    400024: SK_Female_Rig_V1_lAnkleFKC
+    400026: SK_Female_Rig_V1_lAnkleFKCG
+    400028: SK_Female_Rig_V1_lAnkleIKLockLctr
+    400030: SK_Female_Rig_V1_lAnkleJ
+    400032: SK_Female_Rig_V1_lAnkleJFK
+    400034: SK_Female_Rig_V1_lAnkleJFKG1
+    400036: SK_Female_Rig_V1_lAnkleJFKG2
+    400038: SK_Female_Rig_V1_lAnkleJIK
+    400040: SK_Female_Rig_V1_lArmIKFKG
+    400042: SK_Female_Rig_V1_lArmLengthEndLctr
+    400044: SK_Female_Rig_V1_lArmLengthOriginLctr
+    400046: SK_Female_Rig_V1_lArmSwitchC
+    400048: SK_Female_Rig_V1_lArmSwitchCG
+    400050: SK_Female_Rig_V1_lBallFKC
+    400052: SK_Female_Rig_V1_lBallFKCG
+    400054: SK_Female_Rig_V1_lBallJ
+    400056: SK_Female_Rig_V1_lBallJFK
+    400058: SK_Female_Rig_V1_lBallJIK
+    400060: SK_Female_Rig_V1_lBallSwivel
+    400062: SK_Female_Rig_V1_lClavicleC
+    400064: SK_Female_Rig_V1_lClavicleCG
+    400066: SK_Female_Rig_V1_lClavicleCG2
+    400068: SK_Female_Rig_V1_lClavicleJ
+    400070: SK_Female_Rig_V1_lElbowFKC
+    400072: SK_Female_Rig_V1_lElbowFKCG
+    400074: SK_Female_Rig_V1_lElbowIKC
+    400076: SK_Female_Rig_V1_lElbowIKCG
+    400078: SK_Female_Rig_V1_lElbowIKLockLctr
+    400080: SK_Female_Rig_V1_lElbowJ
+    400082: SK_Female_Rig_V1_lElbowJFK
+    400084: SK_Female_Rig_V1_lElbowJFKG1
+    400086: SK_Female_Rig_V1_lElbowJFKG2
+    400088: SK_Female_Rig_V1_lElbowJIK
+    400090: SK_Female_Rig_V1_lFinger1J1
+    400092: SK_Female_Rig_V1_lFinger1J1C
+    400094: SK_Female_Rig_V1_lFinger1J1CG
+    400096: SK_Female_Rig_V1_lFinger1J1CRotG
+    400098: SK_Female_Rig_V1_lFinger1J2
+    400100: SK_Female_Rig_V1_lFinger1J2C
+    400102: SK_Female_Rig_V1_lFinger1J2CG
+    400104: SK_Female_Rig_V1_lFinger1J2CRotG
+    400106: SK_Female_Rig_V1_lFinger1J3
+    400108: SK_Female_Rig_V1_lFinger1J3C
+    400110: SK_Female_Rig_V1_lFinger1J3CG
+    400112: SK_Female_Rig_V1_lFinger1J3CRotG
+    400114: SK_Female_Rig_V1_lFinger2J1
+    400116: SK_Female_Rig_V1_lFinger2J1C
+    400118: SK_Female_Rig_V1_lFinger2J1CG
+    400120: SK_Female_Rig_V1_lFinger2J1CRotG
+    400122: SK_Female_Rig_V1_lFinger2J2
+    400124: SK_Female_Rig_V1_lFinger2J2C
+    400126: SK_Female_Rig_V1_lFinger2J2CG
+    400128: SK_Female_Rig_V1_lFinger2J2CRotG
+    400130: SK_Female_Rig_V1_lFinger2J3
+    400132: SK_Female_Rig_V1_lFinger2J3C
+    400134: SK_Female_Rig_V1_lFinger2J3CG
+    400136: SK_Female_Rig_V1_lFinger2J3CRotG
+    400138: SK_Female_Rig_V1_lFinger3J1
+    400140: SK_Female_Rig_V1_lFinger3J1C
+    400142: SK_Female_Rig_V1_lFinger3J1CG
+    400144: SK_Female_Rig_V1_lFinger3J1CRotG
+    400146: SK_Female_Rig_V1_lFinger3J2
+    400148: SK_Female_Rig_V1_lFinger3J2C
+    400150: SK_Female_Rig_V1_lFinger3J2CG
+    400152: SK_Female_Rig_V1_lFinger3J2CRotG
+    400154: SK_Female_Rig_V1_lFinger3J3
+    400156: SK_Female_Rig_V1_lFinger3J3C
+    400158: SK_Female_Rig_V1_lFinger3J3CG
+    400160: SK_Female_Rig_V1_lFinger3J3CRotG
+    400162: SK_Female_Rig_V1_lFinger4J1
+    400164: SK_Female_Rig_V1_lFinger4J1C
+    400166: SK_Female_Rig_V1_lFinger4J1CG
+    400168: SK_Female_Rig_V1_lFinger4J1CRotG
+    400170: SK_Female_Rig_V1_lFinger4J2
+    400172: SK_Female_Rig_V1_lFinger4J2C
+    400174: SK_Female_Rig_V1_lFinger4J2CG
+    400176: SK_Female_Rig_V1_lFinger4J2CRotG
+    400178: SK_Female_Rig_V1_lFinger4J3
+    400180: SK_Female_Rig_V1_lFinger4J3C
+    400182: SK_Female_Rig_V1_lFinger4J3CG
+    400184: SK_Female_Rig_V1_lFinger4J3CRotG
+    400186: SK_Female_Rig_V1_lFootBallPivot
+    400188: SK_Female_Rig_V1_lFootHeelPivot
+    400190: SK_Female_Rig_V1_lFootIKC
+    400192: SK_Female_Rig_V1_lFootIKCG
+    400194: SK_Female_Rig_V1_lFootInTilt
+    400196: SK_Female_Rig_V1_lFootOutTilt
+    400198: SK_Female_Rig_V1_lForearmJ
+    400200: SK_Female_Rig_V1_lHipFKC
+    400202: SK_Female_Rig_V1_lHipFKCG
+    400204: SK_Female_Rig_V1_lHipIKLockLctr
+    400206: SK_Female_Rig_V1_lHipJ
+    400208: SK_Female_Rig_V1_lHipJFK
+    400210: SK_Female_Rig_V1_lHipJIK
+    400212: SK_Female_Rig_V1_lKneeFKC
+    400214: SK_Female_Rig_V1_lKneeFKCG
+    400216: SK_Female_Rig_V1_lKneeIKC
+    400218: SK_Female_Rig_V1_lKneeIKCG
+    400220: SK_Female_Rig_V1_lKneeIKLockLctr
+    400222: SK_Female_Rig_V1_lKneeJ
+    400224: SK_Female_Rig_V1_lKneeJFK
+    400226: SK_Female_Rig_V1_lKneeJFKG1
+    400228: SK_Female_Rig_V1_lKneeJFKG2
+    400230: SK_Female_Rig_V1_lKneeJIK
+    400232: SK_Female_Rig_V1_lLegIKFKG
+    400234: SK_Female_Rig_V1_lLegLengthEndLctr
+    400236: SK_Female_Rig_V1_lLegLengthOriginLctr
+    400238: SK_Female_Rig_V1_lLegSwitchC
+    400240: SK_Female_Rig_V1_lLegSwitchCG
+    400242: SK_Female_Rig_V1_lPalmC
+    400244: SK_Female_Rig_V1_lPalmCG
+    400246: SK_Female_Rig_V1_lPalmJ
+    400248: SK_Female_Rig_V1_lShoulderFKC
+    400250: SK_Female_Rig_V1_lShoulderFKCG
+    400252: SK_Female_Rig_V1_lShoulderFKCG2
+    400254: SK_Female_Rig_V1_lShoulderIKLockLctr
+    400256: SK_Female_Rig_V1_lShoulderJ
+    400258: SK_Female_Rig_V1_lShoulderJFK
+    400260: SK_Female_Rig_V1_lShoulderJIK
+    400262: SK_Female_Rig_V1_lThumbJ1
+    400264: SK_Female_Rig_V1_lThumbJ1C
+    400266: SK_Female_Rig_V1_lThumbJ1CG
+    400268: SK_Female_Rig_V1_lThumbJ1CRotG
+    400270: SK_Female_Rig_V1_lThumbJ2
+    400272: SK_Female_Rig_V1_lThumbJ2C
+    400274: SK_Female_Rig_V1_lThumbJ2CG
+    400276: SK_Female_Rig_V1_lThumbJ2CRotG
+    400278: SK_Female_Rig_V1_lThumbJ3
+    400280: SK_Female_Rig_V1_lThumbJ3C
+    400282: SK_Female_Rig_V1_lThumbJ3CG
+    400284: SK_Female_Rig_V1_lThumbJ3CRotG
+    400286: SK_Female_Rig_V1_lToeIKC
+    400288: SK_Female_Rig_V1_lToeIKCG
+    400290: SK_Female_Rig_V1_lToeJ
+    400292: SK_Female_Rig_V1_lWristFKC
+    400294: SK_Female_Rig_V1_lWristFKCG
+    400296: SK_Female_Rig_V1_lWristIKC
+    400298: SK_Female_Rig_V1_lWristIKCG
+    400300: SK_Female_Rig_V1_lWristIKLockLctr
+    400302: SK_Female_Rig_V1_lWristJ
+    400304: SK_Female_Rig_V1_lWristJFK
+    400306: SK_Female_Rig_V1_lWristJFKG1
+    400308: SK_Female_Rig_V1_lWristJFKG2
+    400310: SK_Female_Rig_V1_lWristJG1
+    400312: SK_Female_Rig_V1_lWristJG2
+    400314: SK_Female_Rig_V1_lWristJIKProxy
+    400316: SK_Female_Rig_V1_lWristJIKProxyG1
+    400318: SK_Female_Rig_V1_lWristJIKProxyG2
+    400320: SK_Female_Rig_V1_MainC
+    400322: SK_Female_Rig_V1_MainHipC
+    400324: SK_Female_Rig_V1_MainHipCG
+    400326: SK_Female_Rig_V1_Neck01CurveC
+    400328: SK_Female_Rig_V1_Neck01CurveCG
+    400330: SK_Female_Rig_V1_Neck01J
+    400332: SK_Female_Rig_V1_Neck02CurveC
+    400334: SK_Female_Rig_V1_Neck02CurveCG
+    400336: SK_Female_Rig_V1_Neck02J
+    400338: SK_Female_Rig_V1_NeckLengthCX
+    400340: SK_Female_Rig_V1_NeckLengthCXlstr01
+    400342: SK_Female_Rig_V1_NeckLengthCXlstr01G
+    400344: SK_Female_Rig_V1_NeckLengthCXlstr02
+    400346: SK_Female_Rig_V1_NeckLengthCXlstr02G
+    400348: SK_Female_Rig_V1_NeckLengthCXlstr03
+    400350: SK_Female_Rig_V1_NeckLengthCXlstr03G
+    400352: SK_Female_Rig_V1_NeckMidIKC
+    400354: SK_Female_Rig_V1_NeckMidIKCG
+    400356: SK_Female_Rig_V1_NeckMidIKCG2
+    400358: SK_Female_Rig_V1_rAnkleFKC
+    400360: SK_Female_Rig_V1_rAnkleFKCG
+    400362: SK_Female_Rig_V1_rAnkleIKLockLctr
+    400364: SK_Female_Rig_V1_rAnkleJ
+    400366: SK_Female_Rig_V1_rAnkleJFK
+    400368: SK_Female_Rig_V1_rAnkleJFKG1
+    400370: SK_Female_Rig_V1_rAnkleJFKG2
+    400372: SK_Female_Rig_V1_rAnkleJIK
+    400374: SK_Female_Rig_V1_rArmIKFKG
+    400376: SK_Female_Rig_V1_rArmLengthEndLctr
+    400378: SK_Female_Rig_V1_rArmLengthOriginLctr
+    400380: SK_Female_Rig_V1_rArmSwitchC
+    400382: SK_Female_Rig_V1_rArmSwitchCG
+    400384: SK_Female_Rig_V1_rBallFKC
+    400386: SK_Female_Rig_V1_rBallFKCG
+    400388: SK_Female_Rig_V1_rBallJ
+    400390: SK_Female_Rig_V1_rBallJFK
+    400392: SK_Female_Rig_V1_rBallJIK
+    400394: SK_Female_Rig_V1_rBallSwivel
+    400396: SK_Female_Rig_V1_rClavicleC
+    400398: SK_Female_Rig_V1_rClavicleCG
+    400400: SK_Female_Rig_V1_rClavicleCG2
+    400402: SK_Female_Rig_V1_rClavicleJ
+    400404: SK_Female_Rig_V1_rElbowFKC
+    400406: SK_Female_Rig_V1_rElbowFKCG
+    400408: SK_Female_Rig_V1_rElbowIKC
+    400410: SK_Female_Rig_V1_rElbowIKCG
+    400412: SK_Female_Rig_V1_rElbowIKLockLctr
+    400414: SK_Female_Rig_V1_rElbowJ
+    400416: SK_Female_Rig_V1_rElbowJFK
+    400418: SK_Female_Rig_V1_rElbowJFKG1
+    400420: SK_Female_Rig_V1_rElbowJFKG2
+    400422: SK_Female_Rig_V1_rElbowJIK
+    400424: SK_Female_Rig_V1_rFinger1J1
+    400426: SK_Female_Rig_V1_rFinger1J1C
+    400428: SK_Female_Rig_V1_rFinger1J1CG
+    400430: SK_Female_Rig_V1_rFinger1J1CRotG
+    400432: SK_Female_Rig_V1_rFinger1J2
+    400434: SK_Female_Rig_V1_rFinger1J2C
+    400436: SK_Female_Rig_V1_rFinger1J2CG
+    400438: SK_Female_Rig_V1_rFinger1J2CRotG
+    400440: SK_Female_Rig_V1_rFinger1J3
+    400442: SK_Female_Rig_V1_rFinger1J3C
+    400444: SK_Female_Rig_V1_rFinger1J3CG
+    400446: SK_Female_Rig_V1_rFinger1J3CRotG
+    400448: SK_Female_Rig_V1_rFinger2J1
+    400450: SK_Female_Rig_V1_rFinger2J1C
+    400452: SK_Female_Rig_V1_rFinger2J1CG
+    400454: SK_Female_Rig_V1_rFinger2J1CRotG
+    400456: SK_Female_Rig_V1_rFinger2J2
+    400458: SK_Female_Rig_V1_rFinger2J2C
+    400460: SK_Female_Rig_V1_rFinger2J2CG
+    400462: SK_Female_Rig_V1_rFinger2J2CRotG
+    400464: SK_Female_Rig_V1_rFinger2J3
+    400466: SK_Female_Rig_V1_rFinger2J3C
+    400468: SK_Female_Rig_V1_rFinger2J3CG
+    400470: SK_Female_Rig_V1_rFinger2J3CRotG
+    400472: SK_Female_Rig_V1_rFinger3J1
+    400474: SK_Female_Rig_V1_rFinger3J1C
+    400476: SK_Female_Rig_V1_rFinger3J1CG
+    400478: SK_Female_Rig_V1_rFinger3J1CRotG
+    400480: SK_Female_Rig_V1_rFinger3J2
+    400482: SK_Female_Rig_V1_rFinger3J2C
+    400484: SK_Female_Rig_V1_rFinger3J2CG
+    400486: SK_Female_Rig_V1_rFinger3J2CRotG
+    400488: SK_Female_Rig_V1_rFinger3J3
+    400490: SK_Female_Rig_V1_rFinger3J3C
+    400492: SK_Female_Rig_V1_rFinger3J3CG
+    400494: SK_Female_Rig_V1_rFinger3J3CRotG
+    400496: SK_Female_Rig_V1_rFinger4J1
+    400498: SK_Female_Rig_V1_rFinger4J1C
+    400500: SK_Female_Rig_V1_rFinger4J1CG
+    400502: SK_Female_Rig_V1_rFinger4J1CRotG
+    400504: SK_Female_Rig_V1_rFinger4J2
+    400506: SK_Female_Rig_V1_rFinger4J2C
+    400508: SK_Female_Rig_V1_rFinger4J2CG
+    400510: SK_Female_Rig_V1_rFinger4J2CRotG
+    400512: SK_Female_Rig_V1_rFinger4J3
+    400514: SK_Female_Rig_V1_rFinger4J3C
+    400516: SK_Female_Rig_V1_rFinger4J3CG
+    400518: SK_Female_Rig_V1_rFinger4J3CRotG
+    400520: SK_Female_Rig_V1_rFootBallPivot
+    400522: SK_Female_Rig_V1_rFootHeelPivot
+    400524: SK_Female_Rig_V1_rFootIKC
+    400526: SK_Female_Rig_V1_rFootIKCG
+    400528: SK_Female_Rig_V1_rFootInTilt
+    400530: SK_Female_Rig_V1_rFootOutTilt
+    400532: SK_Female_Rig_V1_rForearmJ
+    400534: SK_Female_Rig_V1_rHipFKC
+    400536: SK_Female_Rig_V1_rHipFKCG
+    400538: SK_Female_Rig_V1_rHipIKLockLctr
+    400540: SK_Female_Rig_V1_rHipJ
+    400542: SK_Female_Rig_V1_rHipJFK
+    400544: SK_Female_Rig_V1_rHipJIK
+    400546: SK_Female_Rig_V1_rKneeFKC
+    400548: SK_Female_Rig_V1_rKneeFKCG
+    400550: SK_Female_Rig_V1_rKneeIKC
+    400552: SK_Female_Rig_V1_rKneeIKCG
+    400554: SK_Female_Rig_V1_rKneeIKLockLctr
+    400556: SK_Female_Rig_V1_rKneeJ
+    400558: SK_Female_Rig_V1_rKneeJFK
+    400560: SK_Female_Rig_V1_rKneeJFKG1
+    400562: SK_Female_Rig_V1_rKneeJFKG2
+    400564: SK_Female_Rig_V1_rKneeJIK
+    400566: SK_Female_Rig_V1_rLegIKFKG
+    400568: SK_Female_Rig_V1_rLegLengthEndLctr
+    400570: SK_Female_Rig_V1_rLegLengthOriginLctr
+    400572: SK_Female_Rig_V1_rLegSwitchC
+    400574: SK_Female_Rig_V1_rLegSwitchCG
+    400576: SK_Female_Rig_V1_ROOTJ
+    400578: SK_Female_Rig_V1_ROOTNodeJ
+    400580: SK_Female_Rig_V1_rPalmC
+    400582: SK_Female_Rig_V1_rPalmCG
+    400584: SK_Female_Rig_V1_rPalmJ
+    400586: SK_Female_Rig_V1_rShoulderFKC
+    400588: SK_Female_Rig_V1_rShoulderFKCG
+    400590: SK_Female_Rig_V1_rShoulderFKCG2
+    400592: SK_Female_Rig_V1_rShoulderIKLockLctr
+    400594: SK_Female_Rig_V1_rShoulderJ
+    400596: SK_Female_Rig_V1_rShoulderJFK
+    400598: SK_Female_Rig_V1_rShoulderJIK
+    400600: SK_Female_Rig_V1_rThumbJ1
+    400602: SK_Female_Rig_V1_rThumbJ1C
+    400604: SK_Female_Rig_V1_rThumbJ1CG
+    400606: SK_Female_Rig_V1_rThumbJ1CRotG
+    400608: SK_Female_Rig_V1_rThumbJ2
+    400610: SK_Female_Rig_V1_rThumbJ2C
+    400612: SK_Female_Rig_V1_rThumbJ2CG
+    400614: SK_Female_Rig_V1_rThumbJ2CRotG
+    400616: SK_Female_Rig_V1_rThumbJ3
+    400618: SK_Female_Rig_V1_rThumbJ3C
+    400620: SK_Female_Rig_V1_rThumbJ3CG
+    400622: SK_Female_Rig_V1_rThumbJ3CRotG
+    400624: SK_Female_Rig_V1_rToeIKC
+    400626: SK_Female_Rig_V1_rToeIKCG
+    400628: SK_Female_Rig_V1_rToeJ
+    400630: SK_Female_Rig_V1_rWristFKC
+    400632: SK_Female_Rig_V1_rWristFKCG
+    400634: SK_Female_Rig_V1_rWristIKC
+    400636: SK_Female_Rig_V1_rWristIKCG
+    400638: SK_Female_Rig_V1_rWristIKLockLctr
+    400640: SK_Female_Rig_V1_rWristJ
+    400642: SK_Female_Rig_V1_rWristJFK
+    400644: SK_Female_Rig_V1_rWristJFKG1
+    400646: SK_Female_Rig_V1_rWristJFKG2
+    400648: SK_Female_Rig_V1_rWristJG1
+    400650: SK_Female_Rig_V1_rWristJG2
+    400652: SK_Female_Rig_V1_rWristJIKProxy
+    400654: SK_Female_Rig_V1_rWristJIKProxyG1
+    400656: SK_Female_Rig_V1_rWristJIKProxyG2
+    400658: SK_Female_Rig_V1_SH_HeadJ
+    400660: SK_Female_Rig_V1_SH_HeadTipJ
+    400662: SK_Female_Rig_V1_SH_JawJ
+    400664: SK_Female_Rig_V1_SH_JawTipJ
+    400666: SK_Female_Rig_V1_SH_lAnkleJ
+    400668: SK_Female_Rig_V1_SH_lBallJ
+    400670: SK_Female_Rig_V1_SH_lClavicleJ
+    400672: SK_Female_Rig_V1_SH_lElbowJ
+    400674: SK_Female_Rig_V1_SH_lFinger1J1
+    400676: SK_Female_Rig_V1_SH_lFinger1J2
+    400678: SK_Female_Rig_V1_SH_lFinger1J3
+    400680: SK_Female_Rig_V1_SH_lFinger1JTip
+    400682: SK_Female_Rig_V1_SH_lFinger2J1
+    400684: SK_Female_Rig_V1_SH_lFinger2J2
+    400686: SK_Female_Rig_V1_SH_lFinger2J3
+    400688: SK_Female_Rig_V1_SH_lFinger2JTip
+    400690: SK_Female_Rig_V1_SH_lFinger3J1
+    400692: SK_Female_Rig_V1_SH_lFinger3J2
+    400694: SK_Female_Rig_V1_SH_lFinger3J3
+    400696: SK_Female_Rig_V1_SH_lFinger3JTip
+    400698: SK_Female_Rig_V1_SH_lFinger4J1
+    400700: SK_Female_Rig_V1_SH_lFinger4J2
+    400702: SK_Female_Rig_V1_SH_lFinger4J3
+    400704: SK_Female_Rig_V1_SH_lFinger4JTip
+    400706: SK_Female_Rig_V1_SH_lForearmJ
+    400708: SK_Female_Rig_V1_SH_lHipJ
+    400710: SK_Female_Rig_V1_SH_lKneeJ
+    400712: SK_Female_Rig_V1_SH_lPalmJ
+    400714: SK_Female_Rig_V1_SH_lShoulderJ
+    400716: SK_Female_Rig_V1_SH_lThumbJ1
+    400718: SK_Female_Rig_V1_SH_lThumbJ2
+    400720: SK_Female_Rig_V1_SH_lThumbJ3
+    400722: SK_Female_Rig_V1_SH_lThumbJTip
+    400724: SK_Female_Rig_V1_SH_lToeJ
+    400726: SK_Female_Rig_V1_SH_lWristJ
+    400728: SK_Female_Rig_V1_SH_Neck01J
+    400730: SK_Female_Rig_V1_SH_Neck02J
+    400732: SK_Female_Rig_V1_SH_rAnkleJ
+    400734: SK_Female_Rig_V1_SH_rBallJ
+    400736: SK_Female_Rig_V1_SH_rClavicleJ
+    400738: SK_Female_Rig_V1_SH_rElbowJ
+    400740: SK_Female_Rig_V1_SH_rFinger1J1
+    400742: SK_Female_Rig_V1_SH_rFinger1J2
+    400744: SK_Female_Rig_V1_SH_rFinger1J3
+    400746: SK_Female_Rig_V1_SH_rFinger1JTip
+    400748: SK_Female_Rig_V1_SH_rFinger2J1
+    400750: SK_Female_Rig_V1_SH_rFinger2J2
+    400752: SK_Female_Rig_V1_SH_rFinger2J3
+    400754: SK_Female_Rig_V1_SH_rFinger2JTip
+    400756: SK_Female_Rig_V1_SH_rFinger3J1
+    400758: SK_Female_Rig_V1_SH_rFinger3J2
+    400760: SK_Female_Rig_V1_SH_rFinger3J3
+    400762: SK_Female_Rig_V1_SH_rFinger3JTip
+    400764: SK_Female_Rig_V1_SH_rFinger4J1
+    400766: SK_Female_Rig_V1_SH_rFinger4J2
+    400768: SK_Female_Rig_V1_SH_rFinger4J3
+    400770: SK_Female_Rig_V1_SH_rFinger4JTip
+    400772: SK_Female_Rig_V1_SH_rForearmJ
+    400774: SK_Female_Rig_V1_SH_rHipJ
+    400776: SK_Female_Rig_V1_SH_rKneeJ
+    400778: SK_Female_Rig_V1_SH_ROOTJ
+    400780: SK_Female_Rig_V1_SH_rPalmJ
+    400782: SK_Female_Rig_V1_SH_rShoulderJ
+    400784: SK_Female_Rig_V1_SH_rThumbJ1
+    400786: SK_Female_Rig_V1_SH_rThumbJ2
+    400788: SK_Female_Rig_V1_SH_rThumbJ3
+    400790: SK_Female_Rig_V1_SH_rThumbJTip
+    400792: SK_Female_Rig_V1_SH_rToeJ
+    400794: SK_Female_Rig_V1_SH_rWristJ
+    400796: SK_Female_Rig_V1_SH_Spine01J
+    400798: SK_Female_Rig_V1_SH_Spine02J
+    400800: SK_Female_Rig_V1_SH_Spine03J
+    400802: SK_Female_Rig_V1_SH_SpineTopJ
+    400804: SK_Female_Rig_V1_Spine01CurveC
+    400806: SK_Female_Rig_V1_Spine01CurveCG
+    400808: SK_Female_Rig_V1_Spine01J
+    400810: SK_Female_Rig_V1_Spine02CurveC
+    400812: SK_Female_Rig_V1_Spine02CurveCG
+    400814: SK_Female_Rig_V1_Spine02J
+    400816: SK_Female_Rig_V1_Spine03CurveC
+    400818: SK_Female_Rig_V1_Spine03CurveCG
+    400820: SK_Female_Rig_V1_Spine03J
+    400822: SK_Female_Rig_V1_SpineLengthCX
+    400824: SK_Female_Rig_V1_SpineLengthCXlstr01
+    400826: SK_Female_Rig_V1_SpineLengthCXlstr01G
+    400828: SK_Female_Rig_V1_SpineLengthCXlstr02
+    400830: SK_Female_Rig_V1_SpineLengthCXlstr02G
+    400832: SK_Female_Rig_V1_SpineLengthCXlstr03
+    400834: SK_Female_Rig_V1_SpineLengthCXlstr03G
+    400836: SK_Female_Rig_V1_SpineMidIKC
+    400838: SK_Female_Rig_V1_SpineMidIKCG
+    400840: SK_Female_Rig_V1_SpineMidIKCG2
+    400842: SK_Female_Rig_V1_SpineTopIKC
+    400844: SK_Female_Rig_V1_SpineTopIKCG
+    400846: SK_Female_Rig_V1_SpineTopIKCG2
+    400848: SK_Female_Rig_V1_SpineTopJ
+    2300000: chair:Mesh
+    3300000: chair:Mesh
+    4300000: copy
+    4300002: chair:Mesh
+    7400000: Push_Anim
+    9500000: //RootNode
+    13700000: copy
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Push_Anim
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: chair:Mesh
+        weight: 1
+      - path: copy
+        weight: 1
+      - path: SK_Female_Rig_V1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_ExtraNodes
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_ExtraNodes/SK_Female_Rig_V1_NeckLengthCX
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_ExtraNodes/SK_Female_Rig_V1_SpineLengthCX
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_HeadCG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_HeadCG2/SK_Female_Rig_V1_HeadCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_HeadCG2/SK_Female_Rig_V1_HeadCG/SK_Female_Rig_V1_HeadC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_HeadCG2/SK_Female_Rig_V1_HeadCG/SK_Female_Rig_V1_HeadC/SK_Female_Rig_V1_NeckLengthCXlstr03G
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_HeadCG2/SK_Female_Rig_V1_HeadCG/SK_Female_Rig_V1_HeadC/SK_Female_Rig_V1_NeckLengthCXlstr03G/SK_Female_Rig_V1_NeckLengthCXlstr03
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_HeadJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_HeadJ/SK_Female_Rig_V1_JawJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_JawCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_JawCG/SK_Female_Rig_V1_JawC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lAnkleFKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lAnkleFKCG/SK_Female_Rig_V1_lAnkleFKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lAnkleJFKG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lAnkleJFKG2/SK_Female_Rig_V1_lAnkleJFKG1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lAnkleJFKG2/SK_Female_Rig_V1_lAnkleJFKG1/SK_Female_Rig_V1_lAnkleJFK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lAnkleJFKG2/SK_Female_Rig_V1_lAnkleJFKG1/SK_Female_Rig_V1_lAnkleJFK/SK_Female_Rig_V1_lBallJFK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lArmIKFKG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lArmIKFKG/SK_Female_Rig_V1_lShoulderJFK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lArmIKFKG/SK_Female_Rig_V1_lShoulderJIK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lArmIKFKG/SK_Female_Rig_V1_lShoulderJIK/SK_Female_Rig_V1_lElbowJIK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lArmLengthOriginLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lArmLengthOriginLctr/SK_Female_Rig_V1_lArmLengthEndLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lArmSwitchCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lArmSwitchCG/SK_Female_Rig_V1_lArmSwitchC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lBallFKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lBallFKCG/SK_Female_Rig_V1_lBallFKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lClavicleCG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lClavicleCG2/SK_Female_Rig_V1_lClavicleCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lClavicleCG2/SK_Female_Rig_V1_lClavicleCG/SK_Female_Rig_V1_lClavicleC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lElbowFKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lElbowFKCG/SK_Female_Rig_V1_lElbowFKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lElbowIKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lElbowIKCG/SK_Female_Rig_V1_lElbowIKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lElbowJFKG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lElbowJFKG2/SK_Female_Rig_V1_lElbowJFKG1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lElbowJFKG2/SK_Female_Rig_V1_lElbowJFKG1/SK_Female_Rig_V1_lElbowJFK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lFootIKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lFootIKCG/SK_Female_Rig_V1_lFootIKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lHipFKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lHipFKCG/SK_Female_Rig_V1_lHipFKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lHipIKLockLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lHipIKLockLctr/SK_Female_Rig_V1_lKneeIKLockLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lHipIKLockLctr/SK_Female_Rig_V1_lKneeIKLockLctr/SK_Female_Rig_V1_lAnkleIKLockLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lKneeFKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lKneeFKCG/SK_Female_Rig_V1_lKneeFKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lKneeIKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lKneeIKCG/SK_Female_Rig_V1_lKneeIKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lKneeJFKG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lKneeJFKG2/SK_Female_Rig_V1_lKneeJFKG1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lKneeJFKG2/SK_Female_Rig_V1_lKneeJFKG1/SK_Female_Rig_V1_lKneeJFK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lLegIKFKG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lLegIKFKG/SK_Female_Rig_V1_lHipJFK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lLegIKFKG/SK_Female_Rig_V1_lHipJIK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lLegIKFKG/SK_Female_Rig_V1_lHipJIK/SK_Female_Rig_V1_lKneeJIK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lLegIKFKG/SK_Female_Rig_V1_lHipJIK/SK_Female_Rig_V1_lKneeJIK/SK_Female_Rig_V1_lAnkleJIK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lLegIKFKG/SK_Female_Rig_V1_lHipJIK/SK_Female_Rig_V1_lKneeJIK/SK_Female_Rig_V1_lAnkleJIK/SK_Female_Rig_V1_lBallJIK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lLegLengthOriginLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lLegLengthOriginLctr/SK_Female_Rig_V1_lLegLengthEndLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lLegSwitchCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lLegSwitchCG/SK_Female_Rig_V1_lLegSwitchC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger1J1CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger1J1CG/SK_Female_Rig_V1_lFinger1J1CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger1J1CG/SK_Female_Rig_V1_lFinger1J1CRotG/SK_Female_Rig_V1_lFinger1J1C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger1J2CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger1J2CG/SK_Female_Rig_V1_lFinger1J2CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger1J2CG/SK_Female_Rig_V1_lFinger1J2CRotG/SK_Female_Rig_V1_lFinger1J2C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger1J3CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger1J3CG/SK_Female_Rig_V1_lFinger1J3CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger1J3CG/SK_Female_Rig_V1_lFinger1J3CRotG/SK_Female_Rig_V1_lFinger1J3C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger2J1CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger2J1CG/SK_Female_Rig_V1_lFinger2J1CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger2J1CG/SK_Female_Rig_V1_lFinger2J1CRotG/SK_Female_Rig_V1_lFinger2J1C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger2J2CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger2J2CG/SK_Female_Rig_V1_lFinger2J2CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger2J2CG/SK_Female_Rig_V1_lFinger2J2CRotG/SK_Female_Rig_V1_lFinger2J2C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger2J3CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger2J3CG/SK_Female_Rig_V1_lFinger2J3CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger2J3CG/SK_Female_Rig_V1_lFinger2J3CRotG/SK_Female_Rig_V1_lFinger2J3C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger3J1CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger3J1CG/SK_Female_Rig_V1_lFinger3J1CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger3J1CG/SK_Female_Rig_V1_lFinger3J1CRotG/SK_Female_Rig_V1_lFinger3J1C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger3J2CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger3J2CG/SK_Female_Rig_V1_lFinger3J2CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger3J2CG/SK_Female_Rig_V1_lFinger3J2CRotG/SK_Female_Rig_V1_lFinger3J2C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger3J3CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger3J3CG/SK_Female_Rig_V1_lFinger3J3CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger3J3CG/SK_Female_Rig_V1_lFinger3J3CRotG/SK_Female_Rig_V1_lFinger3J3C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger4J1CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger4J1CG/SK_Female_Rig_V1_lFinger4J1CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger4J1CG/SK_Female_Rig_V1_lFinger4J1CRotG/SK_Female_Rig_V1_lFinger4J1C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger4J2CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger4J2CG/SK_Female_Rig_V1_lFinger4J2CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger4J2CG/SK_Female_Rig_V1_lFinger4J2CRotG/SK_Female_Rig_V1_lFinger4J2C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger4J3CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger4J3CG/SK_Female_Rig_V1_lFinger4J3CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lPalmCG/SK_Female_Rig_V1_lPalmC/SK_Female_Rig_V1_lFinger4J3CG/SK_Female_Rig_V1_lFinger4J3CRotG/SK_Female_Rig_V1_lFinger4J3C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lShoulderFKCG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lShoulderFKCG2/SK_Female_Rig_V1_lShoulderFKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lShoulderFKCG2/SK_Female_Rig_V1_lShoulderFKCG/SK_Female_Rig_V1_lShoulderFKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lShoulderIKLockLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lShoulderIKLockLctr/SK_Female_Rig_V1_lElbowIKLockLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lShoulderIKLockLctr/SK_Female_Rig_V1_lElbowIKLockLctr/SK_Female_Rig_V1_lWristIKLockLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lToeIKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lToeIKCG/SK_Female_Rig_V1_lToeIKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lToeIKCG/SK_Female_Rig_V1_lToeIKC/SK_Female_Rig_V1_lBallSwivel
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lToeIKCG/SK_Female_Rig_V1_lToeIKC/SK_Female_Rig_V1_lBallSwivel/SK_Female_Rig_V1_lFootInTilt
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lToeIKCG/SK_Female_Rig_V1_lToeIKC/SK_Female_Rig_V1_lBallSwivel/SK_Female_Rig_V1_lFootInTilt/SK_Female_Rig_V1_lFootOutTilt
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lToeIKCG/SK_Female_Rig_V1_lToeIKC/SK_Female_Rig_V1_lBallSwivel/SK_Female_Rig_V1_lFootInTilt/SK_Female_Rig_V1_lFootOutTilt/SK_Female_Rig_V1_lFootHeelPivot
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lToeIKCG/SK_Female_Rig_V1_lToeIKC/SK_Female_Rig_V1_lBallSwivel/SK_Female_Rig_V1_lFootInTilt/SK_Female_Rig_V1_lFootOutTilt/SK_Female_Rig_V1_lFootHeelPivot/SK_Female_Rig_V1_lFootBallPivot
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristFKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristFKCG/SK_Female_Rig_V1_lWristFKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristIKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristIKCG/SK_Female_Rig_V1_lWristIKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJFKG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJFKG2/SK_Female_Rig_V1_lWristJFKG1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJFKG2/SK_Female_Rig_V1_lWristJFKG1/SK_Female_Rig_V1_lWristJFK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lThumbJ1CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lThumbJ1CG/SK_Female_Rig_V1_lThumbJ1CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lThumbJ1CG/SK_Female_Rig_V1_lThumbJ1CRotG/SK_Female_Rig_V1_lThumbJ1C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lThumbJ2CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lThumbJ2CG/SK_Female_Rig_V1_lThumbJ2CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lThumbJ2CG/SK_Female_Rig_V1_lThumbJ2CRotG/SK_Female_Rig_V1_lThumbJ2C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lThumbJ3CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lThumbJ3CG/SK_Female_Rig_V1_lThumbJ3CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lThumbJ3CG/SK_Female_Rig_V1_lThumbJ3CRotG/SK_Female_Rig_V1_lThumbJ3C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lWristJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lWristJ/SK_Female_Rig_V1_lPalmJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lWristJ/SK_Female_Rig_V1_lPalmJ/SK_Female_Rig_V1_lFinger1J1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lWristJ/SK_Female_Rig_V1_lPalmJ/SK_Female_Rig_V1_lFinger1J1/SK_Female_Rig_V1_lFinger1J2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lWristJ/SK_Female_Rig_V1_lPalmJ/SK_Female_Rig_V1_lFinger1J1/SK_Female_Rig_V1_lFinger1J2/SK_Female_Rig_V1_lFinger1J3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lWristJ/SK_Female_Rig_V1_lPalmJ/SK_Female_Rig_V1_lFinger2J1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lWristJ/SK_Female_Rig_V1_lPalmJ/SK_Female_Rig_V1_lFinger2J1/SK_Female_Rig_V1_lFinger2J2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lWristJ/SK_Female_Rig_V1_lPalmJ/SK_Female_Rig_V1_lFinger2J1/SK_Female_Rig_V1_lFinger2J2/SK_Female_Rig_V1_lFinger2J3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lWristJ/SK_Female_Rig_V1_lPalmJ/SK_Female_Rig_V1_lFinger3J1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lWristJ/SK_Female_Rig_V1_lPalmJ/SK_Female_Rig_V1_lFinger3J1/SK_Female_Rig_V1_lFinger3J2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lWristJ/SK_Female_Rig_V1_lPalmJ/SK_Female_Rig_V1_lFinger3J1/SK_Female_Rig_V1_lFinger3J2/SK_Female_Rig_V1_lFinger3J3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lWristJ/SK_Female_Rig_V1_lPalmJ/SK_Female_Rig_V1_lFinger4J1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lWristJ/SK_Female_Rig_V1_lPalmJ/SK_Female_Rig_V1_lFinger4J1/SK_Female_Rig_V1_lFinger4J2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lWristJ/SK_Female_Rig_V1_lPalmJ/SK_Female_Rig_V1_lFinger4J1/SK_Female_Rig_V1_lFinger4J2/SK_Female_Rig_V1_lFinger4J3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lWristJ/SK_Female_Rig_V1_lThumbJ1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lWristJ/SK_Female_Rig_V1_lThumbJ1/SK_Female_Rig_V1_lThumbJ2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJG2/SK_Female_Rig_V1_lWristJG1/SK_Female_Rig_V1_lWristJ/SK_Female_Rig_V1_lThumbJ1/SK_Female_Rig_V1_lThumbJ2/SK_Female_Rig_V1_lThumbJ3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJIKProxyG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJIKProxyG2/SK_Female_Rig_V1_lWristJIKProxyG1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_lWristJIKProxyG2/SK_Female_Rig_V1_lWristJIKProxyG1/SK_Female_Rig_V1_lWristJIKProxy
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_MainHipCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_MainHipCG/SK_Female_Rig_V1_MainHipC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_MainHipCG/SK_Female_Rig_V1_MainHipC/SK_Female_Rig_V1_SpineLengthCXlstr01G
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_MainHipCG/SK_Female_Rig_V1_MainHipC/SK_Female_Rig_V1_SpineLengthCXlstr01G/SK_Female_Rig_V1_SpineLengthCXlstr01
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_Neck01CurveCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_Neck01CurveCG/SK_Female_Rig_V1_Neck01CurveC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_Neck01J
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_Neck02CurveCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_Neck02CurveCG/SK_Female_Rig_V1_Neck02CurveC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_Neck02J
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_NeckMidIKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_NeckMidIKCG/SK_Female_Rig_V1_NeckMidIKCG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_NeckMidIKCG/SK_Female_Rig_V1_NeckMidIKCG2/SK_Female_Rig_V1_NeckMidIKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_NeckMidIKCG/SK_Female_Rig_V1_NeckMidIKCG2/SK_Female_Rig_V1_NeckMidIKC/SK_Female_Rig_V1_NeckLengthCXlstr02G
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_NeckMidIKCG/SK_Female_Rig_V1_NeckMidIKCG2/SK_Female_Rig_V1_NeckMidIKC/SK_Female_Rig_V1_NeckLengthCXlstr02G/SK_Female_Rig_V1_NeckLengthCXlstr02
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rAnkleFKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rAnkleFKCG/SK_Female_Rig_V1_rAnkleFKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rAnkleJFKG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rAnkleJFKG2/SK_Female_Rig_V1_rAnkleJFKG1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rAnkleJFKG2/SK_Female_Rig_V1_rAnkleJFKG1/SK_Female_Rig_V1_rAnkleJFK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rAnkleJFKG2/SK_Female_Rig_V1_rAnkleJFKG1/SK_Female_Rig_V1_rAnkleJFK/SK_Female_Rig_V1_rBallJFK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rArmIKFKG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rArmIKFKG/SK_Female_Rig_V1_rShoulderJFK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rArmIKFKG/SK_Female_Rig_V1_rShoulderJIK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rArmIKFKG/SK_Female_Rig_V1_rShoulderJIK/SK_Female_Rig_V1_rElbowJIK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rArmLengthOriginLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rArmLengthOriginLctr/SK_Female_Rig_V1_rArmLengthEndLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rArmSwitchCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rArmSwitchCG/SK_Female_Rig_V1_rArmSwitchC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rBallFKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rBallFKCG/SK_Female_Rig_V1_rBallFKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rClavicleCG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rClavicleCG2/SK_Female_Rig_V1_rClavicleCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rClavicleCG2/SK_Female_Rig_V1_rClavicleCG/SK_Female_Rig_V1_rClavicleC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rElbowFKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rElbowFKCG/SK_Female_Rig_V1_rElbowFKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rElbowIKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rElbowIKCG/SK_Female_Rig_V1_rElbowIKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rElbowJFKG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rElbowJFKG2/SK_Female_Rig_V1_rElbowJFKG1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rElbowJFKG2/SK_Female_Rig_V1_rElbowJFKG1/SK_Female_Rig_V1_rElbowJFK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rFootIKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rFootIKCG/SK_Female_Rig_V1_rFootIKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rHipFKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rHipFKCG/SK_Female_Rig_V1_rHipFKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rHipIKLockLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rHipIKLockLctr/SK_Female_Rig_V1_rKneeIKLockLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rHipIKLockLctr/SK_Female_Rig_V1_rKneeIKLockLctr/SK_Female_Rig_V1_rAnkleIKLockLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rKneeFKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rKneeFKCG/SK_Female_Rig_V1_rKneeFKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rKneeIKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rKneeIKCG/SK_Female_Rig_V1_rKneeIKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rKneeJFKG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rKneeJFKG2/SK_Female_Rig_V1_rKneeJFKG1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rKneeJFKG2/SK_Female_Rig_V1_rKneeJFKG1/SK_Female_Rig_V1_rKneeJFK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rLegIKFKG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rLegIKFKG/SK_Female_Rig_V1_rHipJFK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rLegIKFKG/SK_Female_Rig_V1_rHipJIK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rLegIKFKG/SK_Female_Rig_V1_rHipJIK/SK_Female_Rig_V1_rKneeJIK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rLegIKFKG/SK_Female_Rig_V1_rHipJIK/SK_Female_Rig_V1_rKneeJIK/SK_Female_Rig_V1_rAnkleJIK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rLegIKFKG/SK_Female_Rig_V1_rHipJIK/SK_Female_Rig_V1_rKneeJIK/SK_Female_Rig_V1_rAnkleJIK/SK_Female_Rig_V1_rBallJIK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rLegLengthOriginLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rLegLengthOriginLctr/SK_Female_Rig_V1_rLegLengthEndLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rLegSwitchCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rLegSwitchCG/SK_Female_Rig_V1_rLegSwitchC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_ROOTNodeJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_ROOTNodeJ/SK_Female_Rig_V1_ROOTJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_ROOTNodeJ/SK_Female_Rig_V1_ROOTJ/SK_Female_Rig_V1_lHipJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_ROOTNodeJ/SK_Female_Rig_V1_ROOTJ/SK_Female_Rig_V1_lHipJ/SK_Female_Rig_V1_lKneeJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_ROOTNodeJ/SK_Female_Rig_V1_ROOTJ/SK_Female_Rig_V1_lHipJ/SK_Female_Rig_V1_lKneeJ/SK_Female_Rig_V1_lAnkleJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_ROOTNodeJ/SK_Female_Rig_V1_ROOTJ/SK_Female_Rig_V1_lHipJ/SK_Female_Rig_V1_lKneeJ/SK_Female_Rig_V1_lAnkleJ/SK_Female_Rig_V1_lBallJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_ROOTNodeJ/SK_Female_Rig_V1_ROOTJ/SK_Female_Rig_V1_lHipJ/SK_Female_Rig_V1_lKneeJ/SK_Female_Rig_V1_lAnkleJ/SK_Female_Rig_V1_lBallJ/SK_Female_Rig_V1_lToeJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_ROOTNodeJ/SK_Female_Rig_V1_ROOTJ/SK_Female_Rig_V1_rHipJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_ROOTNodeJ/SK_Female_Rig_V1_ROOTJ/SK_Female_Rig_V1_rHipJ/SK_Female_Rig_V1_rKneeJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_ROOTNodeJ/SK_Female_Rig_V1_ROOTJ/SK_Female_Rig_V1_rHipJ/SK_Female_Rig_V1_rKneeJ/SK_Female_Rig_V1_rAnkleJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_ROOTNodeJ/SK_Female_Rig_V1_ROOTJ/SK_Female_Rig_V1_rHipJ/SK_Female_Rig_V1_rKneeJ/SK_Female_Rig_V1_rAnkleJ/SK_Female_Rig_V1_rBallJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_ROOTNodeJ/SK_Female_Rig_V1_ROOTJ/SK_Female_Rig_V1_rHipJ/SK_Female_Rig_V1_rKneeJ/SK_Female_Rig_V1_rAnkleJ/SK_Female_Rig_V1_rBallJ/SK_Female_Rig_V1_rToeJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger1J1CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger1J1CG/SK_Female_Rig_V1_rFinger1J1CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger1J1CG/SK_Female_Rig_V1_rFinger1J1CRotG/SK_Female_Rig_V1_rFinger1J1C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger1J2CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger1J2CG/SK_Female_Rig_V1_rFinger1J2CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger1J2CG/SK_Female_Rig_V1_rFinger1J2CRotG/SK_Female_Rig_V1_rFinger1J2C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger1J3CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger1J3CG/SK_Female_Rig_V1_rFinger1J3CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger1J3CG/SK_Female_Rig_V1_rFinger1J3CRotG/SK_Female_Rig_V1_rFinger1J3C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger2J1CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger2J1CG/SK_Female_Rig_V1_rFinger2J1CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger2J1CG/SK_Female_Rig_V1_rFinger2J1CRotG/SK_Female_Rig_V1_rFinger2J1C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger2J2CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger2J2CG/SK_Female_Rig_V1_rFinger2J2CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger2J2CG/SK_Female_Rig_V1_rFinger2J2CRotG/SK_Female_Rig_V1_rFinger2J2C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger2J3CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger2J3CG/SK_Female_Rig_V1_rFinger2J3CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger2J3CG/SK_Female_Rig_V1_rFinger2J3CRotG/SK_Female_Rig_V1_rFinger2J3C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger3J1CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger3J1CG/SK_Female_Rig_V1_rFinger3J1CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger3J1CG/SK_Female_Rig_V1_rFinger3J1CRotG/SK_Female_Rig_V1_rFinger3J1C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger3J2CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger3J2CG/SK_Female_Rig_V1_rFinger3J2CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger3J2CG/SK_Female_Rig_V1_rFinger3J2CRotG/SK_Female_Rig_V1_rFinger3J2C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger3J3CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger3J3CG/SK_Female_Rig_V1_rFinger3J3CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger3J3CG/SK_Female_Rig_V1_rFinger3J3CRotG/SK_Female_Rig_V1_rFinger3J3C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger4J1CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger4J1CG/SK_Female_Rig_V1_rFinger4J1CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger4J1CG/SK_Female_Rig_V1_rFinger4J1CRotG/SK_Female_Rig_V1_rFinger4J1C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger4J2CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger4J2CG/SK_Female_Rig_V1_rFinger4J2CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger4J2CG/SK_Female_Rig_V1_rFinger4J2CRotG/SK_Female_Rig_V1_rFinger4J2C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger4J3CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger4J3CG/SK_Female_Rig_V1_rFinger4J3CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rPalmCG/SK_Female_Rig_V1_rPalmC/SK_Female_Rig_V1_rFinger4J3CG/SK_Female_Rig_V1_rFinger4J3CRotG/SK_Female_Rig_V1_rFinger4J3C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rShoulderFKCG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rShoulderFKCG2/SK_Female_Rig_V1_rShoulderFKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rShoulderFKCG2/SK_Female_Rig_V1_rShoulderFKCG/SK_Female_Rig_V1_rShoulderFKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rShoulderIKLockLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rShoulderIKLockLctr/SK_Female_Rig_V1_rElbowIKLockLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rShoulderIKLockLctr/SK_Female_Rig_V1_rElbowIKLockLctr/SK_Female_Rig_V1_rWristIKLockLctr
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rToeIKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rToeIKCG/SK_Female_Rig_V1_rToeIKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rToeIKCG/SK_Female_Rig_V1_rToeIKC/SK_Female_Rig_V1_rBallSwivel
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rToeIKCG/SK_Female_Rig_V1_rToeIKC/SK_Female_Rig_V1_rBallSwivel/SK_Female_Rig_V1_rFootInTilt
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rToeIKCG/SK_Female_Rig_V1_rToeIKC/SK_Female_Rig_V1_rBallSwivel/SK_Female_Rig_V1_rFootInTilt/SK_Female_Rig_V1_rFootOutTilt
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rToeIKCG/SK_Female_Rig_V1_rToeIKC/SK_Female_Rig_V1_rBallSwivel/SK_Female_Rig_V1_rFootInTilt/SK_Female_Rig_V1_rFootOutTilt/SK_Female_Rig_V1_rFootHeelPivot
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rToeIKCG/SK_Female_Rig_V1_rToeIKC/SK_Female_Rig_V1_rBallSwivel/SK_Female_Rig_V1_rFootInTilt/SK_Female_Rig_V1_rFootOutTilt/SK_Female_Rig_V1_rFootHeelPivot/SK_Female_Rig_V1_rFootBallPivot
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristFKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristFKCG/SK_Female_Rig_V1_rWristFKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristIKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristIKCG/SK_Female_Rig_V1_rWristIKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJFKG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJFKG2/SK_Female_Rig_V1_rWristJFKG1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJFKG2/SK_Female_Rig_V1_rWristJFKG1/SK_Female_Rig_V1_rWristJFK
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rThumbJ1CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rThumbJ1CG/SK_Female_Rig_V1_rThumbJ1CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rThumbJ1CG/SK_Female_Rig_V1_rThumbJ1CRotG/SK_Female_Rig_V1_rThumbJ1C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rThumbJ2CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rThumbJ2CG/SK_Female_Rig_V1_rThumbJ2CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rThumbJ2CG/SK_Female_Rig_V1_rThumbJ2CRotG/SK_Female_Rig_V1_rThumbJ2C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rThumbJ3CG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rThumbJ3CG/SK_Female_Rig_V1_rThumbJ3CRotG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rThumbJ3CG/SK_Female_Rig_V1_rThumbJ3CRotG/SK_Female_Rig_V1_rThumbJ3C
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rWristJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rWristJ/SK_Female_Rig_V1_rPalmJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rWristJ/SK_Female_Rig_V1_rPalmJ/SK_Female_Rig_V1_rFinger1J1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rWristJ/SK_Female_Rig_V1_rPalmJ/SK_Female_Rig_V1_rFinger1J1/SK_Female_Rig_V1_rFinger1J2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rWristJ/SK_Female_Rig_V1_rPalmJ/SK_Female_Rig_V1_rFinger1J1/SK_Female_Rig_V1_rFinger1J2/SK_Female_Rig_V1_rFinger1J3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rWristJ/SK_Female_Rig_V1_rPalmJ/SK_Female_Rig_V1_rFinger2J1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rWristJ/SK_Female_Rig_V1_rPalmJ/SK_Female_Rig_V1_rFinger2J1/SK_Female_Rig_V1_rFinger2J2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rWristJ/SK_Female_Rig_V1_rPalmJ/SK_Female_Rig_V1_rFinger2J1/SK_Female_Rig_V1_rFinger2J2/SK_Female_Rig_V1_rFinger2J3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rWristJ/SK_Female_Rig_V1_rPalmJ/SK_Female_Rig_V1_rFinger3J1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rWristJ/SK_Female_Rig_V1_rPalmJ/SK_Female_Rig_V1_rFinger3J1/SK_Female_Rig_V1_rFinger3J2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rWristJ/SK_Female_Rig_V1_rPalmJ/SK_Female_Rig_V1_rFinger3J1/SK_Female_Rig_V1_rFinger3J2/SK_Female_Rig_V1_rFinger3J3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rWristJ/SK_Female_Rig_V1_rPalmJ/SK_Female_Rig_V1_rFinger4J1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rWristJ/SK_Female_Rig_V1_rPalmJ/SK_Female_Rig_V1_rFinger4J1/SK_Female_Rig_V1_rFinger4J2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rWristJ/SK_Female_Rig_V1_rPalmJ/SK_Female_Rig_V1_rFinger4J1/SK_Female_Rig_V1_rFinger4J2/SK_Female_Rig_V1_rFinger4J3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rWristJ/SK_Female_Rig_V1_rThumbJ1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rWristJ/SK_Female_Rig_V1_rThumbJ1/SK_Female_Rig_V1_rThumbJ2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJG2/SK_Female_Rig_V1_rWristJG1/SK_Female_Rig_V1_rWristJ/SK_Female_Rig_V1_rThumbJ1/SK_Female_Rig_V1_rThumbJ2/SK_Female_Rig_V1_rThumbJ3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJIKProxyG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJIKProxyG2/SK_Female_Rig_V1_rWristJIKProxyG1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_rWristJIKProxyG2/SK_Female_Rig_V1_rWristJIKProxyG1/SK_Female_Rig_V1_rWristJIKProxy
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_lHipJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_lHipJ/SK_Female_Rig_V1_SH_lKneeJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_lHipJ/SK_Female_Rig_V1_SH_lKneeJ/SK_Female_Rig_V1_SH_lAnkleJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_lHipJ/SK_Female_Rig_V1_SH_lKneeJ/SK_Female_Rig_V1_SH_lAnkleJ/SK_Female_Rig_V1_SH_lBallJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_lHipJ/SK_Female_Rig_V1_SH_lKneeJ/SK_Female_Rig_V1_SH_lAnkleJ/SK_Female_Rig_V1_SH_lBallJ/SK_Female_Rig_V1_SH_lToeJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_rHipJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_rHipJ/SK_Female_Rig_V1_SH_rKneeJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_rHipJ/SK_Female_Rig_V1_SH_rKneeJ/SK_Female_Rig_V1_SH_rAnkleJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_rHipJ/SK_Female_Rig_V1_SH_rKneeJ/SK_Female_Rig_V1_SH_rAnkleJ/SK_Female_Rig_V1_SH_rBallJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_rHipJ/SK_Female_Rig_V1_SH_rKneeJ/SK_Female_Rig_V1_SH_rAnkleJ/SK_Female_Rig_V1_SH_rBallJ/SK_Female_Rig_V1_SH_rToeJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lForearmJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lPalmJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lPalmJ/SK_Female_Rig_V1_SH_lFinger1J1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lPalmJ/SK_Female_Rig_V1_SH_lFinger1J1/SK_Female_Rig_V1_SH_lFinger1J2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lPalmJ/SK_Female_Rig_V1_SH_lFinger1J1/SK_Female_Rig_V1_SH_lFinger1J2/SK_Female_Rig_V1_SH_lFinger1J3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lPalmJ/SK_Female_Rig_V1_SH_lFinger1J1/SK_Female_Rig_V1_SH_lFinger1J2/SK_Female_Rig_V1_SH_lFinger1J3/SK_Female_Rig_V1_SH_lFinger1JTip
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lPalmJ/SK_Female_Rig_V1_SH_lFinger2J1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lPalmJ/SK_Female_Rig_V1_SH_lFinger2J1/SK_Female_Rig_V1_SH_lFinger2J2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lPalmJ/SK_Female_Rig_V1_SH_lFinger2J1/SK_Female_Rig_V1_SH_lFinger2J2/SK_Female_Rig_V1_SH_lFinger2J3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lPalmJ/SK_Female_Rig_V1_SH_lFinger2J1/SK_Female_Rig_V1_SH_lFinger2J2/SK_Female_Rig_V1_SH_lFinger2J3/SK_Female_Rig_V1_SH_lFinger2JTip
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lPalmJ/SK_Female_Rig_V1_SH_lFinger3J1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lPalmJ/SK_Female_Rig_V1_SH_lFinger3J1/SK_Female_Rig_V1_SH_lFinger3J2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lPalmJ/SK_Female_Rig_V1_SH_lFinger3J1/SK_Female_Rig_V1_SH_lFinger3J2/SK_Female_Rig_V1_SH_lFinger3J3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lPalmJ/SK_Female_Rig_V1_SH_lFinger3J1/SK_Female_Rig_V1_SH_lFinger3J2/SK_Female_Rig_V1_SH_lFinger3J3/SK_Female_Rig_V1_SH_lFinger3JTip
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lPalmJ/SK_Female_Rig_V1_SH_lFinger4J1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lPalmJ/SK_Female_Rig_V1_SH_lFinger4J1/SK_Female_Rig_V1_SH_lFinger4J2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lPalmJ/SK_Female_Rig_V1_SH_lFinger4J1/SK_Female_Rig_V1_SH_lFinger4J2/SK_Female_Rig_V1_SH_lFinger4J3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lPalmJ/SK_Female_Rig_V1_SH_lFinger4J1/SK_Female_Rig_V1_SH_lFinger4J2/SK_Female_Rig_V1_SH_lFinger4J3/SK_Female_Rig_V1_SH_lFinger4JTip
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lThumbJ1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lThumbJ1/SK_Female_Rig_V1_SH_lThumbJ2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lThumbJ1/SK_Female_Rig_V1_SH_lThumbJ2/SK_Female_Rig_V1_SH_lThumbJ3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_lClavicleJ/SK_Female_Rig_V1_SH_lShoulderJ/SK_Female_Rig_V1_SH_lElbowJ/SK_Female_Rig_V1_SH_lWristJ/SK_Female_Rig_V1_SH_lThumbJ1/SK_Female_Rig_V1_SH_lThumbJ2/SK_Female_Rig_V1_SH_lThumbJ3/SK_Female_Rig_V1_SH_lThumbJTip
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_Neck01J
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_Neck01J/SK_Female_Rig_V1_SH_Neck02J
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_Neck01J/SK_Female_Rig_V1_SH_Neck02J/SK_Female_Rig_V1_SH_HeadJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_Neck01J/SK_Female_Rig_V1_SH_Neck02J/SK_Female_Rig_V1_SH_HeadJ/SK_Female_Rig_V1_SH_HeadTipJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_Neck01J/SK_Female_Rig_V1_SH_Neck02J/SK_Female_Rig_V1_SH_HeadJ/SK_Female_Rig_V1_SH_JawJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_Neck01J/SK_Female_Rig_V1_SH_Neck02J/SK_Female_Rig_V1_SH_HeadJ/SK_Female_Rig_V1_SH_JawJ/SK_Female_Rig_V1_SH_JawTipJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rForearmJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rPalmJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rPalmJ/SK_Female_Rig_V1_SH_rFinger1J1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rPalmJ/SK_Female_Rig_V1_SH_rFinger1J1/SK_Female_Rig_V1_SH_rFinger1J2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rPalmJ/SK_Female_Rig_V1_SH_rFinger1J1/SK_Female_Rig_V1_SH_rFinger1J2/SK_Female_Rig_V1_SH_rFinger1J3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rPalmJ/SK_Female_Rig_V1_SH_rFinger1J1/SK_Female_Rig_V1_SH_rFinger1J2/SK_Female_Rig_V1_SH_rFinger1J3/SK_Female_Rig_V1_SH_rFinger1JTip
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rPalmJ/SK_Female_Rig_V1_SH_rFinger2J1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rPalmJ/SK_Female_Rig_V1_SH_rFinger2J1/SK_Female_Rig_V1_SH_rFinger2J2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rPalmJ/SK_Female_Rig_V1_SH_rFinger2J1/SK_Female_Rig_V1_SH_rFinger2J2/SK_Female_Rig_V1_SH_rFinger2J3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rPalmJ/SK_Female_Rig_V1_SH_rFinger2J1/SK_Female_Rig_V1_SH_rFinger2J2/SK_Female_Rig_V1_SH_rFinger2J3/SK_Female_Rig_V1_SH_rFinger2JTip
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rPalmJ/SK_Female_Rig_V1_SH_rFinger3J1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rPalmJ/SK_Female_Rig_V1_SH_rFinger3J1/SK_Female_Rig_V1_SH_rFinger3J2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rPalmJ/SK_Female_Rig_V1_SH_rFinger3J1/SK_Female_Rig_V1_SH_rFinger3J2/SK_Female_Rig_V1_SH_rFinger3J3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rPalmJ/SK_Female_Rig_V1_SH_rFinger3J1/SK_Female_Rig_V1_SH_rFinger3J2/SK_Female_Rig_V1_SH_rFinger3J3/SK_Female_Rig_V1_SH_rFinger3JTip
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rPalmJ/SK_Female_Rig_V1_SH_rFinger4J1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rPalmJ/SK_Female_Rig_V1_SH_rFinger4J1/SK_Female_Rig_V1_SH_rFinger4J2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rPalmJ/SK_Female_Rig_V1_SH_rFinger4J1/SK_Female_Rig_V1_SH_rFinger4J2/SK_Female_Rig_V1_SH_rFinger4J3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rPalmJ/SK_Female_Rig_V1_SH_rFinger4J1/SK_Female_Rig_V1_SH_rFinger4J2/SK_Female_Rig_V1_SH_rFinger4J3/SK_Female_Rig_V1_SH_rFinger4JTip
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rThumbJ1
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rThumbJ1/SK_Female_Rig_V1_SH_rThumbJ2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rThumbJ1/SK_Female_Rig_V1_SH_rThumbJ2/SK_Female_Rig_V1_SH_rThumbJ3
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SH_ROOTJ/SK_Female_Rig_V1_SH_Spine01J/SK_Female_Rig_V1_SH_Spine02J/SK_Female_Rig_V1_SH_Spine03J/SK_Female_Rig_V1_SH_SpineTopJ/SK_Female_Rig_V1_SH_rClavicleJ/SK_Female_Rig_V1_SH_rShoulderJ/SK_Female_Rig_V1_SH_rElbowJ/SK_Female_Rig_V1_SH_rWristJ/SK_Female_Rig_V1_SH_rThumbJ1/SK_Female_Rig_V1_SH_rThumbJ2/SK_Female_Rig_V1_SH_rThumbJ3/SK_Female_Rig_V1_SH_rThumbJTip
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_Spine01CurveCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_Spine01CurveCG/SK_Female_Rig_V1_Spine01CurveC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_Spine01J
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_Spine02CurveCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_Spine02CurveCG/SK_Female_Rig_V1_Spine02CurveC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_Spine02J
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_Spine03CurveCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_Spine03CurveCG/SK_Female_Rig_V1_Spine03CurveC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_Spine03J
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineMidIKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineMidIKCG/SK_Female_Rig_V1_SpineMidIKCG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineMidIKCG/SK_Female_Rig_V1_SpineMidIKCG2/SK_Female_Rig_V1_SpineMidIKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineMidIKCG/SK_Female_Rig_V1_SpineMidIKCG2/SK_Female_Rig_V1_SpineMidIKC/SK_Female_Rig_V1_SpineLengthCXlstr02G
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineMidIKCG/SK_Female_Rig_V1_SpineMidIKCG2/SK_Female_Rig_V1_SpineMidIKC/SK_Female_Rig_V1_SpineLengthCXlstr02G/SK_Female_Rig_V1_SpineLengthCXlstr02
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineTopIKCG2
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineTopIKCG2/SK_Female_Rig_V1_SpineTopIKCG
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineTopIKCG2/SK_Female_Rig_V1_SpineTopIKCG/SK_Female_Rig_V1_SpineTopIKC
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineTopIKCG2/SK_Female_Rig_V1_SpineTopIKCG/SK_Female_Rig_V1_SpineTopIKC/SK_Female_Rig_V1_NeckLengthCXlstr01G
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineTopIKCG2/SK_Female_Rig_V1_SpineTopIKCG/SK_Female_Rig_V1_SpineTopIKC/SK_Female_Rig_V1_NeckLengthCXlstr01G/SK_Female_Rig_V1_NeckLengthCXlstr01
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineTopIKCG2/SK_Female_Rig_V1_SpineTopIKCG/SK_Female_Rig_V1_SpineTopIKC/SK_Female_Rig_V1_SpineLengthCXlstr03G
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineTopIKCG2/SK_Female_Rig_V1_SpineTopIKCG/SK_Female_Rig_V1_SpineTopIKC/SK_Female_Rig_V1_SpineLengthCXlstr03G/SK_Female_Rig_V1_SpineLengthCXlstr03
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineTopJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineTopJ/SK_Female_Rig_V1_lClavicleJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineTopJ/SK_Female_Rig_V1_lClavicleJ/SK_Female_Rig_V1_lShoulderJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineTopJ/SK_Female_Rig_V1_lClavicleJ/SK_Female_Rig_V1_lShoulderJ/SK_Female_Rig_V1_lElbowJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineTopJ/SK_Female_Rig_V1_lClavicleJ/SK_Female_Rig_V1_lShoulderJ/SK_Female_Rig_V1_lElbowJ/SK_Female_Rig_V1_lForearmJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineTopJ/SK_Female_Rig_V1_rClavicleJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineTopJ/SK_Female_Rig_V1_rClavicleJ/SK_Female_Rig_V1_rShoulderJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineTopJ/SK_Female_Rig_V1_rClavicleJ/SK_Female_Rig_V1_rShoulderJ/SK_Female_Rig_V1_rElbowJ
+        weight: 1
+      - path: SK_Female_Rig_V1/SK_Female_Rig_V1_MainC/SK_Female_Rig_V1_SpineTopJ/SK_Female_Rig_V1_rClavicleJ/SK_Female_Rig_V1_rShoulderJ/SK_Female_Rig_V1_rElbowJ/SK_Female_Rig_V1_rForearmJ
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: SK_Female_Rig_V1_ROOTNodeJ
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

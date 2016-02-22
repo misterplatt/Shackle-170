@@ -34,21 +34,25 @@ public class spt_toolTipListener : MonoBehaviour {
         currentImage = GetComponentInChildren<Image>();
         currentText = GetComponentInChildren<Text>();
         StartCoroutine(setToolTip(RS, "Press to Toggle Flashlight", 3f, 3f));
-        StartCoroutine(setToolTip(aButton, "To Interact", 7f, 4f));
+        StartCoroutine(setToolTip(aButton, "To Interact", 9f, 4f));
         inventorySpt = transform.parent.transform.GetComponentInParent<spt_inventory>();
         endPoint = transform.parent.transform.FindChild("InspectPoint").gameObject;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        //Testing key
         if (Input.GetKeyDown(KeyCode.H)) clearToolTip();
-        if (Input.GetKeyDown(KeyCode.J)) StartCoroutine(setToolTip(LS_A, "To Move Some Objects", 1f, 2f));
+
+        //Show inventory item tooltips
         if (inventorySpt.inventorySize() > 1 && !inventoryTipsShown) {
-            StartCoroutine(setToolTip(triggers, "To Cycle Inventory", 1f, 2f));
-            StartCoroutine(setToolTip(aButton, "Hold to Use Items", 4f, 2f));
-            StartCoroutine(setToolTip(xButton, "To Pass Held Item", 7f, 2f));
+            StartCoroutine(setToolTip(triggers, "To Cycle Inventory", 1f, 3f));
+            StartCoroutine(setToolTip(aButton, "Hold to Use Items", 6f, 3f));
+            StartCoroutine(setToolTip(xButton, "To Pass Held Item", 12f, 3f));
             inventoryTipsShown = true;
         }
+
+        //Show manipulation tooltip
         if (endPoint.tag == "manipulation" && !manipulationTipsShown)
         {
             StartCoroutine(setToolTip(RS_B, "To Rotate, B to Return", 1f, 4f));

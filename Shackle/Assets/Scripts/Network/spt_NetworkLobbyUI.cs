@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.Collections;
 
@@ -26,7 +27,7 @@ public class spt_NetworkLobbyUI : MonoBehaviour {
     }
 
     public void connectLAN() {
-        manager.networkAddress = "10.0.0.4";
+        manager.networkAddress = GameObject.Find("InputField").GetComponent<InputField>().text;
         manager.networkPort = 7777;
         manager.StartClient();
     }
