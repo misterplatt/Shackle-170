@@ -26,7 +26,7 @@ public class spt_NetworkLobbyUI : MonoBehaviour {
     }
 
     public void connectLAN() {
-        manager.networkAddress = "128.114.52.99";
+        manager.networkAddress = "10.0.0.4";
         manager.networkPort = 7777;
         manager.StartClient();
     }

@@ -19,7 +19,7 @@ public class spt_inventory : NetworkBehaviour {
     [SyncVar]
     public bool invChanged = true;
 
-    public int activeItem = -1;
+    public int activeItem = 0;
     public float lerpSpeed = 5;
     private int activeSlotNumber = 0;
     private Vector3 startPos;
@@ -35,16 +35,14 @@ public class spt_inventory : NetworkBehaviour {
             return;
         }
 
-
+        activeItem = 0;
         //initialize Inventory with hand as active object, set slot 1 sprite
         if (isServer)
-        {
-            
-            activeItem = 0;
+        {            
             inventory.Add("Hand");
             transform.Find("VRCameraUI/InventorySlot0").gameObject.GetComponent<RawImage>().texture = handSprite;
             reticleUpdate();
-            //dpg_addInventory();
+            //dbg_addInventory();
         }
         else
         {
@@ -52,14 +50,17 @@ public class spt_inventory : NetworkBehaviour {
             GameObject.Find(this.name).transform.Find("VRCameraUI/InventorySlot0").gameObject.GetComponent<RawImage>().texture = handSprite;
             reticleUpdate();
         }
-
         
+
+
     }
     
     void Update() {
         if (!isLocalPlayer) return;
 
         if (invChanged) visualList();
+        reticleUpdate();
+        
         //cycling controls
         
         if ((spt_playerControls.triggers() == -1 || Input.GetKeyDown(KeyCode.A)) && !once) {
@@ -88,17 +89,21 @@ public class spt_inventory : NetworkBehaviour {
 
     //grab correct game object given the index
     public GameObject retrieveObjectFromInventory(int index) {
+        if (index >= inventory.Count || index < 0) {
+            Debug.Log("Error : RetrieveObjectFromInventory called with index " + index );
+            return null;
+        }
         return GameObject.Find(inventory[index]);
     }
 
-    public void reticleUpdate() {
-        reticleTex = GameObject.Find("GUIReticle");
-
+    public void reticleUpdate() {        
+        reticleTex = transform.Find("VRCameraUI/GUIReticle").gameObject;
         reticleTex.GetComponent<RawImage>().texture = retrieveObjectFromInventory(activeItem).GetComponent<GUITexture>().texture;
     }
 
     public void visualList() {
         for (int index = 1; index < MAX_SLOTS; ++index ) {
+            Debug.Log("Updating Slot : " + index);
             GameObject thisSlot = transform.Find("VRCameraUI/InventorySlot" + index).gameObject;
             GameObject invItem = null;
 
@@ -113,24 +118,32 @@ public class spt_inventory : NetworkBehaviour {
     }
     
     public void pickUp ( GameObject item ) {
+        if (!isLocalPlayer) return;
         if (inventory.Count == 5) return;
         //should never be null
-        inventory.Insert( inventory.Count, item.name );
+        if (!isServer) CmdPickUp(item.name, this.name);
+        else inventory.Insert(inventory.Count, item.name);
+
         invChanged = true;
     }
 
     //wrap c# list.remove() to remove inventory item from synclist
     public void removeItm(string item) {
+        if (!isLocalPlayer) return;
         if (item == "Hand") return;
-        inventory.Remove(item);
+
+        if (!isServer) CmdRemoveItem(item, this.name);
+        else inventory.Remove(item);
+
         invChanged = true;
     }
 
     //cycle right in inventory
     void cycleRight() {
-        if (inventory.Count == 0) return;
+        if (!isLocalPlayer) return;
+        if (inventory.Count < 0) return;
 
-        if(activeItem < inventory.Count-1) {
+        if (activeItem < inventory.Count-1) {
             ++activeItem;
             ++activeSlotNumber;
         }
@@ -143,14 +156,15 @@ public class spt_inventory : NetworkBehaviour {
 
         //Move selection bar below the new active item
         selectionBar.transform.localPosition = new Vector3(
-            GameObject.Find("InventorySlot" + activeSlotNumber).transform.localPosition.x, 
+            transform.Find("VRCameraUI/InventorySlot" + activeSlotNumber).localPosition.x, 
             selectionBar.transform.localPosition.y, 
             selectionBar.transform.localPosition.z );
     }
 
     //cycle left in inventory
     void cycleLeft() {
-        if (inventory.Count == 0) return;
+        if (!isLocalPlayer) return;
+        if (inventory.Count < 0) return;
 
         if(activeItem > 0) {
             --activeItem;
@@ -164,19 +178,24 @@ public class spt_inventory : NetworkBehaviour {
 
         //Move selection bar below the new active item
         selectionBar.transform.localPosition = new Vector3(
-        GameObject.Find("InventorySlot" + activeSlotNumber).transform.localPosition.x,
+        transform.Find("VRCameraUI/InventorySlot" + activeSlotNumber).transform.localPosition.x,
             selectionBar.transform.localPosition.y,
             selectionBar.transform.localPosition.z);
     }
 
     void sendItem() {
+        if (!isLocalPlayer) return;
+        if (activeItem == 0) return;
+        
         CmdSendItem(transform.gameObject.name, inventory[activeItem]);
         cycleLeft();
+        
         invChanged = true;
     }
 
     public void dbg_serverPrintInventory()
     {
+        if (!isLocalPlayer) return;
         if (!isServer) return;
         int slot = 1;
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
@@ -195,8 +214,9 @@ public class spt_inventory : NetworkBehaviour {
         }
     }
 
-    public void dpg_addInventory()
+    public void dbg_addInventory()
     {
+        if (!isLocalPlayer) return;
         inventory.Add("mdl_screwDriver");
         inventory.Add("mdl_garageOpener");
         inventory.Add("mdl_key");
@@ -205,6 +225,7 @@ public class spt_inventory : NetworkBehaviour {
 
     public void dbg_printInventory()
     {
+        if (!isLocalPlayer) return;
         int slot = 1;
 
         foreach (string item in inventory)
@@ -223,6 +244,16 @@ public class spt_inventory : NetworkBehaviour {
     }
 
     [Command]
+    void CmdRemoveItem( string itemName, string pName ) {
+        GameObject.Find(pName).GetComponent<spt_inventory>().inventory.Remove(itemName);
+    }
+
+    [Command]
+    void CmdPickUp( string itemName, string pName ) {
+        GameObject.Find(pName).GetComponent<spt_inventory>().inventory.Add(itemName);
+    }
+
+    [Command]
     void CmdSendItem( string pGiver, string itemName ) {
         if (itemName == "Hand") return;
         //get players from scene
@@ -236,20 +267,16 @@ public class spt_inventory : NetworkBehaviour {
             else reciever = player;
         }
 
+
         if ( reciever.GetComponent<spt_inventory>().inventory.Count == 5 )
         {
             Debug.Log("Tried to pass to full inventory.");
             return;
         }
 
-        //remove object from giver
-        giver.GetComponent<spt_inventory>().removeItm(itemName);
-
-        //give object to reciever
-        spt_inventory recInventory = reciever.GetComponent<spt_inventory>();
-        recInventory.pickUp(GameObject.Find(itemName));
-        
-
+        giver.GetComponent<spt_inventory>().inventory.Remove(itemName);
+        reciever.GetComponent<spt_inventory>().inventory.Add(itemName);
+        reciever.GetComponent<spt_inventory>().invChanged = true;
         //set remote invChange to true
 
     }

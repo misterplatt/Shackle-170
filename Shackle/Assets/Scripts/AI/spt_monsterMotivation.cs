@@ -49,7 +49,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (!isServer) return;
-        Debug.Log("Anger : " + angerLevel);
+        //Debug.Log("Anger : " + angerLevel);
         if (angerLevel >= lowerThreshold)
             attack();
 	}
