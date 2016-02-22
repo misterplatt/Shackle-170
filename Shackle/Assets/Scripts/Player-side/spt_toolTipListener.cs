@@ -28,6 +28,7 @@ public class spt_toolTipListener : MonoBehaviour {
     public GameObject endPoint;
     private bool inventoryTipsShown = false;
     private bool manipulationTipsShown = false;
+    private bool movableTipsShown = false;
 
     // Use this for initialization
     void Start () {
@@ -57,6 +58,11 @@ public class spt_toolTipListener : MonoBehaviour {
         {
             StartCoroutine(setToolTip(RS_B, "To Rotate, B to Return", 1f, 4f));
             manipulationTipsShown = true;
+        }
+
+        if (GameObject.Find("spr_bucketMovePath").GetComponent<SpriteRenderer>().enabled == true && !movableTipsShown) {
+            StartCoroutine(setToolTip(LS_A, "To Move Some Objects", 1f, 4f));
+            movableTipsShown = true;
         }
     }
 
