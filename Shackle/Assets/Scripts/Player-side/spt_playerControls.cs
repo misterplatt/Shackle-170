@@ -6,7 +6,7 @@ public class spt_playerControls : MonoBehaviour
 {
     private Rigidbody rb;
     public float speed;
-    static PlayerIndex playerIndex;
+    static PlayerIndex playerIndex = 0;
 
     private bool axisInUse = false;
 
