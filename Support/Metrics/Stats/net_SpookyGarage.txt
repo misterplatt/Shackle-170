@@ -1,0 +1,14 @@
+net_SpookyGarage
+Average Event Completion Times
+extCordPlugged,430.899
+garageDoorUnlocked,430.899
+TVpowerState,283.41255
+correctChannelEntered,430.899
+garageDoorOpen,430.899
+Event Non-Completions
+extCordPlugged,1.0
+garageDoorUnlocked,1.0
+correctChannelEntered,1.0
+acUnitOpen,3.0
+garageDoorOpen,1.0
+TVpowerState,1.0
