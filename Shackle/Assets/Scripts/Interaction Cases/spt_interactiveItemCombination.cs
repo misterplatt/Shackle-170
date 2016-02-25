@@ -1,9 +1,21 @@
-﻿using UnityEngine;
+﻿/*
+spt_interactiveItemCombinationTWO
+
+Author(s): Hayden Platt,Dara Diba
+
+Revision 1
+
+Child of the base interactiveObject class
+Allows for an item to manage and check that if the conditions to the speficic combination are met, then the combination state is changed to true.
+Seems to be unused so far.
+*/
+
+using UnityEngine;
 using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_interactiveItemCombination : MonoBehaviour
+    public class spt_interactiveItemCombination : spt_baseInteractiveObject
     {
         [SerializeField]
         private Material m_StateOneMaterial;
@@ -13,29 +25,12 @@ namespace VRStandardAssets.Examples
 
         //Access to InteractiveItem script
         [SerializeField]
-        private VRInteractiveItem m_InteractiveItem;
-        [SerializeField]
         private Renderer m_Renderer;
 
 
-        bool currentState = false;
+        private bool currentState = false;
 
-        private void OnEnable()
-        {
-            m_InteractiveItem.OnClick += HandleClick;
-        }
-
-
-        private void OnDisable()
-        {
-            m_InteractiveItem.OnClick -= HandleClick;
-        }
-
-        void Start()
-        {
-        }
-
-        void Update()
+        override protected void Update()
         {
             //If the object has been clicked in the world, lerp it in front of the player and enable rotation with right thumbstick
             if (currentState == true)
@@ -60,9 +55,8 @@ namespace VRStandardAssets.Examples
         }
 
         //Handle the Click event, alternates states on every press
-        private void HandleClick()
+        override protected void clickSuccess()
         {
-            Debug.Log("Show click state");
             currentState = true;
             m_Renderer.material = m_StateOneMaterial;
         }
