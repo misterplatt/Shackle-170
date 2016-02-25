@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿/* spt_NetworkLobbyUI.cs
+ * 
+ * Created by: Ryan Connors
+ * 
+ * Last Revision Date: 2/25/2016
+ * 
+ * This file provides an interface  with the Unity Network Manager for starting and joining a game of shackle
+*/
+
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.Collections;

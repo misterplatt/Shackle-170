@@ -1,4 +1,16 @@
-﻿using UnityEngine;
+﻿/* spt_inventory.cs
+ * 
+ * Created by: Ryan Connors
+ * 
+ * Last Revision Date: 2/25/2016
+ * 
+ * This file provides the network based implementation of the player inventory.
+ * this inventory is synched between client and hosts and supports two distinct inventories, as well as 
+ * inventory interaction in the way of passing, grabbing, and removing items.
+*/
+
+
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.Collections.Generic;
@@ -6,9 +18,10 @@ using System;
 using VRStandardAssets.Utils;
 
 public class spt_inventory : NetworkBehaviour {
+    //The inventory is stored as a synchronized list of string references to scene objects
     [SerializeField] SyncListString inventory = new SyncListString();
 
-    //inventory stuff
+    //UI components
     public GameObject selectionBar;
     public GameObject handObj;
     public GameObject reticleTex;
@@ -16,19 +29,23 @@ public class spt_inventory : NetworkBehaviour {
     public Texture none;
     private int MAX_SLOTS = 4;
 
+    //A sync variable which dictates if the inventory UI should update
     [SyncVar]
     public bool invChanged = true;
 
+    //LERP and information for inventory icon positions.
     public int activeItem = 0;
     public float lerpSpeed = 5;
     private int activeSlotNumber = 0;
     private Vector3 startPos;
     private Vector3 endPos;
 
+    //flag to prevent duplicated input on button down
     [SerializeField] private bool once = false;
 
     void Start() {
         
+        //if not the local player, don't do anything it won't matter.
         if (!isLocalPlayer)
         {
             invChanged = false;
@@ -39,6 +56,7 @@ public class spt_inventory : NetworkBehaviour {
         //initialize Inventory with hand as active object, set slot 1 sprite
         if (isServer)
         {            
+            //if we're the server, simply assign textures and add hand item
             inventory.Add("Hand");
             transform.Find("VRCameraUI/InventorySlot0").gameObject.GetComponent<RawImage>().texture = handSprite;
             reticleUpdate();
@@ -46,6 +64,7 @@ public class spt_inventory : NetworkBehaviour {
         }
         else
         {
+            //if we're the client, tell the server to initialize our object.
             CmdinitSpawn(this.name);
             GameObject.Find(this.name).transform.Find("VRCameraUI/InventorySlot0").gameObject.GetComponent<RawImage>().texture = handSprite;
             reticleUpdate();
@@ -56,13 +75,15 @@ public class spt_inventory : NetworkBehaviour {
     }
     
     void Update() {
+        //if not the local player, don't do anything as it's meaningless
         if (!isLocalPlayer) return;
 
+        //if the inventory has changed in someway, redraw the inventory UI.
         if (invChanged) visualList();
+        //update the reticle to indicate the currently selected item
         reticleUpdate();
         
-        //cycling controls
-        
+        //use the triggers as cycle controls through the inventory, but only allow them to register once.
         if ((spt_playerControls.triggers() == -1 || Input.GetKeyDown(KeyCode.A)) && !once) {
 
             cycleLeft();
@@ -87,7 +108,7 @@ public class spt_inventory : NetworkBehaviour {
 
     }
 
-    //grab correct game object given the index
+    //grab correct game object from the scene by inventory string reference given the index.
     public GameObject retrieveObjectFromInventory(int index) {
         if (index >= inventory.Count || index < 0) {
             Debug.Log("Error : RetrieveObjectFromInventory called with index " + index );
@@ -96,33 +117,45 @@ public class spt_inventory : NetworkBehaviour {
         return GameObject.Find(inventory[index]);
     }
 
+    //change the reticle texture based on the current active inventory item.
     public void reticleUpdate() {        
         reticleTex = transform.Find("VRCameraUI/GUIReticle").gameObject;
         reticleTex.GetComponent<RawImage>().texture = retrieveObjectFromInventory(activeItem).GetComponent<GUITexture>().texture;
     }
 
+    //iterate through the synced inventory string list and update the UI icons with gameobject icons, remove the icons from items which no longer exist
     public void visualList() {
+        //for any inventory item beyond the hand.
         for (int index = 1; index < MAX_SLOTS; ++index ) {
+            //get the gameobject storying the UI icon
             GameObject thisSlot = transform.Find("VRCameraUI/InventorySlot" + index).gameObject;
             GameObject invItem = null;
 
+            //once we've gottent o UI icons beyond the inventory we actually have, just remove their texture and return. We've passed an item most likely.
             if ( index >= inventory.Count )
             {
                 thisSlot.GetComponent<RawImage>().texture = none;
                 break;
             }
+            //otherwise get the current gameobject whose name is stored at this inventory index
+            //then populate the UI texture appropriately.
             invItem = retrieveObjectFromInventory(index);
             thisSlot.GetComponent<RawImage>().texture = invItem.GetComponent<GUITexture>().texture;
         } 
     }
     
+    //pickup adds a new object to the inventory list.
     public void pickUp ( GameObject item ) {
+        //if we're not the local player, or our inventory is full, don't do anything. 
         if (!isLocalPlayer) return;
         if (inventory.Count == 5) return;
-        //should never be null
+
+        //if we're not the server, ask the server to pick up the item for us and update our list.
+        //if we our the server, like shia said, JUST DO IT.
         if (!isServer) CmdPickUp(item.name, this.name);
         else inventory.Insert(inventory.Count, item.name);
 
+        //note the inventory has changed so the UI will update.
         invChanged = true;
     }
 
@@ -142,12 +175,13 @@ public class spt_inventory : NetworkBehaviour {
         if (!isLocalPlayer) return;
         if (inventory.Count < 0) return;
 
+        //if we're not at the end of the list iterate
         if (activeItem < inventory.Count-1) {
             ++activeItem;
             ++activeSlotNumber;
         }
         else {
-            //case : loop from end to beginning
+            //case : loop from end to beginning if we're at the end of the list.
             activeItem = 0;
             activeSlotNumber = 0;            
         }
@@ -161,6 +195,7 @@ public class spt_inventory : NetworkBehaviour {
     }
 
     //cycle left in inventory
+    //logically equivilant to above algorithm, see notes above.
     void cycleLeft() {
         if (!isLocalPlayer) return;
         if (inventory.Count < 0) return;
@@ -186,12 +221,14 @@ public class spt_inventory : NetworkBehaviour {
         if (!isLocalPlayer) return;
         if (activeItem == 0) return;
         
+        //ask server to give my selected object to the other player instance then cycle left.
         CmdSendItem(transform.gameObject.name, inventory[activeItem]);
         cycleLeft();
         
         invChanged = true;
     }
 
+    //Debug command which prints all player inventories to console.
     public void dbg_serverPrintInventory()
     {
         if (!isLocalPlayer) return;
@@ -213,6 +250,7 @@ public class spt_inventory : NetworkBehaviour {
         }
     }
 
+    //debug command which adds all inventory objects from garage scene to player inventory
     public void dbg_addInventory()
     {
         if (!isLocalPlayer) return;
@@ -222,6 +260,7 @@ public class spt_inventory : NetworkBehaviour {
     //    inventory.Add("mdl_screwDriver");
     }
 
+    //debug command printing local inventory
     public void dbg_printInventory()
     {
         if (!isLocalPlayer) return;
@@ -233,6 +272,9 @@ public class spt_inventory : NetworkBehaviour {
         }
     }
 
+    //Server Commands....
+
+    //initSpawn sets up inventory initial conditions, adds hand object and sets UI texture properly
     [Command]
     void CmdinitSpawn(string pName)
     {
@@ -242,16 +284,19 @@ public class spt_inventory : NetworkBehaviour {
         GameObject.Find(pName).transform.Find("VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
     }
 
+    //remove item removes the given item from the inventory on the server by string reference
     [Command]
     void CmdRemoveItem( string itemName, string pName ) {
         GameObject.Find(pName).GetComponent<spt_inventory>().inventory.Remove(itemName);
     }
 
+    //adds an item to player inventory by string name on server
     [Command]
     void CmdPickUp( string itemName, string pName ) {
         GameObject.Find(pName).GetComponent<spt_inventory>().inventory.Add(itemName);
     }
 
+    //Command to remove item from giver inventory and add to reciever inventory. Only works if reciever is not full.
     [Command]
     void CmdSendItem( string pGiver, string itemName ) {
         if (itemName == "Hand") return;

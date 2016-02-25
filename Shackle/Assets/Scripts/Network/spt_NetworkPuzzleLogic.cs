@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿/* spt_Events.cs
+ * 
+ * Created by: Ryan Connors
+ * 
+ * Last Revision Date: 2/25/2016
+ * 
+ * This file provides the logic for puzzle states in a Network Logic Environment.
+ */
+
+using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -6,6 +15,13 @@ using System.Collections.Generic;
 using System;
 using System.IO;
 
+
+//LogicTuple is a structure that stores data for Network Code Generation
+// bool state : a boolean state indicating if this stage of the puzzle has been completed
+// string name : the name of the stage
+// itemName : the name referring to the GameObject which controls this state
+// isMonsterInteractable : bool noting if the monster can alter this state.
+// timeStamp : a string which stores the time this stage was completed for metric collection
 public struct LogicTuple
 { 
     //Stores state (event has occured or not)
@@ -25,7 +41,7 @@ public struct LogicTuple
         isMonsterInteractable = interactable;
         timeStamp = completionTime;
     }
-
+    //when checking for equality, just check the name of the state, that's all we care about
     public override bool Equals(System.Object obj) {
         if (obj == null) return false;
 
@@ -35,6 +51,10 @@ public struct LogicTuple
         //Struct is non-nullable value, so no null check required.
         return this.name.Equals(cValue.name);
     }
+
+    public override int GetHashCode() {
+        return base.GetHashCode();
+    }
 }
 
 //required for network code generation
@@ -43,7 +63,6 @@ public class SyncListLogicPair : SyncListStruct<LogicTuple> { }
 public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     [SerializeField]
     public SyncListLogicPair PuzzleStates = new SyncListLogicPair();
-    public spt_player_NetworkPuzzleLogic player;
     private spt_NetworkPuzzleLogic NPL;
     public bool loaded = false;
     void Start() {
@@ -103,10 +122,12 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
         }
     }
 
+    //when we destroy the object, output all the metrics
     void OnDestroy() {
         outputMetrics();
     }
 
+    //debug function which logs all events in console
     void dbg_logEvents() {
         Debug.Log("SyncList Size : " + PuzzleStates.Count);
         foreach (LogicTuple lPair in PuzzleStates) {
@@ -126,6 +147,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
         PuzzleStates[PuzzleStates.IndexOf(new LogicTuple(name, false, itemName))] = newTuple;
     }
 
+    //step through synclist and grab name and timestamps, save to datadump so we can retrieve metrics later
     public void outputMetrics() {
         if (!isServer) return;
 
@@ -141,6 +163,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
         writer.Close();
     }
 
+    //server command to update a puzzle state to some value.
     [Command]
     public void Cmd_UpdatePuzzleLogic(string name, bool state, string itmName) {
         updatePuzzleState(name, state, itmName);

@@ -1,9 +1,3 @@
-extCordPlugged,-1
-acUnitOpen,-1
-TVpowerState,-1
-garageDoorOpen,-1
-correctChannelEntered,-1
-garageDoorUnlocked,-1
 extCordPlugged,571.9659
 acUnitOpen,-1
 TVpowerState,336.3664

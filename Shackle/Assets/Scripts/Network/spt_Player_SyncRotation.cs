@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿/* spt_Player_SyncRotation.cs
+ * 
+ * Created by: Ryan Connors
+ * 
+ * Last Revision Date: 2/25/2016
+ * 
+ * Syncs the rotation across the server.
+ */
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
 
@@ -28,6 +37,7 @@ public class spt_Player_SyncRotation : NetworkBehaviour {
         LerpRotations();
 	}
 
+    //linear interpolation of various captured states so we can give smoothness to the syncing of transforms.
     void LerpRotations()
     {
         if (!isLocalPlayer)

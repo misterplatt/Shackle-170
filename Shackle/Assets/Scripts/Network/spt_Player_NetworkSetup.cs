@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿/* spt_Player_NetworkSetup.cs
+ * 
+ * Created by: Ryan Connors
+ * 
+ * Last Revision Date: 2/25/2016
+ * 
+ * This file initializes the player object in its networked environment, enabling the components it should use.
+ */
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
 
