@@ -1777,10 +1777,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c22da4052718045bd1646aa9ea5e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gateItemName: Hand
-  holdTime: 0
-  m_InteractiveItem: {fileID: 534444303}
-  selectionRadial: {fileID: 0}
 --- !u!54 &534444306
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2166,10 +2162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c22da4052718045bd1646aa9ea5e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gateItemName: Hand
-  holdTime: 0
-  m_InteractiveItem: {fileID: 648225337}
-  selectionRadial: {fileID: 0}
 --- !u!114 &648225337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6075,6 +6067,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1083708030}
   m_RootOrder: 4
+--- !u!1 &1592032153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1592032155}
+  - 114: {fileID: 1592032154}
+  m_Layer: 0
+  m_Name: Debug_Tools
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1592032154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1592032153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9467dcd634e73042b5cb55c1dc37f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1592032155
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1592032153}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.8018003, y: 0.19329262, z: 2.0968056}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
 --- !u!1 &1608102826
 GameObject:
   m_ObjectHideFlags: 0
@@ -6650,10 +6681,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c22da4052718045bd1646aa9ea5e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gateItemName: Hand
-  holdTime: 0
-  m_InteractiveItem: {fileID: 1936999528}
-  selectionRadial: {fileID: 0}
 --- !u!114 &1936999528
 MonoBehaviour:
   m_ObjectHideFlags: 0
