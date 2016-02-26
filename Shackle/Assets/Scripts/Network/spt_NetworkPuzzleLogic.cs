@@ -144,6 +144,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
         LogicTuple original_Tuple = PuzzleStates[PuzzleStates.IndexOf(new LogicTuple(name, false, itemName))];
         LogicTuple newTuple = new LogicTuple(original_Tuple.name, true, original_Tuple.itemName, original_Tuple.isMonsterInteractable, Time.time);
+        Debug.Log(Time.time);
         PuzzleStates[PuzzleStates.IndexOf(new LogicTuple(name, false, itemName))] = newTuple;
     }
 
