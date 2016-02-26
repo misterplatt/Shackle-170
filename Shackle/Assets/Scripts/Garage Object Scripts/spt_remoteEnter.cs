@@ -26,7 +26,6 @@ namespace VRStandardAssets.Examples
 
         [SerializeField]
         private Renderer m_Renderer;
-        bool currentState = false;
 
         //Function that activates all manipulation object's children's colliders on pickup, and deactivates on put down
         public void childActive(bool state) {

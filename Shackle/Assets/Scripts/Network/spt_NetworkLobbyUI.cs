@@ -47,4 +47,8 @@ public class spt_NetworkLobbyUI : MonoBehaviour {
     void OnApplicationQuit() {
         manager.StopHost();
     }
+
+    public void changeLevel() {
+        manager.onlineScene = GameObject.Find("Label").GetComponent<Text>().text;
+    }
 }

@@ -38,7 +38,6 @@ namespace VRStandardAssets.Examples
             //When A is held, use left thumbstick to move object based on object's axis boolean
             if (buttonHeld == true)
             {
-                Debug.Log("CLICKIN DAT BUCKT");
                 if (optional_movePathImage != null) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = true;
                 if (xAxis == true){
                     //Translate along local X axis

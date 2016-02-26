@@ -16,7 +16,7 @@ using System.Collections;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_interactivePickup : spt_baseInteractiveObject
+    public class spt_interactivePickUp : spt_baseInteractiveObject
     {
 
         //Handle the Click event

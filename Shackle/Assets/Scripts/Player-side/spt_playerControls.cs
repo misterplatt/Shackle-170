@@ -8,7 +8,7 @@ public class spt_playerControls : MonoBehaviour
     public float speed;
     static PlayerIndex playerIndex = 0;
 
-    private bool axisInUse = false;
+    //private bool axisInUse = false; //NEVER USED
 
     void Start()
     {
