@@ -71,6 +71,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
         //NPL = GetComponent<spt_NetworkPuzzleLogic>();
 
         for (int index = 0; index < devtool_PuzzleStates.Count; ++index) {
+            
             PuzzleStates.Add(new LogicTuple(devtool_PuzzleStates[index].eventName,
                                     false,
                                     devtool_PuzzleStates[index].item.name,

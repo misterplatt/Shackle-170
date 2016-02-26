@@ -1777,6 +1777,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c22da4052718045bd1646aa9ea5e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateItemName: 
+  holdTime: 0
+  m_InteractiveItem: {fileID: 0}
+  selectionRadial: {fileID: 0}
 --- !u!54 &534444306
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2162,6 +2166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c22da4052718045bd1646aa9ea5e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateItemName: 
+  holdTime: 0
+  m_InteractiveItem: {fileID: 0}
+  selectionRadial: {fileID: 0}
 --- !u!114 &648225337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4880,22 +4888,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
+    i0: 152
+    i1: 253
+    i2: 7
+    i3: 88
+    i4: 16
+    i5: 226
+    i6: 255
+    i7: 148
+    i8: 218
+    i9: 168
+    i10: 62
+    i11: 17
+    i12: 181
+    i13: 215
+    i14: 76
+    i15: 207
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!114 &1362600058
@@ -5781,7 +5789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   devtool_PuzzleStates:
   - eventName: extCordPlugged
-    item: {fileID: 0}
+    item: {fileID: 1362600054}
     isMonstInteractable: 1
   - eventName: acUnitOpen
     item: {fileID: 412353860}
@@ -5797,6 +5805,9 @@ MonoBehaviour:
     isMonstInteractable: 0
   - eventName: garageDoorUnlocked
     item: {fileID: 1304532215}
+    isMonstInteractable: 0
+  - eventName: playerLoss
+    item: {fileID: 1019155234}
     isMonstInteractable: 0
 --- !u!4 &1515300599
 Transform:
@@ -6681,6 +6692,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c22da4052718045bd1646aa9ea5e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateItemName: 
+  holdTime: 0
+  m_InteractiveItem: {fileID: 0}
+  selectionRadial: {fileID: 0}
 --- !u!114 &1936999528
 MonoBehaviour:
   m_ObjectHideFlags: 0
