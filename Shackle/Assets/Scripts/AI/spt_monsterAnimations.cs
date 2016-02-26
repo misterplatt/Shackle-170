@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 2/22/2016
+ * Last Revision Date: 2/25/2016
  * 
  * This file handles all of the monster's animations, and the translations needed to properly frame them.
  * This includes: the attacking animation/attacking capability.*/
@@ -39,6 +39,8 @@ public class spt_monsterAnimations : MonoBehaviour {
                 this.transform.position = attackSpawnAStartingPosition;
                 movementScript.setDestination(playerPosition);
                 renderer.enabled = true;
+                foreach (Renderer r in GetComponentsInChildren<Renderer>())
+                    r.enabled = true;
                 monsterAttackInitiated = true;
                 // play animation
             }
@@ -51,6 +53,8 @@ public class spt_monsterAnimations : MonoBehaviour {
                 this.transform.position = attackSpawnBStartingPosition;
                 movementScript.setDestination(playerPosition);
                 renderer.enabled = true;
+                foreach (Renderer r in GetComponentsInChildren<Renderer>())
+                    r.enabled = true;
                 monsterAttackInitiated = true;
                 // play animation
             }

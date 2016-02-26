@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: {fileID: 0}
+  spawns: []
   angerLevel: 0
 --- !u!114 &11474906
 MonoBehaviour:
@@ -440,6 +441,14 @@ Prefab:
       propertyPath: warningSounds.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: cc77e18dc38020545bf23d02d0c4a7b3, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 143596}

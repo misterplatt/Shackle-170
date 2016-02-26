@@ -2,15 +2,22 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 2/15/2016
+ * Last Revision Date: 2/25/2016
  * 
  * This file is the one that handle the dynamic difficulty adjustment. **/
 
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 public class spt_DDA : MonoBehaviour {
+
+    public bool METRICS_ENABLED = true;
+    public string filename;
+
+    private StreamReader reader;
 
     private spt_monsterMotivation motivationScript;
     private spt_NetworkPuzzleLogic networkScript;
@@ -31,6 +38,7 @@ public class spt_DDA : MonoBehaviour {
         
         // Gets the motivation script (for altering the threshold) and the network script (for getting puzzle states)
         motivationScript = GameObject.FindObjectOfType(typeof(spt_monsterMotivation)) as spt_monsterMotivation;
+
 	}
 	
 	// Update is called once per frame
@@ -45,11 +53,32 @@ public class spt_DDA : MonoBehaviour {
             if (networkScript.loaded && networkScript.loaded == true && loadedTheNetwork == false)
             {
                 //Populates the checkpoint list with puzzle states and their times.
-                //  Currently, the players have 30 seconds to complete each task.
-                for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
+
+                // Players have 30 seconds between tasks
+                if (!METRICS_ENABLED)
                 {
-                    if (networkScript.PuzzleStates[i].name == null || checkpoints == null) continue;
-                     checkpoints.Add(new puzzleStateWithCheckpointTime(networkScript.PuzzleStates[i].name, ((i + 1) * 30)));
+                    for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
+                    {
+                        if (networkScript.PuzzleStates[i].name == null || checkpoints == null) continue;
+                        checkpoints.Add(new puzzleStateWithCheckpointTime(networkScript.PuzzleStates[i].name, ((i + 1) * 30)));
+                    }
+                }
+                
+                // Players have average times
+                if (METRICS_ENABLED)
+                {
+                    reader = new StreamReader(filename);
+                    reader.ReadLine(); // gets rid of level name
+                    reader.ReadLine(); // gets rid ofAverage completion times line
+
+                    for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
+                    {
+                        if (networkScript.PuzzleStates[i].name == null || checkpoints == null) continue;
+                        string[] substrings = reader.ReadLine().Split(',');
+                        checkpoints.Add(new puzzleStateWithCheckpointTime(networkScript.PuzzleStates[i].name, int.Parse(substrings[substrings.Length - 1])));
+                    }
+
+                    reader.Close();
                 }
 
                 InvokeRepeating("checkForDifficultyChange", 1, 1);
@@ -73,11 +102,13 @@ public class spt_DDA : MonoBehaviour {
 
         // If the players are 15 seconds ahead of the ideal checkpoint time, raise the difficulty.
         if (elapsedTime <= checkpoints[currentPuzzleStateIndex].time - 15){
+            Debug.Log("Raising Difficulty");
             raiseTheDifficulty();
         }
         
         // If the players are 15 seconds behind the ideal checkpoint time, lower the difficulty.
         else if (elapsedTime >= checkpoints[currentPuzzleStateIndex].time + 15){
+            Debug.Log("Lowering Difficulty");
             lowerTheDifficulty();
         }
 

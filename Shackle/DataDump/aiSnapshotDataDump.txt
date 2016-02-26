@@ -1,2 +1,0 @@
-Datetime,Elapsed Time (in Seconds),Current Waypoint,Anger Level
-2/25/2016 2:44:21 PM,1,1,0
