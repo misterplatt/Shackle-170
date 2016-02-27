@@ -14,7 +14,7 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -6087,6 +6087,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1592032155}
   - 114: {fileID: 1592032154}
+  - 114: {fileID: 1592032156}
   m_Layer: 0
   m_Name: Debug_Tools
   m_TagString: Untagged
@@ -6117,6 +6118,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
+--- !u!114 &1592032156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1592032153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e950db6c144775147994bfd716116028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 1372298638}
+  sound: {fileID: 8300000, guid: cc77e18dc38020545bf23d02d0c4a7b3, type: 3}
 --- !u!1 &1608102826
 GameObject:
   m_ObjectHideFlags: 0
