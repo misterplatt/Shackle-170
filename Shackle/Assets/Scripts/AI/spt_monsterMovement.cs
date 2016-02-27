@@ -3,7 +3,7 @@
  * Created by: Lauren Cunningham
  * Networking Modifications by : Ryan Connors
  * 
- * Last Revision Date: 2/20/2016 : Networking
+ * Last Revision Date: 2/26/2016 : Networking
  * 
  * This file is the one that ultimately governs the monster's movements. **/
 
@@ -13,6 +13,8 @@ using System.Collections;
 
 public class spt_monsterMovement : NetworkBehaviour {
 
+    private spt_NetworkPuzzleLogic networkScript;
+    
     // Array of waypoints, the graph that holds the waypoints, as well as the script that instantiates the graph itself 
     public Transform[] waypoints;
     private int[][] waypointGraph;
@@ -43,6 +45,11 @@ public class spt_monsterMovement : NetworkBehaviour {
         // Chooses a new destination if the monster is within a certain distance of its current one.
         if (agent.remainingDistance <= 2 && currentWaypoint != 999){
             chooseDestination();
+        }
+        if (agent.remainingDistance <= 2 && currentWaypoint == 999){
+            Debug.LogWarning("attempting to alter playerLoss in puzzleStates...");
+            networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
+            networkScript.updatePuzzleState("playerLoss", true, "MonsterStandin");
         }
 
 	}

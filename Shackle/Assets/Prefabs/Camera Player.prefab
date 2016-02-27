@@ -277,6 +277,7 @@ GameObject:
   - 222: {fileID: 22224976}
   - 114: {fileID: 11403998}
   - 114: {fileID: 11476340}
+  - 114: {fileID: 11491444}
   m_Layer: 5
   m_Name: WinMessage
   m_TagString: Untagged
@@ -390,7 +391,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.4328012, y: 3.7026038, z: 6.575953}
+  m_LocalPosition: {x: -4.0032425, y: 0.074153066, z: -5.0859556}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 437726}
@@ -1084,6 +1085,17 @@ MonoBehaviour:
   m_DebugRayDuration: 1
   m_RayLength: 500
   rhit: {x: 0, y: 0, z: 0}
+--- !u!114 &11491444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e46aa0b99caec4da7a9c70c9b05433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11492310
 MonoBehaviour:
   m_ObjectHideFlags: 1
