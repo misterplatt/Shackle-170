@@ -74,7 +74,7 @@ namespace VRStandardAssets.Examples
         //Handle the Out event
         virtual protected void HandleOut()
         {
-            Debug.Log("Show out state");
+            //Debug.Log("Show out state");
             selectionRadial = GetComponent<VRInteractiveItem>().radial;
             holding = false;
             selectionRadial.fillAmount = 0;
