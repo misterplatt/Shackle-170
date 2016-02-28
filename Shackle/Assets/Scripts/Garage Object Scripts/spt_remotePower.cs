@@ -33,7 +33,7 @@ namespace VRStandardAssets.Examples
         public void childActive(bool state)
         {
             //Debug.Log("RISE CHILDREN");
-            GetComponent<CapsuleCollider>().enabled = state;
+            GetComponent<BoxCollider>().enabled = state;
         }
 
         //Handle the Click event, alternates states on every press
