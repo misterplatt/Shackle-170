@@ -11,6 +11,7 @@ Listens for event cues to show and hide tooltips.
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class spt_toolTipListener : MonoBehaviour {
 
@@ -32,6 +33,7 @@ public class spt_toolTipListener : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        if (SceneManager.GetActiveScene().name != "net_SpookyGarage") gameObject.SetActive(false);
         currentImage = GetComponentInChildren<Image>();
         currentText = GetComponentInChildren<Text>();
         StartCoroutine(setToolTip(RS, "Press to Toggle Flashlight", 3f, 3f));
