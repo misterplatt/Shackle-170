@@ -135,7 +135,7 @@ namespace VRStandardAssets.Examples
         }
 
         virtual protected void holdSuccess() {
-            Debug.Log("HOLD SUCCESS");
+            //Debug.Log("HOLD SUCCESS");
         }
 
         //Handle the Up event
