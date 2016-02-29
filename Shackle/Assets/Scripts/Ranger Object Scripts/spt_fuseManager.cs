@@ -21,6 +21,8 @@ public class spt_fuseManager : MonoBehaviour
     public static bool[] fuseStates;
     public static bool[] correctStates;
 
+    public static bool local_correctFuseCombo;
+
     // Use this for initialization
     void Start()
     {
@@ -33,6 +35,10 @@ public class spt_fuseManager : MonoBehaviour
     //Postcon: channelNumber String array is altered
     public void updateFuseStates(int index, bool state)
     {
+        //NPL Update
+        spt_WorldState.worldStateChanged = true;
+        local_correctFuseCombo = true;
+
         fuseStates[index] = state;
         if (fuseStates.SequenceEqual(correctStates)) {
             GameObject.Find("Electronic Lock").transform.Translate(new Vector3(.3f,0,0));

@@ -5495,6 +5495,9 @@ MonoBehaviour:
   - {fileID: 198115428}
   - {fileID: 218670284}
   angerLevel: 0
+  whichPlayer: 0
+  isAttacking: 0
+  clientRecievedSignal: 0
 --- !u!114 &1372298643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6135,18 +6138,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   devtool_PuzzleStates:
-  - eventName: extCordPlugged
-    item: {fileID: 1362600054}
-    isMonstInteractable: 1
+  - eventName: garageDoorOpen
+    item: {fileID: 1019155234}
+    isMonstInteractable: 0
   - eventName: acUnitOpen
     item: {fileID: 412353860}
     isMonstInteractable: 0
   - eventName: TVpowerState
     item: {fileID: 1728952954}
     isMonstInteractable: 1
-  - eventName: garageDoorOpen
-    item: {fileID: 1019155234}
-    isMonstInteractable: 0
+  - eventName: extCordPlugged
+    item: {fileID: 1362600054}
+    isMonstInteractable: 1
   - eventName: correctChannelEntered
     item: {fileID: 1728952954}
     isMonstInteractable: 0

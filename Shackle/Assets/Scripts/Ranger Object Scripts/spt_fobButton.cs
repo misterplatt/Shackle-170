@@ -26,6 +26,8 @@ namespace VRStandardAssets.Examples
         private Renderer m_Renderer;
         bool currentState = false;
 
+        public static bool local_keyFobPressed;
+
         //Function that activates all manipulation object's children's colliders on pickup, and deactivates on put down
         //Precon: There is a parent object that BroadcastMessage-calls this script
         public void childActive(bool state)
@@ -40,6 +42,10 @@ namespace VRStandardAssets.Examples
             //Highlight digit button and send it's number to remoteManager
             if (currentState == true)
             {
+                //NPL Update
+                spt_WorldState.worldStateChanged = true;
+                local_keyFobPressed = true;
+
                 m_Renderer.material = m_StateTwoMaterial;
                 GameObject.Find("SUV").transform.Translate(new Vector3(-4,0,0));
                 GameObject.Find("Fuse Diagram").GetComponent<SpriteRenderer>().enabled = true;

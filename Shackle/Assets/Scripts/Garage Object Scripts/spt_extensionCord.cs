@@ -23,8 +23,10 @@ namespace VRStandardAssets.Examples
         //Handle the Click event
          override protected void clickSuccess()
         {
+            //NPL Update
             spt_WorldState.worldStateChanged = true;
             local_extCordPlugged = true;
+
             transform.Translate(Vector3.up * 1);
             transform.eulerAngles = new Vector3(17, -180, 0); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
         }

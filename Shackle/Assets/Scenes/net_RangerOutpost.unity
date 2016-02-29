@@ -4071,7 +4071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   devtool_PuzzleStates:
-  - eventName: hatchOpen
+  - eventName: puzzleCompletion
     item: {fileID: 133567414}
     isMonstInteractable: 0
   - eventName: correctFuseCombo
