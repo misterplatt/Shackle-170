@@ -17,7 +17,12 @@ namespace VRStandardAssets.Examples
     //Script that handles player interaction with digit buttons on the remote
     public class spt_combinationDial : spt_baseInteractiveObject
     {
-        bool currentState = false;
+        public spt_lockManager lManager;
+
+        [SerializeField]
+        private int dialNumber;
+        [SerializeField]
+        private int currentDigit;
 
         //public spt_comboManager cManager;
 
@@ -32,18 +37,9 @@ namespace VRStandardAssets.Examples
         override protected void clickSuccess()
         {
             transform.Rotate(new Vector3(0, 18, 0));
-            Debug.Log("Show click state");
-            currentState = !currentState;
-            //Highlight digit button and send it's number to remoteManager
-            if (currentState == true)
-            {
-                //cManager.enterChannelNumber(gameObject.name);
-            }
-            //Un-highlight digit button and remove it's number from remoteManager
-            else if (currentState == false)
-            {
-                //cManager.enterChannelNumber("-");
-            }
+            if (currentDigit == 9) currentDigit = 0;
+            else currentDigit++;
+            lManager.updateDialStates(dialNumber, currentDigit);
         }
 
         //Plug HandleDown function from base

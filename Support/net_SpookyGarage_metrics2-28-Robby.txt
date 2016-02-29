@@ -1,0 +1,6 @@
+extCordPlugged,257.5657
+acUnitOpen,-1
+TVpowerState,217.886
+garageDoorOpen,257.5657
+correctChannelEntered,257.5657
+garageDoorUnlocked,257.5657

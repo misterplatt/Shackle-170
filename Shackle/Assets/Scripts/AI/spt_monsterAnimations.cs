@@ -8,9 +8,10 @@
  * This includes: the attacking animation/attacking capability.*/
 
 using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 
-public class spt_monsterAnimations : MonoBehaviour {
+public class spt_monsterAnimations : NetworkBehaviour {
 
     public Animator animator;
     public int animation = 0;
