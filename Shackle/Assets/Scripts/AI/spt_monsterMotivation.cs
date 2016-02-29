@@ -25,6 +25,12 @@ public class spt_monsterMotivation : NetworkBehaviour {
     
     [SyncVar]
     public int angerLevel;
+    [SyncVar]
+    public int whichPlayer;
+    [SyncVar]
+    public bool isAttacking;
+
+    public bool clientRecievedSignal = false;
 
     // Used for motivation calculations
     private float fieldOfViewDegrees = 110f;
@@ -46,6 +52,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
 
         // Sets the initial anger level of the monster to zero.
         angerLevel = 0;
+        isAttacking = false;
 
         //Begins the gradual anger depreciation over time.
         InvokeRepeating("angerDepreciation", 1, 1);
@@ -54,10 +61,13 @@ public class spt_monsterMotivation : NetworkBehaviour {
 	// Update is called once per frame
 	void Update () {
         Debug.Log(angerLevel);
+        Debug.Log(isAttacking);
+        if (isAttacking && clientRecievedSignal) netAttack();
+
         if (!isServer) return;
-        //Debug.Log("Anger : " + angerLevel);
         if (angerLevel >= lowerThreshold)
             attack();
+        
 	}
 
     private GameObject getHost()
@@ -116,7 +126,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
 
     // Attack function for the monster.
     private void attack(){
-
+        if (!isServer) return;
         // Monster can decide to attack or not
         int attackOrNot = UnityEngine.Random.Range(0, 3);
 
@@ -133,11 +143,22 @@ public class spt_monsterMotivation : NetworkBehaviour {
 
             // If the players have already been warned, it will attack
             else{
-                int whichPlayer = Random.Range(0, spawns.Length);
-                movementScript.setWaypoint(999);
-                animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
+                //populate network fields
+                whichPlayer = Random.Range(0, spawns.Length);
+                isAttacking = true;
+                //movementScript.setWaypoint(999);
+                //animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
             }
         }
+    }
+
+    public void netAttack()
+    {
+        Debug.Log("Attacking Player : " + spawns[whichPlayer].name );
+        movementScript.setWaypoint(999);
+        animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
+        isAttacking = false;
+        angerLevel = 0;
     }
 
     // Increases the anger by an integer amount.
