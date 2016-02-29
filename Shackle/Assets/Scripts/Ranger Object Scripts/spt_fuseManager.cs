@@ -6,7 +6,7 @@ Author(s): Hayden Platt
 Revision 1
 
 Stores the currentstate of the switches' states
-in a bool array.
+in a bool array. Unlocks electronic lock if all true.
 */
 
 using UnityEngine;
