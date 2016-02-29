@@ -26,9 +26,11 @@ public class spt_inventory : NetworkBehaviour {
     public GameObject handObj;
     public GameObject reticleTex;
     public Texture handSprite;
+    public Texture fistSprite;
     public Texture none;
     private int MAX_SLOTS = 4;
 
+    [SerializeField] private VREyeRaycaster m_EyeRaycaster;
     //A sync variable which dictates if the inventory UI should update
     [SyncVar]
     public bool invChanged = true;
@@ -75,13 +77,18 @@ public class spt_inventory : NetworkBehaviour {
     }
     
     void Update() {
+
         //if not the local player, don't do anything as it's meaningless
         if (!isLocalPlayer) return;
 
         //if the inventory has changed in someway, redraw the inventory UI.
         if (invChanged) visualList();
         //update the reticle to indicate the currently selected item
-        reticleUpdate();
+        if (activeItem == 0 && spt_playerControls.aButtonPressed())
+        {
+            Fisting();
+        }
+        else reticleUpdate();
         
         //use the triggers as cycle controls through the inventory, but only allow them to register once.
         if ((spt_playerControls.triggers() == -1 || Input.GetKeyDown(KeyCode.A)) && !once) {
@@ -104,7 +111,7 @@ public class spt_inventory : NetworkBehaviour {
         if (Input.GetKeyDown(KeyCode.N) || Input.GetButtonDown("xButton")) sendItem();
         if (Input.GetKeyDown(KeyCode.E)) dbg_printInventory();
         if (Input.GetKeyDown(KeyCode.F)) dbg_serverPrintInventory();
-        if (Input.GetKeyDown(KeyCode.Q)) pickUp(GameObject.Find("mdl_screwDriver"));
+        if (Input.GetKeyDown(KeyCode.Q)) Fisting();//pickUp(GameObject.Find("mdl_screwDriver"));
 
     }
 
@@ -118,7 +125,7 @@ public class spt_inventory : NetworkBehaviour {
     }
 
     //change the reticle texture based on the current active inventory item.
-    public void reticleUpdate() {        
+    public void reticleUpdate() {
         reticleTex = transform.Find("VRCameraUI/GUIReticle").gameObject;
         reticleTex.GetComponent<RawImage>().texture = retrieveObjectFromInventory(activeItem).GetComponent<GUITexture>().texture;
     }
@@ -330,4 +337,13 @@ public class spt_inventory : NetworkBehaviour {
         return inventory.Count;
     }
 
+
+    public void Fisting()
+    {
+        VRInteractiveItem lookingObject = m_EyeRaycaster.CurrentInteractible;
+        if (lookingObject != null && lookingObject.GetComponent<VRStandardAssets.Examples.spt_interactiveMovable>() != null)
+        {
+                reticleTex.GetComponent<RawImage>().texture = fistSprite;
+        }
+    }
 }
