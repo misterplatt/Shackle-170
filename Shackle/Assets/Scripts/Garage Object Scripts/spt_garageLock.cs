@@ -23,7 +23,7 @@ namespace VRStandardAssets.Examples
         {
             spt_WorldState.worldStateChanged = true;
             local_garageDoorUnlocked = true;
-            transform.Translate(new Vector3(-.15f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
+            transform.Translate(new Vector3(-.03f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
         }
     }
 }

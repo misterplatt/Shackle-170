@@ -1522,7 +1522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &488438309
 Transform:
   m_ObjectHideFlags: 0
@@ -4352,7 +4352,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 9f104f16c9a5d400f86106e05aad9591, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.037
+      value: 3.011
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 9f104f16c9a5d400f86106e05aad9591, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5150,7 +5150,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: fad28bb8e1d343a409c9ffa5d00391fe, type: 2}
+  - {fileID: 2100000, guid: 0892f0e8fd778534d91c63533bee368c, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -7033,6 +7033,7 @@ GameObject:
   - 114: {fileID: 1740269547}
   - 114: {fileID: 1740269546}
   - 114: {fileID: 1740269545}
+  - 65: {fileID: 1740269550}
   m_Layer: 0
   m_Name: mdl_box
   m_TagString: Untagged
@@ -7073,8 +7074,8 @@ MonoBehaviour:
   xAxis: 1
   zAxis: 0
   moveSpeed: 1
-  maxNegativeDistance: 0
-  maxPositiveDistance: 2
+  maxNegativeDistance: 2
+  maxPositiveDistance: 0
   optional_movePathImage: {fileID: 1626873667}
 --- !u!114 &1740269546
 MonoBehaviour:
@@ -7156,6 +7157,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1740269543}
   m_Mesh: {fileID: 4300024, guid: f67ab960ad750a74cb5917fd26868e3b, type: 3}
+--- !u!65 &1740269550
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1740269543}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0970123, y: 2.0639255, z: 2.1318862}
+  m_Center: {x: 0.04363925, y: 0.0046058344, z: 0.07902257}
 --- !u!1 &1744439555
 GameObject:
   m_ObjectHideFlags: 0
@@ -7424,12 +7437,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dde29de7f953649c996b1a6ae496d70d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.003
+      value: 0.0169
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: dde29de7f953649c996b1a6ae496d70d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 561ff6f7a443245e29e3d07afd499cf4, type: 2}
+    - target: {fileID: 400000, guid: dde29de7f953649c996b1a6ae496d70d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dde29de7f953649c996b1a6ae496d70d, type: 3}
   m_IsPrefabParent: 0
