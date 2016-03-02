@@ -62,10 +62,11 @@ public class spt_toolTipListener : MonoBehaviour {
             manipulationTipsShown = true;
         }
 
-        if (GameObject.Find("spr_bucketMovePath").GetComponent<SpriteRenderer>().enabled == true) {// && !movableTipsShown) {
+        if (GameObject.Find("spr_bucketMovePath").GetComponent<SpriteRenderer>().enabled == true && !movableTipsShown) {
             StartCoroutine(setToolTip(LS_A, "To Move Some Objects", 0f, 4f));
-            movableTipsShown = true;
         }
+
+        if (GameObject.Find("mdl_bucket").transform.position.z > 4.3f) movableTipsShown = true;
     }
 
     //Function which sets the toolTip image and text after delayTime seconds, then clears after 3 seconds
