@@ -36,8 +36,8 @@ public class spt_toolTipListener : MonoBehaviour {
         if (SceneManager.GetActiveScene().name != "net_SpookyGarage") gameObject.SetActive(false);
         currentImage = GetComponentInChildren<Image>();
         currentText = GetComponentInChildren<Text>();
-        StartCoroutine(setToolTip(RS, "Press to Toggle Flashlight", 3f, 3f));
-        StartCoroutine(setToolTip(aButton, "To Interact", 9f, 4f));
+        StartCoroutine(setToolTip(RS, "Press to Toggle Flashlight", 3f, 6f));
+        StartCoroutine(setToolTip(aButton, "To Interact", 13f, 4f));
         inventorySpt = transform.parent.transform.GetComponentInParent<spt_inventory>();
         endPoint = transform.parent.transform.FindChild("InspectPoint").gameObject;
     }
@@ -62,8 +62,8 @@ public class spt_toolTipListener : MonoBehaviour {
             manipulationTipsShown = true;
         }
 
-        if (GameObject.Find("spr_bucketMovePath").GetComponent<SpriteRenderer>().enabled == true && !movableTipsShown) {
-            StartCoroutine(setToolTip(LS_A, "To Move Some Objects", 1f, 4f));
+        if (GameObject.Find("spr_bucketMovePath").GetComponent<SpriteRenderer>().enabled == true) {// && !movableTipsShown) {
+            StartCoroutine(setToolTip(LS_A, "To Move Some Objects", 0f, 4f));
             movableTipsShown = true;
         }
     }
