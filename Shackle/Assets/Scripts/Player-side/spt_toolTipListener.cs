@@ -66,6 +66,7 @@ public class spt_toolTipListener : MonoBehaviour {
             StartCoroutine(setToolTip(LS_A, "To Move Some Objects", 0f, 4f));
         }
 
+        //Ensures you move the bucket before the tooltip stops showing on click
         if (GameObject.Find("mdl_bucket").transform.position.z > 4.3f) movableTipsShown = true;
     }
 
