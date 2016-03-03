@@ -33,10 +33,10 @@ namespace VRStandardAssets.Examples
             //Store object's original position and rotation
             startPoint = transform.position;
             startRotation = transform.rotation;
-            BroadcastMessage("childActive", false); //Deactivate all child colliders
+            if (transform.childCount > 0) BroadcastMessage("childActive", false); //Deactivate all child colliders
         }
 
-        //Called when the player looks at the object so it knows where to lerp to
+        //Called in VREyeRaycaster when the player looks at the object so it knows where to lerp to
         public void RetrieveLookPoint(GameObject raycastingPlayer)
         {
             endPoint = raycastingPlayer.transform.Find("VRCameraUI/InspectPoint");
@@ -47,8 +47,9 @@ namespace VRStandardAssets.Examples
             if (currentState == true)
             {
                 //panelObj.SetActive(true); //USE IF VIGNETTE IS WANTED
-                //Debug.Log("Distance: " + Vector3.Distance(transform.position, endPoint.position));
-                BroadcastMessage("childActive", true);
+                
+                //If it has children, activate their colliders
+                if (transform.childCount > 0) BroadcastMessage("childActive", true);
                 endPoint.tag = "manipulation";
                 //Only Lerp while reticle position is more than distanceBeforeLerp units away. Then, stop once reticle pos is less than than distanceBeforeFreeze
                 if (Vector3.Distance(transform.position, endPoint.position) > distanceBeforeLerp) outOfView = true;
@@ -61,8 +62,11 @@ namespace VRStandardAssets.Examples
 
             //If B is pressed, return the object to it's default position and rotation
             else if (currentState == false && transform.position != startPoint) {
-                BroadcastMessage("childActive", false);
-                BroadcastMessage("deactivateDigit");
+                //If it has children, deactivate their colliders
+                if (transform.childCount > 0) {
+                    BroadcastMessage("childActive", false);
+                    BroadcastMessage("deactivateDigit");
+                }
                 //panelObj.SetActive(false); //USE IF VIGNETTE IS WANTED
                 transform.position = Vector3.Lerp(transform.position, startPoint, Time.deltaTime * lerpSpeed);
                 transform.rotation = startRotation;
@@ -71,7 +75,6 @@ namespace VRStandardAssets.Examples
             //Return object when button b button is pressed
             if (spt_playerControls.bButtonPressed() == true) {
                 currentState = false;
-                //m_Renderer.material = m_StateTwoMaterial;
             } 
         }
 

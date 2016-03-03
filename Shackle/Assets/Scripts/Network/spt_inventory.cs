@@ -91,12 +91,12 @@ public class spt_inventory : NetworkBehaviour {
         else reticleUpdate();
         
         //use the triggers as cycle controls through the inventory, but only allow them to register once.
-        if ((spt_playerControls.triggers() == -1 || Input.GetKeyDown(KeyCode.A)) && !once) {
+        if ((spt_playerControls.triggers() == -1 || Input.GetKey(KeyCode.A)) && !once) {
 
             cycleLeft();
             once = true;
         }
-        if ((spt_playerControls.triggers() == 1 || Input.GetKeyDown(KeyCode.D)) && !once) {
+        if ((spt_playerControls.triggers() == 1 || Input.GetKey(KeyCode.D)) && !once) {
             cycleRight();
             once = true;
         }

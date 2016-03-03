@@ -62,6 +62,7 @@ public class spt_toolTipListener : MonoBehaviour {
             manipulationTipsShown = true;
         }
 
+        //Show movement tooltip on bucket interact
         if (GameObject.Find("spr_bucketMovePath").GetComponent<SpriteRenderer>().enabled == true && !movableTipsShown) {
             StartCoroutine(setToolTip(LS_A, "To Move Some Objects", 0f, 4f));
         }

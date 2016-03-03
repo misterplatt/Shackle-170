@@ -103,6 +103,8 @@ namespace VRStandardAssets.Utils
 
                     //This will most likely need a Cmd written for it. Let me test it first -R
                     hit.transform.SendMessage("RetrieveInventoryScript", gameObject);
+
+                    //If there is a manipulate script attached to the object you're looking at, send it the player's inspect point transform
                     if (hit.transform.gameObject.GetComponent<VRStandardAssets.Examples.spt_interactiveItemManipulate>() != null) hit.transform.SendMessage("RetrieveLookPoint", gameObject);
 
                     //also ensure we flag that this has been interacted with.
