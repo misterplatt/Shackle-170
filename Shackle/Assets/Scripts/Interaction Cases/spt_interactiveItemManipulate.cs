@@ -17,10 +17,10 @@ namespace VRStandardAssets.Examples
     public class spt_interactiveItemManipulate : spt_baseInteractiveObject
     {
 
-        public float rotationSpeed = 70;
+        public float rotationSpeed = 90;
         public float lerpSpeed = 5;
         public float distanceBeforeLerp = .6f; //How far reticle can move from the object before the object lerps to it
-        public float distanceBeforeFreeze = .01f; //How close the reticle must be to the object before stopping the lerp
+        public float distanceBeforeFreeze = .02f; //How close the reticle must be to the object before stopping the lerp
 
         bool currentState = false;
         bool outOfView = false;
