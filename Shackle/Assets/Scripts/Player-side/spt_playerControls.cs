@@ -1,33 +1,24 @@
-﻿using UnityEngine;
+﻿/*
+spt_plyaerControls
+
+Author(s): Dara Diba
+
+Revision 1
+
+This file provides the logic for player input
+*/
+
+using UnityEngine;
 using System.Collections;
 using XInputDotNetPure; // Required in C#
 
 public class spt_playerControls : MonoBehaviour
 {
-    private Rigidbody rb;
-    public float speed;
+
     static PlayerIndex playerIndex = 0;
+    private static float timer;
 
-    //private bool axisInUse = false; //NEVER USED
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
-    // fixedUpdate is called before any physics calculations
-    void FixedUpdate()
-    {
-        aButtonPressed();
-        bButtonPressed();
-        xButtonPressed();
-        rightThumbstickButtonPressed();
-        leftThumbstickMoved();
-        triggers();
-        startButtonPressed();
-        rightBumperPressed();
-        leftBumperPressed();
-    }
 
     // Checks if A button is pressed, which is used for general interaction in the world
     public static bool aButtonPressed()
@@ -48,7 +39,6 @@ public class spt_playerControls : MonoBehaviour
     {
         if (Input.GetButton("bButton"))
         {
-            //Debug.Log("SUCCESS for B button");
             return true;
         }
         else return false;
@@ -60,7 +50,6 @@ public class spt_playerControls : MonoBehaviour
     {
         if (Input.GetButton("xButton"))
         {
-            Debug.Log("SUCCESS for x button");
             return true;
         }
         else return false;
@@ -71,21 +60,9 @@ public class spt_playerControls : MonoBehaviour
     {
         if (Input.GetButtonDown("rightThumbstickButton"))
         {
-            Debug.Log("SUCCESS for RightThumbstick button");
             return true;
         }
         else return false;
-    }
-
-    // Checks if left thumbstick is moved, which is used to move player chairs
-    void leftThumbstickMoved()
-    {
-        float moveHorizontal = Input.GetAxis("leftThumbstickHoriz");
-        float moveVertical = Input.GetAxis("leftThumbstickVert");
-        //Debug.Log("Left Thumbstick Hori:" + moveHorizontal);
-        //Debug.Log("Left Thumbstick Vert:" + moveVertical);
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        rb.AddForce(movement * speed);
     }
 
     // Checks if the string being passed is either Horizontal or Vertical which comes from the game object's properties
@@ -102,8 +79,6 @@ public class spt_playerControls : MonoBehaviour
     {
         if (Input.GetButton("startButton"))
         {
-            GamePad.SetVibration(playerIndex, 0, 0);
-            Debug.Log("SUCCESS for Start button");
             return true;
         }
         else return false;
@@ -114,15 +89,11 @@ public class spt_playerControls : MonoBehaviour
     {
         if (Input.GetAxis("triggers") < 0)
         {
-            //Debug.Log("LEFT TRIGGER HIT");
             return -1;
-            //code for cycling the inventory to the left
         }
         else if (Input.GetAxis("triggers") > 0)
         {
-            //Debug.Log("RIGHT TRIGGER HIT");
             return 1;
-            //code for cycling the inventory to the right
         }
         else return 0;
     }
@@ -132,7 +103,6 @@ public class spt_playerControls : MonoBehaviour
     {
         if (Input.GetButton("rightBumper"))
         {
-            Debug.Log("rightBumper");
             return true;
         }
         else return false;
@@ -143,7 +113,6 @@ public class spt_playerControls : MonoBehaviour
     {
         if (Input.GetButton("leftBumper"))
         {
-            Debug.Log("leftBumper");
             return true;
         }
         else return false;
@@ -154,11 +123,6 @@ public class spt_playerControls : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("rightThumbstickHoriz");
         float moveVertical = Input.GetAxis("rightThumbstickVert");
-        Debug.Log("Right Thumbstick Hori:" + moveHorizontal);
-        Debug.Log("Right Thumbstick Vert:" + moveVertical);
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        rb.AddForce(movement * speed);
-
     }
 
     // Checks if the string being passed is either Horizontal or Vertical which comes from the game object's properties
@@ -173,21 +137,37 @@ public class spt_playerControls : MonoBehaviour
     // Uses the left motor to create a rougher vibration pattern
     public static void roughVibration()
     {
-        //GamePad.SetVibration(playerIndex, Input.GetAxis("leftThumbstickVert"), 0);
         GamePad.SetVibration(playerIndex, 1.0f, 0);
     }
 
     // Uses the right motor to create a smoother vibration pattern
     public static void smoothVibration()
     {
-        // GamePad.SetVibration(playerIndex, 0, Input.GetAxis("leftThumbstickVert"));
         GamePad.SetVibration(playerIndex, 0, 1.0f);
     }
 
     // Uses both the left and right motors to create a greater vibration 
     public static void simulVibration()
     {
-        // GamePad.SetVibration(playerIndex, Input.GetAxis("leftThumbstickVert"), Input.GetAxis("leftThumbstickVert"));
         GamePad.SetVibration(playerIndex, 1.0f, 1.0f);
+    }
+
+    // Stops the motors
+    public static void stopVibration()
+    {
+        GamePad.SetVibration(playerIndex, 0, 0);
+    }
+
+    // Vibrates the controller with a given force, specific vibration motor and for a selected amount of time
+    public static void controllerVibration(string motor, float force, float vibrateTime)
+    {
+        timer += Time.deltaTime;
+        if (timer <= vibrateTime)
+        {
+            if (motor == "Rough") GamePad.SetVibration(playerIndex, force, 0);
+            if (motor == "Smooth") GamePad.SetVibration(playerIndex, 0, force);
+            if (motor == "Both") GamePad.SetVibration(playerIndex, force, force);
+        }
+        else if (timer > vibrateTime) GamePad.SetVibration(playerIndex, 0, 0);
     }
 }
