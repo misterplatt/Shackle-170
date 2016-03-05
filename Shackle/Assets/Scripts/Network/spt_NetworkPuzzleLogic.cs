@@ -102,7 +102,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 //If a player has pressed power while the extCord is plugged, update server state
                 if (VRStandardAssets.Examples.spt_remotePower.local_TVpowerState != PuzzleStates[2].state)
                 {
-                    Debug.Log("Updating TVOn on the network to " + VRStandardAssets.Examples.spt_remotePower.local_TVpowerState);
+                    Debug.Log("Updating TVpowerState on the network to " + VRStandardAssets.Examples.spt_remotePower.local_TVpowerState);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("TVpowerState", VRStandardAssets.Examples.spt_remotePower.local_TVpowerState, "mdl_TV");
                 }
                 //If a player has plugged in the extension cord, command the server to update the state for other player
@@ -137,13 +137,13 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 //If a player has pressed power while the extCord is plugged, update server state
                 if (spt_fuseManager.local_correctFuseCombo)
                 {
-                    Debug.Log("Updating TVOn on the network to " + spt_fuseManager.local_correctFuseCombo);
+                    Debug.Log("Updating correctFuseCombo on the network to " + spt_fuseManager.local_correctFuseCombo);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("correctFuseCombo", true, "Fuse Box");
                 }
                 //If a player has plugged in the extension cord, command the server to update the state for other player
                 if (VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed)
                 {
-                    Debug.Log("Updating extCordPlugged on the network to " + VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed);
+                    Debug.Log("Updating keyFobPressed on the network to " + VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("keyFobPressed", true, "Key Fob");
                 }
             }

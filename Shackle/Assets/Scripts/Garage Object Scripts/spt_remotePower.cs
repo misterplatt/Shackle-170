@@ -27,7 +27,6 @@ namespace VRStandardAssets.Examples
         private Renderer m_Renderer;
 
         private bool currentState = false;
-        public GameObject TV_static;
 
         //Function that activates all manipulation object's children's colliders on pickup, and deactivates on put down
         public void childActive(bool state)
@@ -42,12 +41,10 @@ namespace VRStandardAssets.Examples
             //If the puzzle state extCordPlugged is true, modify the TVPowered state
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[3].state == true) {
                 currentState = !currentState;
-                spt_WorldState.worldStateChanged = true;
                 local_TVpowerState = currentState;
+                spt_WorldState.worldStateChanged = true;
                 if (currentState == true) m_Renderer.material = m_StateOneMaterial;
                 else m_Renderer.material = m_StateTwoMaterial;
-
-                TV_static.SetActive(true); //PLACEHOLDER UNTIL NETWORK LOGIC*******************************
             }
         }
 

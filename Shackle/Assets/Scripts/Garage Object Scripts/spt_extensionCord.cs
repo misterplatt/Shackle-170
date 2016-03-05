@@ -20,15 +20,20 @@ namespace VRStandardAssets.Examples
     {
         public static bool local_extCordPlugged = false;
 
+        private bool once = false;
+
         //Handle the Click event
          override protected void clickSuccess()
         {
-            //NPL Update
-            spt_WorldState.worldStateChanged = true;
-            local_extCordPlugged = true;
+            if (!once){
+                //NPL Update
+                spt_WorldState.worldStateChanged = true;
+                local_extCordPlugged = true;
 
-            transform.Translate(Vector3.up * 1);
-            transform.eulerAngles = new Vector3(17, -180, 0); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
+                transform.Translate(Vector3.up * 1);
+                transform.eulerAngles = new Vector3(17, -180, 0); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
+                once = true;
+            }
         }
 
         //Plug HandleDown from base

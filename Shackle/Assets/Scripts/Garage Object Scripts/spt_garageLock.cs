@@ -18,12 +18,18 @@ namespace VRStandardAssets.Examples
     {
         public static bool local_garageDoorUnlocked = false;
 
+        private bool once = false;
+
         //Handle the Down event, modified so that the reticle doesn't need to stay over object to interact
         override protected void holdSuccess()
         {
-            spt_WorldState.worldStateChanged = true;
-            local_garageDoorUnlocked = true;
-            transform.Translate(new Vector3(-.03f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
+            if (!once)
+            {
+                spt_WorldState.worldStateChanged = true;
+                local_garageDoorUnlocked = true;
+                transform.Translate(new Vector3(-.03f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
+                once = true;
+            }
         }
     }
 }

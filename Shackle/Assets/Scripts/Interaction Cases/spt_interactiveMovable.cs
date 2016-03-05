@@ -19,6 +19,7 @@ namespace VRStandardAssets.Examples
     public class spt_interactiveMovable : spt_baseInteractiveObject
     {
         private bool buttonHeld = false;
+        private bool moved = false;
         private Vector3 initialPosition;
 
         public bool xAxis = true;
@@ -38,7 +39,8 @@ namespace VRStandardAssets.Examples
             //When A is held, use left thumbstick to move object based on object's axis boolean
             if (buttonHeld == true)
             {
-                if (optional_movePathImage != null) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = true;
+                if (transform.position.z > 4.3f) moved = true;
+                if (optional_movePathImage != null && !moved) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = true;
                 if (xAxis == true){
                     //Translate along local X axis
                     transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime * moveSpeed);
