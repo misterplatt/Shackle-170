@@ -84,12 +84,18 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     void Update()
     {
         if (!isLocalPlayer) return;
+
         spt_monsterMovement mover = GameObject.FindWithTag("monster").GetComponent<spt_monsterMovement>();
         if (mover.pLoss)
         {
             GameObject uiMessager = transform.Find("VRCameraUI/WinMessage").gameObject;
             uiMessager.GetComponent<Text>().text = "You lose \nmuthafucka!";
             uiMessager.GetComponent<Text>().enabled = true;
+
+            //path to return to main menu.
+
+
+
             return;
         }
         if (Input.GetKeyDown(KeyCode.B)) dbg_logEvents();

@@ -8,6 +8,7 @@
 */
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.Collections;
@@ -21,6 +22,20 @@ public class spt_NetworkLobbyUI : MonoBehaviour {
     }
 
     void Update() {
+        //this will need to be altered in the future, for now it's ok
+        GameObject monster = GameObject.Find("MonsterStandin");
+
+
+        if (monster != null)
+        {
+            if(monster.GetComponent<spt_monsterMovement>().pLoss && Input.anyKeyDown)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().outputMetrics();
+                manager.StopHost();
+                manager.StopClient();
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.F12)) {
             GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().outputMetrics();
             manager.StopHost();
@@ -41,6 +56,8 @@ public class spt_NetworkLobbyUI : MonoBehaviour {
         manager.StartClient();
     }
     public void hostGame() {
+        Debug.Log("NO");
+        manager.StopHost();
         manager.StartHost();
     }
     
