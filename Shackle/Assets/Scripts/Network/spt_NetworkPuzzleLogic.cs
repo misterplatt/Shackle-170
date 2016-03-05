@@ -160,6 +160,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
     //debug function which logs all events in console
     void dbg_logEvents() {
+        if (!isLocalPlayer) return;
         Debug.Log("SyncList Size : " + PuzzleStates.Count);
         foreach (LogicTuple lPair in PuzzleStates) {
             Debug.Log("PuzzleEvent Name : " + lPair.name + " -> State : " + lPair.state + " Controlled by : " + lPair.itemName);
@@ -170,11 +171,11 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     //cannot simply update current tuple.
     public void updatePuzzleState( string name, bool state, string itemName) {
         int tIndex = PuzzleStates.IndexOf(new LogicTuple(name, false, itemName));
-
+        Debug.Log("UPL ServerLocal :  Called with : " + name + " | " + state);
         if (tIndex < 0) Debug.Log("Error : updatePuzzleState called with nonexistent puzzle event.");
 
         LogicTuple original_Tuple = PuzzleStates[PuzzleStates.IndexOf(new LogicTuple(name, false, itemName))];
-        LogicTuple newTuple = new LogicTuple(original_Tuple.name, true, original_Tuple.itemName, original_Tuple.isMonsterInteractable, Time.time);
+        LogicTuple newTuple = new LogicTuple(original_Tuple.name, state, original_Tuple.itemName, original_Tuple.isMonsterInteractable, Time.time);
 
         PuzzleStates[PuzzleStates.IndexOf(new LogicTuple(name, false, itemName))] = newTuple;
     }
@@ -198,6 +199,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     //server command to update a puzzle state to some value.
     [Command]
     public void Cmd_UpdatePuzzleLogic(string name, bool state, string itmName) {
+        Debug.Log("UPL Called with : " + name + " | " + state);
         updatePuzzleState(name, state, itmName);
     }
 }

@@ -42,6 +42,7 @@ namespace VRStandardAssets.Examples
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[3].state == true) {
                 currentState = !currentState;
                 local_TVpowerState = currentState;
+                Debug.Log("tvPowerState : " + local_TVpowerState);
                 spt_WorldState.worldStateChanged = true;
                 if (currentState == true) m_Renderer.material = m_StateOneMaterial;
                 else m_Renderer.material = m_StateTwoMaterial;

@@ -41,7 +41,7 @@ public class spt_monsterMovement : NetworkBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
+        if (!isServer) return;
         // Chooses a new destination if the monster is within a certain distance of its current one.
         if (agent.remainingDistance <= 2 && currentWaypoint != 999){
             chooseDestination();
