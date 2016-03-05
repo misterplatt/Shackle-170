@@ -22,11 +22,26 @@ namespace VRStandardAssets.Examples
         private bool moved = false;
         private Vector3 initialPosition;
 
-        public bool xAxis = true;
-        public bool zAxis = false;
+        //Speed at which the object should move
         public float moveSpeed = 1;
-        public float maxNegativeDistance = 0;
-        public float maxPositiveDistance = 2;
+
+        //Flags for which axes the object should translate upon
+        public bool moveOnLocalX = true;
+        public bool moveOnLocalY = false;
+        public bool moveOnLocalZ = false;
+
+        //Flags for which axes should be clamped
+        public bool clampGlobalX = true;
+        public bool clampGlobalY = false;
+        public bool clampGlobalZ = false;
+
+        //Clamp values for each axis. If axis is not being clamped, simply leave as zero
+        public float x_maxNegativeDistance = 0;
+        public float x_maxPositiveDistance = 0;
+        public float y_maxNegativeDistance = 0;
+        public float y_maxPositiveDistance = 0;
+        public float z_maxNegativeDistance = 0;
+        public float z_maxPositiveDistance = 0;
         public GameObject optional_movePathImage;
 
         override protected void Start()
@@ -39,20 +54,25 @@ namespace VRStandardAssets.Examples
             //When A is held, use left thumbstick to move object based on object's axis boolean
             if (buttonHeld == true)
             {
-                if (transform.position.z > 4.3f) moved = true;
+                //Garage only, stops showing an object's movepath once it has been moved
+                if (transform.position.z > 4.3f || transform.position.x < 2.2f) moved = true;
+                //Displays a movable's movePath sprite if specified
                 if (optional_movePathImage != null && !moved) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = true;
-                if (xAxis == true){
-                    //Translate along local X axis
-                    transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime * moveSpeed);
-                    //Clamps the object's X position to stay between the starting value +maxPosDistance or -maxMinDistance
-                    transform.position = new Vector3(Mathf.Clamp(transform.position.x, initialPosition.x - maxNegativeDistance, initialPosition.x + maxPositiveDistance), transform.position.y, transform.position.z); //LIMITER: NOT WORKING
-                }
-                else if (zAxis == true){
-                    //Translate along local Z axis
-                    transform.Translate(new Vector3(0, 0, spt_playerControls.leftThumb("Vertical")) * Time.deltaTime * moveSpeed);
-                    //Clamps the object's z position to stay between the starting value +maxPosDistance or -maxMinDistance
-                    transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, initialPosition.z - maxNegativeDistance, initialPosition.z + maxPositiveDistance)); //LIMITER: NOT WORKING
-                }
+
+                Vector3 newPos = transform.position; //Vector which handles and clamps
+
+                //Moves object on appropriate axes
+                if (moveOnLocalX == true) transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime * moveSpeed);
+                if (moveOnLocalY == true) transform.Translate(new Vector3(0, spt_playerControls.leftThumb("Vertical"), 0) * Time.deltaTime * moveSpeed);
+                if (moveOnLocalZ == true) transform.Translate(new Vector3(0, 0, spt_playerControls.leftThumb("Vertical")) * Time.deltaTime * moveSpeed);
+
+                //Clamps the object on the appropriate axes, using the specified min/max's
+                if (clampGlobalX == true) newPos.x = Mathf.Clamp(transform.position.x, initialPosition.x - x_maxNegativeDistance, initialPosition.x + x_maxPositiveDistance);
+                if (clampGlobalY == true) newPos.y = Mathf.Clamp(transform.position.y, initialPosition.y - y_maxNegativeDistance, initialPosition.y + y_maxPositiveDistance);
+                if (clampGlobalZ == true) newPos.z = Mathf.Clamp(transform.position.z, initialPosition.z - z_maxNegativeDistance, initialPosition.z + z_maxPositiveDistance);
+
+                //Sets the objects position according to clamps
+                transform.position = newPos;
             }
             //stop moving when button is released
             if (spt_playerControls.aButtonPressed() == false) {
