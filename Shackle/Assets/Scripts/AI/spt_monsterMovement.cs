@@ -12,8 +12,10 @@ using UnityEngine.Networking;
 using System.Collections;
 
 public class spt_monsterMovement : NetworkBehaviour {
-
     private spt_NetworkPuzzleLogic networkScript;
+
+    [SyncVar]
+    public bool pLoss = false;
     
     // Array of waypoints, the graph that holds the waypoints, as well as the script that instantiates the graph itself 
     public Transform[] waypoints;
@@ -49,7 +51,9 @@ public class spt_monsterMovement : NetworkBehaviour {
         if (agent.remainingDistance <= 2 && currentWaypoint == 999){
             Debug.LogWarning("attempting to alter playerLoss in puzzleStates...");
             networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
+            
             networkScript.updatePuzzleState("playerLoss", true, "MonsterStandin");
+            pLoss = true;
         }
 
 	}

@@ -8,6 +8,7 @@
  */
 
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -68,7 +69,6 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     void Start() {
 
         List<dev_LogicPair> devtool_PuzzleStates = GameObject.Find("PuzzleStates").GetComponent<spt_Events>().devtool_PuzzleStates;
-        //NPL = GetComponent<spt_NetworkPuzzleLogic>();
 
         for (int index = 0; index < devtool_PuzzleStates.Count; ++index) {
             
@@ -83,8 +83,15 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
     void Update()
     {
-        //if (!isServer) return;
-
+        if (!isLocalPlayer) return;
+        spt_monsterMovement mover = GameObject.FindWithTag("monster").GetComponent<spt_monsterMovement>();
+        if (mover.pLoss)
+        {
+            GameObject uiMessager = transform.Find("VRCameraUI/WinMessage").gameObject;
+            uiMessager.GetComponent<Text>().text = "You lose \nmuthafucka!";
+            uiMessager.GetComponent<Text>().enabled = true;
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.B)) dbg_logEvents();
         //If a state has been changed locally, find out which one and update the state's networked version
         if (spt_WorldState.worldStateChanged)
@@ -176,7 +183,6 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
         LogicTuple original_Tuple = PuzzleStates[PuzzleStates.IndexOf(new LogicTuple(name, false, itemName))];
         LogicTuple newTuple = new LogicTuple(original_Tuple.name, state, original_Tuple.itemName, original_Tuple.isMonsterInteractable, Time.time);
-
         PuzzleStates[PuzzleStates.IndexOf(new LogicTuple(name, false, itemName))] = newTuple;
     }
 

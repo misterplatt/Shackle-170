@@ -15,13 +15,13 @@ public class spt_monsterAttackListener : NetworkBehaviour {
 
         GameObject monster = GameObject.FindGameObjectWithTag("monster");
         spt_monsterMotivation moto = monster.GetComponent<spt_monsterMotivation>();
+        
         if (moto.isAttacking) Cmd_ClientSensedAttack();
 	}
 
     //Command tells monster that client has recieved packet update and is ready to actually attack.
     [Command]
     public void Cmd_ClientSensedAttack() {
-
         GameObject monster = GameObject.FindGameObjectWithTag("monster");
         spt_monsterMotivation moto = monster.GetComponent<spt_monsterMotivation>();
         moto.clientRecievedSignal = true;
