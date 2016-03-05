@@ -11,11 +11,10 @@ public class spt_monsterAttackListener : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (isServer) return;
+        if (isServer |!isLocalPlayer) return;
 
         GameObject monster = GameObject.FindGameObjectWithTag("monster");
         spt_monsterMotivation moto = monster.GetComponent<spt_monsterMotivation>();
-
         if (moto.isAttacking) Cmd_ClientSensedAttack();
 	}
 

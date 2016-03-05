@@ -31,6 +31,14 @@ public class spt_monsterAnimations : NetworkBehaviour {
         {
             spt_monsterMovement movementScript;
             MeshRenderer renderer = this.GetComponent<MeshRenderer>();
+            
+            if (!isServer) {
+                renderer.enabled = true;
+                foreach (Renderer r in GetComponentsInChildren<Renderer>())
+                    r.enabled = true;
+                monsterAttackInitiated = true;
+                return;
+            }
 
             // If it is player 1...
             if (player == 0)

@@ -29,8 +29,10 @@ public class spt_monsterMotivation : NetworkBehaviour {
     public int whichPlayer;
     [SyncVar]
     public bool isAttacking;
-
+    [SyncVar]
     public bool clientRecievedSignal = false;
+
+    bool attackComplete = false;
 
     // Used for motivation calculations
     private float fieldOfViewDegrees = 110f;
@@ -44,10 +46,10 @@ public class spt_monsterMotivation : NetworkBehaviour {
 
     // Use this for initialization
 	void Start () {
-        if (!isServer) return;
-
         movementScript = GameObject.FindObjectOfType(typeof(spt_monsterMovement)) as spt_monsterMovement;
         animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
+        if (!isServer) return;
+
         players = getHost();
 
         // Sets the initial anger level of the monster to zero.
@@ -60,8 +62,6 @@ public class spt_monsterMotivation : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(angerLevel);
-        Debug.Log(isAttacking);
         if (isAttacking && clientRecievedSignal) netAttack();
 
         if (!isServer) return;
@@ -146,6 +146,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
                 //populate network fields
                 whichPlayer = Random.Range(0, spawns.Length);
                 isAttacking = true;
+                movementScript.setWaypoint(999);
                 //movementScript.setWaypoint(999);
                 //animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
             }
@@ -154,10 +155,11 @@ public class spt_monsterMotivation : NetworkBehaviour {
 
     public void netAttack()
     {
+        if (attackComplete) return;
+        attackComplete = true;
         Debug.Log("Attacking Player : " + spawns[whichPlayer].name );
-        movementScript.setWaypoint(999);
+
         animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
-        isAttacking = false;
         angerLevel = 0;
     }
 
