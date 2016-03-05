@@ -121,8 +121,8 @@ public class spt_playerControls : MonoBehaviour
     // Checks if the right thumbstick is moved , which is used for rotating and manipulating the field of view when interacting with an object
     void rightThumbstickMoved()
     {
-        float moveHorizontal = Input.GetAxis("rightThumbstickHoriz");
-        float moveVertical = Input.GetAxis("rightThumbstickVert");
+        //float moveHorizontal = Input.GetAxis("rightThumbstickHoriz");
+        //float moveVertical = Input.GetAxis("rightThumbstickVert");
     }
 
     // Checks if the string being passed is either Horizontal or Vertical which comes from the game object's properties
