@@ -109,10 +109,15 @@ public class spt_inventory : NetworkBehaviour {
             cycleRight();
         }
         if (Input.GetKeyDown(KeyCode.N) || Input.GetButtonDown("xButton")) sendItem();
-        if (Input.GetKeyDown(KeyCode.Y) || Input.GetButtonDown("yButton")) inspecting = true;
         if (Input.GetKeyDown(KeyCode.E)) dbg_printInventory();
         if (Input.GetKeyDown(KeyCode.F)) dbg_serverPrintInventory();
         if (Input.GetKeyDown(KeyCode.Q)) Fisting();
+
+        /*
+        if (Input.GetKeyDown(KeyCode.Y) || Input.GetButtonDown("yButton")) inspecting = !inspecting;
+        if (inspecting) inspectItem();
+        else stopInspectItem();
+        */
 
     }
 
@@ -225,16 +230,27 @@ public class spt_inventory : NetworkBehaviour {
             selectionBar.transform.localPosition.z);
     }
 
-    /*void inspectItem() {
-        Transform endPoint = transform.Find("VRCameraUI/InspectPoint");
+    void inspectItem() {
         GameObject invItem = retrieveObjectFromInventory(activeItem);
+        if (invItem.name == "Hand") {
+            inspecting = false;
+            return;
+        }
+        Transform endPoint = transform.Find("VRCameraUI/InspectPoint");
+        bool outOfView = false;
 
-        if (Vector3.Distance(transform.position, endPoint.position) > distanceBeforeLerp) outOfView = true;
-        if (outOfView == true) transform.position = Vector3.Lerp(transform.position, endPoint.position, Time.deltaTime * lerpSpeed);
-        if (Vector3.Distance(transform.position, endPoint.position) < distanceBeforeFreeze) outOfView = false;
+        if (Vector3.Distance(invItem.transform.position, endPoint.position) > .6f) outOfView = true;
+        if (outOfView == true) invItem.transform.position = Vector3.Lerp(invItem.transform.position, endPoint.position, Time.deltaTime * lerpSpeed);
+        if (Vector3.Distance(invItem.transform.position, endPoint.position) < .02f) outOfView = false;
 
-        invItem.Rotate(new Vector3(spt_playerControls.rightThumb("Vertical"), spt_playerControls.rightThumb("Horizontal"), 0) * Time.deltaTime * rotationSpeed, Space.World);
-    }*/
+        invItem.transform.Rotate(new Vector3(spt_playerControls.rightThumb("Vertical"), spt_playerControls.rightThumb("Horizontal"), 0) * Time.deltaTime * 90, Space.World);
+    }
+
+    void stopInspectItem() {
+        GameObject invItem = retrieveObjectFromInventory(activeItem);
+        if (invItem.name == "Hand") return;
+        invItem.transform.position = Vector3.down * 10;
+    }
 
     void sendItem() {
         if (!isLocalPlayer) return;
