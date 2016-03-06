@@ -92,7 +92,6 @@ public class spt_inventory : NetworkBehaviour {
         
         //use the triggers as cycle controls through the inventory, but only allow them to register once.
         if ((spt_playerControls.triggers() == -1 || Input.GetKey(KeyCode.A)) && !once) {
-
             cycleLeft();
             once = true;
         }
