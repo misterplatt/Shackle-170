@@ -1,9 +1,9 @@
 ﻿/*
 spt_garageDoor
 
-Author(s): Hayden Platt
+Author(s): Hayden Platt, Dara Diba
 
-Revision 2
+Revision 3
 
 Open the garage if opener is used on door for holdTime seconds.
 */
