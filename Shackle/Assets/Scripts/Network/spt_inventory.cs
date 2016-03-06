@@ -44,6 +44,7 @@ public class spt_inventory : NetworkBehaviour {
 
     //flag to prevent duplicated input on button down
     [SerializeField] private bool once = false;
+    private bool inspecting = false;
 
     void Start() {
         
@@ -92,7 +93,6 @@ public class spt_inventory : NetworkBehaviour {
         
         //use the triggers as cycle controls through the inventory, but only allow them to register once.
         if ((spt_playerControls.triggers() == -1 || Input.GetKey(KeyCode.A)) && !once) {
-
             cycleLeft();
             once = true;
         }
@@ -109,9 +109,10 @@ public class spt_inventory : NetworkBehaviour {
             cycleRight();
         }
         if (Input.GetKeyDown(KeyCode.N) || Input.GetButtonDown("xButton")) sendItem();
+        if (Input.GetKeyDown(KeyCode.Y) || Input.GetButtonDown("yButton")) inspecting = true;
         if (Input.GetKeyDown(KeyCode.E)) dbg_printInventory();
         if (Input.GetKeyDown(KeyCode.F)) dbg_serverPrintInventory();
-        if (Input.GetKeyDown(KeyCode.Q)) Fisting();//pickUp(GameObject.Find("mdl_screwDriver"));
+        if (Input.GetKeyDown(KeyCode.Q)) Fisting();
 
     }
 
@@ -224,6 +225,17 @@ public class spt_inventory : NetworkBehaviour {
             selectionBar.transform.localPosition.z);
     }
 
+    /*void inspectItem() {
+        Transform endPoint = transform.Find("VRCameraUI/InspectPoint");
+        GameObject invItem = retrieveObjectFromInventory(activeItem);
+
+        if (Vector3.Distance(transform.position, endPoint.position) > distanceBeforeLerp) outOfView = true;
+        if (outOfView == true) transform.position = Vector3.Lerp(transform.position, endPoint.position, Time.deltaTime * lerpSpeed);
+        if (Vector3.Distance(transform.position, endPoint.position) < distanceBeforeFreeze) outOfView = false;
+
+        invItem.Rotate(new Vector3(spt_playerControls.rightThumb("Vertical"), spt_playerControls.rightThumb("Horizontal"), 0) * Time.deltaTime * rotationSpeed, Space.World);
+    }*/
+
     void sendItem() {
         if (!isLocalPlayer) return;
         if (activeItem == 0) return;
@@ -264,7 +276,6 @@ public class spt_inventory : NetworkBehaviour {
         inventory.Add("mdl_screwDriver");
         inventory.Add("mdl_garageOpener");
         inventory.Add("mdl_key");
-    //    inventory.Add("mdl_screwDriver");
     }
 
     //debug command printing local inventory
