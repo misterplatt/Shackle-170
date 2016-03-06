@@ -27,6 +27,7 @@ public class spt_TVScreenListener : NetworkBehaviour {
             GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true) GetComponent<SpriteRenderer>().color = Color.green;
 
         //Otherwise, turn the screen off
-        else if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == false) GetComponent<SpriteRenderer>().enabled = false;
+        else if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == false || 
+            GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[3].state == false) GetComponent<SpriteRenderer>().enabled = false;
     }
 }
