@@ -3,7 +3,7 @@
  * Created by: Lauren Cunningham
  * Networking Modifications by : Ryan Connors
  * 
- * Last Revision Date: 2/26/2016 : Networking
+ * Last Revision Date: 3/5/2016 : Networking
  * 
  * This file is the one that ultimately governs the monster's movements. **/
 
@@ -21,9 +21,12 @@ public class spt_monsterMovement : NetworkBehaviour {
     public Transform[] waypoints;
     private int[][] waypointGraph;
     private spt_createGraphForGarage graphScript;
+    private spt_monsterAnimations animationScript;
+    private spt_monsterInteraction interactionScript;
 
     // The waypoint that the monster is currently travelling toward
-    private int currentWaypoint;
+    public int currentWaypoint;
+    public int prevWaypoint;
 
     // Used to guide the monster's movement
     private NavMeshAgent agent;
@@ -45,17 +48,23 @@ public class spt_monsterMovement : NetworkBehaviour {
 	void Update () {
         if (!isServer) return;
         // Chooses a new destination if the monster is within a certain distance of its current one.
-        if (agent.remainingDistance <= 2 && currentWaypoint != 999){
+        if (agent.remainingDistance <= 2 && currentWaypoint != 999 && currentWaypoint != 888){
             chooseDestination();
         }
-        if (agent.remainingDistance <= 2 && currentWaypoint == 999){
+        if (agent.remainingDistance <= 2 && currentWaypoint == 999 && currentWaypoint != 888){
             Debug.LogWarning("attempting to alter playerLoss in puzzleStates...");
             networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
             
             networkScript.updatePuzzleState("playerLoss", true, "MonsterStandin");
             pLoss = true;
         }
-
+        if (agent.remainingDistance <= 2 && currentWaypoint == 888)
+        {
+            animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
+            interactionScript = GameObject.FindObjectOfType(typeof(spt_monsterInteraction)) as spt_monsterInteraction;
+            animationScript.disengageInteraction();
+            interactionScript.interactWithObject(interactionScript.getInteractionName(), interactionScript.getInteractionItemName());
+        }
 	}
 
     // Used to choose a new destination for the monster based on its current destination (used for wandering).

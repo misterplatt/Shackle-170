@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 2/25/2016
+ * Last Revision Date: 3/5/2016
  * 
  * This file handles all of the monster's animations, and the translations needed to properly frame them.
  * This includes: the attacking animation/attacking capability.*/
@@ -21,6 +21,11 @@ public class spt_monsterAnimations : NetworkBehaviour {
     // Defines the position on the axis where the monster will start its attack from.
     public Vector3 attackSpawnAStartingPosition;
     public Vector3 attackSpawnBStartingPosition;
+
+    private bool interactionInitiated = false;
+
+    public GameObject[] interactables;
+    public Vector3[] interactableAnimationStartingPositions;
 
     // This function handles the monster's attack animation.
     //  It takes two arguments: the first is the position of the player being attacked.
@@ -67,6 +72,51 @@ public class spt_monsterAnimations : NetworkBehaviour {
                 monsterAttackInitiated = true;
                 // play animation
             }
+        }
+    }
+
+    public void interactWithObject(string itemName)
+    {
+        if (!interactionInitiated)
+        {
+            spt_monsterMovement movementScript;
+            MeshRenderer renderer = this.GetComponent<MeshRenderer>();
+
+            renderer.enabled = true;
+            foreach (Renderer r in GetComponentsInChildren<Renderer>())
+                r.enabled = true;
+            interactionInitiated = true;
+
+            int index = -1;
+            for (int i = 0; i < interactables.Length; i++)
+            {
+                if (interactables[i].name == itemName)
+                    index = i;
+            }
+
+            movementScript = GameObject.FindObjectOfType(typeof(spt_monsterMovement)) as spt_monsterMovement;
+            this.transform.position = interactableAnimationStartingPositions[index];
+            movementScript.setDestination(interactables[index].transform);
+            movementScript.prevWaypoint = movementScript.currentWaypoint;
+            movementScript.currentWaypoint = 888;
+        }
+    }
+
+    public void disengageInteraction()
+    {
+        if (interactionInitiated)
+        {
+            spt_monsterMovement movementScript;
+            MeshRenderer renderer = this.GetComponent<MeshRenderer>();
+
+            renderer.enabled = false;
+            foreach (Renderer r in GetComponentsInChildren<Renderer>())
+                r.enabled = false;
+            interactionInitiated = false;
+
+            movementScript = GameObject.FindObjectOfType(typeof(spt_monsterMovement)) as spt_monsterMovement;
+            movementScript.setDestination(movementScript.waypoints[movementScript.prevWaypoint]);
+            movementScript.currentWaypoint = movementScript.prevWaypoint;
         }
     }
 }

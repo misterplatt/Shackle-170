@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 2/15/2016
+ * Last Revision Date: 3/5/2016
  * 
  * This file is the one that governs all interactions between the monster and items in the environment. **/
 
@@ -14,6 +14,8 @@ public class spt_monsterInteraction : MonoBehaviour {
 
     // Connection between the monster and the networked puzzle states
     private spt_NetworkPuzzleLogic network;
+    private spt_monsterMovement movementScript;
+    private spt_monsterAnimations animationScript;
 
     // Arrays of the actual interactable objects, their names (in the network), and the weight of each of those
     //  objects (changes how likely the monster is to interact with an object).
@@ -26,6 +28,9 @@ public class spt_monsterInteraction : MonoBehaviour {
     private int interactionDowntime = 30;
     private int currentTime = 0;
     private int lastInteractionTime = 0;
+
+    public string interactionName;
+    public string interactionItemName;
 
     private bool loadedTheNetwork = false;
 
@@ -69,6 +74,7 @@ public class spt_monsterInteraction : MonoBehaviour {
 
             else if (loadedTheNetwork == true)
             {
+                
                 // If the monster is not in a downtime period...
                 if ((currentTime - lastInteractionTime) > interactionDowntime)
                 {
@@ -85,7 +91,11 @@ public class spt_monsterInteraction : MonoBehaviour {
                             float decision = Random.Range(0, 1);
                             if (decision < weights[i])
                             {
-                                interactWithObject(network.PuzzleStates[indecies[i]].name, network.PuzzleStates[indecies[i]].itemName);
+                                animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
+                                interactionName = network.PuzzleStates[indecies[i]].name;
+                                interactionItemName = network.PuzzleStates[indecies[i]].itemName;
+                                animationScript.interactWithObject(interactionItemName);
+                                //interactWithObject(network.PuzzleStates[indecies[i]].name, network.PuzzleStates[indecies[i]].itemName);
                             }
                         }
                     }
@@ -95,13 +105,24 @@ public class spt_monsterInteraction : MonoBehaviour {
 	}
 
     // Function used to make updates to the network puzzle state communicator.
-    void interactWithObject(string item, string itemName){
+    public void interactWithObject(string item, string itemName){
         Debug.Log("interacting with: " + itemName);
         network.updatePuzzleState(item, false, itemName);
+        lastInteractionTime = currentTime;
     }
 
     // Function used to update the elapsed playthrough time. Called every second.
     void updateTime(){
         currentTime = currentTime + 1;
+    }
+
+    public string getInteractionName()
+    {
+        return interactionName;
+    }
+
+    public string getInteractionItemName()
+    {
+        return interactionItemName;
     }
 }
