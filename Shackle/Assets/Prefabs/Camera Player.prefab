@@ -228,6 +228,7 @@ GameObject:
   - 114: {fileID: 11496464}
   - 114: {fileID: 11419672}
   - 114: {fileID: 11488826}
+  - 114: {fileID: 11424462}
   m_Layer: 0
   m_Name: Camera Player
   m_TagString: Player
@@ -752,6 +753,18 @@ MonoBehaviour:
   m_Image: {fileID: 11480436}
   m_ReticleTransform: {fileID: 22469814}
   m_Camera: {fileID: 492582}
+--- !u!114 &11424462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf996105f54e834cba0ef6b43bc402e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lStickInput: 0
 --- !u!114 &11426626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1117,6 +1130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atkMsgSent: 0
+  interactMsgSent: 0
 --- !u!114 &11491444
 MonoBehaviour:
   m_ObjectHideFlags: 1
