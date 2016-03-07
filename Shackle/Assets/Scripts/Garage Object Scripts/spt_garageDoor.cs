@@ -16,14 +16,18 @@ namespace VRStandardAssets.Examples
     public class spt_garageDoor : spt_baseInteractiveObject
     {
         public static bool local_puzzleCompletion;
+
         private static bool garageFail = false;
+        private AudioSource garageLockedSound;
+
+        protected override void Start()
+        {
+            garageLockedSound = GetComponent<AudioSource>();
+        }
 
         protected override void Update()
         {
-            AudioSource garageLockedSound = GetComponent<AudioSource>();
-
-            if (garageFail)
-            {
+            if (garageFail){
                 garageLockedSound.Play();
                 garageFail = false;
             }
