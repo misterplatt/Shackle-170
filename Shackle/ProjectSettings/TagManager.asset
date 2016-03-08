@@ -8,6 +8,8 @@ TagManager:
   - target
   - monster
   - manipulation
+  - seperator
+  - pModel
   layers:
   - Default
   - TransparentFX

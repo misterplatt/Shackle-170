@@ -56,7 +56,6 @@ public class spt_NetworkLobbyUI : MonoBehaviour {
         manager.StartClient();
     }
     public void hostGame() {
-        Debug.Log("NO");
         manager.StopHost();
         manager.StartHost();
     }

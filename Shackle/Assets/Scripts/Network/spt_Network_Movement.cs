@@ -7,8 +7,13 @@ public class spt_Network_Movement : NetworkBehaviour {
     [SyncVar]
     public float lStickInput;
 
-    public static float THRESHOLD = 0.10f;
+    public const float THRESHOLD = 0.10f;
+    public const  float MOVE_THRESHOLD = 1.5F;
+    public const float pMoveRate = 0.005F;
     public float lastCli_lStick = 0.0f;
+
+    //Move toward host direction or client?
+    enum movement {NONE, HOST, CLIENT};
 
     void Start()
     {
@@ -25,9 +30,95 @@ public class spt_Network_Movement : NetworkBehaviour {
             return;
         }
 
+        if(isServer)
+
         lStickInput = spt_playerControls.leftThumb("Vertical");
-        Debug.Log("Host L Stick : " + lStickInput);
+        //dbg_PlayerInputsLog();
+        //collectPlayerGroup();
+
+        if (Input.GetKey(KeyCode.W)) movePlayers(new Vector3(0.0F, 0.0F, 1.0F));
+        if (Input.GetKey(KeyCode.S)) movePlayers(new Vector3(0.0F, 0.0F, -1.0F));
     }
+
+    void dbg_PlayerInputsLog() {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject player in players) {
+            spt_Network_Movement pMovement = player.GetComponent<spt_Network_Movement>();
+            Debug.Log(player.name + " has leftStick Input : " + pMovement.lStickInput);
+        }
+    }
+
+    void senseMove() {
+        switch(checkDirection()) {
+            case movement.NONE:
+                return;
+            case movement.HOST:
+                break;
+            case movement.CLIENT:
+                break;
+        }
+    }
+
+    GameObject[] collectPlayerGroup() {
+        GameObject[] pGroup = new GameObject[10];
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] pSep = GameObject.FindGameObjectsWithTag("seperator");
+        GameObject[] pModels = GameObject.FindGameObjectsWithTag("pModel");
+        
+        players.CopyTo(pGroup, 0);
+        pModels.CopyTo(pGroup, 2);
+        pSep.CopyTo(pGroup, 4);
+
+        return pGroup;
+    }
+
+    void movePlayers(Vector3 dir) {
+        if (!isServer) return;
+
+        GameObject[] playersGroup = collectPlayerGroup();
+        foreach(GameObject entity in playersGroup) {
+            entity.transform.position += pMoveRate * dir;
+        }
+
+
+    }
+
+    [Client]
+    void moveClient(Vector3 dir) {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        GameObject client = null;
+
+        foreach (GameObject player in players) {
+            if (! player.GetComponent<NetworkIdentity>().isServer) client = player;
+        }
+
+        client.transform.position += pMoveRate * dir;
+
+    }
+
+    private float collectInput() {
+
+        float aggregate = 0.0F;
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject player in players) {
+            spt_Network_Movement pMovement = player.GetComponent<spt_Network_Movement>();
+            aggregate += pMovement.lStickInput;
+        }
+
+        return aggregate;
+    }
+
+    private movement checkDirection() {
+        float input = collectInput();
+
+        if ( Mathf.Abs(input) < MOVE_THRESHOLD ) return movement.NONE;
+        else if ( input > MOVE_THRESHOLD ) return movement.HOST;
+        return movement.CLIENT;
+    }
+    
 
     [Command]
     public void CmdSendLStickIn( float input ) {
