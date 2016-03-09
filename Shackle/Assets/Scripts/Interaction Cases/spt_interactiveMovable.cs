@@ -64,25 +64,39 @@ namespace VRStandardAssets.Examples
             if (buttonHeld == true)
             {
                 //Garage only, stops showing an object's movepath once it has been moved
-                if (transform.position.z > 4.3f || transform.position.x < 2.2f)
-                {
-                    moved = true;
-                   // if (movingSound != null && !once)
-                   // {
-                     //   aSource.Play();
-                      //  once = true;
-                   // }
-                }
+                if (transform.position.z > 4.3f || transform.position.x < 2.2f) moved = true;
+
 
                     //Displays a movable's movePath sprite if specified
                     if (optional_movePathImage != null && !moved) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = true;
 
                 Vector3 newPos = transform.position; //Vector which handles and clamps
 
+                
+                if (movingSound != null)
+                {
+                    if (moveOnLocalX == true && spt_playerControls.leftThumb("Horizontal") != 0)
+                    {
+                        if (!once)
+                        {
+                            aSource.Play();
+                            once = true;
+                        }
+                    }
+                    if ((moveOnLocalY == true || moveOnLocalZ == true) && spt_playerControls.leftThumb("Vertical") != 0)
+                    {
+                        if (!once)
+                        {
+                            aSource.Play();
+                            once = true;
+                        }
+                    }
+                }
                 //Moves object on appropriate axes
                 if (moveOnLocalX == true) transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime * moveSpeed);
                 if (moveOnLocalY == true) transform.Translate(new Vector3(0, spt_playerControls.leftThumb("Vertical"), 0) * Time.deltaTime * moveSpeed);
                 if (moveOnLocalZ == true) transform.Translate(new Vector3(0, 0, spt_playerControls.leftThumb("Vertical")) * Time.deltaTime * moveSpeed);
+
 
                 //Clamps the object on the appropriate axes, using the specified min/max's
                 if (clampGlobalX == true) newPos.x = Mathf.Clamp(transform.position.x, initialPosition.x - x_maxNegativeDistance, initialPosition.x + x_maxPositiveDistance);
@@ -95,6 +109,7 @@ namespace VRStandardAssets.Examples
             //stop moving when button is released
             if (spt_playerControls.aButtonPressed() == false) {
                 buttonHeld = false;
+                once = false;
                 if (movingSound !=null) aSource.Stop();
                 if (optional_movePathImage != null) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = false;
             }
