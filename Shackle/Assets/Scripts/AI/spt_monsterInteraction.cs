@@ -120,6 +120,7 @@ public class spt_monsterInteraction : MonoBehaviour {
     // Function used to make updates to the network puzzle state communicator.
     public void interactWithObject(string item, string itemName){
         Debug.Log("interacting with: " + itemName);
+        VRStandardAssets.Examples.spt_extensionCord.local_extCordPlugged = false;
         network.Cmd_UpdatePuzzleLogic(item, false, itemName);
         lastInteractionTime = currentTime;
     }
