@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 2/22/2016
+ * Last Revision Date: 3/9/2016
  * 
  * This file is the one that ultimately governs the monster's motivation. **/
 
@@ -175,7 +175,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
     {
         if (!isServer) return;
         if (angerLevel != 0)
-            angerLevel = angerLevel - 1;
+            angerLevel = angerLevel - 3;
 
         // If the level of anger dips a bit below the bottom threshold, the monster will need to warn the players again if it gets angry.
         //  (This happens before it is allowed to actually attack).
