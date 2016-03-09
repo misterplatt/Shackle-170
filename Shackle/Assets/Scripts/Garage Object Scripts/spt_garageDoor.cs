@@ -41,8 +41,8 @@ namespace VRStandardAssets.Examples
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[5].state == true)
             {
                 transform.Translate(new Vector3(0, 1, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
-                spt_WorldState.worldStateChanged = true;
                 local_puzzleCompletion = true;
+                spt_WorldState.worldStateChanged = true;
                 holding = false;
             }
             else garageFail = true;
