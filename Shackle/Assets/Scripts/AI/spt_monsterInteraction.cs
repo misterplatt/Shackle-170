@@ -47,6 +47,7 @@ public class spt_monsterInteraction : MonoBehaviour {
             {
                 indecies = new int[network.PuzzleStates.Count];
                 weights = new double[network.PuzzleStates.Count];
+                //network.Cmd_UpdatePuzzleLogic("extCordPlugged", true, "mdl_extCord");
             }
         }
         else
