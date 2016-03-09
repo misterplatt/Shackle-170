@@ -26,8 +26,8 @@ namespace VRStandardAssets.Examples
         override protected void holdSuccess()
         {
             //NPL Update
-            spt_WorldState.worldStateChanged = true;
             local_puzzleCompletion = true;
+            spt_WorldState.worldStateChanged = true;
 
             transform.Translate(new Vector3(0, 2, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED  
         }

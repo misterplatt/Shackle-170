@@ -33,8 +33,8 @@ namespace VRStandardAssets.Examples
         {
             if (!once)
             {
-                spt_WorldState.worldStateChanged = true;
                 local_garageDoorUnlocked = true;
+                spt_WorldState.worldStateChanged = true;
                 transform.Translate(new Vector3(-.03f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
                 once = true;
                 garageLockSound.Play();
