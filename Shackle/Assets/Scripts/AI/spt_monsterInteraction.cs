@@ -25,7 +25,7 @@ public class spt_monsterInteraction : MonoBehaviour {
     // Downtime = the amount of time the monster must wait until it can perform another interaction i.e. the time between interactions.
     // Current Time = the amount of time elapsed in this playthrough, in seconds.
     // Last Interaction Time = the elapsed time of the last interaction
-    private int interactionDowntime = 60;
+    private int interactionDowntime = 30;
     private int currentTime = 0;
     private int lastInteractionTime = 0;
 
