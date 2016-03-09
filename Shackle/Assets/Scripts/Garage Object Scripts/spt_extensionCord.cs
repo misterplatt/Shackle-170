@@ -1,13 +1,14 @@
 ﻿/*
 spt_extensionCord
 
-Author(s): Hayden Platt
+Author(s): Hayden Platt, Dara Diba
 
-Revision 2
+Revision 3
 
 Plugs the cord into the wall when pressed,
 and updates the extCordPlugged NPL state to true.
-If unplugged by the monster, state is reset
+If unplugged by the monster, state is reset.
+Added plug and unplug sounds.
 */
 
 using UnityEngine;
@@ -23,13 +24,15 @@ namespace VRStandardAssets.Examples
 
         private bool once = false;
         private Transform inital;
-        private AudioSource pluggingIn;
+        public AudioClip plugInsound;
+        public AudioClip unplugSound;
+        private AudioSource plugSound;
 
 
         override protected void Start()
         {
             inital = transform;
-            pluggingIn = GetComponent<AudioSource>();
+            plugSound = GetComponent<AudioSource>();
         }
 
         //If the monster unplugs the extension cord, reset its position and allow it to be plugged in again 
@@ -39,6 +42,8 @@ namespace VRStandardAssets.Examples
                 transform.position = inital.position;
                 transform.rotation = inital.rotation;
                 once = false;
+                plugSound.clip = unplugSound;
+                plugSound.Play();
             }
         }
 
@@ -46,7 +51,8 @@ namespace VRStandardAssets.Examples
         override protected void clickSuccess()
         {
             if (!once){
-                pluggingIn.Play();
+                plugSound.clip = plugInsound;
+                plugSound.Play();
                 //NPL Update
                 spt_WorldState.worldStateChanged = true;
                 local_extCordPlugged = true;

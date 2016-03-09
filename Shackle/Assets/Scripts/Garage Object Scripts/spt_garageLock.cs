@@ -1,12 +1,13 @@
 ﻿/*
 spt_garageLock
 
-Author(s): Hayden Platt
+Author(s): Hayden Platt, Dara Diba
 
-Revision 2
+Revision 3
 
 When the key is used on the lock for holdTime seconds,
 the lock's slide is moved out from within the garage.
+Unlock sound plays while unlocking.
 */
 
 using UnityEngine;
@@ -19,6 +20,13 @@ namespace VRStandardAssets.Examples
         public static bool local_garageDoorUnlocked = false;
 
         private bool once = false;
+        private AudioSource garageLockSound;
+
+        protected override void Start()
+        {
+            garageLockSound = GetComponent<AudioSource>();
+
+        }
 
         //Handle the Down event, modified so that the reticle doesn't need to stay over object to interact
         override protected void holdSuccess()
@@ -29,6 +37,7 @@ namespace VRStandardAssets.Examples
                 local_garageDoorUnlocked = true;
                 transform.Translate(new Vector3(-.03f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
                 once = true;
+                garageLockSound.Play();
             }
         }
     }

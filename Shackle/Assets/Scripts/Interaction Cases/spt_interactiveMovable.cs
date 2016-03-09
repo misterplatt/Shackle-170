@@ -23,7 +23,7 @@ namespace VRStandardAssets.Examples
         private Vector3 initialPosition;
         public AudioClip movingSound;
         private AudioSource aSource;
-        private bool once = false;
+        private bool once;
 
 
         //Speed at which the object should move
@@ -53,6 +53,7 @@ namespace VRStandardAssets.Examples
             initialPosition = transform.position;
             aSource = GetComponent<AudioSource>();
             if (movingSound != null) aSource.clip = movingSound;
+            once = false;
 
             //bucketSliding = GetComponent<AudioSource>();
         }
@@ -62,11 +63,17 @@ namespace VRStandardAssets.Examples
             //When A is held, use left thumbstick to move object based on object's axis boolean
             if (buttonHeld == true)
             {
-                // NOT WORKING Correctly yet, will fix at my final tonight 3/8(after 8 pm)
-                if (movingSound != null) aSource.Play();
                 //Garage only, stops showing an object's movepath once it has been moved
-                if (transform.position.z > 4.3f || transform.position.x < 2.2f) moved = true;
-           
+                if (transform.position.z > 4.3f || transform.position.x < 2.2f)
+                {
+                    moved = true;
+                   // if (movingSound != null && !once)
+                   // {
+                     //   aSource.Play();
+                      //  once = true;
+                   // }
+                }
+
                     //Displays a movable's movePath sprite if specified
                     if (optional_movePathImage != null && !moved) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = true;
 
