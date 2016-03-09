@@ -41,8 +41,8 @@ public class spt_monsterMotivation : NetworkBehaviour {
     // A boolean used to track if the monster has warned the players that it is unhappy
     private bool hasGivenWarning;
 
-    private int upperThreshold = 150;
-    private int lowerThreshold = 100;
+    private int upperThreshold = 200;
+    private int lowerThreshold = 150;
 
     // Use this for initialization
 	void Start () {
@@ -175,7 +175,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
     {
         if (!isServer) return;
         if (angerLevel != 0)
-            angerLevel = angerLevel - 3;
+            angerLevel = angerLevel - 1;
 
         // If the level of anger dips a bit below the bottom threshold, the monster will need to warn the players again if it gets angry.
         //  (This happens before it is allowed to actually attack).
