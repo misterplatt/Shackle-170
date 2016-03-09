@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 3/7/2016
+ * Last Revision Date: 3/9/2016
  * 
  * This file is the one that governs all interactions between the monster and items in the environment. **/
 
@@ -25,7 +25,7 @@ public class spt_monsterInteraction : MonoBehaviour {
     // Downtime = the amount of time the monster must wait until it can perform another interaction i.e. the time between interactions.
     // Current Time = the amount of time elapsed in this playthrough, in seconds.
     // Last Interaction Time = the elapsed time of the last interaction
-    private int interactionDowntime = 30;
+    private int interactionDowntime = 60;
     private int currentTime = 0;
     private int lastInteractionTime = 0;
 
@@ -47,6 +47,7 @@ public class spt_monsterInteraction : MonoBehaviour {
             {
                 indecies = new int[network.PuzzleStates.Count];
                 weights = new double[network.PuzzleStates.Count];
+                network.Cmd_UpdatePuzzleLogic("extCordPlugged", true, "mdl_extCord");
             }
         }
         else
@@ -108,7 +109,7 @@ public class spt_monsterInteraction : MonoBehaviour {
     public bool checkIfInteractableYet(string itemName){
         for (int index = 0; index < network.PuzzleStates.Count; ++index)
         {
-            if (network.PuzzleStates[index].itemName == gameObject.name && network.PuzzleStates[index].state == true)
+            if (network.PuzzleStates[index].itemName == itemName && network.PuzzleStates[index].state == true)
             {
                 return true;
             }
