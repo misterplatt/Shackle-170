@@ -64,27 +64,14 @@ namespace VRStandardAssets.Examples
             if (buttonHeld == true)
             {
                 //Garage only, stops showing an object's movepath once it has been moved
-                if (transform.position.z > 4.3f || transform.position.x < 2.2f) moved = true;
-
-
-                    //Displays a movable's movePath sprite if specified
-                    if (optional_movePathImage != null && !moved) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = true;
+                if ((gameObject.name == "mdl_bucket" && transform.position.z > 4.4f) || (gameObject.name == "mdl_box" && transform.position.x < 2.0f)) moved = true;
+                //Displays a movable's movePath sprite if specified
+                if (optional_movePathImage != null && !moved) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = true;
 
                 Vector3 newPos = transform.position; //Vector which handles and clamps
 
-                
-                if (movingSound != null)
-                {
-                    if (moveOnLocalX == true && spt_playerControls.leftThumb("Horizontal") != 0)
-                    {
-                        if (!once)
-                        {
-                            aSource.Play();
-                            once = true;
-                        }
-                    }
-                    if ((moveOnLocalY == true || moveOnLocalZ == true) && spt_playerControls.leftThumb("Vertical") != 0)
-                    {
+                if (movingSound != null){
+                    if ((moveOnLocalX == true && spt_playerControls.leftThumb("Horizontal") != 0) || ((moveOnLocalY == true || moveOnLocalZ == true) && spt_playerControls.leftThumb("Vertical") != 0)){
                         if (!once)
                         {
                             aSource.Play();
