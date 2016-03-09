@@ -119,7 +119,7 @@ public class spt_monsterInteraction : MonoBehaviour {
     // Function used to make updates to the network puzzle state communicator.
     public void interactWithObject(string item, string itemName){
         Debug.Log("interacting with: " + itemName);
-        network.updatePuzzleState(item, false, itemName);
+        network.Cmd_UpdatePuzzleLogic(item, false, itemName);
         lastInteractionTime = currentTime;
     }
 
