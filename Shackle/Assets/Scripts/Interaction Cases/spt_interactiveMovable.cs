@@ -21,6 +21,10 @@ namespace VRStandardAssets.Examples
         private bool buttonHeld = false;
         private bool moved = false;
         private Vector3 initialPosition;
+        public AudioClip movingSound;
+        private AudioSource aSource;
+        private bool once = false;
+
 
         //Speed at which the object should move
         public float moveSpeed = 1;
@@ -47,6 +51,10 @@ namespace VRStandardAssets.Examples
         override protected void Start()
         {
             initialPosition = transform.position;
+            aSource = GetComponent<AudioSource>();
+            if (movingSound != null) aSource.clip = movingSound;
+
+            //bucketSliding = GetComponent<AudioSource>();
         }
 
         override protected void Update()
@@ -54,10 +62,13 @@ namespace VRStandardAssets.Examples
             //When A is held, use left thumbstick to move object based on object's axis boolean
             if (buttonHeld == true)
             {
+                // NOT WORKING Correctly yet, will fix at my final tonight 3/8(after 8 pm)
+                if (movingSound != null) aSource.Play();
                 //Garage only, stops showing an object's movepath once it has been moved
                 if (transform.position.z > 4.3f || transform.position.x < 2.2f) moved = true;
-                //Displays a movable's movePath sprite if specified
-                if (optional_movePathImage != null && !moved) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = true;
+           
+                    //Displays a movable's movePath sprite if specified
+                    if (optional_movePathImage != null && !moved) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = true;
 
                 Vector3 newPos = transform.position; //Vector which handles and clamps
 
@@ -77,6 +88,7 @@ namespace VRStandardAssets.Examples
             //stop moving when button is released
             if (spt_playerControls.aButtonPressed() == false) {
                 buttonHeld = false;
+                if (movingSound !=null) aSource.Stop();
                 if (optional_movePathImage != null) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = false;
             }
         }
@@ -84,6 +96,7 @@ namespace VRStandardAssets.Examples
         protected override void holdSuccess()
         {
             buttonHeld = true;
+
         }
 
         //Plugging HandleClick

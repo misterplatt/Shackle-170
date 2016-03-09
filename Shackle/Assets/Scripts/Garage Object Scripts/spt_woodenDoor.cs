@@ -16,11 +16,15 @@ namespace VRStandardAssets.Examples
     public class spt_woodenDoor : spt_baseInteractiveObject
     {
         private static bool jiggled = false;
+        private AudioSource doorJiggles;
 
-        protected override void Update()
+        override protected void Start()
         {
-            AudioSource doorJiggles = GetComponent<AudioSource>();
+            doorJiggles = GetComponent<AudioSource>();
+        }
 
+        override protected void Update()
+        {
             if (jiggled)
             {
                 doorJiggles.Play();
@@ -35,7 +39,6 @@ namespace VRStandardAssets.Examples
         }
 
         // Plugging HandleDown
-        protected override void HandleDown()
-        {}
+        override protected void HandleDown(){}
     }
 }

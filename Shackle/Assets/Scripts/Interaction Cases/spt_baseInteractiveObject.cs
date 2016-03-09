@@ -18,7 +18,7 @@ namespace VRStandardAssets.Examples
     public class spt_baseInteractiveObject : MonoBehaviour
     {
         [SerializeField]
-        private string gateItemName;
+        protected string gateItemName;
         [SerializeField]
         protected int holdTime = 0;
         [SerializeField]

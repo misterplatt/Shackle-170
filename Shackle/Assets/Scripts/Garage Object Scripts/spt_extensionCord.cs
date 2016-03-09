@@ -23,14 +23,17 @@ namespace VRStandardAssets.Examples
 
         private bool once = false;
         private Transform inital;
+        private AudioSource pluggingIn;
 
-        protected override void Start()
+
+        override protected void Start()
         {
             inital = transform;
+            pluggingIn = GetComponent<AudioSource>();
         }
 
         //If the monster unplugs the extension cord, reset its position and allow it to be plugged in again 
-        protected override void Update()
+        override protected void Update()
         {
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[3].state == false && once) {
                 transform.position = inital.position;
@@ -43,6 +46,7 @@ namespace VRStandardAssets.Examples
         override protected void clickSuccess()
         {
             if (!once){
+                pluggingIn.Play();
                 //NPL Update
                 spt_WorldState.worldStateChanged = true;
                 local_extCordPlugged = true;
@@ -54,6 +58,6 @@ namespace VRStandardAssets.Examples
         }
 
         //Plug HandleDown from base
-        protected override void HandleDown() {}
+        override protected void HandleDown() {}
     }
 }

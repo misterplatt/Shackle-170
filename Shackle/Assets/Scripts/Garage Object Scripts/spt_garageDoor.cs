@@ -20,12 +20,12 @@ namespace VRStandardAssets.Examples
         private static bool garageFail = false;
         private AudioSource garageLockedSound;
 
-        protected override void Start()
+        override protected void Start()
         {
             garageLockedSound = GetComponent<AudioSource>();
         }
 
-        protected override void Update()
+        override protected void Update()
         {
             if (garageFail){
                 garageLockedSound.Play();
