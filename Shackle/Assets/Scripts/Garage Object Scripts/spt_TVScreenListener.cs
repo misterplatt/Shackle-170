@@ -25,8 +25,8 @@ public class spt_TVScreenListener : NetworkBehaviour {
 
     // Update is called once per frame
     void Update () {
-        //If the tvOn network state is true, turn on the static
-        //Debug.Log("TV Power " + GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state);
+
+        //If the tvOn network state is true, turn on the static and noise
         if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true &&
             GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == false)
         {
@@ -38,11 +38,20 @@ public class spt_TVScreenListener : NetworkBehaviour {
             }
         }
 
-        //If tvOn and correctChannel are true, turn on the success screen
+        //If tvOn and correctChannel are true, turn on the success screen and make sure static is playing
         else if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true &&
-            GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true) GetComponent<SpriteRenderer>().color = Color.green;
+            GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true)
+        {
+            GetComponent<SpriteRenderer>().color = Color.green;
+            GetComponent<SpriteRenderer>().enabled = true;
+            if (!soundPlayed)
+            {
+                tvStaticSound.Play();
+                soundPlayed = true;
+            }
+        }
 
-        //Otherwise, turn the screen off
+        //Otherwise, turn the screen off and stop the static sound
         else if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == false ||
             GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[3].state == false)
         {

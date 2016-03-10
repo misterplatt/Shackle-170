@@ -23,7 +23,8 @@ namespace VRStandardAssets.Examples
         public static bool local_extCordPlugged = false;
 
         private bool once = false;
-        private Transform inital;
+        private Vector3 initalPosition;
+        private Quaternion initialRotation;
         public AudioClip plugInsound;
         public AudioClip unplugSound;
         private AudioSource plugSound;
@@ -31,7 +32,8 @@ namespace VRStandardAssets.Examples
 
         override protected void Start()
         {
-            inital = transform;
+            initalPosition = transform.position;
+            initialRotation = transform.rotation;
             plugSound = GetComponent<AudioSource>();
         }
 
@@ -39,8 +41,8 @@ namespace VRStandardAssets.Examples
         override protected void Update()
         {
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[3].state == false && once) {
-                transform.position = inital.position;
-                transform.rotation = inital.rotation;
+                transform.position = initalPosition;
+                transform.rotation = initialRotation;
                 spt_remotePower.local_TVpowerState = false;
                 spt_WorldState.worldStateChanged = true;
                 once = false;
