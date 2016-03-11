@@ -24,7 +24,6 @@ namespace VRStandardAssets.Examples
             unscrewingAC = GetComponent<AudioSource>();
         }
 
-
         //Plug HandleClick
         override protected void HandleClick() { }
 

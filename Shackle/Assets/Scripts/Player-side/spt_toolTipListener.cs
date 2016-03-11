@@ -68,7 +68,16 @@ public class spt_toolTipListener : MonoBehaviour {
         }
 
         //Ensures you move the bucket before the tooltip stops showing on click
-        if (GameObject.Find("mdl_bucket").transform.position.z > 4.3f) movableTipsShown = true;
+        if (GameObject.Find("mdl_bucket").transform.position.z > 4.4f) movableTipsShown = true;
+
+        //Show movement tooltip on bucket interact
+        if (GameObject.Find("spr_boxMovePath").GetComponent<SpriteRenderer>().enabled == true && !movableTipsShown)
+        {
+            StartCoroutine(setToolTip(LS_A, "To Move Some Objects", 0f, 4f));
+        }
+
+        //Ensures you move the bucket before the tooltip stops showing on click
+        if (GameObject.Find("mdl_box").transform.position.x > 2.2f) movableTipsShown = true;
     }
 
     //Function which sets the toolTip image and text after delayTime seconds, then clears after 3 seconds
