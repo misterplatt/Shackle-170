@@ -69,5 +69,9 @@ namespace VRStandardAssets.Examples
 
         //Plug HandleDown from base
         override protected void HandleDown() {}
+
+        public override void resetItem() {
+            local_extCordPlugged = false;
+        }
     }
 }
