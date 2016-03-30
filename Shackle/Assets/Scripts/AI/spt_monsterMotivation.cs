@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 3/9/2016
+ * Last Revision Date: 3/29/2016
  * 
  * This file is the one that ultimately governs the monster's motivation. **/
 
@@ -43,6 +43,12 @@ public class spt_monsterMotivation : NetworkBehaviour {
 
     private int upperThreshold = 200;
     private int lowerThreshold = 150;
+
+    // Used to make sure that the monster gives sufficient warning before an attack.
+    //  time is the elapsed time of the playthrough (in seconds)
+    //  timeOfWarning is recorded time of a warning, with -1 denoting that the players are not in danger yet
+    private int time = 0;
+    private int timeOfWarning = -1;
 
     // Use this for initialization
 	void Start () {
@@ -137,18 +143,19 @@ public class spt_monsterMotivation : NetworkBehaviour {
             if (hasGivenWarning == false){
                 // Play warning noise.
                 hasGivenWarning = true;
+                timeOfWarning = time;
                 audioScript = GetComponent<spt_monsterAudio>();
                 audioScript.playWarningNoise();
             }
 
-            // If the players have already been warned, it will attack
-            else{
+            // If the players have already been warned, and there was a 8 second interval between the initial warning and an attack
+            else if ((hasGivenWarning==true) && (timeOfWarning!= -1) && (time-timeOfWarning>8)){
                 //populate network fields
                 whichPlayer = Random.Range(0, spawns.Length);
                 isAttacking = true;
                 movementScript.setWaypoint(999);
                 //movementScript.setWaypoint(999);
-                //animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
+                animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
             }
         }
     }
@@ -177,10 +184,16 @@ public class spt_monsterMotivation : NetworkBehaviour {
         if (angerLevel != 0)
             angerLevel = angerLevel - 1;
 
+        // Update the elapsed playthrough time
+        time = time + 1;
+
         // If the level of anger dips a bit below the bottom threshold, the monster will need to warn the players again if it gets angry.
         //  (This happens before it is allowed to actually attack).
         if (angerLevel <= (lowerThreshold - 10))
+        {
+            timeOfWarning = -1;
             hasGivenWarning = false;
+        }
     }
 
     public int getAnger(){
