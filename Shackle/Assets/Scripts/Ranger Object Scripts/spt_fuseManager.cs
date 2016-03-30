@@ -36,8 +36,8 @@ public class spt_fuseManager : MonoBehaviour
     public void updateFuseStates(int index, bool state)
     {
         //NPL Update
-        spt_WorldState.worldStateChanged = true;
         local_correctFuseCombo = true;
+        spt_WorldState.worldStateChanged = true;
 
         fuseStates[index] = state;
         if (fuseStates.SequenceEqual(correctStates)) {

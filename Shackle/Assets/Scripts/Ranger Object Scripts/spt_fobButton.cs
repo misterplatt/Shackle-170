@@ -43,8 +43,8 @@ namespace VRStandardAssets.Examples
             if (currentState == true)
             {
                 //NPL Update
-                spt_WorldState.worldStateChanged = true;
                 local_keyFobPressed = true;
+                spt_WorldState.worldStateChanged = true;
 
                 m_Renderer.material = m_StateTwoMaterial;
                 GameObject.Find("SUV").transform.Translate(new Vector3(-4,0,0));

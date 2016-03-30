@@ -89,7 +89,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
         if (mover.pLoss)
         {
             GameObject uiMessager = transform.Find("VRCameraUI/WinMessage").gameObject;
-            uiMessager.GetComponent<Text>().text = "You lose \nmuthafucka!";
+            uiMessager.GetComponent<Text>().text = "You lose!";
             uiMessager.GetComponent<Text>().enabled = true;
 
             //path to return to main menu.

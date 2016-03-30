@@ -3,9 +3,10 @@ spt_garageDoor
 
 Author(s): Hayden Platt, Dara Diba
 
-Revision 3
+Revision 4
 
 Open the garage if opener is used on door for holdTime seconds.
+Plays garagelocked/garageopened sound depending on when the player tries to open the garage.
 */
 
 using UnityEngine;
@@ -18,20 +19,23 @@ namespace VRStandardAssets.Examples
         public static bool local_puzzleCompletion;
 
         private static bool garageFail = false;
-        private AudioSource garageLockedSound;
+        private AudioSource garageSound;
+        public AudioClip garageOpenSound;
+        public AudioClip garageLockedSound;
 
         override protected void Start()
         {
-            garageLockedSound = GetComponent<AudioSource>();
+            garageSound = GetComponent<AudioSource>();
         }
 
         override protected void Update()
         {
             if (garageFail){
-                garageLockedSound.Play();
+                Debug.Log("FUCKING FAIL");
+                garageSound.clip = garageLockedSound;
+                garageSound.Play();
                 garageFail = false;
             }
-
         }
 
         //Open the garage if opener is used on door for holdTime seconds
@@ -41,9 +45,11 @@ namespace VRStandardAssets.Examples
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[5].state == true)
             {
                 transform.Translate(new Vector3(0, 1, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
-                spt_WorldState.worldStateChanged = true;
                 local_puzzleCompletion = true;
+                spt_WorldState.worldStateChanged = true;
                 holding = false;
+                garageSound.clip = garageOpenSound;
+                garageSound.Play();
             }
             else garageFail = true;
          }

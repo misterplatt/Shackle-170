@@ -31,8 +31,14 @@ namespace VRStandardAssets.Examples
         //Function that activates all manipulation object's children's colliders on pickup, and deactivates on put down
         public void childActive(bool state)
         {
-            //Debug.Log("RISE CHILDREN");
             GetComponent<BoxCollider>().enabled = state;
+        }
+
+        protected override void Update()
+        {
+            if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[3].state == false){
+                m_Renderer.material = m_StateTwoMaterial;
+            }
         }
 
         //Handle the Click event, alternates states on every press
@@ -49,6 +55,6 @@ namespace VRStandardAssets.Examples
             }
         }
 
-        protected override void HandleDown(){}
+        override protected void HandleDown(){}
     }
 }

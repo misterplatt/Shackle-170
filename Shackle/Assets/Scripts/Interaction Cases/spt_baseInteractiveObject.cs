@@ -148,5 +148,9 @@ namespace VRStandardAssets.Examples
             selectionRadial.enabled = false;
             timer = 0;
         }
+
+        virtual public void resetItem() {
+
+        }
     }
 }

@@ -37,7 +37,6 @@ public class spt_monsterAnimations : NetworkBehaviour {
 
     public void Update()
     {
-        Debug.Log(render);
         MeshRenderer renderer = this.GetComponent<MeshRenderer>();
         renderer.enabled = render;
         foreach (Renderer r in GetComponentsInChildren<Renderer>())

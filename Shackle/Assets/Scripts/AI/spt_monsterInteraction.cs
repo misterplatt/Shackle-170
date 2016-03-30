@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 3/7/2016
+ * Last Revision Date: 3/9/2016
  * 
  * This file is the one that governs all interactions between the monster and items in the environment. **/
 
@@ -47,6 +47,7 @@ public class spt_monsterInteraction : MonoBehaviour {
             {
                 indecies = new int[network.PuzzleStates.Count];
                 weights = new double[network.PuzzleStates.Count];
+                //network.Cmd_UpdatePuzzleLogic("extCordPlugged", true, "mdl_extCord");
             }
         }
         else
@@ -108,7 +109,7 @@ public class spt_monsterInteraction : MonoBehaviour {
     public bool checkIfInteractableYet(string itemName){
         for (int index = 0; index < network.PuzzleStates.Count; ++index)
         {
-            if (network.PuzzleStates[index].itemName == gameObject.name && network.PuzzleStates[index].state == true)
+            if (network.PuzzleStates[index].itemName == itemName && network.PuzzleStates[index].state == true)
             {
                 return true;
             }
@@ -119,7 +120,13 @@ public class spt_monsterInteraction : MonoBehaviour {
     // Function used to make updates to the network puzzle state communicator.
     public void interactWithObject(string item, string itemName){
         Debug.Log("interacting with: " + itemName);
-        network.updatePuzzleState(item, false, itemName);
+        spt_monster_ItemReset resetSpt = GameObject.Find(itemName).GetComponent<spt_monster_ItemReset>();
+
+        if (resetSpt == null) Debug.Log("spt_monsterInteraction.interactWithobject : Error, called with non-interactive itemName.");
+        else resetSpt.resetFunction();
+
+        //VRStandardAssets.Examples.spt_extensionCord.local_extCordPlugged = false;
+        network.Cmd_UpdatePuzzleLogic(item, false, itemName);
         lastInteractionTime = currentTime;
     }
 

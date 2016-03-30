@@ -40,8 +40,8 @@ namespace VRStandardAssets.Examples
             {
                 if (spt_remoteManager.channelNumber[0] == "4" && spt_remoteManager.channelNumber[1] == "9")
                 {
-                    spt_WorldState.worldStateChanged = true;
                     local_correctChannelEntered = true;
+                    spt_WorldState.worldStateChanged = true;
                 }
             }
             //If the player presses enter with the correct player number in remote manager, change TV to green channel
