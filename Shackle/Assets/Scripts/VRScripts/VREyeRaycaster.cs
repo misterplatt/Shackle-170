@@ -1,13 +1,22 @@
+/* VREyeRaycaster
+ * 
+ * 
+ * Last Revision Date: 3/29/2016
+ * 
+ * In order to interact with objects in the scene
+ * this class casts a ray into the scene and if it finds
+ * a VRInteractiveItem it exposes it for other classes to use.
+ * This script should be generally be placed on the camera.
+ * Added beginnings of reticle range - Dara
+*/
+
 using System;
 using UnityEngine;
 using UnityEngine.Networking;
 
 namespace VRStandardAssets.Utils
 {
-    // In order to interact with objects in the scene
-    // this class casts a ray into the scene and if it finds
-    // a VRInteractiveItem it exposes it for other classes to use.
-    // This script should be generally be placed on the camera.
+
     public class VREyeRaycaster : NetworkBehaviour
     {
         public event Action<RaycastHit> OnRaycasthit;                   // This event is called every frame that the user's gaze is over a collider.
@@ -25,6 +34,7 @@ namespace VRStandardAssets.Utils
         
         private VRInteractiveItem m_CurrentInteractible;                //The current interactive item
         private VRInteractiveItem m_LastInteractible;                   //The last interactive item
+        public bool racyCastTouch;
 
 
         // Utility for other classes to get the current interactive item
@@ -126,23 +136,29 @@ namespace VRStandardAssets.Utils
 
                 // Something was hit, set at the hit position.
                 if (m_Reticle)
+                {
                     m_Reticle.SetPosition(hit);
+                    racyCastTouch = true;
+                }
 
                 if (OnRaycasthit != null)
+                {
                     OnRaycasthit(hit);
+                }
+                    
             }
             else
             {
                 // Nothing was hit, deactive the last interactive item.
                 DeactiveLastInteractible();
                 m_CurrentInteractible = null;
+                racyCastTouch = false;
 
                 // Position the reticle at default distance.
                 if (m_Reticle)
                     m_Reticle.SetPosition();
             }
         }
-
 
         private void DeactiveLastInteractible()
         {

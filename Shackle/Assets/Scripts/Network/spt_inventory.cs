@@ -2,11 +2,12 @@
  * 
  * Created by: Ryan Connors
  * 
- * Last Revision Date: 2/25/2016
+ * Last Revision Date: 3/29/2016
  * 
  * This file provides the network based implementation of the player inventory.
  * this inventory is synched between client and hosts and supports two distinct inventories, as well as 
  * inventory interaction in the way of passing, grabbing, and removing items.
+ * Added beginnings of reticle range - Dara
 */
 
 
@@ -27,8 +28,10 @@ public class spt_inventory : NetworkBehaviour {
     public GameObject reticleTex;
     public Texture handSprite;
     public Texture fistSprite;
+    public Texture unreachableSprite;
     public Texture none;
     private int MAX_SLOTS = 4;
+    private VRInteractiveItem lookingObject;
 
     [SerializeField] private VREyeRaycaster m_EyeRaycaster;
     //A sync variable which dictates if the inventory UI should update
@@ -82,6 +85,9 @@ public class spt_inventory : NetworkBehaviour {
         //if not the local player, don't do anything as it's meaningless
         if (!isLocalPlayer) return;
 
+        lookingObject = m_EyeRaycaster.CurrentInteractible;
+        
+
         //if the inventory has changed in someway, redraw the inventory UI.
         if (invChanged) visualList();
         //update the reticle to indicate the currently selected item
@@ -118,7 +124,7 @@ public class spt_inventory : NetworkBehaviour {
         if (inspecting) inspectItem();
         else stopInspectItem();
         */
-
+        
     }
 
     //grab correct game object from the scene by inventory string reference given the index.
@@ -132,8 +138,18 @@ public class spt_inventory : NetworkBehaviour {
 
     //change the reticle texture based on the current active inventory item.
     public void reticleUpdate() {
-        reticleTex = transform.Find("VRCameraUI/GUIReticle").gameObject;
-        reticleTex.GetComponent<RawImage>().texture = retrieveObjectFromInventory(activeItem).GetComponent<GUITexture>().texture;
+
+        if (m_EyeRaycaster.racyCastTouch)
+        {
+          
+            reticleTex = transform.Find("VRCameraUI/GUIReticle").gameObject;
+            reticleTex.GetComponent<RawImage>().texture = retrieveObjectFromInventory(activeItem).GetComponent<GUITexture>().texture;
+        }
+        else
+        {
+            reticleTex.GetComponent<RawImage>().texture = unreachableSprite;
+        }
+
     }
 
     //iterate through the synced inventory string list and update the UI icons with gameobject icons, remove the icons from items which no longer exist
@@ -366,8 +382,7 @@ public class spt_inventory : NetworkBehaviour {
 
 
     public void Fisting()
-    {
-        VRInteractiveItem lookingObject = m_EyeRaycaster.CurrentInteractible;
+    { 
         if (lookingObject != null && lookingObject.GetComponent<VRStandardAssets.Examples.spt_interactiveMovable>() != null)
         {
                 reticleTex.GetComponent<RawImage>().texture = fistSprite;

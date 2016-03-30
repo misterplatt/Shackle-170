@@ -167,6 +167,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &157300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 497502}
+  - 131: {fileID: 13159450}
+  m_Layer: 0
+  m_Name: Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &159962
 GameObject:
   m_ObjectHideFlags: 1
@@ -347,7 +363,7 @@ GameObject:
   - 4: {fileID: 468332}
   - 131: {fileID: 13116682}
   m_Layer: 0
-  m_Name: Hand
+  m_Name: Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -376,7 +392,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 492582}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!4 &464582
 Transform:
   m_ObjectHideFlags: 1
@@ -400,7 +416,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 492582}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &469044
 Transform:
   m_ObjectHideFlags: 1
@@ -412,7 +428,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 492582}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &492582
 Transform:
   m_ObjectHideFlags: 1
@@ -424,12 +440,25 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 437726}
+  - {fileID: 497502}
   - {fileID: 468332}
   - {fileID: 22429002}
   - {fileID: 469044}
   - {fileID: 443168}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &497502
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157300}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.06500006, y: -2.6, z: -0.72800016}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 492582}
+  m_RootOrder: 1
 --- !u!20 &2073800
 Camera:
   m_ObjectHideFlags: 1
@@ -971,10 +1000,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectionBar: {fileID: 189422}
-  handObj: {fileID: 191738}
+  handObj: {fileID: 157300}
   reticleTex: {fileID: 185876}
   handSprite: {fileID: 2800000, guid: bf44ff9d393e79d4b8bf5284fae905b3, type: 3}
   fistSprite: {fileID: 2800000, guid: b84b4b7bd0a843840a06803c5e828f7e, type: 3}
+  unreachableSprite: {fileID: 2800000, guid: 2d13014bfe7944b48ae15fabcd93855c, type: 3}
   none: {fileID: 2800000, guid: 88c302bfc0cdab44bb3b036c0b598054, type: 3}
   m_EyeRaycaster: {fileID: 11484294}
   invChanged: 1
@@ -1117,8 +1147,9 @@ MonoBehaviour:
   m_ShowDebugRay: 1
   m_DebugRayLength: 5
   m_DebugRayDuration: 1
-  m_RayLength: 500
+  m_RayLength: 5
   rhit: {x: 0, y: 0, z: 0}
+  racyCastTouch: 0
 --- !u!114 &11488826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1212,6 +1243,25 @@ GUITexture:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191738}
+  m_Enabled: 0
+  m_Texture: {fileID: 2800000, guid: 060f01795e5ac9e4fac098cc1382833b, type: 3}
+  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+  m_PixelInset:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  m_LeftBorder: 0
+  m_RightBorder: 0
+  m_TopBorder: 0
+  m_BottomBorder: 0
+--- !u!131 &13159450
+GUITexture:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157300}
   m_Enabled: 0
   m_Texture: {fileID: 2800000, guid: bf44ff9d393e79d4b8bf5284fae905b3, type: 3}
   m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
@@ -1405,7 +1455,7 @@ RectTransform:
   - {fileID: 22469230}
   - {fileID: 22474050}
   m_Father: {fileID: 492582}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1622,6 +1672,22 @@ Prefab:
       propertyPath: m_Constraints
       value: 126
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_ShowDebugRay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_RayLength
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: footSprite
+      value: 
+      objectReference: {fileID: 2800000, guid: 8656d10b098e9374396ece634074accb, type: 3}
+    - target: {fileID: 0}
+      propertyPath: unreachableSprite
+      value: 
+      objectReference: {fileID: 2800000, guid: 2d13014bfe7944b48ae15fabcd93855c, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 166426}
