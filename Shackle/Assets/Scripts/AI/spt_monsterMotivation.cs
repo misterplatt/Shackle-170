@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 3/29/2016
+ * Last Revision Date: 3/31/2016
  * 
  * This file is the one that ultimately governs the monster's motivation. **/
 
@@ -31,6 +31,11 @@ public class spt_monsterMotivation : NetworkBehaviour {
     public bool isAttacking;
     [SyncVar]
     public bool clientRecievedSignal = false;
+
+    //[SyncVar]
+    public int hostAnger;
+    //[SyncVar]
+    public int clientAnger;
 
     bool attackComplete = false;
 
@@ -151,7 +156,11 @@ public class spt_monsterMotivation : NetworkBehaviour {
             // If the players have already been warned, and there was a 8 second interval between the initial warning and an attack
             else if ((hasGivenWarning==true) && (timeOfWarning!= -1) && (time-timeOfWarning>8)){
                 //populate network fields
-                whichPlayer = Random.Range(0, spawns.Length);
+                //whichPlayer = Random.Range(0, spawns.Length);
+                if (hostAnger > clientAnger)
+                    whichPlayer = 0;
+                else
+                    whichPlayer = 1;
                 isAttacking = true;
                 movementScript.setWaypoint(999);
                 //movementScript.setWaypoint(999);
@@ -175,6 +184,15 @@ public class spt_monsterMotivation : NetworkBehaviour {
     {
         if (!isServer) return;
         angerLevel = angerLevel + i;
+    }
+
+    // Updates the net amount of anger caused by each player (host or client)
+    public void updatePlayerAnger(int i)
+    {
+        if (isServer)
+            hostAnger = hostAnger + i;
+        else
+            clientAnger = clientAnger + i;
     }
 
     // Called evey second. Allows anger to depreciate over time.

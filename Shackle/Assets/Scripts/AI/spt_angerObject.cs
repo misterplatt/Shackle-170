@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 2/15/2016
+ * Last Revision Date: 3/31/2016
  *
  * This file is attached to all objects that are used as anger increasers for the monster.
  *  It instantiates a custom-made base anger class variable for each that stores data regarding how the monster is affected by that object.
@@ -63,13 +63,25 @@ public class spt_angerObject : MonoBehaviour {
         if (data.getSeen() == false){
 
             //if the monster can immediately see the object that just came into existence...
-            if (monster.canSeeSomething(this.transform)){
+            if (monster.canSeeSomething(this.transform))
+            {
                 //Update the monster's anger with an increased field of view boost.
                 monster.updateAnger(data.getAnger() + data.getAnger());
+
+                // *******************************************************************************
+                monster.updatePlayerAnger(data.getAnger() + data.getAnger());
+                // *******************************************************************************
+
             }
             else
+            {
                 monster.updateAnger(data.getAnger());
 
+                // *******************************************************************************
+                monster.updatePlayerAnger(data.getAnger());
+                // *******************************************************************************
+
+            }
             //mark the object as "seen" i.e. the monster has acknowledged its initial presence.
             data.markAsSeen();
         }
