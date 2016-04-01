@@ -7,9 +7,10 @@
  * This script handles all of the audio required for the monster. **/
 
 using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 
-public class spt_monsterAudio : MonoBehaviour {
+public class spt_monsterAudio : NetworkBehaviour {
 
     // Make sure to attatch the audio souce to this script in the Unity editor!
     public AudioSource source;
@@ -18,14 +19,31 @@ public class spt_monsterAudio : MonoBehaviour {
     public AudioClip[] warningSounds;
     public AudioClip[] ambientSounds;
 
+    //network synced soundIndex
+    [SyncVar]
+    public int ambSoundInd = -1;
+    public int wngSoundInd = -1;
+
     private AudioClip chosenWarningSound;
     private AudioClip chosenAmbientSound;
 
     // Called on Start, loads references to the first ambient and warning sounds to be played.
     void Start(){
-        chosenWarningSound = warningSounds[Random.Range(0, warningSounds.Length)];
-        chosenAmbientSound = ambientSounds[Random.Range(0, warningSounds.Length)];
-        InvokeRepeating("checkForAmbientNoise", 15, 15);
+        if (isServer)
+        {
+            ambSoundInd = Random.Range(0, warningSounds.Length);
+            wngSoundInd = Random.Range(0, ambientSounds.Length);
+
+            chosenWarningSound = warningSounds[wngSoundInd];
+            chosenAmbientSound = ambientSounds[ambSoundInd];
+            InvokeRepeating("checkForAmbientNoise", 15, 15);
+        }
+    }
+
+    void Update()
+    {
+        if (chosenWarningSound == null) chosenWarningSound = warningSounds[wngSoundInd];
+        if (chosenAmbientSound == null) chosenAmbientSound = ambientSounds[ambSoundInd];
     }
 
     //Called when a warning noise is needed. Plays the currently loaded one, then loads a new one.

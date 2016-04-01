@@ -16,7 +16,7 @@ public class spt_monster_ItemReset : MonoBehaviour {
         }
     }
 
-	void resetState() {
+	public void resetState() {
         resetFunction();
     }
 
