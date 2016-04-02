@@ -1,5 +1,5 @@
 ﻿/*
-spt_interactiveSwitch
+spt_laserSwitch
 
 Author(s): Hayden Platt, Dara Diba
 
@@ -15,15 +15,16 @@ using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_interactiveSwitch : spt_baseInteractiveObject
+    public class spt_laserSwitch : spt_baseInteractiveObject
     {
-
         private bool currentState = false;
 
-        override protected void clickSuccess() {
+        override protected void clickSuccess()
+        {
             currentState = !currentState;
-            if (currentState == true) Debug.Log("ON");
-            else if (currentState == false) Debug.Log("OFF");
+            Debug.Log("CLICK");
+            if (currentState == true) transform.FindChild("Laser_Proj").gameObject.SetActive(true);
+            else if (currentState == false) transform.FindChild("Laser_Proj").gameObject.SetActive(false);
         }
 
         //Plug handleDown

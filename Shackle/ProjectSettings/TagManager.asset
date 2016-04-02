@@ -10,6 +10,7 @@ TagManager:
   - manipulation
   - seperator
   - pModel
+  - laser
   layers:
   - Default
   - TransparentFX
