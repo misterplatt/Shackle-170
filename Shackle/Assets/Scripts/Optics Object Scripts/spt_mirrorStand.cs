@@ -23,7 +23,7 @@ namespace VRStandardAssets.Examples
             inventorySpt.removeItm("Mirror Pickup"); //NOT PROPERLY REMOVING @@@@@@@@@@@@@@@@@@@@@@@@@@@
             GameObject mirrorObj = GameObject.Find("Mirror Pickup");
             mirrorObj.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-            mirrorObj.transform.parent = transform;
+            mirrorObj.transform.parent = transform.FindChild("Mirror Handle");
         }
 
         //Plug handleDown
