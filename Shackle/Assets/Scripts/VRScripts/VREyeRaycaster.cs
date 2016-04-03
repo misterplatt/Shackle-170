@@ -1,18 +1,19 @@
 /* VREyeRaycaster
  * 
  * 
- * Last Revision Date: 3/29/2016
+ * Last Revision Date: 4/3/2016
  * 
  * In order to interact with objects in the scene
  * this class casts a ray into the scene and if it finds
  * a VRInteractiveItem it exposes it for other classes to use.
  * This script should be generally be placed on the camera.
- * Added beginnings of reticle range - Dara
+ * Added reticle range - Dara
 */
 
 using System;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 namespace VRStandardAssets.Utils
 {
@@ -61,6 +62,14 @@ namespace VRStandardAssets.Utils
             m_VrInput.OnDown -= HandleDown;
         }
 
+        // Checks to see what the active scene is and as a result will change the ray length
+        private void Start()
+        {
+
+            if (SceneManager.GetActiveScene().name == "net_SpookyGarage") m_RayLength = 500f;
+            else m_RayLength = 4f;
+
+        }
 
         private void Update()
         {

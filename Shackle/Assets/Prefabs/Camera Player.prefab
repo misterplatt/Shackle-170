@@ -1147,7 +1147,7 @@ MonoBehaviour:
   m_ShowDebugRay: 1
   m_DebugRayLength: 5
   m_DebugRayDuration: 1
-  m_RayLength: 4
+  m_RayLength: 0
   rhit: {x: 0, y: 0, z: 0}
   racyCastTouch: 0
 --- !u!114 &11488826
@@ -1362,6 +1362,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: -1915606183
   m_SortingOrder: 0
   m_TargetDisplay: 0
