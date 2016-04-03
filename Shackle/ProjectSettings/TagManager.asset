@@ -11,6 +11,7 @@ TagManager:
   - seperator
   - pModel
   - laser
+  - mirror
   layers:
   - Default
   - TransparentFX

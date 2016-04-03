@@ -196,6 +196,7 @@ public class spt_inventory : NetworkBehaviour {
         if (!isServer) CmdRemoveItem(item, this.name);
         else inventory.Remove(item);
 
+		cycleLeft ();
         invChanged = true;
     }
 
@@ -383,7 +384,7 @@ public class spt_inventory : NetworkBehaviour {
 
     public void Fisting()
     { 
-        if (lookingObject != null && lookingObject.GetComponent<VRStandardAssets.Examples.spt_interactiveMovable>() != null)
+		if (lookingObject != null && (lookingObject.GetComponent<VRStandardAssets.Examples.spt_interactiveMovable>() != null || lookingObject.GetComponent<VRStandardAssets.Examples.spt_mirrorHandle>() != null))
         {
                 reticleTex.GetComponent<RawImage>().texture = fistSprite;
         }
