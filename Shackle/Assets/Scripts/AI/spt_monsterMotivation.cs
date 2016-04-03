@@ -150,7 +150,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
                 hasGivenWarning = true;
                 timeOfWarning = time;
                 audioScript = GetComponent<spt_monsterAudio>();
-                audioScript.playWarningNoise();
+                audioScript.prepWarningNoise();
             }
 
             // If the players have already been warned, and there was a 8 second interval between the initial warning and an attack
