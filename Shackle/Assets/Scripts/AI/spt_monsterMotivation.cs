@@ -189,12 +189,16 @@ public class spt_monsterMotivation : NetworkBehaviour {
         if (!isServer) return;
         angerLevel = angerLevel + i;
 
-        if(pos.position[2] > darknessPlane.transform.position[2]){ // Side A
-            hostThreat = hostThreat + i;
-        }
-        else // Side B
+        if (pos != null)
         {
-            clientThreat = clientThreat + i;
+            if (pos.position[2] > darknessPlane.transform.position[2])
+            { // Side A
+                hostThreat = hostThreat + i;
+            }
+            else // Side B
+            {
+                clientThreat = clientThreat + i;
+            }
         }
     }
 
