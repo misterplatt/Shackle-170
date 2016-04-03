@@ -20,13 +20,22 @@ namespace VRStandardAssets.Examples
     {
 
         override protected void holdSuccess(){
-            inventorySpt.removeItm("Mirror Pickup"); //NOT PROPERLY REMOVING @@@@@@@@@@@@@@@@@@@@@@@@@@@
-            GameObject mirrorObj = GameObject.Find("Mirror Pickup");
-            mirrorObj.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-            mirrorObj.transform.parent = transform.FindChild("Mirror Handle");
+			Debug.Log("hasmirror: " + HasMirror());
+			if(!HasMirror()){
+				inventorySpt.removeItm("Mirror Pickup");
+				GameObject mirrorObj = GameObject.Find("Mirror Pickup");
+				mirrorObj.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+				mirrorObj.transform.eulerAngles = new Vector3(0, 0 ,transform.eulerAngles.y);
+				mirrorObj.transform.parent = transform.FindChild("Mirror Handle");
+			}
         }
 
         //Plug handleDown
         override protected void HandleClick() { }
+
+		bool HasMirror(){
+			if (transform.FindChild ("Mirror Handle/Mirror Pickup") != null) return true;
+			else return false;
+		}
     }
 }

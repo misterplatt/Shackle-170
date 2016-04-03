@@ -33,7 +33,10 @@ public class spt_toolTipListener : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        if (SceneManager.GetActiveScene().name != "net_SpookyGarage") gameObject.SetActive(false);
+		if (SceneManager.GetActiveScene().name != "net_SpookyGarage") {
+			gameObject.SetActive(false);
+			return;
+		}
         currentImage = GetComponentInChildren<Image>();
         currentText = GetComponentInChildren<Text>();
         StartCoroutine(setToolTip(RS, "Press to Toggle Flashlight", 3f, 6f));

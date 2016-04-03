@@ -45,7 +45,7 @@ namespace VRStandardAssets.Examples
         override protected void Update()
         {
             //When A is held, use left thumbstick to move object based on object's axis boolean
-            if (buttonHeld == true)
+			if (buttonHeld == true && HasMirror())
             {
                 //Garage only, stops showing an object's movepath once it has been moved
                 if ((gameObject.name == "mdl_bucket" && transform.position.z > 4.4f) || (gameObject.name == "mdl_box" && transform.position.x < 2.0f)) moved = true;
@@ -67,12 +67,14 @@ namespace VRStandardAssets.Examples
                 }
                 //Rotates stand before clamp @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                 transform.Rotate(Vector3.up * spt_playerControls.leftThumb("Horizontal") * Time.deltaTime * rotateSpeed);
+				Debug.Log ("Attempting to rotate");
 
                 //Clamps the stands rotation on the Y axis, using the specified min/max's @@@@@@@@@@@@@@@@@@@@@@@
-                newRotation.y = Mathf.Clamp(transform.rotation.eulerAngles.y, initalRotation.y - maxNegativeRotation, initalRotation.y + maxPositiveRotation);
+                //newRotation.y = Mathf.Clamp(transform.rotation.eulerAngles.y, initalRotation.y - maxNegativeRotation, initalRotation.y + maxPositiveRotation);
+				newRotation.y = ClampAngle(transform.rotation.eulerAngles.y, initalRotation.y - maxNegativeRotation, initalRotation.y + maxPositiveRotation);
 
                 //Sets the objects position according to clamps @@@@@@@@@@@@@@@@@@@@@@
-                transform.rotation = Quaternion.Euler(newRotation);
+				transform.eulerAngles = newRotation;
             }
             //stop moving when button is released
             if (spt_playerControls.aButtonPressed() == false)
@@ -90,5 +92,21 @@ namespace VRStandardAssets.Examples
 
         //Plugging HandleClick
         override protected void HandleClick() { }
+
+		bool HasMirror(){
+			if (transform.FindChild ("Mirror Pickup") != null) return true;
+			else return false;
+		}
+
+		float ClampAngle (float angle, float min, float max){
+			if (angle < 90 || angle > 270) {
+				if (angle > 180) angle -= 360;
+				if (max > 180) max -= 360;
+				if (min > 180) min -= 360;
+			}
+			angle = Mathf.Clamp (angle, min, max);
+			if (angle < 0) angle += 360;
+			return angle;
+		}
     }
 }
