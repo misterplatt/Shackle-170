@@ -9,7 +9,7 @@ public class spt_network_playermonster_ifc : NetworkBehaviour {
     public void CmdUpdateAnger(int i)
     {
         GameObject netMonster = NetworkServer.FindLocalObject(GameObject.FindGameObjectWithTag("Monster").GetComponent<NetworkIdentity>().netId);
-        netMonster.GetComponent<spt_monsterMotivation>().updateAnger(i);
+        netMonster.GetComponent<spt_monsterMotivation>().updateAnger(i, null);
         //Debug.Log("anger delta : " + i);
         //angerLevel += i;
     }

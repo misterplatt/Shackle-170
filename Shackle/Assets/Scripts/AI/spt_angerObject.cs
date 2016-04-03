@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 3/31/2016
+ * Last Revision Date: 4/3/2016
  *
  * This file is attached to all objects that are used as anger increasers for the monster.
  *  It instantiates a custom-made base anger class variable for each that stores data regarding how the monster is affected by that object.
@@ -66,21 +66,11 @@ public class spt_angerObject : MonoBehaviour {
             if (monster.canSeeSomething(this.transform))
             {
                 //Update the monster's anger with an increased field of view boost.
-                monster.updateAnger(data.getAnger() + data.getAnger());
-
-                // *******************************************************************************
-                monster.updatePlayerAnger(data.getAnger() + data.getAnger());
-                // *******************************************************************************
-
+                monster.updateAnger(data.getAnger() + data.getAnger(), gameObject.transform);
             }
             else
             {
-                monster.updateAnger(data.getAnger());
-
-                // *******************************************************************************
-                monster.updatePlayerAnger(data.getAnger());
-                // *******************************************************************************
-
+                monster.updateAnger(data.getAnger(), gameObject.transform);
             }
             //mark the object as "seen" i.e. the monster has acknowledged its initial presence.
             data.markAsSeen();
@@ -98,11 +88,11 @@ public class spt_angerObject : MonoBehaviour {
             if (monster.canSeeSomething(transform)) {
                 
                 // Add additional anger if the monster can observe the action taking place
-                monster.updateAnger(data.getAngerIncrease());
+                monster.updateAnger(data.getAngerIncrease(), gameObject.transform);
             }
             
             // Add base amount of anger for the action happening
-            monster.updateAnger(data.getAngerIncrease());
+            monster.updateAnger(data.getAngerIncrease(), gameObject.transform);
         }
     }
 
