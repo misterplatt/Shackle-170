@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 3/31/2016
+ * Last Revision Date: 4/3/2016
  * 
  * This file is the one that ultimately governs the monster's motivation. **/
 
@@ -22,6 +22,8 @@ public class spt_monsterMotivation : NetworkBehaviour {
     private spt_monsterAudio audioScript;
 
     private spt_monsterAnimations animationScript;
+
+    public GameObject darknessPlane;
     
     [SyncVar]
     public int angerLevel;
@@ -32,10 +34,8 @@ public class spt_monsterMotivation : NetworkBehaviour {
     [SyncVar]
     public bool clientRecievedSignal = false;
 
-    //[SyncVar]
-    public int hostAnger;
-    //[SyncVar]
-    public int clientAnger;
+    private int hostThreat = 0;
+    private int clientThreat = 0;
 
     bool attackComplete = false;
 
@@ -69,6 +69,9 @@ public class spt_monsterMotivation : NetworkBehaviour {
 
         //Begins the gradual anger depreciation over time.
         InvokeRepeating("angerDepreciation", 1, 1);
+
+        GameObject[] _players = GameObject.FindGameObjectsWithTag("Player");
+
 	}
 	
 	// Update is called once per frame
@@ -150,20 +153,21 @@ public class spt_monsterMotivation : NetworkBehaviour {
                 hasGivenWarning = true;
                 timeOfWarning = time;
                 audioScript = GetComponent<spt_monsterAudio>();
-                audioScript.playWarningNoise();
+                audioScript.prepWarningNoise();
             }
 
             // If the players have already been warned, and there was a 8 second interval between the initial warning and an attack
             else if ((hasGivenWarning==true) && (timeOfWarning!= -1) && (time-timeOfWarning>8)){
                 //populate network fields
                 //whichPlayer = Random.Range(0, spawns.Length);
-                if (hostAnger > clientAnger)
+
+                if (hostThreat > clientThreat)
                     whichPlayer = 0;
                 else
                     whichPlayer = 1;
+
                 isAttacking = true;
                 movementScript.setWaypoint(999);
-                //movementScript.setWaypoint(999);
                 animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
             }
         }
@@ -180,19 +184,22 @@ public class spt_monsterMotivation : NetworkBehaviour {
     }
 
     // Increases the anger by an integer amount.
-    public void updateAnger(int i)
+    public void updateAnger(int i, Transform pos)
     {
         if (!isServer) return;
         angerLevel = angerLevel + i;
-    }
 
-    // Updates the net amount of anger caused by each player (host or client)
-    public void updatePlayerAnger(int i)
-    {
-        if (isServer)
-            hostAnger = hostAnger + i;
-        else
-            clientAnger = clientAnger + i;
+        if (pos != null)
+        {
+            if (pos.position[2] > darknessPlane.transform.position[2])
+            { // Side A
+                hostThreat = hostThreat + i;
+            }
+            else // Side B
+            {
+                clientThreat = clientThreat + i;
+            }
+        }
     }
 
     // Called evey second. Allows anger to depreciate over time.
