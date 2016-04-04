@@ -19,8 +19,7 @@ public class spt_debug_overrideLoad : MonoBehaviour {
 
         if (GameObject.Find("NetworkManager") != null) return;
 
-        if (SceneManager.GetActiveScene().name != "MainMenu" && !(spt_debug_overrideLoad.wasLoaded))
-            Debug.Log(SceneManager.GetActiveScene().name);     
+        if (SceneManager.GetActiveScene().name != "MainMenu" && !(spt_debug_overrideLoad.wasLoaded))   
             SceneManager.LoadScene("MainMenu");
 	}
 	
