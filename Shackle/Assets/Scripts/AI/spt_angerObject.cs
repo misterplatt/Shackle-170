@@ -16,6 +16,7 @@
 
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class spt_angerObject : MonoBehaviour {
 
@@ -31,6 +32,9 @@ public class spt_angerObject : MonoBehaviour {
 
     // Is this action a flashlight-tracker?
     public bool isFlashlight;
+
+    private bool checkingToggles = false;
+    private int numToggles = 0;
     
     // Use this for initialization
 	void Start () {
@@ -61,6 +65,13 @@ public class spt_angerObject : MonoBehaviour {
 
         //if the object becomes visible...
         if (data.getSeen() == false){
+
+            if (!checkingToggles)
+            {
+                checkingToggles = true;
+                Invoke("depreciateToggles", 5);
+            }
+            numToggles = numToggles + 1;
 
             //if the monster can immediately see the object that just came into existence...
             if (monster.canSeeSomething(this.transform))
@@ -99,5 +110,24 @@ public class spt_angerObject : MonoBehaviour {
     // Allows you to easily move this object to another position in 3D space.
     public void moveObject(Transform pos){
         this.transform.position = pos.position;
+    }
+
+    // Runs off the function y = (1/2)sqrt(x), where x is the number of toggles.
+    //  Will only take anger off the monster if a player has done less than 4 toggles.
+    public void depreciateToggles()
+    {
+        checkingToggles = false;
+        
+        if (numToggles >= 4)
+        {
+            numToggles = 0;
+            return;
+        }
+
+        double multiplier = 1.0 - (0.5 * Math.Sqrt(numToggles));
+        int depreciation = (int)(-(numToggles * multiplier));
+        monster.updateAnger(depreciation, gameObject.transform);
+        numToggles = 0;
+        return;
     }
 }

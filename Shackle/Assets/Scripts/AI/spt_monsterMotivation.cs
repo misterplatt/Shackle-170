@@ -206,8 +206,12 @@ public class spt_monsterMotivation : NetworkBehaviour {
     private void angerDepreciation()
     {
         if (!isServer) return;
-        if (angerLevel != 0)
+        if (angerLevel > 0)
             angerLevel = angerLevel - 1;
+        if (hostThreat > 0)
+            hostThreat = hostThreat - 1;
+        if (clientThreat > 0)
+            clientThreat = clientThreat - 1;
 
         // Update the elapsed playthrough time
         time = time + 1;
@@ -219,6 +223,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
             timeOfWarning = -1;
             hasGivenWarning = false;
         }
+
     }
 
     public int getAnger(){
