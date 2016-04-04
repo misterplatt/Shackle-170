@@ -22,6 +22,8 @@ public class spt_Network_Movement : NetworkBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (!isLocalPlayer) return;
+
+        //if this player is not server, have it update the current thumbstick input to the server
         if (!isServer && (Mathf.Abs(spt_playerControls.leftThumb("Vertical") - lastCli_lStick) >= THRESHOLD))
         {
             Debug.Log( "currentIn: " + -1.0f * spt_playerControls.leftThumb("Vertical"));
@@ -30,14 +32,16 @@ public class spt_Network_Movement : NetworkBehaviour {
             return;
         }
 
-        if(isServer)
-
         lStickInput = spt_playerControls.leftThumb("Vertical");
         //dbg_PlayerInputsLog();
         //collectPlayerGroup();
 
-        if (Input.GetKey(KeyCode.W)) movePlayers(new Vector3(0.0F, 0.0F, 1.0F));
+        
+        if (Input.GetKey(KeyCode.W)) moveClient(new Vector3(0.0F, 0.0F, 1.0F));
+        
+        /*
         if (Input.GetKey(KeyCode.S)) movePlayers(new Vector3(0.0F, 0.0F, -1.0F));
+        */
     }
 
     void dbg_PlayerInputsLog() {
@@ -86,14 +90,8 @@ public class spt_Network_Movement : NetworkBehaviour {
 
     [Client]
     void moveClient(Vector3 dir) {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        GameObject client = null;
 
-        foreach (GameObject player in players) {
-            if (! player.GetComponent<NetworkIdentity>().isServer) client = player;
-        }
-
-        client.transform.position += pMoveRate * dir;
+        this.transform.position += pMoveRate * dir;
 
     }
 

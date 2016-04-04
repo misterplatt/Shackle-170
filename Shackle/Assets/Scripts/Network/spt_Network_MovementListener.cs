@@ -4,6 +4,7 @@ using System.Collections;
 
 public class spt_Network_MovementListener : NetworkBehaviour {
 
+    [SyncVar]
     public float aggregateLStickInput = 0.0F;
 
     void Update()
@@ -19,4 +20,5 @@ public class spt_Network_MovementListener : NetworkBehaviour {
         aggregateLStickInput = stickInput;
         Debug.Log("Stick Input = " + aggregateLStickInput);
     }
+
 }
