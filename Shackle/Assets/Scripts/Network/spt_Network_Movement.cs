@@ -10,8 +10,11 @@ public class spt_Network_Movement : NetworkBehaviour {
     public const float THRESHOLD = 0.10f;
     public const  float MOVE_THRESHOLD = 1.5F;
     public const float pMoveRate = 0.005F;
+    private const float playerSeperation = 2.0F;
     public float lastCli_lStick = 0.0f;
+
     public spt_Network_MovementListener mListener;
+    public GameObject host;
 
     //Move toward host direction or client?
     enum movement {NONE, HOST, CLIENT};
@@ -20,6 +23,17 @@ public class spt_Network_Movement : NetworkBehaviour {
     {
         mListener = GameObject.Find("WorldState").GetComponent<spt_Network_MovementListener>();
         lStickInput = 0.0F;
+
+        if (isServer) host = this.gameObject;
+        else {
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            foreach ( GameObject player in players) {
+                if (this.gameObject != player) {
+                    host = player;
+                    break;
+                }
+            }
+        }
     }
 	// Update is called once per frame
 	void Update () {
@@ -40,8 +54,19 @@ public class spt_Network_Movement : NetworkBehaviour {
             if (isServer) {
                 moveHost(new Vector3(0.0F, 0.0F, 1.0F));
             }
-            else moveClient(new Vector3(0.0F, 0.0F, 1.0F));               
         }
+        else if (Input.GetKey(KeyCode.S)) {
+            if (isServer) {
+                moveHost(new Vector3(0.0F, 0.0F, -1.0F));
+            }
+        }
+
+            if (!isServer) {
+            Vector3 newTrans = host.transform.position;
+            newTrans.z -= playerSeperation;
+            this.transform.position = newTrans;
+        }
+        
 
         /*
         if (Input.GetKey(KeyCode.S)) movePlayers(new Vector3(0.0F, 0.0F, -1.0F));
