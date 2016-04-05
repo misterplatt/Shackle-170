@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 3/5/2016
+ * Last Revision Date: 4/4/2016
  * 
  * This file handles all of the monster's animations, and the translations needed to properly frame them.
  * This includes: the attacking animation/attacking capability.*/
@@ -37,10 +37,12 @@ public class spt_monsterAnimations : NetworkBehaviour {
 
     public void Update()
     {
-        MeshRenderer renderer = this.GetComponent<MeshRenderer>();
-        renderer.enabled = render;
-        foreach (Renderer r in GetComponentsInChildren<Renderer>())
-            r.enabled = render;
+        SkinnedMeshRenderer renderer = this.GetComponent<SkinnedMeshRenderer>();
+        if ( renderer != null)
+            renderer.enabled = render;
+        SkinnedMeshRenderer[] renderers = this.GetComponentsInChildren<SkinnedMeshRenderer>();
+        for (int i = 0; i <= renderers.Length; i++)
+            renderers[i].enabled = render;
     }
 
     // This function handles the monster's attack animation.
@@ -51,7 +53,6 @@ public class spt_monsterAnimations : NetworkBehaviour {
         if (!monsterAttackInitiated)
         {
             spt_monsterMovement movementScript;
-            MeshRenderer renderer = this.GetComponent<MeshRenderer>();
             if (!isServer) return;
             /*
             if (!isServer) {

@@ -3,7 +3,7 @@
  * Created by: Lauren Cunningham
  * Networking Modifications by : Ryan Connors
  * 
- * Last Revision Date: 3/5/2016 : Networking
+ * Last Revision Date: 4/4/2016 : Networking
  * 
  * This file is the one that ultimately governs the monster's movements. **/
 
@@ -31,6 +31,8 @@ public class spt_monsterMovement : NetworkBehaviour {
     // Used to guide the monster's movement
     private NavMeshAgent agent;
 
+    private bool startedAttackAnimation = false;
+
     // Use this for initialization
 	void Start () {
         if (!isServer) return;
@@ -41,22 +43,30 @@ public class spt_monsterMovement : NetworkBehaviour {
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = true;
         agent.SetDestination(waypoints[16].position);
-        currentWaypoint = 0;
+        currentWaypoint = 16;
 	}
 
 	// Update is called once per frame
 	void Update () {
+
         if (!isServer) return;
         // Chooses a new destination if the monster is within a certain distance of its current one.
-        if (agent.remainingDistance <= 2 && currentWaypoint != 999 && currentWaypoint != 888){
+        if (agent.remainingDistance <= 3 && currentWaypoint != 999 && currentWaypoint != 888){
             chooseDestination();
         }
         if (agent.remainingDistance <= 2 && currentWaypoint == 999 && currentWaypoint != 888){
             Debug.LogWarning("attempting to alter playerLoss in puzzleStates...");
             networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
-            
+
             networkScript.updatePuzzleState("playerLoss", true, "MonsterStandin");
             pLoss = true;
+
+            animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
+            if (!animationScript.animator.GetBool("MonsterAttack"))
+            {
+                animationScript.animator.SetBool("MonsterAttack", true);
+            }
+            //Invoke("loss", 2);
         }
         if (agent.remainingDistance <= 2 && currentWaypoint == 888)
         {
@@ -86,5 +96,10 @@ public class spt_monsterMovement : NetworkBehaviour {
 
     public int getWaypoint(){
         return currentWaypoint;
+    }
+
+    private void loss()
+    {
+        
     }
 }
