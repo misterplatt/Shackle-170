@@ -66,7 +66,7 @@ namespace VRStandardAssets.Examples
                     }
                 }
                 //Rotates stand before clamp
-                transform.Rotate(Vector3.up * spt_playerControls.leftThumb("Horizontal") * Time.deltaTime * rotateSpeed);
+                transform.Rotate(Vector3.up * -spt_playerControls.leftThumb("Horizontal") * Time.deltaTime * rotateSpeed);
                 rotating = true;
 
                 //Clamps the stands rotation on the Y axis, using the specified min/max's

@@ -67,7 +67,7 @@ namespace VRStandardAssets.Utils
         {
 
             if (SceneManager.GetActiveScene().name == "net_SpookyGarage") m_RayLength = 500f;
-            else m_RayLength = 4f;
+            else m_RayLength = 500f;
 
         }
 

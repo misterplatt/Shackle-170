@@ -48,6 +48,7 @@ namespace VRStandardAssets.Examples
                 Vector3 projectionOrigin = projectionStart;
                 Vector3 projectionDirection = transform.forward;
                 int maxVertexCount = 2;
+                laser.SetVertexCount(maxVertexCount); //Ensures vertex count is recalculated properly
 
                 //While you haven't hit the maxVertexCount, cast a refelecting line
                 for (int i = 1; i < maxVertexCount; i++)
