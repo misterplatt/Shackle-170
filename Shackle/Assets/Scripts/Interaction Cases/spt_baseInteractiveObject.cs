@@ -55,7 +55,7 @@ namespace VRStandardAssets.Examples
         //Use this for initialization
         virtual protected void Start()
         {
-            //inventorySpt = GetComponent<VRInteractiveItem>().inventoryScript;
+
         }
 
         // Update is called once per frame

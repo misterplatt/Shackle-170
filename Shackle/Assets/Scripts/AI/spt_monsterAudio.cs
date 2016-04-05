@@ -107,7 +107,6 @@ public class spt_monsterAudio : NetworkBehaviour
     private void checkForAmbientNoise()
     {
         if (!isServer) return;
-
         int randomInt = Random.Range(0, 10);
         if (randomInt == 0)
             prepAmbientNoise();

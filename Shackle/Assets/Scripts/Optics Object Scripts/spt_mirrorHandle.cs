@@ -19,6 +19,8 @@ namespace VRStandardAssets.Examples
 {
     public class spt_mirrorHandle : spt_baseInteractiveObject
     {
+        public static bool rotating = false;
+
         private bool buttonHeld = false;
         private bool moved = false;
         private Vector3 initalRotation;
@@ -47,8 +49,6 @@ namespace VRStandardAssets.Examples
             //When A is held, use left thumbstick to move object based on object's axis boolean
 			if (buttonHeld == true && HasMirror())
             {
-                //Garage only, stops showing an object's movepath once it has been moved
-                if ((gameObject.name == "mdl_bucket" && transform.position.z > 4.4f) || (gameObject.name == "mdl_box" && transform.position.x < 2.0f)) moved = true;
                 //Displays a movable's movePath sprite if specified
                 if (optional_movePathImage != null && !moved) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = true;
 
@@ -65,15 +65,15 @@ namespace VRStandardAssets.Examples
                         }
                     }
                 }
-                //Rotates stand before clamp @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                //Rotates stand before clamp
                 transform.Rotate(Vector3.up * spt_playerControls.leftThumb("Horizontal") * Time.deltaTime * rotateSpeed);
-				Debug.Log ("Attempting to rotate");
+                rotating = true;
 
-                //Clamps the stands rotation on the Y axis, using the specified min/max's @@@@@@@@@@@@@@@@@@@@@@@
+                //Clamps the stands rotation on the Y axis, using the specified min/max's
                 //newRotation.y = Mathf.Clamp(transform.rotation.eulerAngles.y, initalRotation.y - maxNegativeRotation, initalRotation.y + maxPositiveRotation);
 				newRotation.y = ClampAngle(transform.rotation.eulerAngles.y, initalRotation.y - maxNegativeRotation, initalRotation.y + maxPositiveRotation);
 
-                //Sets the objects position according to clamps @@@@@@@@@@@@@@@@@@@@@@
+                //Sets the objects position according to clamps
 				transform.eulerAngles = newRotation;
             }
             //stop moving when button is released
@@ -81,6 +81,7 @@ namespace VRStandardAssets.Examples
             {
                 buttonHeld = false;
                 once = false;
+                rotating = false;
                 if (movingSound != null) aSource.Stop();
                 if (optional_movePathImage != null) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = false;
             }
