@@ -11,12 +11,14 @@ public class spt_Network_Movement : NetworkBehaviour {
     public const  float MOVE_THRESHOLD = 1.5F;
     public const float pMoveRate = 0.005F;
     public float lastCli_lStick = 0.0f;
+    public spt_Network_MovementListener mListener;
 
     //Move toward host direction or client?
     enum movement {NONE, HOST, CLIENT};
 
     void Start()
     {
+        mListener = GameObject.Find("WorldState").GetComponent<spt_Network_MovementListener>();
         lStickInput = 0.0F;
     }
 	// Update is called once per frame
@@ -33,12 +35,14 @@ public class spt_Network_Movement : NetworkBehaviour {
         }
 
         lStickInput = spt_playerControls.leftThumb("Vertical");
-        //dbg_PlayerInputsLog();
-        //collectPlayerGroup();
 
-        
-        if (Input.GetKey(KeyCode.W)) moveClient(new Vector3(0.0F, 0.0F, 1.0F));
-        
+        if (Input.GetKey(KeyCode.W)) {
+            if (isServer) {
+                moveHost(new Vector3(0.0F, 0.0F, 1.0F));
+            }
+            else moveClient(new Vector3(0.0F, 0.0F, 1.0F));               
+        }
+
         /*
         if (Input.GetKey(KeyCode.S)) movePlayers(new Vector3(0.0F, 0.0F, -1.0F));
         */
@@ -64,35 +68,23 @@ public class spt_Network_Movement : NetworkBehaviour {
         }
     }
 
-    GameObject[] collectPlayerGroup() {
-        GameObject[] pGroup = new GameObject[10];
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        GameObject[] pSep = GameObject.FindGameObjectsWithTag("seperator");
-        GameObject[] pModels = GameObject.FindGameObjectsWithTag("pModel");
-        
-        players.CopyTo(pGroup, 0);
-        pModels.CopyTo(pGroup, 2);
-        pSep.CopyTo(pGroup, 4);
-
-        return pGroup;
-    }
-
-    void movePlayers(Vector3 dir) {
-        if (!isServer) return;
-
-        GameObject[] playersGroup = collectPlayerGroup();
-        foreach(GameObject entity in playersGroup) {
-            entity.transform.position += pMoveRate * dir;
-        }
-
-
-    }
-
     [Client]
     void moveClient(Vector3 dir) {
 
         this.transform.position += pMoveRate * dir;
 
+    }
+
+    void moveHost(Vector3 dir) {
+        //move host player and also seperator and player models
+        GameObject pSep = GameObject.FindGameObjectWithTag("seperator");
+        GameObject[] pModels = GameObject.FindGameObjectsWithTag("pModel");
+
+        pSep.transform.position += pMoveRate * dir;
+        this.transform.position += pMoveRate * dir;
+
+        foreach (GameObject entity in pModels) entity.transform.position += pMoveRate * dir;
+        
     }
 
     private float collectInput() {
