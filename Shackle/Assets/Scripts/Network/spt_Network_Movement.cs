@@ -16,6 +16,9 @@ public class spt_Network_Movement : NetworkBehaviour {
     public spt_Network_MovementListener mListener;
     public GameObject host;
 
+    //DEBUG USAGE
+    public bool toggleStick = false;
+    public bool revStick = false;
     //Move toward host direction or client?
     enum movement {NONE, HOST, CLIENT};
 
@@ -38,16 +41,26 @@ public class spt_Network_Movement : NetworkBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (!isLocalPlayer) return;
+        
 
-        /*
         //DEBUG for testing
-        if (isServer)
+
+        if (Input.GetKeyDown(KeyCode.Tab)) toggleStick = !toggleStick;
+        if (Input.GetKeyDown(KeyCode.CapsLock)) revStick = !revStick;
+
+        if (toggleStick)
         {
-            lStickInput = 1.0F;
-            return;
+            if (isServer) lStickInput = 1.0F;
+            else CmdSendLStickIn(2.0F);            
         }
+        else if (revStick)
+        {
+            if (isServer) lStickInput = -1.0F;
+            else CmdSendLStickIn(-2.0F);            
+        }
+
         //XXX
-        */
+        
 
         //if this player is not server, have it update the current thumbstick input to the server
         if (!isServer && (Mathf.Abs(spt_playerControls.leftThumb("Vertical") - lastCli_lStick) >= THRESHOLD))
@@ -59,13 +72,13 @@ public class spt_Network_Movement : NetworkBehaviour {
         }
 
         lStickInput = spt_playerControls.leftThumb("Vertical");
-
-        if (Input.GetKey(KeyCode.W)) {
+        Debug.Log("mList : " + mListener.aggregateLStickInput);
+        if (mListener.aggregateLStickInput > 1.5F) {
             if (isServer) {
                 moveHost(new Vector3(0.0F, 0.0F, 1.0F));
             }
         }
-        else if (Input.GetKey(KeyCode.S)) {
+        else if (mListener.aggregateLStickInput < -1.5F) {
             if (isServer) {
                 moveHost(new Vector3(0.0F, 0.0F, -1.0F));
             }
