@@ -161,6 +161,23 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 }
             }
 
+            //If optics lab is loaded, check the following puzzle states
+            if (SceneManager.GetActiveScene().name == "net_OpticsLab")
+            {
+                //If a player has used the garage door opener on the garage door, update server state
+                /*if (VRStandardAssets.Examples.spt_hatch.local_puzzleCompletion)
+                {
+                    Debug.Log("Updating puzzleCompletion on the network to " + VRStandardAssets.Examples.spt_hatch.local_puzzleCompletion);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("puzzleCompletion", true, "Hatch");
+                }*/
+                //If a player has pressed power while the extCord is plugged, update server state
+                if (VRStandardAssets.Examples.spt_laserSwitch.local_laserHitLock)
+                {
+                    Debug.Log("Updating laserHitLock on the network to " + VRStandardAssets.Examples.spt_laserSwitch.local_laserHitLock);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("laserHitLock", true, "Chest Lock");
+                }
+            }
+
             spt_WorldState.worldStateChanged = false;
 
         }
