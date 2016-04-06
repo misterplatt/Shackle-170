@@ -25,7 +25,7 @@ public class spt_Player_NetworkSetup : NetworkBehaviour {
 
             //GameObject mCam = GameObject.Find("Main Camera");
             //if (mCam != null) { GameObject.Find("Main Camera").SetActive(false); Debug.Log("TEST"); }
-            GetComponent<Camera>().enabled = true;
+            FPSCharacterCam.enabled = true;
             //GetComponent<CharacterController>().enabled = true;
             //GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
             FPSCharacterCam.enabled = true;

@@ -39,6 +39,16 @@ public class spt_Network_Movement : NetworkBehaviour {
 	void Update () {
         if (!isLocalPlayer) return;
 
+        /*
+        //DEBUG for testing
+        if (isServer)
+        {
+            lStickInput = 1.0F;
+            return;
+        }
+        //XXX
+        */
+
         //if this player is not server, have it update the current thumbstick input to the server
         if (!isServer && (Mathf.Abs(spt_playerControls.leftThumb("Vertical") - lastCli_lStick) >= THRESHOLD))
         {

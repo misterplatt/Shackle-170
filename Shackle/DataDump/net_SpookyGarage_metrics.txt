@@ -197,3 +197,10 @@ extCordPlugged,-1
 correctChannelEntered,-1
 garageDoorUnlocked,-1
 playerLoss,49.62701
+puzzleCompletion,-1
+acUnitOpen,-1
+TVpowerState,-1
+extCordPlugged,-1
+correctChannelEntered,-1
+garageDoorUnlocked,-1
+playerLoss,-1
