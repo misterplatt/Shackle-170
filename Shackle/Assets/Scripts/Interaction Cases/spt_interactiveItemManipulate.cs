@@ -39,7 +39,7 @@ namespace VRStandardAssets.Examples
         //Called in VREyeRaycaster when the player looks at the object so it knows where to lerp to
         public void RetrieveLookPoint(GameObject raycastingPlayer)
         {
-            endPoint = raycastingPlayer.transform.Find("VRCameraUI/InspectPoint");
+            endPoint = raycastingPlayer.transform.Find("Camera Player/VRCameraUI/InspectPoint");
         }
 
         override protected void Update() {

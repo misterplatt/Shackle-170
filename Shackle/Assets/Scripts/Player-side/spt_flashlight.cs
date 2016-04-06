@@ -12,7 +12,6 @@ public class spt_flashlight : NetworkBehaviour {
     // Get reference to Light component
     void Awake()
     {
-        flashlight = transform.Find("Flashlight").gameObject.GetComponent<Light>();
         flashlight.enabled = false;
         isVisible = false;
     }
@@ -23,7 +22,7 @@ public class spt_flashlight : NetworkBehaviour {
         if (spt_playerControls.rightThumbstickButtonPressed() || Input.GetKeyDown(KeyCode.F))
         {
             flashlight.enabled = !flashlight.enabled;
-            transform.Find("pFlashLight").gameObject.GetComponent<spt_angerObject>().toggleVisibility();
+            transform.Find("Camera Player/pFlashLight").gameObject.GetComponent<spt_angerObject>().toggleVisibility();
             if (!isServer) CmdToggleFlashLightVisibility(this.name);
         }
     }
@@ -31,7 +30,7 @@ public class spt_flashlight : NetworkBehaviour {
     [Command]
     void CmdToggleFlashLightVisibility( string pName )
     {
-        GameObject pFlashlight = GameObject.Find(pName).transform.Find("pFlashLight").gameObject;
+        GameObject pFlashlight = GameObject.Find(pName).transform.Find("Camera Player/pFlashLight").gameObject;
         pFlashlight.GetComponent<spt_angerObject>().toggleVisibility();
     }
 }
