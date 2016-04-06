@@ -1235,7 +1235,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 338964934}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 74911dc8a4574884fb0a8f4449ce2de0, type: 3}
+  m_Texture: {fileID: 2800000, guid: 1779cdabfce1d0a408383ab73b0dc3f7, type: 3}
   m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   m_PixelInset:
     serializedVersion: 2
@@ -1262,6 +1262,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 338964939}
   selectionRadial: {fileID: 0}
+  secondarySound: {fileID: 0}
 --- !u!114 &338964939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1409,7 +1410,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 366097232}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 74911dc8a4574884fb0a8f4449ce2de0, type: 3}
+  m_Texture: {fileID: 2800000, guid: 1779cdabfce1d0a408383ab73b0dc3f7, type: 3}
   m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   m_PixelInset:
     serializedVersion: 2
@@ -1436,6 +1437,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 366097237}
   selectionRadial: {fileID: 0}
+  secondarySound: {fileID: 0}
 --- !u!114 &366097237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1912,6 +1914,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 389629889}
   selectionRadial: {fileID: 0}
+  secondarySound: {fileID: 0}
 --- !u!114 &389629889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1964,7 +1967,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 389629883}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 61eb2d8fd1fe7e14db409cbd54b790fd, type: 3}
+  m_Texture: {fileID: 2800000, guid: 26d3269b3dece1146a9d647445316c4f, type: 3}
   m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   m_PixelInset:
     serializedVersion: 2
@@ -7517,6 +7520,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 1771829643}
   selectionRadial: {fileID: 0}
+  secondarySound: {fileID: 0}
 --- !u!114 &1771829643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7792,7 +7796,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1864826816}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -1.186, y: -1.78, z: -0.706}
+  m_LocalPosition: {x: -1.186, y: -1.78, z: -0.67}
   m_LocalScale: {x: 0.41043115, y: 0.01641585, z: 0.41043112}
   m_Children: []
   m_Father: {fileID: 1817802639}
@@ -7857,6 +7861,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 1864826822}
   selectionRadial: {fileID: 0}
+  secondarySound: {fileID: 0}
 --- !u!114 &1864826822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7909,7 +7914,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1864826816}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 74911dc8a4574884fb0a8f4449ce2de0, type: 3}
+  m_Texture: {fileID: 2800000, guid: 1779cdabfce1d0a408383ab73b0dc3f7, type: 3}
   m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   m_PixelInset:
     serializedVersion: 2
@@ -8839,6 +8844,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 2143284890}
   selectionRadial: {fileID: 0}
+  secondarySound: {fileID: 0}
 --- !u!114 &2143284890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8960,7 +8966,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2143476956}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 74911dc8a4574884fb0a8f4449ce2de0, type: 3}
+  m_Texture: {fileID: 2800000, guid: 1779cdabfce1d0a408383ab73b0dc3f7, type: 3}
   m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   m_PixelInset:
     serializedVersion: 2
@@ -8987,6 +8993,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 2143476961}
   selectionRadial: {fileID: 0}
+  secondarySound: {fileID: 0}
 --- !u!114 &2143476961
 MonoBehaviour:
   m_ObjectHideFlags: 0
