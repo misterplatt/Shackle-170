@@ -2301,6 +2301,10 @@ Prefab:
       propertyPath: interactables.Array.data[0]
       value: 
       objectReference: {fileID: 1362600054}
+    - target: {fileID: 11496540, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: garageScript
+      value: 
+      objectReference: {fileID: 482158902}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
   m_IsPrefabParent: 0

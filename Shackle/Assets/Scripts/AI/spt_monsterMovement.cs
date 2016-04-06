@@ -3,7 +3,7 @@
  * Created by: Lauren Cunningham
  * Networking Modifications by : Ryan Connors
  * 
- * Last Revision Date: 4/4/2016 : Networking
+ * Last Revision Date: 4/6/2016 : Networking
  * 
  * This file is the one that ultimately governs the monster's movements. **/
 
@@ -20,7 +20,8 @@ public class spt_monsterMovement : NetworkBehaviour {
     // Array of waypoints, the graph that holds the waypoints, as well as the script that instantiates the graph itself 
     public Transform[] waypoints;
     private int[][] waypointGraph;
-    private spt_createGraphForGarage graphScript;
+    public spt_createGraphForGarage garageScript;
+    public spt_createGraphForRangerOutpost rangerOutpostScript;
     private spt_monsterAnimations animationScript;
     private spt_monsterInteraction interactionScript;
 
@@ -38,8 +39,10 @@ public class spt_monsterMovement : NetworkBehaviour {
         if (!isServer) return;
         
         //Gets the waypoint graph from another script, then sets the first waypoint to the center of the room.
-        graphScript = GameObject.FindObjectOfType(typeof(spt_createGraphForGarage)) as spt_createGraphForGarage;
-        waypointGraph = graphScript.getWaypointGraph();       
+        if (garageScript != null)
+            waypointGraph = garageScript.getWaypointGraph();
+        else if (rangerOutpostScript != null)
+            waypointGraph = rangerOutpostScript.getWaypointGraph();
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = true;
         agent.SetDestination(waypoints[16].position);
