@@ -18,6 +18,13 @@ namespace VRStandardAssets.Examples
 {
     public class spt_interactivePickUp : spt_baseInteractiveObject
     {
+        private AudioSource aSource;
+        public AudioClip secondarySound;
+
+        protected override void Start()
+        {
+            aSource = GetComponent<AudioSource>();
+        }
 
         //Handle the Click event
         override protected void clickSuccess()
@@ -25,6 +32,12 @@ namespace VRStandardAssets.Examples
             Debug.Log("Show click state");
             inventorySpt = GetComponent<VRInteractiveItem>().inventoryScript;
             inventorySpt.pickUp(gameObject);
+            if (secondarySound != null)
+            {
+                aSource.clip = secondarySound;
+                aSource.Play();
+            }
+            else aSource.Play();
             //gameObject.SetActive(false); //Desired functionality
             transform.position = Vector3.down * 1000; //PLACEHOLDER: Sends objects to hell to prevent inventory breaking
         }

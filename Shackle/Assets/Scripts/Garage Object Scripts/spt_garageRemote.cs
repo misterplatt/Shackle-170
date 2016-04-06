@@ -5,6 +5,7 @@ Author(s): Dara Diba
 
 Revision 1
 
+
 Checks if collision is between garage door remote and the floor and plays thump if so.
 */
 
