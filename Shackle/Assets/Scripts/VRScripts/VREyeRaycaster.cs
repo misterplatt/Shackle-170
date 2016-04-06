@@ -111,7 +111,7 @@ namespace VRStandardAssets.Utils
             if (Physics.Raycast(ray, out hit, m_RayLength, ~m_ExclusionLayers))
             {
                 //set flashlight reference object transform
-                GameObject flashlightObj = transform.Find("pFlashLight").gameObject;
+                GameObject flashlightObj = transform.Find("Camera Player/pFlashLight").gameObject;
                 flashlightObj.transform.position = hit.point;
 
                 VRInteractiveItem interactible = hit.collider.GetComponent<VRInteractiveItem>(); //attempt to get the VRInteractiveItem on the hit object

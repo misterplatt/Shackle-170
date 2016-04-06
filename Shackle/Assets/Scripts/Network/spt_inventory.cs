@@ -64,7 +64,7 @@ public class spt_inventory : NetworkBehaviour {
         {            
             //if we're the server, simply assign textures and add hand item
             inventory.Add("Hand");
-            transform.Find("VRCameraUI/InventorySlot0").gameObject.GetComponent<RawImage>().texture = handSprite;
+            transform.Find("Camera Player/VRCameraUI/InventorySlot0").gameObject.GetComponent<RawImage>().texture = handSprite;
             reticleUpdate();
             //dbg_addInventory();
         }
@@ -72,7 +72,7 @@ public class spt_inventory : NetworkBehaviour {
         {
             //if we're the client, tell the server to initialize our object.
             CmdinitSpawn(this.name);
-            GameObject.Find(this.name).transform.Find("VRCameraUI/InventorySlot0").gameObject.GetComponent<RawImage>().texture = handSprite;
+            GameObject.Find(this.name).transform.Find("Camera Player/VRCameraUI/InventorySlot0").gameObject.GetComponent<RawImage>().texture = handSprite;
             reticleUpdate();
         }
         
@@ -142,7 +142,7 @@ public class spt_inventory : NetworkBehaviour {
         if (m_EyeRaycaster.racyCastTouch)
         {
           
-            reticleTex = transform.Find("VRCameraUI/GUIReticle").gameObject;
+            reticleTex = transform.Find("Camera Player/VRCameraUI/GUIReticle").gameObject;
             reticleTex.GetComponent<RawImage>().texture = retrieveObjectFromInventory(activeItem).GetComponent<GUITexture>().texture;
         }
         else
@@ -157,7 +157,7 @@ public class spt_inventory : NetworkBehaviour {
         //for any inventory item beyond the hand.
         for (int index = 1; index < MAX_SLOTS; ++index ) {
             //get the gameobject storying the UI icon
-            GameObject thisSlot = transform.Find("VRCameraUI/InventorySlot" + index).gameObject;
+            GameObject thisSlot = transform.Find("Camera Player/VRCameraUI/InventorySlot" + index).gameObject;
             GameObject invItem = null;
 
             //once we've gottent o UI icons beyond the inventory we actually have, just remove their texture and return. We've passed an item most likely.
@@ -219,7 +219,7 @@ public class spt_inventory : NetworkBehaviour {
 
         //Move selection bar below the new active item
         selectionBar.transform.localPosition = new Vector3(
-            transform.Find("VRCameraUI/InventorySlot" + activeSlotNumber).localPosition.x, 
+            transform.Find("Camera Player/VRCameraUI/InventorySlot" + activeSlotNumber).localPosition.x, 
             selectionBar.transform.localPosition.y, 
             selectionBar.transform.localPosition.z );
     }
@@ -242,7 +242,7 @@ public class spt_inventory : NetworkBehaviour {
 
         //Move selection bar below the new active item
         selectionBar.transform.localPosition = new Vector3(
-        transform.Find("VRCameraUI/InventorySlot" + activeSlotNumber).transform.localPosition.x,
+        transform.Find("Camera Player/VRCameraUI/InventorySlot" + activeSlotNumber).transform.localPosition.x,
             selectionBar.transform.localPosition.y,
             selectionBar.transform.localPosition.z);
     }
@@ -253,7 +253,7 @@ public class spt_inventory : NetworkBehaviour {
             inspecting = false;
             return;
         }
-        Transform endPoint = transform.Find("VRCameraUI/InspectPoint");
+        Transform endPoint = transform.Find("Camera Player/VRCameraUI/InspectPoint");
         bool outOfView = false;
 
         if (Vector3.Distance(invItem.transform.position, endPoint.position) > .6f) outOfView = true;
@@ -332,7 +332,7 @@ public class spt_inventory : NetworkBehaviour {
         Debug.Log(pName + " has connected.");
 
         GameObject.Find(pName).GetComponent<spt_inventory>().inventory.Add("Hand");
-        GameObject.Find(pName).transform.Find("VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
+        GameObject.Find(pName).transform.Find("Camera Player/VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
     }
 
     //remove item removes the given item from the inventory on the server by string reference

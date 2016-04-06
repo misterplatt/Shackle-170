@@ -88,7 +88,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
         spt_monsterMovement mover = GameObject.FindWithTag("monster").GetComponent<spt_monsterMovement>();
         if (mover.pLoss)
         {
-            GameObject uiMessager = transform.Find("VRCameraUI/WinMessage").gameObject;
+            GameObject uiMessager = transform.Find("Camera Player/VRCameraUI/WinMessage").gameObject;
             uiMessager.GetComponent<Text>().text = "You lose!";
             uiMessager.GetComponent<Text>().enabled = true;
 
