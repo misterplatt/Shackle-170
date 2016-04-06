@@ -17,6 +17,8 @@ namespace VRStandardAssets.Examples
 {
     public class spt_laserSwitch : spt_baseInteractiveObject
     {
+        public static bool local_laserHitLock = false;
+
         public float laserLength = 50;
 
         [SerializeField] LineRenderer laser;
@@ -62,6 +64,8 @@ namespace VRStandardAssets.Examples
                             maxVertexCount++;
                             laser.SetVertexCount(maxVertexCount);
                         }
+
+                        if (hit.collider.gameObject.name == "Chest Lock") local_laserHitLock = true;
 
                         //Set latest line point, 
                         Debug.Log("Reflecting");

@@ -35,7 +35,6 @@ namespace VRStandardAssets.Examples
         override protected void clickSuccess()
         {
             jiggled = true;
-
         }
 
         // Plugging HandleDown
