@@ -17,7 +17,11 @@ namespace VRStandardAssets.Examples
 {
     public class spt_mirror : spt_interactivePickUp
     {
-        //Functionality now handled on spt_laserSwitch. Will deprecate if deemed unecessary.
+        protected override void clickSuccess()
+        {
+            base.clickSuccess();
+            transform.parent = GameObject.Find("Objects").transform;
+        }
     }
 }
 

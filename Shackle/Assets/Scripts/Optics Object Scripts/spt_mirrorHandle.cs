@@ -20,13 +20,18 @@ namespace VRStandardAssets.Examples
     public class spt_mirrorHandle : spt_baseInteractiveObject
     {
         public static bool rotating = false;
+        public static bool mirrorRemoved = false;
+        private bool hadMirror = false;
 
         private bool buttonHeld = false;
         private bool moved = false;
         private Vector3 initalRotation;
+
+        //Sound variables
         public AudioClip movingSound;
         private AudioSource aSource;
-        private bool once;
+        private bool once = false;
+
 
         //Speed at which the object should move
         public float rotateSpeed = 1;
@@ -41,14 +46,18 @@ namespace VRStandardAssets.Examples
             initalRotation = transform.rotation.eulerAngles;
             aSource = GetComponent<AudioSource>();
             if (movingSound != null) aSource.clip = movingSound;
-            once = false;
         }
 
         override protected void Update()
         {
+            if (HasMirror() == false && !mirrorRemoved)
+            {
+                mirrorRemoved = true;
+            }
             //When A is held, use left thumbstick to move object based on object's axis boolean
 			if (buttonHeld == true && HasMirror())
             {
+                hadMirror = true;
                 //Displays a movable's movePath sprite if specified
                 if (optional_movePathImage != null && !moved) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = true;
 

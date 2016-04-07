@@ -35,8 +35,10 @@ namespace VRStandardAssets.Examples
 
         protected override void Update()
         {
-            if (laser.enabled && (spt_mirrorHandle.rotating || !once)) {
+            //If the laser is on and it's been off or a mirror is being rotated, recalculate laser trajectory.
+            if (laser.enabled && (spt_mirrorHandle.rotating || spt_mirrorHandle.mirrorRemoved || !once)) {
                 Debug.Log("LASERING SHIT");
+                //spt_mirrorHandle.mirrorRemoved = false;
                 //Declare an infinite ray shooting in the direction from Projection point
                 Ray ray = new Ray(projectionStart, transform.forward);
                 //Set the line's starting point to the Projection Point's position

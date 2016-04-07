@@ -27,6 +27,7 @@ namespace VRStandardAssets.Examples
 				mirrorObj.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
 				mirrorObj.transform.eulerAngles = new Vector3(0, 0 ,transform.eulerAngles.y);
 				mirrorObj.transform.parent = transform.FindChild("Mirror Handle");
+                holding = false;
 			}
         }
 
