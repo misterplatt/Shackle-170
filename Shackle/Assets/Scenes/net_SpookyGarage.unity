@@ -4669,7 +4669,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 1091687879}
   selectionRadial: {fileID: 0}
-  pickUpSound: {fileID: 0}
+  secondarySound: {fileID: 0}
 --- !u!131 &1091687881
 GUITexture:
   m_ObjectHideFlags: 0
@@ -8624,7 +8624,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 1920823330}
   selectionRadial: {fileID: 0}
-  pickUpSound: {fileID: 8300000, guid: f7960ec2af918a444b02096a6d091cba, type: 3}
+  secondarySound: {fileID: 8300000, guid: f7960ec2af918a444b02096a6d091cba, type: 3}
 --- !u!114 &1920823329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8800,6 +8800,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1920823336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1920823325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c259f36fc459d884699987234c427993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1936222086
 Prefab:
   m_ObjectHideFlags: 0
@@ -8885,7 +8896,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 1936999528}
   selectionRadial: {fileID: 0}
-  pickUpSound: {fileID: 0}
+  secondarySound: {fileID: 0}
 --- !u!114 &1936999528
 MonoBehaviour:
   m_ObjectHideFlags: 0
