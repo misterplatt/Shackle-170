@@ -236,6 +236,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 98241442}
   selectionRadial: {fileID: 0}
+  secondarySound: {fileID: 0}
 --- !u!65 &98241444
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -527,6 +528,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 187081420}
   selectionRadial: {fileID: 0}
+  secondarySound: {fileID: 0}
 --- !u!131 &187081422
 GUITexture:
   m_ObjectHideFlags: 0
@@ -1112,9 +1114,21 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11426598, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: spawns.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 11496540, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: waypoints.Array.size
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: interactables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 419816, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1146,7 +1160,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 419816, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 413400, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1232,6 +1246,42 @@ Prefab:
       propertyPath: rangerOutpostScript
       value: 
       objectReference: {fileID: 504406680}
+    - target: {fileID: 11490964, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: filename
+      value: ../Support/Metrics/Stats/net_RangerOutpost.txt
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426598, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: spawns.Array.data[0]
+      value: 
+      objectReference: {fileID: 198115428}
+    - target: {fileID: 11426598, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: darknessPlane
+      value: 
+      objectReference: {fileID: 488438308}
+    - target: {fileID: 11426598, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: spawns.Array.data[1]
+      value: 
+      objectReference: {fileID: 218670284}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: interactables.Array.data[0]
+      value: 
+      objectReference: {fileID: 1980709433}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.data[0].x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.data[0].z
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: attackSpawnAStartingPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: attackSpawnBStartingPosition.z
+      value: -10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
   m_IsPrefabParent: 0
@@ -2475,6 +2525,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 743040765}
   selectionRadial: {fileID: 0}
+  secondarySound: {fileID: 0}
 --- !u!114 &743040765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4239,7 +4290,7 @@ MonoBehaviour:
     isMonstInteractable: 0
   - eventName: correctFuseCombo
     item: {fileID: 1980709433}
-    isMonstInteractable: 0
+    isMonstInteractable: 1
   - eventName: keyFobPressed
     item: {fileID: 688776693}
     isMonstInteractable: 0
