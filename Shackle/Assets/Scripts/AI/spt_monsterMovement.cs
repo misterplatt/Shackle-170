@@ -65,11 +65,7 @@ public class spt_monsterMovement : NetworkBehaviour {
             pLoss = true;
 
             animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
-            if (!animationScript.animator.GetBool("MonsterAttack"))
-            {
-                animationScript.animator.SetBool("MonsterAttack", true);
-            }
-            //Invoke("loss", 2);
+            animationScript.animator.SetInteger("animation", 1);
         }
         if (agent.remainingDistance <= 2 && currentWaypoint == 888)
         {
