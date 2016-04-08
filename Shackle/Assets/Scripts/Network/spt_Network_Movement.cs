@@ -38,28 +38,15 @@ public class spt_Network_Movement : NetworkBehaviour {
             }
         }
     }
+
+    bool bumpers()
+    {
+        return (spt_playerControls.rightBumperPressed() && spt_playerControls.leftBumperPressed());
+    }
 	// Update is called once per frame
 	void Update () {
         if (!isLocalPlayer) return;
-        
-
-        //DEBUG for testing
-
-        if (Input.GetKeyDown(KeyCode.Tab)) toggleStick = !toggleStick;
-        if (Input.GetKeyDown(KeyCode.CapsLock)) revStick = !revStick;
-
-        if (toggleStick)
-        {
-            if (isServer) lStickInput = 1.0F;
-            else CmdSendLStickIn(2.0F);            
-        }
-        else if (revStick)
-        {
-            if (isServer) lStickInput = -1.0F;
-            else CmdSendLStickIn(-2.0F);            
-        }
-
-        //XXX
+       
         
 
         //if this player is not server, have it update the current thumbstick input to the server
@@ -67,19 +54,19 @@ public class spt_Network_Movement : NetworkBehaviour {
         {
             Debug.Log( "currentIn: " + -1.0f * spt_playerControls.leftThumb("Vertical"));
             lastCli_lStick = spt_playerControls.leftThumb("Vertical");
-            CmdSendLStickIn(-1.0f * lastCli_lStick);
+            if ( bumpers() ) CmdSendLStickIn(-1.0f * lastCli_lStick);
             return;
         }
 
         lStickInput = spt_playerControls.leftThumb("Vertical");
         Debug.Log("mList : " + mListener.aggregateLStickInput);
         if (mListener.aggregateLStickInput > 1.5F) {
-            if (isServer) {
+            if (isServer && bumpers() ) {
                 moveHost(new Vector3(0.0F, 0.0F, 1.0F));
             }
         }
         else if (mListener.aggregateLStickInput < -1.5F) {
-            if (isServer) {
+            if (isServer && bumpers()) {
                 moveHost(new Vector3(0.0F, 0.0F, -1.0F));
             }
         }
@@ -89,11 +76,6 @@ public class spt_Network_Movement : NetworkBehaviour {
             newTrans.z -= playerSeperation;
             this.transform.position = newTrans;
         }
-        
-
-        /*
-        if (Input.GetKey(KeyCode.S)) movePlayers(new Vector3(0.0F, 0.0F, -1.0F));
-        */
     }
 
     void dbg_PlayerInputsLog() {
