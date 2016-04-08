@@ -50,6 +50,8 @@ public class spt_toolTipListener : MonoBehaviour {
         //Testing key
         if (Input.GetKeyDown(KeyCode.H)) clearToolTip();
 
+        //if (CORRECT INPUT FOR CURRENT TOOL TIP) clearToolTip();
+
         //Show inventory item tooltips
         if (inventorySpt.inventorySize() > 1 && !inventoryTipsShown) {
             StartCoroutine(setToolTip(triggers, "To Cycle Inventory", 1f, 3f));
@@ -87,6 +89,7 @@ public class spt_toolTipListener : MonoBehaviour {
     IEnumerator setToolTip(Sprite newSprite, string newText, float delayTime, float displayTime)
     {
         yield return new WaitForSeconds(delayTime);
+
         //Display desired controller image and text
         currentImage.sprite = newSprite;
         currentText.text = newText;
