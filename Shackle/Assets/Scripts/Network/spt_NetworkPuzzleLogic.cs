@@ -176,10 +176,14 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                     Debug.Log("Updating laserHitLock on the network to " + VRStandardAssets.Examples.spt_laserSwitch.local_laserHitLock);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("laserHitLock", true, "Chest Lock");
                 }
+                if (VRStandardAssets.Examples.spt_laserSwitch.local_laserHitPanel)
+                {
+                    Debug.Log("Updating laserHitPanel on the network to " + VRStandardAssets.Examples.spt_laserSwitch.local_laserHitPanel);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("laserHitPanel", true, "Security Panel");
+                }
             }
 
             spt_WorldState.worldStateChanged = false;
-
         }
     }
 

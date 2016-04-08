@@ -18,6 +18,7 @@ namespace VRStandardAssets.Examples
     public class spt_laserSwitch : spt_baseInteractiveObject
     {
         public static bool local_laserHitLock = false;
+        public static bool local_laserHitPanel = false;
 
         public float laserLength = 50;
 
@@ -36,7 +37,7 @@ namespace VRStandardAssets.Examples
         protected override void Update()
         {
             //If the laser is on and it's been off or a mirror is being rotated, recalculate laser trajectory.
-            if (laser.enabled && (spt_mirrorHandle.rotating || spt_mirrorHandle.mirrorRemoved || !once)) {
+            if (laser.enabled && (spt_mirrorHandle.rotating || !once)) {
                 Debug.Log("LASERING SHIT");
                 //spt_mirrorHandle.mirrorRemoved = false;
                 //Declare an infinite ray shooting in the direction from Projection point
@@ -67,7 +68,14 @@ namespace VRStandardAssets.Examples
                             laser.SetVertexCount(maxVertexCount);
                         }
 
-                        if (hit.collider.gameObject.name == "Chest Lock") local_laserHitLock = true;
+                        if (hit.collider.gameObject.name == "Chest Lock") {
+                            local_laserHitLock = true;
+                            spt_WorldState.worldStateChanged = true;
+                        }
+                        if (hit.collider.gameObject.name == "Security Panel"){
+                            local_laserHitPanel = true;
+                            spt_WorldState.worldStateChanged = true;
+                        }
 
                         //Set latest line point, 
                         Debug.Log("Reflecting");

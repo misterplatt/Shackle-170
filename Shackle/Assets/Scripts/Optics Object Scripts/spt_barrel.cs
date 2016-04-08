@@ -18,6 +18,7 @@ namespace VRStandardAssets.Examples
     public class spt_barrel : spt_baseInteractiveObject
     {
         private bool once = false;
+        public Texture emptyTube;
 
         //Open the garage if opener is used on door for holdTime seconds
         override protected void holdSuccess()
@@ -28,12 +29,14 @@ namespace VRStandardAssets.Examples
             {
                 gateItemName = "Matchbox";
                 once = true;
+                GameObject.Find("Flammable Liquid").GetComponent<GUITexture>().texture = emptyTube;
                 holding = false;
             }
             //If the liquid has been used and the matchbox is being used,
             //initialize the fire particles and destroy poster after x seconds.
             else {
                 transform.FindChild("Fire").gameObject.SetActive(true);
+                inventorySpt.removeItm("Matchbox");
                 Invoke("DestroyPoster", 1.5f);
             }
 

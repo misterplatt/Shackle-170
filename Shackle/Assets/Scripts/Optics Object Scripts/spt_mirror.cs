@@ -3,7 +3,7 @@ spt_mirror
 
 Author(s): Hayden Platt, Dara Diba
 
-Revision 1
+Revision 2
 
 Inherits basePickup, but contains added functionality
 which activates its laser child when a laser collides with it.

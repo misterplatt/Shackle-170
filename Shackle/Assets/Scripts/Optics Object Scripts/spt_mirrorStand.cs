@@ -20,13 +20,14 @@ namespace VRStandardAssets.Examples
     {
 
         override protected void holdSuccess(){
-			Debug.Log("hasmirror: " + HasMirror());
-			if(!HasMirror()){
+            //If the stand doesn't already have a mirror child, remove one from your inventory,
+            //then child it, set it's position above the stand, and the rotation accordingly
+            if (!HasMirror()){
 				inventorySpt.removeItm("Mirror Pickup");
 				GameObject mirrorObj = GameObject.Find("Mirror Pickup");
 				mirrorObj.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-				mirrorObj.transform.eulerAngles = new Vector3(0, 0 ,transform.eulerAngles.y);
-				mirrorObj.transform.parent = transform.FindChild("Mirror Handle");
+                mirrorObj.transform.parent = transform.FindChild("Mirror Handle");
+                mirrorObj.transform.eulerAngles = new Vector3(270, 0, transform.eulerAngles.y);
                 holding = false;
 			}
         }
