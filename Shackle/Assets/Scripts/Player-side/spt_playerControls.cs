@@ -5,7 +5,7 @@ Author(s): Dara Diba
 
 Revision 1
 
-This file provides the logic for player input
+Provides the logic and functions for player input
 */
 
 using UnityEngine;
@@ -55,6 +55,16 @@ public class spt_playerControls : MonoBehaviour
         else return false;
     }
 
+    // Checks if Select button is pressed
+    public static bool selectButtonPressed()
+    {
+        if (Input.GetButton("Select"))
+        {
+            return true;
+        }
+        else return false;
+    }
+
     // Checks if the right thumbstick is pressed, which is used for toggling the flashlight
     public static bool rightThumbstickButtonPressed()
     {
@@ -98,6 +108,12 @@ public class spt_playerControls : MonoBehaviour
         else return 0;
     }
 
+    //Function which returns true if either trigger is pressed
+    public static bool triggerPressed()
+    {
+        return (Mathf.Abs(Input.GetAxis("triggers")) > 0);
+    }
+
     // Checks if rightBumper button is pressed, which is used as a return
     public static bool rightBumperPressed()
     {
@@ -118,11 +134,22 @@ public class spt_playerControls : MonoBehaviour
         else return false;
     }
 
-    // Checks if the right thumbstick is moved , which is used for rotating and manipulating the field of view when interacting with an object
-    void rightThumbstickMoved()
+    //Function which returns true if the right stick is moved in any direction
+    public static bool rightThumbstickMoved()
     {
-        //float moveHorizontal = Input.GetAxis("rightThumbstickHoriz");
-        //float moveVertical = Input.GetAxis("rightThumbstickVert");
+        return (Mathf.Abs(Input.GetAxis("rightThumbstickHoriz")) > 0 || Mathf.Abs(Input.GetAxis("rightThumbstickVert")) > 0);
+    }
+
+    //Function which returns true if the left stick is moved in any direction
+    public static bool leftThumbstickMoved()
+    {
+        return (Mathf.Abs(Input.GetAxis("leftThumbstickHoriz")) > 0 || Mathf.Abs(Input.GetAxis("leftThumbstickVert")) > 0);
+    }
+
+    //Function which returns true if the left stick is moved in any direction while the a button is pressed
+    public static bool movementControlsPressed()
+    {
+        return (aButtonPressed() && leftThumbstickMoved());
     }
 
     // Checks if the string being passed is either Horizontal or Vertical which comes from the game object's properties

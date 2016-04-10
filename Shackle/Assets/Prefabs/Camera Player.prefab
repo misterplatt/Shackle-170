@@ -714,6 +714,7 @@ MonoBehaviour:
   RS_B: {fileID: 21300000, guid: 93b52752743a9764c98f4a7472de6932, type: 3}
   xButton: {fileID: 21300000, guid: 256234bd5cf3502429da86b851861adc, type: 3}
   RS: {fileID: 21300000, guid: 714f32eb00d25ab4bb54c1395b0164fb, type: 3}
+  selectButton: {fileID: 21300000, guid: f8ed05c9be0140c4fa60368679328430, type: 3}
   endPoint: {fileID: 0}
 --- !u!114 &11418252
 MonoBehaviour:
@@ -795,6 +796,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lStickInput: 0
   lastCli_lStick: 0
+  mListener: {fileID: 0}
+  host: {fileID: 0}
+  toggleStick: 0
+  revStick: 0
 --- !u!114 &11426626
 MonoBehaviour:
   m_ObjectHideFlags: 1
