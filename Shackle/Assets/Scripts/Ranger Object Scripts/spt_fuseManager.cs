@@ -14,35 +14,46 @@ using System.Collections;
 using System.Linq;
 using System;
 
-public class spt_fuseManager : MonoBehaviour
+namespace VRStandardAssets.Examples
 {
-
-    [SerializeField]
-    public static bool[] fuseStates;
-    public static bool[] correctStates;
-
-    public static bool local_correctFuseCombo;
-
-    // Use this for initialization
-    void Start()
+    public class spt_fuseManager : spt_baseInteractiveObject
     {
-        fuseStates = new bool[6] { false, false, false, false, false, false};
-        correctStates = new bool[6] { true, true, false, false, true, true };
-    }
 
-    //Function to handle input of channel
-    //Precon: Button objects named 1-9 exist in the scene
-    //Postcon: channelNumber String array is altered
-    public void updateFuseStates(int index, bool state)
-    {
-        //NPL Update
-        local_correctFuseCombo = true;
-        spt_WorldState.worldStateChanged = true;
+        [SerializeField]
+        public static bool[] fuseStates;
+        public static bool[] correctStates;
 
-        fuseStates[index] = state;
-        if (fuseStates.SequenceEqual(correctStates)) {
-            GameObject.Find("Electronic Lock").transform.Translate(new Vector3(.3f,0,0));
-            Debug.Log("CORRECT SWITCHES ON!$@##@#$");
+        public static bool local_correctFuseCombo;
+
+        // Use this for initialization
+        override protected void Start()
+        {
+            fuseStates = new bool[6] { false, false, false, false, false, false };
+            correctStates = new bool[6] { true, true, false, false, true, true };
+        }
+
+        //Function to handle input of channel
+        //Precon: Button objects named 1-9 exist in the scene
+        //Postcon: channelNumber String array is altered
+        public void updateFuseStates(int index, bool state)
+        {
+            fuseStates[index] = state;
+            if (fuseStates.SequenceEqual(correctStates))
+            {
+                //NPL Update
+                local_correctFuseCombo = true;
+                spt_WorldState.worldStateChanged = true;
+                GameObject.Find("Electronic Lock").transform.Translate(new Vector3(.3f, 0, 0));
+                Debug.Log("CORRECT SWITCHES ON!$@##@#$");
+            }
+        }
+
+        public override void resetItem()
+        {
+            spt_fuseSwitch[] fuses = GetComponentsInChildren<spt_fuseSwitch>();
+            foreach (spt_fuseSwitch fuse in fuses) {
+                fuse.randomToggle();
+            }
         }
     }
 }

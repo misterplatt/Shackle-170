@@ -148,9 +148,9 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("puzzleCompletion", true, "Hatch");
                 }
                 //If a player has pressed power while the extCord is plugged, update server state
-                if (spt_fuseManager.local_correctFuseCombo)
+                if (VRStandardAssets.Examples.spt_fuseManager.local_correctFuseCombo)
                 {
-                    Debug.Log("Updating correctFuseCombo on the network to " + spt_fuseManager.local_correctFuseCombo);
+                    Debug.Log("Updating correctFuseCombo on the network to " + VRStandardAssets.Examples.spt_fuseManager.local_correctFuseCombo);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("correctFuseCombo", true, "Fuse Box");
                 }
                 //If a player has plugged in the extension cord, command the server to update the state for other player
