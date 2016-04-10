@@ -83,13 +83,13 @@ public class spt_toolTipListener : MonoBehaviour {
 
         //Show movement tooltip on bucket interact
         if (GameObject.Find("spr_bucketMovePath").GetComponent<SpriteRenderer>().enabled == true && !movableTipsShown) {
-            StartCoroutine(setToolTip(LS_A, "To Move Some Objects", 0f, spt_playerControls.movementControlsPressed));
+            StartCoroutine(setToolTip(LS_A, "To Move Some Objects", 0f, spt_playerControls.objectMovementControls));
             movableTipsShown = true;
         }
 
         //Show movement tooltip on bucket interact
         if (GameObject.Find("spr_boxMovePath").GetComponent<SpriteRenderer>().enabled == true && !movableTipsShown){
-            StartCoroutine(setToolTip(LS_A, "To Move Some Objects", 0f, spt_playerControls.movementControlsPressed));
+            StartCoroutine(setToolTip(LS_A, "To Move Some Objects", 0f, spt_playerControls.objectMovementControls));
             movableTipsShown = true;
         }
 

@@ -23,25 +23,20 @@ public class spt_movementTipListener : MonoBehaviour
     private Image currentImage;
     private Text currentText;
     private spt_inventory inventorySpt;
-    public GameObject endPoint;
-    private bool inventoryTipsShown = false;
-    private bool manipulationTipsShown = false;
-    private bool movableTipsShown = false;
+    private bool movementTipsShown = false;
 
     // Use this for initialization
     void Start()
     {
-        if (SceneManager.GetActiveScene().name != "net_SpookyGarage")
+        if (SceneManager.GetActiveScene().name != "net_RangerOutpost")
         {
             gameObject.SetActive(false);
             return;
         }
         currentImage = GetComponentInChildren<Image>();
         currentText = GetComponentInChildren<Text>();
-        StartCoroutine(setToolTip(bumpers, "To Hold Chair", 3f, 6f));
-        StartCoroutine(setToolTip(LS_bumpers, "In Unison to Move While Holding Chairs", 13f, 4f));
+        StartCoroutine(setToolTip(bumpers, "To Hold Chair", 10f, spt_playerControls.bumpersPressed));
         inventorySpt = transform.parent.transform.GetComponentInParent<spt_inventory>();
-        endPoint = transform.parent.transform.FindChild("InspectPoint").gameObject;
     }
 
     // Update is called once per frame
@@ -50,18 +45,39 @@ public class spt_movementTipListener : MonoBehaviour
         //Testing key
         if (Input.GetKeyDown(KeyCode.H)) clearToolTip();
 
-        //if (CORRECT INPUT FOR CURRENT TOOL TIP) clearToolTip();
+        if (spt_playerControls.bumpersPressed() && !movementTipsShown) {
+            StartCoroutine(setToolTip(LS_bumpers, "In Unison to Move While Holding Chairs", 5f, spt_playerControls.playerMovementControls));
+            movementTipsShown = true;
+        }
+    }
+
+    //Catch-all "variable type" for input successes
+    public delegate bool InputCompletion();
+
+    //Coroutine started after a tooltip is displayed. Once the predicate is met, stops and clears tooltip after x seconds.
+    IEnumerator inputListener(InputCompletion predicate)
+    {
+        while (true)
+        {
+            if (predicate())
+            {
+                yield return new WaitForSeconds(.5f);
+                clearToolTip();
+                yield break;
+            }
+            else yield return null;
+        }
     }
 
     //Function which sets the toolTip image and text after delayTime seconds, then clears after 3 seconds
-    IEnumerator setToolTip(Sprite newSprite, string newText, float delayTime, float displayTime)
+    IEnumerator setToolTip(Sprite newSprite, string newText, float delayTime, InputCompletion predicate)
     {
         yield return new WaitForSeconds(delayTime);
 
         //Display desired controller image and text
         currentImage.sprite = newSprite;
         currentText.text = newText;
-        Invoke("clearToolTip", displayTime);
+        StartCoroutine(inputListener(predicate));
     }
 
     /*Wrapper function used to start the setToolTip coroutine from other scripts
@@ -75,5 +91,4 @@ public class spt_movementTipListener : MonoBehaviour
         currentImage.sprite = empty;
         currentText.text = "";
     }
-
 }

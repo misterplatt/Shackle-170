@@ -42,7 +42,8 @@ namespace VRStandardAssets.Examples
         {
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[3].state == false && once) {
                 transform.position = initalPosition;
-                transform.rotation = initialRotation;
+                GameObject.Find("mdl_extCordPlugged").GetComponent<MeshRenderer>().enabled = false;
+                //transform.rotation = initialRotation;
                 spt_remotePower.local_TVpowerState = false;
                 spt_WorldState.worldStateChanged = true;
                 once = false;
@@ -61,8 +62,10 @@ namespace VRStandardAssets.Examples
                 local_extCordPlugged = true;
                 spt_WorldState.worldStateChanged = true;
 
-                transform.Translate(Vector3.up * 1);
-                transform.eulerAngles = new Vector3(17, -180, 0); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
+                transform.Translate(Vector3.down * 1000);
+                GameObject.Find("mdl_extCordPlugged").GetComponent<MeshRenderer>().enabled = true;
+                //transform.Translate(Vector3.up * 1);
+                //transform.eulerAngles = new Vector3(17, -180, 0); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
                 once = true;
             }
         }
@@ -72,6 +75,7 @@ namespace VRStandardAssets.Examples
 
         public override void resetItem() {
             local_extCordPlugged = false;
+            spt_WorldState.worldStateChanged = true;
         }
     }
 }

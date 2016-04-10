@@ -134,6 +134,10 @@ public class spt_playerControls : MonoBehaviour
         else return false;
     }
 
+    public static bool bumpersPressed(){
+        return (Input.GetButton("leftBumper") && Input.GetButton("rightBumper"));
+    }
+
     //Function which returns true if the right stick is moved in any direction
     public static bool rightThumbstickMoved()
     {
@@ -147,10 +151,19 @@ public class spt_playerControls : MonoBehaviour
     }
 
     //Function which returns true if the left stick is moved in any direction while the a button is pressed
-    public static bool movementControlsPressed()
+    public static bool objectMovementControls()
     {
         return (aButtonPressed() && leftThumbstickMoved());
     }
+
+    //Function which returns true if the left stick is moved vertically direction while the bumpers are held
+    public static bool playerMovementControls()
+    {
+        return (bumpersPressed() && (Mathf.Abs(Input.GetAxis("leftThumbstickVert")) > 0));
+    }
+
+    //Function which returns true if the left stick is moved in any direction while the a button is pressed
+
 
     // Checks if the string being passed is either Horizontal or Vertical which comes from the game object's properties
     // This is used to keep objects manipulated/moved in the desired axis
