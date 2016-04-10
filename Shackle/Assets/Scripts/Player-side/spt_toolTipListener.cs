@@ -129,11 +129,6 @@ public class spt_toolTipListener : MonoBehaviour {
         StartCoroutine(inputListener(predicate));
     }
 
-    /*Wrapper function used to start the setToolTip coroutine from other scripts
-    public void remote_setToolTip(string newSpriteName, string newText, float delayTime, float displayTime) {
-        StartCoroutine(setToolTip((Sprite)this.GetType().GetField(newSpriteName).GetValue(this), newText, delayTime, displayTime));
-    }*/
-
     //Empties the tool tip display
     public void clearToolTip()
     {

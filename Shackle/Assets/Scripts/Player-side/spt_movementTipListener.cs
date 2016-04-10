@@ -45,8 +45,9 @@ public class spt_movementTipListener : MonoBehaviour
         //Testing key
         if (Input.GetKeyDown(KeyCode.H)) clearToolTip();
 
+        //Displays the movement tooltip after showing the grabbing tooltip
         if (spt_playerControls.bumpersPressed() && !movementTipsShown) {
-            StartCoroutine(setToolTip(LS_bumpers, "In Unison to Move While Holding Chairs", 5f, spt_playerControls.playerMovementControls));
+            StartCoroutine(setToolTip(LS_bumpers, "In Unison to Move While Holding Chairs", 4f, spt_playerControls.playerMovementControls));
             movementTipsShown = true;
         }
     }

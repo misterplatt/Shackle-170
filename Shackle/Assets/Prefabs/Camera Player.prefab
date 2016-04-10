@@ -60,6 +60,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22474050}
   - 114: {fileID: 11415882}
+  - 114: {fileID: 11401590}
   m_Layer: 5
   m_Name: Tooltip
   m_TagString: Untagged
@@ -553,6 +554,20 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &11401590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35750db30ff119409e267818fe5a6e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  empty: {fileID: 21300000, guid: 88c302bfc0cdab44bb3b036c0b598054, type: 3}
+  bumpers: {fileID: 21300000, guid: eb9daf80ff8aa5d4f96a0005867adfeb, type: 3}
+  LS_bumpers: {fileID: 21300000, guid: 848d57ac3d760c7439fa3f55e67cd571, type: 3}
 --- !u!114 &11403998
 MonoBehaviour:
   m_ObjectHideFlags: 1

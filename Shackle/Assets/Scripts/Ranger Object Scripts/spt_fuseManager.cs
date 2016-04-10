@@ -48,6 +48,7 @@ namespace VRStandardAssets.Examples
             }
         }
 
+        //When the monster interacts with the box, each fuses is reassigned a random boolean value
         public override void resetItem()
         {
             spt_fuseSwitch[] fuses = GetComponentsInChildren<spt_fuseSwitch>();

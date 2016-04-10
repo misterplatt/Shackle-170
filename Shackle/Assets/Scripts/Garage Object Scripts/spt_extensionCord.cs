@@ -40,10 +40,11 @@ namespace VRStandardAssets.Examples
         //If the monster unplugs the extension cord, reset its position and allow it to be plugged in again 
         override protected void Update()
         {
+            //If the monster unplugs the cord switching the puzzle state, revert model and play unplug sound
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[3].state == false && once) {
                 transform.position = initalPosition;
                 GameObject.Find("mdl_extCordPlugged").GetComponent<MeshRenderer>().enabled = false;
-                //transform.rotation = initialRotation;
+
                 spt_remotePower.local_TVpowerState = false;
                 spt_WorldState.worldStateChanged = true;
                 once = false;
@@ -58,14 +59,14 @@ namespace VRStandardAssets.Examples
             if (!once){
                 plugSound.clip = plugInsound;
                 plugSound.Play();
+
                 //NPL Update
                 local_extCordPlugged = true;
                 spt_WorldState.worldStateChanged = true;
 
+                //Move away the unplugged model, and turn on the plugged one
                 transform.Translate(Vector3.down * 1000);
                 GameObject.Find("mdl_extCordPlugged").GetComponent<MeshRenderer>().enabled = true;
-                //transform.Translate(Vector3.up * 1);
-                //transform.eulerAngles = new Vector3(17, -180, 0); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
                 once = true;
             }
         }
