@@ -94,8 +94,8 @@ public class spt_toolTipListener : MonoBehaviour {
         }
 
         //CURRENTLY NOT FUNCTIONAL: Displays all controls tooltip after all other tooltips have been shown
-        if (toolTipsDisplayed >= 9 && !controlsTipsShown) {
-            //StartCoroutine(setToolTip(selectButton, "To View All Controls", 10f, spt_playerControls.selectButtonPressed));
+        if (toolTipsDisplayed >= 7 && !controlsTipsShown) {
+            StartCoroutine(setToolTip(selectButton, "To View All Controls", 10f, spt_playerControls.selectButtonPressed));
             controlsTipsShown = true;
         }
         Debug.Log(toolTipsDisplayed);

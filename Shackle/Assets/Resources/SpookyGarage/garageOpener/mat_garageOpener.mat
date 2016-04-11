@@ -19,14 +19,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 053998827f077b04eb284490b69ad224, type: 3}
+          m_Texture: {fileID: 2800000, guid: 06c343ad4ad0de34481d8c9d7b156496, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: b8215cb5cb6efae47aa787a447468266, type: 3}
+          m_Texture: {fileID: 2800000, guid: 826271792dfd8a747b3cbf403ead5652, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -75,7 +75,7 @@ Material:
         first:
           name: _MetallicGlossMap
         second:
-          m_Texture: {fileID: 2800000, guid: 074b864f7e4136c4da917f1e808a8abc, type: 3}
+          m_Texture: {fileID: 2800000, guid: b5c98f0b7c85a854384b26dca1612b4c, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -127,20 +127,12 @@ Material:
         first:
           name: _Metallic
         second: 0
-      data:
-        first:
-          name: _EmissionScaleUI
-        second: 0
     m_Colors:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 0}
+        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _EmissionColorUI
         second: {r: 1, g: 1, b: 1, a: 1}

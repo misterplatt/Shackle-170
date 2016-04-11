@@ -47,7 +47,7 @@ namespace VRStandardAssets.Examples
                 spt_WorldState.worldStateChanged = true;
 
                 m_Renderer.material = m_StateTwoMaterial;
-                GameObject.Find("SUV").transform.Translate(new Vector3(-4,0,0));
+                GameObject.Find("mdl_jeep").transform.Translate(new Vector3(-4,0,0));
                 GameObject.Find("Fuse Diagram").GetComponent<SpriteRenderer>().enabled = true;
             }
             //Un-highlight digit button and remove it's number from remoteManager

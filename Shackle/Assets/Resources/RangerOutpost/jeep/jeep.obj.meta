@@ -1,0 +1,103 @@
+fileFormatVersion: 2
+guid: 08ec60579a685ba4f8605d481c685c3a
+timeCreated: 1460351521
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: mesh_jeep_pCube18
+    100004: mesh_jeep_pCube29
+    100006: mesh_jeep_polySurface194
+    100008: mesh_jeep_polySurface195
+    100010: mesh_jeep_polySurface205
+    100012: pPlane22_mesh_jeep
+    400000: //RootNode
+    400002: mesh_jeep_pCube18
+    400004: mesh_jeep_pCube29
+    400006: mesh_jeep_polySurface194
+    400008: mesh_jeep_polySurface195
+    400010: mesh_jeep_polySurface205
+    400012: pPlane22_mesh_jeep
+    2300000: mesh_jeep_pCube18
+    2300002: mesh_jeep_pCube29
+    2300004: mesh_jeep_polySurface194
+    2300006: mesh_jeep_polySurface195
+    2300008: mesh_jeep_polySurface205
+    2300010: pPlane22_mesh_jeep
+    3300000: mesh_jeep_pCube18
+    3300002: mesh_jeep_pCube29
+    3300004: mesh_jeep_polySurface194
+    3300006: mesh_jeep_polySurface195
+    3300008: mesh_jeep_polySurface205
+    3300010: pPlane22_mesh_jeep
+    4300000: mesh_jeep_pCube18
+    4300002: mesh_jeep_pCube29
+    4300004: mesh_jeep_polySurface194
+    4300006: mesh_jeep_polySurface195
+    4300008: mesh_jeep_polySurface205
+    4300010: pPlane22_mesh_jeep
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
