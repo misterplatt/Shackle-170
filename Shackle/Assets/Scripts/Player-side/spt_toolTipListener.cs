@@ -40,13 +40,13 @@ public class spt_toolTipListener : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		if (SceneManager.GetActiveScene().name != "net_SpookyGarage") {
-			gameObject.SetActive(false);
+            this.enabled = false;
 			return;
 		}
         currentImage = GetComponentInChildren<Image>();
         currentText = GetComponentInChildren<Text>();
         StartCoroutine(setToolTip(RS, "Press to Toggle Flashlight", 3f, spt_playerControls.rightThumbstickButtonPressed));
-        StartCoroutine(setToolTip(aButton, "To Interact", 13f, spt_playerControls.aButtonPressed));
+        //StartCoroutine(setToolTip(aButton, "To Interact", 13f, spt_playerControls.aButtonPressed));
         inventorySpt = transform.parent.transform.GetComponentInParent<spt_inventory>();
         endPoint = transform.parent.transform.FindChild("InspectPoint").gameObject;
     }

@@ -30,7 +30,7 @@ public class spt_movementTipListener : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name != "net_RangerOutpost")
         {
-            gameObject.SetActive(false);
+            this.enabled = false;
             return;
         }
         currentImage = GetComponentInChildren<Image>();
