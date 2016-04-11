@@ -110,7 +110,7 @@ public class spt_Network_Movement : NetworkBehaviour {
         GameObject pSep = GameObject.FindGameObjectWithTag("seperator");
         GameObject[] pModels = GameObject.FindGameObjectsWithTag("pModel");
 
-        pSep.transform.position += pMoveRate * dir;
+        if (pSep != null) pSep.transform.position += pMoveRate * dir;
         this.transform.position += pMoveRate * dir;
 
         foreach (GameObject entity in pModels) entity.transform.position += pMoveRate * dir;
