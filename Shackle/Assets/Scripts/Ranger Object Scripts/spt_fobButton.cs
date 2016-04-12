@@ -7,6 +7,7 @@ Revision 2
 
 Simple script for the button on the key fob.
 On press, triggers SUV crash animation
+Audio for crash now implemented
 */
 
 using UnityEngine;
@@ -25,8 +26,14 @@ namespace VRStandardAssets.Examples
         [SerializeField]
         private Renderer m_Renderer;
         bool currentState = false;
+        private AudioSource aSource;
 
         public static bool local_keyFobPressed;
+
+        protected override void Start()
+        {
+            aSource = GetComponent<AudioSource>();
+        }
 
         //Function that activates all manipulation object's children's colliders on pickup, and deactivates on put down
         //Precon: There is a parent object that BroadcastMessage-calls this script
@@ -45,7 +52,7 @@ namespace VRStandardAssets.Examples
                 //NPL Update
                 local_keyFobPressed = true;
                 spt_WorldState.worldStateChanged = true;
-
+                aSource.Play();
                 m_Renderer.material = m_StateTwoMaterial;
                 GameObject.Find("mdl_jeep").transform.Translate(new Vector3(-4,0,0));
                 GameObject.Find("Fuse Diagram").GetComponent<SpriteRenderer>().enabled = true;

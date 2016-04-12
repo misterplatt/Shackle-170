@@ -1,12 +1,13 @@
 ﻿/*
 spt_combinationDial
 
-Author(s): Hayden Platt
+Author(s): Hayden Platt & Dara Diba
 
-Revision 1
+Revision 2
 
 Script which resides on each combo dial. Rotates
 1/10, and updates the current code combo.
+Audio added for the dial rotation
 */
 
 using UnityEngine;
@@ -24,6 +25,13 @@ namespace VRStandardAssets.Examples
         [SerializeField]
         private int currentDigit;
 
+        private AudioSource aSource;
+
+        protected override void Start()
+        {
+            aSource = GetComponent<AudioSource>();
+        }
+
         //public spt_comboManager cManager;
 
         //Function that activates all manipulation object's children's colliders on pickup, and deactivates on put down
@@ -36,6 +44,7 @@ namespace VRStandardAssets.Examples
         //Handle the Click event, alternates states on every press
         override protected void clickSuccess()
         {
+            aSource.Play();
             transform.Rotate(new Vector3(0, 18, 0));
             if (currentDigit == 9) currentDigit = 0;
             else currentDigit++;

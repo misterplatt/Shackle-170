@@ -3,10 +3,11 @@ spt_fuseSwitch
 
 Author(s): Hayden Platt,Dara Diba
 
-Revision 1
+Revision 2
 
 Script for each fuse switch. Relays it's current state to
 fuseManager's active array.
+Implemented Fuse switch sound
 */
 
 
@@ -24,14 +25,17 @@ namespace VRStandardAssets.Examples
         private int switchNumber;
 
         private bool currentState = false;
+        private AudioSource aSource;
 
         protected override void Start()
         {
             initalPosition = transform.position;
+            aSource = GetComponent<AudioSource>();
         }
 
         override protected void clickSuccess()
         {
+            aSource.Play();
             currentState = !currentState;
             fManager.updateFuseStates(switchNumber, currentState);
             if (currentState == true) transform.Translate(new Vector3(0,0,-.3f));

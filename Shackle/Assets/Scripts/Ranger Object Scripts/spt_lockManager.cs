@@ -21,9 +21,13 @@ public class spt_lockManager : MonoBehaviour
     public static int[] dialStates;
     public static int[] correctStates;
 
+    private AudioSource aSource;
+
+
     // Use this for initialization
     void Start()
     {
+        aSource = GetComponent<AudioSource>();
         dialStates = new int[4] { 0, 0, 0, 0 };
         correctStates = new int[4] { 8, 6, 7, 5 };
     }
@@ -36,6 +40,7 @@ public class spt_lockManager : MonoBehaviour
         dialStates[index] = state;
         if (dialStates.SequenceEqual(correctStates))
         {
+            aSource.Play();
             GameObject.Find("Key Cabinet Door").transform.Translate(new Vector3(0, 2, 0));
             Debug.Log("DIALS ALL CORRECT!$@##@#$");
         }

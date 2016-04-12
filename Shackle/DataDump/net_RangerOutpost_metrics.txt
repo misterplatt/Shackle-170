@@ -1,0 +1,4 @@
+puzzleCompletion,-1
+correctFuseCombo,-1
+keyFobPressed,30.901
+playerLoss,42.39341
