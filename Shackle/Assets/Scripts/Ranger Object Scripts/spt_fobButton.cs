@@ -25,7 +25,8 @@ namespace VRStandardAssets.Examples
 
         [SerializeField]
         private Renderer m_Renderer;
-        bool currentState = false;
+        bool once = false;
+        bool once1 = false;
         private AudioSource aSource;
 
         public static bool local_keyFobPressed;
@@ -33,6 +34,15 @@ namespace VRStandardAssets.Examples
         protected override void Start()
         {
             aSource = GetComponent<AudioSource>();
+        }
+
+        protected override void Update()
+        {
+            if (!once1 && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true) {
+                //Start car crash animation
+                aSource.Play();
+                once1 = true;
+            }
         }
 
         //Function that activates all manipulation object's children's colliders on pickup, and deactivates on put down
@@ -45,23 +55,15 @@ namespace VRStandardAssets.Examples
         //Handle the Click event, alternates states on every press
         override protected void clickSuccess()
         {
-            currentState = !currentState;
-            //Highlight digit button and send it's number to remoteManager
-            if (currentState == true)
+            if (!once)
             {
                 //NPL Update
                 local_keyFobPressed = true;
                 spt_WorldState.worldStateChanged = true;
 
-                //Start car crash animation
-                aSource.Play();
-
+                //Start car crash animation as crash sound occurs
                 Invoke("carCrash", 9.4f);
-            }
-            //Un-highlight digit button and remove it's number from remoteManager
-            else if (currentState == false)
-            {
-                m_Renderer.material = m_StateOneMaterial;
+                once = true;
             }
         }
 

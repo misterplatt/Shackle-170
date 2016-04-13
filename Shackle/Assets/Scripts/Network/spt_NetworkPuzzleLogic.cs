@@ -157,7 +157,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 if (VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed)
                 {
                     Debug.Log("Updating keyFobPressed on the network to " + VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed);
-                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("keyFobPressed", true, "Key Fob");
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("keyFobPressed", true, "mdl_carKeyfob");
                 }
             }
 

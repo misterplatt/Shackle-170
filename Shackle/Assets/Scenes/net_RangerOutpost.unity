@@ -14,7 +14,7 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -23668,7 +23668,7 @@ MonoBehaviour:
     item: {fileID: 1980709433}
     isMonstInteractable: 1
   - eventName: keyFobPressed
-    item: {fileID: 0}
+    item: {fileID: 100000, guid: e5881a513e9b94d09b234e1394b34645, type: 3}
     isMonstInteractable: 0
   - eventName: playerLoss
     item: {fileID: 504406679}
