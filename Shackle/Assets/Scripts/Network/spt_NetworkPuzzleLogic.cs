@@ -68,7 +68,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     public bool loaded = false;
 
     void Start() {
-        //if (isLocalPlayer) return;
+        if (!isServer) return;
         List<dev_LogicPair> devtool_PuzzleStates = GameObject.Find("PuzzleStates").GetComponent<spt_Events>().devtool_PuzzleStates;
 
         for (int index = 0; index < devtool_PuzzleStates.Count; ++index) {
@@ -99,7 +99,18 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
             return;
         }
-        if (Input.GetKeyDown(KeyCode.B)) dbg_logEvents();
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            foreach (GameObject player in players)
+            {
+                foreach (LogicTuple lPair in player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates)
+                {
+                    Debug.Log(player.name + " : PuzzleEvent Name : " + lPair.name + " -> State : " + lPair.state + " Controlled by : " + lPair.itemName);
+                }
+                //player.GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState(name, state, itmName);
+            }
+        }
         //If a state has been changed locally, find out which one and update the state's networked version
 
         if (spt_WorldState.worldStateChanged)
@@ -244,6 +255,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in players)
         {
+            Debug.Log(player.name + " : " + player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count);
             player.GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState(name, state, itmName);
         }
         //updatePuzzleState(name, state, itmName);
