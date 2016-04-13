@@ -41,7 +41,7 @@ public class spt_lockManager : MonoBehaviour
         if (dialStates.SequenceEqual(correctStates))
         {
             aSource.Play();
-            GameObject.Find("Key Cabinet Door").transform.Translate(new Vector3(0, 2, 0));
+            GameObject.Find("mdl_cabinetDoor").transform.Translate(new Vector3(0, 2, 0));
             Debug.Log("DIALS ALL CORRECT!$@##@#$");
         }
     }

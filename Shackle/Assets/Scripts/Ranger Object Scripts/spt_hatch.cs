@@ -16,15 +16,21 @@ namespace VRStandardAssets.Examples
 {
     public class spt_hatch : spt_baseInteractiveObject
     {
-
+        private AudioSource aSource;
         public static bool local_puzzleCompletion;
-        
+
+        override protected void Start()
+        {
+            aSource = GetComponent<AudioSource>();
+        }
+
         //Plug HandleClick
         override protected void HandleClick() { }
 
         //Handle the Down event, modified so that the reticle doesn't need to stay over object to interact
         override protected void holdSuccess()
         {
+            aSource.Play();
             //NPL Update
             local_puzzleCompletion = true;
             spt_WorldState.worldStateChanged = true;

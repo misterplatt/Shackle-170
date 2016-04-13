@@ -19,10 +19,16 @@ namespace VRStandardAssets.Examples
     {
 
         public Sprite fullDiagram;
+        private AudioSource aSource;
 
+        protected override void Start()
+        {
+            aSource = GetComponent<AudioSource>();
+        }
         //Handle the Click event, alternates states on every press
         override protected void holdSuccess()
         {
+            aSource.Play();
             GetComponent<MeshRenderer>().enabled = false;
             GameObject.Find("Fuse Diagram").GetComponent<SpriteRenderer>().sprite = fullDiagram;
         }

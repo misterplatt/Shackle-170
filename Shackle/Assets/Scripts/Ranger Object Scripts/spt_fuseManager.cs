@@ -1,12 +1,13 @@
 ﻿/*
 spt_fuseManager
 
-Author(s): Hayden Platt
+Author(s): Hayden Platt, Dara Diba
 
-Revision 1
+Revision 2 
 
 Stores the currentstate of the switches' states
 in a bool array. Unlocks electronic lock if all true.
+Added sucessful fuse combo sound - Dara
 */
 
 using UnityEngine;
@@ -25,9 +26,12 @@ namespace VRStandardAssets.Examples
 
         public static bool local_correctFuseCombo;
 
+        private AudioSource aSource;
+
         // Use this for initialization
         override protected void Start()
         {
+            aSource = GetComponent<AudioSource>();
             fuseStates = new bool[6] { false, false, false, false, false, false };
             correctStates = new bool[6] { true, true, false, false, true, true };
         }
@@ -40,6 +44,7 @@ namespace VRStandardAssets.Examples
             fuseStates[index] = state;
             if (fuseStates.SequenceEqual(correctStates))
             {
+                aSource.Play();
                 //NPL Update
                 local_correctFuseCombo = true;
                 spt_WorldState.worldStateChanged = true;
