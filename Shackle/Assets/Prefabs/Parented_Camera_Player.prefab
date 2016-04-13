@@ -1277,7 +1277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   empty: {fileID: 21300000, guid: 88c302bfc0cdab44bb3b036c0b598054, type: 3}
-  bumpers: {fileID: 21300000, guid: eb9daf80ff8aa5d4f96a0005867adfeb, type: 3}
+  bumpers: {fileID: 21300000, guid: 212109f5cb47b0a45913d6fb3a7e07d9, type: 3}
   LS_bumpers: {fileID: 21300000, guid: 848d57ac3d760c7439fa3f55e67cd571, type: 3}
 --- !u!114 &11496344
 MonoBehaviour:
