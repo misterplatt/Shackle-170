@@ -19293,6 +19293,7 @@ MonoBehaviour:
   lerpSpeed: 5
   distanceBeforeLerp: 0.6
   distanceBeforeFreeze: 0.02
+  currentState: 0
   endPoint: {fileID: 0}
 --- !u!114 &1226683352
 MonoBehaviour:
@@ -30232,6 +30233,7 @@ MonoBehaviour:
   lerpSpeed: 5
   distanceBeforeLerp: 0.6
   distanceBeforeFreeze: 0.02
+  currentState: 0
   endPoint: {fileID: 0}
 --- !u!114 &1987510803
 MonoBehaviour:

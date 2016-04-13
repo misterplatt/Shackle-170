@@ -66,8 +66,9 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     public SyncListLogicPair PuzzleStates = new SyncListLogicPair();
     private spt_NetworkPuzzleLogic NPL;
     public bool loaded = false;
-    void Start() {
 
+    void Start() {
+        if (isLocalPlayer) return;
         List<dev_LogicPair> devtool_PuzzleStates = GameObject.Find("PuzzleStates").GetComponent<spt_Events>().devtool_PuzzleStates;
 
         for (int index = 0; index < devtool_PuzzleStates.Count; ++index) {
@@ -79,6 +80,30 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
             ));
         }
         this.loaded = true;
+    }
+
+    //temporary, will be fixed.
+    void syncFromHost()
+    {
+        if (isServer) return;
+
+        GameObject host = null;
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach ( GameObject player in players )
+        {
+            if (player.GetComponent<NetworkIdentity>().isServer)
+            {
+                host = player;
+                break;
+            }
+        }
+
+        spt_NetworkPuzzleLogic pLogic = host.GetComponent<spt_NetworkPuzzleLogic>();
+
+        foreach (LogicTuple lTuple in pLogic.PuzzleStates)
+        {
+            Cmd_UpdatePuzzleLogic(lTuple.name, lTuple.state, lTuple.itemName); 
+        }
     }
 
     void Update()
@@ -98,8 +123,9 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
             return;
         }
-        if (Input.GetKeyDown(KeyCode.B)) dbg_logEvents();
+        //dbg_logEvents();
         //If a state has been changed locally, find out which one and update the state's networked version
+
         if (spt_WorldState.worldStateChanged)
         {
 
@@ -206,7 +232,12 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     public void updatePuzzleState( string name, bool state, string itemName) {
         int tIndex = PuzzleStates.IndexOf(new LogicTuple(name, false, itemName));
         Debug.Log("UPL ServerLocal :  Called with : " + name + " | " + state);
-        if (tIndex < 0) Debug.Log("Error : updatePuzzleState called with nonexistent puzzle event.");
+        if (tIndex < 0)
+        {            
+            Debug.Log("Error : updatePuzzleState called with nonexistent puzzle event : " + name);
+            foreach (LogicTuple lT in PuzzleStates) { Debug.Log(lT.name); }
+
+        }
 
         LogicTuple original_Tuple = PuzzleStates[PuzzleStates.IndexOf(new LogicTuple(name, false, itemName))];
         LogicTuple newTuple = new LogicTuple(original_Tuple.name, state, original_Tuple.itemName, original_Tuple.isMonsterInteractable, Time.time);
