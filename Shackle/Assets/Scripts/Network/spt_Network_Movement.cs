@@ -22,6 +22,8 @@ public class spt_Network_Movement : NetworkBehaviour {
     //Move toward host direction or client?
     enum movement {NONE, HOST, CLIENT};
 
+    public Animator animator;
+
     void Start()
     {
         mListener = GameObject.Find("WorldState").GetComponent<spt_Network_MovementListener>();
@@ -60,18 +62,32 @@ public class spt_Network_Movement : NetworkBehaviour {
 
         lStickInput = spt_playerControls.leftThumb("Vertical");
         Debug.Log("mList : " + mListener.aggregateLStickInput);
-        if (mListener.aggregateLStickInput > 1.5F) {
-            if (isServer && bumpers() ) {
+        if (mListener.aggregateLStickInput > 1.5F)
+        {
+            if (isServer && bumpers())
+            {
                 moveHost(new Vector3(0.0F, 0.0F, 1.0F));
+                animator.SetInteger("animation", 2);
             }
         }
-        else if (mListener.aggregateLStickInput < -1.5F) {
-            if (isServer && bumpers()) {
+        else if (mListener.aggregateLStickInput < -1.5F)
+        {
+            if (isServer && bumpers())
+            {
                 moveHost(new Vector3(0.0F, 0.0F, -1.0F));
+                animator.SetInteger("animation", 1);
             }
         }
+        else
+            animator.SetInteger("animation", 0);
 
-            if (!isServer) {
+        if (!isServer) {
+            if (host.transform.position.z + this.transform.position.z < this.transform.position.z)
+                animator.SetInteger("animation", 2);
+            else if (host.transform.position.z + this.transform.position.z > this.transform.position.z)
+                animator.SetInteger("animation", 1);
+            else
+                animator.SetInteger("animation", 0);
             Vector3 newTrans = host.transform.position;
             newTrans.z -= playerSeperation;
             this.transform.position = newTrans;

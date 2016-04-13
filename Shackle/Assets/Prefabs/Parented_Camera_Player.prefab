@@ -242,6 +242,7 @@ GameObject:
   - 114: {fileID: 11402042}
   - 114: {fileID: 11439126}
   - 114: {fileID: 11441750}
+  - 95: {fileID: 9515034}
   m_Layer: 0
   m_Name: Parented_Camera_Player
   m_TagString: Player
@@ -548,6 +549,23 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182278}
   m_Enabled: 1
+--- !u!95 &9515034
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155344}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 85ec7aa0734b7594ca483212ad6a737e, type: 3}
+  m_Controller: {fileID: 9100000, guid: b7b6df8aa0a1ebf42ba48a40529e9bb7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!108 &10888222
 Light:
   m_ObjectHideFlags: 1
@@ -891,6 +909,7 @@ MonoBehaviour:
   host: {fileID: 0}
   toggleStick: 0
   revStick: 0
+  animator: {fileID: 9515034}
 --- !u!114 &11443764
 MonoBehaviour:
   m_ObjectHideFlags: 1

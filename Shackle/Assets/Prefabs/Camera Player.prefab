@@ -815,6 +815,7 @@ MonoBehaviour:
   host: {fileID: 0}
   toggleStick: 0
   revStick: 0
+  animator: {fileID: 0}
 --- !u!114 &11426626
 MonoBehaviour:
   m_ObjectHideFlags: 1
