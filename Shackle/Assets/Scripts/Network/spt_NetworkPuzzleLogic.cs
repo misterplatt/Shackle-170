@@ -171,6 +171,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 {
                     Debug.Log("Updating keyFobPressed on the network to " + VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("keyFobPressed", true, "mdl_carKeyfob");
+                    if(isServer) GameObject.Find("WorldState").GetComponent<spt_WorldState>().playCrashSound = true;
                 }
             }
 

@@ -146,6 +146,7 @@ MonoBehaviour:
   m_InteractiveItem: {fileID: 11099273}
   selectionRadial: {fileID: 0}
   movingSound: {fileID: 8300000, guid: d1d78210b3bd31345b9752f35ad0fbe4, type: 3}
+  HaydenIdea: 1
   moveSpeed: 1
   moveOnLocalX: 0
   moveOnLocalY: 0
@@ -1663,6 +1664,7 @@ MonoBehaviour:
   lerpSpeed: 5
   distanceBeforeLerp: 0.6
   distanceBeforeFreeze: 0.02
+  currentState: 0
   endPoint: {fileID: 0}
 --- !u!114 &317367137
 MonoBehaviour:
@@ -2323,7 +2325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &463816513
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8910,6 +8912,7 @@ MonoBehaviour:
   m_InteractiveItem: {fileID: 1740269546}
   selectionRadial: {fileID: 0}
   movingSound: {fileID: 0}
+  HaydenIdea: 1
   moveSpeed: 1
   moveOnLocalX: 1
   moveOnLocalY: 0
@@ -10336,6 +10339,7 @@ MonoBehaviour:
   lerpSpeed: 5
   distanceBeforeLerp: 0.6
   distanceBeforeFreeze: 0.02
+  currentState: 0
   endPoint: {fileID: 0}
 --- !u!114 &1969924438
 MonoBehaviour:
