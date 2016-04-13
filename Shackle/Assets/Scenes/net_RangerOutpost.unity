@@ -7366,22 +7366,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11426598, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
-      propertyPath: spawns.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11496540, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
-      propertyPath: waypoints.Array.size
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
-      propertyPath: interactables.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
-      propertyPath: interactableAnimationStartingPositions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 419816, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7430,10 +7414,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 0.34408337
       objectReference: {fileID: 0}
-    - target: {fileID: 101212, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
-      propertyPath: m_Name
-      value: MonsterStandin
-      objectReference: {fileID: 0}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: interactables.Array.data[0]
+      value: 
+      objectReference: {fileID: 1980709433}
     - target: {fileID: 11496540, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: waypoints.Array.data[0]
       value: 
@@ -7494,45 +7478,21 @@ Prefab:
       propertyPath: waypoints.Array.data[14]
       value: 
       objectReference: {fileID: 988709791}
-    - target: {fileID: 11496540, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
-      propertyPath: rangerOutpostScript
-      value: 
-      objectReference: {fileID: 504406680}
-    - target: {fileID: 11490964, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
-      propertyPath: filename
-      value: ../Support/Metrics/Stats/net_RangerOutpost.txt
-      objectReference: {fileID: 0}
     - target: {fileID: 11426598, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: spawns.Array.data[0]
       value: 
       objectReference: {fileID: 198115428}
     - target: {fileID: 11426598, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
-      propertyPath: darknessPlane
-      value: 
-      objectReference: {fileID: 488438308}
-    - target: {fileID: 11426598, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: spawns.Array.data[1]
       value: 
       objectReference: {fileID: 218670284}
-    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
-      propertyPath: interactables.Array.data[0]
+    - target: {fileID: 11426598, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: darknessPlane
       value: 
-      objectReference: {fileID: 1980709433}
-    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
-      propertyPath: interactableAnimationStartingPositions.Array.data[0].x
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
-      propertyPath: interactableAnimationStartingPositions.Array.data[0].z
-      value: -7
-      objectReference: {fileID: 0}
-    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
-      propertyPath: attackSpawnAStartingPosition.z
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
-      propertyPath: attackSpawnBStartingPosition.z
-      value: -10
+      objectReference: {fileID: 488438308}
+    - target: {fileID: 101212, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: m_Name
+      value: MonsterStandin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
@@ -7541,17 +7501,6 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 101212, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
   m_PrefabInternal: {fileID: 504406678}
---- !u!114 &504406680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 504406679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a6bc244050d70549a3f600cbec1ee00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &504909653
 GameObject:
   m_ObjectHideFlags: 0
@@ -18531,6 +18480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae5588277e0d6545bc0c85a6b79b11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playCrashSound: 0
 --- !u!114 &1185700721
 MonoBehaviour:
   m_ObjectHideFlags: 0
