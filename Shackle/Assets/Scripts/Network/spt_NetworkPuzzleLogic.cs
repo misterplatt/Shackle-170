@@ -109,6 +109,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     void Update()
     {
         if (!isLocalPlayer) return;
+        if(!isServer) syncFromHost();
 
         spt_monsterMovement mover = GameObject.FindWithTag("monster").GetComponent<spt_monsterMovement>();
         if (mover.pLoss)

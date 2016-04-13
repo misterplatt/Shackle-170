@@ -12380,7 +12380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gateItemName: Hand
   holdTime: 0
-  m_InteractiveItem: {fileID: 1287799023}
+  m_InteractiveItem: {fileID: 773583440}
   selectionRadial: {fileID: 0}
   movingSound: {fileID: 8300000, guid: 883d554dd9e7e244ca6c9440bec1b3d2, type: 3}
   moveSpeed: 1
