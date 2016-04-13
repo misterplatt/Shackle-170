@@ -41,8 +41,8 @@ public class spt_lockManager : MonoBehaviour
         if (dialStates.SequenceEqual(correctStates))
         {
             aSource.Play();
-            GameObject.Find("mdl_cabinetDoor").transform.Translate(new Vector3(0, 2, 0));
-            Debug.Log("DIALS ALL CORRECT!$@##@#$");
+            GameObject.Find("mdl_cabinetDoor").GetComponent<Rigidbody>().useGravity = true; //OLD FUNCTIONALITY: transform.Translate(new Vector3(2, 0, 0));
+            //Debug.Log("DIALS ALL CORRECT!$@##@#$");
         }
     }
 }

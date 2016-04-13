@@ -141,7 +141,7 @@ namespace VRStandardAssets.Examples
         //Handle the Up event
         virtual protected void HandleUp()
         {
-            Debug.Log("Show up state");
+            //Debug.Log("Show up state");
             selectionRadial = GetComponent<VRInteractiveItem>().radial;
             holding = false;
             selectionRadial.fillAmount = 0;

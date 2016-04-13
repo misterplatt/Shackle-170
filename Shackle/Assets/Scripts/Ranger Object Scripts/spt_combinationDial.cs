@@ -45,7 +45,7 @@ namespace VRStandardAssets.Examples
         override protected void clickSuccess()
         {
             aSource.Play();
-            transform.Rotate(new Vector3(0, 18, 0));
+            transform.Rotate(new Vector3(0, 36, 0));
             if (currentDigit == 9) currentDigit = 0;
             else currentDigit++;
             lManager.updateDialStates(dialNumber, currentDigit);

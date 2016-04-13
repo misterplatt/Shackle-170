@@ -252,7 +252,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: net_OpticsLab
+  m_Text: net_RangerOutpost
 --- !u!222 &498819586
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -850,7 +850,7 @@ MonoBehaviour:
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 1
   m_OfflineScene: MainMenu
-  m_OnlineScene: net_OpticsLab
+  m_OnlineScene: net_RangerOutpost
   m_SpawnPrefabs: []
   m_CustomConfig: 0
   m_MaxConnections: 4
@@ -1058,12 +1058,12 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+    - m_Text: net_RangerOutpost
+      m_Image: {fileID: 0}
     - m_Text: net_OpticsLab
       m_Image: {fileID: 0}
     - m_Text: net_SpookyGarage
       m_Image: {fileID: 21300000, guid: 5f7dda35fb509da46b94dabdc3a5d9f1, type: 3}
-    - m_Text: net_RangerOutpost
-      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
