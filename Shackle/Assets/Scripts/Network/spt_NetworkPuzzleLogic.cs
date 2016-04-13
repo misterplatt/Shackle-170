@@ -62,7 +62,7 @@ public struct LogicTuple
 public class SyncListLogicPair : SyncListStruct<LogicTuple> { }
 
 public class spt_NetworkPuzzleLogic : NetworkBehaviour {
-    [SerializeField]
+    [SyncVar]
     public SyncListLogicPair PuzzleStates = new SyncListLogicPair();
     private spt_NetworkPuzzleLogic NPL;
     public bool loaded = false;
