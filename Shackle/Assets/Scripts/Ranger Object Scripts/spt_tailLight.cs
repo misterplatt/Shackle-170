@@ -25,12 +25,16 @@ namespace VRStandardAssets.Examples
         {
             aSource = GetComponent<AudioSource>();
         }
-        //Handle the Click event, alternates states on every press
+
+        //Handle the Click event, breaking the tailLight and increasing the light range
         override protected void holdSuccess()
         {
             aSource.Play();
             GetComponent<MeshRenderer>().enabled = false;
+            GetComponent<Light>().range = 10;
             GameObject.Find("Fuse Diagram").GetComponent<SpriteRenderer>().sprite = fullDiagram;
+            Destroy(GameObject.Find("mdl_jeepLights"));
+            holding = false;
         }
 
         //Plug HandleClick

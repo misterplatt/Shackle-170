@@ -52,10 +52,11 @@ namespace VRStandardAssets.Examples
                 //NPL Update
                 local_keyFobPressed = true;
                 spt_WorldState.worldStateChanged = true;
+
+                //Start car crash animation
                 aSource.Play();
-                m_Renderer.material = m_StateTwoMaterial;
-                GameObject.Find("mdl_jeep").transform.Translate(new Vector3(-4,0,0));
-                GameObject.Find("Fuse Diagram").GetComponent<SpriteRenderer>().enabled = true;
+
+                Invoke("carCrash", 9.4f);
             }
             //Un-highlight digit button and remove it's number from remoteManager
             else if (currentState == false)
@@ -66,5 +67,12 @@ namespace VRStandardAssets.Examples
 
         //Plug HandleDown function from base
         protected override void HandleDown() { }
+
+        void carCrash() {
+            GameObject.Find("mdl_jeep").transform.Translate(new Vector3(0, 0, 5.5f));
+            GameObject.Find("Destructible_A_Wall").GetComponent<MeshRenderer>().enabled = false;
+            GameObject.Find("Destructible_Side_Wall").GetComponent<MeshRenderer>().enabled = false;
+            GameObject.Find("Fuse Diagram").GetComponent<SpriteRenderer>().enabled = true;
+        }
     }
 }

@@ -48,7 +48,9 @@ namespace VRStandardAssets.Examples
                 //NPL Update
                 local_correctFuseCombo = true;
                 spt_WorldState.worldStateChanged = true;
-                GameObject.Find("Electronic Lock").transform.Translate(new Vector3(.3f, 0, 0));
+                GameObject.Find("Electronic Slide").transform.Translate(new Vector3(.3f, 0, 0));
+                GameObject.Find("Hatch Light").transform.Translate(Vector3.left * 0.3f);
+                GameObject.Find("Hatch Light").GetComponent<Light>().color = Color.green;
                 Debug.Log("CORRECT SWITCHES ON!$@##@#$");
             }
         }

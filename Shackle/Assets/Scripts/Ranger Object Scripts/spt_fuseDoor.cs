@@ -30,7 +30,7 @@ namespace VRStandardAssets.Examples
         override protected void holdSuccess()
         {
             aSource.Play();
-            transform.Translate(new Vector3(-1.4f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED  
+            transform.parent.Translate(new Vector3(1.4f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED  
         }
     }
 }

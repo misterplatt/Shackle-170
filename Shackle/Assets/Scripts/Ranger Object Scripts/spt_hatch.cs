@@ -5,7 +5,7 @@ Author(s): Hayden Platt
 
 Revision 1
 
-Opens the fusebox door if square key is used on
+Opens the hatch if pickaxe is used on
 it for holdTime.
 */
 
@@ -35,7 +35,8 @@ namespace VRStandardAssets.Examples
             local_puzzleCompletion = true;
             spt_WorldState.worldStateChanged = true;
 
-            transform.Translate(new Vector3(0, 2, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED  
+            transform.Translate(new Vector3(0, .38f, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
+            transform.eulerAngles = new Vector3(-30, 0, 0);
         }
     }
 }
