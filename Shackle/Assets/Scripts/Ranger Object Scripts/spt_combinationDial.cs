@@ -41,6 +41,9 @@ namespace VRStandardAssets.Examples
             GetComponent<BoxCollider>().enabled = state;
         }
 
+        //Plugging so manipulate doesn't complain
+        public void deactivateDigit() { }
+
         //Handle the Click event, alternates states on every press
         override protected void clickSuccess()
         {

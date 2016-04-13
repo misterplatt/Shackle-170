@@ -41,8 +41,17 @@ public class spt_lockManager : MonoBehaviour
         if (dialStates.SequenceEqual(correctStates))
         {
             aSource.Play();
+            transform.FindChild("mdl_arch").Translate(Vector3.up * 0.1f);
             GameObject.Find("mdl_cabinetDoor").GetComponent<Rigidbody>().useGravity = true; //OLD FUNCTIONALITY: transform.Translate(new Vector3(2, 0, 0));
+
+            Invoke("returnLock", .3f);
+            
             //Debug.Log("DIALS ALL CORRECT!$@##@#$");
         }
+    }
+
+    //Return lock after correct combo
+    void returnLock() {
+        GetComponent<VRStandardAssets.Examples.spt_interactiveItemManipulate>().currentState = false;
     }
 }

@@ -141,7 +141,6 @@ public class spt_inventory : NetworkBehaviour {
 
         if (m_EyeRaycaster.racyCastTouch)
         {
-          
             reticleTex = transform.Find("Camera Player/VRCameraUI/GUIReticle").gameObject;
             reticleTex.GetComponent<RawImage>().texture = retrieveObjectFromInventory(activeItem).GetComponent<GUITexture>().texture;
         }
