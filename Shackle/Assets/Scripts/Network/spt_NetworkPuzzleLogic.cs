@@ -82,34 +82,9 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
         this.loaded = true;
     }
 
-    //temporary, will be fixed.
-    void syncFromHost()
-    {
-        if (isServer) return;
-
-        GameObject host = null;
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        foreach ( GameObject player in players )
-        {
-            if (player.name != this.gameObject.name)
-            {
-                host = player;
-                break;
-            }
-        }
-
-        spt_NetworkPuzzleLogic pLogic = host.GetComponent<spt_NetworkPuzzleLogic>();
-
-        foreach (LogicTuple lTuple in pLogic.PuzzleStates)
-        {
-            Cmd_UpdatePuzzleLogic(lTuple.name, lTuple.state, lTuple.itemName); 
-        }
-    }
-
     void Update()
     {
         if (!isLocalPlayer) return;
-        if(!isServer) syncFromHost();
 
         spt_monsterMovement mover = GameObject.FindWithTag("monster").GetComponent<spt_monsterMovement>();
         if (mover.pLoss)
@@ -265,6 +240,12 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     [Command]
     public void Cmd_UpdatePuzzleLogic(string name, bool state, string itmName) {
         Debug.Log("UPL Called with : " + name + " | " + state);
-        updatePuzzleState(name, state, itmName);
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+            player.GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState(name, state, itmName);
+        }
+        //updatePuzzleState(name, state, itmName);
     }
 }
