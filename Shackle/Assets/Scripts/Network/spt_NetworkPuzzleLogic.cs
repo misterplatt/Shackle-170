@@ -68,7 +68,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     public bool loaded = false;
 
     void Start() {
-        if (!isLocalPlayer) return;
+        //if (isLocalPlayer) return;
         List<dev_LogicPair> devtool_PuzzleStates = GameObject.Find("PuzzleStates").GetComponent<spt_Events>().devtool_PuzzleStates;
 
         for (int index = 0; index < devtool_PuzzleStates.Count; ++index) {
@@ -99,7 +99,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
             return;
         }
-        //dbg_logEvents();
+        if (Input.GetKeyDown(KeyCode.B)) dbg_logEvents();
         //If a state has been changed locally, find out which one and update the state's networked version
 
         if (spt_WorldState.worldStateChanged)
