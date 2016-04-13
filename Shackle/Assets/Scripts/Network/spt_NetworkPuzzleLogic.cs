@@ -91,7 +91,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         foreach ( GameObject player in players )
         {
-            if (player.GetComponent<NetworkIdentity>().isServer)
+            if (player.name != this.gameObject.name)
             {
                 host = player;
                 break;
