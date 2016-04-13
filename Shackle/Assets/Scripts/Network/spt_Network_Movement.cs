@@ -59,7 +59,7 @@ public class spt_Network_Movement : NetworkBehaviour {
         }
 
         lStickInput = spt_playerControls.leftThumb("Vertical");
-        Debug.Log("mList : " + mListener.aggregateLStickInput);
+
         if (mListener.aggregateLStickInput > 1.5F) {
             if (isServer && bumpers() ) {
                 moveHost(new Vector3(0.0F, 0.0F, 1.0F));

@@ -2,3 +2,7 @@ puzzleCompletion,-1
 correctFuseCombo,-1
 keyFobPressed,30.901
 playerLoss,42.39341
+puzzleCompletion,-1
+correctFuseCombo,-1
+keyFobPressed,-1
+playerLoss,17.49353
