@@ -38,7 +38,8 @@ namespace VRStandardAssets.Examples
 
         protected override void Update()
         {
-            if (!once1 && GameObject.Find("WorldState").GetComponent<spt_WorldState>().playCrashSound)//GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true) {
+            if (!once1 && GameObject.Find("WorldState").GetComponent<spt_WorldState>().playCrashSound)
+            {//GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true) {
                 //Start car crash animation
                 aSource.Play();
                 once1 = true;
@@ -65,7 +66,7 @@ namespace VRStandardAssets.Examples
                 spt_WorldState.worldStateChanged = true;
 
                 //Return fob after pressing
-                //GetComponent<spt_interactiveItemManipulate>().currentState = false;
+                transform.parent.GetComponent<spt_interactiveItemManipulate>().currentState = false;
 
                 //Start car crash animation as crash sound occurs
                 Invoke("carCrash", 9.4f);
