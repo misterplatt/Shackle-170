@@ -14,7 +14,7 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -11625,7 +11625,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 743040758}
   m_LocalRotation: {x: -0.00000011520233, y: 0.70710677, z: -0.7071069, w: -0.00000011520232}
-  m_LocalPosition: {x: -0.027781611, y: 0.64500016, z: 0.67831963}
+  m_LocalPosition: {x: -0.027781611, y: 0.901, z: 0.823}
   m_LocalScale: {x: 0.18826035, y: 0.12197572, z: 0.18826036}
   m_Children: []
   m_Father: {fileID: 773583438}
@@ -12402,8 +12402,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.744946, y: 0.23173904, z: 1.094857}
-  m_Center: {x: -0.009600997, y: 0.8643145, z: 1.1651485}
+  m_Size: {x: 1.744946, y: 0.13012283, z: 1.094857}
+  m_Center: {x: -0.009601047, y: 0.8135012, z: 1.1651348}
 --- !u!33 &773583443
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -26913,7 +26913,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 29421fa53308c4ababe925f8c4737609, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.128
+      value: -0.089
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 29421fa53308c4ababe925f8c4737609, type: 3}
       propertyPath: m_LocalRotation.x
