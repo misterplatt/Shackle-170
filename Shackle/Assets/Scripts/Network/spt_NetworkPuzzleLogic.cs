@@ -68,7 +68,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     public bool loaded = false;
 
     void Start() {
-        if (isLocalPlayer) return;
+        if (!isLocalPlayer) return;
         List<dev_LogicPair> devtool_PuzzleStates = GameObject.Find("PuzzleStates").GetComponent<spt_Events>().devtool_PuzzleStates;
 
         for (int index = 0; index < devtool_PuzzleStates.Count; ++index) {
