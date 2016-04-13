@@ -62,7 +62,7 @@ namespace VRStandardAssets.Examples
                 spt_WorldState.worldStateChanged = true;
 
                 //Return fob after pressing
-                GetComponent<VRStandardAssets.Examples.spt_interactiveItemManipulate>().currentState = false;
+                GetComponent<spt_interactiveItemManipulate>().currentState = false;
 
                 //Start car crash animation as crash sound occurs
                 Invoke("carCrash", 9.4f);
