@@ -10,6 +10,7 @@ Allows for an item to lerp towards the player and allows the player to rotate an
 */
 
 using UnityEngine;
+using System.Collections;
 using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
@@ -22,7 +23,7 @@ namespace VRStandardAssets.Examples
         public float distanceBeforeLerp = .6f; //How far reticle can move from the object before the object lerps to it
         public float distanceBeforeFreeze = .02f; //How close the reticle must be to the object before stopping the lerp
 
-        bool currentState = false;
+        public bool currentState = false;
         bool outOfView = false;
         private Vector3 startPoint;
         private Quaternion startRotation;

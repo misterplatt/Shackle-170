@@ -24,7 +24,7 @@ namespace VRStandardAssets.Examples
         public AudioClip movingSound;
         private AudioSource aSource;
         private bool once;
-
+        public int HaydenIdea = 1;
 
         //Speed at which the object should move
         public float moveSpeed = 1;
@@ -80,9 +80,9 @@ namespace VRStandardAssets.Examples
                     }
                 }
                 //Moves object on appropriate axes
-                if (moveOnLocalX == true) transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime * moveSpeed);
-                if (moveOnLocalY == true) transform.Translate(new Vector3(0, spt_playerControls.leftThumb("Vertical"), 0) * Time.deltaTime * moveSpeed);
-                if (moveOnLocalZ == true) transform.Translate(new Vector3(0, 0, spt_playerControls.leftThumb("Vertical")) * Time.deltaTime * moveSpeed);
+                if (moveOnLocalX == true) transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime * moveSpeed * HaydenIdea);
+                if (moveOnLocalY == true) transform.Translate(new Vector3(0, spt_playerControls.leftThumb("Vertical"), 0) * Time.deltaTime * moveSpeed * HaydenIdea);
+                if (moveOnLocalZ == true) transform.Translate(new Vector3(0, 0, spt_playerControls.leftThumb("Vertical")) * Time.deltaTime * moveSpeed * HaydenIdea);
 
 
                 //Clamps the object on the appropriate axes, using the specified min/max's

@@ -43,6 +43,7 @@ GameObject:
   - 224: {fileID: 22466392}
   - 222: {fileID: 22265124}
   - 114: {fileID: 11445888}
+  - 95: {fileID: 9586084}
   m_Layer: 5
   m_Name: TooltipImage
   m_TagString: Untagged
@@ -549,16 +550,16 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182278}
   m_Enabled: 1
---- !u!95 &9515034
+--- !u!95 &9586084
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155344}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 85ec7aa0734b7594ca483212ad6a737e, type: 3}
-  m_Controller: {fileID: 9100000, guid: b7b6df8aa0a1ebf42ba48a40529e9bb7, type: 2}
+  m_GameObject: {fileID: 104014}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ba62f41c5649f1144b69d89db60fbe34, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1296,7 +1297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   empty: {fileID: 21300000, guid: 88c302bfc0cdab44bb3b036c0b598054, type: 3}
-  bumpers: {fileID: 21300000, guid: eb9daf80ff8aa5d4f96a0005867adfeb, type: 3}
+  bumpers: {fileID: 21300000, guid: 212109f5cb47b0a45913d6fb3a7e07d9, type: 3}
   LS_bumpers: {fileID: 21300000, guid: 848d57ac3d760c7439fa3f55e67cd571, type: 3}
 --- !u!114 &11496344
 MonoBehaviour:

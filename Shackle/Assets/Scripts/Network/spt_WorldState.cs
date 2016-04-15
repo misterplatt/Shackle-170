@@ -14,4 +14,7 @@ using System.Collections;
 
 public class spt_WorldState : NetworkBehaviour {
     public static bool worldStateChanged = false;
+
+    [SyncVar]
+    public bool playCrashSound = false;
 }

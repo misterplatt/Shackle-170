@@ -62,12 +62,13 @@ public struct LogicTuple
 public class SyncListLogicPair : SyncListStruct<LogicTuple> { }
 
 public class spt_NetworkPuzzleLogic : NetworkBehaviour {
-    [SerializeField]
+    [SyncVar]
     public SyncListLogicPair PuzzleStates = new SyncListLogicPair();
     private spt_NetworkPuzzleLogic NPL;
     public bool loaded = false;
-    void Start() {
 
+    void Start() {
+        if (!isServer) return;
         List<dev_LogicPair> devtool_PuzzleStates = GameObject.Find("PuzzleStates").GetComponent<spt_Events>().devtool_PuzzleStates;
 
         for (int index = 0; index < devtool_PuzzleStates.Count; ++index) {
@@ -98,8 +99,20 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
             return;
         }
-        if (Input.GetKeyDown(KeyCode.B)) dbg_logEvents();
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            foreach (GameObject player in players)
+            {
+                foreach (LogicTuple lPair in player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates)
+                {
+                    Debug.Log(player.name + " : PuzzleEvent Name : " + lPair.name + " -> State : " + lPair.state + " Controlled by : " + lPair.itemName);
+                }
+                //player.GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState(name, state, itmName);
+            }
+        }
         //If a state has been changed locally, find out which one and update the state's networked version
+
         if (spt_WorldState.worldStateChanged)
         {
 
@@ -157,7 +170,8 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 if (VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed)
                 {
                     Debug.Log("Updating keyFobPressed on the network to " + VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed);
-                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("keyFobPressed", true, "Key Fob");
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("keyFobPressed", true, "mdl_carKeyfob");
+                    if(isServer) GameObject.Find("WorldState").GetComponent<spt_WorldState>().playCrashSound = true;
                 }
             }
 
@@ -206,7 +220,12 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     public void updatePuzzleState( string name, bool state, string itemName) {
         int tIndex = PuzzleStates.IndexOf(new LogicTuple(name, false, itemName));
         Debug.Log("UPL ServerLocal :  Called with : " + name + " | " + state);
-        if (tIndex < 0) Debug.Log("Error : updatePuzzleState called with nonexistent puzzle event.");
+        if (tIndex < 0)
+        {            
+            Debug.Log("Error : updatePuzzleState called with nonexistent puzzle event : " + name);
+            foreach (LogicTuple lT in PuzzleStates) { Debug.Log(lT.name); }
+
+        }
 
         LogicTuple original_Tuple = PuzzleStates[PuzzleStates.IndexOf(new LogicTuple(name, false, itemName))];
         LogicTuple newTuple = new LogicTuple(original_Tuple.name, state, original_Tuple.itemName, original_Tuple.isMonsterInteractable, Time.time);
@@ -233,6 +252,13 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     [Command]
     public void Cmd_UpdatePuzzleLogic(string name, bool state, string itmName) {
         Debug.Log("UPL Called with : " + name + " | " + state);
-        updatePuzzleState(name, state, itmName);
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+            Debug.Log(player.name + " : " + player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count);
+            player.GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState(name, state, itmName);
+        }
+        //updatePuzzleState(name, state, itmName);
     }
 }
