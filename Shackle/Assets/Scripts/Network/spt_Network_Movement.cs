@@ -61,17 +61,9 @@ public class spt_Network_Movement : NetworkBehaviour {
         }
 
         lStickInput = spt_playerControls.leftThumb("Vertical");
-<<<<<<< HEAD
-        Debug.Log("mList : " + mListener.aggregateLStickInput);
-        if (mListener.aggregateLStickInput > 1.5F)
-        {
-            if (isServer && bumpers())
-            {
-=======
 
         if (mListener.aggregateLStickInput > 1.5F) {
             if (isServer && bumpers() ) {
->>>>>>> JimJam1
                 moveHost(new Vector3(0.0F, 0.0F, 1.0F));
                 animator.SetInteger("animation", 2);
             }
