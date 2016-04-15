@@ -5576,6 +5576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae5588277e0d6545bc0c85a6b79b11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playCrashSound: 0
 --- !u!114 &1185700721
 MonoBehaviour:
   m_ObjectHideFlags: 0
