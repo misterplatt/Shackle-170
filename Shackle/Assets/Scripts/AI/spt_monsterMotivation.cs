@@ -46,8 +46,8 @@ public class spt_monsterMotivation : NetworkBehaviour {
     // A boolean used to track if the monster has warned the players that it is unhappy
     private bool hasGivenWarning;
 
-    private int upperThreshold = 200;
-    private int lowerThreshold = 150;
+    private int upperThreshold = 250;
+    private int lowerThreshold = 200;
 
     // Used to make sure that the monster gives sufficient warning before an attack.
     //  time is the elapsed time of the playthrough (in seconds)

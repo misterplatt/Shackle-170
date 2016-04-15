@@ -46,7 +46,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &421612
 Transform:
   m_ObjectHideFlags: 1
@@ -78,7 +78,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143596}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -104,7 +104,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122222}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -223,6 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2218422c13e8b364394c0e2174dcf596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  METRICS_ENABLED: 1
+  filename: 
 --- !u!114 &11415932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -256,7 +258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 8249588}
   warningSounds:
-  - {fileID: 8300000, guid: cc77e18dc38020545bf23d02d0c4a7b3, type: 3}
+  - {fileID: 0}
+  ambientSounds: []
 --- !u!114 &11455570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -270,7 +273,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: {fileID: 0}
   spawns: []
+  darknessPlane: {fileID: 0}
   angerLevel: 0
+  whichPlayer: 0
+  isAttacking: 0
+  clientRecievedSignal: 0
 --- !u!114 &11474906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -282,6 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1cc0e71d7150674db7070e90a707f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionName: 
+  interactionItemName: 
 --- !u!114 &11476180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -293,6 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0184ce6b03d64c14fba5b2e06aadcdc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pLoss: 0
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -314,6 +324,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  garageScript: {fileID: 0}
+  rangerOutpostScript: {fileID: 0}
+  opticsLabScript: {fileID: 0}
+  currentWaypoint: 0
+  prevWaypoint: 0
 --- !u!114 &11476938
 MonoBehaviour:
   m_ObjectHideFlags: 1
