@@ -22,6 +22,7 @@ public class spt_monsterMovement : NetworkBehaviour {
     private int[][] waypointGraph;
     public spt_createGraphForGarage garageScript;
     public spt_createGraphForRangerOutpost rangerOutpostScript;
+    public spt_createGraphForOpticsLab opticsLabScript;
     private spt_monsterAnimations animationScript;
     private spt_monsterInteraction interactionScript;
 
@@ -43,6 +44,8 @@ public class spt_monsterMovement : NetworkBehaviour {
             waypointGraph = garageScript.getWaypointGraph();
         else if (rangerOutpostScript != null)
             waypointGraph = rangerOutpostScript.getWaypointGraph();
+        else
+            waypointGraph = opticsLabScript.getWaypointGraph();
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = true;
         agent.SetDestination(waypoints[16].position);
