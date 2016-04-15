@@ -81,7 +81,8 @@ public class spt_monsterMotivation : NetworkBehaviour {
         if (!isServer) return;
         if (angerLevel >= lowerThreshold)
             attack();
-        
+
+        Debug.Log("Anger level: " + angerLevel);
 	}
 
     private GameObject getHost()
