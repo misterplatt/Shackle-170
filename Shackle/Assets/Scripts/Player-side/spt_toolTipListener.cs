@@ -15,17 +15,9 @@ using UnityEngine.SceneManagement;
 
 public class spt_toolTipListener : MonoBehaviour {
 
-    public Sprite empty;
-    public Sprite aButton;
-    public Sprite LS_A;
-    public Sprite triggers;
-    public Sprite RS_B;
-    public Sprite xButton;
-    public Sprite RS;
-    public Sprite selectButton;
-
-    private Image currentImage;
+    private Animator animator;
     private Text currentText;
+
     private spt_inventory inventorySpt;
     public GameObject endPoint;
     private bool interactionTipsShown = false;
@@ -43,9 +35,9 @@ public class spt_toolTipListener : MonoBehaviour {
             this.enabled = false;
 			return;
 		}
-        currentImage = GetComponentInChildren<Image>();
+        animator = transform.FindChild("TooltipImage").GetComponent<Animator>();
         currentText = GetComponentInChildren<Text>();
-        StartCoroutine(setToolTip(RS, "Press to Toggle Flashlight", 3f, spt_playerControls.rightThumbstickButtonPressed));
+        StartCoroutine(setToolTip("controls_flashlight", "Press to Toggle Flashlight", 3f, spt_playerControls.rightThumbstickButtonPressed));
         //StartCoroutine(setToolTip(aButton, "To Interact", 13f, spt_playerControls.aButtonPressed));
         inventorySpt = transform.parent.transform.GetComponentInParent<spt_inventory>();
         endPoint = transform.parent.transform.FindChild("InspectPoint").gameObject;
@@ -57,45 +49,45 @@ public class spt_toolTipListener : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.H)) clearToolTip();
 
         if (spt_playerControls.rightThumbstickButtonPressed() && !interactionTipsShown) {
-            StartCoroutine(setToolTip(aButton, "To Interact", 5f, spt_playerControls.aButtonPressed));
+            StartCoroutine(setToolTip("controls_A", "To Interact", 5f, spt_playerControls.aButtonPressed));
             interactionTipsShown = true;
         } 
 
         //Show inventory cycling tooltip once an item is obtained
         if (inventorySpt.inventorySize() > 1 && !inventoryTipsShown) {
-            StartCoroutine(setToolTip(triggers, "To Cycle Inventory", 1f, spt_playerControls.triggerPressed));
+            StartCoroutine(setToolTip("controls_cycle", "To Cycle Inventory", 1f, spt_playerControls.triggerPressed));
             inventoryTipsShown = true;
         }
 
         //Show passing and using tips once cycling has been done
         if (inventoryTipsShown && spt_playerControls.triggerPressed() && !itemTipsShown) {
-            StartCoroutine(setToolTip(aButton, "Hold to Use Items", 4f, spt_playerControls.aButtonPressed));
-            StartCoroutine(setToolTip(xButton, "To Pass Held Item", 8f, spt_playerControls.xButtonPressed));
+            StartCoroutine(setToolTip("controls_A", "Hold to Use Items", 4f, spt_playerControls.aButtonPressed));
+            StartCoroutine(setToolTip("controls_X", "To Pass Held Item", 8f, spt_playerControls.xButtonPressed));
             itemTipsShown = true;
         }
 
         //Show manipulation tooltip once a manipulation item is inspected
         if (endPoint.tag == "manipulation" && !manipulationTipsShown)
         {
-            StartCoroutine(setToolTip(RS_B, "To Rotate, B to Return", 1f, spt_playerControls.bButtonPressed));
+            StartCoroutine(setToolTip("controls_manipulate", "To Rotate, B to Return", 1f, spt_playerControls.bButtonPressed));
             manipulationTipsShown = true;
         }
 
         //Show movement tooltip on bucket interact
         if (GameObject.Find("spr_bucketMovePath").GetComponent<SpriteRenderer>().enabled == true && !movableTipsShown) {
-            StartCoroutine(setToolTip(LS_A, "To Move Some Objects", 0f, spt_playerControls.objectMovementControls));
+            StartCoroutine(setToolTip("controls_movable", "To Move Some Objects", 0f, spt_playerControls.objectMovementControls));
             movableTipsShown = true;
         }
 
         //Show movement tooltip on bucket interact
         if (GameObject.Find("spr_boxMovePath").GetComponent<SpriteRenderer>().enabled == true && !movableTipsShown){
-            StartCoroutine(setToolTip(LS_A, "To Move Some Objects", 0f, spt_playerControls.objectMovementControls));
+            StartCoroutine(setToolTip("controls_movable", "To Move Some Objects", 0f, spt_playerControls.objectMovementControls));
             movableTipsShown = true;
         }
 
         //CURRENTLY NOT FUNCTIONAL: Displays all controls tooltip after all other tooltips have been shown
         if (toolTipsDisplayed >= 7 && !controlsTipsShown) {
-            StartCoroutine(setToolTip(selectButton, "To View All Controls", 10f, spt_playerControls.selectButtonPressed));
+            StartCoroutine(setToolTip("controls_display", "To View All Controls", 10f, spt_playerControls.selectButtonPressed));
             controlsTipsShown = true;
         }
         Debug.Log(toolTipsDisplayed);
@@ -117,13 +109,13 @@ public class spt_toolTipListener : MonoBehaviour {
         } 
     }
 
-    //Function which sets the toolTip image and text after delayTime seconds, then clears after 3 seconds
-    IEnumerator setToolTip(Sprite newSprite, string newText, float delayTime, InputCompletion predicate)
+    //Function which sets the toolTip image and text after delayTime seconds, then clears after input predicate is met
+    IEnumerator setToolTip(string animation, string newText, float delayTime, InputCompletion predicate)
     {
         yield return new WaitForSeconds(delayTime);
 
         //Display desired controller image and text
-        currentImage.sprite = newSprite;
+        animator.Play(animation);
         currentText.text = newText;
         toolTipsDisplayed++;
         StartCoroutine(inputListener(predicate));
@@ -132,7 +124,7 @@ public class spt_toolTipListener : MonoBehaviour {
     //Empties the tool tip display
     public void clearToolTip()
     {
-        currentImage.sprite = empty;
+        animator.Play("none");
         currentText.text = "";
     }
 }

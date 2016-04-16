@@ -13,7 +13,6 @@ namespace VRStandardAssets.Utils
     {
         public event Action OnFadeComplete;                             // This is called when the fade in or out has finished.
 
-
         [SerializeField] private Image m_FadeImage;                     // Reference to the image that covers the screen.
         [SerializeField] private AudioMixerSnapshot m_DefaultSnapshot;  // Settings for the audio mixer to use normally.
         [SerializeField] private AudioMixerSnapshot m_FadedSnapshot;    // Settings for the audio mixer to use when faded out.
@@ -22,21 +21,17 @@ namespace VRStandardAssets.Utils
         [SerializeField] private bool m_FadeInOnSceneLoad = false;      // Whether a fade in should happen as soon as the scene is loaded.
         [SerializeField] private bool m_FadeInOnStart = false;          // Whether a fade in should happen just but Updates start.
 
-        
         private bool m_IsFading;                                        // Whether the screen is currently fading.
         private float m_FadeStartTime;                                  // The time when fading started.
         private Color m_FadeOutColor;                                   // This is a transparent version of the fade colour, it will ensure fading looks normal.
 
-
         public bool IsFading { get { return m_IsFading; } }
-
 
         private void Awake()
         {
             m_FadeOutColor = new Color(m_FadeColor.r, m_FadeColor.g, m_FadeColor.b, 0f);
             m_FadeImage.enabled = true;
         }
-
 
         private void Start()
         {
@@ -46,6 +41,11 @@ namespace VRStandardAssets.Utils
                 m_FadeImage.color = m_FadeColor;
                 FadeIn(true);
             }
+        }
+
+        private void Update() {
+            if (Input.GetKeyDown(KeyCode.Q)) FadeOut(false);
+            if (Input.GetKeyDown(KeyCode.W)) FadeIn(false);
         }
 
 

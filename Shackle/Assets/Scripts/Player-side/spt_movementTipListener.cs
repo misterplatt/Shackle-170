@@ -16,12 +16,9 @@ using UnityEngine.SceneManagement;
 public class spt_movementTipListener : MonoBehaviour
 {
 
-    public Sprite empty;
-    public Sprite bumpers;
-    public Sprite LS_bumpers;
-
-    private Image currentImage;
+    private Animator animator;
     private Text currentText;
+
     private spt_inventory inventorySpt;
     private bool movementTipsShown = false;
 
@@ -33,9 +30,9 @@ public class spt_movementTipListener : MonoBehaviour
             this.enabled = false;
             return;
         }
-        currentImage = GetComponentInChildren<Image>();
+        animator = transform.FindChild("TooltipImage").GetComponent<Animator>();
         currentText = GetComponentInChildren<Text>();
-        StartCoroutine(setToolTip(bumpers, "To Hold Chair", 10f, spt_playerControls.bumpersPressed));
+        StartCoroutine(setToolTip("controls_grip", "To Hold Chair", 10f, spt_playerControls.bumpersPressed));
         inventorySpt = transform.parent.transform.GetComponentInParent<spt_inventory>();
     }
 
@@ -47,7 +44,7 @@ public class spt_movementTipListener : MonoBehaviour
 
         //Displays the movement tooltip after showing the grabbing tooltip
         if (spt_playerControls.bumpersPressed() && !movementTipsShown) {
-            StartCoroutine(setToolTip(LS_bumpers, "In Unison to Move While Holding Chairs", 4f, spt_playerControls.playerMovementControls));
+            StartCoroutine(setToolTip("controls_movechairs", "In Unison to Move While Holding Chairs", 4f, spt_playerControls.playerMovementControls));
             movementTipsShown = true;
         }
     }
@@ -70,13 +67,13 @@ public class spt_movementTipListener : MonoBehaviour
         }
     }
 
-    //Function which sets the toolTip image and text after delayTime seconds, then clears after 3 seconds
-    IEnumerator setToolTip(Sprite newSprite, string newText, float delayTime, InputCompletion predicate)
+    //Function which sets the toolTip image and text after delayTime seconds, then clears after input predicate is met
+    IEnumerator setToolTip(string animation, string newText, float delayTime, InputCompletion predicate)
     {
         yield return new WaitForSeconds(delayTime);
 
         //Display desired controller image and text
-        currentImage.sprite = newSprite;
+        animator.Play(animation);
         currentText.text = newText;
         StartCoroutine(inputListener(predicate));
     }
@@ -89,7 +86,7 @@ public class spt_movementTipListener : MonoBehaviour
     //Empties the tool tip display
     public void clearToolTip()
     {
-        currentImage.sprite = empty;
+        animator.Play("none");
         currentText.text = "";
     }
 }
