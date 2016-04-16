@@ -85,7 +85,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     void Update()
     {
         if (!isLocalPlayer) return;
-
+        if (Input.GetKeyDown(KeyCode.N)) GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("keyFobPressed", true, "mdl_carKeyfob"); 
         spt_monsterMovement mover = GameObject.FindWithTag("monster").GetComponent<spt_monsterMovement>();
         if (mover.pLoss)
         {
@@ -226,10 +226,10 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
             foreach (LogicTuple lT in PuzzleStates) { Debug.Log(lT.name); }
 
         }
-
-        LogicTuple original_Tuple = PuzzleStates[PuzzleStates.IndexOf(new LogicTuple(name, false, itemName))];
+        LogicTuple original_Tuple = PuzzleStates[tIndex];
         LogicTuple newTuple = new LogicTuple(original_Tuple.name, state, original_Tuple.itemName, original_Tuple.isMonsterInteractable, Time.time);
-        PuzzleStates[PuzzleStates.IndexOf(new LogicTuple(name, false, itemName))] = newTuple;
+        PuzzleStates[tIndex] = newTuple;
+        PuzzleStates.Dirty(tIndex);
     }
 
     //step through synclist and grab name and timestamps, save to datadump so we can retrieve metrics later
