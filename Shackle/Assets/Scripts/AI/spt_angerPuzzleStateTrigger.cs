@@ -39,7 +39,7 @@ public class spt_angerPuzzleStateTrigger : MonoBehaviour {
                 }
                 else
                 {
-                    if (network.PuzzleStates[i].state == true)
+                    if (network.PuzzleStates[i].state == true && triggered == false)
                     {
                         triggered = true;
                         angerObject.toggleVisibility();
