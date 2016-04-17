@@ -22,3 +22,15 @@ puzzleCompletion,-1
 correctFuseCombo,-1
 keyFobPressed,-1
 playerLoss,-1
+puzzleCompletion,-1
+correctFuseCombo,22.3928
+keyFobPressed,-1
+playerLoss,33.49126
+puzzleCompletion,-1
+correctFuseCombo,59.493
+keyFobPressed,-1
+playerLoss,69.92487
+puzzleCompletion,-1
+correctFuseCombo,38.23978
+keyFobPressed,-1
+playerLoss,48.86125

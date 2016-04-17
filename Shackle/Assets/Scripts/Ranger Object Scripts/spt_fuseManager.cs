@@ -23,6 +23,9 @@ namespace VRStandardAssets.Examples
         [SerializeField]
         public static bool[] fuseStates;
         public static bool[] correctStates;
+        [SerializeField] public  Material hatchWhiteLight;
+        [SerializeField] public  Material hatchRedLight;
+        [SerializeField] public  Material hatchGreenLight;
 
         public static bool local_correctFuseCombo;
 
@@ -53,9 +56,12 @@ namespace VRStandardAssets.Examples
                 //NPL Update
                 local_correctFuseCombo = true;
                 spt_WorldState.worldStateChanged = true;
-                GameObject.Find("Electronic Slide").transform.Translate(new Vector3(.3f, 0, 0));
-                GameObject.Find("Hatch Light").transform.Translate(Vector3.left * 0.3f);
-                GameObject.Find("Hatch Light").GetComponent<Light>().color = Color.green;
+                //GameObject.Find("Electronic Slide").transform.Translate(new Vector3(.3f, 0, 0));
+                //GameObject.Find("Hatch Light").transform.Translate(Vector3.left * 0.3f);
+                //GameObject.Find("Hatch Light").GetComponent<Light>().color = Color.green;
+                GameObject.Find("mdl_metal").transform.Translate(new Vector3(.3f, 0, 0));
+                GameObject.Find("mdl_light_01").GetComponentInChildren<MeshRenderer>().material = hatchWhiteLight;
+                GameObject.Find("mdl_light_02").GetComponentInChildren<MeshRenderer>().material = hatchGreenLight;
                 Debug.Log("CORRECT SWITCHES ON!$@##@#$");
             }
         }

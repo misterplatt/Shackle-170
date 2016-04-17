@@ -3,10 +3,11 @@ spt_lockManager
 
 Author(s): Hayden Platt
 
-Revision 1
+Revision 2
 
 Stores the currentstate of the switches' states
 in a bool array.
+Changed line 47 to work for the new combo lock model - Dara
 */
 
 using UnityEngine;
@@ -37,11 +38,13 @@ public class spt_lockManager : MonoBehaviour
     //Postcon: channelNumber String array is altered
     public void updateDialStates(int index, int state)
     {
+        Debug.Log("FUCK: " + dialStates[1]);
         dialStates[index] = state;
         if (dialStates.SequenceEqual(correctStates))
         {
             aSource.Play();
-            transform.FindChild("mdl_arch").Translate(Vector3.up * 0.1f);
+            transform.FindChild("mdl_CL_metal").Translate(Vector3.up * 0.1F);
+            //transform.FindChild("mdl_arch").Translate(Vector3.up * 0.1f);
             GameObject.Find("mdl_cabinetDoor").GetComponent<Rigidbody>().useGravity = true; //OLD FUNCTIONALITY: transform.Translate(new Vector3(2, 0, 0));
 
             Invoke("returnLock", .3f);

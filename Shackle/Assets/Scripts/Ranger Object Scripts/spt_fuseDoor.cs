@@ -3,11 +3,12 @@ spt_fuseDoor
 
 Author(s): Hayden Platt, Dara Diba
 
-Revision 2
+Revision 3
 
 Opens the fusebox door if square key is used on
 it for holdTime.
 Added door opening sound - Dara
+Commented out line 34 and added line 35-36 for new model
 */
 
 using UnityEngine;
@@ -30,7 +31,9 @@ namespace VRStandardAssets.Examples
         override protected void holdSuccess()
         {
             aSource.Play();
-            transform.parent.Translate(new Vector3(1.4f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED  
+            //transform.parent.Translate(new Vector3(1.4f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED  
+            transform.Translate(new Vector3(-.2f, 0, 0));
+            transform.Rotate(new Vector3(0, -150, 0));
         }
     }
 }

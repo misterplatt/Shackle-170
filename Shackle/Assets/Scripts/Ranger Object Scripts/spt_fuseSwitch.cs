@@ -37,9 +37,9 @@ namespace VRStandardAssets.Examples
         {
             aSource.Play();
             currentState = !currentState;
+            if (currentState == true) transform.Translate(new Vector3(-.1f,0,0));
+            else if (currentState == false) transform.Translate(new Vector3(.1f, 0, 0));
             fManager.updateFuseStates(switchNumber, currentState);
-            if (currentState == true) transform.Translate(new Vector3(0,0,-.3f));
-            else if (currentState == false) transform.Translate(new Vector3(0, 0, .3f));
         }
 
         //Plug handleDown
