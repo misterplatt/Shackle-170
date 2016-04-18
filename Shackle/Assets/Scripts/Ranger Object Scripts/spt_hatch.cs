@@ -31,7 +31,7 @@ namespace VRStandardAssets.Examples
         override protected void holdSuccess()
         {
             //If the hatch door has been unlocked, open the garage door and set puzzleCompletion to true
-            if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[5].state == true)
+            if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == true)
             {
                 aSource.Play();
                 //NPL Update
