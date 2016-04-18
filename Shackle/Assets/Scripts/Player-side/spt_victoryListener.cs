@@ -40,7 +40,7 @@ public class spt_victoryListener : MonoBehaviour
         }
 
         if (expandLight && winLight.spotAngle < 179) {
-            winLight.spotAngle += 1f;
+            winLight.spotAngle += .25f;
         }
     }
 }
