@@ -65,7 +65,7 @@ public class spt_Network_Movement : NetworkBehaviour {
         if (mListener.aggregateLStickInput > 1.5F) {
             if (isServer && bumpers() ) {
                 moveHost(new Vector3(0.0F, 0.0F, 1.0F));
-                animator.SetInteger("animation", 2);
+                //animator.SetInteger("animation", 2);
             }
         }
         else if (mListener.aggregateLStickInput < -1.5F)
@@ -73,19 +73,19 @@ public class spt_Network_Movement : NetworkBehaviour {
             if (isServer && bumpers())
             {
                 moveHost(new Vector3(0.0F, 0.0F, -1.0F));
-                animator.SetInteger("animation", 1);
+                //animator.SetInteger("animation", 1);
             }
         }
         else
             //animator.SetInteger("animation", 0);
 
         if (!isServer) {
-            if (host.transform.position.z + this.transform.position.z < this.transform.position.z)
+            /*if (host.transform.position.z + this.transform.position.z < this.transform.position.z)
                 animator.SetInteger("animation", 2);
             else if (host.transform.position.z + this.transform.position.z > this.transform.position.z)
                 animator.SetInteger("animation", 1);
             else
-                animator.SetInteger("animation", 0);
+                animator.SetInteger("animation", 0);*/
             Vector3 newTrans = host.transform.position;
             newTrans.z -= playerSeperation;
             this.transform.position = newTrans;
