@@ -60,8 +60,8 @@ namespace VRStandardAssets.Examples
                 //GameObject.Find("Hatch Light").transform.Translate(Vector3.left * 0.3f);
                 //GameObject.Find("Hatch Light").GetComponent<Light>().color = Color.green;
                 GameObject.Find("mdl_metal").transform.Translate(new Vector3(.3f, 0, 0));
-                GameObject.Find("mdl_light_01").GetComponentInChildren<MeshRenderer>().material = hatchWhiteLight;
-                GameObject.Find("mdl_light_02").GetComponentInChildren<MeshRenderer>().material = hatchGreenLight;
+                GameObject.Find("red_hatchLight").GetComponentInChildren<Light>().enabled = false;
+                GameObject.Find("green_hatchLight").GetComponentInChildren<Light>().enabled = true;
                 Debug.Log("CORRECT SWITCHES ON!$@##@#$");
             }
         }

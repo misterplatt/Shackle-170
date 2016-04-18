@@ -18,7 +18,7 @@ namespace VRStandardAssets.Examples
     public class spt_tailLight : spt_baseInteractiveObject
     {
 
-        public Sprite fullDiagram;
+        public Material fullDiagram;
         private AudioSource aSource;
 
         protected override void Start()
@@ -32,7 +32,7 @@ namespace VRStandardAssets.Examples
             aSource.Play();
             GetComponent<MeshRenderer>().enabled = false;
             GetComponent<Light>().range = 10;
-            GameObject.Find("Fuse Diagram").GetComponent<SpriteRenderer>().sprite = fullDiagram;
+            GameObject.Find("tex_fuseDiagram").GetComponent<MeshRenderer>().material = fullDiagram;
             Destroy(GameObject.Find("mdl_jeepLights"));
             holding = false;
         }

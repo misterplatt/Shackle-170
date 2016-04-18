@@ -79,6 +79,7 @@ namespace VRStandardAssets.Examples
                         }
                     }
                 }
+
                 //Moves object on appropriate axes
                 if (moveOnLocalX == true) transform.Translate(new Vector3(spt_playerControls.leftThumb("Horizontal"), 0, 0) * Time.deltaTime * moveSpeed * HaydenIdea);
                 if (moveOnLocalY == true) transform.Translate(new Vector3(0, spt_playerControls.leftThumb("Vertical"), 0) * Time.deltaTime * moveSpeed * HaydenIdea);

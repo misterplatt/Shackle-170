@@ -81,7 +81,7 @@ namespace VRStandardAssets.Examples
             GameObject.Find("mdl_jeep").transform.Translate(new Vector3(0, 0, 5.5f));
             GameObject.Find("Destructible_A_Wall").GetComponent<MeshRenderer>().enabled = false;
             GameObject.Find("Destructible_Side_Wall").GetComponent<MeshRenderer>().enabled = false;
-            GameObject.Find("Fuse Diagram").GetComponent<SpriteRenderer>().enabled = true;
+            GameObject.Find("tex_fuseDiagram").GetComponent<MeshRenderer>().enabled = true;
         }
     }
 }

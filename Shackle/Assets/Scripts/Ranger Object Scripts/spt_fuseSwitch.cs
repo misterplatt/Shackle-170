@@ -45,13 +45,24 @@ namespace VRStandardAssets.Examples
         //Plug handleDown
         override protected void HandleDown() { }
 
-        //Function called by fuseManager when the monster attacks. Randomly sets fuses state, and moves it accordingly
+        //Function called by fuseManager when the monster attacks. Randomly sets fuses state, and moves it accordingly.
+        //Last switch is specially coded so that the monster can't accidentally provide the solution
         public void randomToggle() {
-            currentState = (Random.value > 0.5f);
-            fManager.updateFuseStates(switchNumber, currentState);
-            transform.position = initalPosition; //Resets the position before performing the translation
-            if (currentState == true) transform.Translate(new Vector3(0, 0, -.3f));
-            else if (currentState == false) transform.Translate(new Vector3(0, 0, .3f));
+            if (switchNumber == 0 && currentState != false)
+            {
+                currentState = false;
+                fManager.updateFuseStates(switchNumber, currentState);
+                transform.position = initalPosition; //Resets the position before performing the translation
+                if (currentState == true) transform.Translate(new Vector3(0, 0, -.3f));
+                else if (currentState == false) transform.Translate(new Vector3(0, 0, .3f));
+            }
+            else if (switchNumber != 0) {
+                currentState = (Random.value > 0.5f);
+                fManager.updateFuseStates(switchNumber, currentState);
+                transform.position = initalPosition; //Resets the position before performing the translation
+                if (currentState == true) transform.Translate(new Vector3(0, 0, -.3f));
+                else if (currentState == false) transform.Translate(new Vector3(0, 0, .3f));
+            }
         }
     }
 }
