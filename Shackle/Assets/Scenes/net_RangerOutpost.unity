@@ -4948,7 +4948,7 @@ Transform:
   m_LocalScale: {x: 0.05914196, y: 1.6716629, z: 1.8760612}
   m_Children: []
   m_Father: {fileID: 885048209}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!23 &329461886
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12433,7 +12433,7 @@ Transform:
   m_Children:
   - {fileID: 1011922658}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &756986932
 GameObject:
   m_ObjectHideFlags: 0
@@ -14642,8 +14642,8 @@ Transform:
   - {fileID: 688889296}
   - {fileID: 1829579603}
   - {fileID: 399365363}
-  - {fileID: 2000505066}
   - {fileID: 329461885}
+  - {fileID: 2000505066}
   m_Father: {fileID: 1234757803}
   m_RootOrder: 1
 --- !u!1 &887301985
@@ -21789,7 +21789,7 @@ Transform:
   - {fileID: 950585450}
   - {fileID: 988709791}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1 &1347983690
 GameObject:
   m_ObjectHideFlags: 0
