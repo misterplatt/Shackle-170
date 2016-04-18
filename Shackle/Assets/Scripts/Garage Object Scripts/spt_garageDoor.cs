@@ -31,7 +31,6 @@ namespace VRStandardAssets.Examples
         override protected void Update()
         {
             if (garageFail){
-                Debug.Log("FUCKING FAIL");
                 garageSound.clip = garageLockedSound;
                 garageSound.Play();
                 garageFail = false;
