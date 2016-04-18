@@ -19,6 +19,8 @@ public class spt_victoryListener : MonoBehaviour
         if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[0].state == true || Input.GetKeyDown(KeyCode.Q))
         {
             GetComponent<Text>().enabled = true;
+            GameObject.Find("victory_light").GetComponent<Light>().enabled = true;
+            //GameObject.Find("player_B_light").GetComponent<Light>().enabled = true;
             transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
         }
     }

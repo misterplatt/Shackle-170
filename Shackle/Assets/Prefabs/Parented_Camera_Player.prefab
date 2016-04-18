@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_DefaultSnapshot: {fileID: 24500003, guid: 3c034867c6b5e9c49a6afc51d6679306, type: 2}
   m_FadedSnapshot: {fileID: 24555148, guid: 75a84222fa2bbb54999ba9cd0af4182a, type: 2}
   m_FadeColor: {r: 0, g: 0, b: 0, a: 1}
-  m_FadeDuration: 2
+  m_FadeDuration: 4
   m_FadeInOnSceneLoad: 1
   m_FadeInOnStart: 1
 --- !u!114 &11477610

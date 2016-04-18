@@ -1,5 +1,5 @@
 ﻿/*
-spt_interactiveItemMovableTWO
+spt_interactiveItemMovable
 
 Author(s): Hayden Platt,Dara Diba
 

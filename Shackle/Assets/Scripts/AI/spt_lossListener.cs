@@ -14,6 +14,7 @@ public class spt_lossListener : MonoBehaviour {
 
     int index;
     bool gotIndex = false;
+    bool once = false;
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,11 +33,12 @@ public class spt_lossListener : MonoBehaviour {
         // If the playerLoss event has been found in the Puzzle States, look at it. If it is ever flipped to true, trigger the UI to display loss screen.
         if (gotIndex)
         {
-            if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].state == true)
+            if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].state == true && !once)
             {
                 GetComponent<Text>().text = "You lose";
                 GetComponent<Text>().enabled = true;
                 transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
+                once = true;
             }
         }
 	}

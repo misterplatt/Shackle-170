@@ -30,13 +30,17 @@ namespace VRStandardAssets.Examples
         //Handle the Down event, modified so that the reticle doesn't need to stay over object to interact
         override protected void holdSuccess()
         {
-            aSource.Play();
-            //NPL Update
-            local_puzzleCompletion = true;
-            spt_WorldState.worldStateChanged = true;
+            //If the hatch door has been unlocked, open the garage door and set puzzleCompletion to true
+            if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[5].state == true)
+            {
+                aSource.Play();
+                //NPL Update
+                local_puzzleCompletion = true;
+                spt_WorldState.worldStateChanged = true;
 
-            transform.Translate(new Vector3(0, .38f, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
-            transform.eulerAngles = new Vector3(-30, 0, 0);
+                transform.Translate(new Vector3(0, .38f, 0));
+                transform.eulerAngles = new Vector3(-30, 0, 0);
+            }
         }
     }
 }
