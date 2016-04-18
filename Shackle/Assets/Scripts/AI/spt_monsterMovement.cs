@@ -35,6 +35,8 @@ public class spt_monsterMovement : NetworkBehaviour {
 
     private bool startedAttackAnimation = false;
 
+    public bool fuseBoxActivation = false;
+
     // Use this for initialization
 	void Start () {
         if (!isServer) return;
@@ -54,6 +56,9 @@ public class spt_monsterMovement : NetworkBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+        networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
+        networkScript.updatePuzzleState("correctFuseCombo", fuseBoxActivation, "Fuse Box");
 
         if (!isServer) return;
         // Chooses a new destination if the monster is within a certain distance of its current one.
