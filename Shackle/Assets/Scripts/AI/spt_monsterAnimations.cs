@@ -41,7 +41,7 @@ public class spt_monsterAnimations : NetworkBehaviour {
         if ( renderer != null)
             renderer.enabled = render;
         SkinnedMeshRenderer[] renderers = this.GetComponentsInChildren<SkinnedMeshRenderer>();
-        for (int i = 0; i <= renderers.Length; i++)
+        for (int i = 0; i < renderers.Length; i++)
             renderers[i].enabled = render;
     }
 

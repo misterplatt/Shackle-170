@@ -23285,7 +23285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   devtool_PuzzleStates:
   - eventName: puzzleCompletion
-    item: {fileID: 0}
+    item: {fileID: 100002, guid: f20d19a1f71a344be9ee0c0585bd16f4, type: 3}
     isMonstInteractable: 0
   - eventName: correctFuseCombo
     item: {fileID: 1980709433}

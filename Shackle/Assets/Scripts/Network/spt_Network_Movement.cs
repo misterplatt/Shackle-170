@@ -77,7 +77,7 @@ public class spt_Network_Movement : NetworkBehaviour {
             }
         }
         else
-            animator.SetInteger("animation", 0);
+            //animator.SetInteger("animation", 0);
 
         if (!isServer) {
             if (host.transform.position.z + this.transform.position.z < this.transform.position.z)
