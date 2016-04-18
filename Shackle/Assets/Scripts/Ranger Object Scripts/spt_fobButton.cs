@@ -38,7 +38,7 @@ namespace VRStandardAssets.Examples
 
         protected override void Update()
         {
-            if (!once1 && GameObject.Find("WorldState").GetComponent<spt_WorldState>().playCrashSound)
+            if (!once1 && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true)
             {//GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true) {
                 //Start car crash animation
                 aSource.Play();
