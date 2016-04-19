@@ -14,7 +14,7 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -3114,7 +3114,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 36.5, y: 36.6, z: 18.926216}
+  m_Size: {x: 40, y: 40, z: 18.926216}
   m_Center: {x: -0.03970948, y: 0.32936016, z: 119.009575}
 --- !u!82 &641633988
 AudioSource:
@@ -4630,8 +4630,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.046326596, y: 0.04472585, z: 0.33041176}
-  m_Center: {x: 0.0041243886, y: 0.008662392, z: -0.00442285}
+  m_Size: {x: 0.079286724, y: 0.04472585, z: 0.33041176}
+  m_Center: {x: 0.007140172, y: 0.008662392, z: -0.0044228253}
 --- !u!82 &1091687883
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5583,7 +5583,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 36.5, y: 36.6, z: 19.252628}
+  m_Size: {x: 40, y: 40, z: 19.252628}
   m_Center: {x: -0.035805833, y: 0.3279079, z: 118.12994}
 --- !u!82 &1248719387
 AudioSource:
@@ -5696,6 +5696,7 @@ GameObject:
   - 4: {fileID: 1254161677}
   - 33: {fileID: 1254161679}
   - 23: {fileID: 1254161678}
+  - 65: {fileID: 1254161680}
   m_Layer: 0
   m_Name: front_windw
   m_TagString: Untagged
@@ -5750,6 +5751,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1254161676}
   m_Mesh: {fileID: 4300024, guid: 223727093de08e741a3a161a72b6bbf0, type: 3}
+--- !u!65 &1254161680
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1254161676}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9999995, y: 79.63204, z: 0.53101134}
+  m_Center: {x: 0.00000047607276, y: -73.55137, z: 0.9985786}
 --- !u!1 &1285883622
 GameObject:
   m_ObjectHideFlags: 0
@@ -7047,7 +7060,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 36.5, y: 36.6, z: 16.745901}
+  m_Size: {x: 40, y: 40, z: 16.745901}
   m_Center: {x: -0.028872414, y: 0.3225524, z: 117.5947}
 --- !u!82 &1490762839
 AudioSource:
@@ -8921,7 +8934,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 36.5, y: 36.6, z: 18.720304}
+  m_Size: {x: 40, y: 40, z: 18.720304}
   m_Center: {x: -0.039228093, y: 0.32722676, z: 119.93068}
 --- !u!82 &1912383209
 AudioSource:
@@ -10346,8 +10359,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2064037535}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
-  m_LocalPosition: {x: 4.97, y: 1.21, z: -4.905}
-  m_LocalScale: {x: 4.609068, y: 0.13070418, z: 14.55276}
+  m_LocalPosition: {x: 4.97, y: 1.195, z: -4.905}
+  m_LocalScale: {x: 4.63809, y: 0.13070418, z: 14.55276}
   m_Children: []
   m_Father: {fileID: 1083708030}
   m_RootOrder: 3
