@@ -14,7 +14,7 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -29427,6 +29427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angerNum: 10
   isFlashlight: 0
+  isDurationObject: 0
 --- !u!82 &1980709443
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29720,6 +29721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angerNum: 5
   isFlashlight: 0
+  isDurationObject: 0
 --- !u!114 &1987510804
 MonoBehaviour:
   m_ObjectHideFlags: 0

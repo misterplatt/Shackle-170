@@ -33,6 +33,9 @@ public class spt_angerObject : MonoBehaviour {
     // Is this action a flashlight-tracker?
     public bool isFlashlight;
 
+    // Does the object have a duration-orientated action associated with it?
+    public bool isDurationObject = false;
+
     private bool checkingToggles = false;
     private int numToggles = 0;
     
@@ -41,6 +44,8 @@ public class spt_angerObject : MonoBehaviour {
 
         if (isFlashlight)
             data = new spt_flashlightClass(angerNum);
+        else if (isDurationObject)
+            data = new spt_durationAngerClass(angerNum);
         else
             data = new spt_baseAngerClass(angerNum);
 
