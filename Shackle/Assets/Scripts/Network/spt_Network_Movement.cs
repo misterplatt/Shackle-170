@@ -23,13 +23,16 @@ public class spt_Network_Movement : NetworkBehaviour {
     enum movement {NONE, HOST, CLIENT};
 
     public Animator animator;
+    public GameObject pModel;
 
     void Start()
     {
         mListener = GameObject.Find("WorldState").GetComponent<spt_Network_MovementListener>();
         lStickInput = 0.0F;
 
+        //if this is the host player, assign it the gameobject
         if (isServer) host = this.gameObject;
+        //otherwise find the host player and set the reference so we can get it's position.
         else {
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
             foreach ( GameObject player in players) {
@@ -39,12 +42,36 @@ public class spt_Network_Movement : NetworkBehaviour {
                 }
             }
         }
+
+        linkModelPrefab();
     }
 
+    //linkModelPrefab find's the proper player model and uses it to collect the animator.
+    void linkModelPrefab() {
+        GameObject[] playerModels = GameObject.FindGameObjectsWithTag("pModel");
+        GameObject closest = playerModels[0];
+        float minDist = Vector3.Distance(this.transform.position, playerModels[0].transform.position);
+
+        //find the closest playermodel and assign it's reference to out instance var
+        for (int index = 1; index < playerModels.Length; ++index) {
+            float thisDist = Vector3.Distance(this.transform.position, playerModels[index].transform.position);
+            if (thisDist < minDist) {
+                minDist = thisDist;
+                closest = playerModels[index];
+            }
+
+        }
+
+        pModel = closest;
+        animator = pModel.GetComponent<Animator>();
+    }
+
+    //returns true if both bumpers are pressed, else false.
     bool bumpers()
     {
         return (spt_playerControls.rightBumperPressed() && spt_playerControls.leftBumperPressed());
     }
+
 	// Update is called once per frame
 	void Update () {
         if (!isLocalPlayer) return;
@@ -60,32 +87,47 @@ public class spt_Network_Movement : NetworkBehaviour {
             return;
         }
 
+        //get left thumb stick input.
         lStickInput = spt_playerControls.leftThumb("Vertical");
+        /* DEBUG Movement Check
+        if (Input.GetKey(KeyCode.F10)) {
+            Debug.Log("Test");
+            lStickInput = 2.0F;
+        }
+        */
 
+        Debug.Log(mListener.aggregateLStickInput);
+        //if the left thumb stick input is greater than threshold...
         if (mListener.aggregateLStickInput > 1.5F) {
+            //if it's the server, just move it since we own the object. Client won't do anything
             if (isServer && bumpers() ) {
                 moveHost(new Vector3(0.0F, 0.0F, 1.0F));
-                //animator.SetInteger("animation", 2);
+                animator.SetInteger("animation", 2);
             }
         }
+        //if its greater than the negative threshold, move in opposite direction
         else if (mListener.aggregateLStickInput < -1.5F)
         {
             if (isServer && bumpers())
             {
                 moveHost(new Vector3(0.0F, 0.0F, -1.0F));
-                //animator.SetInteger("animation", 1);
+                animator.SetInteger("animation", 1);
             }
         }
         else
-            //animator.SetInteger("animation", 0);
+            //otherwise ensure animator in rest state
+            animator.SetInteger("animation", 0);
 
+        //if this isn't the server...
         if (!isServer) {
-            /*if (host.transform.position.z + this.transform.position.z < this.transform.position.z)
+            if (host.transform.position.z + this.transform.position.z < this.transform.position.z)
                 animator.SetInteger("animation", 2);
             else if (host.transform.position.z + this.transform.position.z > this.transform.position.z)
                 animator.SetInteger("animation", 1);
             else
-                animator.SetInteger("animation", 0);*/
+                animator.SetInteger("animation", 0);
+
+            //move my transform such that it always syncs with hosts movement.
             Vector3 newTrans = host.transform.position;
             newTrans.z -= playerSeperation;
             this.transform.position = newTrans;
