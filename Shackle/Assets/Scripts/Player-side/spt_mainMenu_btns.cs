@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿/* spt_mainMenu_btns.cs
+ * 
+ * Created by: Ryan Connors
+ * 
+ * Last Revision Date: 2/25/2016
+ * 
+ * This script reassigns main menu button functions.
+ */
+
+using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using System.Collections;

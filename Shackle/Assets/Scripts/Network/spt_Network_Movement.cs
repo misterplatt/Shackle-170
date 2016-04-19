@@ -1,4 +1,14 @@
-﻿using UnityEngine;
+﻿/* spt_Network_Movement.cs
+ * 
+ * Created by: Ryan Connors
+ * 
+ * Last Revision Date: 2/25/2016
+ * 
+ * This file Allow for network based movement.
+ */
+
+
+using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
 

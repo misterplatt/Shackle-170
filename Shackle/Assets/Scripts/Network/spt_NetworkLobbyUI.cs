@@ -16,6 +16,7 @@ using System.Collections;
 public class spt_NetworkLobbyUI : MonoBehaviour {
 
     public NetworkManager manager;
+    private string gameSelection;
 
     void Awake() {
         manager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
