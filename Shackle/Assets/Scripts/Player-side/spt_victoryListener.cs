@@ -17,11 +17,12 @@ public class spt_victoryListener : MonoBehaviour
 {
     private bool once = false;
     private bool expandLight = false;
-
+    private AudioSource transitionA;
     private Light winLight;
 
     void Start()
     {
+        transitionA = GameObject.Find("victory_light").GetComponent<AudioSource>();
         winLight = GameObject.Find("victory_light").GetComponent<Light>();
     }
 
@@ -37,6 +38,7 @@ public class spt_victoryListener : MonoBehaviour
             //GameObject.Find("player_B_light").GetComponent<Light>().enabled = true;
             transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
             once = true;
+            transitionA.Play();
         }
 
         if (expandLight && winLight.spotAngle < 179) {
