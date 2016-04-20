@@ -39,10 +39,22 @@ public class spt_victoryListener : MonoBehaviour
             transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
             once = true;
             transitionA.Play();
+            StartCoroutine(transitionRumbleShit());
         }
 
         if (expandLight && winLight.spotAngle < 179) {
             winLight.spotAngle += .25f;
         }
+    }
+
+    // Calls the controller to rumble based off the transition sounds
+    IEnumerator transitionRumbleShit()
+    {
+        yield return new WaitForSeconds(5.8f);
+        spt_playerControls.controllerVibration("Both", 1.0f, 4f);
+        yield return new WaitForSeconds(1.5f);
+        spt_playerControls.controllerVibration("Both", 1.0f, 8f);
+        yield return new WaitForSeconds(2f);
+        spt_playerControls.controllerVibration("Both", 1.0f, 5f);
     }
 }

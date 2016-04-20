@@ -201,13 +201,18 @@ public class spt_playerControls : MonoBehaviour
     // Vibrates the controller with a given force, specific vibration motor and for a selected amount of time
     public static void controllerVibration(string motor, float force, float vibrateTime)
     {
-        timer += Time.deltaTime;
-        if (timer <= vibrateTime)
+        while (timer <= vibrateTime)
         {
+            Debug.Log("DICK: " + timer);
             if (motor == "Rough") GamePad.SetVibration(playerIndex, force, 0);
             if (motor == "Smooth") GamePad.SetVibration(playerIndex, 0, force);
             if (motor == "Both") GamePad.SetVibration(playerIndex, force, force);
+            timer += Time.deltaTime;
         }
-        else if (timer > vibrateTime) GamePad.SetVibration(playerIndex, 0, 0);
+        if (timer > vibrateTime)
+        {
+            GamePad.SetVibration(playerIndex, 0, 0);
+            timer = 0;
+        }
     }
 }
