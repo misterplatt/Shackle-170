@@ -37,7 +37,7 @@ public class spt_lossListener : MonoBehaviour {
             {
                 GetComponent<Text>().text = "You lose";
                 GetComponent<Text>().enabled = true;
-                transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
+                //transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
                 once = true;
             }
         }
