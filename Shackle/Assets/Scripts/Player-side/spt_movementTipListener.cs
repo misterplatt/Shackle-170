@@ -19,7 +19,6 @@ public class spt_movementTipListener : MonoBehaviour
     private Animator animator;
     private Text currentText;
 
-    private spt_inventory inventorySpt;
     private bool movementTipsShown = false;
 
     // Use this for initialization
@@ -33,7 +32,6 @@ public class spt_movementTipListener : MonoBehaviour
         animator = transform.FindChild("TooltipImage").GetComponent<Animator>();
         currentText = GetComponentInChildren<Text>();
         StartCoroutine(setToolTip("controls_grip", "To Hold Chair", 10f, spt_playerControls.bumpersPressed));
-        inventorySpt = transform.parent.transform.GetComponentInParent<spt_inventory>();
     }
 
     // Update is called once per frame

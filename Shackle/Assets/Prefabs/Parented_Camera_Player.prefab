@@ -914,12 +914,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lStickInput: 0
+  hostAnimator_var: 0
+  clientAnimator_var: 0
   lastCli_lStick: 0
   mListener: {fileID: 0}
   host: {fileID: 0}
   toggleStick: 0
   revStick: 0
   animator: {fileID: 0}
+  pModel: {fileID: 0}
 --- !u!114 &11442908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1204,6 +1207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angerNum: 10
   isFlashlight: 1
+  isDurationObject: 0
 --- !u!114 &11486372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1215,6 +1219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26bf22bf539f3e74fac05053632986bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controls_noMove: {fileID: 21300000, guid: e7b6dc1c02c01b045bea400091293e59, type: 3}
 --- !u!114 &11486698
 MonoBehaviour:
   m_ObjectHideFlags: 1
