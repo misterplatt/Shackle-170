@@ -3980,6 +3980,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &306281865 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 173118, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
+  m_PrefabInternal: {fileID: 306281864}
 --- !u!1 &308122811
 GameObject:
   m_ObjectHideFlags: 0
@@ -23272,7 +23276,7 @@ MonoBehaviour:
     item: {fileID: 100002, guid: f20d19a1f71a344be9ee0c0585bd16f4, type: 3}
     isMonstInteractable: 0
   - eventName: correctFuseCombo
-    item: {fileID: 1980709433}
+    item: {fileID: 306281865}
     isMonstInteractable: 1
   - eventName: keyFobPressed
     item: {fileID: 100000, guid: e5881a513e9b94d09b234e1394b34645, type: 3}
@@ -29371,7 +29375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1980709434
 Transform:
   m_ObjectHideFlags: 0
