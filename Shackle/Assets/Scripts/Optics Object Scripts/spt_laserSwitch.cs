@@ -1,9 +1,9 @@
 ﻿/*
 spt_laserSwitch
 
-Author(s): Hayden Platt, Dara Diba
+Author(s): Hayden Platt, Dara Diba, Lauren
 
-Revision 1
+Revision 2
 
 Child of the base interactiveObject class
 Allows for an item to be switched from a false state to a true state and vice-versa.
@@ -97,12 +97,15 @@ namespace VRStandardAssets.Examples
             if (currentState == true)
             {
                 laser.enabled = true;
+                if (gameObject.name == "LaserSwitch") GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("isLaserOn", true, "LaserSwitch");
+
             }
             else if (currentState == false)
             {
                 
                 laser.enabled = false;
                 once = false;
+                if (gameObject.name == "LaserSwitch") GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("isLaserOn", false, "LaserSwitch");
             }
         }
 

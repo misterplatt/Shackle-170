@@ -8037,6 +8037,18 @@ MonoBehaviour:
   - eventName: playerLoss
     item: {fileID: 474894866}
     isMonstInteractable: 0
+  - eventName: isLaserOn
+    item: {fileID: 1200406288}
+    isMonstInteractable: 1
+  - eventName: mirror0
+    item: {fileID: 1299910940}
+    isMonstInteractable: 1
+  - eventName: mirror1
+    item: {fileID: 1326799992}
+    isMonstInteractable: 1
+  - eventName: mirror2
+    item: {fileID: 1870760827}
+    isMonstInteractable: 1
 --- !u!4 &1515300599
 Transform:
   m_ObjectHideFlags: 0

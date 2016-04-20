@@ -1421,22 +1421,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 182
-    i1: 215
-    i2: 190
-    i3: 140
-    i4: 219
-    i5: 79
-    i6: 137
-    i7: 164
-    i8: 123
-    i9: 47
-    i10: 206
-    i11: 107
-    i12: 244
-    i13: 223
-    i14: 223
-    i15: 3
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!114 &98241442
@@ -23280,6 +23280,12 @@ MonoBehaviour:
   - eventName: playerLoss
     item: {fileID: 504406679}
     isMonstInteractable: 0
+  - eventName: carCrash
+    item: {fileID: 1962586972}
+    isMonstInteractable: 0
+  - eventName: deskDrawerOpen
+    item: {fileID: 2014594127}
+    isMonstInteractable: 1
 --- !u!4 &1515300599
 Transform:
   m_ObjectHideFlags: 0
@@ -29047,6 +29053,21 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 445026, guid: 2f489f914dbeacb41800f4e97a758c98, type: 2}
   m_PrefabInternal: {fileID: 1962586970}
+--- !u!1 &1962586972 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 165694, guid: 2f489f914dbeacb41800f4e97a758c98, type: 2}
+  m_PrefabInternal: {fileID: 1962586970}
+--- !u!114 &1962586973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1962586972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5ae737c6685ca6498eaf7fd53a92554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1963808774
 GameObject:
   m_ObjectHideFlags: 0
@@ -29672,8 +29693,6 @@ GameObject:
   - 114: {fileID: 1987510793}
   - 114: {fileID: 1987510802}
   - 114: {fileID: 1987510805}
-  - 114: {fileID: 1987510804}
-  - 114: {fileID: 1987510803}
   - 65: {fileID: 1987510806}
   m_Layer: 0
   m_Name: mdl_carKeyfob
@@ -29783,31 +29802,6 @@ MonoBehaviour:
   distanceBeforeFreeze: 0.02
   currentState: 0
   endPoint: {fileID: 0}
---- !u!114 &1987510803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1987510792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b227d207cde764c89a9a5ff05de2a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angerNum: 5
-  isFlashlight: 0
-  isDurationObject: 0
---- !u!114 &1987510804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1987510792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45be8f06f0896bf40b2d881c1aff5527, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1987510805
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,13 +1,14 @@
 ﻿/*
 spt_fobButton
 
-Author(s): Hayden Platt, Dara Diba
+Author(s): Hayden Platt, Dara Diba, Lauren
 
-Revision 2
+Revision 3
 
 Simple script for the button on the key fob.
 On press, triggers SUV crash animation
 Audio for crash now implemented
+Implemented puzzle state change for car crash.
 */
 
 using UnityEngine;
@@ -82,6 +83,7 @@ namespace VRStandardAssets.Examples
             GameObject.Find("Destructible_A_Wall").GetComponent<MeshRenderer>().enabled = false;
             GameObject.Find("Destructible_Side_Wall").GetComponent<MeshRenderer>().enabled = false;
             GameObject.Find("tex_fuseDiagram").GetComponent<MeshRenderer>().enabled = true;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("carCrash", true, "mdl_jeep");
         }
     }
 }

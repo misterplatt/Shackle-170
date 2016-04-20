@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 4/3/2016
+ * Last Revision Date: 4/19/2016
  * 
  * This file is the one that ultimately governs the monster's motivation. **/
 
@@ -45,9 +45,10 @@ public class spt_monsterMotivation : NetworkBehaviour {
 
     // A boolean used to track if the monster has warned the players that it is unhappy
     private bool hasGivenWarning;
+    private int angerAtWarning;
 
-    private int upperThreshold = 250;
-    private int lowerThreshold = 200;
+    public int upperThreshold = 250;
+    public int lowerThreshold = 200;
 
     // Used to make sure that the monster gives sufficient warning before an attack.
     //  time is the elapsed time of the playthrough (in seconds)
@@ -152,6 +153,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
             if (hasGivenWarning == false){
                 // Play warning noise.
                 hasGivenWarning = true;
+                angerAtWarning = angerLevel;
                 timeOfWarning = time;
                 audioScript = GetComponent<spt_monsterAudio>();
                 audioScript.prepWarningNoise();
@@ -213,6 +215,15 @@ public class spt_monsterMotivation : NetworkBehaviour {
             hostThreat = hostThreat - 1;
         if (clientThreat > 0)
             clientThreat = clientThreat - 1;
+        if (hasGivenWarning && angerLevel == angerAtWarning)
+        {
+            angerLevel = angerLevel - 3;
+            if (hostThreat >= 3)
+                hostThreat = hostThreat - 3;
+            if (clientThreat >= 3)
+                clientThreat = clientThreat - 3;
+            angerAtWarning = angerLevel;
+        }
 
         // Update the elapsed playthrough time
         time = time + 1;

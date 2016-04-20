@@ -1,9 +1,9 @@
 ﻿/*
 spt_mirrorStand
 
-Author(s): Hayden Platt, Dara Diba
+Author(s): Hayden Platt, Dara Diba, Lauren Cunningham
 
-Revision 1
+Revision 2
 
 Mirror stand script. When a mirror is used on it, it's attached
 to the top of the stand, and made a child object. The mirror can be
@@ -29,6 +29,15 @@ namespace VRStandardAssets.Examples
                 mirrorObj.transform.parent = transform.FindChild("Mirror Handle");
                 mirrorObj.transform.eulerAngles = new Vector3(270, 0, transform.eulerAngles.y);
                 holding = false;
+                
+                spt_NetworkPuzzleLogic network = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
+                for (int i = 0; i < network.PuzzleStates.Count; ++i)
+                {
+                    if (network.PuzzleStates[i].itemName == gameObject.name && network.PuzzleStates[i].isMonsterInteractable)
+                    {
+                        network.updatePuzzleState(network.PuzzleStates[i].name, true, gameObject.name);
+                    }
+                }
 			}
         }
 

@@ -1,35 +1,35 @@
-﻿/* spt_angerPuzzleStateTrigger.cs
+﻿/* spt_carCrashTrigger.cs
  * 
  * Created by: Lauren Cunningham
  * 
  * Last Revision Date: 4/19/2016
  * 
- * This script is attached to objects that make the monster angry.
- * When it detects that the associated puzzle state has changed, it makes the needed calls to update the monster's anger accordingly.
+ * This script is a specialized version of an spt_angerPuzzleStateTrigger.
+ * When the ranger outpost's car crash occurs, it pushes the monster to its lower anger threshold.
  **/
 
 using UnityEngine;
-using System;
+using System.Collections;
 
-public class spt_angerPuzzleStateTrigger : MonoBehaviour {
+public class spt_carCrashTrigger : MonoBehaviour {
 
     private spt_NetworkPuzzleLogic network;
+    private spt_monsterMotivation monster;
     private bool indexInitialized = false;
     private int i;
     private bool triggered = false;
-
-    private spt_angerObject angerObject;
     
     // Use this for initialization
 	void Start () {
-        angerObject = gameObject.GetComponent<spt_angerObject>();
+	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (network == null)
+        if (network == null || monster == null)
         {
             network = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
+            monster = GameObject.FindObjectOfType<spt_monsterMotivation>();
         }
         else
         {
@@ -52,7 +52,7 @@ public class spt_angerPuzzleStateTrigger : MonoBehaviour {
                     if (network.PuzzleStates[i].state == true && triggered == false)
                     {
                         triggered = true;
-                        angerObject.toggleVisibility();
+                        monster.updateAnger(monster.lowerThreshold - monster.angerLevel, gameObject.transform);
                     }
                 }
             }
