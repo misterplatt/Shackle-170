@@ -16,6 +16,9 @@ public class spt_Network_Movement : NetworkBehaviour {
 
     [SyncVar]
     public float lStickInput;
+    [SyncVar]
+    public int hostAnimator_var;
+    public int clientAnimator_var;
 
     public const float THRESHOLD = 0.10f;
     public const  float MOVE_THRESHOLD = 1.5F;
@@ -54,6 +57,8 @@ public class spt_Network_Movement : NetworkBehaviour {
         }
 
         linkModelPrefab();
+        hostAnimator_var = 0;
+        clientAnimator_var = 0;
     }
 
     //linkModelPrefab find's the proper player model and uses it to collect the animator.
@@ -85,8 +90,6 @@ public class spt_Network_Movement : NetworkBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (!isLocalPlayer) return;
-       
-        
 
         //if this player is not server, have it update the current thumbstick input to the server
         if (!isServer && (Mathf.Abs(spt_playerControls.leftThumb("Vertical") - lastCli_lStick) >= THRESHOLD))
@@ -100,42 +103,42 @@ public class spt_Network_Movement : NetworkBehaviour {
         //get left thumb stick input.
         lStickInput = spt_playerControls.leftThumb("Vertical");
         /* DEBUG Movement Check
+        
         if (Input.GetKey(KeyCode.F10)) {
-            Debug.Log("Test");
             lStickInput = 2.0F;
         }
+        
         */
 
         Debug.Log(mListener.aggregateLStickInput);
         //if the left thumb stick input is greater than threshold...
         if (mListener.aggregateLStickInput > 1.5F) {
             //if it's the server, just move it since we own the object. Client won't do anything
-            if (isServer && bumpers() ) {
+            if (isServer && bumpers()) {
                 moveHost(new Vector3(0.0F, 0.0F, 1.0F));
                 animator.SetInteger("animation", 2);
+                hostAnimator_var = 2;
             }
         }
         //if its greater than the negative threshold, move in opposite direction
-        else if (mListener.aggregateLStickInput < -1.5F)
-        {
-            if (isServer && bumpers())
-            {
+        else if (mListener.aggregateLStickInput < -1.5F) {
+            if (isServer && bumpers()) {
                 moveHost(new Vector3(0.0F, 0.0F, -1.0F));
                 animator.SetInteger("animation", 1);
+                hostAnimator_var = 1;
             }
         }
-        else
+        else {
             //otherwise ensure animator in rest state
             animator.SetInteger("animation", 0);
+            hostAnimator_var = 0;
+        }
 
         //if this isn't the server...
         if (!isServer) {
-            if (host.transform.position.z + this.transform.position.z < this.transform.position.z)
-                animator.SetInteger("animation", 2);
-            else if (host.transform.position.z + this.transform.position.z > this.transform.position.z)
-                animator.SetInteger("animation", 1);
-            else
-                animator.SetInteger("animation", 0);
+            //first update clientAnimator_Var
+            clientAnimator_var = host.GetComponent<spt_Network_Movement>().hostAnimator_var;
+            animator.SetInteger("animation", clientAnimator_var);
 
             //move my transform such that it always syncs with hosts movement.
             Vector3 newTrans = host.transform.position;
