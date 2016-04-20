@@ -85,7 +85,6 @@ public class spt_monsterInteraction : MonoBehaviour {
                     {
 
                         // If the monster is within interaction range...
-                        try {
                             if (Vector3.Distance(GameObject.Find(network.PuzzleStates[indecies[i]].itemName).transform.position, gameObject.transform.position) < 2 && checkIfInteractableYet(network.PuzzleStates[indecies[i]].itemName))
                             {
 
@@ -100,11 +99,6 @@ public class spt_monsterInteraction : MonoBehaviour {
                                     //interactWithObject(network.PuzzleStates[indecies[i]].name, network.PuzzleStates[indecies[i]].itemName);
                                 }
                             }
-                        }
-                        catch
-                        {
-                            Debug.LogWarning("Attempted to interact with puzzle state: " + indecies[i]);
-                        }
                     }
                 }
             }
