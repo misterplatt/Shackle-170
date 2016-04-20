@@ -57,7 +57,7 @@ public class spt_monsterMovement : NetworkBehaviour {
 
         if (!isServer) return;
         // Chooses a new destination if the monster is within a certain distance of its current one.
-        if (agent.remainingDistance <= 3 && currentWaypoint != 999 && currentWaypoint != 888){
+        if (agent.remainingDistance <= 2 && currentWaypoint != 999 && currentWaypoint != 888){
             chooseDestination();
         }
         if (agent.remainingDistance <= 2 && currentWaypoint == 999 && currentWaypoint != 888){

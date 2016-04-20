@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 4/19/2016
+ * Last Revision Date: 4/20/2016
  * 
  * This file is the one that ultimately governs the monster's motivation. **/
 
@@ -55,6 +55,8 @@ public class spt_monsterMotivation : NetworkBehaviour {
     //  timeOfWarning is recorded time of a warning, with -1 denoting that the players are not in danger yet
     private int time = 0;
     private int timeOfWarning = -1;
+
+    public bool angerUpdateDisabled = false;
 
     // Use this for initialization
 	void Start () {
@@ -160,7 +162,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
             }
 
             // If the players have already been warned, and there was a 8 second interval between the initial warning and an attack
-            else if ((hasGivenWarning==true) && (timeOfWarning!= -1) && (time-timeOfWarning>8)){
+            else if ((hasGivenWarning==true) && (timeOfWarning!= -1) && (time-timeOfWarning>8) && (angerLevel > lowerThreshold)){
                 //populate network fields
                 //whichPlayer = Random.Range(0, spawns.Length);
 
@@ -189,7 +191,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
     // Increases the anger by an integer amount.
     public void updateAnger(int i, Transform pos)
     {
-        if (!isServer) return;
+        if (!isServer || !angerUpdateDisabled) return;
         angerLevel = angerLevel + i;
 
         if (pos != null)
@@ -208,7 +210,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
     // Called evey second. Allows anger to depreciate over time.
     private void angerDepreciation()
     {
-        if (!isServer) return;
+        if (!isServer || !angerUpdateDisabled) return;
         if (angerLevel > 0)
             angerLevel = angerLevel - 1;
         if (hostThreat > 0)

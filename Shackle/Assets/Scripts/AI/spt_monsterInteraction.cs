@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 3/9/2016
+ * Last Revision Date: 4/20/2016
  * 
  * This file is the one that governs all interactions between the monster and items in the environment. **/
 
@@ -33,6 +33,8 @@ public class spt_monsterInteraction : MonoBehaviour {
     public string interactionItemName;
 
     private bool loadedTheNetwork = false;
+
+    public bool drawerOpen = false;
 
 	// Use this for initialization
 	void Start () {
@@ -85,20 +87,22 @@ public class spt_monsterInteraction : MonoBehaviour {
                     {
 
                         // If the monster is within interaction range...
-                            if (Vector3.Distance(GameObject.Find(network.PuzzleStates[indecies[i]].itemName).transform.position, gameObject.transform.position) < 2 && checkIfInteractableYet(network.PuzzleStates[indecies[i]].itemName))
-                            {
+                        network.updatePuzzleState("deskDrawerOpen", true, "mdl_Drawer");
+                        if (Vector3.Distance(GameObject.Find(network.PuzzleStates[indecies[i]].itemName).transform.position, gameObject.transform.position) < 2 && checkIfInteractableYet(network.PuzzleStates[indecies[i]].itemName))
+                        {
 
-                                // Perform interaction some of the time, dependent on a random number.
-                                float decision = Random.Range(0, 1);
-                                if (decision < weights[i])
-                                {
-                                    animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
-                                    interactionName = network.PuzzleStates[indecies[i]].name;
-                                    interactionItemName = network.PuzzleStates[indecies[i]].itemName;
-                                    animationScript.interactWithObject(interactionItemName);
-                                    //interactWithObject(network.PuzzleStates[indecies[i]].name, network.PuzzleStates[indecies[i]].itemName);
-                                }
+                            // Perform interaction some of the time, dependent on a random number.
+                            float decision = Random.Range(0, 1);
+                            if (decision < weights[i])
+                            {
+                                animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
+                                interactionName = network.PuzzleStates[indecies[i]].name;
+                                interactionItemName = network.PuzzleStates[indecies[i]].itemName;
+                                Debug.LogWarning("Interacting with: " + network.PuzzleStates[indecies[i]].itemName);
+                                animationScript.interactWithObject(interactionItemName);
+                                interactWithObject(network.PuzzleStates[indecies[i]].name, network.PuzzleStates[indecies[i]].itemName);
                             }
+                        }
                     }
                 }
             }
@@ -122,7 +126,7 @@ public class spt_monsterInteraction : MonoBehaviour {
         Debug.Log("interacting with: " + itemName);
         spt_monster_ItemReset resetSpt = GameObject.Find(itemName).GetComponent<spt_monster_ItemReset>();
 
-        if (resetSpt == null) Debug.Log("spt_monsterInteraction.interactWithobject : Error, called with non-interactive itemName.");
+        if (resetSpt == null) Debug.Log("spt_monsterInteraction.interactWithobject : Error, no reset function for object " + itemName  + ".");
         else resetSpt.resetFunction();
 
         //VRStandardAssets.Examples.spt_extensionCord.local_extCordPlugged = false;

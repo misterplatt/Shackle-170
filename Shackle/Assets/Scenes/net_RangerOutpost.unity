@@ -7084,6 +7084,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: interactables.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 419816, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7135,7 +7143,7 @@ Prefab:
     - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: interactables.Array.data[0]
       value: 
-      objectReference: {fileID: 1980709433}
+      objectReference: {fileID: 306281865}
     - target: {fileID: 11496540, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: waypoints.Array.data[0]
       value: 
@@ -7211,6 +7219,18 @@ Prefab:
     - target: {fileID: 101212, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: m_Name
       value: MonsterStandin
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: interactables.Array.data[1]
+      value: 
+      objectReference: {fileID: 2014594127}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.data[1].x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.data[1].z
+      value: -4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}

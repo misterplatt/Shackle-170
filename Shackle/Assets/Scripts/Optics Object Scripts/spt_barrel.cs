@@ -1,9 +1,9 @@
 ﻿/*
 spt_barrel
 
-Author(s): Hayden Platt
+Author(s): Hayden Platt, Lauern Cunningham
 
-Revision 1
+Revision 2
 
 First, requires flammable liquid, after which it requires the matchbox.
 Once the matchbox is used, the child fire particle system is activated,
@@ -38,6 +38,7 @@ namespace VRStandardAssets.Examples
                 transform.FindChild("Fire").gameObject.SetActive(true);
                 inventorySpt.removeItm("Matchbox");
                 Invoke("DestroyPoster", 1.5f);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("barrelExplosion", true, "Barrel");
             }
 
         }

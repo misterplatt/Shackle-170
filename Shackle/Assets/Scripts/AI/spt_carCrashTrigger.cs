@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 4/19/2016
+ * Last Revision Date: 4/20/2016
  * 
  * This script is a specialized version of an spt_angerPuzzleStateTrigger.
  * When the ranger outpost's car crash occurs, it pushes the monster to its lower anger threshold.
@@ -53,9 +53,16 @@ public class spt_carCrashTrigger : MonoBehaviour {
                     {
                         triggered = true;
                         monster.updateAnger(monster.lowerThreshold - monster.angerLevel, gameObject.transform);
+                        monster.angerUpdateDisabled = true;
+                        Invoke("enableAnger", 1);
                     }
                 }
             }
         }
 	}
+
+    public void enableAnger()
+    {
+        monster.angerUpdateDisabled = false;
+    }
 }
