@@ -47,7 +47,6 @@ public class spt_inventory : NetworkBehaviour {
 
     //flag to prevent duplicated input on button down
     [SerializeField] private bool once = false;
-    private bool inspecting = false;
 
     void Start() {
         
@@ -246,7 +245,7 @@ public class spt_inventory : NetworkBehaviour {
             selectionBar.transform.localPosition.z);
     }
 
-    void inspectItem() {
+    /*void inspectItem() {
         GameObject invItem = retrieveObjectFromInventory(activeItem);
         if (invItem.name == "Hand") {
             inspecting = false;
@@ -266,7 +265,7 @@ public class spt_inventory : NetworkBehaviour {
         GameObject invItem = retrieveObjectFromInventory(activeItem);
         if (invItem.name == "Hand") return;
         invItem.transform.position = Vector3.down * 10;
-    }
+    }*/
 
     void sendItem() {
         if (!isLocalPlayer) return;
