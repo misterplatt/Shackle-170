@@ -1,91 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &189342
+--- !u!1 &129328
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 425856}
-  - 114: {fileID: 11447390}
-  - 114: {fileID: 11487358}
-  - 114: {fileID: 11432034}
+  - 4: {fileID: 450848}
+  - 114: {fileID: 11478754}
+  - 114: {fileID: 11463164}
   m_Layer: 0
-  m_Name: LobbyPlayer
-  m_TagString: lobbyPlayer
+  m_Name: NetworkDiscovery
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &425856
+--- !u!4 &450848
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189342}
+  m_GameObject: {fileID: 129328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.074399, y: 1.1765271, z: 13.094142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11432034
+--- !u!114 &11463164
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189342}
+  m_GameObject: {fileID: 129328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3055515a544a54e47a6fe971dec5aa41, type: 3}
+  m_Script: {fileID: 11500000, guid: 303b8972128426445a3237e26c9c8edd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pReady: 0
---- !u!114 &11447390
+  discovery: {fileID: 11478754}
+--- !u!114 &11478754
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189342}
+  m_GameObject: {fileID: 129328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Script: {fileID: -1553936188, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 150
-    i1: 113
-    i2: 46
-    i3: 123
-    i4: 158
-    i5: 109
-    i6: 10
-    i7: 52
-    i8: 90
-    i9: 150
-    i10: 66
-    i11: 239
-    i12: 221
-    i13: 47
-    i14: 127
-    i15: 166
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
---- !u!114 &11487358
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 246975512, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLobbyGUI: 0
+  m_BroadcastPort: 47777
+  m_BroadcastKey: 2222
+  m_BroadcastVersion: 1
+  m_BroadcastSubVersion: 1
+  m_BroadcastInterval: 1000
+  m_UseNetworkManager: 0
+  m_BroadcastData: HELLO
+  m_ShowGUI: 0
+  m_OffsetX: 0
+  m_OffsetY: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -95,5 +71,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 189342}
+  m_RootGameObject: {fileID: 129328}
   m_IsPrefabParent: 1

@@ -12,6 +12,7 @@ TagManager:
   - pModel
   - laser
   - mirror
+  - lobbyPlayer
   layers:
   - Default
   - TransparentFX
