@@ -8049,6 +8049,9 @@ MonoBehaviour:
   - eventName: mirror2
     item: {fileID: 1870760827}
     isMonstInteractable: 1
+  - eventName: doorOpen
+    item: {fileID: 17917362}
+    isMonstInteractable: 1
 --- !u!4 &1515300599
 Transform:
   m_ObjectHideFlags: 0

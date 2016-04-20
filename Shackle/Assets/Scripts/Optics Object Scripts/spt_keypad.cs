@@ -1,9 +1,9 @@
 ﻿/*
 spt_keypad
 
-Author(s): Hayden Platt
+Author(s): Hayden Platt, Lauren Cunningham
 
-Revision 1
+Revision 2
 
 Simple script which moves the lab door on holdsuccess
 with the ID card.
@@ -24,6 +24,7 @@ namespace VRStandardAssets.Examples
             if (!once) {
                 GameObject.Find("Door").transform.Translate(Vector3.left * 1.6f);
                 holding = false;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("doorOpen", true, "KeyPad");
             }
 
         }
