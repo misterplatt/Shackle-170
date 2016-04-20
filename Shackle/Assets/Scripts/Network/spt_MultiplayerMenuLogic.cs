@@ -173,7 +173,7 @@ public class spt_MultiplayerMenuLogic : MonoBehaviour {
     public void connect() {
         if (serverListener.getIP() == "") return;
         inLobby = true;
-        nlm.networkAddress = "localhost";//serverListener.getIP();
+        nlm.networkAddress = serverListener.getIP();
         nlm.networkPort = NETPORT;
         nlm.StartClient();
 
