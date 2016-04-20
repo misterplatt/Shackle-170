@@ -85,19 +85,25 @@ public class spt_monsterInteraction : MonoBehaviour {
                     {
 
                         // If the monster is within interaction range...
-                        if (Vector3.Distance(GameObject.Find(network.PuzzleStates[indecies[i]].itemName).transform.position, gameObject.transform.position) < 2 && checkIfInteractableYet(network.PuzzleStates[indecies[i]].itemName))
-                        {
-
-                            // Perform interaction some of the time, dependent on a random number.
-                            float decision = Random.Range(0, 1);
-                            if (decision < weights[i])
+                        try {
+                            if (Vector3.Distance(GameObject.Find(network.PuzzleStates[indecies[i]].itemName).transform.position, gameObject.transform.position) < 2 && checkIfInteractableYet(network.PuzzleStates[indecies[i]].itemName))
                             {
-                                animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
-                                interactionName = network.PuzzleStates[indecies[i]].name;
-                                interactionItemName = network.PuzzleStates[indecies[i]].itemName;
-                                animationScript.interactWithObject(interactionItemName);
-                                //interactWithObject(network.PuzzleStates[indecies[i]].name, network.PuzzleStates[indecies[i]].itemName);
+
+                                // Perform interaction some of the time, dependent on a random number.
+                                float decision = Random.Range(0, 1);
+                                if (decision < weights[i])
+                                {
+                                    animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
+                                    interactionName = network.PuzzleStates[indecies[i]].name;
+                                    interactionItemName = network.PuzzleStates[indecies[i]].itemName;
+                                    animationScript.interactWithObject(interactionItemName);
+                                    //interactWithObject(network.PuzzleStates[indecies[i]].name, network.PuzzleStates[indecies[i]].itemName);
+                                }
                             }
+                        }
+                        catch
+                        {
+                            Debug.LogWarning("Attempted to interact with puzzle state: " + indecies[i]);
                         }
                     }
                 }

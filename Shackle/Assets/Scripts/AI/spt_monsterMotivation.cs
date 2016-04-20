@@ -215,8 +215,9 @@ public class spt_monsterMotivation : NetworkBehaviour {
             hostThreat = hostThreat - 1;
         if (clientThreat > 0)
             clientThreat = clientThreat - 1;
-        if (hasGivenWarning && angerLevel == angerAtWarning)
+        if (hasGivenWarning && angerLevel <= angerAtWarning)
         {
+            Debug.LogWarning("Depreciating extra anger.");
             angerLevel = angerLevel - 3;
             if (hostThreat >= 3)
                 hostThreat = hostThreat - 3;
