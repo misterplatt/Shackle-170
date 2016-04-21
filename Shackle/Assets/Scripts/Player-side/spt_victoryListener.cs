@@ -19,11 +19,15 @@ public class spt_victoryListener : MonoBehaviour
     private bool expandLight = false;
     private AudioSource transitionA;
     private Light winLight;
+    private spt_monsterMotivation monster;
+
 
     void Start()
     {
         transitionA = GameObject.Find("victory_light").GetComponent<AudioSource>();
         winLight = GameObject.Find("victory_light").GetComponent<Light>();
+        monster = GameObject.FindObjectOfType<spt_monsterMotivation>();
+
     }
 
     // Update is called once per frame
@@ -32,6 +36,7 @@ public class spt_victoryListener : MonoBehaviour
         //If the puzzleCompletion puzzlestate is true, set Win Text to visible and start camera fadeout
         if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[0].state == true && !once)
         {
+            monster.angerUpdateDisabled = true;
             GetComponent<Text>().enabled = true;
             winLight.enabled = true;
             expandLight = true;
@@ -57,4 +62,6 @@ public class spt_victoryListener : MonoBehaviour
         yield return new WaitForSeconds(2f);
         spt_playerControls.controllerVibration("Both", 1.0f, 5f);
     }
+
+
 }

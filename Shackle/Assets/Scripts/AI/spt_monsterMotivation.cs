@@ -191,7 +191,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
     // Increases the anger by an integer amount.
     public void updateAnger(int i, Transform pos)
     {
-        if (!isServer || !angerUpdateDisabled) return;
+        if (!isServer || angerUpdateDisabled) return;
         angerLevel = angerLevel + i;
 
         if (pos != null)
@@ -210,7 +210,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
     // Called evey second. Allows anger to depreciate over time.
     private void angerDepreciation()
     {
-        if (!isServer || !angerUpdateDisabled) return;
+        if (!isServer || angerUpdateDisabled) return;
         if (angerLevel > 0)
             angerLevel = angerLevel - 1;
         if (hostThreat > 0)
