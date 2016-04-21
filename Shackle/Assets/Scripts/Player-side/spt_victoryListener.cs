@@ -24,17 +24,16 @@ public class spt_victoryListener : MonoBehaviour
 
     void Start()
     {
-<<<<<<< HEAD
         transitionA = GameObject.Find("victory_light").GetComponent<AudioSource>();
         winLight = GameObject.Find("victory_light").GetComponent<Light>();
         monster = GameObject.FindObjectOfType<spt_monsterMotivation>();
 
-=======
+
         if (GameObject.Find("victory_light") != null) {
             transitionA = GameObject.Find("victory_light").GetComponent<AudioSource>();
             winLight = GameObject.Find("victory_light").GetComponent<Light>();
         }
->>>>>>> b6516ca4d05a77d6048c3a334b9d9a44db722436
+
     }
 
     // Update is called once per frame
