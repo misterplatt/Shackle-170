@@ -55,7 +55,7 @@ namespace VRStandardAssets.Examples
                 mirrorRemoved = true;
             }
             //When A is held, use left thumbstick to move object based on object's axis boolean
-			if (buttonHeld == true && HasMirror())
+			if (buttonHeld == true)
             {
                 hadMirror = true;
                 //Displays a movable's movePath sprite if specified

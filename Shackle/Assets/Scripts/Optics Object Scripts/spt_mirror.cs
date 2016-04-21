@@ -21,6 +21,8 @@ namespace VRStandardAssets.Examples
         private MeshRenderer laserMesh;
         private BoxCollider laserCollider;
 
+        private int laserCount = 0;
+
         protected override void Start()
         {
             base.Start();
@@ -31,14 +33,19 @@ namespace VRStandardAssets.Examples
         protected override void Update()
         {
             base.Update();
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f);
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, .25f);
             foreach (Collider col in hitColliders) {
-                if (col.gameObject.tag == "laser") laserTouching = true;
-                else laserTouching = false;
+                if (col.gameObject.tag == "laser") {
+                    if (laserCollider.enabled) laserCount++;
+                    else laserCount = 2;
+                }
             }
+            if (laserCount > 1) laserTouching = true;
             laserMesh.enabled = laserTouching;
             laserCollider.enabled = laserTouching;
 
+            laserCount = 0;
+            laserTouching = false;
         }
 
         override protected void clickSuccess()
@@ -48,4 +55,3 @@ namespace VRStandardAssets.Examples
         }
     }
 }
-
