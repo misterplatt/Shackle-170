@@ -26,6 +26,13 @@ namespace VRStandardAssets.Examples
 
         [SerializeField]
         private Renderer m_Renderer;
+        private AudioSource buttonPressSound;
+
+        protected override void Start()
+        {
+            buttonPressSound = GetComponent<AudioSource>();
+        }
+
 
         //Function that activates all manipulation object's children's colliders on pickup, and deactivates on put down
         public void childActive(bool state) {
@@ -35,6 +42,7 @@ namespace VRStandardAssets.Examples
         //Handle the Click event, alternates states on every press
         override protected void holdSuccess()
         {
+            buttonPressSound.Play();
             //If the TV is powered on and the input channel number is 49, set correctChannel puzzle state to true
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true)
             {

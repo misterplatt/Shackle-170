@@ -27,6 +27,14 @@ namespace VRStandardAssets.Examples
         private Renderer m_Renderer;
 
         private bool currentState = false;
+        private AudioSource buttonPressSound;
+
+
+
+        protected override void Start()
+        {
+            buttonPressSound = GetComponent<AudioSource>();
+        }
 
         //Function that activates all manipulation object's children's colliders on pickup, and deactivates on put down
         public void childActive(bool state)
@@ -46,6 +54,7 @@ namespace VRStandardAssets.Examples
         {
             //If the puzzle state extCordPlugged is true, modify the TVPowered state
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[3].state == true) {
+                buttonPressSound.Play();
                 currentState = !currentState;
                 local_TVpowerState = currentState;
                 Debug.Log("tvPowerState : " + local_TVpowerState);

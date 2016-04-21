@@ -27,6 +27,14 @@ namespace VRStandardAssets.Examples
         bool currentState = false;
 
         public spt_remoteManager rManager;
+        private AudioSource buttonPressSound;
+
+
+
+        protected override void Start()
+        {
+            buttonPressSound = GetComponent<AudioSource>();
+        }
 
         //Function that activates all manipulation object's children's colliders on pickup, and deactivates on put down
         //Precon: There is a parent object that BroadcastMessage-calls this script
@@ -38,6 +46,7 @@ namespace VRStandardAssets.Examples
         //Handle the Click event, alternates states on every press
         override protected void clickSuccess()
         {
+            buttonPressSound.Play();
             Debug.Log("Show click state");
             currentState = !currentState;
             //Highlight digit button and send it's number to remoteManager
