@@ -56,10 +56,7 @@ namespace VRStandardAssets.Examples
                 //NPL Update
                 local_correctFuseCombo = true;
                 spt_WorldState.worldStateChanged = true;
-                //GameObject.Find("Electronic Slide").transform.Translate(new Vector3(.3f, 0, 0));
-                //GameObject.Find("Hatch Light").transform.Translate(Vector3.left * 0.3f);
-                //GameObject.Find("Hatch Light").GetComponent<Light>().color = Color.green;
-                GameObject.Find("mdl_metal").transform.Translate(new Vector3(.3f, 0, 0));
+                GameObject.Find("mdl_metal").transform.Translate(new Vector3(.22f, 0, 0));
                 GameObject.Find("red_hatchLight").GetComponentInChildren<Light>().enabled = false;
                 GameObject.Find("green_hatchLight").GetComponentInChildren<Light>().enabled = true;
                 Debug.Log("CORRECT SWITCHES ON!$@##@#$");
