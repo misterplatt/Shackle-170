@@ -24,11 +24,9 @@ public class spt_victoryListener : MonoBehaviour
 
     void Start()
     {
-        transitionA = GameObject.Find("victory_light").GetComponent<AudioSource>();
-        winLight = GameObject.Find("victory_light").GetComponent<Light>();
         monster = GameObject.FindObjectOfType<spt_monsterMotivation>();
 
-
+        //If a victory light exists, retrieve it's AudioSource and Light components
         if (GameObject.Find("victory_light") != null) {
             transitionA = GameObject.Find("victory_light").GetComponent<AudioSource>();
             winLight = GameObject.Find("victory_light").GetComponent<Light>();

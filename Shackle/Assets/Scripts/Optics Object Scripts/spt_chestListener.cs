@@ -18,12 +18,6 @@ namespace VRStandardAssets.Examples
         public static bool local_laserHitLock = false;
         private bool once = false;
 
-        // Use this for initialization
-        override protected void Start()
-        {
-
-        }
-
         // Update is called once per frame
         override protected void Update()
         {
@@ -37,7 +31,7 @@ namespace VRStandardAssets.Examples
                 {
                     if (col.gameObject.tag == "laser")
                     {
-                        //If this mirror's laser is on, start a count to make sure another mirror is present
+                        //If a laser has hit the lock, set the corresponding puzzle state to true
                         local_laserHitLock = true;
                         spt_WorldState.worldStateChanged = true;
                     }
@@ -45,8 +39,9 @@ namespace VRStandardAssets.Examples
             }
             
             //LOCAL VERSION: If the laser has hit the lock, open the chest
-            if (!once && local_laserHitLock)//GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == true)
+            if (!once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == true)
             {
+                //TEMP FUNCTIONALITY UNTIL MODEL IS IMPORTED
                 transform.parent.FindChild("Locked Crate Lid").gameObject.SetActive(false);
                 once = true;
             }

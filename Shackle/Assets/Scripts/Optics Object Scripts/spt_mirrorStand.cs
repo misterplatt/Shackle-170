@@ -19,6 +19,8 @@ namespace VRStandardAssets.Examples
     public class spt_mirrorStand : spt_baseInteractiveObject
     {
 
+        public float mountAngle = 270;
+
         override protected void holdSuccess(){
             //If the stand doesn't already have a mirror child, remove one from your inventory,
             //then child it, set it's position above the stand, and the rotation accordingly
@@ -27,7 +29,7 @@ namespace VRStandardAssets.Examples
                 inventorySpt.removeItm(mirrorObj.name);
                 mirrorObj.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
                 mirrorObj.transform.parent = transform.FindChild("Mirror Handle");
-                mirrorObj.transform.eulerAngles = new Vector3(270, 0, transform.eulerAngles.y);
+                mirrorObj.transform.eulerAngles = new Vector3(mountAngle, 0, transform.eulerAngles.y);
                 holding = false;
                 
                 spt_NetworkPuzzleLogic network = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();

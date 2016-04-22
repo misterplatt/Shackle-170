@@ -15,6 +15,8 @@ namespace VRStandardAssets.Examples
 {
     public class spt_panelListener : spt_baseInteractiveObject
     {
+        public static bool local_laserHitPanel = false;
+
         private bool once = false;
 
         public GameObject trapDoorA;
@@ -31,10 +33,28 @@ namespace VRStandardAssets.Examples
         // Update is called once per frame
         override protected void Update()
         {
-            //If the laser has hit the panel, open the trapdoors and raise the TNT Levers
-            Debug.Log(GameObject.FindWithTag("Player").name);
-            if (!once && spt_laserSwitch.local_laserHitPanel)//GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true)
+            //Check for laser collision while no laser has hit the lock
+            if (!local_laserHitPanel)
             {
+                //Accumulate list of colliders intersecting the chest lock's collider
+                Collider[] hitColliders = Physics.OverlapSphere(transform.position, .3f);
+
+                //Check each collider
+                foreach (Collider col in hitColliders)
+                {
+                    if (col.gameObject.tag == "laser")
+                    {
+                        //If a laser has hit the panel, set the corresponding puzzle state to true
+                        local_laserHitPanel = true;
+                        spt_WorldState.worldStateChanged = true;
+                    }
+                }
+            }
+
+            //If the laser has hit the panel, open the trapdoors and raise the TNT Levers
+            if (!once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true)
+            {
+                //TEMP FUNCTIONALITY UNTIL MODELS ARE IMPORTED
                 trapDoorA.transform.Translate(Vector3.right);
                 trapDoorB.transform.Translate(Vector3.right);
                 leverA.transform.Translate(Vector3.up);

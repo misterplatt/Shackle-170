@@ -154,19 +154,19 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
             //If outpost is loaded, check the following puzzle states
             if (SceneManager.GetActiveScene().name == "net_RangerOutpost")
             {
-                //If a player has used the garage door opener on the garage door, update server state
+                //If a player has successfully used the pickaxe on the hatch, update server state
                 if (VRStandardAssets.Examples.spt_hatch.local_puzzleCompletion)
                 {
                     Debug.Log("Updating puzzleCompletion on the network to " + VRStandardAssets.Examples.spt_hatch.local_puzzleCompletion);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("puzzleCompletion", true, "Hatch");
                 }
-                //If a player has pressed power while the extCord is plugged, update server state
+                //If a player has flipped the fuses correctly, update server state
                 if (VRStandardAssets.Examples.spt_fuseManager.local_correctFuseCombo)
                 {
                     Debug.Log("Updating correctFuseCombo on the network to " + VRStandardAssets.Examples.spt_fuseManager.local_correctFuseCombo);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("correctFuseCombo", true, "Fuse Box");
                 }
-                //If a player has plugged in the extension cord, command the server to update the state for other player
+                //If a player has pressed the key fob, update server state
                 if (VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed)
                 {
                     Debug.Log("Updating keyFobPressed on the network to " + VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed);
@@ -178,22 +178,35 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
             //If optics lab is loaded, check the following puzzle states
             if (SceneManager.GetActiveScene().name == "net_OpticsLab")
             {
-                //If a player has used the garage door opener on the garage door, update server state
-                /*if (VRStandardAssets.Examples.spt_hatch.local_puzzleCompletion)
+                //If both levers are pressed at the same time, update server state
+                if (VRStandardAssets.Examples.spt_TNTLever.local_puzzleCompletion)
                 {
-                    Debug.Log("Updating puzzleCompletion on the network to " + VRStandardAssets.Examples.spt_hatch.local_puzzleCompletion);
+                    Debug.Log("Updating puzzleCompletion on the network to " + VRStandardAssets.Examples.spt_TNTLever.local_puzzleCompletion);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("puzzleCompletion", true, "Hatch");
-                }*/
-                //If a player has pressed power while the extCord is plugged, update server state
+                }
+                //If a laser has intersected with the chest lock, update server state
                 if (VRStandardAssets.Examples.spt_chestListener.local_laserHitLock)
                 {
                     Debug.Log("Updating laserHitLock on the network to " + VRStandardAssets.Examples.spt_chestListener.local_laserHitLock);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("laserHitLock", true, "Chest Lock");
                 }
-                if (VRStandardAssets.Examples.spt_laserSwitch.local_laserHitPanel)
+                //If a laser has intersected with the security panel, update server state
+                if (VRStandardAssets.Examples.spt_panelListener.local_laserHitPanel)
                 {
-                    Debug.Log("Updating laserHitPanel on the network to " + VRStandardAssets.Examples.spt_laserSwitch.local_laserHitPanel);
+                    Debug.Log("Updating laserHitPanel on the network to " + VRStandardAssets.Examples.spt_panelListener.local_laserHitPanel);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("laserHitPanel", true, "Security Panel");
+                }
+                //If player A has pressed their TNT lever, update server state. State reverts after lever has risen after x seconds.
+                if (VRStandardAssets.Examples.spt_TNTLever.local_leverAPressed != PuzzleStates[10].state)
+                {
+                    Debug.Log("Updating leverAPressed on the network to " + VRStandardAssets.Examples.spt_TNTLever.local_leverAPressed);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("leverAPressed", VRStandardAssets.Examples.spt_TNTLever.local_leverAPressed, "TNT_Switch A");
+                }
+                //If player B has pressed their TNT lever, update server state. State reverts after lever has risen after x seconds.
+                if (VRStandardAssets.Examples.spt_TNTLever.local_leverBPressed != PuzzleStates[11].state)
+                {
+                    Debug.Log("Updating leverBPressed on the network to " + VRStandardAssets.Examples.spt_TNTLever.local_leverBPressed);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("leverBPressed", VRStandardAssets.Examples.spt_TNTLever.local_leverBPressed, "TNT_Switch B");
                 }
             }
 
