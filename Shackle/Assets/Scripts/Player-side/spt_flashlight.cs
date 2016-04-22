@@ -26,7 +26,6 @@ public class spt_flashlight : NetworkBehaviour {
         if (!isLocalPlayer) return;
         if (spt_playerControls.rightThumbstickButtonPressed() || Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("DICK " + flashlight.enabled);
             if (flashlight.enabled) flashlightSound.clip = flashlightOn;
             if (!flashlight.enabled) flashlightSound.clip = flashlightOff;
             flashlightSound.Play();

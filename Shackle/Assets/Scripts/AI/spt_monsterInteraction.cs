@@ -87,7 +87,6 @@ public class spt_monsterInteraction : MonoBehaviour {
                     {
 
                         // If the monster is within interaction range...
-                        network.updatePuzzleState("deskDrawerOpen", true, "mdl_Drawer");
                         if (Vector3.Distance(GameObject.Find(network.PuzzleStates[indecies[i]].itemName).transform.position, gameObject.transform.position) < 2 && checkIfInteractableYet(network.PuzzleStates[indecies[i]].itemName))
                         {
 
