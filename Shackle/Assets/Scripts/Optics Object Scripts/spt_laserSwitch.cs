@@ -17,7 +17,6 @@ namespace VRStandardAssets.Examples
 {
     public class spt_laserSwitch : spt_baseInteractiveObject
     {
-        public static bool local_laserHitLock = false;
         public static bool local_laserHitPanel = false;
 
         [SerializeField] LayerMask laserLayers;

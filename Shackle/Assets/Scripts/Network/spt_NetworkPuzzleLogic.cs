@@ -185,9 +185,9 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("puzzleCompletion", true, "Hatch");
                 }*/
                 //If a player has pressed power while the extCord is plugged, update server state
-                if (VRStandardAssets.Examples.spt_laserSwitch.local_laserHitLock)
+                if (VRStandardAssets.Examples.spt_chestListener.local_laserHitLock)
                 {
-                    Debug.Log("Updating laserHitLock on the network to " + VRStandardAssets.Examples.spt_laserSwitch.local_laserHitLock);
+                    Debug.Log("Updating laserHitLock on the network to " + VRStandardAssets.Examples.spt_chestListener.local_laserHitLock);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("laserHitLock", true, "Chest Lock");
                 }
                 if (VRStandardAssets.Examples.spt_laserSwitch.local_laserHitPanel)
