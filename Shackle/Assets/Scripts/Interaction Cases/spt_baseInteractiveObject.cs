@@ -88,7 +88,7 @@ namespace VRStandardAssets.Examples
         {
             inventorySpt = GetComponent<VRInteractiveItem>().inventoryScript;
             Debug.Log(inventorySpt.retrieveObjectFromInventory(inventorySpt.activeItem).name);
-            if (Input.GetButtonDown("aButton") && inventorySpt.retrieveObjectFromInventory(inventorySpt.activeItem).name == gateItemName) {
+            if (Input.GetButtonDown("aButton") && inventorySpt.retrieveObjectFromInventory(inventorySpt.activeItem).name.Contains(gateItemName)) {
                 clickSuccess();
             }
         }
@@ -108,7 +108,7 @@ namespace VRStandardAssets.Examples
             inventorySpt = GetComponent<VRInteractiveItem>().inventoryScript;
             selectionRadial = GetComponent<VRInteractiveItem>().radial;
             // User must press A to interact with the object, negates the case of user holding A previous to interaction
-            if (Input.GetButtonDown("aButton") && inventorySpt.retrieveObjectFromInventory(inventorySpt.activeItem).name == gateItemName)//activeItem.Value.name == gateItemName)
+            if (Input.GetButtonDown("aButton") && inventorySpt.retrieveObjectFromInventory(inventorySpt.activeItem).name.Contains(gateItemName))
             {
                 holding = true;
                 selectionRadial.enabled = true;

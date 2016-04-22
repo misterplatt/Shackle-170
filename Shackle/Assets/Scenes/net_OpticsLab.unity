@@ -120,7 +120,7 @@ Transform:
   m_LocalScale: {x: 0.09576205, y: 0.54621816, z: 0.54621816}
   m_Children: []
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!23 &17917364
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1036,7 +1036,7 @@ GameObject:
   - 131: {fileID: 218556792}
   - 82: {fileID: 218556791}
   m_Layer: 0
-  m_Name: Mirror Pickup
+  m_Name: Mirror Pickup (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1054,7 +1054,7 @@ Transform:
   m_Children:
   - {fileID: 918989664}
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!82 &218556791
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1975,7 +1975,7 @@ Transform:
   m_LocalScale: {x: 0.23900531, y: 0.0073240823, z: 0.13594973}
   m_Children: []
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!23 &389629885
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3445,7 +3445,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 85ec7aa0734b7594ca483212ad6a737e, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 85ec7aa0734b7594ca483212ad6a737e, type: 3}
       propertyPath: m_LocalScale.x
@@ -3467,6 +3467,10 @@ Prefab:
       propertyPath: m_Name
       value: mdl_Human+Chair
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 85ec7aa0734b7594ca483212ad6a737e, type: 3}
+      propertyPath: m_TagString
+      value: pModel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85ec7aa0734b7594ca483212ad6a737e, type: 3}
   m_IsPrefabParent: 0
@@ -3474,81 +3478,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: 85ec7aa0734b7594ca483212ad6a737e, type: 3}
   m_PrefabInternal: {fileID: 656099150}
---- !u!1 &665539282
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 665539283}
-  - 33: {fileID: 665539286}
-  - 23: {fileID: 665539285}
-  - 65: {fileID: 665539284}
-  m_Layer: 0
-  m_Name: Laser (1)
-  m_TagString: laser
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &665539283
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 665539282}
-  m_LocalRotation: {x: 0.023975905, y: 0.7067, z: 0.7067004, w: -0.023975914}
-  m_LocalPosition: {x: -1.906, y: -0.047, z: 4.669}
-  m_LocalScale: {x: 0.049293786, y: 3.2619374, z: 0.049293805}
-  m_Children: []
-  m_Father: {fileID: 1817802639}
-  m_RootOrder: 0
---- !u!65 &665539284
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 665539282}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1.9999998, z: 1}
-  m_Center: {x: 0.0000005364418, y: 0.0000076293945, z: -0.00000008940695}
---- !u!23 &665539285
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 665539282}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 82eb13ab3a29a5947aa0ed845c079900, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &665539286
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 665539282}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &677135751
 GameObject:
   m_ObjectHideFlags: 0
@@ -4001,7 +3930,7 @@ Transform:
   - {fileID: 978252047}
   - {fileID: 2108417123}
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!23 &789278363
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4077,7 +4006,7 @@ Transform:
   m_Children:
   - {fileID: 80860032}
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!23 &820314003
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7104,7 +7033,7 @@ GameObject:
   - 131: {fileID: 1245221618}
   - 82: {fileID: 1245221617}
   m_Layer: 0
-  m_Name: Mirror Pickup
+  m_Name: Mirror Pickup (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8184,7 +8113,7 @@ Transform:
   m_LocalScale: {x: 0.28824052, y: 0.27418068, z: 0.27418068}
   m_Children: []
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!82 &1542686251
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8528,7 +8457,7 @@ Transform:
   m_Children:
   - {fileID: 516288771}
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!114 &1760333457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8670,7 +8599,7 @@ Transform:
   m_LocalScale: {x: 0.21173452, y: 0.11630783, z: 0.43273926}
   m_Children: []
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!23 &1771829639
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8922,7 +8851,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 665539283}
   - {fileID: 656099151}
   - {fileID: 1870760828}
   - {fileID: 218556790}
@@ -8997,6 +8925,10 @@ Prefab:
     - target: {fileID: 100004, guid: 85ec7aa0734b7594ca483212ad6a737e, type: 3}
       propertyPath: m_Name
       value: mdl_Human+Chair
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 85ec7aa0734b7594ca483212ad6a737e, type: 3}
+      propertyPath: m_TagString
+      value: pModel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85ec7aa0734b7594ca483212ad6a737e, type: 3}
@@ -9188,7 +9120,7 @@ Transform:
   m_Children:
   - {fileID: 81338799}
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &1870760829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9569,7 +9501,7 @@ Transform:
   m_LocalScale: {x: 1, y: 2.5357413, z: 0.016268825}
   m_Children: []
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!23 &1931923887
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9826,7 +9758,7 @@ GameObject:
   - 131: {fileID: 2031974350}
   - 82: {fileID: 2031974349}
   m_Layer: 0
-  m_Name: Mirror Pickup
+  m_Name: Mirror Pickup (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9844,7 +9776,7 @@ Transform:
   m_Children:
   - {fileID: 948591765}
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!82 &2031974349
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10105,7 +10037,7 @@ Transform:
   - {fileID: 1893743406}
   - {fileID: 975476954}
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!23 &2060898093
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10397,7 +10329,7 @@ Transform:
   m_LocalScale: {x: 0.077361, y: 0.09967522, z: 0.07010972}
   m_Children: []
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!23 &2143284886
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10615,7 +10547,7 @@ GameObject:
   - 131: {fileID: 2143476959}
   - 82: {fileID: 2143476958}
   m_Layer: 0
-  m_Name: Mirror Pickup
+  m_Name: Mirror Pickup (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

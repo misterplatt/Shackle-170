@@ -47,8 +47,11 @@ namespace VRStandardAssets.Examples
         override protected void HandleClick() { }
 
 		bool HasMirror(){
-			if (transform.FindChild ("Mirror Handle/Mirror Pickup") != null) return true;
-			else return false;
+            bool result = false;
+            foreach (Transform child in transform.FindChild("Mirror Handle")) {
+                if (child.name.Contains(gateItemName)) result = true;
+            }
+            return result;
 		}
     }
 }
