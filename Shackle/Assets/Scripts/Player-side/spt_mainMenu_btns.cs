@@ -14,10 +14,12 @@ using System.Collections;
 
 public class spt_mainMenu_btns : NetworkBehaviour {
 
+
+    //Depreciated with Lobby Integration.
 	// Use this for initialization
 	void Start () {
-
-        GameObject manager = GameObject.Find("NetworkManager");
+        /*
+        GameObject manager = GameObject.Find("NetworkLobbyManager");
         spt_NetworkLobbyUI lobbyUI = manager.GetComponent<spt_NetworkLobbyUI>();
 
         Button local = transform.Find("btn_ConnectLocal").gameObject.GetComponent<Button>();
@@ -27,5 +29,6 @@ public class spt_mainMenu_btns : NetworkBehaviour {
         local.onClick.AddListener(() => { lobbyUI.connectLocal(); });
         ip.onClick.AddListener(() => { lobbyUI.connectLAN(); });
         host.onClick.AddListener(() => { lobbyUI.hostGame(); });
+        */
     }
 }

@@ -15,11 +15,11 @@ using System.Collections;
 
 public class spt_NetworkLobbyUI : MonoBehaviour {
 
-    public NetworkManager manager;
+    public NetworkLobbyManager manager;
     private string gameSelection;
 
     void Awake() {
-        manager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
+        manager = GameObject.Find("LobbyManager").GetComponent<NetworkLobbyManager>();
     }
 
     void Update() {

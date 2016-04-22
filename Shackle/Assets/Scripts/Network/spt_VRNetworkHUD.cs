@@ -3,11 +3,11 @@
 namespace UnityEngine.Networking
 {
 	[AddComponentMenu("Network/NetworkManagerHUD")]
-	[RequireComponent(typeof(NetworkManager))]
+	[RequireComponent(typeof(NetworkLobbyManager))]
 	[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 	public class NetworkManagerHUD : MonoBehaviour
 	{
-		public NetworkManager manager;
+		public NetworkLobbyManager manager;
 		[SerializeField] public bool showGUI = true;
 		[SerializeField] public int offsetX;
 		[SerializeField] public int offsetY;
@@ -17,7 +17,7 @@ namespace UnityEngine.Networking
 
 		void Awake()
 		{
-			manager = GetComponent<NetworkManager>();
+			manager = GetComponent<NetworkLobbyManager>();
 		}
 
 		void Update()
