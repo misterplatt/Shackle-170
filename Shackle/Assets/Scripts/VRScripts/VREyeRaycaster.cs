@@ -37,6 +37,8 @@ namespace VRStandardAssets.Utils
         private VRInteractiveItem m_LastInteractible;                   //The last interactive item
         public bool racyCastTouch;
 
+        public string currentInteractibleName; //For Ryan
+
 
         // Utility for other classes to get the current interactive item
         public VRInteractiveItem CurrentInteractible
@@ -119,6 +121,8 @@ namespace VRStandardAssets.Utils
 
                 //If the object hit by the raycast has a VRInteractiveItem Script, tell that object to get the inventory script from the raycasting player
                 if (interactible != null) {
+
+                    currentInteractibleName = interactible.gameObject.name; //For Ryan
 
                     //This will most likely need a Cmd written for it. Let me test it first -R
                     hit.transform.SendMessage("RetrieveInventoryScript", gameObject);

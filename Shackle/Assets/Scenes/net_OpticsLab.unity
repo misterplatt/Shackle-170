@@ -582,7 +582,7 @@ GameObject:
   - 114: {fileID: 81338801}
   - 114: {fileID: 81338800}
   m_Layer: 0
-  m_Name: Mirror Handle
+  m_Name: Mirror Handle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2925,7 +2925,7 @@ GameObject:
   - 114: {fileID: 516288773}
   - 114: {fileID: 516288772}
   m_Layer: 0
-  m_Name: Mirror Handle
+  m_Name: Mirror Handle (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3648,7 +3648,7 @@ GameObject:
   - 114: {fileID: 727634144}
   - 114: {fileID: 727634143}
   m_Layer: 0
-  m_Name: Mirror Handle
+  m_Name: Mirror Handle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7266,7 +7266,7 @@ GameObject:
   - 114: {fileID: 1299910946}
   - 114: {fileID: 1299910945}
   m_Layer: 0
-  m_Name: Mirror Stand
+  m_Name: Mirror Stand (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7800,7 +7800,7 @@ GameObject:
   - 114: {fileID: 1379319915}
   - 114: {fileID: 1379319914}
   m_Layer: 0
-  m_Name: Mirror Handle
+  m_Name: Mirror Handle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

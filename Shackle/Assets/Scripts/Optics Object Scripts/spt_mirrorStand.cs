@@ -43,7 +43,7 @@ namespace VRStandardAssets.Examples
 			}
         }
 
-        //Plug handleDown
+        //Plug handleClick
         override protected void HandleClick() { }
 
 		bool HasMirror(){
