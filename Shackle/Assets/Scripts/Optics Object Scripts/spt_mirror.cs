@@ -17,9 +17,9 @@ namespace VRStandardAssets.Examples
 {
     public class spt_mirror : spt_interactivePickUp
     {
-        private bool laserTouching = false;
         private MeshRenderer laserMesh;
         private BoxCollider laserCollider;
+        private spt_mirrorSync mirrorSync;
 
         private int laserCount = 0;
 
@@ -28,6 +28,7 @@ namespace VRStandardAssets.Examples
             base.Start();
             laserMesh = transform.FindChild("Laser").gameObject.GetComponent<MeshRenderer>();
             laserCollider = transform.FindChild("Laser").gameObject.GetComponent<BoxCollider>();
+            mirrorSync = GetComponent<spt_mirrorSync>();
         }
 
         protected override void Update()
@@ -46,16 +47,16 @@ namespace VRStandardAssets.Examples
                     else laserCount = 2;
                 }
             }
-            //Set laserTouching to true if the count is at least 2
-            laserTouching = (laserCount > 1);
+            //Set emitsLaser to true if the count is at least 2
+            mirrorSync.emitsLaser = (laserCount > 1);
 
-            //Set the mesh and collider's enable state based on laserTouching
-            laserMesh.enabled = laserTouching;
-            laserCollider.enabled = laserTouching;
+            //Set the mesh and collider's enable state based on emitsLaser
+            laserMesh.enabled = mirrorSync.emitsLaser;
+            laserCollider.enabled = mirrorSync.emitsLaser;
 
             //Reset the count and whether or not lasers are touching it
             laserCount = 0;
-            laserTouching = false;
+            mirrorSync.emitsLaser = false;
         }
 
         override protected void clickSuccess()
