@@ -899,7 +899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashlight: {fileID: 10888222}
   isVisible: 0
-  flashlightOn: {fileID: 8300000, guid: 0c5e95860998bb1499d76a09a51f2409, type: 3}
+  flashlightOn: {fileID: 8300000, guid: 316f175e56151024c8f1d735e6964d18, type: 3}
   flashlightOff: {fileID: 8300000, guid: 310af3e53ff0a2848873ba28abf0c424, type: 3}
 --- !u!114 &11436632
 MonoBehaviour:
