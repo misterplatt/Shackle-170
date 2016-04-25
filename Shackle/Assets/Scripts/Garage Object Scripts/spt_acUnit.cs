@@ -16,16 +16,17 @@ namespace VRStandardAssets.Examples
 {
     public class spt_acUnit : spt_baseInteractiveObject
     {
-        public static int screwsLeft = 4;
         private AudioSource unscrewingAC;
+        public static int screwsLeft;
 
         override protected void Start()
         {
             unscrewingAC = GetComponent<AudioSource>();
+            screwsLeft = 4;
         }
 
-        //Plug HandleClick
-        override protected void HandleClick() { }
+    //Plug HandleClick
+    override protected void HandleClick() { }
 
         //Handle the Down event, modified so that the reticle doesn't need to stay over object to interact
         override protected void holdSuccess()
