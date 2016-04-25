@@ -90,7 +90,7 @@ public class spt_toolTipListener : MonoBehaviour {
             StartCoroutine(setToolTip("controls_display", "To View All Controls", 10f, spt_playerControls.selectButtonPressed));
             controlsTipsShown = true;
         }
-        Debug.Log(toolTipsDisplayed);
+
     }
 
     //Catch-all "variable type" for input successes

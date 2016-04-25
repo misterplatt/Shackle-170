@@ -111,7 +111,7 @@ public class spt_Network_Movement : NetworkBehaviour {
         
         */
 
-        Debug.Log(mListener.aggregateLStickInput);
+
         //if the left thumb stick input is greater than threshold...
         if (mListener.aggregateLStickInput > 1.5F) {
             //if it's the server, just move it since we own the object. Client won't do anything

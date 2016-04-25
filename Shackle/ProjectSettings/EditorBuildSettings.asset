@@ -6,8 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Lobby.unity
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
   - enabled: 1
     path: Assets/Scenes/net_SpookyGarage.unity
@@ -25,3 +23,5 @@ EditorBuildSettings:
     path: Assets/Scenes/net_SpookyGarage_workingcopy.unity
   - enabled: 0
     path: Assets/Scenes/LobbySearch.unity
+  - enabled: 1
+    path: Assets/Scenes/Lobby.unity

@@ -10,6 +10,8 @@ Listens for NPL puzzle completion to show the
 */
 
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -20,11 +22,14 @@ public class spt_victoryListener : MonoBehaviour
     private AudioSource transitionA;
     private Light winLight;
     private spt_monsterMotivation monster;
+    NetworkManager manager;
 
+    private const float TRANSITION_TIME = 14.779F;
 
     void Start()
     {
         monster = GameObject.FindObjectOfType<spt_monsterMotivation>();
+        manager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
 
         //If a victory light exists, retrieve it's AudioSource and Light components
         if (GameObject.Find("victory_light") != null) {
@@ -37,6 +42,7 @@ public class spt_victoryListener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //If the puzzleCompletion puzzlestate is true, set Win Text to visible and start camera fadeout
         if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[0].state == true && !once)
         {
@@ -49,11 +55,31 @@ public class spt_victoryListener : MonoBehaviour
             once = true;
             transitionA.Play();
             StartCoroutine(transitionRumbleShit());
+            loadNextLevel();
         }
 
         if (expandLight && winLight.spotAngle < 179) {
             winLight.spotAngle += .25f;
         }
+    }
+
+    void loadNextLevel() {        
+        string nextLevel;
+        NetworkIdentity thisId = GetComponentInParent<NetworkIdentity>();
+
+        if (SceneManager.GetActiveScene().name == "net_SpookyGarage") nextLevel = "net_RangerOutpost";
+        else if (SceneManager.GetActiveScene().name == "net_RangerOutpost") nextLevel = "net_OpticsLab";
+        else return;
+
+        //if hosting, start new level
+        if (thisId.isServer) {
+            StartCoroutine(changeLevel(nextLevel));
+        }
+    }
+
+    IEnumerator changeLevel(string lvl) {
+        yield return new WaitForSeconds(TRANSITION_TIME);
+        manager.ServerChangeScene(lvl);
     }
 
     // Calls the controller to rumble based off the transition sounds
