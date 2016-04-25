@@ -16695,8 +16695,9 @@ MonoBehaviour:
   selectionRadial: {fileID: 0}
   rotationSpeed: 90
   lerpSpeed: 5
+  distanceToCameraOffset: -0.5
   distanceBeforeLerp: 0.6
-  distanceBeforeFreeze: 0.02
+  distanceBeforeFreeze: 0.1
   currentState: 0
   endPoint: {fileID: 0}
 --- !u!114 &1062713345
@@ -29822,8 +29823,9 @@ MonoBehaviour:
   selectionRadial: {fileID: 0}
   rotationSpeed: 90
   lerpSpeed: 5
+  distanceToCameraOffset: 0.5
   distanceBeforeLerp: 0.6
-  distanceBeforeFreeze: 0.02
+  distanceBeforeFreeze: 0.1
   currentState: 0
   endPoint: {fileID: 0}
 --- !u!114 &1987510805

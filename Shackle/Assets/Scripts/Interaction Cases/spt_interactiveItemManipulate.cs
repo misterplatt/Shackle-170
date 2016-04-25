@@ -20,6 +20,7 @@ namespace VRStandardAssets.Examples
 
         public float rotationSpeed = 90;
         public float lerpSpeed = 5;
+        public float distanceToCameraOffset = 0; //Allows object to object adjustment on how close object is to the camera
         public float distanceBeforeLerp = .6f; //How far reticle can move from the object before the object lerps to it
         public float distanceBeforeFreeze = .02f; //How close the reticle must be to the object before stopping the lerp
 
@@ -53,9 +54,9 @@ namespace VRStandardAssets.Examples
                 if (transform.childCount > 0) BroadcastMessage("childActive", true);
                 endPoint.tag = "manipulation";
                 //Only Lerp while reticle position is more than distanceBeforeLerp units away. Then, stop once reticle pos is less than than distanceBeforeFreeze
-                if (Vector3.Distance(transform.position, endPoint.position) > distanceBeforeLerp) outOfView = true;
-                if(outOfView == true) transform.position = Vector3.Lerp(transform.position, endPoint.position, Time.deltaTime * lerpSpeed);
-                if (Vector3.Distance(transform.position, endPoint.position) < distanceBeforeFreeze) outOfView = false;
+                if (Vector3.Distance(transform.position, endPoint.position + endPoint.forward * distanceToCameraOffset) > distanceBeforeLerp) outOfView = true;
+                if (outOfView == true) transform.position = Vector3.Lerp(transform.position, endPoint.position + endPoint.forward * distanceToCameraOffset, Time.deltaTime * lerpSpeed);
+                if (Vector3.Distance(transform.position, endPoint.position + endPoint.forward * distanceToCameraOffset) < distanceBeforeFreeze) outOfView = false;
 
                 //Rotate the object in the world space based on right thumbstick input
                 transform.Rotate(new Vector3(spt_playerControls.rightThumb("Vertical"), spt_playerControls.rightThumb("Horizontal"), 0) * Time.deltaTime * rotationSpeed, Space.World);
