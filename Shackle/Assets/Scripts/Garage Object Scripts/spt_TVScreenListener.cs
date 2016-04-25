@@ -42,6 +42,7 @@ public class spt_TVScreenListener : NetworkBehaviour {
         else if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true &&
             GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true)
         {
+            transform.FindChild("Arrow").GetComponent<SpriteRenderer>().enabled = true;
             GetComponent<SpriteRenderer>().color = Color.green;
             GetComponent<SpriteRenderer>().enabled = true;
             if (!soundPlayed)

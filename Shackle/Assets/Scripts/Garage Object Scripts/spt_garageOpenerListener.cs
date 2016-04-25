@@ -23,6 +23,7 @@ public class spt_garageOpenerListener : NetworkBehaviour
         if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true) {
             GetComponent<BoxCollider>().enabled = true;
             GetComponent<Rigidbody>().useGravity = true;
+            GameObject.Find("mdl_garageMotor").GetComponent<BoxCollider>().enabled = true;
         } 
     }
 }

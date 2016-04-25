@@ -149,6 +149,10 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                     Debug.Log("Updating garageDoorOpen on the network to " + VRStandardAssets.Examples.spt_garageLock.local_garageDoorUnlocked);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("garageDoorUnlocked", true, "mdl_garageLock");
                 }
+                if (VRStandardAssets.Examples.spt_outletKill.local_playerDeath) {
+                    Debug.Log("Updating playerLoss on the network to " + VRStandardAssets.Examples.spt_outletKill.local_playerDeath);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("playerLoss", true, "MonsterStandin");
+                }
             }
 
             //If outpost is loaded, check the following puzzle states

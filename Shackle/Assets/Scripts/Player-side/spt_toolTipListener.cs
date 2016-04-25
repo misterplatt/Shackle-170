@@ -61,8 +61,8 @@ public class spt_toolTipListener : MonoBehaviour {
 
         //Show passing and using tips once cycling has been done
         if (inventoryTipsShown && spt_playerControls.triggerPressed() && !itemTipsShown) {
-            StartCoroutine(setToolTip("controls_A", "Hold to Use Items", 4f, spt_playerControls.aButtonPressed));
-            StartCoroutine(setToolTip("controls_X", "To Pass Held Item", 8f, spt_playerControls.xButtonPressed));
+            StartCoroutine(setToolTip("controls_A", "Hold to Use Items", 2f, spt_playerControls.aButtonPressed));
+            StartCoroutine(setToolTip("controls_X", "To Pass Held Item", 6f, spt_playerControls.xButtonPressed));
             itemTipsShown = true;
         }
 
