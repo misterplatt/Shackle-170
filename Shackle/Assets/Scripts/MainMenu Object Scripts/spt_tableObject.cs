@@ -1,15 +1,14 @@
 ﻿/*
-spt_fuseManager
+spt_tableObject
 
-Author(s): Hayden Platt, Dara Diba
+Author(s): Hayden Platt
 
-Revision 2 
+Revision 1
 
-Stores the currentstate of the switches' states
-in a bool array. Unlocks electronic lock if all true.
-Added sucessful fuse combo sound - Dara
+Script attched to objects on the table of the menu scene.
+Hovering over an object displays help text, and holdSuccess changes
+the Painting canvas' current module.
 */
-
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
@@ -26,17 +25,20 @@ namespace VRStandardAssets.Examples
 
         private Image vignette;
 
+        //Find Vignette on start
         protected override void Start()
         {
             vignette = GameObject.Find("Vignette").GetComponent<Image>();
         }
 
 
+        //Show associated text while reticle is over the object
         protected override void HandleOver()
         {
             textToActivate.enabled = true;
         }
 
+        //Hide associated text while reticle leaves the object
         protected override void HandleOut()
         {
             textToActivate.enabled = false;
