@@ -1,4 +1,4 @@
-/* VREyeRaycaster
+﻿/* VREyeRaycaster
  * 
  * 
  * Last Revision Date: 4/3/2016
@@ -18,25 +18,33 @@ using UnityEngine.SceneManagement;
 namespace VRStandardAssets.Utils
 {
 
-    public class VREyeRaycaster : NetworkBehaviour
+    public class VREyeRaycaster_Single : MonoBehaviour
     {
         public event Action<RaycastHit> OnRaycasthit;                   // This event is called every frame that the user's gaze is over a collider.
 
 
-        [SerializeField] private Transform m_Camera;
-        [SerializeField] private LayerMask m_ExclusionLayers;           // Layers to exclude from the raycast.
-        [SerializeField] private Reticle m_Reticle;                     // The reticle, if applicable.
-        [SerializeField] private VRInput m_VrInput;                     // Used to call input based events on the current VRInteractiveItem.
-        [SerializeField] private bool m_ShowDebugRay;                   // Optionally show the debug ray.
-        [SerializeField] private float m_DebugRayLength = 7f;           // Debug ray length.
-        [SerializeField] private float m_DebugRayDuration = 1f;         // How long the Debug ray will remain visible.
-        [SerializeField] private float m_RayLength = 500f;              // How far into the scene the ray is cast.
-        [SerializeField] public Vector3 rhit = new Vector3();
-        
+        [SerializeField]
+        private Transform m_Camera;
+        [SerializeField]
+        private LayerMask m_ExclusionLayers;           // Layers to exclude from the raycast.
+        [SerializeField]
+        private Reticle_Single m_Reticle;                     // The reticle, if applicable.
+        [SerializeField]
+        private VRInput_Single m_VrInput;                     // Used to call input based events on the current VRInteractiveItem.
+        [SerializeField]
+        private bool m_ShowDebugRay;                   // Optionally show the debug ray.
+        [SerializeField]
+        private float m_DebugRayLength = 7f;           // Debug ray length.
+        [SerializeField]
+        private float m_DebugRayDuration = 1f;         // How long the Debug ray will remain visible.
+        [SerializeField]
+        private float m_RayLength = 500f;              // How far into the scene the ray is cast.
+        [SerializeField]
+        public Vector3 rhit = new Vector3();
+
         private VRInteractiveItem m_CurrentInteractible;                //The current interactive item
         private VRInteractiveItem m_LastInteractible;                   //The last interactive item
         public bool racyCastTouch;
-        public bool isSingle;
 
         public string currentInteractibleName; //For Ryan
 
@@ -47,9 +55,8 @@ namespace VRStandardAssets.Utils
             get { return m_CurrentInteractible; }
         }
 
-        
-        private void OnEnable()
-        {
+
+        private void OnEnable() {
             m_VrInput.OnClick += HandleClick;
             m_VrInput.OnDoubleClick += HandleDoubleClick;
             m_VrInput.OnUp += HandleUp;
@@ -57,8 +64,7 @@ namespace VRStandardAssets.Utils
         }
 
 
-        private void OnDisable ()
-        {
+        private void OnDisable() {
             m_VrInput.OnClick -= HandleClick;
             m_VrInput.OnDoubleClick -= HandleDoubleClick;
             m_VrInput.OnUp -= HandleUp;
@@ -66,25 +72,14 @@ namespace VRStandardAssets.Utils
         }
 
         // Checks to see what the active scene is and as a result will change the ray length
-        private void Start()
-        {
-            if (isSingle) this.enabled = true;
+        private void Start() {
+
             if (SceneManager.GetActiveScene().name == "net_SpookyGarage") m_RayLength = 500f;
             else m_RayLength = 500f;
 
         }
 
-        private void Update()
-        {
-            if (!isLocalPlayer) {
-                //Debug.Log(isLocalPlayer);
-                return;
-            }
-
-            //Debug for seeing if event change worked
-            if (Input.GetKeyDown(KeyCode.K)) {
-                //GetComponent<spt_player_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("debug", true, "debug_item");
-            }
+        private void Update() {
             EyeRaycast();
         }
 
@@ -97,22 +92,19 @@ namespace VRStandardAssets.Utils
             itemObj.GetComponent<VRInteractiveItem>().hasBeenTouched = true;
         }*/
 
-      
-        private void EyeRaycast()
-        {
+
+        private void EyeRaycast() {
             // Show the debug ray if required
-            if (m_ShowDebugRay)
-            {
+            if (m_ShowDebugRay) {
                 Debug.DrawRay(m_Camera.position, m_Camera.forward * m_DebugRayLength, Color.blue, m_DebugRayDuration);
             }
 
             // Create a ray that points forwards from the camera.
             Ray ray = new Ray(m_Camera.position, m_Camera.forward);
             RaycastHit hit;
-            
+
             // Do the raycast forweards to see if we hit an interactive item
-            if (Physics.Raycast(ray, out hit, m_RayLength, ~m_ExclusionLayers))
-            {
+            if (Physics.Raycast(ray, out hit, m_RayLength, ~m_ExclusionLayers)) {
                 //set flashlight reference object transform
                 GameObject flashlightObj = transform.Find("Camera Player/pFlashLight").gameObject;
                 flashlightObj.transform.position = hit.point;
@@ -136,11 +128,11 @@ namespace VRStandardAssets.Utils
                     //If the player presses A while looking at an interactible, set that interactible to touched
                     //if ( Input.GetButtonDown( "Fire1" ) ) Cmd_touchObject(interactible.gameObject.name);
                 }
-                
+
 
                 // If we hit an interactive item and it's not the same as the last interactive item, then call Over
                 if (interactible && interactible != m_LastInteractible)
-                    interactible.Over(); 
+                    interactible.Over();
 
                 // Deactive the last interactive item 
                 if (interactible != m_LastInteractible)
@@ -149,20 +141,17 @@ namespace VRStandardAssets.Utils
                 m_LastInteractible = interactible;
 
                 // Something was hit, set at the hit position.
-                if (m_Reticle)
-                {
+                if (m_Reticle) {
                     m_Reticle.SetPosition(hit);
                     racyCastTouch = true;
                 }
 
-                if (OnRaycasthit != null)
-                {
+                if (OnRaycasthit != null) {
                     OnRaycasthit(hit);
                 }
-                    
+
             }
-            else
-            {
+            else {
                 // Nothing was hit, deactive the last interactive item.
                 DeactiveLastInteractible();
                 m_CurrentInteractible = null;
@@ -174,8 +163,7 @@ namespace VRStandardAssets.Utils
             }
         }
 
-        private void DeactiveLastInteractible()
-        {
+        private void DeactiveLastInteractible() {
             if (m_LastInteractible == null)
                 return;
 
@@ -184,29 +172,25 @@ namespace VRStandardAssets.Utils
         }
 
 
-        private void HandleUp()
-        {
+        private void HandleUp() {
             if (m_CurrentInteractible != null)
                 m_CurrentInteractible.Up();
         }
 
 
-        private void HandleDown()
-        {
+        private void HandleDown() {
             if (m_CurrentInteractible != null)
                 m_CurrentInteractible.Down();
         }
 
 
-        private void HandleClick()
-        {
+        private void HandleClick() {
             if (m_CurrentInteractible != null)
                 m_CurrentInteractible.Click();
         }
 
 
-        private void HandleDoubleClick()
-        {
+        private void HandleDoubleClick() {
             if (m_CurrentInteractible != null)
                 m_CurrentInteractible.DoubleClick();
 
