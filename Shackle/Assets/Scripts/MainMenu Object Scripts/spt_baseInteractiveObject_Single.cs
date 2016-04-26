@@ -1,11 +1,11 @@
 ﻿/*
-spt_baseInteractiveObject
+spt_baseInteractiveObject_Single
 
-Author(s): Hayden Platt,Dara Diba
+Author(s): Hayden Platt
 
 Revision 1
 
-This is the base class used in the heirarchy of item cases in the game.
+This is the base class used in the heirarchy of item cases in the menu.
 */
 
 using UnityEngine;
@@ -15,41 +15,38 @@ using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_baseInteractiveObject : MonoBehaviour
+    public class spt_baseInteractiveObject_Single : MonoBehaviour
     {
         [SerializeField]
-        protected string gateItemName;
+        protected float holdTime = 0;
         [SerializeField]
-        protected int holdTime = 0;
-        [SerializeField]
-        private VRInteractiveItem m_InteractiveItem;
+        private VRInteractiveItem_Single m_InteractiveItemSingle;
 
         protected Image selectionRadial; //Reference to the image who's fill amount is adjusted to display the bar.
         protected bool radialActive;
 
-        protected spt_inventory inventorySpt;
         protected bool holding = false;
         protected float timer = 0;
 
         private void OnEnable()
         {
-            m_InteractiveItem.OnOver += HandleOver;
-            m_InteractiveItem.OnOut += HandleOut;
-            m_InteractiveItem.OnClick += HandleClick;
-            m_InteractiveItem.OnDoubleClick += HandleDoubleClick;
-            m_InteractiveItem.OnUp += HandleUp;
-            m_InteractiveItem.OnDown += HandleDown;
+            m_InteractiveItemSingle.OnOver += HandleOver;
+            m_InteractiveItemSingle.OnOut += HandleOut;
+            m_InteractiveItemSingle.OnClick += HandleClick;
+            m_InteractiveItemSingle.OnDoubleClick += HandleDoubleClick;
+            m_InteractiveItemSingle.OnUp += HandleUp;
+            m_InteractiveItemSingle.OnDown += HandleDown;
         }
 
 
         private void OnDisable()
         {
-            m_InteractiveItem.OnOver -= HandleOver;
-            m_InteractiveItem.OnOut -= HandleOut;
-            m_InteractiveItem.OnClick -= HandleClick;
-            m_InteractiveItem.OnDoubleClick -= HandleDoubleClick;
-            m_InteractiveItem.OnUp -= HandleUp;
-            m_InteractiveItem.OnDown -= HandleDown;
+            m_InteractiveItemSingle.OnOver -= HandleOver;
+            m_InteractiveItemSingle.OnOut -= HandleOut;
+            m_InteractiveItemSingle.OnClick -= HandleClick;
+            m_InteractiveItemSingle.OnDoubleClick -= HandleDoubleClick;
+            m_InteractiveItemSingle.OnUp -= HandleUp;
+            m_InteractiveItemSingle.OnDown -= HandleDown;
         }
 
         //Use this for initialization
@@ -86,9 +83,8 @@ namespace VRStandardAssets.Examples
         //Handle the Click event
         virtual protected void HandleClick()
         {
-            inventorySpt = GetComponent<VRInteractiveItem>().inventoryScript;
-            Debug.Log(inventorySpt.retrieveObjectFromInventory(inventorySpt.activeItem).name);
-            if (Input.GetButtonDown("aButton") && inventorySpt.retrieveObjectFromInventory(inventorySpt.activeItem).name.Contains(gateItemName)) {
+            if (Input.GetButtonDown("aButton"))
+            {
                 clickSuccess();
             }
         }
@@ -105,10 +101,9 @@ namespace VRStandardAssets.Examples
         //Handle the Down event
         virtual protected void HandleDown()
         {
-            inventorySpt = GetComponent<VRInteractiveItem>().inventoryScript;
-            selectionRadial = GetComponent<VRInteractiveItem>().radial;
+            selectionRadial = GetComponent<VRInteractiveItem_Single>().radial;
             // User must press A to interact with the object, negates the case of user holding A previous to interaction
-            if (Input.GetButtonDown("aButton") && inventorySpt.retrieveObjectFromInventory(inventorySpt.activeItem).name.Contains(gateItemName))
+            if (Input.GetButtonDown("aButton"))
             {
                 holding = true;
                 selectionRadial.enabled = true;
@@ -125,16 +120,18 @@ namespace VRStandardAssets.Examples
                     holdSuccess();
                 }
             }
-            
+
             //START HERE FOR RADIAL FADING
-            if (!holding) {
+            if (!holding)
+            {
                 selectionRadial.fillAmount = 0;
                 selectionRadial.enabled = false;
                 timer = 0;
             }
         }
 
-        virtual protected void holdSuccess() {
+        virtual protected void holdSuccess()
+        {
             //Debug.Log("HOLD SUCCESS");
         }
 
@@ -142,14 +139,15 @@ namespace VRStandardAssets.Examples
         virtual protected void HandleUp()
         {
             //Debug.Log("Show up state");
-            selectionRadial = GetComponent<VRInteractiveItem>().radial;
+            selectionRadial = GetComponent<VRInteractiveItem_Single>().radial;
             holding = false;
             selectionRadial.fillAmount = 0;
             selectionRadial.enabled = false;
             timer = 0;
         }
 
-        virtual public void resetItem() {
+        virtual public void resetItem()
+        {
 
         }
     }

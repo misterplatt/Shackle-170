@@ -42,15 +42,15 @@ namespace VRStandardAssets.Utils
         [SerializeField]
         public Vector3 rhit = new Vector3();
 
-        private VRInteractiveItem m_CurrentInteractible;                //The current interactive item
-        private VRInteractiveItem m_LastInteractible;                   //The last interactive item
+        private VRInteractiveItem_Single m_CurrentInteractible;                //The current interactive item
+        private VRInteractiveItem_Single m_LastInteractible;                   //The last interactive item
         public bool racyCastTouch;
 
         public string currentInteractibleName; //For Ryan
 
 
         // Utility for other classes to get the current interactive item
-        public VRInteractiveItem CurrentInteractible
+        public VRInteractiveItem_Single CurrentInteractible
         {
             get { return m_CurrentInteractible; }
         }
@@ -109,7 +109,7 @@ namespace VRStandardAssets.Utils
                 //GameObject flashlightObj = transform.Find("Camera Player/pFlashLight").gameObject;
                 //flashlightObj.transform.position = hit.point;
 
-                VRInteractiveItem interactible = hit.collider.GetComponent<VRInteractiveItem>(); //attempt to get the VRInteractiveItem on the hit object
+                VRInteractiveItem_Single interactible = hit.collider.GetComponent<VRInteractiveItem_Single>(); //attempt to get the VRInteractiveItem on the hit object
                 m_CurrentInteractible = interactible;
 
                 //If the object hit by the raycast has a VRInteractiveItem Script, tell that object to get the inventory script from the raycasting player
