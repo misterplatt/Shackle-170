@@ -1766,7 +1766,7 @@ MonoBehaviour:
   _max: 1
   _loopBehaviour: 0
   _velocity: 0
-  _seekSpeed: 0
+  _seekSpeed: 0.9
   _seekTarget: 0
   _value: 0
   _resetToDefaultValue: 0
@@ -1821,7 +1821,7 @@ MonoBehaviour:
   _max: 1
   _loopBehaviour: 0
   _velocity: 0
-  _seekSpeed: 0
+  _seekSpeed: 0.9
   _seekTarget: 0
   _value: 0
   _resetToDefaultValue: 0
@@ -1843,7 +1843,7 @@ MonoBehaviour:
   _max: 1
   _loopBehaviour: 0
   _velocity: 0
-  _seekSpeed: 0
+  _seekSpeed: 0.9
   _seekTarget: 0
   _value: 0
   _resetToDefaultValue: 0
@@ -1865,7 +1865,7 @@ MonoBehaviour:
   _max: 1
   _loopBehaviour: 0
   _velocity: 0
-  _seekSpeed: 0
+  _seekSpeed: 0.9
   _seekTarget: 0
   _value: 0
   _resetToDefaultValue: 0
@@ -1887,7 +1887,7 @@ MonoBehaviour:
   _max: 1
   _loopBehaviour: 0
   _velocity: 0
-  _seekSpeed: 0
+  _seekSpeed: 0.9
   _seekTarget: 0
   _value: 0
   _resetToDefaultValue: 0
@@ -2116,7 +2116,7 @@ MonoBehaviour:
       _points:
       - _x: 0
         _y: 0.000015848926
-        _curveType: 1
+        _curveType: 0
         _locked: 0
       - _x: 1
         _y: 1
