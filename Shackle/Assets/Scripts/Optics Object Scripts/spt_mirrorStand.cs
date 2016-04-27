@@ -12,6 +12,7 @@ picked back up.
 
 
 using UnityEngine;
+using UnityEngine.Networking;
 using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
@@ -20,18 +21,28 @@ namespace VRStandardAssets.Examples
     {
 
         public float mountAngle = 270;
+        NetworkTransformChild networkedTransform;
 
+        protected override void Start()
+        {
+            base.Start();
+            networkedTransform = GetComponent<NetworkTransformChild>();
+        }
         override protected void holdSuccess(){
             //If the stand doesn't already have a mirror child, remove one from your inventory,
             //then child it, set it's position above the stand, and the rotation accordingly
             if (!HasMirror()){
                 GameObject mirrorObj = inventorySpt.retrieveObjectFromInventory(inventorySpt.activeItem);
                 inventorySpt.removeItm(mirrorObj.name);
+
                 mirrorObj.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
                 mirrorObj.transform.parent = transform.FindChild("Mirror Handle");
                 mirrorObj.transform.eulerAngles = new Vector3(mountAngle, 0, transform.eulerAngles.y);
+
                 holding = false;
-                
+                bindMirror(mirrorObj);
+
+
                 spt_NetworkPuzzleLogic network = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
                 for (int i = 0; i < network.PuzzleStates.Count; ++i)
                 {
@@ -41,6 +52,17 @@ namespace VRStandardAssets.Examples
                     }
                 }
 			}
+        }
+
+        void unbindMirror()
+        {
+            networkedTransform.target = null;
+        }
+
+        void bindMirror( GameObject mirror )
+        {
+            networkedTransform.target = mirror.transform;
+            networkedTransform.enabled = true;
         }
 
         //Plug handleClick
