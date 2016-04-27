@@ -3,7 +3,7 @@
  * Created by: Lauren Cunningham
  * Networking Modifications by : Ryan Connors
  * 
- * Last Revision Date: 4/18/2016
+ * Last Revision Date: 4/27/2016
  * 
  * This file is the one that ultimately governs the monster's movements. **/
 
@@ -35,6 +35,8 @@ public class spt_monsterMovement : NetworkBehaviour {
 
     private bool startedAttackAnimation = false;
 
+    public bool winToggle = false;
+
     // Use this for initialization
 	void Start () {
         if (!isServer) return;
@@ -56,20 +58,52 @@ public class spt_monsterMovement : NetworkBehaviour {
 	void Update () {
 
         if (!isServer) return;
+
+        networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
+        for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
+        {
+            if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster")
+                networkScript.updatePuzzleState("puzzleCompletionMonster", winToggle, "MonsterStandin");
+        }
+
         // Chooses a new destination if the monster is within a certain distance of its current one.
         if (agent.remainingDistance <= 2 && currentWaypoint != 999 && currentWaypoint != 888){
             chooseDestination();
         }
+        // If the monster is attacking, or the players have just won...
         if (agent.remainingDistance <= 2 && currentWaypoint == 999 && currentWaypoint != 888){
-            Debug.LogWarning("attempting to alter playerLoss in puzzleStates...");
-            networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
 
-            networkScript.updatePuzzleState("playerLoss", true, "MonsterStandin");
-            pLoss = true;
+            networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
+            int index = -1;
+
+            for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
+            {
+                if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster")
+                {
+                    networkScript.updatePuzzleState("puzzleCompletionMonster", true, "MonsterStandin");
+                    index = i;
+                }
+            }
+
+            // If loss needs to happen
+            if (index == -1){
+                Debug.LogWarning("attempting to alter playerLoss in puzzleStates...");
+                networkScript.updatePuzzleState("playerLoss", true, "MonsterStandin");
+                pLoss = true;
+            }
+
+            // If win needs to happen
+            else
+            {
+                Debug.LogWarning("attempting to alter puzzleCompletion in puzzleStates...");
+                networkScript.updatePuzzleState("puzzleCompletion", true, networkScript.PuzzleStates[0].itemName);
+                //pLoss = true;
+            }
 
             animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
             animationScript.animator.SetInteger("animation", 1);
         }
+        // If the monster is interacting with an item...
         if (agent.remainingDistance <= 2 && currentWaypoint == 888)
         {
             animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;

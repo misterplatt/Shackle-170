@@ -86,6 +86,13 @@ public class spt_monsterMotivation : NetworkBehaviour {
             attack();
 
         Debug.Log("Anger level: " + angerLevel);
+
+        spt_NetworkPuzzleLogic networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
+        for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
+        {
+            if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster" && networkScript.PuzzleStates[i].state == true)
+                win();
+        }
 	}
 
     private GameObject getHost()
@@ -141,6 +148,20 @@ public class spt_monsterMotivation : NetworkBehaviour {
         return false;
     }
 
+    // Called if a level's win state is detected. Calls the attack animation because they are fundamentally equivalent.
+    private void win()
+    {
+        if (!isServer) return;
+
+        if (hostThreat > clientThreat)
+            whichPlayer = 0;
+        else
+            whichPlayer = 1;
+
+        isAttacking = true;
+        movementScript.setWaypoint(999);
+        animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
+    }
 
     // Attack function for the monster.
     private void attack(){

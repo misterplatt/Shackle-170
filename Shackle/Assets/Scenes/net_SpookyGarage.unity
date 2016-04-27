@@ -144,7 +144,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 11099273}
-  selectionRadial: {fileID: 0}
   movingSound: {fileID: 8300000, guid: d1d78210b3bd31345b9752f35ad0fbe4, type: 3}
   HaydenIdea: 1
   moveSpeed: 1
@@ -531,7 +530,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 31361518}
-  selectionRadial: {fileID: 0}
   plugInsound: {fileID: 8300000, guid: b7f7e92a83e50ed47b05ae06eb52fbe5, type: 3}
   unplugSound: {fileID: 8300000, guid: 9dba06ee350241940b0be740692e72f9, type: 3}
 --- !u!1 &66617809
@@ -657,7 +655,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 71610990}
-  selectionRadial: {fileID: 0}
 --- !u!114 &71610990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1146,7 +1143,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 199363624}
-  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 199363625}
@@ -1643,7 +1639,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 317367137}
-  selectionRadial: {fileID: 0}
   rotationSpeed: 90
   lerpSpeed: 5
   distanceToCameraOffset: 1
@@ -1800,7 +1795,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 353954626}
-  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 9804dce6064691c41930dd6e9b3ac272, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 353954627}
@@ -2305,7 +2299,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 452523422}
-  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 452523423}
@@ -3056,7 +3049,6 @@ MonoBehaviour:
   gateItemName: mdl_garageOpener
   holdTime: 2
   m_InteractiveItem: {fileID: 590536868}
-  selectionRadial: {fileID: 0}
   garageOpenSound: {fileID: 8300000, guid: b764ceb0638d6ba4aa4426b2c140869d, type: 3}
   garageLockedSound: {fileID: 8300000, guid: 5062cb8a5bb50054ca339383dda1c26d, type: 3}
 --- !u!65 &590536871
@@ -3071,6 +3063,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5771559, y: 0.32422295, z: 0.40724394}
   m_Center: {x: 0.029051, y: 0.16630949, z: 2.0641981e-16}
+--- !u!1 &597455469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 690670595}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 690670596}
+  m_Layer: 0
+  m_Name: Missing Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &602423821
 Prefab:
   m_ObjectHideFlags: 0
@@ -3308,22 +3315,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 34
-    i1: 55
-    i2: 39
-    i3: 9
-    i4: 61
-    i5: 224
-    i6: 142
-    i7: 116
-    i8: 26
-    i9: 58
-    i10: 22
-    i11: 26
-    i12: 114
-    i13: 182
-    i14: 187
-    i15: 240
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!114 &641633985
@@ -3353,7 +3360,6 @@ MonoBehaviour:
   gateItemName: mdl_screwDriver
   holdTime: 2
   m_InteractiveItem: {fileID: 641633985}
-  selectionRadial: {fileID: 0}
 --- !u!65 &641633987
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3616,6 +3622,19 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06696ad7290d18e429388b44c2324b71, type: 3}
   m_IsPrefabParent: 0
+--- !u!4 &690670596
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 690670595}
+  m_GameObject: {fileID: 597455469}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1750866176}
+  m_Father: {fileID: 885048209}
+  m_RootOrder: 12
 --- !u!1 &727363247
 GameObject:
   m_ObjectHideFlags: 0
@@ -3673,7 +3692,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 727363250}
-  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 727363251}
@@ -4464,7 +4482,7 @@ Transform:
   - {fileID: 1206540147}
   - {fileID: 1751030644}
   - {fileID: 1957371640}
-  - {fileID: 1750866176}
+  - {fileID: 690670596}
   - {fileID: 31361516}
   - {fileID: 768273656}
   m_Father: {fileID: 1234757803}
@@ -4526,7 +4544,6 @@ MonoBehaviour:
   gateItemName: mdl_screwDriver
   holdTime: 0
   m_InteractiveItem: {fileID: 1007446953}
-  selectionRadial: {fileID: 0}
 --- !u!114 &1007446953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4744,7 +4761,6 @@ MonoBehaviour:
   gateItemName: mdl_garageOpener
   holdTime: 2
   m_InteractiveItem: {fileID: 1019155237}
-  selectionRadial: {fileID: 0}
   garageOpenSound: {fileID: 8300000, guid: b764ceb0638d6ba4aa4426b2c140869d, type: 3}
   garageLockedSound: {fileID: 8300000, guid: 5062cb8a5bb50054ca339383dda1c26d, type: 3}
 --- !u!4 &1019155236
@@ -4790,22 +4806,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 226
-    i1: 189
-    i2: 96
-    i3: 98
-    i4: 105
-    i5: 250
-    i6: 164
-    i7: 116
-    i8: 105
-    i9: 51
-    i10: 12
-    i11: 112
-    i12: 233
-    i13: 138
-    i14: 22
-    i15: 132
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!65 &1019155239
@@ -5058,7 +5074,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1091687879}
-  selectionRadial: {fileID: 0}
   secondarySound: {fileID: 0}
 --- !u!131 &1091687881
 GUITexture:
@@ -5316,7 +5331,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1146800813}
-  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 1146800814}
@@ -5504,7 +5518,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1148648213}
-  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 1148648214}
@@ -5791,7 +5804,6 @@ MonoBehaviour:
   gateItemName: mdl_key
   holdTime: 2
   m_InteractiveItem: {fileID: 0}
-  selectionRadial: {fileID: 0}
 --- !u!114 &1206540143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6136,22 +6148,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 34
-    i1: 55
-    i2: 39
-    i3: 9
-    i4: 61
-    i5: 224
-    i6: 142
-    i7: 116
-    i8: 26
-    i9: 58
-    i10: 22
-    i11: 26
-    i12: 114
-    i13: 182
-    i14: 187
-    i15: 240
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!114 &1248719384
@@ -6181,7 +6193,6 @@ MonoBehaviour:
   gateItemName: mdl_screwDriver
   holdTime: 2
   m_InteractiveItem: {fileID: 1248719384}
-  selectionRadial: {fileID: 0}
 --- !u!65 &1248719386
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6484,7 +6495,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1314788442}
-  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 1314788443}
@@ -6651,6 +6661,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2013155711}
   m_RootOrder: 6
+--- !u!1 &1329201687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 690670595}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1750866176}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1336856736
 GameObject:
   m_ObjectHideFlags: 0
@@ -7198,7 +7223,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1426479271}
-  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 0}
   m_StateTwoMaterial: {fileID: 0}
   m_Renderer: {fileID: 0}
@@ -7314,7 +7338,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1439087264}
-  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 1439087265}
@@ -7502,7 +7525,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1449882866}
-  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 1449882867}
@@ -7690,7 +7712,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1485271241}
-  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 1485271242}
@@ -7913,22 +7934,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 34
-    i1: 55
-    i2: 39
-    i3: 9
-    i4: 61
-    i5: 224
-    i6: 142
-    i7: 116
-    i8: 26
-    i9: 58
-    i10: 22
-    i11: 26
-    i12: 114
-    i13: 182
-    i14: 187
-    i15: 240
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!114 &1490762836
@@ -7958,7 +7979,6 @@ MonoBehaviour:
   gateItemName: mdl_screwDriver
   holdTime: 2
   m_InteractiveItem: {fileID: 1490762836}
-  selectionRadial: {fileID: 0}
 --- !u!65 &1490762838
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8156,6 +8176,9 @@ MonoBehaviour:
     item: {fileID: 1206540141}
     isMonstInteractable: 0
   - eventName: playerLoss
+    item: {fileID: 482158901}
+    isMonstInteractable: 0
+  - eventName: puzzleCompletionMonster
     item: {fileID: 482158901}
     isMonstInteractable: 0
 --- !u!4 &1515300599
@@ -9323,7 +9346,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1740269546}
-  selectionRadial: {fileID: 0}
   movingSound: {fileID: 8300000, guid: 9c30b3f225ea5814b8568c053aa2771b, type: 3}
   HaydenIdea: 1
   moveSpeed: 1
@@ -9367,22 +9389,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 246
-    i1: 122
-    i2: 185
-    i3: 96
-    i4: 173
-    i5: 117
-    i6: 10
-    i7: 116
-    i8: 203
-    i9: 89
-    i10: 23
-    i11: 253
-    i12: 38
-    i13: 134
-    i14: 142
-    i15: 59
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!23 &1740269548
@@ -9597,10 +9619,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1749610698}
   m_Mesh: {fileID: 4300000, guid: 11a7ddae8b36c4f0f8cc73409685b184, type: 3}
---- !u!4 &1750866176 stripped
+--- !u!4 &1750866176
 Transform:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 06696ad7290d18e429388b44c2324b71, type: 3}
   m_PrefabInternal: {fileID: 690670595}
+  m_GameObject: {fileID: 1329201687}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 690670596}
+  m_RootOrder: 0
 --- !u!1001 &1751030643
 Prefab:
   m_ObjectHideFlags: 0
@@ -9924,22 +9954,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 34
-    i1: 55
-    i2: 39
-    i3: 9
-    i4: 61
-    i5: 224
-    i6: 142
-    i7: 116
-    i8: 26
-    i9: 58
-    i10: 22
-    i11: 26
-    i12: 114
-    i13: 182
-    i14: 187
-    i15: 240
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!114 &1912383206
@@ -9969,7 +9999,6 @@ MonoBehaviour:
   gateItemName: mdl_screwDriver
   holdTime: 2
   m_InteractiveItem: {fileID: 1912383206}
-  selectionRadial: {fileID: 0}
 --- !u!65 &1912383208
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10172,7 +10201,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1920823330}
-  selectionRadial: {fileID: 0}
   secondarySound: {fileID: 8300000, guid: f7960ec2af918a444b02096a6d091cba, type: 3}
 --- !u!114 &1920823329
 MonoBehaviour:
@@ -10448,7 +10476,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1936999528}
-  selectionRadial: {fileID: 0}
   secondarySound: {fileID: 0}
 --- !u!114 &1936999528
 MonoBehaviour:
@@ -10819,7 +10846,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1969924438}
-  selectionRadial: {fileID: 0}
   rotationSpeed: 90
   lerpSpeed: 5
   distanceToCameraOffset: 1
@@ -11049,7 +11075,6 @@ MonoBehaviour:
   gateItemName: mdl_key
   holdTime: 2
   m_InteractiveItem: {fileID: 2018862522}
-  selectionRadial: {fileID: 0}
 --- !u!114 &2018862522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11794,7 +11819,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 2140054945}
-  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
   m_StateTwoMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_Renderer: {fileID: 2140054946}
