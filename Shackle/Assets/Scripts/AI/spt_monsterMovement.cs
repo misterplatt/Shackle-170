@@ -60,14 +60,6 @@ public class spt_monsterMovement : NetworkBehaviour {
         if (!isServer) return;
 
         networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
-        for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
-        {
-            if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster" && pWin == false)
-            {
-                pWin = true;
-                networkScript.updatePuzzleState("puzzleCompletionMonster", true, "MonsterStandin");
-            }
-        }
 
         // Chooses a new destination if the monster is within a certain distance of its current one.
         if (agent.remainingDistance <= 2 && currentWaypoint != 999 && currentWaypoint != 888){
@@ -81,9 +73,8 @@ public class spt_monsterMovement : NetworkBehaviour {
 
             for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
             {
-                if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster")
+                if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster" && networkScript.PuzzleStates[i].state == true)
                 {
-                    networkScript.updatePuzzleState("puzzleCompletionMonster", true, "MonsterStandin");
                     index = i;
                 }
             }
