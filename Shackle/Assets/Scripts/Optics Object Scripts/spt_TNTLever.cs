@@ -49,6 +49,7 @@ namespace VRStandardAssets.Examples
         //Plug handleDown
         override protected void HandleDown() { }
 
+        //Function which raises the lever 
         void raiseLever() {
             transform.Translate(Vector3.up * .2f);
             if (transform.parent.gameObject.name == "TNT_Switch A") local_leverAPressed = false;

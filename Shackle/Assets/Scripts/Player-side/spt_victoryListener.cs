@@ -46,16 +46,29 @@ public class spt_victoryListener : MonoBehaviour
         //If the puzzleCompletion puzzlestate is true, set Win Text to visible and start camera fadeout
         if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[0].state == true && !once)
         {
-            monster.angerUpdateDisabled = true;
+            /* monster.angerUpdateDisabled = true;
             GetComponent<Text>().enabled = true;
             winLight.enabled = true;
             expandLight = true;
+             * */
             //GameObject.Find("player_B_light").GetComponent<Light>().enabled = true;
             transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
             once = true;
             transitionA.Play();
             StartCoroutine(transitionRumbleShit());
             loadNextLevel();
+        }
+
+        spt_NetworkPuzzleLogic networkScript = GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
+        for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
+        {
+            if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster" && networkScript.PuzzleStates[i].state == true)
+            {
+                monster.angerUpdateDisabled = true;
+                GetComponent<Text>().enabled = true;
+                winLight.enabled = true;
+                expandLight = true;
+            }
         }
 
         if (expandLight && winLight.spotAngle < 179) {

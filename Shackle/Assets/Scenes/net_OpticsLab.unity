@@ -120,7 +120,7 @@ Transform:
   m_LocalScale: {x: 0.09576205, y: 0.54621816, z: 0.54621816}
   m_Children: []
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 12
+  m_RootOrder: 10
 --- !u!23 &17917364
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -180,7 +180,6 @@ MonoBehaviour:
   gateItemName: ID Card
   holdTime: 1
   m_InteractiveItem: {fileID: 17917368}
-  selectionRadial: {fileID: 0}
 --- !u!114 &17917368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,7 +520,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 80860037}
-  selectionRadial: {fileID: 0}
 --- !u!114 &80860037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,7 +580,7 @@ GameObject:
   - 114: {fileID: 81338801}
   - 114: {fileID: 81338800}
   m_Layer: 0
-  m_Name: Mirror Handle (3)
+  m_Name: Mirror Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -615,7 +613,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 81338801}
-  selectionRadial: {fileID: 0}
   movingSound: {fileID: 0}
   rotateSpeed: 10
   maxNegativeRotation: 30
@@ -953,7 +950,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 8
 --- !u!1 &211421741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,7 +1004,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 14
 --- !u!114 &211421745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1035,6 +1032,7 @@ GameObject:
   - 114: {fileID: 218556793}
   - 131: {fileID: 218556792}
   - 82: {fileID: 218556791}
+  - 114: {fileID: 218556799}
   m_Layer: 0
   m_Name: Mirror Pickup (3)
   m_TagString: Untagged
@@ -1054,7 +1052,7 @@ Transform:
   m_Children:
   - {fileID: 918989664}
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!82 &218556791
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1162,7 +1160,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 218556794}
-  selectionRadial: {fileID: 0}
   secondarySound: {fileID: 0}
 --- !u!114 &218556794
 MonoBehaviour:
@@ -1254,6 +1251,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 218556789}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &218556799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 218556789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169787f1339f4234786245c6f8ceacc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitsLaser: 0
 --- !u!1 &218670284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,7 +1301,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 9
 --- !u!1 &230882344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,7 +1409,7 @@ Transform:
   m_LocalScale: {x: 0.62046117, y: 0.7267144, z: 0.1357149}
   m_Children: []
   m_Father: {fileID: 885048209}
-  m_RootOrder: 8
+  m_RootOrder: 6
 --- !u!23 &283800192
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1460,7 +1469,6 @@ MonoBehaviour:
   gateItemName: 
   holdTime: 0
   m_InteractiveItem: {fileID: 283800196}
-  selectionRadial: {fileID: 0}
   trapDoorA: {fileID: 677135751}
   trapDoorB: {fileID: 2060898091}
   leverA: {fileID: 610962378}
@@ -1603,7 +1611,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 319769592}
-  selectionRadial: {fileID: 0}
 --- !u!114 &319769592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1975,7 +1982,7 @@ Transform:
   m_LocalScale: {x: 0.23900531, y: 0.0073240823, z: 0.13594973}
   m_Children: []
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 7
+  m_RootOrder: 5
 --- !u!23 &389629885
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2035,7 +2042,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 389629889}
-  selectionRadial: {fileID: 0}
   secondarySound: {fileID: 0}
 --- !u!114 &389629889
 MonoBehaviour:
@@ -2270,7 +2276,6 @@ MonoBehaviour:
   gateItemName: Flammable Liquid
   holdTime: 1
   m_InteractiveItem: {fileID: 435046496}
-  selectionRadial: {fileID: 0}
   emptyTube: {fileID: 2800000, guid: 27d3ada2dcb239447b2048d4ac090f8d, type: 3}
 --- !u!114 &435046496
 MonoBehaviour:
@@ -2925,7 +2930,7 @@ GameObject:
   - 114: {fileID: 516288773}
   - 114: {fileID: 516288772}
   m_Layer: 0
-  m_Name: Mirror Handle (4)
+  m_Name: Mirror Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2957,7 +2962,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 516288773}
-  selectionRadial: {fileID: 0}
   movingSound: {fileID: 0}
   rotateSpeed: 10
   maxNegativeRotation: 30
@@ -3287,7 +3291,7 @@ Transform:
   m_Children:
   - {fileID: 319769587}
   m_Father: {fileID: 885048209}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!23 &610962380
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3512,7 +3516,7 @@ Transform:
   - {fileID: 469043760}
   - {fileID: 1305678959}
   m_Father: {fileID: 885048209}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!23 &677135753
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3648,7 +3652,7 @@ GameObject:
   - 114: {fileID: 727634144}
   - 114: {fileID: 727634143}
   m_Layer: 0
-  m_Name: Mirror Handle (2)
+  m_Name: Mirror Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3725,7 +3729,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 727634144}
-  selectionRadial: {fileID: 0}
   movingSound: {fileID: 0}
   rotateSpeed: 10
   maxNegativeRotation: 60
@@ -3898,7 +3901,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 13
 --- !u!1 &789278361
 GameObject:
   m_ObjectHideFlags: 0
@@ -3930,7 +3933,7 @@ Transform:
   - {fileID: 978252047}
   - {fileID: 2108417123}
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 9
+  m_RootOrder: 7
 --- !u!23 &789278363
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4006,7 +4009,7 @@ Transform:
   m_Children:
   - {fileID: 80860032}
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 11
+  m_RootOrder: 9
 --- !u!23 &820314003
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4148,7 +4151,7 @@ Transform:
   m_Children:
   - {fileID: 386330164}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 12
 --- !u!1 &862289909
 GameObject:
   m_ObjectHideFlags: 0
@@ -5747,10 +5750,8 @@ Transform:
   - {fileID: 479870139}
   - {fileID: 435046491}
   - {fileID: 681329191}
-  - {fileID: 1299910941}
   - {fileID: 677135752}
   - {fileID: 610962379}
-  - {fileID: 1326799993}
   - {fileID: 283800191}
   m_Father: {fileID: 1234757803}
   m_RootOrder: 1
@@ -5930,7 +5931,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 15
 --- !u!1 &975476953
 GameObject:
   m_ObjectHideFlags: 0
@@ -6143,7 +6144,6 @@ MonoBehaviour:
   gateItemName: 
   holdTime: 0
   m_InteractiveItem: {fileID: 978252051}
-  selectionRadial: {fileID: 0}
 --- !u!1001 &997262498
 Prefab:
   m_ObjectHideFlags: 0
@@ -6842,7 +6842,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 10
 --- !u!1 &1200406288
 GameObject:
   m_ObjectHideFlags: 0
@@ -6892,7 +6892,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1200406291}
-  selectionRadial: {fileID: 0}
   laserLayers:
     serializedVersion: 2
     m_Bits: 1
@@ -7015,7 +7014,7 @@ Transform:
   - {fileID: 885048209}
   - {fileID: 1817802639}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
 --- !u!1 &1245221615
 GameObject:
   m_ObjectHideFlags: 0
@@ -7032,6 +7031,7 @@ GameObject:
   - 114: {fileID: 1245221619}
   - 131: {fileID: 1245221618}
   - 82: {fileID: 1245221617}
+  - 114: {fileID: 1245221625}
   m_Layer: 0
   m_Name: Mirror Pickup (2)
   m_TagString: Untagged
@@ -7159,7 +7159,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1245221620}
-  selectionRadial: {fileID: 0}
   secondarySound: {fileID: 0}
 --- !u!114 &1245221620
 MonoBehaviour:
@@ -7251,6 +7250,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1245221615}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1245221625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1245221615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169787f1339f4234786245c6f8ceacc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitsLaser: 0
 --- !u!1 &1299910940
 GameObject:
   m_ObjectHideFlags: 0
@@ -7265,8 +7276,10 @@ GameObject:
   - 114: {fileID: 1299910947}
   - 114: {fileID: 1299910946}
   - 114: {fileID: 1299910945}
+  - 114: {fileID: 1299910948}
+  - 114: {fileID: 1299910949}
   m_Layer: 0
-  m_Name: Mirror Stand (2)
+  m_Name: Mirror Stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7279,12 +7292,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1299910940}
   m_LocalRotation: {x: 0, y: 0.7071066, z: 0, w: -0.70710695}
-  m_LocalPosition: {x: -2.94, y: -1.5270001, z: 3.32}
-  m_LocalScale: {x: 0.37606484, y: 0.6031618, z: 0.37606484}
+  m_LocalPosition: {x: -2.94, y: 0.663, z: 3.32}
+  m_LocalScale: {x: 0.37606487, y: 0.6031618, z: 0.37606487}
   m_Children:
   - {fileID: 727634139}
-  m_Father: {fileID: 885048209}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!23 &1299910942
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7345,7 +7358,6 @@ MonoBehaviour:
   gateItemName: Mirror Pickup
   holdTime: 1
   m_InteractiveItem: {fileID: 1299910946}
-  selectionRadial: {fileID: 0}
   mountAngle: 270
 --- !u!114 &1299910946
 MonoBehaviour:
@@ -7392,6 +7404,45 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &1299910948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1299910940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 0}
+  m_ChildIndex: 4294967295
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.001
+  m_InterpolateRotation: 0.5
+  m_InterpolateMovement: 0.5
+--- !u!114 &1299910949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1299910940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!1 &1305678958
 GameObject:
   m_ObjectHideFlags: 0
@@ -7556,6 +7607,8 @@ GameObject:
   - 114: {fileID: 1326799996}
   - 114: {fileID: 1326799995}
   - 114: {fileID: 1326799994}
+  - 114: {fileID: 1326800000}
+  - 114: {fileID: 1326800001}
   m_Layer: 0
   m_Name: Mirror Stand (1)
   m_TagString: Untagged
@@ -7570,12 +7623,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1326799992}
   m_LocalRotation: {x: 0, y: 0.043619394, z: 0, w: 0.99904823}
-  m_LocalPosition: {x: 0.244, y: -1.5270001, z: 6.822}
-  m_LocalScale: {x: 0.37606484, y: 0.6031618, z: 0.37606484}
+  m_LocalPosition: {x: 0.244, y: 0.663, z: 6.822}
+  m_LocalScale: {x: 0.37606487, y: 0.6031618, z: 0.37606487}
   m_Children:
   - {fileID: 1379319913}
-  m_Father: {fileID: 885048209}
-  m_RootOrder: 7
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
 --- !u!114 &1326799994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7590,7 +7643,6 @@ MonoBehaviour:
   gateItemName: Mirror Pickup
   holdTime: 1
   m_InteractiveItem: {fileID: 1326799995}
-  selectionRadial: {fileID: 0}
   mountAngle: 270
 --- !u!114 &1326799995
 MonoBehaviour:
@@ -7683,6 +7735,45 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1326799992}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1326800000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1326799992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 0}
+  m_ChildIndex: 4294967295
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.001
+  m_InterpolateRotation: 0.5
+  m_InterpolateMovement: 0.5
+--- !u!114 &1326800001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1326799992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!1 &1347610598
 GameObject:
   m_ObjectHideFlags: 0
@@ -7800,7 +7891,7 @@ GameObject:
   - 114: {fileID: 1379319915}
   - 114: {fileID: 1379319914}
   m_Layer: 0
-  m_Name: Mirror Handle (1)
+  m_Name: Mirror Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7833,7 +7924,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1379319915}
-  selectionRadial: {fileID: 0}
   movingSound: {fileID: 0}
   rotateSpeed: 10
   maxNegativeRotation: 20
@@ -8079,7 +8169,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 11
 --- !u!1 &1542686249
 GameObject:
   m_ObjectHideFlags: 0
@@ -8113,7 +8203,7 @@ Transform:
   m_LocalScale: {x: 0.28824052, y: 0.27418068, z: 0.27418068}
   m_Children: []
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 6
+  m_RootOrder: 4
 --- !u!82 &1542686251
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8214,7 +8304,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1542686254}
-  selectionRadial: {fileID: 0}
 --- !u!114 &1542686254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8438,6 +8527,8 @@ GameObject:
   - 114: {fileID: 1760333459}
   - 114: {fileID: 1760333458}
   - 114: {fileID: 1760333457}
+  - 114: {fileID: 1760333463}
+  - 114: {fileID: 1760333464}
   m_Layer: 0
   m_Name: Mirror Stand
   m_TagString: Untagged
@@ -8452,12 +8543,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1760333455}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 3.865, y: -1.5270001, z: -6.349}
-  m_LocalScale: {x: 0.3760648, y: 0.6031618, z: 0.3760648}
+  m_LocalPosition: {x: 3.865, y: 0.663, z: -6.349}
+  m_LocalScale: {x: 0.37606484, y: 0.6031618, z: 0.37606484}
   m_Children:
   - {fileID: 516288771}
-  m_Father: {fileID: 1817802639}
-  m_RootOrder: 5
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!114 &1760333457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8472,7 +8563,6 @@ MonoBehaviour:
   gateItemName: Mirror Pickup
   holdTime: 1
   m_InteractiveItem: {fileID: 1760333458}
-  selectionRadial: {fileID: 0}
   mountAngle: 270
 --- !u!114 &1760333458
 MonoBehaviour:
@@ -8565,6 +8655,45 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1760333455}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1760333463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1760333455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 0}
+  m_ChildIndex: 4294967295
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.001
+  m_InterpolateRotation: 0.5
+  m_InterpolateMovement: 0.5
+--- !u!114 &1760333464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1760333455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!1 &1771829637
 GameObject:
   m_ObjectHideFlags: 0
@@ -8599,7 +8728,7 @@ Transform:
   m_LocalScale: {x: 0.21173452, y: 0.11630783, z: 0.43273926}
   m_Children: []
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!23 &1771829639
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8659,7 +8788,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1771829643}
-  selectionRadial: {fileID: 0}
   secondarySound: {fileID: 0}
 --- !u!114 &1771829643
 MonoBehaviour:
@@ -8852,11 +8980,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 656099151}
-  - {fileID: 1870760828}
   - {fileID: 218556790}
   - {fileID: 1771829638}
   - {fileID: 1931923886}
-  - {fileID: 1760333456}
   - {fileID: 1542686250}
   - {fileID: 389629884}
   - {fileID: 2143284885}
@@ -9101,6 +9227,8 @@ GameObject:
   - 114: {fileID: 1870760831}
   - 114: {fileID: 1870760830}
   - 114: {fileID: 1870760829}
+  - 114: {fileID: 1870760835}
+  - 114: {fileID: 1870760836}
   m_Layer: 0
   m_Name: Mirror Stand (2)
   m_TagString: Untagged
@@ -9115,12 +9243,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1870760827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.024, y: -1.5270001, z: -6.989}
+  m_LocalPosition: {x: -0.024, y: 0.663, z: -6.989}
   m_LocalScale: {x: 0.3760649, y: 0.6031618, z: 0.3760649}
   m_Children:
   - {fileID: 81338799}
-  m_Father: {fileID: 1817802639}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
 --- !u!114 &1870760829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9135,7 +9263,6 @@ MonoBehaviour:
   gateItemName: Mirror Pickup
   holdTime: 1
   m_InteractiveItem: {fileID: 1870760830}
-  selectionRadial: {fileID: 0}
   mountAngle: 270
 --- !u!114 &1870760830
 MonoBehaviour:
@@ -9228,6 +9355,45 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1870760827}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1870760835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1870760827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 0}
+  m_ChildIndex: 4294967295
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.001
+  m_InterpolateRotation: 0.5
+  m_InterpolateMovement: 0.5
+--- !u!114 &1870760836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1870760827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!1 &1893743405
 GameObject:
   m_ObjectHideFlags: 0
@@ -9501,7 +9667,7 @@ Transform:
   m_LocalScale: {x: 1, y: 2.5357413, z: 0.016268825}
   m_Children: []
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!23 &1931923887
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9561,7 +9727,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1931923891}
-  selectionRadial: {fileID: 0}
   movingSound: {fileID: 0}
   HaydenIdea: 1
   moveSpeed: 1
@@ -9740,7 +9905,7 @@ Transform:
   - {fileID: 1574600587}
   - {fileID: 1709466906}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 7
 --- !u!1 &2031974347
 GameObject:
   m_ObjectHideFlags: 0
@@ -9757,6 +9922,7 @@ GameObject:
   - 114: {fileID: 2031974351}
   - 131: {fileID: 2031974350}
   - 82: {fileID: 2031974349}
+  - 114: {fileID: 2031974357}
   m_Layer: 0
   m_Name: Mirror Pickup (4)
   m_TagString: Untagged
@@ -9776,7 +9942,7 @@ Transform:
   m_Children:
   - {fileID: 948591765}
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 13
+  m_RootOrder: 11
 --- !u!82 &2031974349
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9884,7 +10050,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 2031974352}
-  selectionRadial: {fileID: 0}
   secondarySound: {fileID: 0}
 --- !u!114 &2031974352
 MonoBehaviour:
@@ -9976,6 +10141,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2031974347}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2031974357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2031974347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169787f1339f4234786245c6f8ceacc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitsLaser: 0
 --- !u!1 &2056423080
 GameObject:
   m_ObjectHideFlags: 0
@@ -10037,7 +10214,7 @@ Transform:
   - {fileID: 1893743406}
   - {fileID: 975476954}
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 10
+  m_RootOrder: 8
 --- !u!23 &2060898093
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10329,7 +10506,7 @@ Transform:
   m_LocalScale: {x: 0.077361, y: 0.09967522, z: 0.07010972}
   m_Children: []
   m_Father: {fileID: 1817802639}
-  m_RootOrder: 8
+  m_RootOrder: 6
 --- !u!23 &2143284886
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10390,7 +10567,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 2143284890}
-  selectionRadial: {fileID: 0}
   secondarySound: {fileID: 0}
 --- !u!114 &2143284890
 MonoBehaviour:
@@ -10546,6 +10722,7 @@ GameObject:
   - 114: {fileID: 2143476960}
   - 131: {fileID: 2143476959}
   - 82: {fileID: 2143476958}
+  - 114: {fileID: 2143476966}
   m_Layer: 0
   m_Name: Mirror Pickup (1)
   m_TagString: Untagged
@@ -10673,7 +10850,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 2143476961}
-  selectionRadial: {fileID: 0}
   secondarySound: {fileID: 0}
 --- !u!114 &2143476961
 MonoBehaviour:
@@ -10765,3 +10941,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2143476956}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2143476966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2143476956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169787f1339f4234786245c6f8ceacc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitsLaser: 0

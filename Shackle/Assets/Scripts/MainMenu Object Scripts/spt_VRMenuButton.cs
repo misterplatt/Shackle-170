@@ -30,18 +30,19 @@ namespace VRStandardAssets.Examples
         //Show associated text while reticle is over the object
         protected override void HandleOver()
         {
-            button.image.color = new Color32(153, 0, 0, 255);
+            button.image.color = new Color32(151, 0, 0, 255);
         }
 
         //Hide associated text while reticle leaves the object
         protected override void HandleOut()
         {
-            button.image.color = new Color32(229, 229, 229, 255);
+            button.image.color = new Color32(55, 55, 55, 255);
         }
 
         protected override void holdSuccess()
         {
-            
+            button.onClick.Invoke(); //Calls whatever is placed in the Button component's OnClick sections
+            holding = false;
         }
     }
 }

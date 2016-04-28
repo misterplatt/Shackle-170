@@ -20,8 +20,6 @@ namespace VRStandardAssets.Examples
     public class spt_mirrorHandle : spt_baseInteractiveObject
     {
         public static bool rotating = false;
-        public static bool mirrorRemoved = false;
-        private bool hadMirror = false;
 
         private bool buttonHeld = false;
         private bool moved = false;
@@ -31,7 +29,6 @@ namespace VRStandardAssets.Examples
         public AudioClip movingSound;
         private AudioSource aSource;
         private bool once = false;
-
 
         //Speed at which the object should move
         public float rotateSpeed = 1;
@@ -50,14 +47,9 @@ namespace VRStandardAssets.Examples
 
         override protected void Update()
         {
-            if (HasMirror() == false && !mirrorRemoved)
-            {
-                mirrorRemoved = true;
-            }
             //When A is held, use left thumbstick to move object based on object's axis boolean
 			if (buttonHeld == true)
             {
-                hadMirror = true;
                 //Displays a movable's movePath sprite if specified
                 if (optional_movePathImage != null && !moved) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = true;
 
@@ -103,11 +95,7 @@ namespace VRStandardAssets.Examples
         //Plugging HandleClick
         override protected void HandleClick() { }
 
-		bool HasMirror(){
-			if (transform.FindChild ("Mirror Pickup") != null) return true;
-			else return false;
-		}
-
+        //Function which allows us to limit rotation in the negative direction
 		float ClampAngle (float angle, float min, float max){
 			if (angle < 90 || angle > 270) {
 				if (angle > 180) angle -= 360;
