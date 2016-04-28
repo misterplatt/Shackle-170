@@ -3,7 +3,7 @@
  * Created by: Lauren Cunningham
  * Networking Modifications by : Ryan Connors
  * 
- * Last Revision Date: 4/27/2016
+ * Last Revision Date: 4/28/2016
  * 
  * This file is the one that ultimately governs the monster's movements. **/
 
@@ -33,9 +33,9 @@ public class spt_monsterMovement : NetworkBehaviour {
     // Used to guide the monster's movement
     private NavMeshAgent agent;
 
-    private bool startedAttackAnimation = false;
+    private bool pWin = false;
 
-    public bool winToggle = false;
+    private bool startedAttackAnimation = false;
 
     // Use this for initialization
 	void Start () {
@@ -62,8 +62,11 @@ public class spt_monsterMovement : NetworkBehaviour {
         networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
         for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
         {
-            if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster")
-                networkScript.updatePuzzleState("puzzleCompletionMonster", winToggle, "MonsterStandin");
+            if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster" && pWin == false)
+            {
+                pWin = true;
+                networkScript.updatePuzzleState("puzzleCompletionMonster", true, "MonsterStandin");
+            }
         }
 
         // Chooses a new destination if the monster is within a certain distance of its current one.

@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 4/4/2016
+ * Last Revision Date: 4/28/2016
  * 
  * This file handles all of the monster's animations, and the translations needed to properly frame them.
  * This includes: the attacking animation/attacking capability.*/
@@ -70,6 +70,7 @@ public class spt_monsterAnimations : NetworkBehaviour {
                 // Alter the monster's position and set its new destination to player 1 (the host)
                 movementScript = GameObject.FindObjectOfType(typeof(spt_monsterMovement)) as spt_monsterMovement;
                 this.transform.position = attackSpawnAStartingPosition;
+                this.transform.LookAt(GameObject.Find("Spawn_A").transform);
                 movementScript.setDestination(playerPosition);
                 render = true;
                 monsterAttackInitiated = true;
@@ -83,6 +84,7 @@ public class spt_monsterAnimations : NetworkBehaviour {
                 // Alter the monster's position and set its new destination to player 2 (the client)
                 movementScript = GameObject.FindObjectOfType(typeof(spt_monsterMovement)) as spt_monsterMovement;
                 this.transform.position = attackSpawnBStartingPosition;
+                this.transform.LookAt(GameObject.Find("Spawn_B").transform);
                 movementScript.setDestination(playerPosition);
                 render = true;
                 monsterAttackInitiated = true;
@@ -112,6 +114,7 @@ public class spt_monsterAnimations : NetworkBehaviour {
 
             movementScript = GameObject.FindObjectOfType(typeof(spt_monsterMovement)) as spt_monsterMovement;
             this.transform.position = interactableAnimationStartingPositions[index];
+            this.transform.LookAt(interactableAnimationStartingPositions[index]);
             movementScript.setDestination(interactables[index].transform);
             movementScript.prevWaypoint = movementScript.currentWaypoint;
             movementScript.currentWaypoint = 888;

@@ -22,7 +22,8 @@ public class spt_flashlight : NetworkBehaviour {
     }
 
     // Toggle component on and off on rightThumbstick press
-    void Update () {
+    void Update()
+    {
         if (!isLocalPlayer) return;
         if (spt_playerControls.rightThumbstickButtonPressed() || Input.GetKeyDown(KeyCode.F))
         {
@@ -33,6 +34,11 @@ public class spt_flashlight : NetworkBehaviour {
             transform.Find("Camera Player/pFlashLight").gameObject.GetComponent<spt_angerObject>().toggleVisibility();
             if (!isServer) CmdToggleFlashLightVisibility(this.name);
         }
+
+        /*spt_monsterMotivation monster = GameObject.Find("MonsterStandin").gameObject.GetComponent<spt_monsterMotivation>();
+        if ((monster.isAttacking && isServer && monster.whichPlayer == 0) || (monster.isAttacking && !isServer && monster.whichPlayer == 1))
+            monster.attackAfterFlashlightToggle();
+            */
     }
 
     [Command]

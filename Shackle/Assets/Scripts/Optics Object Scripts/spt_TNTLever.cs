@@ -1,9 +1,9 @@
 ﻿/*
 spt_TNTLever
 
-Author(s): Hayden Platt
+Author(s): Hayden Platt, Lauren Cunningham
 
-Revision 1
+Revision 2
 
 When the lever is pressed, temporarily lowers the lever. If both levers are pressed
 within a time frame, the level is beaten and the ending cutscene triggers.
@@ -28,8 +28,15 @@ namespace VRStandardAssets.Examples
         {
             base.Update();
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[10].state == true && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[11].state == true) {
-                local_puzzleCompletion = true;
-                spt_WorldState.worldStateChanged = true;
+                spt_NetworkPuzzleLogic networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
+                for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
+                {
+                    if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster")
+                    {
+                        networkScript.updatePuzzleState("puzzleCompletionMonster", true, "MonsterStandin");
+                        return;
+                    }
+                }
             }
         }
 

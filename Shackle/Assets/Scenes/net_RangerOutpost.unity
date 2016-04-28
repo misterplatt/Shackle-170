@@ -385,7 +385,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 20754322}
-  selectionRadial: {fileID: 0}
   lManager: {fileID: 1062713343}
   dialNumber: 0
   currentDigit: 5
@@ -1466,7 +1465,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 98241442}
-  selectionRadial: {fileID: 0}
   secondarySound: {fileID: 0}
 --- !u!65 &98241444
 BoxCollider:
@@ -8672,7 +8670,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 604119437}
-  selectionRadial: {fileID: 0}
   m_StateOneMaterial: {fileID: 0}
   m_StateTwoMaterial: {fileID: 2100000, guid: 36ac08bf8a2d0ff4a9546100c0139088, type: 2}
   m_Renderer: {fileID: 604119440}
@@ -8995,7 +8992,6 @@ MonoBehaviour:
   gateItemName: mdl_pickaxe
   holdTime: 1
   m_InteractiveItem: {fileID: 611214795}
-  selectionRadial: {fileID: 0}
   fullDiagram: {fileID: 2100000, guid: 27a71e9b75c05e54992c02b288b22416, type: 2}
 --- !u!82 &611214797
 AudioSource:
@@ -9946,7 +9942,6 @@ MonoBehaviour:
   gateItemName: mdl_fuseKey
   holdTime: 2
   m_InteractiveItem: {fileID: 672468057}
-  selectionRadial: {fileID: 0}
 --- !u!114 &672468057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10511,7 +10506,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 688889304}
-  selectionRadial: {fileID: 0}
   secondarySound: {fileID: 0}
 --- !u!114 &688889304
 MonoBehaviour:
@@ -11290,7 +11284,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 743040765}
-  selectionRadial: {fileID: 0}
   secondarySound: {fileID: 0}
 --- !u!114 &743040765
 MonoBehaviour:
@@ -12232,7 +12225,6 @@ MonoBehaviour:
   gateItemName: mdl_mapCorner
   holdTime: 1
   m_InteractiveItem: {fileID: 784891789}
-  selectionRadial: {fileID: 0}
   plugInsound: {fileID: 8300000, guid: b7f7e92a83e50ed47b05ae06eb52fbe5, type: 3}
   completeMap: {fileID: 21300000, guid: 10270ac45cf147040a831da1944d2a58, type: 3}
 --- !u!114 &784891789
@@ -12569,7 +12561,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 795116635}
-  selectionRadial: {fileID: 0}
   lManager: {fileID: 1062713343}
   dialNumber: 2
   currentDigit: 6
@@ -13101,7 +13092,6 @@ MonoBehaviour:
   gateItemName: mdl_pickaxe
   holdTime: 3
   m_InteractiveItem: {fileID: 813129980}
-  selectionRadial: {fileID: 0}
 --- !u!65 &813129983
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15618,7 +15608,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1015128859}
-  selectionRadial: {fileID: 0}
   fManager: {fileID: 1980709438}
   switchNumber: 4
 --- !u!114 &1015128859
@@ -15972,7 +15961,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1030387349}
-  selectionRadial: {fileID: 0}
   fManager: {fileID: 1980709438}
   switchNumber: 1
 --- !u!114 &1030387349
@@ -16215,7 +16203,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1033279751}
-  selectionRadial: {fileID: 0}
   fManager: {fileID: 1980709438}
   switchNumber: 2
 --- !u!114 &1033279751
@@ -16692,7 +16679,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1062713345}
-  selectionRadial: {fileID: 0}
   rotationSpeed: 90
   lerpSpeed: 5
   distanceToCameraOffset: 0
@@ -18510,7 +18496,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1186019760}
-  selectionRadial: {fileID: 0}
   fManager: {fileID: 1980709438}
   switchNumber: 5
 --- !u!114 &1186019760
@@ -22215,7 +22200,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1450521834}
-  selectionRadial: {fileID: 0}
   lManager: {fileID: 1062713343}
   dialNumber: 1
   currentDigit: 8
@@ -23310,6 +23294,9 @@ MonoBehaviour:
     isMonstInteractable: 0
   - eventName: deskDrawerOpen
     item: {fileID: 2014594127}
+    isMonstInteractable: 1
+  - eventName: puzzleCompletionMonster
+    item: {fileID: 504406679}
     isMonstInteractable: 1
 --- !u!4 &1515300599
 Transform:
@@ -26286,7 +26273,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1770070737}
-  selectionRadial: {fileID: 0}
   lManager: {fileID: 1062713343}
   dialNumber: 3
   currentDigit: 3
@@ -27153,7 +27139,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1834857528}
-  selectionRadial: {fileID: 0}
   fManager: {fileID: 1980709438}
   switchNumber: 3
 --- !u!114 &1834857528
@@ -29475,7 +29460,6 @@ MonoBehaviour:
   gateItemName: 
   holdTime: 0
   m_InteractiveItem: {fileID: 1980709439}
-  selectionRadial: {fileID: 0}
   hatchWhiteLight: {fileID: 0}
   hatchRedLight: {fileID: 0}
   hatchGreenLight: {fileID: 0}
@@ -29820,7 +29804,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1987510805}
-  selectionRadial: {fileID: 0}
   rotationSpeed: 90
   lerpSpeed: 5
   distanceToCameraOffset: 0.2
@@ -30406,7 +30389,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 2014594131}
-  selectionRadial: {fileID: 0}
   movingSound: {fileID: 8300000, guid: 883d554dd9e7e244ca6c9440bec1b3d2, type: 3}
   HaydenIdea: -1
   moveSpeed: 1
@@ -31443,7 +31425,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 2076277755}
-  selectionRadial: {fileID: 0}
   fManager: {fileID: 1980709438}
   switchNumber: 0
 --- !u!82 &2076277760

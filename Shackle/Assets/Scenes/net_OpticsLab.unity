@@ -7014,7 +7014,7 @@ Transform:
   - {fileID: 885048209}
   - {fileID: 1817802639}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
 --- !u!1 &1245221615
 GameObject:
   m_ObjectHideFlags: 0
@@ -7628,7 +7628,7 @@ Transform:
   m_Children:
   - {fileID: 1379319913}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
 --- !u!114 &1326799994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8158,6 +8158,9 @@ MonoBehaviour:
   - eventName: leverBPressed
     item: {fileID: 820314001}
     isMonstInteractable: 0
+  - eventName: puzzleCompletionMonster
+    item: {fileID: 474894866}
+    isMonstInteractable: 0
 --- !u!4 &1515300599
 Transform:
   m_ObjectHideFlags: 0
@@ -8548,7 +8551,7 @@ Transform:
   m_Children:
   - {fileID: 516288771}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
 --- !u!114 &1760333457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9248,7 +9251,7 @@ Transform:
   m_Children:
   - {fileID: 81338799}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!114 &1870760829
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 4/20/2016
+ * Last Revision Date: 4/28/2016
  * 
  * This file is the one that ultimately governs the monster's motivation. **/
 
@@ -197,6 +197,14 @@ public class spt_monsterMotivation : NetworkBehaviour {
                 animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
             }
         }
+    }
+
+    //Once the monster has decided it will attack, the next time a player uses their flashlight, the flashlight is possessed and this 
+    //  function sets up the actual attack. (Ensures the player sees the monster's approach)
+    public void attackAfterFlashlightToggle()
+    {
+        movementScript.setWaypoint(999);
+        animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
     }
 
     public void netAttack()
