@@ -23,8 +23,6 @@ namespace VRStandardAssets.Examples
         private MeshRenderer laserMesh;
         private BoxCollider laserCollider;
 
-        private bool once = false;
-
         override protected void Start() {
             laserMesh = transform.FindChild("Laser").gameObject.GetComponent<MeshRenderer>();
             laserCollider = transform.FindChild("Laser").gameObject.GetComponent<BoxCollider>();

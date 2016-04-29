@@ -24,7 +24,6 @@ namespace VRStandardAssets.Examples
 
         private bool once = false;
         private Vector3 initalPosition;
-        private Quaternion initialRotation;
         public AudioClip plugInsound;
         public AudioClip unplugSound;
         private AudioSource plugSound;
@@ -33,7 +32,6 @@ namespace VRStandardAssets.Examples
         override protected void Start()
         {
             initalPosition = transform.position;
-            initialRotation = transform.rotation;
             plugSound = GetComponent<AudioSource>();
         }
 
