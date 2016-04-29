@@ -1,12 +1,12 @@
 ﻿/*
-spt_interactiveItemMovable
+spt_drawer
 
-Author(s): Hayden Platt,Dara Diba, Lauren
+Author(s): Hayden Platt, Lauren
 
 Revision 1
 
-Child of the base interactiveObject class
-Allows for an item to be moved a certain distance in the X or Z axis
+Drawer specific movable script, with custom reset function
+and puzzle state flipping.
 */
 
 
@@ -16,7 +16,7 @@ using System.Collections;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_interactiveMovable : spt_baseInteractiveObject
+    public class spt_drawer : spt_baseInteractiveObject
     {
         private bool buttonHeld = false;
         private bool moved = false;
@@ -70,8 +70,10 @@ namespace VRStandardAssets.Examples
 
                 Vector3 newPos = transform.position; //Vector which handles and clamps
 
-                if (movingSound != null){
-                    if ((moveOnLocalX == true && spt_playerControls.leftThumb("Horizontal") != 0) || ((moveOnLocalY == true || moveOnLocalZ == true) && spt_playerControls.leftThumb("Vertical") != 0)){
+                if (movingSound != null)
+                {
+                    if ((moveOnLocalX == true && spt_playerControls.leftThumb("Horizontal") != 0) || ((moveOnLocalY == true || moveOnLocalZ == true) && spt_playerControls.leftThumb("Vertical") != 0))
+                    {
                         if (!once)
                         {
                             aSource.Play();
@@ -95,11 +97,34 @@ namespace VRStandardAssets.Examples
                 transform.position = newPos;
             }
             //stop moving when button is released
-            if (spt_playerControls.aButtonPressed() == false) {
+            if (spt_playerControls.aButtonPressed() == false)
+            {
                 buttonHeld = false;
                 once = false;
-                if (movingSound !=null) aSource.Stop();
+                if (movingSound != null) aSource.Stop();
                 if (optional_movePathImage != null) optional_movePathImage.GetComponent<SpriteRenderer>().enabled = false;
+
+                spt_NetworkPuzzleLogic network = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
+                //If the drawer is been pulled out, set isMonsterInteractable to true.
+                if (transform.position.z > initialPosition.z + 0.2f)
+                {
+                    for (int i = 0; i < network.PuzzleStates.Count; ++i)
+                    {
+                        if (network.PuzzleStates[i].itemName == gameObject.name && network.PuzzleStates[i].isMonsterInteractable)
+                        {
+                            network.updatePuzzleState(network.PuzzleStates[i].name, true, gameObject.name);
+                        }
+                    }
+                }
+                else {
+                    for (int i = 0; i < network.PuzzleStates.Count; ++i)
+                    {
+                        if (network.PuzzleStates[i].itemName == gameObject.name && network.PuzzleStates[i].isMonsterInteractable)
+                        {
+                            network.updatePuzzleState(network.PuzzleStates[i].name, false, gameObject.name);
+                        }
+                    }
+                }
             }
         }
 
@@ -111,5 +136,10 @@ namespace VRStandardAssets.Examples
 
         //Plugging HandleClick
         override protected void HandleClick() { }
+
+        public override void resetItem()
+        {
+            transform.position = initialPosition;
+        }
     }
 }
