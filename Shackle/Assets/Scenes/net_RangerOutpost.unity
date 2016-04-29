@@ -3975,13 +3975,40 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11490200, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
+    - {fileID: 11499568, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &306281865 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 173118, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
   m_PrefabInternal: {fileID: 306281864}
+--- !u!114 &306281866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 306281865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45be8f06f0896bf40b2d881c1aff5527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &306281867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 306281865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8b227d207cde764c89a9a5ff05de2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angerNum: 10
+  isFlashlight: 0
+  isDurationObject: 0
 --- !u!1 &308122811
 GameObject:
   m_ObjectHideFlags: 0
@@ -6930,6 +6957,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 138348, guid: ff6d4df19f2366e45a3bfdddce672b71, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff6d4df19f2366e45a3bfdddce672b71, type: 2}
   m_IsPrefabParent: 0
@@ -7031,7 +7062,7 @@ Prefab:
     - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: interactables.Array.data[0]
       value: 
-      objectReference: {fileID: 306281865}
+      objectReference: {fileID: 2014594127}
     - target: {fileID: 11496540, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: waypoints.Array.data[0]
       value: 
@@ -7111,13 +7142,21 @@ Prefab:
     - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: interactables.Array.data[1]
       value: 
-      objectReference: {fileID: 2014594127}
+      objectReference: {fileID: 784612904}
     - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: interactableAnimationStartingPositions.Array.data[1].x
-      value: -10
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: interactableAnimationStartingPositions.Array.data[1].z
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.data[0].x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.data[0].z
       value: -4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11957,6 +11996,21 @@ Transform:
   - {fileID: 1293085661}
   m_Father: {fileID: 707501868}
   m_RootOrder: 0
+--- !u!1 &784612904 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 111220, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
+  m_PrefabInternal: {fileID: 306281864}
+--- !u!114 &784612909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 784612904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e37e4b4b67b4644b564ae6d137bfa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &784891784
 GameObject:
   m_ObjectHideFlags: 0
@@ -23063,6 +23117,9 @@ MonoBehaviour:
     isMonstInteractable: 1
   - eventName: puzzleCompletionMonster
     item: {fileID: 504406679}
+    isMonstInteractable: 0
+  - eventName: fuseBoxOpen
+    item: {fileID: 784612904}
     isMonstInteractable: 1
 --- !u!4 &1515300599
 Transform:
@@ -29138,8 +29195,6 @@ GameObject:
   - 114: {fileID: 1980709438}
   - 114: {fileID: 1980709440}
   - 114: {fileID: 1980709439}
-  - 114: {fileID: 1980709442}
-  - 114: {fileID: 1980709441}
   - 82: {fileID: 1980709443}
   m_Layer: 0
   m_Name: Fuse Box
@@ -29274,31 +29329,6 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
---- !u!114 &1980709441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1980709433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45be8f06f0896bf40b2d881c1aff5527, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1980709442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1980709433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b227d207cde764c89a9a5ff05de2a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angerNum: 10
-  isFlashlight: 0
-  isDurationObject: 0
 --- !u!82 &1980709443
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30191,13 +30221,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2014594127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fa1c05ec88452f459d92407ec51f33c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ea5c11604137914cbda51f3c5a91964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 2014594131}
-  movingSound: {fileID: 8300000, guid: 883d554dd9e7e244ca6c9440bec1b3d2, type: 3}
+  movingSound: {fileID: 0}
   HaydenIdea: -1
   moveSpeed: 1
   moveOnLocalX: 0
@@ -30344,6 +30374,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.6036644, y: 0.24725722, z: 0.9386003}
   m_Center: {x: -0.011599981, y: 0.9669678, z: 0.8765993}
+--- !u!114 &2014594134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2014594127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e37e4b4b67b4644b564ae6d137bfa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2014710177
 GameObject:
   m_ObjectHideFlags: 0

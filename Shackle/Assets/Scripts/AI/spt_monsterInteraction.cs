@@ -87,7 +87,7 @@ public class spt_monsterInteraction : MonoBehaviour {
                     {
 
                         // If the monster is within interaction range...
-                        if (Vector3.Distance(GameObject.Find(network.PuzzleStates[indecies[i]].itemName).transform.position, gameObject.transform.position) < 2 && checkIfInteractableYet(network.PuzzleStates[indecies[i]].itemName))
+                        if (Vector3.Distance(new Vector3(GameObject.Find(network.PuzzleStates[indecies[i]].itemName).transform.position.x, 1, GameObject.Find(network.PuzzleStates[indecies[i]].itemName).transform.position.z), gameObject.transform.position) < 2 && checkIfInteractableYet(network.PuzzleStates[indecies[i]].itemName))
                         {
 
                             // Perform interaction some of the time, dependent on a random number.
@@ -129,7 +129,7 @@ public class spt_monsterInteraction : MonoBehaviour {
         else resetSpt.resetFunction();
 
         //VRStandardAssets.Examples.spt_extensionCord.local_extCordPlugged = false;
-        network.Cmd_UpdatePuzzleLogic(item, false, itemName);
+        //network.Cmd_UpdatePuzzleLogic(item, false, itemName);
         lastInteractionTime = currentTime;
     }
 
