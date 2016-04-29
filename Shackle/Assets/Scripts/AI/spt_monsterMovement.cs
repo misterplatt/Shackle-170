@@ -3,7 +3,7 @@
  * Created by: Lauren Cunningham
  * Networking Modifications by : Ryan Connors
  * 
- * Last Revision Date: 4/28/2016
+ * Last Revision Date: 4/29/2016
  * 
  * This file is the one that ultimately governs the monster's movements. **/
 
@@ -52,14 +52,14 @@ public class spt_monsterMovement : NetworkBehaviour {
             waypointGraph = opticsLabScript.getWaypointGraph();
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = true;
-        agent.SetDestination(waypoints[16].position);
-        currentWaypoint = 16;
+        agent.SetDestination(waypoints[0].position);
+        currentWaypoint = 0;
 	}
 
 	// Update is called once per frame
 	void Update () {
 
-        if (!isServer) return;
+        //if (!isServer) return;
 
         networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
         if (monsterPuzzleCompletionIndex == -1)
@@ -78,12 +78,14 @@ public class spt_monsterMovement : NetworkBehaviour {
             animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
             animationScript.animator.SetInteger("animation", 1);
         }
-        
+
         // If the monster is attacking, or the players have just won...
-        if (agent.remainingDistance <= 2 && currentWaypoint == 999 && currentWaypoint != 888){
+        else if (agent.remainingDistance <= 2 && currentWaypoint == 999 && currentWaypoint != 888)
+        {
 
             // If loss needs to happen
-            if (networkScript.PuzzleStates[monsterPuzzleCompletionIndex].state == false){
+            if (networkScript.PuzzleStates[monsterPuzzleCompletionIndex].state == false)
+            {
                 Debug.LogWarning("attempting to alter playerLoss in puzzleStates...");
                 networkScript.updatePuzzleState("playerLoss", true, "MonsterStandin");
                 pLoss = true;
@@ -98,13 +100,16 @@ public class spt_monsterMovement : NetworkBehaviour {
             }
         }
         // If the monster is interacting with an item...
-        if (agent.remainingDistance <= 2 && currentWaypoint == 888)
+        else if (agent.remainingDistance <= 2 && currentWaypoint == 888)
         {
             animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
             interactionScript = GameObject.FindObjectOfType(typeof(spt_monsterInteraction)) as spt_monsterInteraction;
             animationScript.disengageInteraction();
             interactionScript.interactWithObject(interactionScript.getInteractionName(), interactionScript.getInteractionItemName());
         }
+
+        else if (agent.remainingDistance <= 2 && currentWaypoint != 999 && currentWaypoint != 888 && currentWaypoint != 777)
+            chooseDestination();
 	}
 
     // Used to choose a new destination for the monster based on its current destination (used for wandering).
