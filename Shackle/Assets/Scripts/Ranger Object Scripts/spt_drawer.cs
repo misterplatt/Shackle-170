@@ -1,7 +1,7 @@
 ﻿/*
 spt_drawer
 
-Author(s): Hayden Platt, Lauren
+Author(s): Hayden Platt, Lauren Cunningham
 
 Revision 1
 
@@ -139,7 +139,9 @@ namespace VRStandardAssets.Examples
 
         public override void resetItem()
         {
+            Debug.Log("Drawer reset called");
             transform.position = initialPosition;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("deskDrawerOpen", false, "mdl_Drawer");
         }
     }
 }
