@@ -16,10 +16,14 @@ public class spt_TVScreenListener : NetworkBehaviour {
 
     private AudioSource tvStaticSound;
     private bool soundPlayed;
+
+    private SpriteRenderer staticSprite;
+    private Light staticLight;
     
-    void Start()
-    {
+    void Start(){
         tvStaticSound = GetComponent<AudioSource>();
+        staticSprite = GetComponent<SpriteRenderer>();
+        staticLight = GetComponent<Light>();
         soundPlayed = false;
     }
 
@@ -30,7 +34,8 @@ public class spt_TVScreenListener : NetworkBehaviour {
         if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true &&
             GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == false)
         {
-            GetComponent<SpriteRenderer>().enabled = true;
+            staticSprite.enabled = true;
+            staticLight.enabled = true;
             if (!soundPlayed)
             {
                 tvStaticSound.Play();
@@ -43,8 +48,10 @@ public class spt_TVScreenListener : NetworkBehaviour {
             GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true)
         {
             transform.FindChild("Arrow").GetComponent<SpriteRenderer>().enabled = true;
-            GetComponent<SpriteRenderer>().color = Color.green;
-            GetComponent<SpriteRenderer>().enabled = true;
+            staticSprite.color = Color.green;
+            staticLight.color = Color.green;
+            staticSprite.enabled = true;
+            staticLight.enabled = true;
             if (!soundPlayed)
             {
                 tvStaticSound.Play();
@@ -56,7 +63,8 @@ public class spt_TVScreenListener : NetworkBehaviour {
         else if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == false ||
             GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[3].state == false)
         {
-            GetComponent<SpriteRenderer>().enabled = false;
+            staticSprite.enabled = false;
+            staticLight.enabled = false;
             tvStaticSound.Stop();
             soundPlayed = false;
         }
