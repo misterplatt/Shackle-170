@@ -41,32 +41,27 @@ public class spt_LayeredAudioManager : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         monster = GameObject.FindObjectOfType<spt_monsterMotivation>();
-
         Debug.Log("Shit on the floor:" + getSchwifty);
         if (Input.GetMouseButtonDown(0)) getSchwifty += 10;
         if (Input.GetMouseButtonDown(1)) getSchwifty -= 10;
         if (monster != null)
         {
-            Debug.Log("POOP");
-            layerTrigger = (((monster.lowerThreshold) / 2) + ((monster.lowerThreshold) / (totalLayers - 1)));
-
             // if (getSchwifty >= 20)
-            if (monster.angerLevel == layerTrigger * 2) Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "SecondLayer", 1.0f, null);
+            if (monster.angerLevel >= LayerTriggerValue(2)) Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "SecondLayer", 1.0f, null);
             else Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "SecondLayer", 0f, null);
 
             //if (getSchwifty >= 40)
-            if (monster.angerLevel == layerTrigger * 3) Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "ThirdLayer", 1.0f, null);
+            if (monster.angerLevel >= LayerTriggerValue(3)) Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "ThirdLayer", 1.0f, null);
             else Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "ThirdLayer", 0f, null);
 
             //if (getSchwifty >= 60)
-            if (monster.angerLevel == layerTrigger * 4) Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "FourthLayer", 1.0f, null);
+            if (monster.angerLevel >= LayerTriggerValue(4)) Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "FourthLayer", 1.0f, null);
             else Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "FourthLayer", 0f, null);
 
             //if (getSchwifty >= 80)
-            if (monster.angerLevel == layerTrigger * 5)
+            if (monster.angerLevel >= LayerTriggerValue(5))
             {
                 if (fifthLayerOnce == false)
                 {
@@ -82,7 +77,7 @@ public class spt_LayeredAudioManager : MonoBehaviour {
             }
 
             //if (getSchwifty >= 100)
-            if (monster.angerLevel == layerTrigger * 6)
+            if (monster.angerLevel >= LayerTriggerValue(6))
             {
                 if (sixthLayerOnce == false)
                 {
@@ -99,6 +94,10 @@ public class spt_LayeredAudioManager : MonoBehaviour {
         }
     }
       
+    float LayerTriggerValue(float layerNumber)
+    {
+        return layerTrigger = (((monster.lowerThreshold) / 2) + ((monster.lowerThreshold / 2) / (totalLayers - 2))*(layerNumber -1));
+    }
 
     void RolltheDieBitch(string layerNameOne, string layerNameTwo)
     {
