@@ -30210,7 +30210,7 @@ MonoBehaviour:
   x_maxPositiveDistance: 0
   y_maxNegativeDistance: 0
   y_maxPositiveDistance: 0
-  z_maxNegativeDistance: 0.09399986
+  z_maxNegativeDistance: 0
   z_maxPositiveDistance: 0.334
   optional_movePathImage: {fileID: 0}
 --- !u!82 &2014594130
