@@ -9,6 +9,9 @@ This is dynamic/layered audio manager that kicks booty
 */
 
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System.Collections;
 
 public class spt_LayeredAudioManager : MonoBehaviour {
@@ -18,62 +21,84 @@ public class spt_LayeredAudioManager : MonoBehaviour {
 
     public AudioClip fifthLayerAOne;
     public AudioClip fifthLayerATwo;
-    private Fabric.Component fifthLayerComponents;
+    public AudioClip sixthLayerAOne;
+    public AudioClip sixthLayerATwo;
     private float roll;
     private bool rolled;
-    private bool once;
-    private GameObject fuck;
+    private bool fifthLayerOnce;
+    private bool sixthLayerOnce;
+    private spt_monsterMotivation monster;
+    private int totalLayers;
+    private float layerTrigger;
 
     // Use this for initialization
-    void Start () {
+    void Start () {  
         Fabric.EventManager.Instance.PostEvent("BackgroundMusic");
-        once = false;
+        fifthLayerOnce = false;
+        sixthLayerOnce = false;
         getSchwifty = 0;
-
-        fifthLayerComponents = Fabric.FabricManager.Instance.GetComponentByName("Audio Component");
-
+        totalLayers = 6;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
+        monster = GameObject.FindObjectOfType<spt_monsterMotivation>();
+
         Debug.Log("Shit on the floor:" + getSchwifty);
         if (Input.GetMouseButtonDown(0)) getSchwifty += 10;
         if (Input.GetMouseButtonDown(1)) getSchwifty -= 10;
-
-
-        if (getSchwifty >= 20) Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "SecondLayer", 1.0f, null);
-        else Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "SecondLayer", 0f, null);
-
-        if (getSchwifty >= 40) Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "ThirdLayer", 1.0f, null);
-        else Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "ThirdLayer", 0f, null);
-
-        if (getSchwifty >= 60) Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "FourthLayer", 1.0f, null);
-        else Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "FourthLayer", 0f, null);
-
-        if (getSchwifty >= 80)
+        if (monster != null)
         {
-            if (once == false)
+            Debug.Log("POOP");
+            layerTrigger = (((monster.lowerThreshold) / 2) + ((monster.lowerThreshold) / (totalLayers - 1)));
+
+            // if (getSchwifty >= 20)
+            if (monster.angerLevel == layerTrigger * 2) Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "SecondLayer", 1.0f, null);
+            else Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "SecondLayer", 0f, null);
+
+            //if (getSchwifty >= 40)
+            if (monster.angerLevel == layerTrigger * 3) Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "ThirdLayer", 1.0f, null);
+            else Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "ThirdLayer", 0f, null);
+
+            //if (getSchwifty >= 60)
+            if (monster.angerLevel == layerTrigger * 4) Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "FourthLayer", 1.0f, null);
+            else Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "FourthLayer", 0f, null);
+
+            //if (getSchwifty >= 80)
+            if (monster.angerLevel == layerTrigger * 5)
             {
-                RolltheDieBitch("FifthLayer1", "FifthLayer2");
-                once = true;
+                if (fifthLayerOnce == false)
+                {
+                    RolltheDieBitch("FifthLayer1", "FifthLayer2");
+                    fifthLayerOnce = true;
+                }
+            }
+            else
+            {
+                fifthLayerOnce = false;
+                Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "FifthLayer1", 0f, null);
+                Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "FifthLayer2", 0f, null);
+            }
+
+            //if (getSchwifty >= 100)
+            if (monster.angerLevel == layerTrigger * 6)
+            {
+                if (sixthLayerOnce == false)
+                {
+                    RolltheDieBitch("SixthLayer1", "SixthLayer2");
+                    sixthLayerOnce = true;
+                }
+                else
+                {
+                    sixthLayerOnce = false;
+                    Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "SixthLayer1", 0f, null);
+                    Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "SixthLayer2", 0f, null);
+                }
             }
         }
-        else
-        {
-            once = false;
-            Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "FifthLayer1", 0f, null);
-            Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "FifthLayer2", 0f, null);
-        }
-        if(getSchwifty >= 100)
-        {
-
-        }
-        else
-        {
-
-        }
-      
     }
+      
 
     void RolltheDieBitch(string layerNameOne, string layerNameTwo)
     {

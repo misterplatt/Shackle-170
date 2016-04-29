@@ -15,7 +15,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
-public class spt_victoryListener : MonoBehaviour
+public class    spt_victoryListener : MonoBehaviour
 {
     private bool once = false;
     private bool expandLight = false;
