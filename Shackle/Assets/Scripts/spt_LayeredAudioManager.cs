@@ -18,7 +18,6 @@ public class spt_LayeredAudioManager : MonoBehaviour {
 
 
     private float getSchwifty;
-
     public AudioClip fifthLayerAOne;
     public AudioClip fifthLayerATwo;
     public AudioClip sixthLayerAOne;
@@ -96,7 +95,7 @@ public class spt_LayeredAudioManager : MonoBehaviour {
       
     float LayerTriggerValue(float layerNumber)
     {
-        return layerTrigger = (((monster.lowerThreshold) / 2) + ((monster.lowerThreshold / 2) / (totalLayers - 2))*(layerNumber -1));
+        return layerTrigger = (((monster.lowerThreshold) / 2.5f) + ((monster.lowerThreshold / 2f) / (totalLayers - 2f))*(layerNumber -1f));
     }
 
     void RolltheDieBitch(string layerNameOne, string layerNameTwo)
