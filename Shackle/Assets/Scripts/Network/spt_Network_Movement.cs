@@ -37,6 +37,7 @@ public class spt_Network_Movement : NetworkBehaviour {
 
     public Animator animator;
     public GameObject pModel;
+    public GameObject pSpawn;
 
     void Start()
     {
@@ -57,6 +58,7 @@ public class spt_Network_Movement : NetworkBehaviour {
         }
 
         linkModelPrefab();
+        linkSpawnPrefab();
         hostAnimator_var = 0;
         clientAnimator_var = 0;
     }
@@ -79,6 +81,24 @@ public class spt_Network_Movement : NetworkBehaviour {
 
         pModel = closest;
         animator = pModel.GetComponent<Animator>();
+    }
+
+    void linkSpawnPrefab() {
+        GameObject[] playerSpawns = GameObject.FindGameObjectsWithTag("spawn");
+        GameObject closest = playerSpawns[0];
+        float minDist = Vector3.Distance(this.transform.position, playerSpawns[0].transform.position);
+
+        //find the closest playermodel and assign it's reference to out instance var
+        for (int index = 1; index < playerSpawns.Length; ++index) {
+            float thisDist = Vector3.Distance(this.transform.position, playerSpawns[index].transform.position);
+            if (thisDist < minDist) {
+                minDist = thisDist;
+                closest = playerSpawns[index];
+            }
+
+        }
+
+        pSpawn = closest;
     }
 
     //returns true if both bumpers are pressed, else false.
@@ -145,6 +165,7 @@ public class spt_Network_Movement : NetworkBehaviour {
             Vector3 newTrans = host.transform.position;
             newTrans.z -= playerSeperation;
             this.transform.position = newTrans;
+            pSpawn.transform.position = newTrans;
         }
     }
 
@@ -154,17 +175,6 @@ public class spt_Network_Movement : NetworkBehaviour {
         foreach (GameObject player in players) {
             spt_Network_Movement pMovement = player.GetComponent<spt_Network_Movement>();
             Debug.Log(player.name + " has leftStick Input : " + pMovement.lStickInput);
-        }
-    }
-
-    void senseMove() {
-        switch(checkDirection()) {
-            case movement.NONE:
-                return;
-            case movement.HOST:
-                break;
-            case movement.CLIENT:
-                break;
         }
     }
 
@@ -182,7 +192,7 @@ public class spt_Network_Movement : NetworkBehaviour {
 
         if (pSep != null) pSep.transform.position += pMoveRate * dir;
         this.transform.position += pMoveRate * dir;
-
+        pSpawn.transform.position += pMoveRate * dir;
         foreach (GameObject entity in pModels) entity.transform.position += pMoveRate * dir;
         
     }

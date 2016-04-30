@@ -13,6 +13,7 @@ TagManager:
   - laser
   - mirror
   - lobbyPlayer
+  - spawn
   layers:
   - Default
   - TransparentFX
