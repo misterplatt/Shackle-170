@@ -193,8 +193,8 @@ public class spt_monsterMotivation : NetworkBehaviour {
                     whichPlayer = 1;
 
                 isAttacking = true;
-                movementScript.setWaypoint(999);
-                animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
+                //movementScript.setWaypoint(999);
+                //animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
             }
         }
     }

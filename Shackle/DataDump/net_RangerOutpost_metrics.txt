@@ -60,3 +60,11 @@ keyFobPressed,143.6113
 playerLoss,455.5468
 carCrash,153
 deskDrawerOpen,455.5468
+puzzleCompletion,-1
+correctFuseCombo,-1
+keyFobPressed,-1
+playerLoss,23.10436
+carCrash,-1
+deskDrawerOpen,23.10436
+puzzleCompletionMonster,-1
+fuseBoxOpen,-1
