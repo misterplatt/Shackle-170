@@ -10,6 +10,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -21,21 +22,54 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
     private string[] ipList;
     private bool inLobby;
 
+    public static spt_NetworkDiscovery instance;
+
+    float lastUpdate = 0.0F;
+
     const int BUTTON_CAP = 3;
+
+    void Awake()
+    {
+        if (instance)
+        {
+            DestroyImmediate(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(transform.gameObject);
+            instance = this;
+        }
+    }
 
     void Start() {
         inLobby = false;
         ipList = new string[4];
+        discovery.Initialize();
+        listen();
     }
 
     void Update() {
-        //if (!inLobby)
-        listGames();
+        if ( SceneManager.GetActiveScene().name != "VRMainMenu" ) return;
+        float currentTime = Time.time;
+        if (currentTime - lastUpdate > 5.0F)
+        {
+            lastUpdate = currentTime;
+            listGames();
+        }
+
+        GameObject joinButton = GameObject.Find("btn_join");
+        
+        if (ip != "")
+        {
+            joinButton.GetComponent<Button>().enabled = false;
+        }
+        else joinButton.GetComponent<Button>().enabled = true;
     }    
 
     public void startBroadcast() {
+        discovery.StopBroadcast();
         discovery.Initialize();
-        discovery.broadcastData = gameName;
+        discovery.broadcastData = "ShackleGame";
         discovery.StartAsServer();
     }
 
@@ -53,24 +87,24 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
         gameName = name;
     }
 
-    void listGames() {
-        if (discovery.broadcastsReceived == null) {
-            clearList();
+    void listGames()
+    {
+        Debug.Log("Listing Games...");
+        if (discovery.broadcastsReceived == null)
+        {
+            Debug.Log("Null");
             return;
         }
 
-        int gameFound = 1;
+        if (discovery.broadcastsReceived.Count == 0)
+        {
+            ip = "";
+            Debug.Log("No Count");
+            return;
+        }
 
-        foreach ( KeyValuePair<string, NetworkBroadcastResult> msg in discovery.broadcastsReceived) {
-            GameObject.Find("btn_game" + gameFound).GetComponentInChildren<Text>().text = decodeData(msg.Value) + " at " + decodeMsg(msg.Key);
-            ipList[gameFound++] = decodeMsg(msg.Key);
-            if (gameFound > BUTTON_CAP) break;
-        }
-        
-        for (int index = gameFound; gameFound <= BUTTON_CAP; ++index) {
-            GameObject.Find("btn_game" + gameFound++).GetComponentInChildren<Text>().text = "";
-            ipList[index] = "";
-        }
+        List<string> keyList = new List<string>(discovery.broadcastsReceived.Keys);
+        ip = decodeMsg(keyList[0]);
     }
 
     private void clearList() {

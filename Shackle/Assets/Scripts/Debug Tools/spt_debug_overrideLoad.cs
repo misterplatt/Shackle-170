@@ -14,13 +14,5 @@ public class spt_debug_overrideLoad : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-	// Use this for initialization
-	void Start () {
-
-        if (GameObject.Find("NetworkManager") != null) return;
-
-        if (SceneManager.GetActiveScene().name != "MainMenu" && !(spt_debug_overrideLoad.wasLoaded))   
-            SceneManager.LoadScene("MainMenu");
-	}
 	
 }

@@ -56,6 +56,7 @@ public class spt_NetworkLobbyUI : MonoBehaviour {
         manager.networkPort = 7777;
         manager.StartClient();
     }
+
     public void hostGame() {
         manager.StopHost();
         manager.StartHost();
