@@ -54,6 +54,7 @@ public class    spt_victoryListener : MonoBehaviour
             //GameObject.Find("player_B_light").GetComponent<Light>().enabled = true;
             transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
             once = true;
+            spt_LayeredAudioManager.musicPlay = false;
             transitionA.Play();
             StartCoroutine(transitionRumbleShit());
             loadNextLevel();

@@ -39,6 +39,7 @@ public class spt_lossListener : MonoBehaviour {
                 GetComponent<Text>().enabled = true;
                 //transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
                 once = true;
+                spt_LayeredAudioManager.musicPlay = false;
             }
         }
 	}
