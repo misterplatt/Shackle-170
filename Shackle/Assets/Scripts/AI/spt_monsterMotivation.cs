@@ -193,15 +193,15 @@ public class spt_monsterMotivation : NetworkBehaviour {
                     whichPlayer = 1;
 
                 isAttacking = true;
-                movementScript.setWaypoint(999);
-                animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
+                //movementScript.setWaypoint(999);
+                //animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
             }
         }
     }
 
     //Once the monster has decided it will attack, the next time a player uses their flashlight, the flashlight is possessed and this 
     //  function sets up the actual attack. (Ensures the player sees the monster's approach)
-    public void attackAfterFlashlightToggle()
+    public void attackAfterFlashlightToggle( Transform attackFrom )
     {
         movementScript.setWaypoint(999);
         animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);

@@ -6,22 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/VRMainMenu.unity
   - enabled: 1
     path: Assets/Scenes/net_SpookyGarage.unity
   - enabled: 1
     path: Assets/Scenes/net_RangerOutpost.unity
   - enabled: 1
     path: Assets/Scenes/net_OpticsLab.unity
-  - enabled: 0
-    path: Assets/VRSampleScenes/Scenes/Intro.unity
-  - enabled: 0
-    path: Assets/VRSampleScenes/Scenes/MainMenu.unity
-  - enabled: 0
-    path: Assets/VRSampleScenes/Scenes/Shooter180.unity
-  - enabled: 0
-    path: Assets/Scenes/net_SpookyGarage_workingcopy.unity
-  - enabled: 0
-    path: Assets/Scenes/LobbySearch.unity
   - enabled: 1
-    path: Assets/Scenes/Lobby.unity
+    path: Assets/Scenes/LobbyManager.unity

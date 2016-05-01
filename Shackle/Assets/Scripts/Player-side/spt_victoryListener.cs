@@ -42,9 +42,10 @@ public class    spt_victoryListener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //If the puzzleCompletion puzzlestate is true, set Win Text to visible and start camera fadeout
-        if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[0].state == true && !once)
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count == 0) return;
+        //If the puzzleCompletion puzzlestate is true, set Win Text to visible and start camera fadeout        
+        if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[0].state == true && !once)
         {
             /* monster.angerUpdateDisabled = true;
             GetComponent<Text>().enabled = true;

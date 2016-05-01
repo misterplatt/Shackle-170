@@ -85,8 +85,13 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     void Update()
     {
         if (!isLocalPlayer) return;
-        if (Input.GetKeyDown(KeyCode.N)) GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("keyFobPressed", true, "mdl_carKeyfob"); 
-        spt_monsterMovement mover = GameObject.FindWithTag("monster").GetComponent<spt_monsterMovement>();
+        //if (SceneManager.GetActiveScene().name == "LobbyManager") return;
+
+        if (Input.GetKeyDown(KeyCode.N)) GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("keyFobPressed", true, "mdl_carKeyfob");
+        GameObject monster = GameObject.FindWithTag("monster");
+        if (monster == null) return;
+        spt_monsterMovement mover = monster.GetComponent<spt_monsterMovement>();
+
         if (mover.pLoss)
         {
             GameObject uiMessager = transform.Find("Camera Player/VRCameraUI/WinMessage").gameObject;
