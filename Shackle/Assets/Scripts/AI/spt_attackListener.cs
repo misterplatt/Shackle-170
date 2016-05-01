@@ -55,13 +55,13 @@ public class spt_attackListener : MonoBehaviour {
         {
             if (gameObject.transform.root.GetComponent<NetworkIdentity>().isServer && (monster.whichPlayer == 0))
             {
-                monster.attackAfterFlashlightToggle();
+                monster.attackAfterFlashlightToggle(gameObject.transform);
                 flickerTriggered = true;
                 Invoke("stopFlicker", 1);
             }
             else if (!gameObject.transform.root.parent.GetComponent<NetworkIdentity>().isServer && (monster.whichPlayer == 1))
             {
-                monster.attackAfterFlashlightToggle();
+                monster.attackAfterFlashlightToggle(gameObject.transform);
                 flickerTriggered = true;
                 Invoke("stopFlicker", 1);
             }
