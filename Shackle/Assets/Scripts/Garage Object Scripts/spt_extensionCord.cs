@@ -1,9 +1,9 @@
 ﻿/*
 spt_extensionCord
 
-Author(s): Hayden Platt, Dara Diba
+Author(s): Hayden Platt, Dara Diba, Lauren Cunningham
 
-Revision 3
+Revision 4
 
 Plugs the cord into the wall when pressed,
 and updates the extCordPlugged NPL state to true.
@@ -46,6 +46,7 @@ namespace VRStandardAssets.Examples
                 spt_remotePower.local_TVpowerState = false;
                 spt_WorldState.worldStateChanged = true;
                 once = false;
+                GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("extCordPlugged", false, "mdl_extCordUnplugged");
                 plugSound.clip = unplugSound;
                 plugSound.Play();
             }
