@@ -78,6 +78,7 @@ public class spt_monsterAudio : NetworkBehaviour
     //Called when a warning noise is needed. Plays the currently loaded one, then loads a new one.
     public void playWarningNoise()
     {
+        if (!isLocalPlayer) return;
         once = true;
         source.clip = warningSounds[wngSoundInd];
         PlaySoundWithCallback(source.clip, setPlayFlags);
@@ -86,6 +87,7 @@ public class spt_monsterAudio : NetworkBehaviour
     // Called when an ambient sound is needed. Plays the currently loaded one, then loads a new one.
     public void playAmbientNoise()
     {
+        if (!isLocalPlayer) return;
         once = true;
         source.clip = ambientSounds[ambSoundInd];
         PlaySoundWithCallback(source.clip, setPlayFlags);
