@@ -196,7 +196,18 @@ public class spt_Network_Movement : NetworkBehaviour {
         pSpawn.transform.position += pMoveRate * dir;
         
         foreach (GameObject entity in pModels) entity.transform.position += pMoveRate * dir;
-        foreach (GameObject spawn in spawns) spawn.transform.position += pMoveRate * dir;
+        foreach (GameObject spawn in spawns)
+        {
+            if (spawn.name == pSpawn.name)
+            {
+                spawn.transform.position = this.transform.position;
+            }
+            else
+            {
+                spawn.transform.position = this.transform.position - (new Vector3(0F, 0F, playerSeperation));
+
+            }
+        }
     }
 
     private float collectInput() {
