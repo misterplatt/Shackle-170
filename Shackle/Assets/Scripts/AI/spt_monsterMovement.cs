@@ -39,6 +39,8 @@ public class spt_monsterMovement : NetworkBehaviour {
 
     private int monsterPuzzleCompletionIndex = -1;
 
+    private bool navMeshInitialized = false;
+
     // Use this for initialization
 	void Start () {
         if (!isServer) return;
@@ -50,16 +52,22 @@ public class spt_monsterMovement : NetworkBehaviour {
             waypointGraph = rangerOutpostScript.getWaypointGraph();
         else
             waypointGraph = opticsLabScript.getWaypointGraph();
-        agent = GetComponent<NavMeshAgent>();
-        agent.enabled = true;
-        agent.SetDestination(waypoints[0].position);
-        currentWaypoint = 0;
 	}
 
 	// Update is called once per frame
 	void Update () {
 
         //if (!isServer) return;
+
+        if (!navMeshInitialized)
+        {
+            agent = GetComponent<NavMeshAgent>();
+            agent.enabled = true;
+            agent.SetDestination(waypoints[0].position);
+            currentWaypoint = 0;
+            if (agent != null)
+                navMeshInitialized = true;
+        }
 
         networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
         if (monsterPuzzleCompletionIndex == -1)
