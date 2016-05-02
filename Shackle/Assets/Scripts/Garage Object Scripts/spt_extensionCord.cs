@@ -43,10 +43,10 @@ namespace VRStandardAssets.Examples
                 transform.position = initalPosition;
                 GameObject.Find("mdl_extCordPlugged").GetComponent<MeshRenderer>().enabled = false;
 
-                GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("extCordPlugged", false, "mdl_extCordUnplugged");
                 spt_remotePower.local_TVpowerState = false;
                 spt_WorldState.worldStateChanged = true;
                 once = false;
+       
                 plugSound.clip = unplugSound;
                 plugSound.Play();
             }
@@ -74,6 +74,7 @@ namespace VRStandardAssets.Examples
         override protected void HandleDown() {}
 
         public override void resetItem() {
+            GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("extCordPlugged", false, "mdl_extCordUnplugged");
             local_extCordPlugged = false;
             spt_WorldState.worldStateChanged = true;
         }
