@@ -59,7 +59,7 @@ public class spt_attackListener : MonoBehaviour {
                 flickerTriggered = true;
                 Invoke("stopFlicker", 1);
             }
-            else if (!gameObject.transform.root.parent.GetComponent<NetworkIdentity>().isServer && (monster.whichPlayer == 1))
+            else if (!gameObject.transform.root.GetComponent<NetworkIdentity>().isServer && (monster.whichPlayer == 1))
             {
                 monster.attackAfterFlashlightToggle(gameObject.transform);
                 flickerTriggered = true;
