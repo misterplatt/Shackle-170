@@ -513,6 +513,7 @@ GameObject:
   - 114: {fileID: 31361519}
   - 114: {fileID: 31361518}
   - 82: {fileID: 31361517}
+  - 114: {fileID: 31361521}
   m_Layer: 0
   m_Name: mdl_extCordUnplugged
   m_TagString: Untagged
@@ -714,6 +715,17 @@ MonoBehaviour:
   m_InteractiveItem: {fileID: 31361518}
   plugInsound: {fileID: 8300000, guid: b7f7e92a83e50ed47b05ae06eb52fbe5, type: 3}
   unplugSound: {fileID: 8300000, guid: 9dba06ee350241940b0be740692e72f9, type: 3}
+--- !u!114 &31361521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 31361512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e37e4b4b67b4644b564ae6d137bfa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &66617809
 GameObject:
   m_ObjectHideFlags: 0
@@ -8165,6 +8177,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 11425122, guid: 50543e0ca6c26ce4a9603202d3230c78, type: 2}
+      propertyPath: _volumeThreshold
+      value: 0.46299999952316284
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50543e0ca6c26ce4a9603202d3230c78, type: 2}
   m_IsPrefabParent: 0
@@ -10598,8 +10614,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1706792265}
   m_LocalRotation: {x: 0, y: 0.9997131, z: 0, w: 0.023952043}
-  m_LocalPosition: {x: -2.948, y: 1.3356, z: 4.949}
-  m_LocalScale: {x: 2.22, y: 2.22, z: 2.22}
+  m_LocalPosition: {x: -2.95, y: 1.3281, z: 4.984}
+  m_LocalScale: {x: 2.50995, y: 2.5099497, z: 2.5099497}
   m_Children:
   - {fileID: 882661127}
   - {fileID: 1706792313}
