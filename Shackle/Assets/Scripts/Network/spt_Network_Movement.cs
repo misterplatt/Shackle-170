@@ -165,7 +165,7 @@ public class spt_Network_Movement : NetworkBehaviour {
             Vector3 newTrans = host.transform.position;
             newTrans.z -= playerSeperation;
             this.transform.position = newTrans;
-            pSpawn.transform.position = newTrans;
+            //pSpawn.transform.position = newTrans;
         }
     }
 
@@ -189,12 +189,14 @@ public class spt_Network_Movement : NetworkBehaviour {
         //move host player and also seperator and player models
         GameObject pSep = GameObject.FindGameObjectWithTag("seperator");
         GameObject[] pModels = GameObject.FindGameObjectsWithTag("pModel");
+        GameObject[] spawns = GameObject.FindGameObjectsWithTag("spawn");
 
         if (pSep != null) pSep.transform.position += pMoveRate * dir;
         this.transform.position += pMoveRate * dir;
         pSpawn.transform.position += pMoveRate * dir;
-        foreach (GameObject entity in pModels) entity.transform.position += pMoveRate * dir;
         
+        foreach (GameObject entity in pModels) entity.transform.position += pMoveRate * dir;
+        foreach (GameObject spawn in spawns) spawn.transform.position += pMoveRate * dir;
     }
 
     private float collectInput() {
