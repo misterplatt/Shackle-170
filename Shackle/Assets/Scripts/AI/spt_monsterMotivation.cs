@@ -210,8 +210,13 @@ public class spt_monsterMotivation : NetworkBehaviour {
     public void netAttack()
     {
         if (attackComplete) return;
+        spt_NetworkPuzzleLogic networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
+        for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
+        {
+            if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster")
+                if (networkScript.PuzzleStates[i].state != true) return;   
+        }
         attackComplete = true;
-        movementScript.setWaypoint(999);
         Debug.Log("Attacking Player : " + spawns[whichPlayer].name );
 
         animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
