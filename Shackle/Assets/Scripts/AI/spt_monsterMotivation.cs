@@ -211,6 +211,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
     {
         if (attackComplete) return;
         attackComplete = true;
+        movementScript.setWaypoint(999);
         Debug.Log("Attacking Player : " + spawns[whichPlayer].name );
 
         animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
