@@ -203,7 +203,6 @@ public class spt_playerControls : MonoBehaviour
     {
         while (timer <= vibrateTime)
         {
-            Debug.Log("DICK: " + timer);
             if (motor == "Rough") GamePad.SetVibration(playerIndex, force, 0);
             if (motor == "Smooth") GamePad.SetVibration(playerIndex, 0, force);
             if (motor == "Both") GamePad.SetVibration(playerIndex, force, force);
