@@ -8446,10 +8446,10 @@ GameObject:
   - 33: {fileID: 604119442}
   - 65: {fileID: 604119441}
   - 23: {fileID: 604119440}
-  - 114: {fileID: 604119439}
   - 114: {fileID: 604119438}
   - 114: {fileID: 604119437}
   - 82: {fileID: 604119443}
+  - 114: {fileID: 604119439}
   m_Layer: 0
   m_Name: carKeyFobButton
   m_TagString: Untagged
@@ -8522,15 +8522,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 604119435}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d608fe65e229d9f4ead189dc79c49bc9, type: 3}
+  m_Script: {fileID: 11500000, guid: 423aded733bb63245b450a93bc5fb121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 604119437}
   m_StateOneMaterial: {fileID: 0}
-  m_StateTwoMaterial: {fileID: 2100000, guid: 36ac08bf8a2d0ff4a9546100c0139088, type: 2}
-  m_Renderer: {fileID: 604119440}
+  m_StateTwoMaterial: {fileID: 0}
+  m_Renderer: {fileID: 0}
 --- !u!23 &604119440
 MeshRenderer:
   m_ObjectHideFlags: 0
