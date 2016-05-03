@@ -58,6 +58,8 @@ public class spt_monsterMotivation : NetworkBehaviour {
 
     public bool angerUpdateDisabled = false;
 
+    public bool puzzleCompletionMonster = false;
+
     // Use this for initialization
 	void Start () {
         movementScript = GameObject.FindObjectOfType(typeof(spt_monsterMovement)) as spt_monsterMovement;
@@ -88,6 +90,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
         Debug.Log("Anger level: " + angerLevel);
 
         spt_NetworkPuzzleLogic networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
+        networkScript.updatePuzzleState("puzzleCompletionMonster", puzzleCompletionMonster, "MonsterStandin");
         for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
         {
             if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster" && networkScript.PuzzleStates[i].state == true)
@@ -159,8 +162,6 @@ public class spt_monsterMotivation : NetworkBehaviour {
             whichPlayer = 1;
 
         isAttacking = true;
-        movementScript.setWaypoint(999);
-        animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
     }
 
     // Attack function for the monster.
@@ -193,29 +194,22 @@ public class spt_monsterMotivation : NetworkBehaviour {
                     whichPlayer = 1;
 
                 isAttacking = true;
-                //movementScript.setWaypoint(999);
                 //animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
             }
         }
     }
 
-    //Once the monster has decided it will attack, the next time a player uses their flashlight, the flashlight is possessed and this 
+    /*//Once the monster has decided it will attack, the next time a player uses their flashlight, the flashlight is possessed and this 
     //  function sets up the actual attack. (Ensures the player sees the monster's approach)
     public void attackAfterFlashlightToggle( Transform attackFrom )
     {
         movementScript.setWaypoint(999);
         animationScript.attackPlayer(spawns[whichPlayer].transform, whichPlayer);
-    }
+    }*/
 
     public void netAttack()
     {
         if (attackComplete) return;
-        spt_NetworkPuzzleLogic networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
-        for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
-        {
-            if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster")
-                if (networkScript.PuzzleStates[i].state != true) return;   
-        }
         attackComplete = true;
         Debug.Log("Attacking Player : " + spawns[whichPlayer].name );
 

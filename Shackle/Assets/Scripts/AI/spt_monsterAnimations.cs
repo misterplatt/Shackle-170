@@ -75,6 +75,7 @@ public class spt_monsterAnimations : NetworkBehaviour {
                 render = true;
                 monsterAttackInitiated = true;
                 isInteracting = true;
+                movementScript.setWaypoint(999);
                 // play animation
             }
 
@@ -89,6 +90,7 @@ public class spt_monsterAnimations : NetworkBehaviour {
                 render = true;
                 monsterAttackInitiated = true;
                 isInteracting = true;
+                movementScript.setWaypoint(999);
                 // play animation
             }
         }

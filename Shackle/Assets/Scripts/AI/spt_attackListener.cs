@@ -19,6 +19,8 @@ public class spt_attackListener : MonoBehaviour {
     
     private bool flickerTriggered = false;
     private bool isPosessed = false;
+
+    private int puzzleCompletionMonsterIndex = -1;
     
     // Use this for initialization
 	void Start () {
@@ -28,49 +30,60 @@ public class spt_attackListener : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        angerFlashlight = gameObject.GetComponent<spt_angerObject>();
-        monster = GameObject.Find("MonsterStandin").GetComponent<spt_monsterMotivation>();
-        flashlight = gameObject.transform.parent.GetChild(4).GetComponent<Light>();
-
-        timer -= Time.deltaTime; //Decrement timer every frame
-
-        //If the timer runs out and flashlight hasn't been flickering, start flickering
-        if (timer < 0 && !flickering && flickerTriggered && !isPosessed)
+        if (puzzleCompletionMonsterIndex == -1)
         {
-            timer = Random.Range(.5f, 1.5f);
-            flickering = true;
-        }
-
-        if (flickering) StartCoroutine("spookyFlicker");
-
-        if (timer < 0 && flickering)
-        {
-            StopCoroutine("spookyFlicker");
-            flashlight.enabled = true;
-            timer = Random.Range(minNormalTime, maxNormalTime);
-            flickering = false;
-        }
-        
-        if (monster.isAttacking && angerFlashlight.getData().getVisible() && !flickerTriggered)
-        {
-            if (gameObject.transform.root.GetComponent<NetworkIdentity>().isServer && (monster.whichPlayer == 0))
+            spt_NetworkPuzzleLogic networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
+            for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
             {
-                monster.attackAfterFlashlightToggle(gameObject.transform);
-                flickerTriggered = true;
-                Invoke("stopFlicker", 1);
-            }
-            else if (!gameObject.transform.root.GetComponent<NetworkIdentity>().isServer && (monster.whichPlayer == 1))
-            {
-                monster.attackAfterFlashlightToggle(gameObject.transform);
-                flickerTriggered = true;
-                Invoke("stopFlicker", 1);
+                if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster")
+                    puzzleCompletionMonsterIndex = i;
             }
         }
 
-        if (isPosessed)
+        if (puzzleCompletionMonsterIndex != -1)
         {
-            flashlight.enabled = true;
-            flashlight.color = Color.red;
+            angerFlashlight = gameObject.GetComponent<spt_angerObject>();
+            monster = GameObject.Find("MonsterStandin").GetComponent<spt_monsterMotivation>();
+            flashlight = gameObject.transform.parent.GetChild(4).GetComponent<Light>();
+
+            timer -= Time.deltaTime; //Decrement timer every frame
+
+            //If the timer runs out and flashlight hasn't been flickering, start flickering
+            if (timer < 0 && !flickering && flickerTriggered && !isPosessed)
+            {
+                timer = Random.Range(.5f, 1.5f);
+                flickering = true;
+            }
+
+            if (flickering) StartCoroutine("spookyFlicker");
+
+            if (timer < 0 && flickering)
+            {
+                StopCoroutine("spookyFlicker");
+                flashlight.enabled = true;
+                timer = Random.Range(minNormalTime, maxNormalTime);
+                flickering = false;
+            }
+
+            if (monster.isAttacking && !flickerTriggered && !GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[puzzleCompletionMonsterIndex].state)
+            {
+                if (gameObject.transform.root.GetComponent<NetworkIdentity>().isServer && (monster.whichPlayer == 0))
+                {
+                    flickerTriggered = true;
+                    Invoke("stopFlicker", 1);
+                }
+                else if (!gameObject.transform.root.GetComponent<NetworkIdentity>().isServer && (monster.whichPlayer == 1))
+                {
+                    flickerTriggered = true;
+                    Invoke("stopFlicker", 1);
+                }
+            }
+
+            if (isPosessed)
+            {
+                flashlight.enabled = true;
+                flashlight.color = Color.red;
+            }
         }
 	}
 

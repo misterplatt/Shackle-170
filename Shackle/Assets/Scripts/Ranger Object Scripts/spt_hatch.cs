@@ -35,8 +35,8 @@ namespace VRStandardAssets.Examples
             {
                 aSource.Play();
                 //NPL Update
-                local_puzzleCompletion = true;
-                spt_WorldState.worldStateChanged = true;
+                //local_puzzleCompletion = true;
+                //spt_WorldState.worldStateChanged = true;
 
                 transform.Translate(new Vector3(0, .38f, 0));
                 transform.eulerAngles = new Vector3(-30, 0, 0);
