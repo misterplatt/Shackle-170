@@ -1625,7 +1625,7 @@ MonoBehaviour:
   enableTimelineAssetLoader: 0
   _createEventListeners: 0
   _useFullPathForEventListeners: 0
-  _transitionThreshold: 0.5
+  _transitionThreshold: 0.699999988079071
   _volumeThreshold: 0
   _audioBusManager:
     _audioBuses: []
