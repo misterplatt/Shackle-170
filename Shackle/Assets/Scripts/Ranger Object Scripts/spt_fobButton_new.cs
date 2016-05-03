@@ -19,13 +19,6 @@ namespace VRStandardAssets.Examples
     //Script that handles player interaction with digit buttons on the remote
     public class spt_fobButton_new : spt_baseInteractiveObject
     {
-        [SerializeField]
-        private Material m_StateOneMaterial;
-        [SerializeField]
-        private Material m_StateTwoMaterial;
-
-        [SerializeField]
-        private Renderer m_Renderer;
         bool once = false;
         bool once1 = false;
         private AudioSource aSource;
