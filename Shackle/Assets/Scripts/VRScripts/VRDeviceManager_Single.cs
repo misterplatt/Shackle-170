@@ -21,7 +21,7 @@ namespace VRStandardAssets.Utils
             {
                 if (s_Instance == null) {
                     s_Instance = FindObjectOfType<VRDeviceManager_Single>();
-                    DontDestroyOnLoad(s_Instance.gameObject);
+                    //DontDestroyOnLoad(s_Instance.gameObject);
                 }
 
                 return s_Instance;
@@ -33,7 +33,7 @@ namespace VRStandardAssets.Utils
 
             if (s_Instance == null) {
                 s_Instance = this;
-                DontDestroyOnLoad(this);
+                //DontDestroyOnLoad(this);
             }
             else if (this != s_Instance) {
                 Destroy(gameObject);
