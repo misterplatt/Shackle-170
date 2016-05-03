@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.Networking;
 using System.Collections;
 
-public class spt_ManagerMenuInterface : MonoBehaviour {
+public class spt_ManagerMenuInterface : NetworkBehaviour {
 
     public NetworkManager manager;
 
@@ -15,6 +16,8 @@ public class spt_ManagerMenuInterface : MonoBehaviour {
     void Update()
     {
         GameObject monster = GameObject.Find("MonsterStandin");
+
+        if (Input.GetKeyDown(KeyCode.F10)) connectLocal();
 
         if (monster != null)
         {
@@ -41,6 +44,8 @@ public class spt_ManagerMenuInterface : MonoBehaviour {
 
     public void connectLocal()
     {
+        manager.StopHost();
+        GameObject.Find("NetworkDiscovery").GetComponent<NetworkDiscovery>().StopBroadcast();
         manager.networkAddress = "localhost";
         manager.networkPort = 7777;
         manager.StartClient();
@@ -48,8 +53,19 @@ public class spt_ManagerMenuInterface : MonoBehaviour {
 
     public void connect()
     {
-        Debug.Log("Connecting...");
-        manager.networkAddress = GameObject.Find("NetworkDiscovery").GetComponent<spt_NetworkDiscovery>().getIP();
+        try {
+            spt_NetworkDiscovery nDiscover = GameObject.Find("NetworkDiscovery").GetComponent<spt_NetworkDiscovery>();
+            Debug.Log("Connecting...");
+            manager.networkAddress = nDiscover.getIP();
+            Debug.Log("IP : " + manager.networkAddress);
+            Debug.Log("My IP : " + Network.player.ipAddress);
+            if (manager.networkAddress == Network.player.ipAddress) manager.networkAddress = "localhost";
+            Debug.Log("IP2 : " + manager.networkAddress);
+            nDiscover.stopAllDiscovery();
+        }
+        catch {
+            manager.networkAddress = "localhost";
+        }
         manager.networkPort = 7777;
         manager.StartClient();
     }

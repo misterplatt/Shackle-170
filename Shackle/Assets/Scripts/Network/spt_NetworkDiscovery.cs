@@ -21,6 +21,7 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
     private string ip;
     private string[] ipList;
     private bool inLobby;
+    private bool notChecked;
 
     public static spt_NetworkDiscovery instance;
 
@@ -43,6 +44,7 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
 
     void Start() {
         inLobby = false;
+        notChecked = false;
         ipList = new string[4];
         discovery.Initialize();
         listen();
@@ -51,19 +53,18 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
     void Update() {
         if ( SceneManager.GetActiveScene().name != "VRMainMenu" ) return;
         float currentTime = Time.time;
-        if (currentTime - lastUpdate > 5.0F)
+        if (currentTime - lastUpdate > 5.0F || notChecked)
         {
             lastUpdate = currentTime;
             listGames();
         }
 
-        GameObject joinButton = GameObject.Find("btn_join");
-        
+        GameObject joinButton = GameObject.Find("Painting_Canvas").transform.Find("Play/btn_join").gameObject;
         if (ip != "")
         {
-            joinButton.GetComponent<Button>().enabled = false;
+            joinButton.GetComponentInChildren<Button>().enabled = false;
         }
-        else joinButton.GetComponent<Button>().enabled = true;
+        else joinButton.GetComponentInChildren<Button>().enabled = true;
     }    
 
     public void startBroadcast() {
@@ -89,10 +90,10 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
 
     void listGames()
     {
+        if (notChecked) notChecked = true;
         Debug.Log("Listing Games...");
         if (discovery.broadcastsReceived == null)
         {
-            Debug.Log("Null");
             return;
         }
 
@@ -116,9 +117,12 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
 
     private string decodeMsg( string msg ) {
         char[] delims = { ':' };
-
+        Debug.Log("Decoding : " + msg);
         string[] tokens = msg.Split(delims);
-        return tokens[3];
+        foreach (string token in tokens) {
+            if (token.Contains(".")) return token;
+        }
+        return "";
     }
 
     //decode data translates bytes recieved in data packet to original string.
