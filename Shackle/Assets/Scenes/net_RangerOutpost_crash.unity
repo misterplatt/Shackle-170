@@ -14,7 +14,7 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -2941,7 +2941,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 211421741}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e950db6c144775147994bfd716116028, type: 3}
   m_Name: 
@@ -8528,9 +8528,6 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 604119437}
-  m_StateOneMaterial: {fileID: 0}
-  m_StateTwoMaterial: {fileID: 0}
-  m_Renderer: {fileID: 0}
 --- !u!23 &604119440
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22715,7 +22712,7 @@ MonoBehaviour:
     item: {fileID: 504406679}
     isMonstInteractable: 0
   - eventName: carCrash
-    item: {fileID: 0}
+    item: {fileID: 100000, guid: 5cc95df87ca634e448c16aa8a3860f45, type: 3}
     isMonstInteractable: 0
   - eventName: deskDrawerOpen
     item: {fileID: 2014594127}

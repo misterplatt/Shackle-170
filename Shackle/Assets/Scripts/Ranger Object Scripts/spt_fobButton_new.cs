@@ -33,7 +33,8 @@ namespace VRStandardAssets.Examples
         protected override void Update()
         {
             if (!once1 && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true)
-            {//GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true) {
+            {
+                Debug.Log("GETTING HYPHY");
                 //Start car crash animation
                 aSource.Play();
                 once1 = true;
