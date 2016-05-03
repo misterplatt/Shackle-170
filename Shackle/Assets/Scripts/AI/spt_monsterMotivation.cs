@@ -87,7 +87,7 @@ public class spt_monsterMotivation : NetworkBehaviour {
         if (angerLevel >= lowerThreshold)
             attack();
 
-        Debug.Log("Anger level: " + angerLevel);
+        //Debug.Log("Anger level: " + angerLevel);
 
         spt_NetworkPuzzleLogic networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
         networkScript.updatePuzzleState("puzzleCompletionMonster", puzzleCompletionMonster, "MonsterStandin");
