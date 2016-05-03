@@ -1258,7 +1258,7 @@ MonoBehaviour:
   _stealingBehaviour: 0
   _minimumPlaybackInterval: 0
   _overrideParentVolume: 0
-  _volume: 0.4216965
+  _volume: 0.56234133
   _volumeRandomization: 0
   _mute: 0
   _overrideParentPitch: 0
@@ -1625,7 +1625,7 @@ MonoBehaviour:
   enableTimelineAssetLoader: 0
   _createEventListeners: 0
   _useFullPathForEventListeners: 0
-  _transitionThreshold: 0.699999988079071
+  _transitionThreshold: 1
   _volumeThreshold: 0
   _audioBusManager:
     _audioBuses: []
