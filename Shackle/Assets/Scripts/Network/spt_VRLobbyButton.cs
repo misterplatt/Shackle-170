@@ -19,6 +19,7 @@ namespace VRStandardAssets.Examples
     {
 
         private Button button;
+        private bool selected = false;
 
         //Find Vignette on start
         protected override void Start()
@@ -30,13 +31,13 @@ namespace VRStandardAssets.Examples
         //Set button color to red while reticle is over the object
         protected override void HandleOver()
         {
-            button.image.color = new Color32(151, 0, 0, 255);
+            if(!selected) button.image.color = new Color32(151, 0, 0, 255);
         }
 
         //Return button to grey while reticle leaves the object
         protected override void HandleOut()
         {
-            button.image.color = new Color32(55, 55, 55, 255);
+            if(!selected) button.image.color = new Color32(55, 55, 55, 255);
         }
 
         protected override void holdSuccess()
@@ -51,10 +52,14 @@ namespace VRStandardAssets.Examples
             //Set all level buttons to grey (unselected)
             foreach (Transform child in transform.parent)
             {
-                if (child.name.Contains("lvl_")) child.GetComponent<Button>().image.color = new Color32(151, 0, 0, 255);
+                if (child.name.Contains("lvl_")) {
+                    child.GetComponent<Button>().image.color = new Color32(151, 0, 0, 255);
+                    child.GetComponent<spt_VRLobbyButton>().selected = false;
+                }
             }
             //Then set the clicked level button to red (selected)
             GetComponent<Button>().image.color = new Color32(0, 0, 0, 255);
+            selected = true;
         }
 
         //Function to be called in onClick when Ready button is pressed
