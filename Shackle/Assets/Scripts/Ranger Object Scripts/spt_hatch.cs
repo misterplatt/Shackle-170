@@ -18,6 +18,7 @@ namespace VRStandardAssets.Examples
     {
         private AudioSource aSource;
         public static bool local_puzzleCompletion;
+        public static bool local_puzzleCompletionMonster;
 
         override protected void Start()
         {
@@ -41,15 +42,8 @@ namespace VRStandardAssets.Examples
                 transform.Translate(new Vector3(0, .38f, 0));
                 transform.eulerAngles = new Vector3(-30, 0, 0);
 
-                spt_NetworkPuzzleLogic networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
-                for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
-                {
-                    if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster")
-                    {
-                        networkScript.updatePuzzleState("puzzleCompletionMonster", true, "MonsterStandin");
-                        return;
-                    }
-                }
+                local_puzzleCompletionMonster = true;
+                spt_WorldState.worldStateChanged = true;
             }
         }
     }

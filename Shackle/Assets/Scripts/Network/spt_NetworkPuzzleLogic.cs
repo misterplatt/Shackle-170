@@ -189,6 +189,12 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("keyFobPressed", true, "mdl_carKeyfob");
                     //if(isServer) GameObject.Find("WorldState").GetComponent<spt_WorldState>().playCrashSound = true;
                 }
+                //If a player has used the garage door opener on the garage door, update server state
+                if (VRStandardAssets.Examples.spt_hatch.local_puzzleCompletionMonster)
+                {
+                    Debug.Log("Updating garageDoorOpen on the network to " + VRStandardAssets.Examples.spt_hatch.local_puzzleCompletionMonster);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("puzzleCompletionMonster", true, "MonsterStandin");
+                }
             }
 
             //If optics lab is loaded, check the following puzzle states
