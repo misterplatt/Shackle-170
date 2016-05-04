@@ -15,16 +15,22 @@ public class spt_lossListener : MonoBehaviour {
     int index;
     bool gotIndex = false;
     bool once = false;
-	
+    GameObject player;
+
+
+    void start()
+    {
+        player = transform.root.gameObject;
+    }
 	// Update is called once per frame
 	void Update () {
 
         // If the network exists, and the playerLoss even hasn't already been found in the Puzzle states, find and save its index
-        if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates != null && !gotIndex)
+        if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates != null && !gotIndex)
         {
-            for (int i = 0; i < GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count; i++)
+            for (int i = 0; i < player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count; i++)
             {
-                if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[i].name == "playerLoss")
+                if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[i].name == "playerLoss")
                 {
                     Debug.Log("FOUND SOME INDEX SHIT");
                     index = i;
@@ -37,7 +43,6 @@ public class spt_lossListener : MonoBehaviour {
         // If the playerLoss event has been found in the Puzzle States, look at it. If it is ever flipped to true, trigger the UI to display loss screen.
         if (gotIndex)
         {
-            GameObject player = transform.root.gameObject;
             if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count == 0) return;
             if ((player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].state == true)) //&& !once)
             {
