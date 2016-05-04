@@ -39,7 +39,7 @@ public class spt_lossListener : MonoBehaviour {
         {
             GameObject player = GameObject.FindWithTag("Player");
             if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count == 0) return;
-            Debug.Log(player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].name);
+            Debug.Log(gameObject.name + " " + player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].name);
             if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].state == true && !once)
             {
                 GetComponent<Text>().text = "You lose";
