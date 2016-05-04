@@ -81,9 +81,15 @@ public class    spt_victoryListener : MonoBehaviour
     void loadNextLevel() {        
         string nextLevel;
         NetworkIdentity thisId = GetComponentInParent<NetworkIdentity>();
-
-        if (SceneManager.GetActiveScene().name == "net_SpookyGarage") nextLevel = "net_RangerOutpost";
-        else if (SceneManager.GetActiveScene().name == "net_RangerOutpost") nextLevel = "net_OpticsLab";
+        string lvlName = SceneManager.GetActiveScene().name;
+        if (lvlName == "net_SpookyGarage")
+        {
+            nextLevel = "net_RangerOutpost";
+        }
+        else if (lvlName == "net_RangerOutpost")
+        {
+            nextLevel = "net_OpticsLab";
+        }
         else return;
 
         //if hosting, start new level
@@ -94,7 +100,10 @@ public class    spt_victoryListener : MonoBehaviour
 
     IEnumerator changeLevel(string lvl) {
         yield return new WaitForSeconds(TRANSITION_TIME);
+        string currentLevel = SceneManager.GetActiveScene().name;
         manager.ServerChangeScene(lvl);
+        SceneManager.UnloadScene(currentLevel);
+        
     }
 
     // Calls the controller to rumble based off the transition sounds
