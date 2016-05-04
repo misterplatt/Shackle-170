@@ -16,6 +16,10 @@ public class spt_monsterMovement : NetworkBehaviour {
 
     [SyncVar]
     public bool pLoss = false;
+
+    [SyncVar]
+    public int animIndex;
+    private int lastAnimIndex;
     
     // Array of waypoints, the graph that holds the waypoints, as well as the script that instantiates the graph itself 
     public Transform[] waypoints;
@@ -44,10 +48,17 @@ public class spt_monsterMovement : NetworkBehaviour {
 
     // Use this for initialization
 	void Start () {
-	}
+        animIndex = 0;
+    }
 
 	// Update is called once per frame
 	void Update () {
+        animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
+        if (animIndex != lastAnimIndex)
+        {
+            animationScript.animator.SetInteger("animation", animIndex);
+            lastAnimIndex = animIndex;
+        }
 
         if (!isServer) return;
 
@@ -84,10 +95,11 @@ public class spt_monsterMovement : NetworkBehaviour {
             }
         }
 
+        //Either Attack or Drag.
         if (agent.remainingDistance <= 5 && agent.remainingDistance > 2 && currentWaypoint == 999)
         {
-            animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
-            animationScript.animator.SetInteger("animation", 1);
+            animIndex = 1;
+            //animationScript.animator.SetInteger("animation", 1);
         }
 
         // If the monster is attacking, or the players have just won...
