@@ -38,7 +38,7 @@ namespace VRStandardAssets.Examples
                 transform.FindChild("Fire").gameObject.SetActive(true);
                 inventorySpt.removeItm("Matchbox");
                 Invoke("DestroyPoster", 1.5f);
-                GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("barrelExplosion", true, "Barrel");
+                GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("barrelExplosion", true, "Barrel");
             }
 
         }

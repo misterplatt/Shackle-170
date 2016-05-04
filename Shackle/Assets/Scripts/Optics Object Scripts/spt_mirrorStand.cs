@@ -48,7 +48,7 @@ namespace VRStandardAssets.Examples
                 {
                     if (network.PuzzleStates[i].itemName == gameObject.name && network.PuzzleStates[i].isMonsterInteractable)
                     {
-                        network.updatePuzzleState(network.PuzzleStates[i].name, true, gameObject.name);
+                        network.Cmd_UpdatePuzzleLogic(network.PuzzleStates[i].name, true, gameObject.name);
                     }
                 }
 			}
