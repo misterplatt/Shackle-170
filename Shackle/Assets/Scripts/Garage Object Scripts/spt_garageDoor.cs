@@ -44,13 +44,13 @@ namespace VRStandardAssets.Examples
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[5].state == true)
             {
                 transform.Translate(new Vector3(0, 1, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
-                /*
+                
                 local_puzzleCompletion = true;
                 spt_WorldState.worldStateChanged = true;
                 holding = false;
-                garageSound.clip = garageOpenSound;
-                garageSound.Play();
-                */
+                //garageSound.clip = garageOpenSound;
+                //garageSound.Play();
+                
                 spt_NetworkPuzzleLogic networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
                 for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
                 {
