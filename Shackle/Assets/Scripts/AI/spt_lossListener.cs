@@ -39,9 +39,9 @@ public class spt_lossListener : MonoBehaviour {
         {
             GameObject player = GameObject.FindWithTag("Player");
             if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count == 0) return;
-            Debug.Log(transform.parent.parent.parent.name + " " + player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].name);
             if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].state == true && !once)
             {
+                Debug.Log(transform.parent.parent.parent.name + " " + player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].name);
                 GetComponent<Text>().text = "You lose";
                 GetComponent<Text>().enabled = true;
                 //transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
