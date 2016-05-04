@@ -24,6 +24,7 @@ namespace VRStandardAssets.Examples
         //Find Vignette on start
         protected override void Start()
         {
+            if (gameObject.name == "lvl_garage") selectLevel();
             button = GetComponent<Button>();
         }
 
@@ -53,12 +54,12 @@ namespace VRStandardAssets.Examples
             foreach (Transform child in transform.parent)
             {
                 if (child.name.Contains("lvl_")) {
-                    child.GetComponent<Button>().image.color = new Color32(151, 0, 0, 255);
+                    child.GetComponent<Button>().image.color = new Color32(55, 55, 55, 255);
                     child.GetComponent<spt_VRLobbyButton>().selected = false;
                 }
             }
             //Then set the clicked level button to red (selected)
-            GetComponent<Button>().image.color = new Color32(0, 0, 0, 255);
+            GetComponent<Button>().image.color = new Color32(80, 0, 0, 255);
             selected = true;
         }
 

@@ -25,7 +25,11 @@ public class spt_lossListener : MonoBehaviour {
             for (int i = 0; i < GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count; i++)
             {
                 if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[i].name == "playerLoss")
+                {
+                    Debug.Log("FOUND SOME INDEX SHIT");
                     index = i;
+                }
+                    
             }
             gotIndex = true;
         }
