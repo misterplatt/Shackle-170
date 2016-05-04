@@ -131,7 +131,7 @@ public class spt_angerObject : MonoBehaviour {
 
         double multiplier = 1.0 - (0.5 * Math.Sqrt(numToggles));
         int depreciation = (int)(-(numToggles * multiplier));
-        monster.updateAnger(depreciation, gameObject.transform);
+        if(!monster.angerUpdateDisabled) monster.updateAnger(depreciation, gameObject.transform);
         numToggles = 0;
         return;
     }
