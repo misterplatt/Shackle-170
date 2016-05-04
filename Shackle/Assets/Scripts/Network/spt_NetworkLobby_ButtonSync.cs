@@ -41,7 +41,7 @@ public class spt_NetworkLobby_ButtonSync : NetworkBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () {        
         if (SceneManager.GetActiveScene().name != "net_playerlobby") return;
         updateButtons();
         if (!isServer) return;
@@ -81,7 +81,6 @@ public class spt_NetworkLobby_ButtonSync : NetworkBehaviour {
         else p2cb.disabledColor = Color.grey;
 
         if (p1Ready && p1Connected) {
-            Debug.Log("Ready");
             p1cb.disabledColor = Color.green;
         }
         if (p2Ready && p2Connected) p2cb.disabledColor = Color.green;
