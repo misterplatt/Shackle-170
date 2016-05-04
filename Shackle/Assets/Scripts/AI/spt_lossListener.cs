@@ -37,7 +37,7 @@ public class spt_lossListener : MonoBehaviour {
         // If the playerLoss event has been found in the Puzzle States, look at it. If it is ever flipped to true, trigger the UI to display loss screen.
         if (gotIndex)
         {
-            GameObject player = GameObject.FindWithTag("Player");
+            GameObject player = transform.root.gameObject;
             if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count == 0) return;
             if ((player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].state == true)) //&& !once)
             {
