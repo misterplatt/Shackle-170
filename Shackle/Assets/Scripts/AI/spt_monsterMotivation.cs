@@ -58,8 +58,6 @@ public class spt_monsterMotivation : NetworkBehaviour {
 
     public bool angerUpdateDisabled = false;
 
-    public bool puzzleCompletionMonster = false;
-
     // Use this for initialization
 	void Start () {
         movementScript = GameObject.FindObjectOfType(typeof(spt_monsterMovement)) as spt_monsterMovement;
@@ -90,7 +88,6 @@ public class spt_monsterMotivation : NetworkBehaviour {
         //Debug.Log("Anger level: " + angerLevel);
 
         spt_NetworkPuzzleLogic networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
-        networkScript.updatePuzzleState("puzzleCompletionMonster", puzzleCompletionMonster, "MonsterStandin");
         for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
         {
             if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster" && networkScript.PuzzleStates[i].state == true)
