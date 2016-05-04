@@ -29,7 +29,7 @@ public class spt_NetworkLobby_ButtonSync : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        p1Connected = false;
+        p1Connected = true;
         p2Connected = false;
         p1Ready = false;
         p2Ready = false;
@@ -50,9 +50,9 @@ public class spt_NetworkLobby_ButtonSync : NetworkBehaviour {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         if (players.Length != pCount) updatePConnections( players.Length );
 
-        //update readiness
+        //update readiness      
         foreach (GameObject player in players) {
-            if (player.GetComponent<NetworkIdentity>().isServer) {
+            if (player.GetComponent<NetworkIdentity>().isLocalPlayer) {
                 if (player.GetComponent<spt_LobbyPlayer>().isReady) p1Ready = true;
                 else p1Ready = false;            
             }
