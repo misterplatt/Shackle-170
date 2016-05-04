@@ -6677,7 +6677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gateItemName: mdl_key
   holdTime: 2
-  m_InteractiveItem: {fileID: 0}
+  m_InteractiveItem: {fileID: 1206540143}
 --- !u!114 &1206540143
 MonoBehaviour:
   m_ObjectHideFlags: 0
