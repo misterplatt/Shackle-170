@@ -57,7 +57,7 @@ namespace VRStandardAssets.Examples
                 {
                     if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster")
                     {
-                        networkScript.updatePuzzleState("puzzleCompletionMonster", true, "MonsterStandin");
+                        networkScript.Cmd_UpdatePuzzleLogic("puzzleCompletionMonster", true, "MonsterStandin");
                         garageSound.clip = garageOpenSound;
                         garageSound.Play();
                         return;
