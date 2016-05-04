@@ -46,6 +46,7 @@ namespace VRStandardAssets.Examples
         {
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[3].state == false){
                 m_Renderer.material = m_StateTwoMaterial;
+                currentState = false;
             }
         }
 

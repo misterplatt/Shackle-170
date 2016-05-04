@@ -9252,7 +9252,7 @@ MonoBehaviour:
     isMonstInteractable: 0
   - eventName: TVpowerState
     item: {fileID: 1728952954}
-    isMonstInteractable: 1
+    isMonstInteractable: 0
   - eventName: extCordPlugged
     item: {fileID: 31361512}
     isMonstInteractable: 1

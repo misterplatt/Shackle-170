@@ -107,7 +107,6 @@ public class spt_monsterMovement : NetworkBehaviour {
             {
                 Debug.LogWarning("attempting to alter puzzleCompletion in puzzleStates...");
                 networkScript.updatePuzzleState("puzzleCompletion", true, networkScript.PuzzleStates[0].itemName);
-                //pLoss = true;
             }
         }
         // If the monster is interacting with an item...
