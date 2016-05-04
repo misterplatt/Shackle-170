@@ -34,7 +34,7 @@ namespace VRStandardAssets.Examples
             //transform.parent.Translate(new Vector3(1.4f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED  
             transform.Translate(new Vector3(-.2f, 0, 0));
             transform.Rotate(new Vector3(0, -150, 0));
-            GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("fuseBoxOpen", true, "grp_fuseBox");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("fuseBoxOpen", true, "grp_fuseBox");
         }
     }
 }
