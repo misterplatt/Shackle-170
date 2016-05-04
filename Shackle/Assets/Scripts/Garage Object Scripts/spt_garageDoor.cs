@@ -17,6 +17,7 @@ namespace VRStandardAssets.Examples
     public class spt_garageDoor : spt_baseInteractiveObject
     {
         public static bool local_puzzleCompletion;
+        public static bool local_puzzleCompletionMonster;
 
         private static bool garageFail = false;
         private AudioSource garageSound;
@@ -47,22 +48,12 @@ namespace VRStandardAssets.Examples
                 /*
                 local_puzzleCompletion = true;
                 spt_WorldState.worldStateChanged = true;
-                holding = false;
-                //garageSound.clip = garageOpenSound;
-                //garageSound.Play();
                 */
-                
-                spt_NetworkPuzzleLogic networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
-                for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
-                {
-                    if (networkScript.PuzzleStates[i].name == "puzzleCompletionMonster")
-                    {
-                        networkScript.Cmd_UpdatePuzzleLogic("puzzleCompletionMonster", true, "MonsterStandin");
-                        garageSound.clip = garageOpenSound;
-                        garageSound.Play();
-                        return;
-                    }
-                }
+                holding = false;
+                garageSound.clip = garageOpenSound;
+                garageSound.Play();
+                local_puzzleCompletionMonster = true;
+                spt_WorldState.worldStateChanged = true;
             }
             else garageFail = true;
          }
