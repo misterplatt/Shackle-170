@@ -18,9 +18,9 @@ public class spt_lossListener : MonoBehaviour {
     GameObject player;
 
 
-    void start()
+    void Start()
     {
-        player = transform.root.gameObject;
+        player = this.transform.root.gameObject;
     }
 	// Update is called once per frame
 	void Update () {
