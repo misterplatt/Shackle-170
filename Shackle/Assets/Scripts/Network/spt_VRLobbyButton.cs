@@ -66,7 +66,9 @@ namespace VRStandardAssets.Examples
         public void readyUp()
         {
             //Depending on which ready button was clicked, change the ready state "button" color to green
-            if (transform.parent.name == "Host_UI") transform.parent.FindChild("P1_readystate").GetComponent<Button>().image.color = new Color32(147, 196, 125, 255);
+            if (transform.parent.name == "Host_UI") {
+                transform.parent.FindChild("P1_readystate").GetComponent<Button>().image.color = new Color32(147, 196, 125, 255);
+            }
             else transform.parent.FindChild("P1_readystate").GetComponent<Button>().image.color = new Color32(147, 196, 125, 255);
         }
     }

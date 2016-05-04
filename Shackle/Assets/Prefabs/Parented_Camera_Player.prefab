@@ -264,6 +264,7 @@ GameObject:
   - 114: {fileID: 11441750}
   - 82: {fileID: 8260378}
   - 81: {fileID: 8136720}
+  - 114: {fileID: 11497552}
   m_Layer: 0
   m_Name: Parented_Camera_Player
   m_TagString: Player
@@ -1487,6 +1488,18 @@ MonoBehaviour:
     i15: 76
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &11497552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f24e3453f4b8334c940d1908ce353ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isReady: 0
 --- !u!114 &11499976
 MonoBehaviour:
   m_ObjectHideFlags: 1
