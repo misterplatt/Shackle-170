@@ -43,6 +43,7 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
     }
 
     void Start() {
+        ip = "";
         inLobby = false;
         notChecked = false;
         ipList = new string[4];
@@ -60,11 +61,11 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
         }
 
         GameObject joinButton = GameObject.Find("Painting_Canvas").transform.Find("Play/btn_join").gameObject;
-        if (ip != "")
+        if (ip == "")
         {
-            joinButton.GetComponentInChildren<Button>().enabled = false;
+            joinButton.SetActive(false);
         }
-        else joinButton.GetComponentInChildren<Button>().enabled = true;
+        else joinButton.SetActive(true);
     }    
 
     public void startBroadcast() {

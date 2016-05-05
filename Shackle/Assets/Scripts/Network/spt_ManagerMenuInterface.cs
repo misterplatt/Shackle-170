@@ -55,12 +55,8 @@ public class spt_ManagerMenuInterface : NetworkBehaviour {
     {
         try {
             spt_NetworkDiscovery nDiscover = GameObject.Find("NetworkDiscovery").GetComponent<spt_NetworkDiscovery>();
-            Debug.Log("Connecting...");
             manager.networkAddress = nDiscover.getIP();
-            Debug.Log("IP : " + manager.networkAddress);
-            Debug.Log("My IP : " + Network.player.ipAddress);
             if (manager.networkAddress == Network.player.ipAddress) manager.networkAddress = "localhost";
-            Debug.Log("IP2 : " + manager.networkAddress);
             nDiscover.stopAllDiscovery();
         }
         catch {

@@ -19,10 +19,11 @@ namespace VRStandardAssets.Examples
     {
 
         private Button button;
-
+        public bool interactable;
         //Find Vignette on start
         protected override void Start()
         {
+            interactable = true;
             button = GetComponent<Button>();
         }
 
@@ -41,6 +42,7 @@ namespace VRStandardAssets.Examples
 
         protected override void holdSuccess()
         {
+            if (!interactable) return;
             button.onClick.Invoke(); //Calls whatever is placed in the Button component's OnClick sections
             holding = false;
         }

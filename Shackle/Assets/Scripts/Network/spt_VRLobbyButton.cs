@@ -25,7 +25,7 @@ namespace VRStandardAssets.Examples
         protected override void Start()
         {
             if (gameObject.name == "lvl_garage") selectLevel();
-            button = GetComponent<Button>();
+            button = GetComponent<Button>();           
         }
 
 
@@ -58,9 +58,29 @@ namespace VRStandardAssets.Examples
                     child.GetComponent<spt_VRLobbyButton>().selected = false;
                 }
             }
+
             //Then set the clicked level button to red (selected)
             GetComponent<Button>().image.color = new Color32(80, 0, 0, 255);
             selected = true;
+            GameObject.Find("Host_UI").GetComponent<spt_NetworkLobby_ButtonSync>().selectedLevel = translateButton(GetComponentInChildren<Text>().text); 
+        }
+
+        public string translateButton(string buttonName)
+        {
+            Debug.Log("translate : " + buttonName);
+            if (buttonName.Contains("Garage"))
+            {
+                return "net_SpookyGarage";
+            }
+            else if (buttonName.Contains("Outpost"))
+            {
+                return "net_RangerOutpost";
+            }
+            else if (buttonName.Contains("Lab"))
+            {
+                return "net_OpticsLab";
+            }
+            return "";
         }
 
         //Function to be called in onClick when Ready button is pressed

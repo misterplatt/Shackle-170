@@ -24,6 +24,9 @@ public class spt_NetworkLobby_ButtonSync : NetworkBehaviour {
     //local scope
     Button p1Rdy;
     Button p2Rdy;
+    spt_NetworkLobby_ButtonSync_Client clientLobbyUI;
+    NetworkManager manager;
+    public string selectedLevel;
 
     public int pCount;
 
@@ -37,15 +40,17 @@ public class spt_NetworkLobby_ButtonSync : NetworkBehaviour {
 
         p1Rdy = this.transform.Find("P1_readystate").gameObject.GetComponent<Button>();
         p2Rdy = this.transform.Find("P2_readystate").gameObject.GetComponent<Button>();
-
+        clientLobbyUI = GameObject.Find("Client_UI").GetComponent<spt_NetworkLobby_ButtonSync_Client>();
+        manager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
+        selectedLevel = "";
     }
 	
 	// Update is called once per frame
-	void Update () {        
+	void Update () {
+        Debug.Log(this.transform.root.gameObject.name + " : " + p1Connected + " | " + p2Connected +  " | " + p1Ready + " | " + p2Ready);        
         if (SceneManager.GetActiveScene().name != "net_playerlobby") return;
         updateButtons();
-        if (!isServer) return;
-
+        levelTransitionCheck();
         //check number of players connected and update rdy as expected
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         if (players.Length != pCount) updatePConnections( players.Length );
@@ -53,20 +58,41 @@ public class spt_NetworkLobby_ButtonSync : NetworkBehaviour {
         //update readiness      
         foreach (GameObject player in players) {
             if (player.GetComponent<NetworkIdentity>().isLocalPlayer) {
-                if (player.GetComponent<spt_LobbyPlayer>().isReady) p1Ready = true;
-                else p1Ready = false;            
+                if (player.GetComponent<spt_LobbyPlayer>().isReady)
+                {
+                    p1Ready = true;
+                }
+                else
+                {
+                    p1Ready = false;
+                }
             }
             else {
-                if (player.GetComponent<spt_LobbyPlayer>().isReady) p2Ready = true;
-                else p2Ready = false;
+                if (player.GetComponent<spt_LobbyPlayer>().isReady)
+                {
+                    p2Ready = true;
+                }
+                else
+                {
+                    p2Ready = false;
+                }
             }
         }
 	}
     
     void updatePConnections( int newCount ) {
-        if (newCount == 1) p1Connected = true;
-        if (newCount >= 2) p2Connected = true;
-        else p2Connected = false;
+        if (newCount == 1)
+        {
+            p1Connected = true;
+        }
+        if (newCount >= 2)
+        {
+            p2Connected = true;
+        }
+        else
+        {
+            p2Connected = false;
+        }
 
         pCount = newCount;
     }
@@ -88,4 +114,13 @@ public class spt_NetworkLobby_ButtonSync : NetworkBehaviour {
         p1Rdy.colors = p1cb;
         p2Rdy.colors = p2cb;
     }
+
+    void levelTransitionCheck() {
+        Debug.Log(selectedLevel);
+        if ((!( p1Ready && p2Ready )) || selectedLevel == "") return;
+
+        manager.ServerChangeScene(selectedLevel);
+    }
+
+
 }

@@ -87,7 +87,7 @@ public class spt_playerControls : MonoBehaviour
     // For now it is used to stop the controller vibrations
     public static bool startButtonPressed()
     {
-        if (Input.GetButton("startButton"))
+        if (Input.GetButtonDown("startButton"))
         {
             return true;
         }
