@@ -24,7 +24,7 @@ namespace VRStandardAssets.Examples
             if (!once) {
                 GameObject.Find("Door").transform.Translate(Vector3.left * 1.6f);
                 holding = false;
-                GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("doorOpen", true, "KeyPad");
+                GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("doorOpen", true, "KeyPad");
             }
 
         }

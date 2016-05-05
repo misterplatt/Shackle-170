@@ -8151,7 +8151,7 @@ MonoBehaviour:
     isMonstInteractable: 1
   - eventName: barrelExplosion
     item: {fileID: 435046490}
-    isMonstInteractable: 1
+    isMonstInteractable: 0
   - eventName: leverAPressed
     item: {fileID: 610962378}
     isMonstInteractable: 0

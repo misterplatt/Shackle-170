@@ -42,14 +42,14 @@ namespace VRStandardAssets.Examples
             {
                 laserMesh.enabled = currentState;
                 laserCollider.enabled = currentState;
-                if (gameObject.name == "LaserSwitch") GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("isLaserOn", true, "LaserSwitch");
+                if (gameObject.name == "LaserSwitch") GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", true, "LaserSwitch");
 
             }
             else if (currentState == false)
             {
                 laserMesh.enabled = currentState;
                 laserCollider.enabled = currentState;
-                if (gameObject.name == "LaserSwitch") GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("isLaserOn", false, "LaserSwitch");
+                if (gameObject.name == "LaserSwitch") GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", false, "LaserSwitch");
             }
         }
 
