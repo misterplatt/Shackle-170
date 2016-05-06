@@ -69,7 +69,8 @@ public class spt_toolTipListener : MonoBehaviour {
         //Show manipulation tooltip once a manipulation item is inspected
         if (endPoint.tag == "manipulation" && !manipulationTipsShown)
         {
-            StartCoroutine(setToolTip("controls_manipulate", "To Rotate, B to Return", 1f, spt_playerControls.bButtonPressed));
+            StartCoroutine(setToolTip("controls_RS", "To Rotate", 1f, spt_playerControls.bButtonPressed));
+            StartCoroutine(setToolTip("controls_B", "B to Return", 5f, spt_playerControls.bButtonPressed));
             manipulationTipsShown = true;
         }
 
