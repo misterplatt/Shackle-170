@@ -2,9 +2,11 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 2/26/2016
+ * Last Revision Date: 5/5/2016
  * 
- * This file looks at the playerLoss puzzle state, and triggers the UI to display a loss condition if it happens. **/
+ * This file looks at the playerLoss puzzle state, and triggers the UI to display a loss condition if it happens. 
+ * Added attackSound call
+ **/
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,15 +18,17 @@ public class spt_lossListener : MonoBehaviour {
     bool gotIndex = false;
     bool once = false;
     GameObject player;
+    spt_monsterAudio monsterAudio;
 
 
     void Start()
     {
         player = this.transform.root.gameObject;
+        monsterAudio = GameObject.Find("MonsterStandin").GetComponent<spt_monsterAudio>();
     }
 	// Update is called once per frame
 	void Update () {
-
+        if(Input.GetKeyDown("i")) monsterAudio.playAttackSound();
         // If the network exists, and the playerLoss even hasn't already been found in the Puzzle states, find and save its index
         if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates != null && !gotIndex)
         {
@@ -32,7 +36,6 @@ public class spt_lossListener : MonoBehaviour {
             {
                 if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[i].name == "playerLoss")
                 {
-                    Debug.Log("FOUND SOME INDEX SHIT");
                     index = i;
                 }
                     
@@ -46,6 +49,7 @@ public class spt_lossListener : MonoBehaviour {
             if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count == 0) return;
             if ((player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].state == true)) //&& !once)
             {
+                monsterAudio.playAttackSound();
                 Debug.Log(transform.parent.parent.parent.name + " " + player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].name);
                 GetComponent<Text>().text = "You lose";
                 GetComponent<Text>().enabled = true;

@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 3/5/2016
+ * Last Revision Date: 5/6/2016
  * 
  * This script handles all of the audio required for the monster. **/
 
@@ -19,6 +19,7 @@ public class spt_monsterAudio : NetworkBehaviour
     // Array of warning noises. This array needs to be instantiated in the Unity editor.
     public AudioClip[] warningSounds;
     public AudioClip[] ambientSounds;
+    public AudioClip attackSound;
 
     //Networking Variables:
     [SyncVar]
@@ -27,6 +28,8 @@ public class spt_monsterAudio : NetworkBehaviour
     int wngSoundInd = -1;
     bool soundPlayed = false;
     bool once = false;
+    bool attackSoundPlayed = false;
+    private spt_NetworkPuzzleLogic network;
 
     // Called on Start, loads references to the first ambient and warning sounds to be played.
     void Start()
@@ -39,7 +42,8 @@ public class spt_monsterAudio : NetworkBehaviour
     }
 
     void Update()
-    { 
+    {
+        if (network == null) network = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
         if (isServer)
         {
             if (soundPlayed)
@@ -111,4 +115,15 @@ public class spt_monsterAudio : NetworkBehaviour
         if (randomInt == 0)
             prepAmbientNoise();
     }
+
+    public void playAttackSound()
+    {
+        if (!attackSoundPlayed)
+        {
+            source.clip = attackSound;
+            PlaySoundWithCallback(source.clip, setPlayFlags);
+            attackSoundPlayed = true;
+        }
+    }
+
 }
