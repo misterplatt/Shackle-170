@@ -28,7 +28,6 @@ public class spt_lossListener : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        if(Input.GetKeyDown("i")) monsterAudio.playAttackSound();
         // If the network exists, and the playerLoss even hasn't already been found in the Puzzle states, find and save its index
         if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates != null && !gotIndex)
         {

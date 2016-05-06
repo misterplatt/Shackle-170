@@ -4,7 +4,9 @@
  * 
  * Last Revision Date: 5/6/2016
  * 
- * This script handles all of the audio required for the monster. **/
+ * This script handles all of the audio required for the monster. 
+ * Added Attacksound - Dara
+ **/
 
 using UnityEngine;
 using UnityEngine.Networking;
