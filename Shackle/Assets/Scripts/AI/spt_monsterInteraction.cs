@@ -42,6 +42,7 @@ public class spt_monsterInteraction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         if (network == null)
         {
             network = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
