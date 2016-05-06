@@ -2,12 +2,13 @@
  * 
  * Created by: Ryan Connors
  * 
- * Last Revision Date: 3/29/2016
+ * Last Revision Date: 5/5/2016
  * 
  * This file provides the network based implementation of the player inventory.
  * this inventory is synched between client and hosts and supports two distinct inventories, as well as 
  * inventory interaction in the way of passing, grabbing, and removing items.
  * Added beginnings of reticle range - Dara
+ * Added fisting for ranger outpost drawer - Dara
 */
 
 
@@ -381,8 +382,8 @@ public class spt_inventory : NetworkBehaviour {
 
 
     public void Fisting()
-    { 
-		if (lookingObject != null && (lookingObject.GetComponent<VRStandardAssets.Examples.spt_interactiveMovable>() != null || lookingObject.GetComponent<VRStandardAssets.Examples.spt_mirrorHandle>() != null))
+    {
+        if (lookingObject != null && (lookingObject.GetComponent<VRStandardAssets.Examples.spt_interactiveMovable>() != null || lookingObject.GetComponent<VRStandardAssets.Examples.spt_mirrorHandle>() != null || lookingObject.GetComponent<VRStandardAssets.Examples.spt_drawer>() != null))
         {
                 reticleTex.GetComponent<RawImage>().texture = fistSprite;
         }

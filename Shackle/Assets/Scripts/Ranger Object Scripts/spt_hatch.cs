@@ -17,6 +17,8 @@ namespace VRStandardAssets.Examples
     public class spt_hatch : spt_baseInteractiveObject
     {
         private AudioSource aSource;
+        public AudioClip failedOpen;
+        public AudioClip successfulOpen;
         public static bool local_puzzleCompletion;
         public static bool local_puzzleCompletionMonster;
 
@@ -34,6 +36,7 @@ namespace VRStandardAssets.Examples
             //If the hatch door has been unlocked, open the garage door and set puzzleCompletion to true
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == true)
             {
+                aSource.clip = successfulOpen;
                 aSource.Play();
                 //NPL Update
                 //local_puzzleCompletion = true;
@@ -44,6 +47,11 @@ namespace VRStandardAssets.Examples
 
                 local_puzzleCompletionMonster = true;
                 spt_WorldState.worldStateChanged = true;
+            }
+            else
+            {
+                aSource.clip = failedOpen;
+                aSource.Play();
             }
         }
     }
