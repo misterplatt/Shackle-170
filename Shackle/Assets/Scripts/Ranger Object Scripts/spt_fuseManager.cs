@@ -67,7 +67,7 @@ namespace VRStandardAssets.Examples
         public override void resetItem()
         {
             Debug.Log("I'M FUCKING SHIT UP");
-            spt_fuseSwitch[] fuses = GetComponentsInChildren<spt_fuseSwitch>();
+            spt_fuseSwitch[] fuses = transform.parent.GetComponentsInChildren<spt_fuseSwitch>();
             foreach (spt_fuseSwitch fuse in fuses) {
                 fuse.randomToggle();
             }

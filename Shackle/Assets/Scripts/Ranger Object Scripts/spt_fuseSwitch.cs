@@ -24,7 +24,7 @@ namespace VRStandardAssets.Examples
         [SerializeField]
         private int switchNumber;
 
-        private bool currentState = false;
+        public bool currentState = false;
         private AudioSource aSource;
 
         protected override void Start()
