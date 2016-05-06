@@ -598,7 +598,7 @@ Transform:
   m_Children:
   - {fileID: 1245221616}
   m_Father: {fileID: 1870760828}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &81338800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2947,7 +2947,7 @@ Transform:
   m_LocalScale: {x: 1.5654259, y: 0.08733409, z: 1.5654258}
   m_Children: []
   m_Father: {fileID: 1760333456}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &516288772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7278,6 +7278,7 @@ GameObject:
   - 114: {fileID: 1299910945}
   - 114: {fileID: 1299910948}
   - 114: {fileID: 1299910949}
+  - 114: {fileID: 1299910950}
   m_Layer: 0
   m_Name: Mirror Stand
   m_TagString: Untagged
@@ -7296,6 +7297,7 @@ Transform:
   m_LocalScale: {x: 0.37606487, y: 0.6031618, z: 0.37606487}
   m_Children:
   - {fileID: 727634139}
+  - {fileID: 1488099803}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &1299910942
@@ -7412,25 +7414,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1299910940}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
-  m_ChildIndex: 4294967295
-  m_SendInterval: 0.1
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_MovementThreshold: 0.001
-  m_InterpolateRotation: 0.5
-  m_InterpolateMovement: 0.5
---- !u!114 &1299910949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1299910940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -7439,10 +7422,48 @@ MonoBehaviour:
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_SyncSpin: 0
-  m_MovementTheshold: 0.001
+  m_MovementTheshold: 0.0001
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &1299910949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1299910940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 727634139}
+  m_ChildIndex: 0
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.0001
+  m_InterpolateRotation: 0.05
+  m_InterpolateMovement: 0.05
+--- !u!114 &1299910950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1299910940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 1488099803}
+  m_ChildIndex: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.0001
+  m_InterpolateRotation: 0.05
+  m_InterpolateMovement: 0.05
 --- !u!1 &1305678958
 GameObject:
   m_ObjectHideFlags: 0
@@ -7609,6 +7630,7 @@ GameObject:
   - 114: {fileID: 1326799994}
   - 114: {fileID: 1326800000}
   - 114: {fileID: 1326800001}
+  - 114: {fileID: 1326800002}
   m_Layer: 0
   m_Name: Mirror Stand (1)
   m_TagString: Untagged
@@ -7626,6 +7648,7 @@ Transform:
   m_LocalPosition: {x: 0.244, y: 0.663, z: 6.822}
   m_LocalScale: {x: 0.37606487, y: 0.6031618, z: 0.37606487}
   m_Children:
+  - {fileID: 1996025323}
   - {fileID: 1379319913}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -7743,25 +7766,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1326799992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
-  m_ChildIndex: 4294967295
-  m_SendInterval: 0.1
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_MovementThreshold: 0.001
-  m_InterpolateRotation: 0.5
-  m_InterpolateMovement: 0.5
---- !u!114 &1326800001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1326799992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -7774,6 +7778,44 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &1326800001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1326799992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 2143476957}
+  m_ChildIndex: 0
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.0001
+  m_InterpolateRotation: 0.05
+  m_InterpolateMovement: 0.05
+--- !u!114 &1326800002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1326799992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 1996025323}
+  m_ChildIndex: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.0001
+  m_InterpolateRotation: 0.05
+  m_InterpolateMovement: 0.05
 --- !u!1 &1347610598
 GameObject:
   m_ObjectHideFlags: 0
@@ -7909,7 +7951,7 @@ Transform:
   m_Children:
   - {fileID: 2143476957}
   m_Father: {fileID: 1326799993}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &1379319914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8094,6 +8136,60 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1401779481}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1488099802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1488099803}
+  m_Layer: 0
+  m_Name: Temp_Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1488099803
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1488099802}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299910941}
+  m_RootOrder: 1
+--- !u!1 &1503011935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1503011936}
+  m_Layer: 0
+  m_Name: Temp_Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1503011936
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1503011935}
+  m_LocalRotation: {x: 0, y: 0.7071066, z: 0, w: -0.70710695}
+  m_LocalPosition: {x: -7.7539825, y: 0, z: 27.412823}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1870760828}
+  m_RootOrder: 0
 --- !u!1 &1515300597
 GameObject:
   m_ObjectHideFlags: 0
@@ -8173,6 +8269,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
+--- !u!1 &1518661272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1518661273}
+  m_Layer: 0
+  m_Name: Temp_Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1518661273
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1518661272}
+  m_LocalRotation: {x: 0, y: -0.00000035762787, z: 0, w: -1}
+  m_LocalPosition: {x: 25.710993, y: 0, z: 18.095282}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1760333456}
+  m_RootOrder: 0
 --- !u!1 &1542686249
 GameObject:
   m_ObjectHideFlags: 0
@@ -8530,8 +8653,9 @@ GameObject:
   - 114: {fileID: 1760333459}
   - 114: {fileID: 1760333458}
   - 114: {fileID: 1760333457}
-  - 114: {fileID: 1760333463}
   - 114: {fileID: 1760333464}
+  - 114: {fileID: 1760333463}
+  - 114: {fileID: 1760333465}
   m_Layer: 0
   m_Name: Mirror Stand
   m_TagString: Untagged
@@ -8549,6 +8673,7 @@ Transform:
   m_LocalPosition: {x: 3.865, y: 0.663, z: -6.349}
   m_LocalScale: {x: 0.37606484, y: 0.6031618, z: 0.37606484}
   m_Children:
+  - {fileID: 1518661273}
   - {fileID: 516288771}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -8669,14 +8794,14 @@ MonoBehaviour:
   m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
-  m_ChildIndex: 4294967295
+  m_Target: {fileID: 516288771}
+  m_ChildIndex: 0
   m_SendInterval: 0.1
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
-  m_MovementThreshold: 0.001
-  m_InterpolateRotation: 0.5
-  m_InterpolateMovement: 0.5
+  m_MovementThreshold: 0.0001
+  m_InterpolateRotation: 0.05
+  m_InterpolateMovement: 0.05
 --- !u!114 &1760333464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8697,6 +8822,25 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &1760333465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1760333455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 1518661273}
+  m_ChildIndex: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.0001
+  m_InterpolateRotation: 0.05
+  m_InterpolateMovement: 0.05
 --- !u!1 &1771829637
 GameObject:
   m_ObjectHideFlags: 0
@@ -9230,8 +9374,10 @@ GameObject:
   - 114: {fileID: 1870760831}
   - 114: {fileID: 1870760830}
   - 114: {fileID: 1870760829}
-  - 114: {fileID: 1870760835}
+  - 114: {fileID: 1870760837}
   - 114: {fileID: 1870760836}
+  - 114: {fileID: 1870760835}
+  - 114: {fileID: 1870760838}
   m_Layer: 0
   m_Name: Mirror Stand (2)
   m_TagString: Untagged
@@ -9249,6 +9395,7 @@ Transform:
   m_LocalPosition: {x: -0.024, y: 0.663, z: -6.989}
   m_LocalScale: {x: 0.3760649, y: 0.6031618, z: 0.3760649}
   m_Children:
+  - {fileID: 1503011936}
   - {fileID: 81338799}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -9369,14 +9516,14 @@ MonoBehaviour:
   m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
-  m_ChildIndex: 4294967295
+  m_Target: {fileID: 1245221616}
+  m_ChildIndex: 1
   m_SendInterval: 0.1
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
-  m_MovementThreshold: 0.001
-  m_InterpolateRotation: 0.5
-  m_InterpolateMovement: 0.5
+  m_MovementThreshold: 0.0001
+  m_InterpolateRotation: 0.05
+  m_InterpolateMovement: 0.05
 --- !u!114 &1870760836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9397,6 +9544,44 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &1870760837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1870760827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 81338799}
+  m_ChildIndex: 0
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.0001
+  m_InterpolateRotation: 0.05
+  m_InterpolateMovement: 0.05
+--- !u!114 &1870760838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1870760827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 1503011936}
+  m_ChildIndex: 2
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.0001
+  m_InterpolateRotation: 0.05
+  m_InterpolateMovement: 0.05
 --- !u!1 &1893743405
 GameObject:
   m_ObjectHideFlags: 0
@@ -9866,6 +10051,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1972369160}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1996025322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1996025323}
+  m_Layer: 0
+  m_Name: Temp_Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1996025323
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1996025322}
+  m_LocalRotation: {x: 0, y: 0.73727715, z: 0, w: -0.6755904}
+  m_LocalPosition: {x: -7.622793, y: 0, z: -10.014703}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1326799993}
+  m_RootOrder: 0
 --- !u!1 &2013155710
 GameObject:
   m_ObjectHideFlags: 0
