@@ -42,6 +42,12 @@ namespace VRStandardAssets.Examples
         {
             if (!once)
             {
+                ParticleSystem[] particleArray = gameObject.GetComponentsInChildren<ParticleSystem>();
+                foreach( ParticleSystem system in particleArray)
+                {
+                    system.enableEmission = true;
+                }
+
                 plugSound.Play();
 
                 //NPL Update
@@ -54,5 +60,6 @@ namespace VRStandardAssets.Examples
 
         //Plug HandleDown from base
         override protected void HandleDown() { }
+
     }
 }

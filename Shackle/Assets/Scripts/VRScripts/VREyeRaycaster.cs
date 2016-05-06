@@ -40,6 +40,14 @@ namespace VRStandardAssets.Utils
 
         public string currentInteractibleName; //For Ryan
 
+        //Network Intractable Informtation
+        private string lastInteractableName;
+        private Vector3 lastPosition;
+        private Quaternion lastRot;
+
+        //Network Transmission Constants
+        private float POSITION_THRE = 0.1F;
+        private float ROTATION_THRE = 1F;
 
         // Utility for other classes to get the current interactive item
         public VRInteractiveItem CurrentInteractible
@@ -72,32 +80,24 @@ namespace VRStandardAssets.Utils
             if (SceneManager.GetActiveScene().name == "net_SpookyGarage") m_RayLength = 500f;
             else m_RayLength = 500f;
 
+            lastInteractableName = "";
+            lastPosition = Vector3.zero;
+            lastRot = Quaternion.identity;
         }
 
         private void Update()
         {
             if (!isLocalPlayer) {
-                //Debug.Log(isLocalPlayer);
                 return;
             }
-
-            //Debug for seeing if event change worked
-            if (Input.GetKeyDown(KeyCode.K)) {
-                //GetComponent<spt_player_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("debug", true, "debug_item");
-            }
+            Debug.Log(currentInteractibleName);
             EyeRaycast();
         }
 
+        //This function checks if an object is being interacted with and if the position/transform has changed
+        //significantly enough to warrant packet transmission and sync.
 
-        /*[Command]
-        public void Cmd_touchObject(string itmName) {
-            //not that kind of touch, you pervs.
-            //Debug.Log("Touched");
-            GameObject itemObj = NetworkServer.FindLocalObject(GameObject.Find(itmName).GetComponent<NetworkIdentity>().netId);
-            itemObj.GetComponent<VRInteractiveItem>().hasBeenTouched = true;
-        }*/
-
-      
+              
         private void EyeRaycast()
         {
             // Show the debug ray if required
@@ -121,7 +121,8 @@ namespace VRStandardAssets.Utils
                 m_CurrentInteractible = interactible;
 
                 //If the object hit by the raycast has a VRInteractiveItem Script, tell that object to get the inventory script from the raycasting player
-                if (interactible != null) {
+                if (interactible != null)
+                {
 
                     currentInteractibleName = interactible.gameObject.name; //For Ryan
 
@@ -130,13 +131,8 @@ namespace VRStandardAssets.Utils
 
                     //If there is a manipulate script attached to the object you're looking at, send it the player's inspect point transform
                     if (hit.transform.gameObject.GetComponent<VRStandardAssets.Examples.spt_interactiveItemManipulate>() != null) hit.transform.SendMessage("RetrieveLookPoint", gameObject);
-
-                    //also ensure we flag that this has been interacted with.
-
-                    //If the player presses A while looking at an interactible, set that interactible to touched
-                    //if ( Input.GetButtonDown( "Fire1" ) ) Cmd_touchObject(interactible.gameObject.name);
                 }
-                
+                else resetCurrentInter();
 
                 // If we hit an interactive item and it's not the same as the last interactive item, then call Over
                 if (interactible && interactible != m_LastInteractible)
@@ -210,6 +206,41 @@ namespace VRStandardAssets.Utils
             if (m_CurrentInteractible != null)
                 m_CurrentInteractible.DoubleClick();
 
+        }
+
+        private void updateInteractable()
+        {
+            if (isServer) return;
+
+            GameObject currentInterObj = GameObject.Find(currentInteractibleName);
+
+            //check if position has changed
+            if ( Vector3.Distance( currentInterObj.transform.position, lastPosition) > POSITION_THRE )
+            {
+                lastPosition = currentInterObj.transform.position;
+                Cmd_InteractableMove( currentInteractibleName, currentInterObj.transform.position, currentInterObj.transform.rotation);
+            }
+            else if ( Quaternion.Angle( currentInterObj.transform.rotation, lastRot) > ROTATION_THRE )
+            {
+                lastRot = currentInterObj.transform.rotation;
+                Cmd_InteractableMove(currentInteractibleName, currentInterObj.transform.position, currentInterObj.transform.rotation);
+            }
+        }
+
+        private void resetCurrentInter()
+        {
+            currentInteractibleName = "";
+            lastPosition = Vector3.zero;
+            lastRot = Quaternion.identity;
+        }
+
+        //Command for updating an interactable location on server.
+        [Command]
+        public void Cmd_InteractableMove( string objectName, Vector3 position, Quaternion rotation)
+        {
+            GameObject objWithInteraction = GameObject.Find(objectName);
+            objWithInteraction.transform.position = position;
+            objWithInteraction.transform.rotation = rotation;
         }
     }
 }
