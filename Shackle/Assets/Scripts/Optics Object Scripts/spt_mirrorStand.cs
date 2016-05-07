@@ -35,9 +35,9 @@ namespace VRStandardAssets.Examples
                 GameObject mirrorObj = inventorySpt.retrieveObjectFromInventory(inventorySpt.activeItem);
                 inventorySpt.removeItm(mirrorObj.name);
 
-                mirrorObj.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-                mirrorObj.transform.parent = transform.FindChild("Mirror Handle");
-                mirrorObj.transform.eulerAngles = new Vector3(mountAngle, 0, transform.eulerAngles.y);
+                mirrorObj.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
+                mirrorObj.transform.parent = transform.FindChild("mdl_mirrorHandle");
+                //mirrorObj.transform.eulerAngles = new Vector3(mountAngle, 0, transform.eulerAngles.y);
 
                 holding = false;
                 bindMirror(mirrorObj);
@@ -70,7 +70,7 @@ namespace VRStandardAssets.Examples
 
 		bool HasMirror(){
             bool result = false;
-            foreach (Transform child in transform.FindChild("Mirror Handle")) {
+            foreach (Transform child in transform.FindChild("mdl_mirrorHandle")) {
                 if (child.name.Contains(gateItemName)) result = true;
             }
             return result;

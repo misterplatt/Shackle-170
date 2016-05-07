@@ -23,7 +23,14 @@ namespace VRStandardAssets.Examples
         private MeshRenderer laserMesh;
         private BoxCollider laserCollider;
 
+        private Vector3 initialPosition;
+        private Quaternion initialRotation;
+        private GameObject metalSwitch;
+
         override protected void Start() {
+            metalSwitch = transform.FindChild("Joystick_switch").gameObject;
+            initialPosition = metalSwitch.transform.position;
+            initialRotation = metalSwitch.transform.rotation;
             laserMesh = transform.FindChild("Laser").gameObject.GetComponent<MeshRenderer>();
             laserCollider = transform.FindChild("Laser").gameObject.GetComponent<BoxCollider>();
         }
@@ -42,14 +49,17 @@ namespace VRStandardAssets.Examples
             {
                 laserMesh.enabled = currentState;
                 laserCollider.enabled = currentState;
-                if (gameObject.name == "LaserSwitch") GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", true, "LaserSwitch");
+                metalSwitch.transform.eulerAngles = new Vector3(-25.5f, 2.3f, -4f);
+                if (gameObject.name == "Joystick_base") GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", true, "Joystick_base");
 
             }
             else if (currentState == false)
             {
                 laserMesh.enabled = currentState;
                 laserCollider.enabled = currentState;
-                if (gameObject.name == "LaserSwitch") GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", false, "LaserSwitch");
+                metalSwitch.transform.position = initialPosition;
+                metalSwitch.transform.rotation = initialRotation;
+                if (gameObject.name == "Joystick_base") GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", false, "Joystick_base");
             }
         }
 

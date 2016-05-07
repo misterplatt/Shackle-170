@@ -47,11 +47,13 @@ namespace VRStandardAssets.Examples
 
                 local_puzzleCompletionMonster = true;
                 spt_WorldState.worldStateChanged = true;
+                holding = false;
             }
             else
             {
                 aSource.clip = failedOpen;
                 aSource.Play();
+                holding = false;
             }
         }
     }

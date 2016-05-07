@@ -31,7 +31,7 @@ namespace VRStandardAssets.Examples
         //Handle the Down event, modified so that the reticle doesn't need to stay over object to interact
         override protected void holdSuccess()
         {
-            {
+            if(!once){
                 local_garageDoorUnlocked = true;
                 spt_WorldState.worldStateChanged = true;
                 transform.localScale = new Vector3(.7f, transform.localScale.y, transform.localScale.z);
@@ -39,7 +39,7 @@ namespace VRStandardAssets.Examples
                 once = true;
                 garageLockSound.Play();
                 transform.GetComponent<Collider>().enabled = false;
-
+                holding = false;
             }
         }
     }

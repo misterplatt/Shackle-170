@@ -16,26 +16,31 @@ namespace VRStandardAssets.Examples
 {
     public class spt_keypad : spt_baseInteractiveObject
     {
+        public float openDuration = 3f;
         private bool once = false;
 
         //Open the garage if opener is used on door for holdTime seconds
         override protected void holdSuccess()
         {
             if (!once) {
-                GameObject.Find("Door").transform.Translate(Vector3.left * 1.6f);
-                holding = false;
+                transform.FindChild("lab_doors/left_door").transform.Translate(Vector3.right * 0.8f);
+                transform.FindChild("lab_doors/right_door").transform.Translate(Vector3.left * 1f);
                 GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("doorOpen", true, "KeyPad");
+                holding = false;
+                once = true;
+                Invoke("CloseDoors", openDuration);
             }
+        }
 
+        //Function which closes the doors after openDuration seconds
+        void CloseDoors() {
+            transform.FindChild("lab_doors/left_door").transform.Translate(Vector3.right * -0.8f);
+            transform.FindChild("lab_doors/right_door").transform.Translate(Vector3.left * -1f);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("doorOpen", false, "KeyPad");
+            once = false;
         }
 
         //Plug HandleClick
         override protected void HandleClick() { }
-
-        //Brief function to be invoked on matchbox interaction
-        void DestroyPoster()
-        {
-            Destroy(GameObject.Find("Poster"));
-        }
     }
 }

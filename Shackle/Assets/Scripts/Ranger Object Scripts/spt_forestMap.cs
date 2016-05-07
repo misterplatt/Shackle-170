@@ -47,6 +47,7 @@ namespace VRStandardAssets.Examples
                 GetComponent<SpriteRenderer>().sprite = completeMap;
                 once = true;
             }
+            holding = false;
         }
 
         //Plug HandleClick from base

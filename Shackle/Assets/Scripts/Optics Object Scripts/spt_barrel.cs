@@ -27,20 +27,19 @@ namespace VRStandardAssets.Examples
             //changing the gateItem to the matchbox afterward
             if (!once)
             {
-                gateItemName = "Matchbox";
+                gateItemName = "mdl_matchbox";
                 once = true;
-                GameObject.Find("Flammable Liquid").GetComponent<GUITexture>().texture = emptyTube;
-                holding = false;
+                GameObject.Find("mdl_beaker").GetComponent<GUITexture>().texture = emptyTube;
             }
             //If the liquid has been used and the matchbox is being used,
             //initialize the fire particles and destroy poster after x seconds.
             else {
                 transform.FindChild("Fire").gameObject.SetActive(true);
-                inventorySpt.removeItm("Matchbox");
+                inventorySpt.removeItm("mdl_matchbox");
                 Invoke("DestroyPoster", 1.5f);
-                GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("barrelExplosion", true, "Barrel");
+                GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("barrelExplosion", true, "mdl_barrel");
             }
-
+            holding = false;
         }
 
         //Plug HandleClick

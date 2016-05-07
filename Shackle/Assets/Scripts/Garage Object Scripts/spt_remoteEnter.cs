@@ -57,6 +57,7 @@ namespace VRStandardAssets.Examples
             m_Renderer.material = m_StateTwoMaterial;
             BroadcastMessage("deactivateDigit");
             spt_remoteManager.clearChannelNumber();
+            holding = false;
         }
 
         //Handle the Up event

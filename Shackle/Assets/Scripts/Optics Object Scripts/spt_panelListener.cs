@@ -55,8 +55,10 @@ namespace VRStandardAssets.Examples
             if (!once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true)
             {
                 //TEMP FUNCTIONALITY UNTIL MODELS ARE IMPORTED
-                trapDoorA.transform.Translate(Vector3.right);
-                trapDoorB.transform.Translate(Vector3.right);
+                trapDoorA.transform.FindChild("mdl_hatchDoorR").Translate(Vector3.left);
+                trapDoorA.transform.FindChild("mdl_hatchDoorL").Translate(Vector3.right);
+                trapDoorB.transform.FindChild("mdl_hatchDoorR").Translate(Vector3.left);
+                trapDoorB.transform.FindChild("mdl_hatchDoorL").Translate(Vector3.right);
                 leverA.transform.Translate(Vector3.up);
                 leverB.transform.Translate(Vector3.up);
                 once = true;

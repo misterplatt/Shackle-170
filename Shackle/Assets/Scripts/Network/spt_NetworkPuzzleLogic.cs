@@ -174,20 +174,19 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 if (VRStandardAssets.Examples.spt_hatch.local_puzzleCompletion)
                 {
                     Debug.Log("Updating puzzleCompletion on the network to " + VRStandardAssets.Examples.spt_hatch.local_puzzleCompletion);
-                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("puzzleCompletion", true, "Hatch");
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("puzzleCompletion", true, "mdl_hatchTop");
                 }
                 //If a player has flipped the fuses correctly, update server state
                 if (VRStandardAssets.Examples.spt_fuseManager.local_correctFuseCombo)
                 {
                     Debug.Log("Updating correctFuseCombo on the network to " + VRStandardAssets.Examples.spt_fuseManager.local_correctFuseCombo);
-                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("correctFuseCombo", true, "Fuse Box");
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("correctFuseCombo", true, "grp_fuseBox");
                 }
                 //If a player has pressed the key fob, update server state
                 if (VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed)
                 {
                     Debug.Log("Updating keyFobPressed on the network to " + VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("keyFobPressed", true, "mdl_carKeyfob");
-                    //if(isServer) GameObject.Find("WorldState").GetComponent<spt_WorldState>().playCrashSound = true;
                 }
                 //If a player has used the garage door opener on the garage door, update server state
                 if (VRStandardAssets.Examples.spt_hatch.local_puzzleCompletionMonster)
@@ -204,13 +203,13 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 if (VRStandardAssets.Examples.spt_TNTLever.local_puzzleCompletion)
                 {
                     Debug.Log("Updating puzzleCompletion on the network to " + VRStandardAssets.Examples.spt_TNTLever.local_puzzleCompletion);
-                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("puzzleCompletion", true, "Hatch");
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("puzzleCompletion", true, "MonsterStandin");
                 }
                 //If a laser has intersected with the chest lock, update server state
                 if (VRStandardAssets.Examples.spt_chestListener.local_laserHitLock)
                 {
                     Debug.Log("Updating laserHitLock on the network to " + VRStandardAssets.Examples.spt_chestListener.local_laserHitLock);
-                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("laserHitLock", true, "Chest Lock");
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("laserHitLock", true, "mdl_chestLock");
                 }
                 //If a laser has intersected with the security panel, update server state
                 if (VRStandardAssets.Examples.spt_panelListener.local_laserHitPanel)
@@ -222,13 +221,13 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 if (VRStandardAssets.Examples.spt_TNTLever.local_leverAPressed != PuzzleStates[10].state)
                 {
                     Debug.Log("Updating leverAPressed on the network to " + VRStandardAssets.Examples.spt_TNTLever.local_leverAPressed);
-                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("leverAPressed", VRStandardAssets.Examples.spt_TNTLever.local_leverAPressed, "TNT_Switch A");
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("leverAPressed", VRStandardAssets.Examples.spt_TNTLever.local_leverAPressed, "mdl_TNTLeverA");
                 }
                 //If player B has pressed their TNT lever, update server state. State reverts after lever has risen after x seconds.
                 if (VRStandardAssets.Examples.spt_TNTLever.local_leverBPressed != PuzzleStates[11].state)
                 {
                     Debug.Log("Updating leverBPressed on the network to " + VRStandardAssets.Examples.spt_TNTLever.local_leverBPressed);
-                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("leverBPressed", VRStandardAssets.Examples.spt_TNTLever.local_leverBPressed, "TNT_Switch B");
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("leverBPressed", VRStandardAssets.Examples.spt_TNTLever.local_leverBPressed, "mdl_TNTLeverB");
                 }
             }
 

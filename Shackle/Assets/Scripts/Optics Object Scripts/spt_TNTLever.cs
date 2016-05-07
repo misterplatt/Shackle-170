@@ -44,9 +44,9 @@ namespace VRStandardAssets.Examples
         {
             Debug.Log("PRESSING" + pressed);
             if (!pressed) {
-                transform.Translate(Vector3.down * .2f);
-                if (transform.parent.gameObject.name == "TNT_Switch A") local_leverAPressed = true;
-                if (transform.parent.gameObject.name == "TNT_Switch B") local_leverBPressed = true;
+                transform.Translate(Vector3.down * .1f);
+                if (transform.parent.parent.name == "mdl_TNTLeverA") local_leverAPressed = true;
+                if (transform.parent.parent.name == "mdl_TNTLeverB") local_leverBPressed = true;
                 spt_WorldState.worldStateChanged = true;
                 pressed = true;
                 Invoke("raiseLever", 1.5f);
@@ -58,9 +58,9 @@ namespace VRStandardAssets.Examples
 
         //Function which raises the lever 
         void raiseLever() {
-            transform.Translate(Vector3.up * .2f);
-            if (transform.parent.gameObject.name == "TNT_Switch A") local_leverAPressed = false;
-            if (transform.parent.gameObject.name == "TNT_Switch B") local_leverBPressed = false;
+            transform.Translate(Vector3.up * .1f);
+            if (transform.parent.parent.name == "mdl_TNTLeverA") local_leverAPressed = false;
+            if (transform.parent.parent.name == "mdl_TNTLeverB") local_leverBPressed = false;
             spt_WorldState.worldStateChanged = true;
             pressed = false;
         }

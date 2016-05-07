@@ -17,6 +17,12 @@ namespace VRStandardAssets.Examples
     {
         public static bool local_laserHitLock = false;
         private bool once = false;
+        private Vector3 spherePos;
+
+        protected override void Start()
+        {
+            spherePos = transform.FindChild("sphereCastPoint").position;
+        }
 
         // Update is called once per frame
         override protected void Update()
@@ -24,8 +30,7 @@ namespace VRStandardAssets.Examples
             //Check for laser collision while no laser has hit the lock
             if (!local_laserHitLock) {
                 //Accumulate list of colliders intersecting the chest lock's collider
-                Collider[] hitColliders = Physics.OverlapSphere(transform.position, .25f);
-
+                Collider[] hitColliders = Physics.OverlapSphere(spherePos, .25f);
                 //Check each collider
                 foreach (Collider col in hitColliders)
                 {
@@ -38,11 +43,10 @@ namespace VRStandardAssets.Examples
                 }
             }
             
-            //LOCAL VERSION: If the laser has hit the lock, open the chest
+            //If the laser has hit the lock, open the chest
             if (!once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == true)
             {
-                //TEMP FUNCTIONALITY UNTIL MODEL IS IMPORTED
-                transform.parent.FindChild("Locked Crate Lid").gameObject.SetActive(false);
+                transform.parent.eulerAngles = new Vector3(-50,270,0);
                 once = true;
             }
         }
