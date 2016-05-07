@@ -1,12 +1,13 @@
 ﻿/*
 spt_keypad
 
-Author(s): Hayden Platt, Lauren Cunningham
+Author(s): Hayden Platt, Lauren Cunningham, Dara Diba
 
 Revision 2
 
 Simple script which moves the lab door on holdsuccess
 with the ID card.
+Added audio - Dara
 */
 
 using UnityEngine;
@@ -17,7 +18,17 @@ namespace VRStandardAssets.Examples
     public class spt_keypad : spt_baseInteractiveObject
     {
         public float openDuration = 3f;
+        public AudioClip doorCloseSound;
+        public AudioClip doorOpenSound;
         private bool once = false;
+        private bool played = false;
+        private AudioSource aSource;
+
+
+        protected override void Start()
+        {
+            aSource = GetComponent<AudioSource>();
+        }
 
         //Open the garage if opener is used on door for holdTime seconds
         override protected void holdSuccess()
@@ -34,10 +45,30 @@ namespace VRStandardAssets.Examples
 
         //Function which closes the doors after openDuration seconds
         void CloseDoors() {
+            aSource.clip = doorCloseSound;
+            aSource.Play();
             transform.FindChild("lab_doors/left_door").transform.Translate(Vector3.right * -0.8f);
             transform.FindChild("lab_doors/right_door").transform.Translate(Vector3.left * -1f);
             GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("doorOpen", false, "KeyPad");
             once = false;
+        }
+
+        protected override void HandleDown()
+        {
+            base.HandleDown();
+            if (!played)
+            {
+                aSource.clip = doorOpenSound;
+                aSource.Play();
+                played = true;
+            }
+        }
+
+        protected override void HandleUp()
+        {
+            base.HandleUp();
+            aSource.Stop();
+            played = false;
         }
 
         //Plug HandleClick
