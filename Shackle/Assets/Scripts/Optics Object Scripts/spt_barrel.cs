@@ -1,13 +1,14 @@
 ﻿/*
 spt_barrel
 
-Author(s): Hayden Platt, Lauern Cunningham
+Author(s): Hayden Platt, Lauern Cunningham, Dara Diba
 
-Revision 2
+Revision 3
 
 First, requires flammable liquid, after which it requires the matchbox.
 Once the matchbox is used, the child fire particle system is activated,
 and the poster is destroyed shortly thereafter.
+Added sounds for pouring flammable liquid, lighting match, and fire. - Dara
 */
 
 using UnityEngine;
@@ -19,6 +20,16 @@ namespace VRStandardAssets.Examples
     {
         private bool once = false;
         public Texture emptyTube;
+        private AudioSource aSource;
+        public AudioClip matchStrike;
+        public AudioClip beakerPour;
+        public AudioClip posterFire;
+        private bool matchLit = false;
+
+        protected override void Start()
+        {
+            aSource = GetComponent<AudioSource>();
+        }
 
         //Open the garage if opener is used on door for holdTime seconds
         override protected void holdSuccess()
@@ -27,16 +38,22 @@ namespace VRStandardAssets.Examples
             //changing the gateItem to the matchbox afterward
             if (!once)
             {
+                aSource.clip = beakerPour;
+                aSource.Play();
                 gateItemName = "mdl_matchbox";
                 once = true;
                 GameObject.Find("mdl_beaker").GetComponent<GUITexture>().texture = emptyTube;
             }
             //If the liquid has been used and the matchbox is being used,
             //initialize the fire particles and destroy poster after x seconds.
-            else {
+            else
+            {
+                aSource.clip = matchStrike;
+                aSource.Play();
                 transform.FindChild("Fire").gameObject.SetActive(true);
                 inventorySpt.removeItm("mdl_matchbox");
-                Invoke("DestroyPoster", 1.5f);
+                Invoke("FireSound", 3f);
+                Invoke("DestroyPoster", 6f);
                 GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("barrelExplosion", true, "mdl_barrel");
             }
             holding = false;
@@ -46,8 +63,16 @@ namespace VRStandardAssets.Examples
         override protected void HandleClick() { }
 
         //Brief function to be invoked on matchbox interaction
-        void DestroyPoster() {
+        void DestroyPoster()
+        {
             Destroy(GameObject.Find("Poster"));
+        }
+
+        //Brief function to be invoked for the fire sound
+        void FireSound()
+        {
+            aSource.clip = posterFire;
+            aSource.Play();
         }
     }
 }
