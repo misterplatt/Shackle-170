@@ -35,15 +35,28 @@ namespace VRStandardAssets.Examples
             }
             //networkedTransform = GetComponent<NetworkTransformChild>();
         }
-        override protected void holdSuccess(){
+        override protected void holdSuccess(){            
             //If the stand doesn't already have a mirror child, remove one from your inventory,
             //then child it, set it's position above the stand, and the rotation accordingly
             if (!HasMirror()){
+                getLocal().GetComponent<VRStandardAssets.Utils.VREyeRaycaster>().heldSuccess = true;
+
+
                 GameObject mirrorObj = inventorySpt.retrieveObjectFromInventory(inventorySpt.activeItem);
                 inventorySpt.removeItm(mirrorObj.name);
 
                 mirrorObj.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
-                mirrorObj.transform.parent = transform.FindChild("mdl_mirrorHandle");
+                foreach (Transform child in this.transform)
+                {
+                    if (child.gameObject.tag == "mirrorHandle")
+                    {
+                        mirrorObj.transform.parent = child;
+                        break;
+                    }
+                }
+                
+                //mirrorObj.transform.parent = //transform.FindChild("mdl_mirrorHandle");
+                
                 //mirrorObj.transform.eulerAngles = new Vector3(mountAngle, 0, transform.eulerAngles.y);
 
                 holding = false;
@@ -59,6 +72,20 @@ namespace VRStandardAssets.Examples
                     }
                 }
 			}
+        }
+
+        GameObject getLocal()
+        {
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+            foreach ( GameObject player in players) 
+            {
+                NetworkIdentity nid = player.GetComponent<NetworkIdentity>();
+                if (nid.isLocalPlayer) return player;
+            }
+
+            Debug.Log("Error : spt_mirrorStand.cs getLocal() called but could not locate local player.");
+            return null;
         }
 
         void unbindMirror()

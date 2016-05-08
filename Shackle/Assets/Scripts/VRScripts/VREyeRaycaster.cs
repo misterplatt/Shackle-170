@@ -22,7 +22,7 @@ namespace VRStandardAssets.Utils
     public class VREyeRaycaster : NetworkBehaviour
     {
         public event Action<RaycastHit> OnRaycasthit;                   // This event is called every frame that the user's gaze is over a collider.
-
+        public bool heldSuccess;
 
         [SerializeField] private Transform m_Camera;
         [SerializeField] private LayerMask m_ExclusionLayers;           // Layers to exclude from the raycast.
@@ -77,6 +77,7 @@ namespace VRStandardAssets.Utils
         // Checks to see what the active scene is and as a result will change the ray length
         private void Start()
         {
+            heldSuccess = false;
             if (isSingle) this.enabled = true;
             if (SceneManager.GetActiveScene().name == "net_SpookyGarage") m_RayLength = 500f;
             else m_RayLength = 750f;
@@ -226,6 +227,13 @@ namespace VRStandardAssets.Utils
                     Cmd_UpdateMirrors(laserStatus());
                 }
             }
+            else if (currentInteractibleName.Contains("mirrorStand") && heldSuccess)
+            {
+
+                //GameObject mirror = GetComponent<spt_inventory>().retrieveObjectFromInventory()
+                //if stand check if mirror on it, if not take mirror from inventory, add to stand on server.
+                heldSuccess = false;
+            }
         }
 
         private void resetCurrentInter()
@@ -319,6 +327,24 @@ namespace VRStandardAssets.Utils
                 mirror.GetComponent<spt_mirrorSync>().emitsLaser = mirrorLasers[index++];
             }
 
+        }
+
+        [Command]
+        public void Cmd_AddMirror( string mirrorName, string standName )
+        {
+            GameObject mirror = GameObject.Find(mirrorName);
+            GameObject stand = GameObject.Find(standName);
+
+            mirror.transform.position = new Vector3(stand.transform.position.x, stand.transform.position.y + 1.3f, stand.transform.position.z);
+            foreach (Transform child in stand.transform)
+            {
+                if (child.gameObject.tag == "mirrorHandle")
+                {
+                    mirror.transform.parent = child;
+                    break;
+                }
+            }
+            //mirror.transform.parent = stand.transform.FindChild();
         }
         
     }

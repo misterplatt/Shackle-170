@@ -324,7 +324,7 @@ GameObject:
   - 82: {fileID: 18091370}
   m_Layer: 0
   m_Name: mdl_mirrorHandle (2)
-  m_TagString: Untagged
+  m_TagString: mirrorHandle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6602,7 +6602,7 @@ GameObject:
   - 82: {fileID: 515904394}
   m_Layer: 0
   m_Name: mdl_mirrorHandle (1)
-  m_TagString: Untagged
+  m_TagString: mirrorHandle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7477,7 +7477,7 @@ GameObject:
   - 82: {fileID: 569524042}
   m_Layer: 0
   m_Name: mdl_mirrorHandle (3)
-  m_TagString: Untagged
+  m_TagString: mirrorHandle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14103,7 +14103,7 @@ GameObject:
   - 82: {fileID: 1088821244}
   m_Layer: 0
   m_Name: mdl_mirrorHandle
-  m_TagString: Untagged
+  m_TagString: mirrorHandle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
