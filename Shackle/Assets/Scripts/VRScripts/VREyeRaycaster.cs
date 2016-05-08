@@ -250,7 +250,7 @@ namespace VRStandardAssets.Utils
             newRotation.y = ClampAngle(transform.rotation.eulerAngles.y, initialRotation.y - maxNegativeRotation, initialRotation.y + maxPositiveRotation);
             mirror.transform.eulerAngles = newRotation;
             Debug.Log("After : " + mirror.transform.rotation.eulerAngles);
-            reactiveNetworkTransform( mirror.transform.root.GetComponent<NetworkTransformChild>() );
+            //reactiveNetworkTransform( mirror.transform.root.GetComponent<NetworkTransformChild>() );
 
             //get room and mark dirty bits, oh my.
             //mirror.transform.root.gameObject.GetComponent<NetworkTransformChild>().SetDirtyBit();
