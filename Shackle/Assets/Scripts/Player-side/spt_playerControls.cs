@@ -16,7 +16,7 @@ public class spt_playerControls : MonoBehaviour
 {
 
     static PlayerIndex playerIndex = 0;
-    private static float timer;
+    private static float timer = 0;
 
 
 
