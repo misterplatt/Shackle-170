@@ -43,6 +43,9 @@ namespace VRStandardAssets.Examples
         protected override void Update()
         {
             if (Input.GetKeyDown(KeyCode.L)) currentState = !currentState;
+            //GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", true, "Joystick_base")
+
+            currentState = (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state);
         }
 
         override protected void clickSuccess()
