@@ -242,9 +242,11 @@ namespace VRStandardAssets.Utils
             Vector3 initialRotation = mirror.transform.rotation.eulerAngles;
             Vector3 newRotation = mirror.transform.rotation.eulerAngles;
 
-            mirror.transform.Rotate(Vector3.up * -amount * Time.deltaTime * rotateSpeed);
+            Debug.Log("Initial : " + mirror.transform.rotation);
+            mirror.transform.Rotate(Vector3.up * -amount * Time.deltaTime * rotateSpeed, Space.Self);
             newRotation.y = ClampAngle(transform.rotation.eulerAngles.y, initialRotation.y, initialRotation.y);
             mirror.transform.eulerAngles = newRotation;
+            Debug.Log("After : " + mirror.transform.rotation);
             //get room and mark dirty bits, oh my.
             //mirror.transform.root.gameObject.GetComponent<NetworkTransformChild>().SetDirtyBit();
         }
