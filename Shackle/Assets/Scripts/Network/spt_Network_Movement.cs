@@ -114,7 +114,6 @@ public class spt_Network_Movement : NetworkBehaviour {
         //if this player is not server, have it update the current thumbstick input to the server
         if (!isServer && (Mathf.Abs(spt_playerControls.leftThumb("Vertical") - lastCli_lStick) >= THRESHOLD))
         {
-            Debug.Log( "currentIn: " + -1.0f * spt_playerControls.leftThumb("Vertical"));
             lastCli_lStick = spt_playerControls.leftThumb("Vertical");
             if (bumpers()) CmdSendLStickIn(-1.0f * lastCli_lStick);
             else CmdSendLStickIn(0.0f);

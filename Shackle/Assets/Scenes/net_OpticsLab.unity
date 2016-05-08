@@ -22836,7 +22836,7 @@ MonoBehaviour:
   m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 591450737}
+  m_Target: {fileID: 2001781403}
   m_ChildIndex: 1
   m_SendInterval: 0.1
   m_SyncRotationAxis: 7
@@ -23132,6 +23132,7 @@ GameObject:
   - 114: {fileID: 2001781406}
   - 131: {fileID: 2001781405}
   - 82: {fileID: 2001781404}
+  - 114: {fileID: 2001781411}
   m_Layer: 0
   m_Name: mdl_mirrorPickup (2)
   m_TagString: Untagged
@@ -23332,6 +23333,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.79, y: 2.0077145, z: 0.16}
   m_Center: {x: 0, y: 0.037553348, z: 0}
+--- !u!114 &2001781411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2001781402}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!1 &2005499861
 GameObject:
   m_ObjectHideFlags: 0

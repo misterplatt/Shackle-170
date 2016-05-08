@@ -11,6 +11,7 @@
 */
 
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -78,7 +79,7 @@ namespace VRStandardAssets.Utils
         {
             if (isSingle) this.enabled = true;
             if (SceneManager.GetActiveScene().name == "net_SpookyGarage") m_RayLength = 500f;
-            else m_RayLength = 500f;
+            else m_RayLength = 750f;
 
             lastInteractableName = "";
             lastPosition = Vector3.zero;
@@ -92,6 +93,7 @@ namespace VRStandardAssets.Utils
             }
             Debug.Log(currentInteractibleName);
             EyeRaycast();
+            updateInteractable();
         }
 
         //This function checks if an object is being interacted with and if the position/transform has changed
@@ -124,7 +126,12 @@ namespace VRStandardAssets.Utils
                 if (interactible != null)
                 {
 
+                    if (currentInteractibleName == "") {
+                        lastPosition = interactible.gameObject.transform.position;
+                        lastRot = interactible.gameObject.transform.rotation;
+                    }
                     currentInteractibleName = interactible.gameObject.name; //For Ryan
+                    
 
                     //This will most likely need a Cmd written for it. Let me test it first -R
                     hit.transform.SendMessage("RetrieveInventoryScript", gameObject);
@@ -211,19 +218,11 @@ namespace VRStandardAssets.Utils
         private void updateInteractable()
         {
             if (isServer) return;
-
-            GameObject currentInterObj = GameObject.Find(currentInteractibleName);
-
-            //check if position has changed
-            if ( Vector3.Distance( currentInterObj.transform.position, lastPosition) > POSITION_THRE )
-            {
-                lastPosition = currentInterObj.transform.position;
-                Cmd_InteractableMove( currentInteractibleName, currentInterObj.transform.position, currentInterObj.transform.rotation);
-            }
-            else if ( Quaternion.Angle( currentInterObj.transform.rotation, lastRot) > ROTATION_THRE )
-            {
-                lastRot = currentInterObj.transform.rotation;
-                Cmd_InteractableMove(currentInteractibleName, currentInterObj.transform.position, currentInterObj.transform.rotation);
+            if (currentInteractibleName.Contains("mirrorHandle")) {
+                if(spt_playerControls.aButtonPressed()) {
+                    Debug.Log("Rotating");
+                    Cmd_InteractableMove(currentInteractibleName, spt_playerControls.leftThumb("Horizontal"));
+                }
             }
         }
 
@@ -234,13 +233,38 @@ namespace VRStandardAssets.Utils
             lastRot = Quaternion.identity;
         }
 
+        [Command]
+        public void Cmd_InteractableMove(string name, float amount) {
+            GameObject mirror = GameObject.Find(name);
+            float rotateSpeed = 1;
+            Debug.Log("Rotating : " + name + " by : " + amount);
+            mirror.transform.Rotate(Vector3.up * -amount * Time.deltaTime * rotateSpeed);
+        }
+
+        //Doesn't work because unet rules
+        /*
         //Command for updating an interactable location on server.
         [Command]
         public void Cmd_InteractableMove( string objectName, Vector3 position, Quaternion rotation)
         {
+            Debug.Log("InteractionUpdating");
             GameObject objWithInteraction = GameObject.Find(objectName);
+            NetworkTransformChild thisObjNetTrans = null;
+
+            //disable any network transforms that mightbe fucking things up.
+            NetworkTransformChild[] transformChildren = objWithInteraction.transform.root.gameObject.GetComponents<NetworkTransformChild>();
+            foreach (NetworkTransformChild child in transformChildren) {
+                if (child.target.gameObject.name == objectName) {
+                    thisObjNetTrans = child;
+                    break;
+                }
+            }
+
+            if (thisObjNetTrans != null) thisObjNetTrans.enabled = false;
+
             objWithInteraction.transform.position = position;
             objWithInteraction.transform.rotation = rotation;
         }
+        */ 
     }
 }
