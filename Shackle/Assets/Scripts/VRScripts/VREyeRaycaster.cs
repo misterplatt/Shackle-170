@@ -229,8 +229,11 @@ namespace VRStandardAssets.Utils
             }
             else if (currentInteractibleName.Contains("mirrorStand") && heldSuccess)
             {
+                spt_inventory pInv = GetComponent<spt_inventory>();
 
-                //GameObject mirror = GetComponent<spt_inventory>().retrieveObjectFromInventory()
+                GameObject mirror = pInv.retrieveObjectFromInventory(pInv.activeItem);
+                pInv.removeItm(mirror.name);
+                Cmd_AddMirror(mirror.name, currentInteractibleName);
                 //if stand check if mirror on it, if not take mirror from inventory, add to stand on server.
                 heldSuccess = false;
             }
