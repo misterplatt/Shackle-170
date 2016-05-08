@@ -3742,7 +3742,7 @@ GameObject:
   - 82: {fileID: 362130203}
   m_Layer: 0
   m_Name: mdl_mirrorPickup (4)
-  m_TagString: Untagged
+  m_TagString: mirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13257,7 +13257,7 @@ GameObject:
   - 114: {fileID: 1018597395}
   m_Layer: 0
   m_Name: mdl_mirrorPickup (3)
-  m_TagString: Untagged
+  m_TagString: mirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16003,7 +16003,7 @@ GameObject:
   - 114: {fileID: 1285254289}
   m_Layer: 0
   m_Name: mdl_mirrorPickup (1)
-  m_TagString: Untagged
+  m_TagString: mirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23516,7 +23516,7 @@ GameObject:
   - 114: {fileID: 2001781411}
   m_Layer: 0
   m_Name: mdl_mirrorPickup (2)
-  m_TagString: Untagged
+  m_TagString: mirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
