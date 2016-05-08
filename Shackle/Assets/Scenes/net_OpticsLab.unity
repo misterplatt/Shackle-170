@@ -3000,8 +3000,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 283800190}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.415, y: -0.497, z: 7.215}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
+  m_LocalPosition: {x: -3.36, y: -0.49699998, z: 1.601}
   m_LocalScale: {x: 0.62046117, y: 0.7267144, z: 0.1357149}
   m_Children:
   - {fileID: 381867432}
@@ -3017,7 +3017,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a24f8d2c8253862478fa7f0476a71621, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -3743,7 +3743,7 @@ GameObject:
   - 82: {fileID: 362130203}
   m_Layer: 0
   m_Name: mdl_mirrorPickup (4)
-  m_TagString: Untagged
+  m_TagString: mirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4125,11 +4125,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 496192, guid: 65321be298d94cb4eafb62d825725805, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.128035
+      value: -1.13
       objectReference: {fileID: 0}
     - target: {fileID: 496192, guid: 65321be298d94cb4eafb62d825725805, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -2.744
+      value: -1.759
       objectReference: {fileID: 0}
     - target: {fileID: 496192, guid: 65321be298d94cb4eafb62d825725805, type: 2}
       propertyPath: m_LocalRotation.x
@@ -6130,7 +6130,7 @@ MonoBehaviour:
   gateItemName: mdl_ID
   holdTime: 1
   m_InteractiveItem: {fileID: 477959866}
-  openDuration: 3
+  openDuration: 8
   doorCloseSound: {fileID: 8300000, guid: 9db9319c833dff342bdd3fe6a15ef4dd, type: 3}
   doorOpenSound: {fileID: 8300000, guid: f83d9a2a076c6754b98af90933dbb68c, type: 3}
 --- !u!114 &477959866
@@ -7316,7 +7316,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 568105732}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
@@ -7335,7 +7335,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 568105732}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
@@ -8086,7 +8086,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 465134, guid: a51959f1a4d72df49b4e9d301cc86e52, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.474
+      value: -0.548
       objectReference: {fileID: 0}
     - target: {fileID: 465134, guid: a51959f1a4d72df49b4e9d301cc86e52, type: 2}
       propertyPath: m_LocalPosition.z
@@ -13360,7 +13360,7 @@ GameObject:
   - 114: {fileID: 1018597395}
   m_Layer: 0
   m_Name: mdl_mirrorPickup (3)
-  m_TagString: Untagged
+  m_TagString: mirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14315,8 +14315,8 @@ MonoBehaviour:
   m_InteractiveItem: {fileID: 1088821246}
   movingSound: {fileID: 8300000, guid: 4f1d5cc5021d8024fa51e95419fe3161, type: 3}
   rotateSpeed: 10
-  maxNegativeRotation: 20
-  maxPositiveRotation: 20
+  maxNegativeRotation: 50
+  maxPositiveRotation: 50
   optional_movePathImage: {fileID: 0}
 --- !u!114 &1088821246
 MonoBehaviour:
@@ -16106,7 +16106,7 @@ GameObject:
   - 114: {fileID: 1285254289}
   m_Layer: 0
   m_Name: mdl_mirrorPickup (1)
-  m_TagString: Untagged
+  m_TagString: mirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18774,7 +18774,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1583068290}
   m_LocalRotation: {x: -0.59286153, y: -0.3853766, z: -0.38537642, w: 0.59286183}
-  m_LocalPosition: {x: -0.576, y: -2.125, z: -3.24}
+  m_LocalPosition: {x: -0.576, y: -1.199, z: -3.24}
   m_LocalScale: {x: 2.1488907, y: 2.4293537, z: 2.4293537}
   m_Children: []
   m_Father: {fileID: 1817802639}
@@ -23619,7 +23619,7 @@ GameObject:
   - 114: {fileID: 2001781411}
   m_Layer: 0
   m_Name: mdl_mirrorPickup (2)
-  m_TagString: Untagged
+  m_TagString: mirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

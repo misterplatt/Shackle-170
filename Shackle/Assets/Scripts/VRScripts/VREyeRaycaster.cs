@@ -223,6 +223,7 @@ namespace VRStandardAssets.Utils
                     Debug.Log("Rotating");
                     GameObject mirror = GameObject.Find(currentInteractibleName);
                     Cmd_InteractableMove(currentInteractibleName, mirror.transform.position, mirror.transform.rotation);//spt_playerControls.leftThumb("Horizontal"));
+                    Cmd_UpdateMirrors(laserStatus());
                 }
             }
         }
@@ -276,6 +277,23 @@ namespace VRStandardAssets.Utils
             Debug.Log("Angle : " + angle);
             return angle;
         }
+
+
+        //Generate Bool array for mirrors
+        public bool[] laserStatus()
+        {
+            GameObject[] mirrors = GameObject.FindGameObjectsWithTag("mirror");
+            bool[] output = new bool[mirrors.Length];
+
+            int index = 0;
+            foreach (GameObject mirror in mirrors)
+            {
+                output[index++] = mirror.GetComponent<spt_mirrorSync>().emitsLaser;
+            }
+
+            return output;
+        }
+
         //Doesn't work because unet rules
         
         //Command for updating an interactable location on server.
@@ -287,6 +305,20 @@ namespace VRStandardAssets.Utils
 
             objWithInteraction.transform.position = position;
             objWithInteraction.transform.rotation = rotation;
+        }
+
+        //command to update mirror emit's lasters from client to host.
+        [Command]
+        public void Cmd_UpdateMirrors( bool[] mirrorLasers )
+        {
+            GameObject[] mirrors = GameObject.FindGameObjectsWithTag("mirror");
+
+            int index = 0;
+            foreach ( GameObject mirror in mirrors )
+            {
+                mirror.GetComponent<spt_mirrorSync>().emitsLaser = mirrorLasers[index++];
+            }
+
         }
         
     }
