@@ -7,6 +7,7 @@ Revision 2
 
 Child of the base interactiveObject class
 Allows for an item to be switched from a false state to a true state and vice-versa.
+Added sound functionality - Dara
 */
 
 
@@ -26,6 +27,9 @@ namespace VRStandardAssets.Examples
         private Vector3 initialPosition;
         private Quaternion initialRotation;
         private GameObject metalSwitch;
+        private AudioSource aSource;
+        public AudioClip laserStart;
+        public AudioClip laserPurr;
 
         override protected void Start() {
             metalSwitch = transform.FindChild("Joystick_switch").gameObject;
@@ -33,6 +37,7 @@ namespace VRStandardAssets.Examples
             initialRotation = metalSwitch.transform.rotation;
             laserMesh = transform.FindChild("Laser").gameObject.GetComponent<MeshRenderer>();
             laserCollider = transform.FindChild("Laser").gameObject.GetComponent<BoxCollider>();
+            aSource = GetComponent<AudioSource>();
         }
 
         protected override void Update()
@@ -47,6 +52,9 @@ namespace VRStandardAssets.Examples
             //Change laser LineRenderer's enabled status on switch click
             if (currentState == true)
             {
+                aSource.clip = laserStart;
+                aSource.Play();
+                Invoke("LaserMachinePurr", 10f);
                 laserMesh.enabled = currentState;
                 laserCollider.enabled = currentState;
                 metalSwitch.transform.eulerAngles = new Vector3(-25.5f, 2.3f, -4f);
@@ -55,6 +63,8 @@ namespace VRStandardAssets.Examples
             }
             else if (currentState == false)
             {
+                aSource.Stop();
+                aSource.loop = false;
                 laserMesh.enabled = currentState;
                 laserCollider.enabled = currentState;
                 metalSwitch.transform.position = initialPosition;
@@ -65,5 +75,13 @@ namespace VRStandardAssets.Examples
 
         //Plug handleDown
         override protected void HandleDown() { }
+
+        //Simple function for changing the lasermachine sound to a loopable clip
+        void LaserMachinePurr()
+        {
+            aSource.clip = laserPurr;
+            aSource.loop = true;
+            aSource.Play();
+        }
     }
 }

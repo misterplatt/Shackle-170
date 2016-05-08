@@ -1,12 +1,13 @@
 ﻿/*
 spt_panelListener
 
-Author(s): Hayden Platt
+Author(s): Hayden Platt, Dara Diba
 
-Revision 1
+Revision 2
 
 Listener for the panel burning. Once the laser has hit the panel,
 this script opens the trap doors and raises the TNT Levers.
+Added sound functionality - Dara
 */
 using UnityEngine;
 using System.Collections;
@@ -23,11 +24,15 @@ namespace VRStandardAssets.Examples
         public GameObject trapDoorB;
         public GameObject leverA;
         public GameObject leverB;
+        private AudioSource aSource;
+        public AudioClip panelBurning;
+        public AudioClip systemMeltDown;
+        public AudioClip hatchOpening;
 
         // Use this for initialization
         override protected void Start()
         {
-
+            aSource = GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
@@ -44,6 +49,8 @@ namespace VRStandardAssets.Examples
                 {
                     if (col.gameObject.tag == "laser")
                     {
+                        aSource.clip = panelBurning;
+                        aSource.Play();
                         //If a laser has hit the panel, set the corresponding puzzle state to true
                         local_laserHitPanel = true;
                         spt_WorldState.worldStateChanged = true;
@@ -55,6 +62,11 @@ namespace VRStandardAssets.Examples
             if (!once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true)
             {
                 //TEMP FUNCTIONALITY UNTIL MODELS ARE IMPORTED
+                trapDoorA.GetComponent<AudioSource>().clip = hatchOpening;
+                trapDoorB.GetComponent<AudioSource>().clip = hatchOpening;
+                trapDoorA.GetComponent<AudioSource>().Play();
+                trapDoorB.GetComponent<AudioSource>().Play();
+
                 trapDoorA.transform.FindChild("mdl_hatchDoorR").Translate(Vector3.left);
                 trapDoorA.transform.FindChild("mdl_hatchDoorL").Translate(Vector3.right);
                 trapDoorB.transform.FindChild("mdl_hatchDoorR").Translate(Vector3.left);
