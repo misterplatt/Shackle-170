@@ -221,7 +221,8 @@ namespace VRStandardAssets.Utils
             if (currentInteractibleName.Contains("mirrorHandle")) {
                 if(spt_playerControls.aButtonPressed()) {
                     Debug.Log("Rotating");
-                    Cmd_InteractableMove(currentInteractibleName, spt_playerControls.leftThumb("Horizontal"));
+                    GameObject mirror = GameObject.Find(currentInteractibleName);
+                    Cmd_InteractableMove(currentInteractibleName, mirror.transform.position, mirror.transform.rotation);//spt_playerControls.leftThumb("Horizontal"));
                 }
             }
         }
@@ -233,6 +234,7 @@ namespace VRStandardAssets.Utils
             lastRot = Quaternion.identity;
         }
 
+        /*
         [Command]
         public void Cmd_InteractableMove(string name, float amount) {
             GameObject mirror = GameObject.Find(name);
@@ -253,7 +255,7 @@ namespace VRStandardAssets.Utils
             //get room and mark dirty bits, oh my.
             //mirror.transform.root.gameObject.GetComponent<NetworkTransformChild>().SetDirtyBit();
         }
-
+        */
         private IEnumerable reactiveNetworkTransform( NetworkTransformChild obj )
         {
             yield return new WaitForSeconds(5);
@@ -275,29 +277,17 @@ namespace VRStandardAssets.Utils
             return angle;
         }
         //Doesn't work because unet rules
-        /*
+        
         //Command for updating an interactable location on server.
         [Command]
         public void Cmd_InteractableMove( string objectName, Vector3 position, Quaternion rotation)
         {
             Debug.Log("InteractionUpdating");
             GameObject objWithInteraction = GameObject.Find(objectName);
-            NetworkTransformChild thisObjNetTrans = null;
-
-            //disable any network transforms that mightbe fucking things up.
-            NetworkTransformChild[] transformChildren = objWithInteraction.transform.root.gameObject.GetComponents<NetworkTransformChild>();
-            foreach (NetworkTransformChild child in transformChildren) {
-                if (child.target.gameObject.name == objectName) {
-                    thisObjNetTrans = child;
-                    break;
-                }
-            }
-
-            if (thisObjNetTrans != null) thisObjNetTrans.enabled = false;
 
             objWithInteraction.transform.position = position;
             objWithInteraction.transform.rotation = rotation;
         }
-        */
+        
     }
 }
