@@ -244,15 +244,22 @@ namespace VRStandardAssets.Utils
 
             Vector3 initialRotation = mirror.transform.rotation.eulerAngles;
             Vector3 newRotation = mirror.transform.rotation.eulerAngles;
-
+            mirror.transform.root.GetComponent<NetworkTransformChild>().enabled = false;
             Debug.Log("Initial : " + mirror.transform.rotation.eulerAngles);
             mirror.transform.Rotate(Vector3.up * -amount * Time.deltaTime * rotateSpeed);
-            //newRotation.y = ClampAngle(transform.rotation.eulerAngles.y, initialRotation.y - maxNegativeRotation, initialRotation.y + maxPositiveRotation);
-            //mirror.transform.eulerAngles = newRotation;
+            newRotation.y = ClampAngle(transform.rotation.eulerAngles.y, initialRotation.y - maxNegativeRotation, initialRotation.y + maxPositiveRotation);
+            mirror.transform.eulerAngles = newRotation;
             Debug.Log("After : " + mirror.transform.rotation.eulerAngles);
+            reactiveNetworkTransform( mirror.transform.root.GetComponent<NetworkTransformChild>() );
 
             //get room and mark dirty bits, oh my.
             //mirror.transform.root.gameObject.GetComponent<NetworkTransformChild>().SetDirtyBit();
+        }
+
+        private IEnumerable reactiveNetworkTransform( NetworkTransformChild obj )
+        {
+            yield return new WaitForSeconds(5);
+            obj.enabled = true;
         }
 
         //Function which allows us to limit rotation in the negative direction
