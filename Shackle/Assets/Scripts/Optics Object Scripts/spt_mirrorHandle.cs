@@ -96,7 +96,7 @@ namespace VRStandardAssets.Examples
         override protected void HandleClick() { }
 
         //Function which allows us to limit rotation in the negative direction
-		float ClampAngle (float angle, float min, float max){
+		static float ClampAngle (float angle, float min, float max){
 			if (angle < 90 || angle > 270) {
 				if (angle > 180) angle -= 360;
 				if (max > 180) max -= 360;

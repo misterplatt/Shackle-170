@@ -238,9 +238,30 @@ namespace VRStandardAssets.Utils
             GameObject mirror = GameObject.Find(name);
             float rotateSpeed = 1;
             Debug.Log("Rotating : " + name + " by : " + amount);
+
+            Vector3 initialRotation = mirror.transform.rotation.eulerAngles;
+            Vector3 newRotation = mirror.transform.rotation.eulerAngles;
+
             mirror.transform.Rotate(Vector3.up * -amount * Time.deltaTime * rotateSpeed);
+            newRotation.y = ClampAngle(transform.rotation.eulerAngles.y, initialRotation.y, initialRotation.y);
+            mirror.transform.eulerAngles = newRotation;
+            //get room and mark dirty bits, oh my.
+            //mirror.transform.root.gameObject.GetComponent<NetworkTransformChild>().SetDirtyBit();
         }
 
+        //Function which allows us to limit rotation in the negative direction
+        static float ClampAngle(float angle, float min, float max)
+        {
+            if (angle < 90 || angle > 270)
+            {
+                if (angle > 180) angle -= 360;
+                if (max > 180) max -= 360;
+                if (min > 180) min -= 360;
+            }
+            angle = Mathf.Clamp(angle, min, max);
+            if (angle < 0) angle += 360;
+            return angle;
+        }
         //Doesn't work because unet rules
         /*
         //Command for updating an interactable location on server.
@@ -265,6 +286,6 @@ namespace VRStandardAssets.Utils
             objWithInteraction.transform.position = position;
             objWithInteraction.transform.rotation = rotation;
         }
-        */ 
+        */
     }
 }
