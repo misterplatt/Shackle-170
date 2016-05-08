@@ -52,6 +52,7 @@ public class spt_carCrashTrigger : MonoBehaviour {
                     if (network.PuzzleStates[i].state == true && triggered == false)
                     {
                         triggered = true;
+                        gameObject.GetComponentInChildren<ParticleSystem>().enableEmission = true;
                         monster.updateAnger(monster.lowerThreshold - monster.angerLevel, gameObject.transform);
                         monster.angerUpdateDisabled = true;
                         Invoke("enableAnger", 1);
