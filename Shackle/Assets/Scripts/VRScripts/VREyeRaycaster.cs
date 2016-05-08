@@ -229,9 +229,14 @@ namespace VRStandardAssets.Utils
             }
             else if (currentInteractibleName.Contains("mirrorStand") && heldSuccess)
             {
+                Debug.Log("attaching mirror");
                 spt_inventory pInv = GetComponent<spt_inventory>();
                 GameObject mirror = pInv.retrieveObjectFromInventory(pInv.activeItem);
 
+                foreach(string item in pInv.inventory)
+                {
+                    Debug.Log(item);
+                }
                 if (pInv.inventory[pInv.activeItem].Contains("mirrorPickup"))
                 {
                     Debug.Log("firing command to add mirror");

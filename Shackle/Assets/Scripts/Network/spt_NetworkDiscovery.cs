@@ -26,6 +26,7 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
     public static spt_NetworkDiscovery instance;
 
     float lastUpdate = 0.0F;
+    float lastInit = 0.0F;
 
     const int BUTTON_CAP = 3;
 
@@ -54,9 +55,16 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
     void Update() {
         if ( SceneManager.GetActiveScene().name != "VRMainMenu" ) return;
         float currentTime = Time.time;
-        if (currentTime - lastUpdate > 5.0F || notChecked)
+        if (currentTime - lastUpdate > 1.0F || notChecked)
         {
             lastUpdate = currentTime;
+            listGames();
+        }
+
+        if (currentTime - lastInit > 5.0F && !discovery.isServer)
+        {
+            discovery.StopBroadcast();
+            discovery.StartAsClient();
             listGames();
         }
 
