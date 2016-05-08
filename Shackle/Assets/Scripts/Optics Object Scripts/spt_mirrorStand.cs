@@ -26,7 +26,14 @@ namespace VRStandardAssets.Examples
         protected override void Start()
         {
             base.Start();
-            networkedTransform = GetComponent<NetworkTransformChild>();
+            NetworkTransformChild[] networkTransforms = GetComponents<NetworkTransformChild>();
+            foreach (NetworkTransformChild child in networkTransforms) {
+                if (child.target.gameObject.name == "Temp_Transform" || child.target.gameObject.name.Contains("Pickup")) {
+                    networkedTransform = child;
+                    break;
+                }
+            }
+            //networkedTransform = GetComponent<NetworkTransformChild>();
         }
         override protected void holdSuccess(){
             //If the stand doesn't already have a mirror child, remove one from your inventory,
@@ -56,13 +63,16 @@ namespace VRStandardAssets.Examples
 
         void unbindMirror()
         {
+            GameObject tempMirrorRef = networkedTransform.target.gameObject;
             networkedTransform.target = null;
+            tempMirrorRef.GetComponent<NetworkIdentity>().enabled = true;
         }
 
         void bindMirror( GameObject mirror )
         {
+            mirror.GetComponent<NetworkIdentity>().enabled = false;
             networkedTransform.target = mirror.transform;
-            networkedTransform.enabled = true;
+            
         }
 
         //Plug handleClick

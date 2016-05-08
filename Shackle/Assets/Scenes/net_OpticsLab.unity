@@ -7071,7 +7071,7 @@ MonoBehaviour:
   m_SendInterval: 0.1
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
-  m_MovementThreshold: 0.001
+  m_MovementThreshold: 0.0001
   m_InterpolateRotation: 0.05
   m_InterpolateMovement: 0.05
 --- !u!114 &568105734
@@ -13027,6 +13027,7 @@ GameObject:
   - 114: {fileID: 1018597390}
   - 131: {fileID: 1018597389}
   - 82: {fileID: 1018597388}
+  - 114: {fileID: 1018597395}
   m_Layer: 0
   m_Name: mdl_mirrorPickup (3)
   m_TagString: Untagged
@@ -13227,6 +13228,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.79, y: 2.0077145, z: 0.16}
   m_Center: {x: 0, y: 0.037553348, z: 0}
+--- !u!114 &1018597395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1018597386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!1 &1023051231
 GameObject:
   m_ObjectHideFlags: 0
@@ -14414,7 +14435,7 @@ MonoBehaviour:
   m_SendInterval: 0.1
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
-  m_MovementThreshold: 0.001
+  m_MovementThreshold: 0.0001
   m_InterpolateRotation: 0.05
   m_InterpolateMovement: 0.05
 --- !u!114 &1176935039
@@ -15750,6 +15771,7 @@ GameObject:
   - 114: {fileID: 1285254287}
   - 131: {fileID: 1285254286}
   - 82: {fileID: 1285254288}
+  - 114: {fileID: 1285254289}
   m_Layer: 0
   m_Name: mdl_mirrorPickup (1)
   m_TagString: Untagged
@@ -15950,6 +15972,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1285254289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1285254280}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!1 &1299910940
 GameObject:
   m_ObjectHideFlags: 0
@@ -22799,7 +22841,7 @@ MonoBehaviour:
   m_SendInterval: 0.1
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
-  m_MovementThreshold: 0.001
+  m_MovementThreshold: 0.0001
   m_InterpolateRotation: 0.05
   m_InterpolateMovement: 0.05
 --- !u!114 &1979426696
@@ -24521,7 +24563,7 @@ MonoBehaviour:
   m_SendInterval: 0.1
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
-  m_MovementThreshold: 0.001
+  m_MovementThreshold: 0.0001
   m_InterpolateRotation: 0.05
   m_InterpolateMovement: 0.05
 --- !u!114 &2128668442
