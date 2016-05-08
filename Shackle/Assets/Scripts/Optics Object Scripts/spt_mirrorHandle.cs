@@ -31,7 +31,7 @@ namespace VRStandardAssets.Examples
         private bool once = false;
 
         //Speed at which the object should move
-        public float rotateSpeed = 1;
+        public float rotateSpeed = 10;
 
         public float maxNegativeRotation = 0;
         public float maxPositiveRotation = 0;

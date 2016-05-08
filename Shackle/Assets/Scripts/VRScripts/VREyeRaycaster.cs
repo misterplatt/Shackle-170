@@ -236,7 +236,7 @@ namespace VRStandardAssets.Utils
         [Command]
         public void Cmd_InteractableMove(string name, float amount) {
             GameObject mirror = GameObject.Find(name);
-            float rotateSpeed = 1;
+            float rotateSpeed = 10;
             Debug.Log("Rotating : " + name + " by : " + amount);
 
             float maxNegativeRotation = mirror.GetComponent<VRStandardAssets.Examples.spt_mirrorHandle>().maxNegativeRotation;
@@ -245,11 +245,12 @@ namespace VRStandardAssets.Utils
             Vector3 initialRotation = mirror.transform.rotation.eulerAngles;
             Vector3 newRotation = mirror.transform.rotation.eulerAngles;
 
-            Debug.Log("Initial : " + mirror.transform.rotation);
-            mirror.transform.Rotate(Vector3.up * -amount * Time.deltaTime * rotateSpeed, Space.Self);
-            newRotation.y = ClampAngle(transform.rotation.eulerAngles.y, initialRotation.y - maxNegativeRotation, initialRotation.y + maxPositiveRotation);
-            mirror.transform.eulerAngles = newRotation;
-            Debug.Log("After : " + mirror.transform.rotation);
+            Debug.Log("Initial : " + mirror.transform.rotation.eulerAngles);
+            mirror.transform.Rotate(Vector3.up * -amount * Time.deltaTime * rotateSpeed);
+            //newRotation.y = ClampAngle(transform.rotation.eulerAngles.y, initialRotation.y - maxNegativeRotation, initialRotation.y + maxPositiveRotation);
+            //mirror.transform.eulerAngles = newRotation;
+            Debug.Log("After : " + mirror.transform.rotation.eulerAngles);
+
             //get room and mark dirty bits, oh my.
             //mirror.transform.root.gameObject.GetComponent<NetworkTransformChild>().SetDirtyBit();
         }
@@ -265,6 +266,7 @@ namespace VRStandardAssets.Utils
             }
             angle = Mathf.Clamp(angle, min, max);
             if (angle < 0) angle += 360;
+            Debug.Log("Angle : " + angle);
             return angle;
         }
         //Doesn't work because unet rules
