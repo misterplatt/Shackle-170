@@ -239,12 +239,15 @@ namespace VRStandardAssets.Utils
             float rotateSpeed = 1;
             Debug.Log("Rotating : " + name + " by : " + amount);
 
+            float maxNegativeRotation = mirror.GetComponent<VRStandardAssets.Examples.spt_mirrorHandle>().maxNegativeRotation;
+            float maxPositiveRotation = mirror.GetComponent<VRStandardAssets.Examples.spt_mirrorHandle>().maxPositiveRotation;
+
             Vector3 initialRotation = mirror.transform.rotation.eulerAngles;
             Vector3 newRotation = mirror.transform.rotation.eulerAngles;
 
             Debug.Log("Initial : " + mirror.transform.rotation);
             mirror.transform.Rotate(Vector3.up * -amount * Time.deltaTime * rotateSpeed, Space.Self);
-            newRotation.y = ClampAngle(transform.rotation.eulerAngles.y, initialRotation.y, initialRotation.y);
+            newRotation.y = ClampAngle(transform.rotation.eulerAngles.y, initialRotation.y - maxNegativeRotation, initialRotation.y + maxPositiveRotation);
             mirror.transform.eulerAngles = newRotation;
             Debug.Log("After : " + mirror.transform.rotation);
             //get room and mark dirty bits, oh my.

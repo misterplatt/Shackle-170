@@ -10,7 +10,7 @@ namespace VRStandardAssets.Utils
         private void OnApplicationPause(bool pauseStatus)
         {
             if (!isLocalPlayer) return;
-            InputTracking.Recenter();
+            //InputTracking.Recenter();
         }
     }
 }
