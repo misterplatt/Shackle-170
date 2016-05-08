@@ -42,6 +42,12 @@ public class    spt_victoryListener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            spt_LayeredAudioManager.musicPlay = false;
+            transitionA.Play();
+            StartCoroutine(transitionRumbleShit());
+        }
         GameObject player = GameObject.FindWithTag("Player");
         if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count == 0) return;
         //If the puzzleCompletion puzzlestate is true, set Win Text to visible and start camera fadeout        
@@ -55,6 +61,9 @@ public class    spt_victoryListener : MonoBehaviour
             //GameObject.Find("player_B_light").GetComponent<Light>().enabled = true;
             transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
             once = true;
+            spt_LayeredAudioManager.musicPlay = false;
+            transitionA.Play();
+            StartCoroutine(transitionRumbleShit());
             spt_LayeredAudioManager.musicPlay = false;
             transitionA.Play();
             StartCoroutine(transitionRumbleShit());

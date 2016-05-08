@@ -25,6 +25,7 @@ namespace VRStandardAssets.Examples
         public GameObject leverA;
         public GameObject leverB;
         private AudioSource aSource;
+        private AudioSource childSource;
         public AudioClip panelBurning;
         public AudioClip systemMeltDown;
         public AudioClip hatchOpening;
@@ -33,6 +34,7 @@ namespace VRStandardAssets.Examples
         override protected void Start()
         {
             aSource = GetComponent<AudioSource>();
+            childSource = GameObject.Find("SecurityMeltdownObject").GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
@@ -51,6 +53,8 @@ namespace VRStandardAssets.Examples
                     {
                         aSource.clip = panelBurning;
                         aSource.Play();
+                        childSource.Play();
+
                         //If a laser has hit the panel, set the corresponding puzzle state to true
                         local_laserHitPanel = true;
                         spt_WorldState.worldStateChanged = true;
@@ -59,7 +63,7 @@ namespace VRStandardAssets.Examples
             }
 
             //If the laser has hit the panel, open the trapdoors and raise the TNT Levers
-            if (!once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true)
+            if (!once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true && !childSource.isPlaying)
             {
                 //TEMP FUNCTIONALITY UNTIL MODELS ARE IMPORTED
                 trapDoorA.GetComponent<AudioSource>().clip = hatchOpening;
