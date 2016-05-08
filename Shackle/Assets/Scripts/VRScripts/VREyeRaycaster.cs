@@ -234,6 +234,7 @@ namespace VRStandardAssets.Utils
 
                 if (pInv.inventory[pInv.activeItem].Contains("mirrorPickup"))
                 {
+                    Debug.Log("firing command to add mirror");
                     pInv.removeItm(mirror.name);
                     Cmd_AddMirror(mirror.name, currentInteractibleName);
                     Cmd_UpdateMirrors(laserStatus());
@@ -339,6 +340,7 @@ namespace VRStandardAssets.Utils
         [Command]
         public void Cmd_AddMirror( string mirrorName, string standName )
         {
+            Debug.Log("I'm adding a mirror, I tink.        ");
             GameObject mirror = GameObject.Find(mirrorName);
             GameObject stand = GameObject.Find(standName);
 
