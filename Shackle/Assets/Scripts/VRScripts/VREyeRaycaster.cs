@@ -247,8 +247,6 @@ namespace VRStandardAssets.Utils
             mirror.transform.root.GetComponent<NetworkTransformChild>().enabled = false;
             Debug.Log("Initial : " + mirror.transform.rotation.eulerAngles);
             mirror.transform.Rotate(Vector3.up * -amount * Time.deltaTime * rotateSpeed);
-            newRotation.y = ClampAngle(transform.rotation.eulerAngles.y, initialRotation.y - maxNegativeRotation, initialRotation.y + maxPositiveRotation);
-            mirror.transform.eulerAngles = newRotation;
             Debug.Log("After : " + mirror.transform.rotation.eulerAngles);
             //reactiveNetworkTransform( mirror.transform.root.GetComponent<NetworkTransformChild>() );
 
