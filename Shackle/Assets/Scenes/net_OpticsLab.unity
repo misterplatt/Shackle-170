@@ -323,7 +323,7 @@ GameObject:
   - 114: {fileID: 18091371}
   - 82: {fileID: 18091370}
   m_Layer: 0
-  m_Name: mdl_mirrorHandle
+  m_Name: mdl_mirrorHandle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6601,7 +6601,7 @@ GameObject:
   - 114: {fileID: 515904391}
   - 82: {fileID: 515904394}
   m_Layer: 0
-  m_Name: mdl_mirrorHandle
+  m_Name: mdl_mirrorHandle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7476,7 +7476,7 @@ GameObject:
   - 114: {fileID: 569524043}
   - 82: {fileID: 569524042}
   m_Layer: 0
-  m_Name: mdl_mirrorHandle
+  m_Name: mdl_mirrorHandle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23231,7 +23231,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1979426694}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
