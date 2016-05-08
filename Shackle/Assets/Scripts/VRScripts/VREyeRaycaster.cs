@@ -236,6 +236,7 @@ namespace VRStandardAssets.Utils
                 {
                     pInv.removeItm(mirror.name);
                     Cmd_AddMirror(mirror.name, currentInteractibleName);
+                    Cmd_UpdateMirrors(laserStatus());
                 }
                 //if stand check if mirror on it, if not take mirror from inventory, add to stand on server.
                 heldSuccess = false;
