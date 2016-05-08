@@ -7689,8 +7689,8 @@ MonoBehaviour:
   m_InteractiveItem: {fileID: 569524044}
   movingSound: {fileID: 8300000, guid: 4f1d5cc5021d8024fa51e95419fe3161, type: 3}
   rotateSpeed: 10
-  maxNegativeRotation: 20
-  maxPositiveRotation: 20
+  maxNegativeRotation: 80
+  maxPositiveRotation: 80
   optional_movePathImage: {fileID: 0}
 --- !u!114 &569524044
 MonoBehaviour:
@@ -14316,8 +14316,8 @@ MonoBehaviour:
   m_InteractiveItem: {fileID: 1088821246}
   movingSound: {fileID: 8300000, guid: 4f1d5cc5021d8024fa51e95419fe3161, type: 3}
   rotateSpeed: 10
-  maxNegativeRotation: 50
-  maxPositiveRotation: 50
+  maxNegativeRotation: 80
+  maxPositiveRotation: 80
   optional_movePathImage: {fileID: 0}
 --- !u!114 &1088821246
 MonoBehaviour:

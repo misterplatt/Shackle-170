@@ -21,7 +21,7 @@ using VRStandardAssets.Utils;
 
 public class spt_inventory : NetworkBehaviour {
     //The inventory is stored as a synchronized list of string references to scene objects
-    [SerializeField] SyncListString inventory = new SyncListString();
+    [SerializeField] public SyncListString inventory = new SyncListString();
 
     //UI components
     public GameObject selectionBar;
