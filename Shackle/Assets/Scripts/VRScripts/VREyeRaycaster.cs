@@ -233,20 +233,30 @@ namespace VRStandardAssets.Utils
                 spt_inventory pInv = GetComponent<spt_inventory>();
                 GameObject mirror = pInv.retrieveObjectFromInventory(pInv.activeItem);
 
+                int itemIndex = 0;
                 foreach(string item in pInv.inventory)
                 {
                     Debug.Log(item);
+                    if (pInv.inventory[itemIndex].Contains("mirrorStand")) break;
+                    itemIndex++;
                 }
-                if (pInv.inventory[pInv.activeItem].Contains("mirrorPickup"))
+
+                if (pInv.inventory[itemIndex].Contains("mirrorPickup"))
                 {
                     Debug.Log("firing command to add mirror");
                     pInv.removeItm(mirror.name);
                     Cmd_AddMirror(mirror.name, currentInteractibleName);
                     Cmd_UpdateMirrors(laserStatus());
                 }
+
                 //if stand check if mirror on it, if not take mirror from inventory, add to stand on server.
                 heldSuccess = false;
             }
+        }
+
+        private void getAndRemoveMirror()
+        {
+
         }
 
         private void resetCurrentInter()
