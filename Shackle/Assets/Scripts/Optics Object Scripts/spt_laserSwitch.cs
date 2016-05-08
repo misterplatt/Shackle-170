@@ -108,5 +108,10 @@ namespace VRStandardAssets.Examples
             aSource.loop = true;
             aSource.Play();
         }
+
+        public override void resetItem()
+        {
+            clickSuccess();
+        }
     }
 }
