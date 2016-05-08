@@ -106,11 +106,26 @@ namespace VRStandardAssets.Examples
         override protected void HandleClick() { }
 
 		bool HasMirror(){
-            bool result = false;
-            foreach (Transform child in transform.FindChild("mdl_mirrorHandle")) {
-                if (child.name.Contains(gateItemName)) result = true;
+            GameObject handle = null;
+
+            foreach (Transform child in transform)
+            {
+                if (child.gameObject.tag == "mirrorHandle")
+                {
+                    handle = child.gameObject;
+                }
             }
-            return result;
+
+            if (handle == null)
+            {
+                Debug.Log("Error : spt_mirrorStand, hasMirror called but could not locate mirrorHandle");
+                return false;
+            }
+
+            foreach (Transform child in handle.transform) {
+                if (child.gameObject.tag == "mirror") return true;
+            }
+            return false;
 		}
     }
 }
