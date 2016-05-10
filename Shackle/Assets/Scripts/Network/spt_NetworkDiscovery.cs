@@ -81,7 +81,7 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
     public void startBroadcast() {
         discovery.StopBroadcast();
         discovery.Initialize();
-        discovery.broadcastData = "ShackleGame";
+        //discovery.broadcastData = "ShackleGame";
         discovery.StartAsServer();
     }
 

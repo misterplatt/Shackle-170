@@ -696,6 +696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdTime: 0.15
   m_InteractiveItemSingle: {fileID: 153321111}
+  interactable: 0
 --- !u!1 &168974354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1463,6 +1464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdTime: 0.15
   m_InteractiveItemSingle: {fileID: 339585228}
+  interactable: 0
 --- !u!1 &373616835
 GameObject:
   m_ObjectHideFlags: 0
@@ -2554,6 +2556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdTime: 0.5
   m_InteractiveItemSingle: {fileID: 547407444}
+  interactable: 0
 --- !u!1 &552636285
 GameObject:
   m_ObjectHideFlags: 0
@@ -6534,6 +6537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdTime: 0.15
   m_InteractiveItemSingle: {fileID: 1535682294}
+  interactable: 0
 --- !u!1 &1542634756
 GameObject:
   m_ObjectHideFlags: 0
@@ -7361,6 +7365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdTime: 0.5
   m_InteractiveItemSingle: {fileID: 1730813678}
+  interactable: 0
 --- !u!1 &1733168442
 GameObject:
   m_ObjectHideFlags: 0
@@ -8389,6 +8394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdTime: 0.15
   m_InteractiveItemSingle: {fileID: 2011417223}
+  interactable: 0
 --- !u!1 &2069162561
 GameObject:
   m_ObjectHideFlags: 0
@@ -8974,7 +8980,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478754, guid: 6807d5ccd67f79141913ea8fd370cba5, type: 2}
       propertyPath: m_ShowGUI
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11463164, guid: 6807d5ccd67f79141913ea8fd370cba5, type: 2}
       propertyPath: discoveryInstance
@@ -8982,7 +8988,11 @@ Prefab:
       objectReference: {fileID: 962469168}
     - target: {fileID: 11478754, guid: 6807d5ccd67f79141913ea8fd370cba5, type: 2}
       propertyPath: m_UseNetworkManager
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478754, guid: 6807d5ccd67f79141913ea8fd370cba5, type: 2}
+      propertyPath: m_BroadcastInterval
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6807d5ccd67f79141913ea8fd370cba5, type: 2}
