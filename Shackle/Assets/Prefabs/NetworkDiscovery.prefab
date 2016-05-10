@@ -52,11 +52,11 @@ MonoBehaviour:
   m_Script: {fileID: -1553936188, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BroadcastPort: 47777
+  m_BroadcastPort: 17751
   m_BroadcastKey: 2222
   m_BroadcastVersion: 1
   m_BroadcastSubVersion: 1
-  m_BroadcastInterval: 1000
+  m_BroadcastInterval: 500
   m_UseNetworkManager: 0
   m_BroadcastData: HELLO
   m_ShowGUI: 0
