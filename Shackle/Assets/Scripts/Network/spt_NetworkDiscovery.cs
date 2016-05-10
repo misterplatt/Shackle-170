@@ -61,12 +61,14 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
             listGames();
         }
 
+        /*
         if (currentTime - lastInit > 5.0F && !discovery.isServer)
         {
             discovery.StopBroadcast();
             discovery.StartAsClient();
             listGames();
         }
+        */
 
         GameObject joinButton = GameObject.Find("Painting_Canvas").transform.Find("Play/btn_join").gameObject;
         if (ip == "")
