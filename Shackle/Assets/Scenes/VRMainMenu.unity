@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: -822479833, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NetworkPort: 7777
+  m_NetworkPort: 17750
   m_ServerBindToIP: 0
   m_ServerBindAddress: 
   m_NetworkAddress: localhost
@@ -8993,6 +8993,10 @@ Prefab:
     - target: {fileID: 11478754, guid: 6807d5ccd67f79141913ea8fd370cba5, type: 2}
       propertyPath: m_BroadcastInterval
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478754, guid: 6807d5ccd67f79141913ea8fd370cba5, type: 2}
+      propertyPath: m_BroadcastPort
+      value: 17751
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6807d5ccd67f79141913ea8fd370cba5, type: 2}
