@@ -47,7 +47,7 @@ public class spt_ManagerMenuInterface : NetworkBehaviour {
         manager.StopHost();
         GameObject.Find("NetworkDiscovery").GetComponent<NetworkDiscovery>().StopBroadcast();
         manager.networkAddress = "localhost";
-        manager.networkPort = 7777;
+       // manager.networkPort = 7777;
         manager.StartClient();
     }
 
@@ -62,7 +62,7 @@ public class spt_ManagerMenuInterface : NetworkBehaviour {
         catch {
             manager.networkAddress = "localhost";
         }
-        manager.networkPort = 7777;
+        //manager.networkPort = 7777;
         manager.StartClient();
     }
 

@@ -8988,7 +8988,7 @@ Prefab:
       objectReference: {fileID: 962469168}
     - target: {fileID: 11478754, guid: 6807d5ccd67f79141913ea8fd370cba5, type: 2}
       propertyPath: m_UseNetworkManager
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11478754, guid: 6807d5ccd67f79141913ea8fd370cba5, type: 2}
       propertyPath: m_BroadcastInterval
