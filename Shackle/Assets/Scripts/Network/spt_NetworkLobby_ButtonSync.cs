@@ -116,6 +116,7 @@ public class spt_NetworkLobby_ButtonSync : NetworkBehaviour {
     }
 
     void levelTransitionCheck() {
+        if (!isServer) return;
         Debug.Log(selectedLevel);
         if ((!( p1Ready && p2Ready )) || selectedLevel == "") return;
 
