@@ -92,7 +92,6 @@ namespace VRStandardAssets.Utils
             if (!isLocalPlayer) {
                 return;
             }
-            Debug.Log(currentInteractibleName);
             EyeRaycast();
             updateInteractable();
         }
@@ -237,7 +236,7 @@ namespace VRStandardAssets.Utils
                 foreach(string item in pInv.inventory)
                 {
                     Debug.Log(item);
-                    if (pInv.inventory[itemIndex].Contains("mirrorStand")) break;
+                    if (pInv.inventory[itemIndex].Contains("mirror")) break;
                     itemIndex++;
                 }
 
@@ -364,6 +363,8 @@ namespace VRStandardAssets.Utils
             {
                 if (child.gameObject.tag == "mirrorHandle")
                 {
+                    Debug.Log("Mirror Found");
+                    mirror.transform.position = new Vector3(stand.transform.position.x, stand.transform.position.y + 1.3f, stand.transform.position.z);
                     mirror.transform.parent = child;
                     break;
                 }

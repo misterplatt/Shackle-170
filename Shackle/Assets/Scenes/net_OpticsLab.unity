@@ -3741,6 +3741,7 @@ GameObject:
   - 114: {fileID: 362130205}
   - 131: {fileID: 362130204}
   - 82: {fileID: 362130203}
+  - 114: {fileID: 362130210}
   m_Layer: 0
   m_Name: mdl_mirrorPickup (4)
   m_TagString: mirror
@@ -3941,6 +3942,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.79, y: 2.0077145, z: 0.16}
   m_Center: {x: 0, y: 0.037553348, z: 0}
+--- !u!114 &362130210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 362130201}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!1 &367133715
 GameObject:
   m_ObjectHideFlags: 0
@@ -6578,7 +6599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &507402348
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8888,7 +8909,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &681329191
 Transform:
   m_ObjectHideFlags: 0
@@ -9988,7 +10009,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 143138, guid: 08c6ba13649210c43aead34137ca2bd8, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08c6ba13649210c43aead34137ca2bd8, type: 2}
