@@ -46,6 +46,7 @@ namespace VRStandardAssets.Examples
                 inventorySpt.removeItm(mirrorObj.name);
 
                 mirrorObj.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
+                mirrorObj.GetComponent<spt_mirror>().placed = true;
                 foreach (Transform child in this.transform)
                 {
                     if (child.gameObject.tag == "mirrorHandle")

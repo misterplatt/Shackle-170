@@ -21,6 +21,8 @@ namespace VRStandardAssets.Examples
         private BoxCollider laserCollider;
         private spt_mirrorSync mirrorSync;
 
+        public bool placed = false;
+
         private int laserCount = 0;
 
         protected override void Start()
@@ -61,8 +63,10 @@ namespace VRStandardAssets.Examples
 
         override protected void clickSuccess()
         {
-            base.clickSuccess();
-            transform.parent = GameObject.Find("Objects").transform;
+            if (!placed) {
+                base.clickSuccess();
+                transform.parent = GameObject.Find("Objects").transform;
+            }
         }
     }
 }
