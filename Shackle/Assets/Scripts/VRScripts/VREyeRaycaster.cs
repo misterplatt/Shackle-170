@@ -251,6 +251,10 @@ namespace VRStandardAssets.Utils
                 //if stand check if mirror on it, if not take mirror from inventory, add to stand on server.
                 heldSuccess = false;
             }
+            else if (currentInteractibleName.Contains("mirrorStand") && spt_playerControls.aButtonPressed())
+            {
+                Cmd_SendMirrorToHell(currentInteractibleName);
+            }
         }
 
         private void getAndRemoveMirror()
@@ -372,6 +376,13 @@ namespace VRStandardAssets.Utils
             }
             //mirror.transform.parent = stand.transform.FindChild();
         }
+
+        [Command]
+        public void Cmd_SendMirrorToHell( string mirrorName ) {
+            GameObject mirror = GameObject.Find(mirrorName);
+            mirror.transform.position = Vector3.down * 1000;
+        }
+
         
     }
 }
