@@ -432,7 +432,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 18091372}
-  movingSound: {fileID: 8300000, guid: 4f1d5cc5021d8024fa51e95419fe3161, type: 3}
+  movingSound: {fileID: 8300000, guid: 8121822606277404285faa2f62fe5d31, type: 3}
   rotateSpeed: 10
   maxNegativeRotation: 20
   maxPositiveRotation: 20
@@ -1481,6 +1481,8 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 80860037}
+  leverPushSound: {fileID: 8300000, guid: d784559d732ae3c48b27ea480d8d42d4, type: 3}
+  leverReleasedSound: {fileID: 8300000, guid: 0688b13f030d9d742bb57d1a1f5b96a7, type: 3}
 --- !u!114 &80860037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3462,6 +3464,8 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 319769592}
+  leverPushSound: {fileID: 8300000, guid: d784559d732ae3c48b27ea480d8d42d4, type: 3}
+  leverReleasedSound: {fileID: 8300000, guid: 0688b13f030d9d742bb57d1a1f5b96a7, type: 3}
 --- !u!114 &319769592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5117,6 +5121,7 @@ GameObject:
   - 114: {fileID: 413152162}
   - 114: {fileID: 413152161}
   - 114: {fileID: 413152160}
+  - 82: {fileID: 413152166}
   m_Layer: 0
   m_Name: leverB
   m_TagString: Untagged
@@ -5151,6 +5156,8 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 1
   m_InteractiveItem: {fileID: 413152161}
+  leverPushSound: {fileID: 8300000, guid: d784559d732ae3c48b27ea480d8d42d4, type: 3}
+  leverReleasedSound: {fileID: 8300000, guid: 0688b13f030d9d742bb57d1a1f5b96a7, type: 3}
 --- !u!114 &413152161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5243,6 +5250,80 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 413152158}
   m_Mesh: {fileID: 4300012, guid: 16008a8eec607bf47bf647caa9a6548d, type: 3}
+--- !u!82 &413152166
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 413152158}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &414490801
 GameObject:
   m_ObjectHideFlags: 0
@@ -6772,7 +6853,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 515904392}
-  movingSound: {fileID: 8300000, guid: 4f1d5cc5021d8024fa51e95419fe3161, type: 3}
+  movingSound: {fileID: 8300000, guid: 8121822606277404285faa2f62fe5d31, type: 3}
   rotateSpeed: 10
   maxNegativeRotation: 20
   maxPositiveRotation: 20
@@ -7708,7 +7789,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 569524044}
-  movingSound: {fileID: 8300000, guid: 4f1d5cc5021d8024fa51e95419fe3161, type: 3}
+  movingSound: {fileID: 8300000, guid: 8121822606277404285faa2f62fe5d31, type: 3}
   rotateSpeed: 10
   maxNegativeRotation: 80
   maxPositiveRotation: 80
@@ -14335,7 +14416,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1088821246}
-  movingSound: {fileID: 8300000, guid: 4f1d5cc5021d8024fa51e95419fe3161, type: 3}
+  movingSound: {fileID: 8300000, guid: 8121822606277404285faa2f62fe5d31, type: 3}
   rotateSpeed: 10
   maxNegativeRotation: 80
   maxPositiveRotation: 80
@@ -19253,6 +19334,7 @@ GameObject:
   - 114: {fileID: 1601597884}
   - 114: {fileID: 1601597883}
   - 114: {fileID: 1601597882}
+  - 82: {fileID: 1601597888}
   m_Layer: 0
   m_Name: leverA
   m_TagString: Untagged
@@ -19286,6 +19368,8 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 1
   m_InteractiveItem: {fileID: 1601597883}
+  leverPushSound: {fileID: 8300000, guid: d784559d732ae3c48b27ea480d8d42d4, type: 3}
+  leverReleasedSound: {fileID: 8300000, guid: 0688b13f030d9d742bb57d1a1f5b96a7, type: 3}
 --- !u!114 &1601597883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19379,6 +19463,80 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1601597880}
   m_Mesh: {fileID: 4300012, guid: 16008a8eec607bf47bf647caa9a6548d, type: 3}
+--- !u!82 &1601597888
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1601597880}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1617995338
 GameObject:
   m_ObjectHideFlags: 0

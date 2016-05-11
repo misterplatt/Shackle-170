@@ -1,12 +1,13 @@
 ﻿/*
 spt_TNTLever
 
-Author(s): Hayden Platt, Lauren Cunningham
+Author(s): Hayden Platt, Lauren Cunningham, Dara Diba
 
-Revision 2
+Revision 3
 
 When the lever is pressed, temporarily lowers the lever. If both levers are pressed
 within a time frame, the level is beaten and the ending cutscene triggers.
+Added sound functionality. - Dara
 */
 
 
@@ -17,12 +18,20 @@ namespace VRStandardAssets.Examples
 {
     public class spt_TNTLever : spt_baseInteractiveObject
     {
+        private AudioSource aSource;
+        public AudioClip leverPushSound;
+        public AudioClip leverReleasedSound;
         public static bool local_leverAPressed = false;
         public static bool local_leverBPressed = false;
 
         public static bool local_puzzleCompletion = false;
 
         private bool pressed = false;
+
+        protected override void Start()
+        {
+            aSource = GetComponent<AudioSource>();
+        }
 
         protected override void Update()
         {
@@ -44,6 +53,8 @@ namespace VRStandardAssets.Examples
         {
             Debug.Log("PRESSING" + pressed);
             if (!pressed) {
+                aSource.clip = leverPushSound;
+                aSource.Play();
                 transform.Translate(Vector3.down * .1f);
                 if (transform.parent.parent.name == "mdl_TNTLeverA") local_leverAPressed = true;
                 if (transform.parent.parent.name == "mdl_TNTLeverB") local_leverBPressed = true;
@@ -58,6 +69,8 @@ namespace VRStandardAssets.Examples
 
         //Function which raises the lever 
         void raiseLever() {
+            aSource.clip = leverReleasedSound;
+            aSource.Play();
             transform.Translate(Vector3.up * .1f);
             if (transform.parent.parent.name == "mdl_TNTLeverA") local_leverAPressed = false;
             if (transform.parent.parent.name == "mdl_TNTLeverB") local_leverBPressed = false;
