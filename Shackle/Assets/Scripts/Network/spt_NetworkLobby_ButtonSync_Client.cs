@@ -61,9 +61,9 @@ public class spt_NetworkLobby_ButtonSync_Client : NetworkBehaviour {
 
         if (p1Ready && p1Connected)
         {
-            p1cb.disabledColor = Color.green;
+            p2cb.disabledColor = Color.green;
         }
-        if (p2Ready && p2Connected) p2cb.disabledColor = Color.green;
+        if (p2Ready && p2Connected) p1cb.disabledColor = Color.green;
 
         p1Rdy.colors = p1cb;
         p2Rdy.colors = p2cb;
