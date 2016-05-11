@@ -10,24 +10,45 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class spt_lossListener : MonoBehaviour {
+public class spt_lossListener : NetworkBehaviour {
 
     int index;
     bool gotIndex = false;
     bool once = false;
+    bool loss;
+
     GameObject player;
     spt_monsterAudio monsterAudio;
 
 
     void Start()
     {
+        loss = false;
         player = this.transform.root.gameObject;
         monsterAudio = GameObject.Find("MonsterStandin").GetComponent<spt_monsterAudio>();
     }
 	// Update is called once per frame
 	void Update () {
+
+        if(spt_playerControls.aButtonPressed() && loss)
+        {
+            if (isServer)
+            {
+                GameObject.Find("NetworkManager").GetComponent<NetworkManager>().ServerChangeScene(SceneManager.GetActiveScene().name);
+            }
+
+        }
+        else if (spt_playerControls.aButtonPressed() && loss)
+        {
+            if (isServer)
+            {
+                GameObject.Find("NetworkManager").GetComponent<NetworkManager>().StopHost();
+            }
+        }
         // If the network exists, and the playerLoss even hasn't already been found in the Puzzle states, find and save its index
         if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates != null && !gotIndex)
         {
@@ -52,6 +73,7 @@ public class spt_lossListener : MonoBehaviour {
                 Debug.Log(transform.parent.parent.parent.name + " " + player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].name);
                 GetComponent<Text>().text = "You lose";
                 GetComponent<Text>().enabled = true;
+                loss = true;
                 //transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
                 once = true;
                 spt_LayeredAudioManager.musicPlay = false;
