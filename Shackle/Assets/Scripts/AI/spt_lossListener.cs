@@ -19,7 +19,7 @@ public class spt_lossListener : NetworkBehaviour {
     int index;
     bool gotIndex = false;
     bool once = false;
-    bool loss;
+    public bool loss;
 
     GameObject player;
     spt_monsterAudio monsterAudio;
