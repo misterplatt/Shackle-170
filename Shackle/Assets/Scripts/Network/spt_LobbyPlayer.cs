@@ -19,13 +19,13 @@ public class spt_LobbyPlayer : NetworkBehaviour {
         if (!isLocalPlayer) return;
 
         if (spt_playerControls.startButtonPressed()) {
-            if (isServer) isReady = !isReady;
-            else Cmd_updateReady();
+            isReady = !isReady;
+            if (!isServer) Cmd_updateReady(isReady);
         }
 	}
 
     [Command]
-    public void Cmd_updateReady() {
-        isReady = !isReady;
+    public void Cmd_updateReady( bool rdy ) {
+        isReady = rdy;
     }
 }
