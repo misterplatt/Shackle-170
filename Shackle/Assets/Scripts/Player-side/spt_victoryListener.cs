@@ -1,12 +1,13 @@
 ﻿/*
 spt_victoryListener
 
-Author(s): Hayden Platt
+Author(s): Hayden Platt, Dara Diba
 
-Revision 2
+Revision 3
 
 Listens for NPL puzzle completion to show the 
 "YOU WIN" UI Text.
+Adjusted transition rumbles. - Dara
 */
 
 using UnityEngine;
@@ -119,11 +120,11 @@ public class    spt_victoryListener : MonoBehaviour
     IEnumerator transitionRumbleShit()
     {
         yield return new WaitForSeconds(5.8f);
-        spt_playerControls.controllerVibration("Both", 1.0f, 4f);
-        yield return new WaitForSeconds(1.5f);
-        spt_playerControls.controllerVibration("Both", 1.0f, 8f);
-        yield return new WaitForSeconds(2f);
-        spt_playerControls.controllerVibration("Both", 1.0f, 5f);
+        spt_playerControls.controllerVibration("Both", 1.0f, 1.6f);
+        yield return new WaitForSeconds(0.5f);
+        spt_playerControls.controllerVibration("Both", 1.0f, 3.2f);
+        yield return new WaitForSeconds(1f);
+        spt_playerControls.controllerVibration("Both", 1.0f, 1.9f);
     }
 
 

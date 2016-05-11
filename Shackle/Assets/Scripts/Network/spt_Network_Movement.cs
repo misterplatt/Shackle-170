@@ -38,9 +38,13 @@ public class spt_Network_Movement : NetworkBehaviour {
     public Animator animator;
     public GameObject pModel;
     public GameObject pSpawn;
+    private AudioSource moveSoundA;
+    private AudioSource moveSoundB;
 
     void Start()
     {
+        moveSoundA = GameObject.Find("MovementSoundA").GetComponent<AudioSource>();
+        moveSoundB = GameObject.Find("MovementSoundB").GetComponent<AudioSource>();
         mListener = GameObject.Find("WorldState").GetComponent<spt_Network_MovementListener>();
         lStickInput = 0.0F;
 
@@ -136,6 +140,8 @@ public class spt_Network_Movement : NetworkBehaviour {
             //if it's the server, just move it since we own the object. Client won't do anything
             if (isServer && bumpers()) {
                 moveHost(new Vector3(0.0F, 0.0F, 1.0F));
+                moveSoundA.Play();
+                moveSoundB.Play();
                 animator.SetInteger("animation", 2);
                 hostAnimator_var = 2;
             }
@@ -144,12 +150,16 @@ public class spt_Network_Movement : NetworkBehaviour {
         else if (mListener.aggregateLStickInput < -1.5F) {
             if (isServer && bumpers()) {
                 moveHost(new Vector3(0.0F, 0.0F, -1.0F));
+                moveSoundA.Play();
+                moveSoundB.Play();
                 animator.SetInteger("animation", 1);
                 hostAnimator_var = 1;
             }
         }
         else {
             //otherwise ensure animator in rest state
+            moveSoundA.Stop();
+            moveSoundB.Stop();
             animator.SetInteger("animation", 0);
             hostAnimator_var = 0;
         }
