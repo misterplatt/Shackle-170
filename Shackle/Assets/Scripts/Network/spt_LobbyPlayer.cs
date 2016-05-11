@@ -17,7 +17,7 @@ public class spt_LobbyPlayer : NetworkBehaviour {
 	void Update () {
         if (SceneManager.GetActiveScene().name != "net_playerlobby") return;
         if (!isLocalPlayer) return;
-
+        
         if (spt_playerControls.startButtonPressed()) {
             isReady = !isReady;
             if (!isServer) Cmd_updateReady(isReady);
