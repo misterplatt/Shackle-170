@@ -2,10 +2,11 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 4/28/2016
+ * Last Revision Date: 5/11/2016
  * 
  * This file handles all of the monster's animations, and the translations needed to properly frame them.
- * This includes: the attacking animation/attacking capability.*/
+ * This includes: the attacking animation/attacking capability.
+ * In addition, this is where the monster's particle system (the spooky smoke) is turned on and off. */
 
 using UnityEngine;
 using UnityEngine.Networking;
@@ -34,6 +35,7 @@ public class spt_monsterAnimations : NetworkBehaviour {
     public GameObject[] interactables;
     public Vector3[] interactableAnimationStartingPositions;
 
+    private bool particlesTimed = false;
 
     public void Update()
     {
@@ -43,6 +45,11 @@ public class spt_monsterAnimations : NetworkBehaviour {
         SkinnedMeshRenderer[] renderers = this.GetComponentsInChildren<SkinnedMeshRenderer>();
         for (int i = 0; i < renderers.Length; i++)
             renderers[i].enabled = render;
+        if (!particlesTimed)
+        {
+            Invoke("particlesOn", 30);
+            particlesTimed = true;
+        }
     }
 
     // This function handles the monster's attack animation.
@@ -76,6 +83,7 @@ public class spt_monsterAnimations : NetworkBehaviour {
                 monsterAttackInitiated = true;
                 isInteracting = true;
                 movementScript.setWaypoint(999);
+                particlesOn();
                 // play animation
             }
 
@@ -91,6 +99,7 @@ public class spt_monsterAnimations : NetworkBehaviour {
                 monsterAttackInitiated = true;
                 isInteracting = true;
                 movementScript.setWaypoint(999);
+                particlesOn();
                 // play animation
             }
         }
@@ -141,6 +150,20 @@ public class spt_monsterAnimations : NetworkBehaviour {
             movementScript.setDestination(movementScript.waypoints[movementScript.prevWaypoint]);
             movementScript.currentWaypoint = movementScript.prevWaypoint;
 
+            particlesOff();
         }
+    }
+
+    public void particlesOn()
+    {
+        gameObject.GetComponentInChildren<ParticleSystem>().enableEmission = true;
+        Invoke("particlesOff", 2);
+    }
+
+    public void particlesOff()
+    {
+        if (isInteracting) return;
+        gameObject.GetComponentInChildren<ParticleSystem>().enableEmission = false;
+        particlesTimed = false;
     }
 }

@@ -2538,6 +2538,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 218556794}
   secondarySound: {fileID: 0}
+  placed: 0
 --- !u!114 &218556794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3889,6 +3890,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 362130207}
   secondarySound: {fileID: 0}
+  placed: 0
 --- !u!114 &362130207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13603,6 +13605,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 1018597392}
   secondarySound: {fileID: 0}
+  placed: 0
 --- !u!114 &1018597392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15848,6 +15851,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 1245221620}
   secondarySound: {fileID: 0}
+  placed: 0
 --- !u!114 &1245221620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16257,6 +16261,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 1285254284}
   secondarySound: {fileID: 0}
+  placed: 1
 --- !u!114 &1285254284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23944,6 +23949,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 2001781408}
   secondarySound: {fileID: 0}
+  placed: 1
 --- !u!114 &2001781408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24495,6 +24501,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 2031974352}
   secondarySound: {fileID: 0}
+  placed: 0
 --- !u!114 &2031974352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25764,6 +25771,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 2143476961}
   secondarySound: {fileID: 0}
+  placed: 0
 --- !u!114 &2143476961
 MonoBehaviour:
   m_ObjectHideFlags: 0
