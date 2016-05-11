@@ -243,8 +243,8 @@ namespace VRStandardAssets.Utils
                 if (pInv.inventory[itemIndex].Contains("mirrorPickup"))
                 {
                     Debug.Log("firing command to add mirror");
-                    pInv.removeItm(mirror.name);
-                    Cmd_AddMirror(mirror.name, currentInteractibleName);
+                    Cmd_AddMirror(pInv.inventory[itemIndex], currentInteractibleName);
+                    pInv.removeItm(pInv.inventory[itemIndex]);
                     Cmd_UpdateMirrors(laserStatus());
                 }
 
@@ -355,15 +355,16 @@ namespace VRStandardAssets.Utils
         public void Cmd_AddMirror( string mirrorName, string standName )
         {
             Debug.Log("I'm adding a mirror, I tink.        ");
+            Debug.Log("mirrorName : " + mirrorName);
             GameObject mirror = GameObject.Find(mirrorName);
             GameObject stand = GameObject.Find(standName);
 
-            mirror.transform.position = new Vector3(stand.transform.position.x, stand.transform.position.y + 1.3f, stand.transform.position.z);
             foreach (Transform child in stand.transform)
             {
                 if (child.gameObject.tag == "mirrorHandle")
                 {
-                    Debug.Log("Mirror Found");
+                    Debug.Log("Mirror Found : " + child.gameObject.name);
+                    Debug.Log("Attaching " + mirror.name + " to " + child.gameObject.name);
                     mirror.transform.position = new Vector3(stand.transform.position.x, stand.transform.position.y + 1.3f, stand.transform.position.z);
                     mirror.transform.parent = child;
                     break;
