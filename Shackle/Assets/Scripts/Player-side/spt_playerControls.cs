@@ -1,5 +1,5 @@
 ﻿/*
-spt_plyaerControls
+spt_playerControls
 
 Author(s): Dara Diba
 
