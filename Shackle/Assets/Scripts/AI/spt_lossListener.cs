@@ -46,6 +46,7 @@ public class spt_lossListener : NetworkBehaviour {
         }
         else if (spt_playerControls.bButtonPressed() && loss)
         {
+            Debug.Log("MainMenu");
             if (this.transform.root.gameObject.GetComponent<NetworkIdentity>().isServer)
             {
                 GameObject.Find("NetworkManager").GetComponent<NetworkManager>().StopHost();

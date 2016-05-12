@@ -19,16 +19,6 @@ public class spt_ManagerMenuInterface : NetworkBehaviour {
 
         if (Input.GetKeyDown(KeyCode.F10)) connectLocal();
 
-        if (monster != null)
-        {
-            if (monster.GetComponent<spt_monsterMovement>().pLoss && Input.anyKeyDown)
-            {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().outputMetrics();
-                manager.StopHost();
-                manager.StopClient();
-            }
-        }
-
         if (Input.GetKeyDown(KeyCode.F12))
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().outputMetrics();
