@@ -24,7 +24,7 @@ public class spt_AudioObject : MonoBehaviour {
         }
         else
         {
-            DontDestroyOnLoad(transform.gameObject);
+            DontDestroyOnLoad(gameObject);
             instance = this;
         }
     }

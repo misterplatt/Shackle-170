@@ -37,16 +37,16 @@ public class spt_lossListener : NetworkBehaviour {
         if(spt_playerControls.aButtonPressed() && loss)
         {
             Debug.Log("Restarting");
-            if (isServer)
+            if (this.transform.root.gameObject.GetComponent<NetworkIdentity>().isServer)
             {
-                Debug.Log("Now");
+                Debug.Log("Now : " + SceneManager.GetActiveScene().name);
                 GameObject.Find("NetworkManager").GetComponent<NetworkManager>().ServerChangeScene(SceneManager.GetActiveScene().name);
             }
 
         }
         else if (spt_playerControls.bButtonPressed() && loss)
         {
-            if (isServer)
+            if (this.transform.root.gameObject.GetComponent<NetworkIdentity>().isServer)
             {
                 GameObject.Find("NetworkManager").GetComponent<NetworkManager>().StopHost();
             }
