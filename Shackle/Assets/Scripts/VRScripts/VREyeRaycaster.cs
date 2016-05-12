@@ -46,10 +46,6 @@ namespace VRStandardAssets.Utils
         private Vector3 lastPosition;
         private Quaternion lastRot;
 
-        //Network Transmission Constants
-        private float POSITION_THRE = 0.1F;
-        private float ROTATION_THRE = 1F;
-
         // Utility for other classes to get the current interactive item
         public VRInteractiveItem CurrentInteractible
         {
@@ -257,12 +253,7 @@ namespace VRStandardAssets.Utils
                 if (mirror.transform.parent.name.Contains("mirrorHandle")) return;
                 Cmd_SendMirrorToHell(currentInteractibleName);
             }
-        }
-
-        private void getAndRemoveMirror()
-        {
-
-        }
+        }        
 
         private void resetCurrentInter()
         {
