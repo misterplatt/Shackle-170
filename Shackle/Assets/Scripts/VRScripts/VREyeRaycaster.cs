@@ -253,6 +253,8 @@ namespace VRStandardAssets.Utils
             }
             else if (currentInteractibleName.Contains("mirrorPickup") && spt_playerControls.aButtonPressed())
             {
+                GameObject mirror = GameObject.Find(currentInteractibleName);
+                if (mirror.transform.parent.name.Contains("mirrorHandle")) return;
                 Cmd_SendMirrorToHell(currentInteractibleName);
             }
         }
