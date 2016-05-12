@@ -24,6 +24,8 @@ namespace VRStandardAssets.Examples
         private MeshRenderer laserMesh;
         private BoxCollider laserCollider;
 
+        public static bool local_isLaserOn = false;
+
         private Vector3 initialPosition;
         private Quaternion initialRotation;
         private GameObject metalSwitch;
@@ -45,20 +47,8 @@ namespace VRStandardAssets.Examples
             if (Input.GetKeyDown(KeyCode.L)) currentState = !currentState;
             //GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", true, "Joystick_base")
 
-            currentState = (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state);
-
-            if (currentState == true)
-            {
-                aSource.clip = laserStart;
-                aSource.Play();
-                Invoke("LaserMachinePurr", 10f);
-                laserMesh.enabled = currentState;
-                laserCollider.enabled = currentState;
-                metalSwitch.transform.eulerAngles = new Vector3(-25.5f, 2.3f, -4f);
-                if (gameObject.name == "Joystick_base") GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", true, "Joystick_base");
-
-            }
-            else if (currentState == false)
+            //POSSIBLY REMEDIED BY HAVING MONSTER'S RESET ITEM JUST CALL CLICKSUCCESS()?
+            /*if (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == false)
             {
                 aSource.Stop();
                 aSource.loop = false;
@@ -66,8 +56,11 @@ namespace VRStandardAssets.Examples
                 laserCollider.enabled = currentState;
                 metalSwitch.transform.position = initialPosition;
                 metalSwitch.transform.rotation = initialRotation;
-                if (gameObject.name == "Joystick_base") GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", false, "Joystick_base");
-            }
+
+                //NPL Update
+                local_isLaserOn = false;
+                spt_WorldState.worldStateChanged = true;
+            }*/
         }
 
         override protected void clickSuccess()
@@ -83,7 +76,10 @@ namespace VRStandardAssets.Examples
                 laserMesh.enabled = currentState;
                 laserCollider.enabled = currentState;
                 metalSwitch.transform.eulerAngles = new Vector3(-25.5f, 2.3f, -4f);
-                if (gameObject.name == "Joystick_base") GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", true, "Joystick_base");
+
+                //NPL Update
+                local_isLaserOn = true;
+                spt_WorldState.worldStateChanged = true;
 
             }
             else if (currentState == false)
@@ -94,7 +90,10 @@ namespace VRStandardAssets.Examples
                 laserCollider.enabled = currentState;
                 metalSwitch.transform.position = initialPosition;
                 metalSwitch.transform.rotation = initialRotation;
-                if (gameObject.name == "Joystick_base") GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", false, "Joystick_base");
+
+                //NPL Update
+                local_isLaserOn = false;
+                spt_WorldState.worldStateChanged = true;
             }
         }
 

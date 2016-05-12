@@ -1102,6 +1102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e46aa0b99caec4da7a9c70c9b05433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loss: 0
 --- !u!114 &11453624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1511,10 +1512,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffebc012055484b4899e163803755608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heldSuccess: 0
   m_Camera: {fileID: 473288}
   m_ExclusionLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   m_Reticle: {fileID: 11459018}
   m_VrInput: {fileID: 11480788}
   m_ShowDebugRay: 1

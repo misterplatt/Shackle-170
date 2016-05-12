@@ -218,6 +218,18 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                     Debug.Log("Updating laserHitPanel on the network to " + VRStandardAssets.Examples.spt_panelListener.local_laserHitPanel);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("laserHitPanel", true, "Security Panel");
                 }
+                //If the player turns on or off the laser machine, update server state
+                if (VRStandardAssets.Examples.spt_laserSwitch.local_isLaserOn != PuzzleStates[4].state)
+                {
+                    Debug.Log("Updating isLaserOn on the network to " + VRStandardAssets.Examples.spt_laserSwitch.local_isLaserOn);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", VRStandardAssets.Examples.spt_laserSwitch.local_isLaserOn, "Joystick_base");
+                }
+                //If the player turns on or off the laser machine, update server state
+                if (VRStandardAssets.Examples.spt_keypad.local_doorOpen != PuzzleStates[8].state)
+                {
+                    Debug.Log("Updating doorOpen on the network to " + VRStandardAssets.Examples.spt_keypad.local_doorOpen);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("doorOpen", VRStandardAssets.Examples.spt_keypad.local_doorOpen, "mdl_keypad+doors");
+                }
                 //If player A has pressed their TNT lever, update server state. State reverts after lever has risen after x seconds.
                 if (VRStandardAssets.Examples.spt_TNTLever.local_leverAPressed != PuzzleStates[10].state)
                 {

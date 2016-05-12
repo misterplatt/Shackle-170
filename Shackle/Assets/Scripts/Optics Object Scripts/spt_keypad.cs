@@ -17,7 +17,9 @@ namespace VRStandardAssets.Examples
 {
     public class spt_keypad : spt_baseInteractiveObject
     {
-        public float openDuration = 3f;
+        public static bool local_doorOpen = false;
+
+        //public float openDuration = 3f;
         public AudioClip doorCloseSound;
         public AudioClip doorOpenSound;
         private bool once = false;
@@ -36,21 +38,14 @@ namespace VRStandardAssets.Examples
             if (!once) {
                 transform.FindChild("lab_doors/left_door").transform.Translate(Vector3.right * 0.8f);
                 transform.FindChild("lab_doors/right_door").transform.Translate(Vector3.left * 1f);
-                GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("doorOpen", true, "KeyPad");
                 holding = false;
                 once = true;
-                Invoke("CloseDoors", openDuration);
-            }
-        }
+                //Invoke("CloseDoors", openDuration);
 
-        //Function which closes the doors after openDuration seconds
-        void CloseDoors() {
-            aSource.clip = doorCloseSound;
-            aSource.Play();
-            transform.FindChild("lab_doors/left_door").transform.Translate(Vector3.right * -0.8f);
-            transform.FindChild("lab_doors/right_door").transform.Translate(Vector3.left * -1f);
-            GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("doorOpen", false, "KeyPad");
-            once = false;
+                //NPL Update
+                local_doorOpen = true;
+                spt_WorldState.worldStateChanged = true;
+            }
         }
 
         protected override void HandleDown()
@@ -73,5 +68,19 @@ namespace VRStandardAssets.Examples
 
         //Plug HandleClick
         override protected void HandleClick() { }
+
+        //Function which monster closes the doors with
+        public override void resetItem()
+        {
+            aSource.clip = doorCloseSound;
+            aSource.Play();
+            transform.FindChild("lab_doors/left_door").transform.Translate(Vector3.right * -0.8f);
+            transform.FindChild("lab_doors/right_door").transform.Translate(Vector3.left * -1f);
+            once = false;
+
+            //NPL Update
+            local_doorOpen = false;
+            spt_WorldState.worldStateChanged = true;
+        }
     }
 }
