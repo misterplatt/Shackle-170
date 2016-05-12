@@ -17406,13 +17406,13 @@ MonoBehaviour:
     item: {fileID: 1789032113}
     isMonstInteractable: 1
   - eventName: mirror0
-    item: {fileID: 0}
+    item: {fileID: 1176935037}
     isMonstInteractable: 0
   - eventName: mirror1
-    item: {fileID: 0}
+    item: {fileID: 2128668433}
     isMonstInteractable: 0
   - eventName: mirror2
-    item: {fileID: 0}
+    item: {fileID: 1979426694}
     isMonstInteractable: 0
   - eventName: doorOpen
     item: {fileID: 477959863}
