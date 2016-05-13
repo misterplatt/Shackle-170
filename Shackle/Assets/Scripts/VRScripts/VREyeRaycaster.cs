@@ -88,8 +88,8 @@ namespace VRStandardAssets.Utils
             lastPosition = Vector3.zero;
             lastRot = Quaternion.identity;
 
-            mirrorH1 = GameObject.Find("mirrorHandle (2)");
-            mirrorH2 = GameObject.Find("mirrorHandle (3)");
+            mirrorH1 = GameObject.Find("mdl_mirrorHandle (2)");
+            mirrorH2 = GameObject.Find("mdl_mirrorHandle (3)");
             m1RotLast = mirrorH1.transform.rotation.eulerAngles;
             m2RotLast = mirrorH2.transform.rotation.eulerAngles;
         }
@@ -340,6 +340,7 @@ namespace VRStandardAssets.Utils
             Debug.Log("Cli");
             Debug.Log("last : " + m1RotLast);
             Debug.Log("current : " + mirrorH1.transform.rotation.eulerAngles);
+
             if ( (!mirrorH1.transform.rotation.eulerAngles.Equals(m1RotLast) ) || (!mirrorH2.transform.rotation.eulerAngles.Equals(m2RotLast)) )
             {
                 Debug.Log("Fuck you");
