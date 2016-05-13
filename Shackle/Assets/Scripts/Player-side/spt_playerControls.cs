@@ -10,14 +10,15 @@ Provides the logic and functions for player input
 
 using UnityEngine;
 using System.Collections;
+using System;
 using XInputDotNetPure; // Required in C#
 
 public class spt_playerControls : MonoBehaviour
 {
 
     static PlayerIndex playerIndex = 0;
-    private static float timer = 0;
-    private static float timerend = 0;
+    private static DateTime timer;
+    private static DateTime timerend;
 
 
 
@@ -200,7 +201,7 @@ public class spt_playerControls : MonoBehaviour
     }
 
     // Vibrates the controller with a given force, specific vibration motor and for a selected amount of time
-    public static void controllerVibration(string motor, float force, float vibrateTime)
+    public static void controllerVibration(string motor, float force, double vibrateTime)
     {
         /*
         while (timer <= vibrateTime)
@@ -216,20 +217,17 @@ public class spt_playerControls : MonoBehaviour
             timer = 0;
         }
         */
-        timer = Time.realtimeSinceStartup;
-        timerend = timer + vibrateTime;
-        while (timer <= timerend)
+        timer = DateTime.Now;
+        timerend = timer.AddSeconds(vibrateTime);
+        while (timer.Second < timerend.Second)
         {
+
             if (motor == "Rough") GamePad.SetVibration(playerIndex, force, 0);
             if (motor == "Smooth") GamePad.SetVibration(playerIndex, 0, force);
             if (motor == "Both") GamePad.SetVibration(playerIndex, force, force);
-            timer = Time.realtimeSinceStartup;
+            timer = DateTime.Now;
         }
-        if (timer > timerend)
-        {
             GamePad.SetVibration(playerIndex, 0, 0);
-            timer = timerend = 0;
-        }
-
+            //timer = timerend = 0;
     }
 }
