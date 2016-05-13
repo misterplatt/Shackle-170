@@ -24,10 +24,10 @@ public class spt_mirrorSync : NetworkBehaviour {
         //Initalize whether or not this is the 4th mirror
         isFourthMirror = (gameObject.name == "mdl_mirrorPickup (4)");
     }
-
+    /* THIS CODE BREAKS NETWORKED MIRRORS
     void Update()
     {
         //If the labDoor isn't open and this is the 4th mirror, stop emitting the laser
         if (isFourthMirror && GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[8].state == false) emitsLaser = false;
-    }
+    }*/
 }
