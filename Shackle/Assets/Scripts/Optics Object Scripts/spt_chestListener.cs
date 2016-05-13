@@ -16,7 +16,7 @@ namespace VRStandardAssets.Examples
 {
     public class spt_chestListener : spt_baseInteractiveObject
     {
-        /*
+        
         public static bool local_laserHitLock = false;
         private bool once = false;
         private Vector3 spherePos;
@@ -50,11 +50,11 @@ namespace VRStandardAssets.Examples
             //If the laser has hit the lock, open the chest
             if (!once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == true)
             {
-                aSource.Play();
+//                aSource.Play();
                 transform.parent.eulerAngles = new Vector3(-50,270,0);
                 once = true;
             }
         }
-        */
+        
     }
 }
