@@ -2104,7 +2104,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5d4a6baa888cd6a46b023126cab61665, type: 2}
+  - {fileID: 2100000, guid: 50e05e581240adc4ba7615da6ddd5282, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -4762,7 +4762,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5d4a6baa888cd6a46b023126cab61665, type: 2}
+  - {fileID: 2100000, guid: 50e05e581240adc4ba7615da6ddd5282, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -4837,7 +4837,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5d4a6baa888cd6a46b023126cab61665, type: 2}
+  - {fileID: 2100000, guid: 50e05e581240adc4ba7615da6ddd5282, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -7100,7 +7100,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5d4a6baa888cd6a46b023126cab61665, type: 2}
+  - {fileID: 2100000, guid: 50e05e581240adc4ba7615da6ddd5282, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -7899,7 +7899,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5d4a6baa888cd6a46b023126cab61665, type: 2}
+  - {fileID: 2100000, guid: 50e05e581240adc4ba7615da6ddd5282, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -8790,7 +8790,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5d4a6baa888cd6a46b023126cab61665, type: 2}
+  - {fileID: 2100000, guid: 50e05e581240adc4ba7615da6ddd5282, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -14616,7 +14616,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5d4a6baa888cd6a46b023126cab61665, type: 2}
+  - {fileID: 2100000, guid: 50e05e581240adc4ba7615da6ddd5282, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -14758,7 +14758,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5d4a6baa888cd6a46b023126cab61665, type: 2}
+  - {fileID: 2100000, guid: 50e05e581240adc4ba7615da6ddd5282, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -17969,7 +17969,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5d4a6baa888cd6a46b023126cab61665, type: 2}
+  - {fileID: 2100000, guid: 50e05e581240adc4ba7615da6ddd5282, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -20210,7 +20210,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5d4a6baa888cd6a46b023126cab61665, type: 2}
+  - {fileID: 2100000, guid: 50e05e581240adc4ba7615da6ddd5282, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -21376,7 +21376,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 1960417455}
   movingSound: {fileID: 8300000, guid: 9c30b3f225ea5814b8568c053aa2771b, type: 3}
-  HaydenIdea: 1
+  HaydenIdea: -1
   moveSpeed: 1
   moveOnLocalX: 1
   moveOnLocalY: 0
@@ -21385,11 +21385,11 @@ MonoBehaviour:
   clampGlobalY: 0
   clampGlobalZ: 1
   x_maxNegativeDistance: 0
-  x_maxPositiveDistance: 1
+  x_maxPositiveDistance: 0.8
   y_maxNegativeDistance: 0
   y_maxPositiveDistance: 0
   z_maxNegativeDistance: 0
-  z_maxPositiveDistance: 1
+  z_maxPositiveDistance: 0.01
   optional_movePathImage: {fileID: 0}
 --- !u!82 &1960417462
 AudioSource:
@@ -22597,7 +22597,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5d4a6baa888cd6a46b023126cab61665, type: 2}
+  - {fileID: 2100000, guid: 50e05e581240adc4ba7615da6ddd5282, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
