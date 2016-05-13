@@ -64,13 +64,13 @@ public class spt_Network_Movement : NetworkBehaviour {
         linkSpawnPrefab();
         hostAnimator_var = 0;
         clientAnimator_var = 0;
-        moveSound = GameObject.Find("MovementSound").GetComponent<AudioSource>();
     }
 
     //linkModelPrefab find's the proper player model and uses it to collect the animator.
     void linkModelPrefab() {
         GameObject[] playerModels = GameObject.FindGameObjectsWithTag("pModel");
         GameObject closest = playerModels[0];
+        moveSound = GameObject.Find("MovementSound").GetComponent<AudioSource>();
         float minDist = Vector3.Distance(this.transform.position, playerModels[0].transform.position);
 
         //find the closest playermodel and assign it's reference to out instance var
