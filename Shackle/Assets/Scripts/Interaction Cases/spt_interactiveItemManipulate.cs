@@ -83,9 +83,7 @@ namespace VRStandardAssets.Examples
         //Handle the Click event, alternates states on every press
         override protected void clickSuccess()
         {
-            //Debug.Log("Show click state");
             currentState = true;
-            //m_Renderer.material = m_StateOneMaterial;
         }
     }
 }
