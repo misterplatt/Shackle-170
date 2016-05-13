@@ -46,6 +46,12 @@ namespace VRStandardAssets.Utils
         private Vector3 lastPosition;
         private Quaternion lastRot;
 
+        //Rotation Stuff
+        private Vector3 m1RotLast;
+        private Vector3 m2RotLast;
+        GameObject mirrorH1;
+        GameObject mirrorH2;
+
         // Utility for other classes to get the current interactive item
         public VRInteractiveItem CurrentInteractible
         {
@@ -81,6 +87,11 @@ namespace VRStandardAssets.Utils
             lastInteractableName = "";
             lastPosition = Vector3.zero;
             lastRot = Quaternion.identity;
+
+            mirrorH1 = GameObject.Find("mirrorHandle (2)");
+            mirrorH2 = GameObject.Find("mirrorHandle (3)");
+            m1RotLast = mirrorH1.transform.rotation.eulerAngles;
+            m2RotLast = mirrorH2.transform.rotation.eulerAngles;
         }
 
         private void Update()
@@ -214,6 +225,8 @@ namespace VRStandardAssets.Utils
         private void updateInteractable()
         {
             if (isServer) return;
+            Client_MirrorSync();
+            /*
             if (currentInteractibleName.Contains("mirrorHandle")) {
                 if(spt_playerControls.aButtonPressed()) {
                     Debug.Log("Rotating");
@@ -221,8 +234,8 @@ namespace VRStandardAssets.Utils
                     Cmd_InteractableMove(currentInteractibleName, mirror.transform.position, mirror.transform.rotation);//spt_playerControls.leftThumb("Horizontal"));
                     Cmd_UpdateMirrors(laserStatus());
                 }
-            }
-            else if (currentInteractibleName.Contains("mirrorStand") && heldSuccess)
+            }*/
+            if (currentInteractibleName.Contains("mirrorStand") && heldSuccess)
             {
                 Debug.Log("attaching mirror");
                 spt_inventory pInv = GetComponent<spt_inventory>();
@@ -247,7 +260,7 @@ namespace VRStandardAssets.Utils
                 //if stand check if mirror on it, if not take mirror from inventory, add to stand on server.
                 heldSuccess = false;
             }
-            else if (currentInteractibleName.Contains("mirrorPickup") && spt_playerControls.aButtonPressed())
+            else if (currentInteractibleName.Contains("mirrorPickup") && Input.GetButtonDown("aButton"))
             {
                 GameObject mirror = GameObject.Find(currentInteractibleName);
                 if (mirror.transform.parent.name.Contains("mirrorHandle")) return;
@@ -324,14 +337,26 @@ namespace VRStandardAssets.Utils
         //Clientside function to send mirror updates
         public void Client_MirrorSync()
         {
-
-
+            Debug.Log("Cli");
+            Debug.Log("last : " + m1RotLast);
+            Debug.Log("current : " + mirrorH1.transform.rotation.eulerAngles);
+            if ( (!mirrorH1.transform.rotation.eulerAngles.Equals(m1RotLast) ) || (!mirrorH2.transform.rotation.eulerAngles.Equals(m2RotLast)) )
+            {
+                Debug.Log("Fuck you");
+                Cmd_SyncMirrors(mirrorH1.transform.rotation.eulerAngles, mirrorH2.transform.rotation.eulerAngles);
+                m1RotLast = mirrorH1.transform.rotation.eulerAngles;
+                m2RotLast = mirrorH2.transform.rotation.eulerAngles;
+            }
+                            
+            
         }
 
         //Second option for updating mirrors in net_optics
         [Command]
-        public void Cmd_SyncMirrors()
+        public void Cmd_SyncMirrors(Vector3 m1Rot, Vector3 m2Rot)
         {
+            mirrorH1.transform.localEulerAngles = new Vector3(m1Rot.x, m1Rot.y, m1Rot.z);
+            mirrorH2.transform.localEulerAngles = new Vector3(m2Rot.x, m2Rot.y, m2Rot.z);
         }
 
         

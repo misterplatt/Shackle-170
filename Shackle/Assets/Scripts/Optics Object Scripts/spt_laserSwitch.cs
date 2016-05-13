@@ -60,7 +60,6 @@ namespace VRStandardAssets.Examples
 
                 //NPL Update
                 local_isLaserOn = true;
-                spt_WorldState.worldStateChanged = true;
 
             }
             else if (currentState == false)
@@ -74,7 +73,6 @@ namespace VRStandardAssets.Examples
 
                 //NPL Update
                 local_isLaserOn = false;
-                spt_WorldState.worldStateChanged = true;
             }
             //POSSIBLY REMEDIED BY HAVING MONSTER'S RESET ITEM JUST CALL CLICKSUCCESS()?
             /*if (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == false)

@@ -11,3 +11,16 @@ barrelExplosion,-1
 leverAPressed,-1
 leverBPressed,-1
 puzzleCompletionMonster,-1
+puzzleCompletion,-1
+laserHitLock,-1
+laserHitPanel,-1
+playerLoss,-1
+isLaserOn,-1
+mirror0,-1
+mirror1,-1
+mirror2,-1
+doorOpen,-1
+barrelExplosion,-1
+leverAPressed,-1
+leverBPressed,-1
+puzzleCompletionMonster,-1

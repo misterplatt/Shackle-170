@@ -17,4 +17,9 @@ public class spt_WorldState : NetworkBehaviour {
 
     [SyncVar]
     public bool playCrashSound = false;
+    
+    void Start()
+    {
+        worldStateChanged = false;
+    }
 }

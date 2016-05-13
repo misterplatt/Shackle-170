@@ -16,7 +16,6 @@ TagManager:
   - spawn
   - mirrorHandle
   - Fire
-  - mirror
   layers:
   - Default
   - TransparentFX
