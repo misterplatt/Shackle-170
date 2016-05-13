@@ -38,7 +38,6 @@ namespace VRStandardAssets.Examples
                 //Check each collider
                 foreach (Collider col in hitColliders)
                 {
-                    
                     if (col.gameObject.tag == "laser")
                     {
                         //If a laser has hit the lock, set the corresponding puzzle state to true

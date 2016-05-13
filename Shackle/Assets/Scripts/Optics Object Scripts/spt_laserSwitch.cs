@@ -58,9 +58,6 @@ namespace VRStandardAssets.Examples
                 laserCollider.enabled = currentState;
                 metalSwitch.transform.eulerAngles = new Vector3(-25.5f, 2.3f, -4f);
 
-                //NPL Update
-                local_isLaserOn = true;
-
             }
             else if (currentState == false)
             {
@@ -70,24 +67,7 @@ namespace VRStandardAssets.Examples
                 laserCollider.enabled = currentState;
                 metalSwitch.transform.position = initialPosition;
                 metalSwitch.transform.rotation = initialRotation;
-
-                //NPL Update
-                local_isLaserOn = false;
             }
-            //POSSIBLY REMEDIED BY HAVING MONSTER'S RESET ITEM JUST CALL CLICKSUCCESS()?
-            /*if (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == false)
-            {
-                aSource.Stop();
-                aSource.loop = false;
-                laserMesh.enabled = currentState;
-                laserCollider.enabled = currentState;
-                metalSwitch.transform.position = initialPosition;
-                metalSwitch.transform.rotation = initialRotation;
-
-                //NPL Update
-                local_isLaserOn = false;
-                spt_WorldState.worldStateChanged = true;
-            }*/
         }
 
         override protected void clickSuccess()
