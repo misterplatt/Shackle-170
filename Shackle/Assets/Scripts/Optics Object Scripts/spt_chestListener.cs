@@ -40,6 +40,7 @@ namespace VRStandardAssets.Examples
                 {
                     if (col.gameObject.tag == "laser")
                     {
+                        aSource.Play();
                         //If a laser has hit the lock, set the corresponding puzzle state to true
                         local_laserHitLock = true;
                         spt_WorldState.worldStateChanged = true;
@@ -50,7 +51,6 @@ namespace VRStandardAssets.Examples
             //If the laser has hit the lock, open the chest
             if (!once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == true)
             {
-//                aSource.Play();
                 transform.parent.eulerAngles = new Vector3(-50,270,0);
                 once = true;
             }
