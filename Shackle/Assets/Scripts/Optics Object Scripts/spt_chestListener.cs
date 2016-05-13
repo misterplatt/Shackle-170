@@ -16,6 +16,7 @@ namespace VRStandardAssets.Examples
 {
     public class spt_chestListener : spt_baseInteractiveObject
     {
+        /*
         public static bool local_laserHitLock = false;
         private bool once = false;
         private Vector3 spherePos;
@@ -54,5 +55,6 @@ namespace VRStandardAssets.Examples
                 once = true;
             }
         }
+        */
     }
 }
