@@ -43,8 +43,7 @@ public class spt_Network_Movement : NetworkBehaviour {
 
     void Start()
     {
-        moveSoundA = GameObject.Find("MovementSoundA").GetComponent<AudioSource>();
-        moveSoundB = GameObject.Find("MovementSoundB").GetComponent<AudioSource>();
+
         mListener = GameObject.Find("WorldState").GetComponent<spt_Network_MovementListener>();
         lStickInput = 0.0F;
 
@@ -65,6 +64,8 @@ public class spt_Network_Movement : NetworkBehaviour {
         linkSpawnPrefab();
         hostAnimator_var = 0;
         clientAnimator_var = 0;
+        moveSoundA = GameObject.Find("MovementSoundA").GetComponent<AudioSource>();
+        moveSoundB = GameObject.Find("MovementSoundB").GetComponent<AudioSource>();
     }
 
     //linkModelPrefab find's the proper player model and uses it to collect the animator.
