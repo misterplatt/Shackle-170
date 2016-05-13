@@ -321,7 +321,19 @@ namespace VRStandardAssets.Utils
             return output;
         }
 
-        //Doesn't work because unet rules
+        //Clientside function to send mirror updates
+        public void Client_MirrorSync()
+        {
+
+
+        }
+
+        //Second option for updating mirrors in net_optics
+        [Command]
+        public void Cmd_SyncMirrors()
+        {
+        }
+
         
         //Command for updating an interactable location on server.
         [Command]
