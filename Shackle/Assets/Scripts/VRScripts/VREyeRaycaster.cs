@@ -337,9 +337,6 @@ namespace VRStandardAssets.Utils
         //Clientside function to send mirror updates
         public void Client_MirrorSync()
         {
-            Debug.Log("Cli");
-            Debug.Log("last : " + m1RotLast);
-            Debug.Log("current : " + mirrorH1.transform.rotation.eulerAngles);
 
             if ( (!mirrorH1.transform.rotation.eulerAngles.Equals(m1RotLast) ) || (!mirrorH2.transform.rotation.eulerAngles.Equals(m2RotLast)) )
             {
