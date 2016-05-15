@@ -237,7 +237,6 @@ namespace VRStandardAssets.Utils
             }*/
             if (currentInteractibleName.Contains("mirrorStand") && heldSuccess)
             {
-                Debug.Log("attaching mirror");
                 spt_inventory pInv = GetComponent<spt_inventory>();
                 GameObject mirror = pInv.retrieveObjectFromInventory(pInv.activeItem);
 
@@ -251,7 +250,6 @@ namespace VRStandardAssets.Utils
 
                 if (pInv.inventory[itemIndex].Contains("mirrorPickup"))
                 {
-                    Debug.Log("firing command to add mirror");
                     Cmd_AddMirror(pInv.inventory[itemIndex], currentInteractibleName);
                     pInv.removeItm(pInv.inventory[itemIndex]);
                     Cmd_UpdateMirrors(laserStatus());
@@ -278,7 +276,7 @@ namespace VRStandardAssets.Utils
         /*
         [Command]
         public void Cmd_InteractableMove(string name, float amount) {
-            GameObject mirror = GameObject.Find(name);
+            GameObject mirror = GameObject.Find(name);aaaaaaaaab
             float rotateSpeed = 10;
             Debug.Log("Rotating : " + name + " by : " + amount);
 
@@ -340,7 +338,6 @@ namespace VRStandardAssets.Utils
 
             if ( (!mirrorH1.transform.rotation.eulerAngles.Equals(m1RotLast) ) || (!mirrorH2.transform.rotation.eulerAngles.Equals(m2RotLast)) )
             {
-                Debug.Log("Fuck you");
                 Cmd_SyncMirrors(mirrorH1.transform.rotation.eulerAngles, mirrorH2.transform.rotation.eulerAngles);
                 m1RotLast = mirrorH1.transform.rotation.eulerAngles;
                 m2RotLast = mirrorH2.transform.rotation.eulerAngles;
