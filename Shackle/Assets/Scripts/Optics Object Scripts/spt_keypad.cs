@@ -30,6 +30,7 @@ namespace VRStandardAssets.Examples
         protected override void Start()
         {
             aSource = GetComponent<AudioSource>();
+            inventorySpt = GetComponent<VRInteractiveItem>().inventoryScript;
         }
 
         //Open the garage if opener is used on door for holdTime seconds
@@ -51,7 +52,7 @@ namespace VRStandardAssets.Examples
         protected override void HandleDown()
         {
             base.HandleDown();
-            if (!played)
+            if (!played && inventorySpt.retrieveObjectFromInventory(inventorySpt.activeItem).name.Contains(gateItemName))
             {
                 aSource.clip = doorOpenSound;
                 aSource.Play();
