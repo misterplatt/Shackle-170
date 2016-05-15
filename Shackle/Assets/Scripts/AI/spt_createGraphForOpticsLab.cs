@@ -41,11 +41,11 @@ public class spt_createGraphForOpticsLab : MonoBehaviour
         waypointGraph[5] = new int[] { 3, 4, 6, 7 };
         waypointGraph[6] = new int[] { 5, 8 };
         waypointGraph[7] = new int[] { 1, 2, 3, 4, 5 };
-        waypointGraph[8] = new int[] { 6, 9, 12 };
+        waypointGraph[8] = new int[] { 6, 9, 10, 12 };
         waypointGraph[9] = new int[] { 8, 10, 11, 12 };
         waypointGraph[10] = new int[] { 9 };
-        waypointGraph[11] = new int[] { 8, 9, 12, 13, 14 };
-        waypointGraph[12] = new int[] { 8, 9, 11, 13, 14 };
+        waypointGraph[11] = new int[] { 8, 9, 10, 12, 13, 14 };
+        waypointGraph[12] = new int[] { 8, 9, 10, 11, 13, 14 };
         waypointGraph[13] = new int[] { 11, 12, 14 };
         waypointGraph[14] = new int[] { 11, 12, 13, 15 };
         waypointGraph[15] = new int[] { 0, 14 };
