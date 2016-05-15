@@ -96,7 +96,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
         {
             GameObject uiMessager = transform.Find("Camera Player/VRCameraUI/WinMessage").gameObject;
             uiMessager.GetComponent<Text>().text = "You lose";
-            GetComponent<spt_lossListener>().loss = true;
+            uiMessager.GetComponent<spt_lossListener>().loss = true;
             uiMessager.GetComponent<Text>().enabled = true;
 
             //path to return to main menu.
