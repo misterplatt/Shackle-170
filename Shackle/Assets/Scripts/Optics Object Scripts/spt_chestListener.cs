@@ -31,6 +31,7 @@ namespace VRStandardAssets.Examples
         // Update is called once per frame
         override protected void Update()
         {
+
             //Check for laser collision while no laser has hit the lock
             if (!local_laserHitLock) {
                 //Accumulate list of colliders intersecting the chest lock's collider
@@ -52,6 +53,7 @@ namespace VRStandardAssets.Examples
             if (!once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == true)
             {
                 aSource.Play();
+                local_laserHitLock = true;
                 transform.parent.eulerAngles = new Vector3(-50,270,0);
                 once = true;
             }
