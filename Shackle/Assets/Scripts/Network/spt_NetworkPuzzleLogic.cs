@@ -210,7 +210,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 if (VRStandardAssets.Examples.spt_chestListener.local_laserHitLock)
                 {
                     Debug.Log("Updating laserHitLock on the network to " + VRStandardAssets.Examples.spt_chestListener.local_laserHitLock);
-                    //GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("laserHitLock", true, "mdl_chestLock");
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("laserHitLock", true, "mdl_chestLock");
                 }
                 //If a laser has intersected with the security panel, update server state
                 if (VRStandardAssets.Examples.spt_panelListener.local_laserHitPanel)
