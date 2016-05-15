@@ -2,9 +2,10 @@
  * 
  * Created by: Ryan Connors
  * 
- * Last Revision Date: 2/25/2016
+ * Last Revision Date: 5/15/2016
  * 
  * This file provides the logic for puzzle states in a Network Logic Environment.
+ * Added monster sounds. - Dara
  */
 
 using UnityEngine;
@@ -34,6 +35,7 @@ public struct LogicTuple
     public string itemName;
     public bool isMonsterInteractable;
     public float timeStamp;
+
 
     public LogicTuple(string _name="", bool _state=false, string _itemName="", bool interactable=false, float completionTime=-1.0f) {
         state = _state;
@@ -66,9 +68,12 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     public SyncListLogicPair PuzzleStates = new SyncListLogicPair();
     private spt_NetworkPuzzleLogic NPL;
     public bool loaded = false;
+    private spt_monsterAudio monsterAudio;
+
 
     void Start() {
         if (!isServer) return;
+        monsterAudio = GameObject.Find("MonsterStandin").GetComponent<spt_monsterAudio>();
         List<dev_LogicPair> devtool_PuzzleStates = GameObject.Find("PuzzleStates").GetComponent<spt_Events>().devtool_PuzzleStates;
 
         for (int index = 0; index < devtool_PuzzleStates.Count; ++index) {
@@ -94,6 +99,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
         if (mover.pLoss)
         {
+            monsterAudio.playAttackSound();
             GameObject uiMessager = transform.Find("Camera Player/VRCameraUI/WinMessage").gameObject;
             uiMessager.GetComponent<Text>().text = "You lose";
             uiMessager.GetComponent<spt_lossListener>().loss = true;

@@ -122,6 +122,7 @@ public class spt_monsterAudio : NetworkBehaviour
     {
         if (!attackSoundPlayed)
         {
+            Debug.Log("FUCK THIS MOTHERFUCKING SOUND" + source.clip);
             source.clip = attackSound;
             PlaySoundWithCallback(source.clip, setPlayFlags);
             attackSoundPlayed = true;
