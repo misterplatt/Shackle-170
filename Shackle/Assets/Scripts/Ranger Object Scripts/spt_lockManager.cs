@@ -38,18 +38,15 @@ public class spt_lockManager : MonoBehaviour
     //Postcon: channelNumber String array is altered
     public void updateDialStates(int index, int state)
     {
-        Debug.Log("FUCK: " + dialStates[1]);
         dialStates[index] = state;
         if (dialStates.SequenceEqual(correctStates))
         {
             aSource.Play();
             transform.FindChild("mdl_CL_metal").Translate(Vector3.up * 0.1F);
             //transform.FindChild("mdl_arch").Translate(Vector3.up * 0.1f);
-            GameObject.Find("mdl_cabinetDoor").GetComponent<Rigidbody>().useGravity = true; //OLD FUNCTIONALITY: transform.Translate(new Vector3(2, 0, 0));
+            GameObject.Find("mdl_cabinetDoor").GetComponent<Rigidbody>().useGravity = true;
 
             Invoke("returnLock", .3f);
-            
-            //Debug.Log("DIALS ALL CORRECT!$@##@#$");
         }
     }
 
