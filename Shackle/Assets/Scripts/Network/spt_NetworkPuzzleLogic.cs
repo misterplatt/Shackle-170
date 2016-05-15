@@ -100,6 +100,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
         if (mover.pLoss)
         {
+            // client side loss
             monsterAudio.playAttackSound();
             GameObject uiMessager = transform.Find("Camera Player/VRCameraUI/WinMessage").gameObject;
             uiMessager.GetComponent<Text>().text = "You lose";

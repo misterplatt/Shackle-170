@@ -71,9 +71,10 @@ public class spt_lossListener : NetworkBehaviour {
             if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count == 0) return;
             if ((player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].state == true)) //&& !once)
             {
+                //Host side loss
                 monsterAudio.playAttackSound();
                 Debug.Log(transform.parent.parent.parent.name + " " + player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].name);
-                GetComponent<Text>().text = "You lose Bitch";
+                GetComponent<Text>().text = "You lose";
                 GetComponent<Text>().enabled = true;
                 loss = true;
                 //transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
