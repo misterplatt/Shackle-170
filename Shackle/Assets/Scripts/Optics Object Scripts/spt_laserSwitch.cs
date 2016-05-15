@@ -26,17 +26,15 @@ namespace VRStandardAssets.Examples
 
         public static bool local_isLaserOn = false;
 
-        private Vector3 initialPosition;
-        private Quaternion initialRotation;
-        private GameObject metalSwitch;
+        private MeshRenderer metalSwitchOff;
+        private MeshRenderer metalSwitchOn;
         private AudioSource aSource;
         public AudioClip laserStart;
         public AudioClip laserPurr;
 
         override protected void Start() {
-            metalSwitch = transform.FindChild("Joystick_switch").gameObject;
-            initialPosition = metalSwitch.transform.position;
-            initialRotation = metalSwitch.transform.rotation;
+            metalSwitchOff = transform.FindChild("Joystick_switch").GetComponent<MeshRenderer>();
+            metalSwitchOn = transform.FindChild("Joystick_switch (1)").GetComponent<MeshRenderer>();
             laserMesh = transform.FindChild("Laser").gameObject.GetComponent<MeshRenderer>();
             laserCollider = transform.FindChild("Laser").gameObject.GetComponent<BoxCollider>();
             aSource = GetComponent<AudioSource>();
@@ -56,7 +54,8 @@ namespace VRStandardAssets.Examples
                 Invoke("LaserMachinePurr", 10f);
                 laserMesh.enabled = currentState;
                 laserCollider.enabled = currentState;
-                metalSwitch.transform.eulerAngles = new Vector3(-25.5f, 2.3f, -4f);
+                metalSwitchOff.enabled = false;
+                metalSwitchOn.enabled = true;
 
             }
             else if (currentState == false)
@@ -65,8 +64,8 @@ namespace VRStandardAssets.Examples
                 aSource.loop = false;
                 laserMesh.enabled = currentState;
                 laserCollider.enabled = currentState;
-                metalSwitch.transform.position = initialPosition;
-                metalSwitch.transform.rotation = initialRotation;
+                metalSwitchOff.enabled = true;
+                metalSwitchOn.enabled = false;
             }
         }
 
@@ -82,7 +81,8 @@ namespace VRStandardAssets.Examples
                 Invoke("LaserMachinePurr", 10f);
                 laserMesh.enabled = currentState;
                 laserCollider.enabled = currentState;
-                metalSwitch.transform.eulerAngles = new Vector3(-25.5f, 2.3f, -4f);
+                metalSwitchOff.enabled = false;
+                metalSwitchOn.enabled = true;
 
                 //NPL Update
                 local_isLaserOn = true;
@@ -97,8 +97,8 @@ namespace VRStandardAssets.Examples
                 aSource.loop = false;
                 laserMesh.enabled = currentState;
                 laserCollider.enabled = currentState;
-                metalSwitch.transform.position = initialPosition;
-                metalSwitch.transform.rotation = initialRotation;
+                metalSwitchOff.enabled = true;
+                metalSwitchOn.enabled = false;
 
                 //NPL Update
                 local_isLaserOn = false;
