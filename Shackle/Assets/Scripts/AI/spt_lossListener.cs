@@ -27,12 +27,12 @@ public class spt_lossListener : NetworkBehaviour {
 
     void Start()
     {
+        monsterAudio = GameObject.Find("MonsterStandin").GetComponent<spt_monsterAudio>();
         loss = false;
         player = this.transform.root.gameObject;
     }
 	// Update is called once per frame
 	void Update () {
-        monsterAudio = GameObject.Find("MonsterStandin").GetComponent<spt_monsterAudio>();
         if (spt_playerControls.aButtonPressed() && loss)
         {
             Debug.Log("Restarting");
