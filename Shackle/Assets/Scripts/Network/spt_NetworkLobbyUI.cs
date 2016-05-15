@@ -37,6 +37,7 @@ public class spt_NetworkLobbyUI : MonoBehaviour {
             }
         }
 
+
         if (Input.GetKeyDown(KeyCode.F12)) {
             GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().outputMetrics();
             manager.StopHost();

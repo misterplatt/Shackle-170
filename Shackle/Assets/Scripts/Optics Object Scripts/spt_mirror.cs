@@ -53,8 +53,8 @@ namespace VRStandardAssets.Examples
             bool laserPresent = (laserCount > 1);
             if (gameObject.name == "mdl_mirrorPickup (4)")
             {
-                if (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[8].state == false) mirrorSync.emitsLaser = false;
-                else mirrorSync.emitsLaser = laserPresent;
+               if (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[8].state == false) mirrorSync.emitsLaser = false;
+               else mirrorSync.emitsLaser = laserPresent;
             }
             else
             {
