@@ -74,7 +74,7 @@ public class spt_lossListener : NetworkBehaviour {
             {
                 monsterAudio.playAttackSound();
                 Debug.Log(transform.parent.parent.parent.name + " " + player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].name);
-                GetComponent<Text>().text = "You lose";
+                GetComponent<Text>().text = "You lose Bitch";
                 GetComponent<Text>().enabled = true;
                 loss = true;
                 //transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
