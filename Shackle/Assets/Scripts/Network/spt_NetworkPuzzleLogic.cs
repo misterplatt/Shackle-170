@@ -217,6 +217,8 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 {
                     Debug.Log("Updating laserHitPanel on the network to " + VRStandardAssets.Examples.spt_panelListener.local_laserHitPanel);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("laserHitPanel", true, "Security Panel");
+                    spt_WorldState.worldStateChanged = false;
+                    return;
                 }
                 //If the player turns on or off the laser machine, update server state
                 if (VRStandardAssets.Examples.spt_laserSwitch.local_isLaserOn != PuzzleStates[4].state)
