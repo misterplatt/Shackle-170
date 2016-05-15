@@ -73,7 +73,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
     void Start() {
         if (!isServer) return;
-        monsterAudio = GameObject.Find("MonsterStandin").GetComponent<spt_monsterAudio>();
+        //monsterAudio = GameObject.Find("MonsterStandin").GetComponent<spt_monsterAudio>();
         List<dev_LogicPair> devtool_PuzzleStates = GameObject.Find("PuzzleStates").GetComponent<spt_Events>().devtool_PuzzleStates;
 
         for (int index = 0; index < devtool_PuzzleStates.Count; ++index) {
@@ -96,6 +96,8 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
         GameObject monster = GameObject.FindWithTag("monster");
         if (monster == null) return;
         spt_monsterMovement mover = monster.GetComponent<spt_monsterMovement>();
+        monsterAudio = monster.GetComponent<spt_monsterAudio>();
+
 
         if (mover.pLoss)
         {
