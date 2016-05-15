@@ -13099,11 +13099,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: interactables.Array.size
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: interactableAnimationStartingPositions.Array.size
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 419816, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: m_LocalPosition.x
@@ -13251,11 +13251,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: interactableAnimationStartingPositions.Array.data[1].x
-      value: 7
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: interactableAnimationStartingPositions.Array.data[1].z
-      value: 4
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: interactableAnimationStartingPositions.Array.data[2].x
@@ -13284,11 +13284,11 @@ Prefab:
     - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: interactables.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1789032113}
     - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: interactables.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 477959863}
     - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: interactables.Array.data[2]
       value: 

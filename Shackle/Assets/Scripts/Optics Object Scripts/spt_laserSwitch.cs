@@ -88,7 +88,7 @@ namespace VRStandardAssets.Examples
                 local_isLaserOn = true;
                 spt_WorldState.worldStateChanged = true;
 
-                GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", true, "Joystick_base");
+                //GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", true, "Joystick_base");
 
             }
             else if (currentState == false)
@@ -104,7 +104,7 @@ namespace VRStandardAssets.Examples
                 local_isLaserOn = false;
                 spt_WorldState.worldStateChanged = true;
 
-                GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", false, "Joystick_base");
+                //GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", false, "Joystick_base");
             }
         }
 
@@ -121,7 +121,7 @@ namespace VRStandardAssets.Examples
 
         public override void resetItem()
         {
-            clickSuccess();
+            if(GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true) clickSuccess();
         }
     }
 }
