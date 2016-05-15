@@ -66,6 +66,7 @@ namespace VRStandardAssets.Examples
         void DestroyPoster()
         {
             Destroy(GameObject.Find("Poster"));
+            transform.FindChild("Fire").gameObject.SetActive(false);
         }
 
         //Brief function to be invoked for the fire sound

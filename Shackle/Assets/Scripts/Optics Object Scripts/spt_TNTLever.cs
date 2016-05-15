@@ -56,8 +56,8 @@ namespace VRStandardAssets.Examples
                 aSource.clip = leverPushSound;
                 aSource.Play();
                 transform.Translate(Vector3.down * .1f);
-                if (transform.parent.parent.name == "mdl_TNTLeverA") local_leverAPressed = true;
-                if (transform.parent.parent.name == "mdl_TNTLeverB") local_leverBPressed = true;
+                if (transform.name == "leverA") local_leverAPressed = true;
+                if (transform.name == "leverB") local_leverBPressed = true;
                 spt_WorldState.worldStateChanged = true;
                 pressed = true;
                 Invoke("raiseLever", 1.5f);
@@ -72,8 +72,8 @@ namespace VRStandardAssets.Examples
             aSource.clip = leverReleasedSound;
             aSource.Play();
             transform.Translate(Vector3.up * .1f);
-            if (transform.parent.parent.name == "mdl_TNTLeverA") local_leverAPressed = false;
-            if (transform.parent.parent.name == "mdl_TNTLeverB") local_leverBPressed = false;
+            if (transform.name == "leverA") local_leverAPressed = false;
+            if (transform.name == "leverB") local_leverBPressed = false;
             spt_WorldState.worldStateChanged = true;
             pressed = false;
         }
