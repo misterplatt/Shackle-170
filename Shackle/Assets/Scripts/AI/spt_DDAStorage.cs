@@ -11,13 +11,13 @@ public class spt_DDAStorage : NetworkBehaviour {
 
     public void incrementDiffValue() {
         if (alteration) return;
-        difficultyValue += 2;
+        if (difficultyValue <= 7) difficultyValue += 2;
         alteration = true;
     }
 
     public void decrementDiffValue() {
         if (alteration) return;
-        difficultyValue--;
+        if (difficultyValue > 2) difficultyValue--;
         alteration = true;
     }
 
