@@ -24,6 +24,14 @@ namespace VRStandardAssets.Examples
         {
             aSource = GetComponent<AudioSource>();
         }
+
+        override protected void Update()
+        {
+            //DEBUG KEY: Simulates keyDoor slam
+            if (Input.GetKeyDown(KeyCode.X)) resetItem();
+        }
+
+
         //Plug HandleClick
         override protected void HandleClick() { }
 
@@ -36,6 +44,15 @@ namespace VRStandardAssets.Examples
             transform.Rotate(new Vector3(0, -150, 0));
             GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("fuseBoxOpen", true, "grp_fuseBox");
             holding = false;
+        }
+
+        public override void resetItem()
+        {
+            //We shouldn't need to modify any puzzle states here, as the fusebox door swings back out to open after being slammed
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[7].state == true) {
+                GetComponent<Animation>().Play("fuseDoor_slam");
+                //PLAY SLAM AUDIO HERE
+            }
         }
     }
 }
