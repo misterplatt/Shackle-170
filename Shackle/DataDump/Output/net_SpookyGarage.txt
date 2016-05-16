@@ -1,0 +1,18 @@
+net_SpookyGarage
+Average Event Completion Times
+extCordPlugged,94.990335
+garageDoorUnlocked,107.8706
+correctChannelEntered,107.8706
+playerLoss,47.5748003125
+garageDoorOpen,107.8706
+TVpowerState,89.33733
+Event Non-Completions
+extCordPlugged,36.0
+garageDoorUnlocked,37.0
+puzzleCompletionMonster,9.0
+correctChannelEntered,39.0
+acUnitOpen,40.0
+playerLoss,5.0
+garageDoorOpen,25.0
+TVpowerState,39.0
+puzzleCompletion,14.0
