@@ -28,6 +28,13 @@ public class spt_monsterAudio : NetworkBehaviour
     int ambSoundInd = -1;
     [SyncVar]
     int wngSoundInd = -1;
+    [SyncVar]
+    bool warningVibration = false;
+    [SyncVar]
+    float vibeTime = 0;
+    [SyncVar]
+    float vibeForce = 0;
+    int wngVibInd = -1;
     bool soundPlayed = false;
     bool once = false;
     bool attackSoundPlayed = false;
@@ -57,6 +64,7 @@ public class spt_monsterAudio : NetworkBehaviour
 
         if (ambSoundInd != -1 && !once) playAmbientNoise();
         else if (wngSoundInd != -1 && !once) playWarningNoise();
+        else if (warningVibration && !once) playWarningVibration();
         if (soundPlayed) soundPlayed = false;
     }
 
@@ -67,6 +75,14 @@ public class spt_monsterAudio : NetworkBehaviour
     {
         source.PlayOneShot(clip);
         StartCoroutine(DelayedCallback(clip.length, callback));
+    }
+
+    public void PlayVibrationWithCallback(AudioCallback callback)
+    {
+        spt_playerControls.controllerVibration("Both", vibeForce, vibeTime);
+        Debug.Log("FUCKING FORCE: " + vibeForce);
+        Debug.Log("FUCKING TIME: " + vibeTime);
+        StartCoroutine(DelayedCallback(vibeTime, callback));
     }
 
     public IEnumerator DelayedCallback( float time, AudioCallback callback)
@@ -81,6 +97,19 @@ public class spt_monsterAudio : NetworkBehaviour
         once = false;
     }
 
+    void SetVibrateFlags()
+    {
+        warningVibration = false;
+        once = false;
+    }
+
+    public void playWarningVibration()
+    {
+        once = true;
+        PlayVibrationWithCallback(SetVibrateFlags);
+        Debug.Log("I'M VIBRATING BABYYYY");
+    }
+    
     //Called when a warning noise is needed. Plays the currently loaded one, then loads a new one.
     public void playWarningNoise()
     {
@@ -107,6 +136,15 @@ public class spt_monsterAudio : NetworkBehaviour
     {
         if (!isServer) return;
         wngSoundInd = Random.Range(0, warningSounds.Length);
+        wngVibInd = Random.Range(0, warningSounds.Length);
+        Debug.Log("WARNING VIBRATIONS: " + wngVibInd);
+        Debug.Log("LENGTH: " + warningSounds.Length);
+        if (wngVibInd > 2)
+         {
+            warningVibration = true;
+            vibeForce = Random.Range(.1f, 1f);
+            vibeTime = Random.Range(1f, 3f);
+         }
     }
 
     // Will randomly play an ambient noise, at most every 15 seconds.
@@ -122,7 +160,6 @@ public class spt_monsterAudio : NetworkBehaviour
     {
         if (!attackSoundPlayed)
         {
-            Debug.Log("FUCK THIS MOTHERFUCKING SOUND" + source.clip);
             source.clip = attackSound;
             PlaySoundWithCallback(source.clip, setPlayFlags);
             attackSoundPlayed = true;
