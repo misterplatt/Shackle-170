@@ -80,6 +80,9 @@ public class spt_lossListener : NetworkBehaviour {
                 //transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
                 once = true;
                 spt_LayeredAudioManager.musicPlay = false;
+
+                //update dda
+                GameObject.Find("DDA").GetComponent<spt_DDAStorage>().decrementDiffValue();
             }
         }
 	}

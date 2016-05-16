@@ -39,7 +39,7 @@ def crunchStat(levelName) :
 	for eventName in eventTimes :
 		eventTimes[eventName] = eventTimes[eventName] / numOfRecords[eventName]
 	
-	outFile = open( "./Metrics/Stats/" + levelName + ".txt", 'w')
+	outFile = open( "./Output/" + levelName + ".txt", 'w')
 	
 	#output file
 	outFile.write(levelName + "\r\n")
