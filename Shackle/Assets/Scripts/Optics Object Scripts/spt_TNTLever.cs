@@ -56,6 +56,7 @@ namespace VRStandardAssets.Examples
                 aSource.clip = leverPushSound;
                 aSource.Play();
                 transform.Translate(Vector3.down * .1f);
+                Debug.Log("I AM " + transform.name + ". HEAR ME ROAR");
                 if (transform.name == "leverA") local_leverAPressed = true;
                 if (transform.name == "leverB") local_leverBPressed = true;
                 spt_WorldState.worldStateChanged = true;
@@ -72,6 +73,7 @@ namespace VRStandardAssets.Examples
             aSource.clip = leverReleasedSound;
             aSource.Play();
             transform.Translate(Vector3.up * .1f);
+            Debug.Log("I AM " + transform.name + ". HEAR ME ROAR");
             if (transform.name == "leverA") local_leverAPressed = false;
             if (transform.name == "leverB") local_leverBPressed = false;
             spt_WorldState.worldStateChanged = true;
