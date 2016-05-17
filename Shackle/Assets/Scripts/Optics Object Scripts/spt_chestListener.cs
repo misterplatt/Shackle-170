@@ -56,6 +56,7 @@ namespace VRStandardAssets.Examples
                 local_laserHitLock = true;
                 transform.parent.eulerAngles = new Vector3(-50,270,0);
                 once = true;
+                GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("isChestOpen", true, "mdl_chestLock");
             }
         }
         

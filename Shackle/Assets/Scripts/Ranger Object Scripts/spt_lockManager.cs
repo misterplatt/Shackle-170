@@ -47,6 +47,8 @@ public class spt_lockManager : MonoBehaviour
             GameObject.Find("mdl_cabinetDoor").GetComponent<Rigidbody>().useGravity = true;
 
             Invoke("returnLock", .3f);
+
+            GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("keyDoorThrowable", true, "mdl_cabinetDoor");
         }
     }
 

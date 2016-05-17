@@ -14,7 +14,7 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -16920,6 +16920,9 @@ MonoBehaviour:
   - eventName: puzzleCompletionMonster
     item: {fileID: 474894866}
     isMonstInteractable: 0
+  - eventName: isChestOpen
+    item: {fileID: 376995899}
+    isMonstInteractable: 1
 --- !u!4 &1515300599
 Transform:
   m_ObjectHideFlags: 0
