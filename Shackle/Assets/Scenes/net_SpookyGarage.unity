@@ -105,6 +105,8 @@ GameObject:
   - 64: {fileID: 11099277}
   - 114: {fileID: 11099279}
   - 54: {fileID: 11099280}
+  - 114: {fileID: 11099281}
+  - 114: {fileID: 11099282}
   m_Layer: 0
   m_Name: mdl_bucket
   m_TagString: target
@@ -239,7 +241,7 @@ MeshCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 11099269}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 1
@@ -347,6 +349,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &11099281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 11099269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e37e4b4b67b4644b564ae6d137bfa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11099282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 11099269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71fda98919b6ae74888149393040415c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &27734143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,11 +2402,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: interactables.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: interactableAnimationStartingPositions.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 419816, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2580,6 +2604,22 @@ Prefab:
       propertyPath: attackSound
       value: 
       objectReference: {fileID: 8300000, guid: 5ce9c2a2d26b23a41a419a50794d839a, type: 3}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: interactables.Array.data[1]
+      value: 
+      objectReference: {fileID: 11099269}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.data[1].x
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.data[1].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459274, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.data[1].z
+      value: 4.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1c829986d8a37f49ae4bc117b5cc014, type: 2}
   m_IsPrefabParent: 0
@@ -7221,6 +7261,12 @@ MonoBehaviour:
   - eventName: puzzleCompletionMonster
     item: {fileID: 482158901}
     isMonstInteractable: 0
+  - eventName: isBucketOnShelf
+    item: {fileID: 11099269}
+    isMonstInteractable: 1
+  - eventName: playBucketCollisionNoise
+    item: {fileID: 11099269}
+    isMonstInteractable: 1
 --- !u!4 &1515300599
 Transform:
   m_ObjectHideFlags: 0
