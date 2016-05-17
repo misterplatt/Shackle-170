@@ -17,7 +17,7 @@ using UnityEngine.UI;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_bucketChuck : spt_baseInteractiveObject
+    public class spt_bucketChuck : spt_interactiveMovable
     {
         Rigidbody rb;
 

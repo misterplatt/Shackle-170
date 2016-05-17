@@ -383,7 +383,7 @@ public class spt_inventory : NetworkBehaviour {
 
     public void Fisting()
     {
-        if (lookingObject != null && (lookingObject.GetComponent<VRStandardAssets.Examples.spt_interactiveMovable>() != null || lookingObject.GetComponent<VRStandardAssets.Examples.spt_mirrorHandle>() != null || lookingObject.GetComponent<VRStandardAssets.Examples.spt_drawer>() != null))
+        if (lookingObject != null && (lookingObject.GetComponent<VRStandardAssets.Examples.spt_interactiveMovable>() != null || lookingObject.GetComponent<VRStandardAssets.Examples.spt_mirrorHandle>() != null || lookingObject.GetComponent<VRStandardAssets.Examples.spt_drawer>() != null || lookingObject.GetComponent<VRStandardAssets.Examples.spt_bucketChuck>() != null))
         {
                 reticleTex.GetComponent<RawImage>().texture = fistSprite;
         }

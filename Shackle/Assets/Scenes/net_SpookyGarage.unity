@@ -100,7 +100,6 @@ GameObject:
   - 114: {fileID: 11099273}
   - 114: {fileID: 11099276}
   - 114: {fileID: 11099275}
-  - 114: {fileID: 11099272}
   - 82: {fileID: 11099278}
   - 64: {fileID: 11099277}
   - 114: {fileID: 11099279}
@@ -134,36 +133,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 885048209}
   m_RootOrder: 2
---- !u!114 &11099272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 11099269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fa1c05ec88452f459d92407ec51f33c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gateItemName: Hand
-  holdTime: 0
-  m_InteractiveItem: {fileID: 11099273}
-  movingSound: {fileID: 8300000, guid: d1d78210b3bd31345b9752f35ad0fbe4, type: 3}
-  HaydenIdea: 1
-  moveSpeed: 1
-  moveOnLocalX: 0
-  moveOnLocalY: 0
-  moveOnLocalZ: 1
-  clampGlobalX: 0
-  clampGlobalY: 0
-  clampGlobalZ: 1
-  x_maxNegativeDistance: 0
-  x_maxPositiveDistance: 0
-  y_maxNegativeDistance: 0
-  y_maxPositiveDistance: 0
-  z_maxNegativeDistance: 0
-  z_maxPositiveDistance: 1
-  optional_movePathImage: {fileID: 1626873667}
 --- !u!114 &11099273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,9 +300,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2b8a79ce618264bbc58519bc5eeca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gateItemName: 
+  gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 11099273}
+  movingSound: {fileID: 8300000, guid: d1d78210b3bd31345b9752f35ad0fbe4, type: 3}
+  HaydenIdea: 1
+  moveSpeed: 1
+  moveOnLocalX: 0
+  moveOnLocalY: 0
+  moveOnLocalZ: 1
+  clampGlobalX: 0
+  clampGlobalY: 0
+  clampGlobalZ: 1
+  x_maxNegativeDistance: 0
+  x_maxPositiveDistance: 0
+  y_maxNegativeDistance: 0
+  y_maxPositiveDistance: 0
+  z_maxNegativeDistance: 0
+  z_maxPositiveDistance: 1
+  optional_movePathImage: {fileID: 1626873667}
 --- !u!54 &11099280
 Rigidbody:
   m_ObjectHideFlags: 0
