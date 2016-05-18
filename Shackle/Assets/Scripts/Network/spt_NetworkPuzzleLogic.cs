@@ -185,6 +185,18 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                     Debug.Log("Updating puzzleCompletion on the network to " + VRStandardAssets.Examples.spt_hatch.local_puzzleCompletion);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("puzzleCompletion", true, "mdl_hatchTop");
                 }
+                //If the car has crashed, update server state
+                if (VRStandardAssets.Examples.spt_fuseDoor.local_fuseBoxOpen)
+                {
+                    Debug.Log("Updating fuseBoxOpen on the network to " + VRStandardAssets.Examples.spt_fuseDoor.local_fuseBoxOpen);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("fuseBoxOpen", true, "mdl_fuseBox_base");
+                }
+                //If the car has crashed, update server state
+                if (VRStandardAssets.Examples.spt_fuseDoor.local_fuseDoorSlam)
+                {
+                    Debug.Log("Updating fuseDoorSlam on the network to " + VRStandardAssets.Examples.spt_fuseDoor.local_fuseDoorSlam);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("fuseDoorSlam", true, "mdl_fuseBox_door");
+                }
                 //If a player has flipped the fuses correctly, update server state
                 if (VRStandardAssets.Examples.spt_fuseManager.local_correctFuseCombo)
                 {
@@ -200,7 +212,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 //If the car has crashed, update server state
                 if (VRStandardAssets.Examples.spt_fobButton_new.local_carCrash)
                 {
-                    Debug.Log("Updating keyFobPressed on the network to " + VRStandardAssets.Examples.spt_fobButton_new.local_carCrash);
+                    Debug.Log("Updating carCrash on the network to " + VRStandardAssets.Examples.spt_fobButton_new.local_carCrash);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("carCrash", true, "carAnimation");
                 }
                 //If a player has used the garage door opener on the garage door, update server state

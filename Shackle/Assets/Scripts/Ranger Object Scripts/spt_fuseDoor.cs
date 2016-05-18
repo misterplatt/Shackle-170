@@ -22,6 +22,9 @@ namespace VRStandardAssets.Examples
         public AudioClip doorOpen;
         public AudioClip doorSlam;
 
+        public static bool local_fuseBoxOpen = false;
+        public static bool local_fuseDoorSlam = false;
+
         protected override void Start()
         {
             aSource = GetComponent<AudioSource>();
@@ -45,8 +48,13 @@ namespace VRStandardAssets.Examples
             //transform.parent.Translate(new Vector3(1.4f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED  
             transform.Translate(new Vector3(-.2f, 0, 0));
             transform.Rotate(new Vector3(0, -150, 0));
-            GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("fuseBoxOpen", true, "mdl_fuseBox_base");
-            GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("fuseDoorSlam", true, "mdl_fuseBox_door");
+
+            //NPL Update
+            local_fuseBoxOpen = false;
+            local_fuseDoorSlam = false;
+            spt_WorldState.worldStateChanged = true;
+            //GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("fuseBoxOpen", true, "mdl_fuseBox_base");
+            //GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("fuseDoorSlam", true, "mdl_fuseBox_door");
             holding = false;
         }
 
