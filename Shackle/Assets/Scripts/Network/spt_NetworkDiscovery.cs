@@ -54,13 +54,6 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
 
     void Update() {
         if ( SceneManager.GetActiveScene().name != "VRMainMenu" ) return;
-        float currentTime = Time.time;
-        if (currentTime - lastUpdate > 1.0F || notChecked)
-        {
-            lastUpdate = currentTime;
-            listGames();
-        }
-
         /*
         if (currentTime - lastInit > 5.0F && !discovery.isServer)
         {
@@ -71,12 +64,33 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
         */
 
         GameObject joinButton = GameObject.Find("Painting_Canvas").transform.Find("Play/btn_join").gameObject;
+        GameObject ipField = GameObject.Find("InputField");
+
         if (ip == "")
         {
-            joinButton.SetActive(false);
+            GameObject.Find("Painting_Canvas").transform.Find("Play/txt_gameDetected").gameObject.SetActive(false);
         }
-        else joinButton.SetActive(true);
-    }    
+        else
+        {
+            GameObject.Find("Painting_Canvas").transform.Find("Play/txt_gameDetected").gameObject.SetActive(true);
+        }
+
+        //if input field is being used, override ip.
+        if (ipField.GetComponent<InputField>().text.Length > 0)
+        {
+            ip = ipField.GetComponent<InputField>().text;
+            return;
+        }
+
+        //List Games
+        float currentTime = Time.time;
+        if (currentTime - lastUpdate > 1.0F || notChecked)
+        {
+            lastUpdate = currentTime;
+            listGames();
+        }
+
+    }
 
     public void startBroadcast() {
         discovery.StopBroadcast();

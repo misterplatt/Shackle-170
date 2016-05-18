@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.Networking;
+using UnityEngine.UI;
 using System.Collections;
 
 public class spt_ManagerMenuInterface : NetworkBehaviour {
@@ -11,6 +11,13 @@ public class spt_ManagerMenuInterface : NetworkBehaviour {
     void Awake()
     {
         manager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
+    }
+
+    void Start()
+    {
+        //Get the ip text field and update it. 
+        Text iptxt = GameObject.Find("txt_IP").GetComponent<Text>();
+        iptxt.text = "Your IP : " + Network.player.ipAddress;
     }
 
     void Update()
