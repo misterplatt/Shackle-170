@@ -57,22 +57,20 @@ namespace VRStandardAssets.Examples
                     once = true;
                     Invoke("LaserMachinePurr", 10f);
                 }
-                laserMesh.enabled = currentState;
-                laserCollider.enabled = currentState;
                 metalSwitchOff.enabled = false;
                 metalSwitchOn.enabled = true;
-
             }
             else if (currentState == false)
             {
                 aSource.loop = false;
                 aSource.Stop();
-                laserMesh.enabled = currentState;
-                laserCollider.enabled = currentState;
                 metalSwitchOff.enabled = true;
                 metalSwitchOn.enabled = false;
                 once = false;
             }
+            laserMesh.enabled = currentState;
+            laserCollider.enabled = currentState;
+            local_isLaserOn = currentState;
         }
 
         override protected void clickSuccess()
