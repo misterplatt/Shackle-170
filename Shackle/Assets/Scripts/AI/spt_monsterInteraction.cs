@@ -36,6 +36,8 @@ public class spt_monsterInteraction : MonoBehaviour {
 
     public bool drawerOpen = false;
 
+    private bool interactionGate = false;
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -123,6 +125,7 @@ public class spt_monsterInteraction : MonoBehaviour {
     
     // Function used to make updates to the network puzzle state communicator.
     public void interactWithObject(string item, string itemName){
+        if (interactionGate) return;
         Debug.Log("interacting with: " + itemName);
         spt_monster_ItemReset resetSpt = GameObject.Find(itemName).GetComponent<spt_monster_ItemReset>();
 
@@ -132,6 +135,8 @@ public class spt_monsterInteraction : MonoBehaviour {
         //VRStandardAssets.Examples.spt_extensionCord.local_extCordPlugged = false;
         //network.Cmd_UpdatePuzzleLogic(item, false, itemName);
         lastInteractionTime = currentTime;
+        interactionGate = true;
+        Invoke("removeGate", 5);
     }
 
     // Function used to update the elapsed playthrough time. Called every second.
@@ -147,5 +152,10 @@ public class spt_monsterInteraction : MonoBehaviour {
     public string getInteractionItemName()
     {
         return interactionItemName;
+    }
+
+    private void removeGate()
+    {
+        interactionGate = false;
     }
 }

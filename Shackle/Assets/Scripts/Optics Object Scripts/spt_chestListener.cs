@@ -59,6 +59,14 @@ namespace VRStandardAssets.Examples
                 GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("isChestOpen", true, "mdl_chestLock");
             }
         }
-        
+
+        public override void resetItem()
+        {
+            //Chest will do things, sound will play
+
+            //Uncomment below line when the other code (the stuff to close the chest in-scene) is implemented
+            //GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("isChestOpen", false, "mdl_chestLock");
+        }
+
     }
 }
