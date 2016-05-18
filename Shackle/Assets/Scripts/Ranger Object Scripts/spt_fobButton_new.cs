@@ -83,7 +83,7 @@ namespace VRStandardAssets.Examples
             //NPL Update
             local_carCrash = true;
             spt_WorldState.worldStateChanged = true;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("carCrash", true, "mdl_jeep");
+            //GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("carCrash", true, "mdl_jeep");
         }
     }
 }
