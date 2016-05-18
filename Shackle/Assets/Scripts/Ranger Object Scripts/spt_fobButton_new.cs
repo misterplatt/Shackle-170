@@ -23,7 +23,8 @@ namespace VRStandardAssets.Examples
         bool once1 = false;
         private AudioSource aSource;
 
-        public static bool local_keyFobPressed;
+        public static bool local_keyFobPressed = false;
+        public static bool local_carCrash = false;
 
         protected override void Start()
         {
@@ -78,6 +79,10 @@ namespace VRStandardAssets.Examples
             car.GetComponent<Animator>().enabled = true;
             car.transform.FindChild("polySurface48/Tail Light").GetComponent<Light>().enabled = true;
             GameObject.Find("tex_fuseDiagram").GetComponent<MeshRenderer>().enabled = true;
+
+            //NPL Update
+            local_carCrash = true;
+            spt_WorldState.worldStateChanged = true;
             GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("carCrash", true, "mdl_jeep");
         }
     }

@@ -192,10 +192,16 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("correctFuseCombo", true, "grp_fuseBox");
                 }
                 //If a player has pressed the key fob, update server state
-                if (VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed)
+                if (VRStandardAssets.Examples.spt_fobButton_new.local_keyFobPressed)
                 {
-                    Debug.Log("Updating keyFobPressed on the network to " + VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed);
+                    Debug.Log("Updating keyFobPressed on the network to " + VRStandardAssets.Examples.spt_fobButton_new.local_keyFobPressed);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("keyFobPressed", true, "mdl_carKeyfob");
+                }
+                //If the car has crashed, update server state
+                if (VRStandardAssets.Examples.spt_fobButton_new.local_carCrash)
+                {
+                    Debug.Log("Updating keyFobPressed on the network to " + VRStandardAssets.Examples.spt_fobButton_new.local_carCrash);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("carCrash", true, "carAnimation");
                 }
                 //If a player has used the garage door opener on the garage door, update server state
                 if (VRStandardAssets.Examples.spt_hatch.local_puzzleCompletionMonster)
