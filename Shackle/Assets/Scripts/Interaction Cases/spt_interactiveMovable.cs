@@ -22,7 +22,7 @@ namespace VRStandardAssets.Examples
         private bool moved = false;
         private Vector3 initialPosition;
         public AudioClip movingSound;
-        private AudioSource aSource;
+        protected AudioSource aSource;
         private bool once;
         public int HaydenIdea = 1;
 

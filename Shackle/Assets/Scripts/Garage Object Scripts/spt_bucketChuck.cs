@@ -20,7 +20,7 @@ namespace VRStandardAssets.Examples
     public class spt_bucketChuck : spt_interactiveMovable
     {
         Rigidbody rb;
-
+        public AudioClip throwSound;
         bool networkInitialized = false;
         spt_NetworkPuzzleLogic network;
 
@@ -62,6 +62,7 @@ namespace VRStandardAssets.Examples
                 if (network.PuzzleStates[bucketCollisionIndex].state == true)
                 {
                     //play some audio (make sure it's a Oneshot)
+                    aSource.PlayOneShot(throwSound);
                     Debug.LogWarning("Bucket Throw Sound");
                     network.Cmd_UpdatePuzzleLogic("playBucketCollisionNoise", false, "mdl_bucket");
                 }

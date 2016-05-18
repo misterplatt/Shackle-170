@@ -19,6 +19,8 @@ namespace VRStandardAssets.Examples
     public class spt_fuseDoor : spt_baseInteractiveObject
     {
         private AudioSource aSource;
+        public AudioClip doorOpen;
+        public AudioClip doorSlam;
 
         protected override void Start()
         {
@@ -38,6 +40,7 @@ namespace VRStandardAssets.Examples
         //Handle the Down event, modified so that the reticle doesn't need to stay over object to interact
         override protected void holdSuccess()
         {
+            aSource.clip = doorOpen;
             aSource.Play();
             //transform.parent.Translate(new Vector3(1.4f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED  
             transform.Translate(new Vector3(-.2f, 0, 0));
@@ -51,6 +54,7 @@ namespace VRStandardAssets.Examples
         {
             //We shouldn't need to modify any puzzle states here, as the fusebox door swings back out to open after being slammed
             if (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[7].state == true) {
+                aSource.PlayOneShot(doorSlam);
                 GetComponent<Animation>().Play("fuseDoor_slam");
                 //PLAY SLAM AUDIO HERE
             }

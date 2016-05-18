@@ -20,7 +20,8 @@ namespace VRStandardAssets.Examples
     {
 
         Rigidbody rb;
-
+        private AudioSource aSource;
+        public AudioClip keyDoorThrown;
         bool networkInitialized = false;
         spt_NetworkPuzzleLogic network;
 
@@ -31,6 +32,7 @@ namespace VRStandardAssets.Examples
         override protected void Start()
         {
             rb = GetComponent<Rigidbody>();
+            aSource = GetComponent<AudioSource>();
         }
 
         override protected void Update()
@@ -61,6 +63,7 @@ namespace VRStandardAssets.Examples
                 if (network.PuzzleStates[doorThrownNoiseIndex].state == true)
                 {
                     //play some audio (make sure it's a Oneshot)
+                    aSource.PlayOneShot(keyDoorThrown);
                     Debug.LogWarning("Door Throw Sound");
                     network.Cmd_UpdatePuzzleLogic("keyDoorThrowableNoise", false, "mdl_cabinetDoor");
                 }
