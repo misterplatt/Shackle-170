@@ -30,11 +30,13 @@ namespace VRStandardAssets.Examples
 
         override protected void Start()
         {
+            base.Start();
             rb = GetComponent<Rigidbody>();
         }
 
         override protected void Update()
         {
+            base.Update();
             //DEBUG KEY: Simulates bucket chuck
             if (Input.GetKeyDown(KeyCode.X)) resetItem();
 

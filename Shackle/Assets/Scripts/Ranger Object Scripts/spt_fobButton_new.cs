@@ -76,7 +76,7 @@ namespace VRStandardAssets.Examples
         {
             GameObject car = GameObject.Find("carAnimation");
             car.GetComponent<Animator>().enabled = true;
-            car.transform.FindChild("Tail Light").GetComponent<Light>().enabled = true;
+            car.transform.FindChild("polySurface48/Tail Light").GetComponent<Light>().enabled = true;
             GameObject.Find("tex_fuseDiagram").GetComponent<MeshRenderer>().enabled = true;
             GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("carCrash", true, "mdl_jeep");
         }
