@@ -31,6 +31,7 @@ namespace VRStandardAssets.Examples
         private AudioSource aSource;
         public AudioClip laserStart;
         public AudioClip laserPurr;
+        private bool once = false;
 
         override protected void Start() {
             metalSwitchOff = transform.FindChild("Joystick_switch").GetComponent<MeshRenderer>();
@@ -49,9 +50,13 @@ namespace VRStandardAssets.Examples
             //Change laser LineRenderer's enabled status on switch click
             if (currentState == true)
             {
-                aSource.clip = laserStart;
-                aSource.Play();
-                Invoke("LaserMachinePurr", 10f);
+                if (!once)
+                {
+                    aSource.clip = laserStart;
+                    aSource.Play();
+                    once = true;
+                    Invoke("LaserMachinePurr", 10f);
+                }
                 laserMesh.enabled = currentState;
                 laserCollider.enabled = currentState;
                 metalSwitchOff.enabled = false;
@@ -60,12 +65,13 @@ namespace VRStandardAssets.Examples
             }
             else if (currentState == false)
             {
-                aSource.Stop();
                 aSource.loop = false;
+                aSource.Stop();
                 laserMesh.enabled = currentState;
                 laserCollider.enabled = currentState;
                 metalSwitchOff.enabled = true;
                 metalSwitchOn.enabled = false;
+                once = false;
             }
         }
 
@@ -76,9 +82,9 @@ namespace VRStandardAssets.Examples
             //Change laser LineRenderer's enabled status on switch click
             if (currentState == true)
             {
-                aSource.clip = laserStart;
-                aSource.Play();
-                Invoke("LaserMachinePurr", 10f);
+                //aSource.clip = laserStart;
+                //aSource.Play();
+                //Invoke("LaserMachinePurr", 10f);
                 laserMesh.enabled = currentState;
                 laserCollider.enabled = currentState;
                 metalSwitchOff.enabled = false;
@@ -93,8 +99,8 @@ namespace VRStandardAssets.Examples
             }
             else if (currentState == false)
             {
-                aSource.Stop();
-                aSource.loop = false;
+                //aSource.Stop();
+                //aSource.loop = false;
                 laserMesh.enabled = currentState;
                 laserCollider.enabled = currentState;
                 metalSwitchOff.enabled = true;
