@@ -2,13 +2,14 @@
  * 
  * Created by: Ryan Connors
  * 
- * Last Revision Date: 5/5/2016
+ * Last Revision Date: 5/18/2016
  * 
  * This file provides the network based implementation of the player inventory.
  * this inventory is synched between client and hosts and supports two distinct inventories, as well as 
  * inventory interaction in the way of passing, grabbing, and removing items.
  * Added beginnings of reticle range - Dara
  * Added fisting for ranger outpost drawer - Dara
+ * Edited Line 133 and changed it from index >= inventory count to > - Dara
 */
 
 
@@ -129,7 +130,7 @@ public class spt_inventory : NetworkBehaviour {
 
     //grab correct game object from the scene by inventory string reference given the index.
     public GameObject retrieveObjectFromInventory(int index) {
-        if (index >= inventory.Count || index < 0) {
+        if (index > inventory.Count || index < 0) {
             Debug.Log("Error : RetrieveObjectFromInventory called with index " + index );
             return null;
         }
