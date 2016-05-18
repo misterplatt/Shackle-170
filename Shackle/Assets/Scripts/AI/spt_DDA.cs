@@ -2,9 +2,11 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 2/25/2016
+ * Last Revision Date: 5/18/2016
  * 
- * This file is the one that handle the dynamic difficulty adjustment. **/
+ * This file is the one that handle the dynamic difficulty adjustment.
+ * After a good discussion, the DDA was remodled into a simpler form based on deaths instead of in-game checkpoints (puzzle state checkpoints).
+ **/
 
 using UnityEngine;
 using System.Collections;
@@ -13,6 +15,67 @@ using System.IO;
 using System.Linq;
 
 public class spt_DDA : MonoBehaviour {
+
+    private bool difficultyFound = false;
+    private bool difficultySet = false;
+    private int difficulty = -1;
+
+    private spt_monsterMotivation motivationScript;
+
+    void Update()
+    {
+        // If the difficulty or the monster's motivation script has not been obtained yet, do so.
+        if (!difficultyFound && (GameObject.Find("DDA").GetComponent<spt_DDAStorage>() != null) && (gameObject.GetComponent<spt_monsterMotivation>() != null))
+        {
+            difficulty = GameObject.Find("DDA").GetComponent<spt_DDAStorage>().getDiff();
+            difficultyFound = true;
+            motivationScript = gameObject.GetComponent<spt_monsterMotivation>();
+            Debug.Log("DDA has set monster difficulty to: " + difficulty);
+        }
+
+        // If the needed components are grabbed, but the difficulty hasn't been set yet, raise/lower the difficulty accordingly.
+        else if (!difficultySet && difficultyFound)
+        {
+            switch (difficulty)
+            {
+                case 5:
+                    raiseTheDifficulty();
+                    raiseTheDifficulty();
+                    difficultySet = true;
+                    return;
+                case 4:
+                    raiseTheDifficulty();
+                    difficultySet = true;
+                    return;
+                case 3:
+                    difficultySet = true;
+                    return;
+                case 2:
+                    lowerTheDifficulty();
+                    difficultySet = true;
+                    return;
+                case 1:
+                    lowerTheDifficulty();
+                    lowerTheDifficulty();
+                    difficultySet = true;
+                    return;
+                default:
+                    break;
+            }
+        }
+    }
+
+    void raiseTheDifficulty()
+    {
+        motivationScript.lowerTheThreshold();
+    }
+
+    void lowerTheDifficulty()
+    {
+        motivationScript.raiseTheThreshold();
+    }
+
+    /* THIS IS THE OLD DDA - COMMENTED OUT IN CASE IT IS NEEDED FOR SOMETHING
 
     public bool METRICS_ENABLED = true;
     public string filename;
@@ -132,4 +195,5 @@ public class puzzleStateWithCheckpointTime{
         name = s;
         time = i;
     }
+    */
 }
