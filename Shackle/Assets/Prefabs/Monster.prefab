@@ -2431,6 +2431,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &148642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 449310}
+  - 108: {fileID: 10828694}
+  m_Layer: 0
+  m_Name: rightEye
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &148868
 GameObject:
   m_ObjectHideFlags: 1
@@ -2756,6 +2772,22 @@ GameObject:
   - 4: {fileID: 478258}
   m_Layer: 0
   m_Name: Monster_Rig_01_lWristJIKProxyG2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &154762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 441432}
+  - 108: {fileID: 10812580}
+  m_Layer: 0
+  m_Name: leftEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5776,7 +5808,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.2457857, y: -2.7287436, z: 15.86}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
   - {fileID: 470796}
@@ -5784,6 +5816,8 @@ Transform:
   - {fileID: 490634}
   - {fileID: 495328}
   - {fileID: 438432}
+  - {fileID: 449310}
+  - {fileID: 441432}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &419844
@@ -6790,6 +6824,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 482848}
   m_RootOrder: 0
+--- !u!4 &441432
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154762}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.00063, y: 0.04755, z: 0.00051}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 419816}
+  m_RootOrder: 6
 --- !u!4 &441438
 Transform:
   m_ObjectHideFlags: 1
@@ -7135,6 +7181,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 456452}
   m_RootOrder: 0
+--- !u!4 &449310
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.000685, y: 0.04755, z: 0.00051}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 419816}
+  m_RootOrder: 5
 --- !u!4 &449426
 Transform:
   m_ObjectHideFlags: 1
@@ -9471,7 +9529,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -9552,6 +9610,72 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!108 &10812580
+Light:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154762}
+  m_Enabled: 1
+  serializedVersion: 6
+  m_Type: 0
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Intensity: 1
+  m_Range: 0.5
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_BounceIntensity: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_AreaSize: {x: 1, y: 1}
+--- !u!108 &10828694
+Light:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148642}
+  m_Enabled: 1
+  serializedVersion: 6
+  m_Type: 0
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Intensity: 1
+  m_Range: 0.5
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_BounceIntensity: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_AreaSize: {x: 1, y: 1}
 --- !u!114 &11426598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9649,7 +9773,9 @@ MonoBehaviour:
   attackSpawnBStartingPosition: {x: 0, y: 0, z: -10}
   interactables:
   - {fileID: 0}
+  - {fileID: 0}
   interactableAnimationStartingPositions:
+  - {x: -10, y: 0, z: -4}
   - {x: -6, y: 0, z: -7}
 --- !u!114 &11459984
 MonoBehaviour:
@@ -9710,7 +9836,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bd50bf273e3d391408d188ca009ddc56, type: 3}
   - {fileID: 8300000, guid: a820b2ee8ffa0bb4b876f8e1e4faa94b, type: 3}
   - {fileID: 8300000, guid: cfe887c3fce19a2418708f1cdfecdf93, type: 3}
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 5ce9c2a2d26b23a41a419a50794d839a, type: 3}
 --- !u!114 &11490964
 MonoBehaviour:
   m_ObjectHideFlags: 1
