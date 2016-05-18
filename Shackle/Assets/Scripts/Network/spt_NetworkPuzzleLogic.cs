@@ -185,13 +185,13 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                     Debug.Log("Updating puzzleCompletion on the network to " + VRStandardAssets.Examples.spt_hatch.local_puzzleCompletion);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("puzzleCompletion", true, "mdl_hatchTop");
                 }
-                //If the car has crashed, update server state
+                //If the fusebox is open, update server state
                 if (VRStandardAssets.Examples.spt_fuseDoor.local_fuseBoxOpen)
                 {
                     Debug.Log("Updating fuseBoxOpen on the network to " + VRStandardAssets.Examples.spt_fuseDoor.local_fuseBoxOpen);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("fuseBoxOpen", true, "mdl_fuseBox_base");
                 }
-                //If the car has crashed, update server state
+                //If the fusedoor can be slammed, update server state
                 if (VRStandardAssets.Examples.spt_fuseDoor.local_fuseDoorSlam)
                 {
                     Debug.Log("Updating fuseDoorSlam on the network to " + VRStandardAssets.Examples.spt_fuseDoor.local_fuseDoorSlam);
@@ -237,6 +237,12 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 {
                     Debug.Log("Updating laserHitLock on the network to " + VRStandardAssets.Examples.spt_chestListener.local_laserHitLock);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("laserHitLock", true, "mdl_chestLock");
+                }
+                //If chest has been opened, update server state
+                if (VRStandardAssets.Examples.spt_chestListener.local_isChestOpen)
+                {
+                    Debug.Log("Updating isChestOpen on the network to " + VRStandardAssets.Examples.spt_chestListener.local_isChestOpen);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isChestOpen", true, "mdl_chestLock");
                 }
                 //If a laser has intersected with the security panel, update server state
                 if (VRStandardAssets.Examples.spt_panelListener.local_laserHitPanel)

@@ -18,6 +18,7 @@ namespace VRStandardAssets.Examples
     {
         
         public static bool local_laserHitLock = false;
+        public static bool local_isChestOpen = false;
         private bool once = false;
         private Vector3 spherePos;
         private AudioSource aSource;
@@ -43,6 +44,7 @@ namespace VRStandardAssets.Examples
                     {
                         //If a laser has hit the lock, set the corresponding puzzle state to true
                         local_laserHitLock = true;
+                        local_isChestOpen = true;
                         spt_WorldState.worldStateChanged = true;
                     }
                     
@@ -54,9 +56,10 @@ namespace VRStandardAssets.Examples
             {
                 aSource.Play();
                 local_laserHitLock = true;
+                local_isChestOpen = true;
                 transform.parent.eulerAngles = new Vector3(-50,270,0);
                 once = true;
-                GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("isChestOpen", true, "mdl_chestLock");
+                //GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("isChestOpen", true, "mdl_chestLock");
             }
         }
 
