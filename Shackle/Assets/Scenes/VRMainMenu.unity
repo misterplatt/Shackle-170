@@ -8637,30 +8637,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6530138, guid: 4b400c06bc3bc764398a2f6141d869d4, type: 2}
-      propertyPath: m_Size.y
-      value: -29.850754
-      objectReference: {fileID: 0}
-    - target: {fileID: 6530138, guid: 4b400c06bc3bc764398a2f6141d869d4, type: 2}
-      propertyPath: m_Size.z
-      value: -14.548617
-      objectReference: {fileID: 0}
-    - target: {fileID: 6530138, guid: 4b400c06bc3bc764398a2f6141d869d4, type: 2}
-      propertyPath: m_Center.y
-      value: -0.15034156
-      objectReference: {fileID: 0}
-    - target: {fileID: 6530138, guid: 4b400c06bc3bc764398a2f6141d869d4, type: 2}
-      propertyPath: m_Center.z
-      value: 7.7739935
-      objectReference: {fileID: 0}
-    - target: {fileID: 6530138, guid: 4b400c06bc3bc764398a2f6141d869d4, type: 2}
-      propertyPath: m_Size.x
-      value: -160.01265
-      objectReference: {fileID: 0}
-    - target: {fileID: 6530138, guid: 4b400c06bc3bc764398a2f6141d869d4, type: 2}
-      propertyPath: m_Center.x
-      value: -0.6522217
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b400c06bc3bc764398a2f6141d869d4, type: 2}
   m_IsPrefabParent: 0
