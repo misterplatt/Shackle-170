@@ -47,7 +47,7 @@ public class    spt_victoryListener : MonoBehaviour
         {
             spt_LayeredAudioManager.musicPlay = false;
             transitionA.Play();
-            StartCoroutine(transitionRumbleShit());
+            StartCoroutine(transitionRumble());
         }
         GameObject player = GameObject.FindWithTag("Player");
         if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count == 0) return;
@@ -64,10 +64,10 @@ public class    spt_victoryListener : MonoBehaviour
             once = true;
             spt_LayeredAudioManager.musicPlay = false;
             transitionA.Play();
-            StartCoroutine(transitionRumbleShit());
+            //StartCoroutine(transitionRumble());
             spt_LayeredAudioManager.musicPlay = false;
             transitionA.Play();
-            StartCoroutine(transitionRumbleShit());
+           // StartCoroutine(transitionRumbleShit());
 
             //update dda
             GameObject.Find("DDA").GetComponent<spt_DDAStorage>().incrementDiffValue();
@@ -121,7 +121,7 @@ public class    spt_victoryListener : MonoBehaviour
     }
 
     // Calls the controller to rumble based off the transition sounds
-    IEnumerator transitionRumbleShit()
+    IEnumerator transitionRumble()
     {
         yield return new WaitForSeconds(5.9f);
         //StartCoroutine(spt_playerControls.NewVibrator("Both", 1.0f, 2.2));
