@@ -29,6 +29,7 @@ namespace VRStandardAssets.Examples
         public AudioClip panelBurning;
         public AudioClip systemMeltDown;
         public AudioClip hatchOpening;
+        private bool didSystemMelt = false;
 
         // Use this for initialization
         override protected void Start()
@@ -53,7 +54,8 @@ namespace VRStandardAssets.Examples
                     {
                         aSource.clip = panelBurning;
                         aSource.Play();
-                        childSource.Play();
+                        Invoke("SystemMelting", 4f);
+                        Invoke("Melted", systemMeltDown.length + 4f);
 
                         //If a laser has hit the panel, set the corresponding puzzle state to true
                         local_laserHitPanel = true;
@@ -63,7 +65,7 @@ namespace VRStandardAssets.Examples
             }
 
             //If the laser has hit the panel, open the trapdoors and raise the TNT Levers
-            if (!once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true && !childSource.isPlaying)
+            if (!once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true && didSystemMelt)
             {
                 //TEMP FUNCTIONALITY UNTIL MODELS ARE IMPORTED
                 trapDoorA.GetComponent<AudioSource>().clip = hatchOpening;
@@ -79,6 +81,16 @@ namespace VRStandardAssets.Examples
                 leverB.transform.Translate(Vector3.up);
                 once = true;
             }
+        }
+
+        void SystemMelting()
+        {
+            childSource.Play();
+        }
+
+        void Melted()
+        {
+            didSystemMelt = true;
         }
     }
 }
