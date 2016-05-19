@@ -74,7 +74,7 @@ namespace VRStandardAssets.Examples
             }
             else if (buttonName.Contains("Outpost"))
             {
-                return "net_RangerOutpost";
+                return "net_RangerOutpost_crash";
             }
             else if (buttonName.Contains("Lab"))
             {
