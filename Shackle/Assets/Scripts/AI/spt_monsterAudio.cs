@@ -64,7 +64,7 @@ public class spt_monsterAudio : NetworkBehaviour
 
         if (ambSoundInd != -1 && !once) playAmbientNoise();
         else if (wngSoundInd != -1 && !once) playWarningNoise();
-        else if (warningVibration && !once) playWarningVibration();
+        //else if (warningVibration && !once) playWarningVibration();
         if (soundPlayed) soundPlayed = false;
     }
 

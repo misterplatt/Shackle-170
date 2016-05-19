@@ -124,10 +124,13 @@ public class    spt_victoryListener : MonoBehaviour
     IEnumerator transitionRumbleShit()
     {
         yield return new WaitForSeconds(5.9f);
+        //StartCoroutine(spt_playerControls.NewVibrator("Both", 1.0f, 2.2));
         spt_playerControls.controllerVibration("Both", 1.0f, 2.2);
         yield return new WaitForSeconds(0.8f);
+        //StartCoroutine(spt_playerControls.NewVibrator("Both", 1.0f, 2.9));
         spt_playerControls.controllerVibration("Both", 1.0f, 2.9);
         yield return new WaitForSeconds(1.2f);
+        //StartCoroutine(spt_playerControls.NewVibrator("Both", 1.0f, 2.2));
         spt_playerControls.controllerVibration("Both", 1.0f, 2.2);
     }
 

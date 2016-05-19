@@ -18,6 +18,7 @@ public class spt_playerControls : MonoBehaviour
 
     static PlayerIndex playerIndex = 0;
     private static DateTime timer;
+    private static DateTime timert;
     private static DateTime timerend;
 
 
@@ -204,22 +205,23 @@ public class spt_playerControls : MonoBehaviour
     public static void controllerVibration(string motor, float force, double vibrateTime)
     {
         /*
-        while (timer <= vibrateTime)
+        while (timer <= timerend)
         {
             if (motor == "Rough") GamePad.SetVibration(playerIndex, force, 0);
             if (motor == "Smooth") GamePad.SetVibration(playerIndex, 0, force);
             if (motor == "Both") GamePad.SetVibration(playerIndex, force, force);
-            timer += Time.deltaTime;
+            timert += Time.deltaTime;
         }
-        if (timer > vibrateTime)
+        if (timer > timerend)
         {
             GamePad.SetVibration(playerIndex, 0, 0);
             timer = 0;
-        }
-        */
+        }*/
+        
         timer = DateTime.Now;
         timerend = timer.AddSeconds(vibrateTime);
-        while (timer.Second < timerend.Second)
+
+         while (timer.Second < timerend.Second)
         {
 
             if (motor == "Rough") GamePad.SetVibration(playerIndex, force, 0);
@@ -229,5 +231,22 @@ public class spt_playerControls : MonoBehaviour
         }
             GamePad.SetVibration(playerIndex, 0, 0);
             //timer = timerend = 0;
+    }
+ 
+    public static IEnumerator NewVibrator(string motor, float force, double vibrateTime)
+    {
+        timer = DateTime.Now;
+        timerend = timer.AddSeconds(vibrateTime);
+        if (motor == "Rough") GamePad.SetVibration(playerIndex, force, 0);
+        if (motor == "Smooth") GamePad.SetVibration(playerIndex, 0, force);
+        if (motor == "Both") GamePad.SetVibration(playerIndex, force, force);
+        timer = DateTime.Now;
+        if (timer.Second > timerend.Second)
+        {
+            GamePad.SetVibration(playerIndex, 0, 0);
+            yield break;
+        }
+        yield return null;
+
     }
 }
