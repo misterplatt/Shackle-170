@@ -1496,7 +1496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gateItemName: Hand
-  holdTime: 0
+  holdTime: 1
   m_InteractiveItem: {fileID: 98241442}
   secondarySound: {fileID: 0}
 --- !u!65 &98241444
@@ -10090,7 +10090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gateItemName: Hand
-  holdTime: 0
+  holdTime: 1
   m_InteractiveItem: {fileID: 688889304}
   secondarySound: {fileID: 0}
 --- !u!114 &688889304
@@ -11000,7 +11000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gateItemName: Hand
-  holdTime: 0
+  holdTime: 1
   m_InteractiveItem: {fileID: 743040765}
   secondarySound: {fileID: 0}
 --- !u!114 &743040765
