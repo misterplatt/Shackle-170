@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 4/28/2016
+ * Last Revision Date: 5/18/2016
  * 
  * This file is the one that ultimately governs the monster's motivation. **/
 
@@ -272,13 +272,13 @@ public class spt_monsterMotivation : NetworkBehaviour {
 
     public void raiseTheThreshold()
     {
-        lowerThreshold = lowerThreshold + 25;
-        upperThreshold = upperThreshold + 25;
+        lowerThreshold = lowerThreshold + 50;
+        upperThreshold = upperThreshold + 50;
     }
 
     public void lowerTheThreshold()
     {
-        lowerThreshold = lowerThreshold - 25;
-        upperThreshold = upperThreshold - 25;
+        lowerThreshold = lowerThreshold - 50;
+        upperThreshold = upperThreshold - 50;
     }
 }
