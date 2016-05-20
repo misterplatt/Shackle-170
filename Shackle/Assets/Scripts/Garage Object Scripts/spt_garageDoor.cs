@@ -24,9 +24,12 @@ namespace VRStandardAssets.Examples
         public AudioClip garageOpenSound;
         public AudioClip garageLockedSound;
 
+        public Animation garageDoorAnimations;
+
         override protected void Start()
         {
             garageSound = GetComponent<AudioSource>();
+            garageDoorAnimations = transform.FindChild("GarageDoorMech").GetComponent<Animation>();
         }
 
         override protected void Update()
@@ -35,6 +38,7 @@ namespace VRStandardAssets.Examples
                 garageSound.clip = garageLockedSound;
                 garageSound.Play();
                 garageFail = false;
+                garageDoorAnimations.Play("garageOpen_locked");
             }
         }
 
@@ -44,7 +48,8 @@ namespace VRStandardAssets.Examples
             //If the garage door has been unlocked, open the garage door and set puzzleCompletion to true
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[5].state == true)
             {
-                transform.Translate(new Vector3(0, 1, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
+                garageDoorAnimations.Play("garageOpen_unlocked");
+                //transform.Translate(new Vector3(0, 1, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
                 /*
                 local_puzzleCompletion = true;
                 spt_WorldState.worldStateChanged = true;

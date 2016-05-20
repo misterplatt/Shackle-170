@@ -64,7 +64,6 @@ namespace VRStandardAssets.Examples
             if (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[7].state == true) {
                 aSource.PlayOneShot(doorSlam);
                 GetComponent<Animation>().Play("fuseDoor_slam");
-                //PLAY SLAM AUDIO HERE
             }
         }
     }

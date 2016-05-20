@@ -35,7 +35,7 @@ namespace VRStandardAssets.Examples
             screwsLeft--;
             gameObject.SetActive(false);
             unscrewingAC.Stop();
-            if(screwsLeft <= 0) GameObject.Find("screwDoor").transform.Translate(new Vector3(-1.4f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
+            if(screwsLeft <= 0) transform.parent.GetComponent<Animation>().Play("screwDoor_open"); //.transform.Translate(new Vector3(-1.4f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
             holding = false;
         }
 
