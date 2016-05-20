@@ -1,7 +1,7 @@
 /* VREyeRaycaster
  * 
  * 
- * Last Revision Date: 4/3/2016
+ * Last Revision Date: 5/20/2016
  * 
  * In order to interact with objects in the scene
  * this class casts a ray into the scene and if it finds
@@ -88,10 +88,13 @@ namespace VRStandardAssets.Utils
             lastPosition = Vector3.zero;
             lastRot = Quaternion.identity;
 
-            mirrorH1 = GameObject.Find("mdl_mirrorHandle (2)");
-            mirrorH2 = GameObject.Find("mdl_mirrorHandle (3)");
-            m1RotLast = mirrorH1.transform.rotation.eulerAngles;
-            m2RotLast = mirrorH2.transform.rotation.eulerAngles;
+            if (SceneManager.GetActiveScene().name == "net_OpticsLab")
+            {
+                mirrorH1 = GameObject.Find("mdl_mirrorHandle (2)");
+                mirrorH2 = GameObject.Find("mdl_mirrorHandle (3)");
+                m1RotLast = mirrorH1.transform.rotation.eulerAngles;
+                m2RotLast = mirrorH2.transform.rotation.eulerAngles;
+            }
         }
 
         private void Update()
