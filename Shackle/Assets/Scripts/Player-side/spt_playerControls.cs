@@ -21,8 +21,6 @@ public class spt_playerControls : MonoBehaviour
     private static DateTime timert;
     private static DateTime timerend;
 
-
-
     // Checks if A button is pressed, which is used for general interaction in the world
     public static bool aButtonPressed()
     {
@@ -237,10 +235,13 @@ public class spt_playerControls : MonoBehaviour
     {
         timer = DateTime.Now;
         timerend = timer.AddSeconds(vibrateTime);
-        if (motor == "Rough") GamePad.SetVibration(playerIndex, force, 0);
-        if (motor == "Smooth") GamePad.SetVibration(playerIndex, 0, force);
-        if (motor == "Both") GamePad.SetVibration(playerIndex, force, force);
-        timer = DateTime.Now;
+        while (timer.Second < timerend.Second)
+        {
+            if (motor == "Rough") GamePad.SetVibration(playerIndex, force, 0);
+            if (motor == "Smooth") GamePad.SetVibration(playerIndex, 0, force);
+            if (motor == "Both") GamePad.SetVibration(playerIndex, force, force);
+            timer = DateTime.Now;
+        }
         if (timer.Second > timerend.Second)
         {
             GamePad.SetVibration(playerIndex, 0, 0);

@@ -2,10 +2,11 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 5/6/2016
+ * Last Revision Date: 5/19/2016
  * 
  * This script handles all of the audio required for the monster. 
  * Added Attacksound - Dara
+ * Added warning vibrations - Dara
  **/
 
 using UnityEngine;
@@ -64,7 +65,7 @@ public class spt_monsterAudio : NetworkBehaviour
 
         if (ambSoundInd != -1 && !once) playAmbientNoise();
         else if (wngSoundInd != -1 && !once) playWarningNoise();
-        //else if (warningVibration && !once) playWarningVibration();
+        else if (warningVibration && !once) playWarningVibration();
         if (soundPlayed) soundPlayed = false;
     }
 
@@ -79,7 +80,12 @@ public class spt_monsterAudio : NetworkBehaviour
 
     public void PlayVibrationWithCallback(AudioCallback callback)
     {
-        spt_playerControls.controllerVibration("Both", vibeForce, vibeTime);
+        //spt_playerControls.controllerVibration("Both", vibeForce, vibeTime);
+        spt_victoryListener.vibrationz = true;
+        spt_victoryListener.vibrationForce = vibeForce;
+        spt_victoryListener.vibrationTime = vibeTime;
+        spt_victoryListener.Both = true;
+
         Debug.Log("FUCKING FORCE: " + vibeForce);
         Debug.Log("FUCKING TIME: " + vibeTime);
         StartCoroutine(DelayedCallback(vibeTime, callback));
@@ -139,7 +145,7 @@ public class spt_monsterAudio : NetworkBehaviour
         wngVibInd = Random.Range(0, warningSounds.Length);
         Debug.Log("WARNING VIBRATIONS: " + wngVibInd);
         Debug.Log("LENGTH: " + warningSounds.Length);
-        if (wngVibInd > 2)
+        if (wngVibInd % 2 == 0)
          {
             warningVibration = true;
             vibeForce = Random.Range(.1f, 1f);

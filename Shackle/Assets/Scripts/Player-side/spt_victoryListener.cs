@@ -15,6 +15,8 @@ using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
+using XInputDotNetPure;
+using System;
 
 public class    spt_victoryListener : MonoBehaviour
 {
@@ -24,6 +26,17 @@ public class    spt_victoryListener : MonoBehaviour
     private Light winLight;
     private spt_monsterMotivation monster;
     NetworkManager manager;
+    static PlayerIndex playerIndex = 0;
+    private static DateTime timer;
+    private static DateTime timert;
+    private static DateTime timerend;
+    public static bool vibrationz = false;
+    public static bool Rough = false;
+    public static bool Smooth = false;
+    public static bool Both = false;
+    public static float vibrationTime = 0f;
+    public static float vibrationForce = 0f;
+    public static bool shitOnTheFloor = true;
 
     private const float TRANSITION_TIME = 14.779F;
 
@@ -43,7 +56,29 @@ public class    spt_victoryListener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        // added vibrations here so the game would not freeze like how it does with my implementation in spt_playerControls
+        if (vibrationz == true)
+        {
+            timer = DateTime.Now;
+            if (shitOnTheFloor) timerend = timer.AddSeconds(vibrationTime);
+
+            shitOnTheFloor = false;
+            if (timer.Second < timerend.Second)
+            {
+                if (Rough == true) GamePad.SetVibration(playerIndex, vibrationForce, 0);
+                if (Smooth == true) GamePad.SetVibration(playerIndex, 0, vibrationForce);
+                if (Both == true) GamePad.SetVibration(playerIndex, vibrationForce, vibrationForce);
+                timer = DateTime.Now;
+            }
+            else
+            {
+                GamePad.SetVibration(playerIndex, 0, 0);
+                vibrationz = false;
+                shitOnTheFloor = true;
+            }
+        }
+
+            if (Input.GetKeyDown(KeyCode.Q))
         {
             spt_LayeredAudioManager.musicPlay = false;
             transitionA.Play();
@@ -124,14 +159,29 @@ public class    spt_victoryListener : MonoBehaviour
     IEnumerator transitionRumble()
     {
         yield return new WaitForSeconds(5.9f);
+        Both = true;
+        vibrationForce = 1.0f;
+        vibrationTime = 2.2f;
+        vibrationz = true;
         //StartCoroutine(spt_playerControls.NewVibrator("Both", 1.0f, 2.2));
-        spt_playerControls.controllerVibration("Both", 1.0f, 2.2);
-        yield return new WaitForSeconds(0.8f);
+        //spt_playerControls.controllerVibration("Both", 1.0f, 2.2);
+        //yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(2.2f);
+        Both = true;
+        vibrationForce = 1.0f;
+        vibrationTime = 2.9f;
+        vibrationz = true;
         //StartCoroutine(spt_playerControls.NewVibrator("Both", 1.0f, 2.9));
-        spt_playerControls.controllerVibration("Both", 1.0f, 2.9);
-        yield return new WaitForSeconds(1.2f);
+        //spt_playerControls.controllerVibration("Both", 1.0f, 2.9);
+        //yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(3f);
+        Both = true;
+        vibrationForce = 1.0f;
+        vibrationTime = 2.2f;
+        vibrationz = true;
+        
         //StartCoroutine(spt_playerControls.NewVibrator("Both", 1.0f, 2.2));
-        spt_playerControls.controllerVibration("Both", 1.0f, 2.2);
+        //spt_playerControls.controllerVibration("Both", 1.0f, 2.2);  
     }
 
 
