@@ -29,7 +29,7 @@ namespace VRStandardAssets.Examples
         override protected void Start()
         {
             garageSound = GetComponent<AudioSource>();
-            garageDoorAnimations = transform.FindChild("GarageDoorMech").GetComponent<Animation>();
+            garageDoorAnimations = GameObject.Find("GarageDoorMech").GetComponent<Animation>();
         }
 
         override protected void Update()

@@ -19,13 +19,18 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: {x: -0.00015926389, y: 0.44, z: -0.33250287}
-        inSlope: {x: 0, y: 0.43200004, z: 0}
-        outSlope: {x: 0, y: 0.43200004, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - time: 0.23333333
+        value: {x: -0.00015926389, y: 0.44, z: -0.33250287}
+        inSlope: {x: 0, y: 0.30000004, z: 0}
+        outSlope: {x: 0, y: 0.30000004, z: 0}
         tangentMode: 0
       - time: 0.8333333
         value: {x: -0.00015926389, y: 0.8, z: -0.33250287}
-        inSlope: {x: 0, y: -0.08400035, z: 0}
-        outSlope: {x: 0, y: -0.08400035, z: 0}
+        inSlope: {x: 0, y: -0.00000032782555, z: 0}
+        outSlope: {x: 0, y: -0.00000032782555, z: 0}
         tangentMode: 0
       - time: 0.8666667
         value: {x: -0.00015926389, y: 0.78, z: -0.33250287}
@@ -96,6 +101,11 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
+      - time: 0.23333333
+        value: -0.00015926389
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
       - time: 0.8333333
         value: -0.00015926389
         inSlope: 0
@@ -138,13 +148,18 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 0.44
-        inSlope: 0.43200004
-        outSlope: 0.43200004
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.23333333
+        value: 0.44
+        inSlope: 0.30000004
+        outSlope: 0.30000004
         tangentMode: 10
       - time: 0.8333333
         value: 0.8
-        inSlope: -0.08400035
-        outSlope: -0.08400035
+        inSlope: -0.00000032782555
+        outSlope: -0.00000032782555
         tangentMode: 10
       - time: 0.8666667
         value: 0.78
@@ -182,6 +197,11 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
+        value: -0.33250287
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.23333333
         value: -0.33250287
         inSlope: 0
         outSlope: 0
