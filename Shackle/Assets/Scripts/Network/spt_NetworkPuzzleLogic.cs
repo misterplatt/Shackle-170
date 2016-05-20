@@ -178,7 +178,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
             }
 
             //If outpost is loaded, check the following puzzle states
-            if (SceneManager.GetActiveScene().name == "net_RangerOutpost")
+            if (SceneManager.GetActiveScene().name == "net_RangerOutpost_crash" || SceneManager.GetActiveScene().name == "net_RangerOutpost")
             {
                 //If a player has successfully used the pickaxe on the hatch, update server state
                 if (VRStandardAssets.Examples.spt_hatch.local_puzzleCompletion)
@@ -221,6 +221,12 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 {
                     Debug.Log("Updating garageDoorOpen on the network to " + VRStandardAssets.Examples.spt_hatch.local_puzzleCompletionMonster);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("puzzleCompletionMonster", true, "MonsterStandin");
+                }
+                //If a player has pressed the key fob, update server state
+                if (VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed)
+                {
+                    Debug.Log("Updating keyFobPressed on the network to " + VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("keyFobPressed", true, "mdl_carKeyfob");
                 }
             }
 
