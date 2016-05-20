@@ -4,7 +4,7 @@
  * 
  * Last Revision Date: 5/11/2016
  * 
- * This script the explosion form the TNT levers. **/
+ * This script the explosion from the TNT levers. **/
 
 using UnityEngine;
 using System.Collections;
@@ -42,7 +42,9 @@ public class spt_explosionParticles : MonoBehaviour {
                 if (!once)
                 {
                     GameObject go = (GameObject)Instantiate(Resources.Load("Explosion"));
-                    go.transform.position = gameObject.transform.position;
+                    go.transform.position = GameObject.Find("mdl_TNTLeverA").transform.position;
+                    GameObject go2 = (GameObject)Instantiate(Resources.Load("Explosion"));
+                    go2.transform.position = GameObject.Find("mdl_TNTLeverB").transform.position;
                     once = true;
                 }
             }

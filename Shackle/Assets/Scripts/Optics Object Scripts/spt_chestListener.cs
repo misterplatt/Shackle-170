@@ -1,9 +1,9 @@
 ﻿/*
 spt_chestListener
 
-Author(s): Hayden Platt, Dara Diba
+Author(s): Hayden Platt, Dara Diba, Lauren Cunnigham
 
-Revision 2
+Revision 3
 
 Listener for the chest opening. Once the laser has hit the laser lock,
 this script opens the chest lid.
@@ -59,6 +59,10 @@ namespace VRStandardAssets.Examples
                 local_isChestOpen = true;
                 transform.parent.eulerAngles = new Vector3(-50,270,0);
                 once = true;
+
+                //Smoke Particles
+                GameObject go = (GameObject)Instantiate(Resources.Load("Smoke"));
+                go.transform.position = gameObject.transform.position;
                 //GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("isChestOpen", true, "mdl_chestLock");
             }
         }

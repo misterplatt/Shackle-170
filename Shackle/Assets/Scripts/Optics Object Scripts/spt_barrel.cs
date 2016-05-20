@@ -53,9 +53,18 @@ namespace VRStandardAssets.Examples
                 transform.FindChild("Fire").gameObject.SetActive(true);
                 inventorySpt.removeItm("mdl_matchbox");
                 Invoke("FireSound", 3f);
+
                 Invoke("DestroyPoster", 6f);
+                // Replace above line with the burn function on the new poster model
+
                 GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("barrelExplosion", true, "mdl_barrel");
+
+                //Little explosion particle upon lighting barrel
+                GameObject go = (GameObject)Instantiate(Resources.Load("Explosion - Copy"));
+                go.transform.position = gameObject.transform.position;
+                once = true;
             }
+
             holding = false;
         }
 
