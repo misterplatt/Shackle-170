@@ -76,6 +76,7 @@ public class spt_lossListener : NetworkBehaviour {
                 Debug.Log(transform.parent.parent.parent.name + " " + player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].name);
                 GetComponent<Text>().text = "You lose";
                 GetComponent<Text>().enabled = true;
+                transform.FindChild("LossControls").gameObject.GetComponent<RawImage>().enabled = true;
                 loss = true;
                 //transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
                 once = true;

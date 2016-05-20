@@ -106,6 +106,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
             uiMessager.GetComponent<Text>().text = "You lose";
             uiMessager.GetComponent<spt_lossListener>().loss = true;
             uiMessager.GetComponent<Text>().enabled = true;
+            uiMessager.transform.FindChild("LossControls").gameObject.GetComponent<RawImage>().enabled = true;
 
             //path to return to main menu.
 
