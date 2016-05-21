@@ -61,7 +61,7 @@ namespace VRStandardAssets.Examples
                 once = true;
 
                 //Smoke Particles
-                GameObject go = (GameObject)Instantiate(Resources.Load("Smoke"), new Vector3(0, -2.5f, 2.8f), Quaternion.Euler(0, 0, 0));
+                GameObject go = (GameObject)Instantiate(Resources.Load("Smoke"), new Vector3(1.23f, 1.857f, -1.808f), Quaternion.Euler(0, 0, 0));
                 //GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("isChestOpen", true, "mdl_chestLock");
             }
         }
