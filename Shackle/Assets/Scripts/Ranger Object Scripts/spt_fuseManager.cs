@@ -62,11 +62,17 @@ namespace VRStandardAssets.Examples
                 Debug.Log("CORRECT SWITCHES ON!$@##@#$");
 
                 //Particles - burst of sparks when the correct fuse combo is entered
-                //ParticleSystem parentSystem = gameObject.GetComponent<ParticleSystem>();
-                ParticleSystem[] childrenSystems = gameObject.GetComponentsInChildren<ParticleSystem>();
+                ParticleSystem parentSystem = gameObject.transform.GetChild(1).GetComponent<ParticleSystem>();
+                ParticleSystem[] childrenSystems = gameObject.transform.GetChild(1).GetComponentsInChildren<ParticleSystem>();
                 //parentSystem.enableEmission = true;
+                //parentSystem.Stop();
+                parentSystem.Play();
                 foreach (ParticleSystem system in childrenSystems)
-                    system.enableEmission = true;
+                {
+                    //system.enableEmission = false;
+                    //system.Stop();
+                    system.Play();
+                }
                 Invoke("killParticles", 5);
             }
         }
@@ -85,10 +91,17 @@ namespace VRStandardAssets.Examples
         public void killParticles()
         {
             //ParticleSystem parentSystem = gameObject.GetComponent<ParticleSystem>();
-            ParticleSystem[] childrenSystems = gameObject.GetComponentsInChildren<ParticleSystem>();
-            //parentSystem.enableEmission = false;
+            ParticleSystem parentSystem = gameObject.transform.GetChild(1).GetComponent<ParticleSystem>();
+            ParticleSystem[] childrenSystems = gameObject.transform.GetChild(1).GetComponentsInChildren<ParticleSystem>();
+            //parentSystem.enableEmission = true;
+            //parentSystem.Stop();
+            parentSystem.Play();
             foreach (ParticleSystem system in childrenSystems)
-                system.enableEmission = false;
+            {
+                //system.enableEmission = false;
+                //system.Stop();
+                system.Play();
+            }
         }
     }
 }
