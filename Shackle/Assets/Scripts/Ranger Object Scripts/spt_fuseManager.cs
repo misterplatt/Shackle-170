@@ -62,9 +62,9 @@ namespace VRStandardAssets.Examples
                 Debug.Log("CORRECT SWITCHES ON!$@##@#$");
 
                 //Particles - burst of sparks when the correct fuse combo is entered
-                ParticleSystem parentSystem = gameObject.GetComponent<ParticleSystem>();
+                //ParticleSystem parentSystem = gameObject.GetComponent<ParticleSystem>();
                 ParticleSystem[] childrenSystems = gameObject.GetComponentsInChildren<ParticleSystem>();
-                parentSystem.enableEmission = true;
+                //parentSystem.enableEmission = true;
                 foreach (ParticleSystem system in childrenSystems)
                     system.enableEmission = true;
                 Invoke("killParticles", 5);
@@ -84,9 +84,9 @@ namespace VRStandardAssets.Examples
         //Stops the spark particles after they have finished emitting
         public void killParticles()
         {
-            ParticleSystem parentSystem = gameObject.GetComponent<ParticleSystem>();
+            //ParticleSystem parentSystem = gameObject.GetComponent<ParticleSystem>();
             ParticleSystem[] childrenSystems = gameObject.GetComponentsInChildren<ParticleSystem>();
-            parentSystem.enableEmission = false;
+            //parentSystem.enableEmission = false;
             foreach (ParticleSystem system in childrenSystems)
                 system.enableEmission = false;
         }

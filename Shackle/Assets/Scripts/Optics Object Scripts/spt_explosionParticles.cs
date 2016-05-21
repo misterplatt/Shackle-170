@@ -41,10 +41,8 @@ public class spt_explosionParticles : MonoBehaviour {
             {
                 if (!once)
                 {
-                    GameObject go = (GameObject)Instantiate(Resources.Load("Explosion"));
-                    go.transform.position = GameObject.Find("mdl_TNTLeverA").transform.position;
-                    GameObject go2 = (GameObject)Instantiate(Resources.Load("Explosion"));
-                    go2.transform.position = GameObject.Find("mdl_TNTLeverB").transform.position;
+                    GameObject go = (GameObject)Instantiate(Resources.Load("Explosion"), GameObject.Find("mdl_TNTLeverA").transform.position, Quaternion.Euler(0, 0, 0));
+                    GameObject go2 = (GameObject)Instantiate(Resources.Load("Explosion"), GameObject.Find("mdl_TNTLeverB").transform.position, Quaternion.Euler(0, 0, 0));
                     once = true;
                 }
             }

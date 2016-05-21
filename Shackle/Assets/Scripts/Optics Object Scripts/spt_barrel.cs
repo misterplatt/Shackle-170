@@ -60,8 +60,7 @@ namespace VRStandardAssets.Examples
                 GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("barrelExplosion", true, "mdl_barrel");
 
                 //Little explosion particle upon lighting barrel
-                GameObject go = (GameObject)Instantiate(Resources.Load("Explosion - Copy"));
-                go.transform.position = gameObject.transform.position;
+                GameObject go = (GameObject)Instantiate(Resources.Load("Explosion - Copy"), gameObject.transform.position, Quaternion.Euler(0, 0, 0));
                 once = true;
             }
 
