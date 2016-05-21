@@ -56,8 +56,8 @@ namespace VRStandardAssets.Examples
             keyFobManipulate.anchored = true;
 
             //NPL Update
-            local_fuseBoxOpen = false;
-            local_fuseDoorSlam = false;
+            local_fuseBoxOpen = true;
+            local_fuseDoorSlam = true;
             spt_WorldState.worldStateChanged = true;
             //GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("fuseBoxOpen", true, "mdl_fuseBox_base");
             //GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("fuseDoorSlam", true, "mdl_fuseBox_door");
