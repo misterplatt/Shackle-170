@@ -7,6 +7,8 @@ public class spt_keyDoorCollision : MonoBehaviour {
     spt_NetworkPuzzleLogic network;
     int doorThrownIndex = -1;
     int doorThrownNoiseIndex = -1;
+
+    private bool soundEnabled = false;
     
     // Use this for initialization
 	void Start () {
@@ -29,13 +31,19 @@ public class spt_keyDoorCollision : MonoBehaviour {
                         doorThrownNoiseIndex = i;
                 }
                 networkInitialized = true;
+                Invoke("enableCollision", 5);
             }
         }
     }
 
     public void OnCollisionEnter(Collision c)
     {
-        if (network.PuzzleStates[doorThrownIndex].state == false)
+        if (network.PuzzleStates[doorThrownIndex].state == false && soundEnabled)
             network.Cmd_UpdatePuzzleLogic("keyDoorThrowableNoise", true, "mdl_cabinetDoor");
+    }
+
+    public void enableCollision()
+    {
+        soundEnabled = true;
     }
 }
