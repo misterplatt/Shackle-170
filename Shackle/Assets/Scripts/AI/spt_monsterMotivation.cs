@@ -2,7 +2,7 @@
  * 
  * Created by: Lauren Cunningham
  * 
- * Last Revision Date: 5/18/2016
+ * Last Revision Date: 5/20/2016
  * 
  * This file is the one that ultimately governs the monster's motivation. **/
 
@@ -231,6 +231,13 @@ public class spt_monsterMotivation : NetworkBehaviour {
                 clientThreat = clientThreat + i;
             }
         }
+    }
+
+    //Updates the anger caused by player movement
+    public void updateAngerMovement(int i)
+    {
+        if (!isServer || angerUpdateDisabled) return;
+        angerLevel = angerLevel + i;
     }
 
     // Called evey second. Allows anger to depreciate over time.

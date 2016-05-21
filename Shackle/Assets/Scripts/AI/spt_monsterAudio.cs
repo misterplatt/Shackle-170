@@ -120,8 +120,20 @@ public class spt_monsterAudio : NetworkBehaviour
     public void playWarningNoise()
     {
         once = true;
-        source.clip = warningSounds[wngSoundInd];
-        PlaySoundWithCallback(source.clip, setPlayFlags);
+        if (wngSoundInd != warningSounds.Length)
+        {
+            source.clip = warningSounds[wngSoundInd];
+            PlaySoundWithCallback(source.clip, setPlayFlags);
+        }
+        else
+        {
+            GameObject[] _players = GameObject.FindGameObjectsWithTag("Player");
+            foreach (GameObject player in _players)
+            {
+                player.transform.GetChild(0).transform.GetChild(5).GetComponent<spt_warningListener>().triggerFlicker();
+            }
+
+        }
     }
 
     // Called when an ambient sound is needed. Plays the currently loaded one, then loads a new one.
@@ -141,8 +153,8 @@ public class spt_monsterAudio : NetworkBehaviour
     public void prepWarningNoise()
     {
         if (!isServer) return;
-        wngSoundInd = Random.Range(0, warningSounds.Length);
-        wngVibInd = Random.Range(0, warningSounds.Length);
+        wngSoundInd = Random.Range(0, warningSounds.Length + 1);
+        wngVibInd = Random.Range(0, warningSounds.Length + 1);
         Debug.Log("WARNING VIBRATIONS: " + wngVibInd);
         Debug.Log("LENGTH: " + warningSounds.Length);
         if (wngVibInd % 2 == 0)
