@@ -14,7 +14,7 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -4022,6 +4022,26 @@ Prefab:
       propertyPath: doorSlam
       value: 
       objectReference: {fileID: 8300000, guid: 9aae8e810126c7e42a7e2d858875888d, type: 3}
+    - target: {fileID: 6542752, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
+      propertyPath: m_Size.x
+      value: 5.0000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6542752, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
+      propertyPath: m_Size.z
+      value: 0.26296538
+      objectReference: {fileID: 0}
+    - target: {fileID: 6542752, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
+      propertyPath: m_Center.x
+      value: 2.5000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 6542752, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
+      propertyPath: m_Center.y
+      value: 0.00000023841858
+      objectReference: {fileID: 0}
+    - target: {fileID: 6542752, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
+      propertyPath: m_Center.z
+      value: 0.36846113
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11490200, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
     - {fileID: 11499568, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
@@ -7115,7 +7135,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 138348, guid: ff6d4df19f2366e45a3bfdddce672b71, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff6d4df19f2366e45a3bfdddce672b71, type: 2}
@@ -16183,6 +16203,9 @@ MonoBehaviour:
   distanceBeforeLerp: 0.6
   distanceBeforeFreeze: 0.1
   currentState: 0
+  anchored: 1
+  startPoint: {x: 0, y: 0, z: 0}
+  startRotation: {x: 0, y: 0, z: 0, w: 0}
   endPoint: {fileID: 0}
 --- !u!114 &1062713345
 MonoBehaviour:
@@ -25647,7 +25670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1779084275
 Transform:
   m_ObjectHideFlags: 0
@@ -29006,6 +29029,9 @@ MonoBehaviour:
   distanceBeforeLerp: 0.6
   distanceBeforeFreeze: 0.1
   currentState: 0
+  anchored: 0
+  startPoint: {x: 0, y: 0, z: 0}
+  startRotation: {x: 0, y: 0, z: 0, w: 0}
   endPoint: {fileID: 0}
 --- !u!114 &1987510805
 MonoBehaviour:

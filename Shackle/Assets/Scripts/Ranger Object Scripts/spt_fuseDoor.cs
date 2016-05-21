@@ -49,6 +49,12 @@ namespace VRStandardAssets.Examples
             transform.Translate(new Vector3(-.2f, 0, 0));
             transform.Rotate(new Vector3(0, -150, 0));
 
+            //Set the car keyfob up to be a manipulate object
+            spt_interactiveItemManipulate keyFobManipulate = transform.FindChild("mdl_carKeyfob").gameObject.GetComponent<spt_interactiveItemManipulate>();
+            keyFobManipulate.startPoint = transform.FindChild("mdl_carKeyfob").position;
+            keyFobManipulate.startRotation = transform.FindChild("mdl_carKeyfob").rotation;
+            keyFobManipulate.anchored = true;
+
             //NPL Update
             local_fuseBoxOpen = false;
             local_fuseDoorSlam = false;

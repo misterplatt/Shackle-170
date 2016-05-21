@@ -25,9 +25,10 @@ namespace VRStandardAssets.Examples
         public float distanceBeforeFreeze = .02f; //How close the reticle must be to the object before stopping the lerp
 
         public bool currentState = false;
+        public bool anchored = true;
         bool outOfView = false;
-        private Vector3 startPoint;
-        private Quaternion startRotation;
+        [HideInInspector] public Vector3 startPoint;
+        [HideInInspector] public Quaternion startRotation;
         public Transform endPoint;
         //public GameObject panelObj; //USE IF VIGNETTE IS WANTED
 
@@ -63,7 +64,7 @@ namespace VRStandardAssets.Examples
             }
 
             //If B is pressed, return the object to it's default position and rotation
-            else if (currentState == false && transform.position != startPoint) {
+            else if (anchored && currentState == false && transform.position != startPoint) {
                 //If it has children, deactivate their colliders
                 if (transform.childCount > 0) {
                     BroadcastMessage("childActive", false);

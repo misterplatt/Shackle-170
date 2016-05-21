@@ -127,7 +127,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
             }
         }
         //If a state has been changed locally, find out which one and update the state's networked version
-        Debug.Log("worldStateChanged : " + spt_WorldState.worldStateChanged);
+        //Debug.Log("worldStateChanged : " + spt_WorldState.worldStateChanged);
         if (spt_WorldState.worldStateChanged)
         {
 
