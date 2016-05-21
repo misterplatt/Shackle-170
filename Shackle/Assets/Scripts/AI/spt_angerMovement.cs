@@ -29,7 +29,7 @@ public class spt_angerMovement : MonoBehaviour {
     {
         if (audio.isPlaying)
         {
-            GameObject.Find("MonsterStandin").GetComponent<spt_monsterMotivation>.updateAnger(2);
+            GameObject.Find("MonsterStandin").GetComponent<spt_monsterMotivation>().updateAngerMovement(2);
             Debug.Log("Updating anger from player movement.");
         }
     }

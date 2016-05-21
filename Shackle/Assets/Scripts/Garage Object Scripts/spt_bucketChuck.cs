@@ -24,6 +24,8 @@ namespace VRStandardAssets.Examples
         bool networkInitialized = false;
         spt_NetworkPuzzleLogic network;
 
+        public static bool local_bucketOnShelf = false;
+
         //Puzzle state indices of the bucket being on the shelf, and the noise of the bucket hitting the floor
         int bucketFlingIndex = -1;
         int bucketCollisionIndex = -1;
@@ -54,7 +56,9 @@ namespace VRStandardAssets.Examples
                             bucketCollisionIndex = i;
                     }
                     networkInitialized = true;
-                    network.updatePuzzleState("isBucketOnShelf", true, "mdl_bucket");
+                    //network.updatePuzzleState("isBucketOnShelf", true, "mdl_bucket");
+                    local_bucketOnShelf = true;
+                    spt_WorldState.worldStateChanged = true;
                 }
             }
 
@@ -66,7 +70,9 @@ namespace VRStandardAssets.Examples
                     //play some audio (make sure it's a Oneshot)
                     aSource.PlayOneShot(throwSound);
                     Debug.LogWarning("Bucket Throw Sound");
-                    network.Cmd_UpdatePuzzleLogic("playBucketCollisionNoise", false, "mdl_bucket");
+                    //network.Cmd_UpdatePuzzleLogic("playBucketCollisionNoise", false, "mdl_bucket");
+                    spt_bucketCollision.local_bucketCollision = false;
+                    spt_WorldState.worldStateChanged = true;
                 }
             }
         }
@@ -77,7 +83,9 @@ namespace VRStandardAssets.Examples
 
             if (networkInitialized)
             {
-                network.updatePuzzleState("isBucketOnShelf", false, "mdl_bucket");
+                //network.updatePuzzleState("isBucketOnShelf", false, "mdl_bucket");
+                local_bucketOnShelf = false;
+                spt_WorldState.worldStateChanged = true;
 
                 rb.useGravity = true;
                 rb.AddForce(new Vector3(950, 0, 200));

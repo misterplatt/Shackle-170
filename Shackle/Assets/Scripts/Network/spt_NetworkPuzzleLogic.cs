@@ -175,6 +175,16 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                     Debug.Log("Updating garageDoorOpen on the network to " + VRStandardAssets.Examples.spt_garageDoor.local_puzzleCompletionMonster);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("puzzleCompletionMonster", true, "MonsterStandin");
                 }
+                if (VRStandardAssets.Examples.spt_bucketCollision.local_bucketCollision != PuzzleStates[9].state)
+                {
+                    Debug.Log("Updating bucketCollision on the network to " + VRStandardAssets.Examples.spt_bucketCollision.local_bucketCollision);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("playBucketCollisionNoise", VRStandardAssets.Examples.spt_bucketCollision.local_bucketCollision, "mdl_bucket");
+                }
+                if (VRStandardAssets.Examples.spt_bucketChuck.local_bucketOnShelf != PuzzleStates[8].state)
+                {
+                    Debug.Log("Updating bucketOnShelf on the network to " + VRStandardAssets.Examples.spt_bucketChuck.local_bucketOnShelf);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isBucketOnShelf", VRStandardAssets.Examples.spt_bucketChuck.local_bucketOnShelf, "mdl_bucket");
+                }
             }
 
             //If outpost is loaded, check the following puzzle states
