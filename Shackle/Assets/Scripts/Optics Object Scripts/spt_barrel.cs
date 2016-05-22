@@ -46,13 +46,13 @@ namespace VRStandardAssets.Examples
             //changing the gateItem to the matchbox afterward
             if (!once)
             {
-                spt_WorldState.worldStateChanged = true;
                 local_beakerPoured = true;
+                spt_WorldState.worldStateChanged = true;
                 aSource.clip = beakerPour;
                 aSource.Play();
                 gateItemName = "mdl_matchbox";
                 once = true;
-                GameObject.Find("mdl_beaker").GetComponent<GUITexture>().texture = emptyTube;
+                //GameObject.Find("mdl_beaker").GetComponent<GUITexture>().texture = emptyTube;
             }
             //If the liquid has been used and the matchbox is being used,
             //initialize the fire particles and destroy poster after x seconds.
