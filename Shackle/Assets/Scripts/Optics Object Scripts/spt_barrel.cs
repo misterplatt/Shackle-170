@@ -31,7 +31,8 @@ namespace VRStandardAssets.Examples
 
         protected override void Update()
         {
-            if (GameObject.Find( GameObject.Find("WorldState").GetComponent<spt_WorldState>().localPlayer).GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[12].state == true) GameObject.Find("mdl_beaker").GetComponent<GUITexture>().texture = emptyTube;
+            //Debug.Log("DICK IN MY ASS " + GameObject.Find(GameObject.Find("WorldState").GetComponent<spt_WorldState>().localPlayer).GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[15].state);
+            if (GameObject.Find( GameObject.Find("WorldState").GetComponent<spt_WorldState>().localPlayer).GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[14].state == true) GameObject.Find("mdl_beaker").GetComponent<GUITexture>().texture = emptyTube;
         }
 
         protected override void Start()
