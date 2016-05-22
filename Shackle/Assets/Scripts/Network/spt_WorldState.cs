@@ -17,9 +17,18 @@ public class spt_WorldState : NetworkBehaviour {
 
     [SyncVar]
     public bool playCrashSound = false;
-    
+    public string localPlayer;
+
     void Start()
     {
         worldStateChanged = false;
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+            if ( player.GetComponent<NetworkIdentity>().isLocalPlayer )
+            {
+                localPlayer = player.name;
+            }
+        }
     }
 }
