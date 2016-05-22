@@ -86,7 +86,8 @@ public class spt_inventory : NetworkBehaviour {
         if (!isLocalPlayer) return;
 
         lookingObject = m_EyeRaycaster.CurrentInteractible;
-        
+
+        if (Input.GetKeyDown(KeyCode.F)) dbg_serverPrintInventory();
 
         //if the inventory has changed in someway, redraw the inventory UI.
         if (invChanged) visualList();
@@ -142,6 +143,7 @@ public class spt_inventory : NetworkBehaviour {
         if (m_EyeRaycaster.racyCastTouch)
         {
             reticleTex = transform.Find("Camera Player/VRCameraUI/GUIReticle").gameObject;
+            Debug.Log("activeItem : " + activeItem);
             reticleTex.GetComponent<RawImage>().texture = retrieveObjectFromInventory(activeItem).GetComponent<GUITexture>().texture;
         }
         else

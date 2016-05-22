@@ -9,12 +9,13 @@
  **/
 
 using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-public class spt_DDA : MonoBehaviour {
+public class spt_DDA : NetworkBehaviour {
 
     private bool difficultyFound = false;
     private bool difficultySet = false;
@@ -24,6 +25,8 @@ public class spt_DDA : MonoBehaviour {
 
     void Update()
     {
+        //if this isnt' the server, don't do anything.
+        if (!isServer) return;
         // If the difficulty or the monster's motivation script has not been obtained yet, do so.
         if (!difficultyFound && (GameObject.Find("DDA").GetComponent<spt_DDAStorage>() != null) && (gameObject.GetComponent<spt_monsterMotivation>() != null))
         {

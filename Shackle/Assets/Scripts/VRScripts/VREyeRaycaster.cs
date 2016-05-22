@@ -99,6 +99,14 @@ namespace VRStandardAssets.Utils
 
         private void Update()
         {
+            if (mirrorH1 == null && SceneManager.GetActiveScene().name == "net_OpticsLab") {
+                mirrorH1 = GameObject.Find("mdl_mirrorHandle (2)");
+                mirrorH2 = GameObject.Find("mdl_mirrorHandle (3)");
+                m1RotLast = mirrorH1.transform.rotation.eulerAngles;
+                m2RotLast = mirrorH2.transform.rotation.eulerAngles;
+            }
+
+
             if (!isLocalPlayer) {
                 return;
             }
@@ -254,7 +262,7 @@ namespace VRStandardAssets.Utils
                 if (pInv.inventory[itemIndex].Contains("mirrorPickup"))
                 {
                     Cmd_AddMirror(pInv.inventory[itemIndex], currentInteractibleName);
-                    pInv.removeItm(pInv.inventory[itemIndex]);
+                    Debug.Log("Removing : " +  pInv.inventory[itemIndex]);
                     Cmd_UpdateMirrors(laserStatus());
                 }
 

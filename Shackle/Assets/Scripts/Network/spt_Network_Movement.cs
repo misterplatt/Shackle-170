@@ -113,7 +113,7 @@ public class spt_Network_Movement : NetworkBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if (mListener == null) mListener = GameObject.Find("WorldState").GetComponent<spt_Network_MovementListener>();
+        if (mListener == null && isServer) mListener = GameObject.Find("WorldState").GetComponent<spt_Network_MovementListener>();
         if (!isLocalPlayer) return;
 
         //if this player is not server, have it update the current thumbstick input to the server
