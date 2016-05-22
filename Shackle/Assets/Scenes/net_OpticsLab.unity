@@ -643,7 +643,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 32376234}
   m_Enabled: 0
-  m_Texture: {fileID: 2800000, guid: de3ae28b6fe829d4db560bd9f25e26cd, type: 3}
+  m_Texture: {fileID: 2800000, guid: c1b7886db174d2243986787007b996d0, type: 3}
   m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   m_PixelInset:
     serializedVersion: 2
@@ -8151,7 +8151,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 465134, guid: a51959f1a4d72df49b4e9d301cc86e52, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.31
+      value: 2.265
       objectReference: {fileID: 0}
     - target: {fileID: 465134, guid: a51959f1a4d72df49b4e9d301cc86e52, type: 2}
       propertyPath: m_LocalPosition.y
@@ -8159,7 +8159,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 465134, guid: a51959f1a4d72df49b4e9d301cc86e52, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1.08
+      value: -1.476
       objectReference: {fileID: 0}
     - target: {fileID: 465134, guid: a51959f1a4d72df49b4e9d301cc86e52, type: 2}
       propertyPath: m_LocalRotation.x
@@ -8211,7 +8211,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 596739436}
   m_Enabled: 0
-  m_Texture: {fileID: 2800000, guid: 42e7c75a9da65814d8c66d0c313cb0d2, type: 3}
+  m_Texture: {fileID: 2800000, guid: 289a3b9df691b06469f5bb8c4a7ec8dd, type: 3}
   m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   m_PixelInset:
     serializedVersion: 2
@@ -17143,6 +17143,9 @@ MonoBehaviour:
   - eventName: isChestOpen
     item: {fileID: 376995899}
     isMonstInteractable: 1
+  - eventName: beakerPoured
+    item: {fileID: 596739436}
+    isMonstInteractable: 0
 --- !u!4 &1515300599
 Transform:
   m_ObjectHideFlags: 0
@@ -17501,7 +17504,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1583068290}
   m_LocalRotation: {x: -0.59286153, y: -0.3853766, z: -0.38537642, w: 0.59286183}
-  m_LocalPosition: {x: -0.585, y: -1.11, z: -2.354}
+  m_LocalPosition: {x: -0.585, y: -1.11, z: -2.424}
   m_LocalScale: {x: 2.1488907, y: 2.4293537, z: 2.4293537}
   m_Children: []
   m_Father: {fileID: 1817802639}
@@ -20419,7 +20422,7 @@ MonoBehaviour:
   gateItemName: mdl_beaker
   holdTime: 1
   m_InteractiveItem: {fileID: 1924258066}
-  emptyTube: {fileID: 2800000, guid: 27d3ada2dcb239447b2048d4ac090f8d, type: 3}
+  emptyTube: {fileID: 2800000, guid: 58de8eddf50dcdf4a9203eab9b901b3e, type: 3}
   matchStrike: {fileID: 8300000, guid: be1be3dcc271b7d4da52bd34909d53b2, type: 3}
   beakerPour: {fileID: 8300000, guid: 9db9bb17de350084d84788a99f06be4c, type: 3}
   posterFire: {fileID: 8300000, guid: 076b74f99caefdb4cb40082c2c243dde, type: 3}

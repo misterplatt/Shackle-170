@@ -291,6 +291,13 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                     Debug.Log("Updating leverBPressed on the network to " + VRStandardAssets.Examples.spt_TNTLever.local_leverBPressed);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("leverBPressed", VRStandardAssets.Examples.spt_TNTLever.local_leverBPressed, "mdl_TNTLeverB");
                 }
+                //If player A uses the flammable liquid, update server state and change to empty beaker sprite.
+                if (VRStandardAssets.Examples.spt_barrel.local_beakerPoured != PuzzleStates[12].state)
+                {
+                    Debug.Log("Updating beakerPoured on the network to " + VRStandardAssets.Examples.spt_barrel.local_beakerPoured);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("beakerPoured", VRStandardAssets.Examples.spt_barrel.local_beakerPoured, "mdl_beaker");
+                }
+
             }
 
             spt_WorldState.worldStateChanged = false;

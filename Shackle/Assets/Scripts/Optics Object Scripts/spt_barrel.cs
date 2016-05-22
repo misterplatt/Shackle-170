@@ -9,10 +9,12 @@ First, requires flammable liquid, after which it requires the matchbox.
 Once the matchbox is used, the child fire particle system is activated,
 and the poster is destroyed shortly thereafter.
 Added sounds for pouring flammable liquid, lighting match, and fire. - Dara
+Added a puzzle state for the empty beaker sprite so it will stay consistent across network. - Dara
 */
 
 using UnityEngine;
 using VRStandardAssets.Utils;
+using UnityEngine.Networking;
 
 namespace VRStandardAssets.Examples
 {
@@ -24,7 +26,13 @@ namespace VRStandardAssets.Examples
         public AudioClip matchStrike;
         public AudioClip beakerPour;
         public AudioClip posterFire;
+        public static bool local_beakerPoured = false;
         private bool matchLit = false;
+
+        protected override void Update()
+        {
+            if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[12].state == true) GameObject.Find("mdl_beaker").GetComponent<GUITexture>().texture = emptyTube;
+        }
 
         protected override void Start()
         {
@@ -38,6 +46,8 @@ namespace VRStandardAssets.Examples
             //changing the gateItem to the matchbox afterward
             if (!once)
             {
+                spt_WorldState.worldStateChanged = true;
+                local_beakerPoured = true;
                 aSource.clip = beakerPour;
                 aSource.Play();
                 gateItemName = "mdl_matchbox";

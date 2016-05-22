@@ -8,6 +8,7 @@ Revision 2
 Mirror stand script. When a mirror is used on it, it's attached
 to the top of the stand, and made a child object. The mirror can be
 picked back up.
+Added check to turn of radial dial if a mirror is already in the stand. -Dara
 */
 
 
@@ -55,11 +56,10 @@ namespace VRStandardAssets.Examples
                         break;
                     }
                 }
-                
-                //mirrorObj.transform.parent = //transform.FindChild("mdl_mirrorHandle");
-                
-                //mirrorObj.transform.eulerAngles = new Vector3(mountAngle, 0, transform.eulerAngles.y);
 
+                //mirrorObj.transform.parent = //transform.FindChild("mdl_mirrorHandle");
+
+                //mirrorObj.transform.eulerAngles = new Vector3(mountAngle, 0, transform.eulerAngles.y);
                 holding = false;
                 bindMirror(mirrorObj);
 
@@ -101,6 +101,13 @@ namespace VRStandardAssets.Examples
             mirror.GetComponent<NetworkIdentity>().enabled = false;
             networkedTransform.target = mirror.transform;
             
+        }
+
+        //Checking to make sure if there is a mirror then don't show radial dial.
+        protected override void HandleDown()
+        {
+            if (HasMirror()) return;
+            base.HandleDown();
         }
 
         //Plug handleClick
