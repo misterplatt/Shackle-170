@@ -53,6 +53,7 @@ namespace VRStandardAssets.Examples
             textToActivate.color = new Color32(153,0,0, 255);
             vignette.enabled = true;
             moduleToActivate.SetActive(true);
+            GameObject.Find("NetworkManager").GetComponent<spt_ManagerMenuInterface>().showIp();
         }
     }
 }
