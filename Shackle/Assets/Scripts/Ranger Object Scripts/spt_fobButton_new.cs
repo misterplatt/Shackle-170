@@ -39,7 +39,7 @@ namespace VRStandardAssets.Examples
                 //Start car crash animation
                 aSource.Play();
                 once1 = true;
-                carCrash();
+                Invoke("carCrash", 9.4f);
             }
         }
 
@@ -66,7 +66,7 @@ namespace VRStandardAssets.Examples
                 transform.parent.GetComponent<spt_interactiveItemManipulate>().currentState = false;
 
                 //Start car crash animation as crash sound occurs
-                Invoke("carCrash", 9.4f);
+                //Invoke("carCrash", 9.4f);
                 once = true;
             }
         }
