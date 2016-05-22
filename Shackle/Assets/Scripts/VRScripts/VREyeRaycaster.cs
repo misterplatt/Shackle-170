@@ -236,7 +236,7 @@ namespace VRStandardAssets.Utils
         private void updateInteractable()
         {
             if (isServer) return;
-            Client_MirrorSync();
+            if (SceneManager.GetActiveScene().name == "net_OpticsLab") Client_MirrorSync();
             /*
             if (currentInteractibleName.Contains("mirrorHandle")) {
                 if(spt_playerControls.aButtonPressed()) {
