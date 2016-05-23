@@ -34,6 +34,7 @@ namespace VRStandardAssets.Examples
                     break;
                 }
             }
+            HasMirror();
             //networkedTransform = GetComponent<NetworkTransformChild>();
         }
         override protected void holdSuccess(){            
@@ -72,6 +73,8 @@ namespace VRStandardAssets.Examples
                         network.Cmd_UpdatePuzzleLogic(network.PuzzleStates[i].name, true, gameObject.name);
                     }
                 }
+                //Call HasMirror again so that the mirrorHandle's collider is enabled
+                HasMirror();
 			}
         }
 
@@ -100,7 +103,6 @@ namespace VRStandardAssets.Examples
         {
             mirror.GetComponent<NetworkIdentity>().enabled = false;
             networkedTransform.target = mirror.transform;
-            
         }
 
         //Checking to make sure if there is a mirror then don't show radial dial.
@@ -131,7 +133,10 @@ namespace VRStandardAssets.Examples
             }
 
             foreach (Transform child in handle.transform) {
-                if (child.gameObject.tag == "mirror") return true;
+                if (child.gameObject.tag == "mirror") {
+                    handle.GetComponent<BoxCollider>().enabled = true;
+                    return true;
+                }
             }
             return false;
 		}
