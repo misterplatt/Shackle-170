@@ -39,7 +39,7 @@ namespace VRStandardAssets.Examples
                 //Start car crash animation
                 aSource.Play();
                 once1 = true;
-                Invoke("carCrash", 10f);
+                Invoke("carCrash", 9.6f);
             }
         }
 
