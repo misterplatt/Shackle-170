@@ -86,8 +86,7 @@ public class spt_monsterAudio : NetworkBehaviour
         spt_victoryListener.vibrationTime = vibeTime;
         spt_victoryListener.Both = true;
 
-        Debug.Log("FUCKING FORCE: " + vibeForce);
-        Debug.Log("FUCKING TIME: " + vibeTime);
+
         StartCoroutine(DelayedCallback(vibeTime, callback));
     }
 
@@ -113,7 +112,6 @@ public class spt_monsterAudio : NetworkBehaviour
     {
         once = true;
         PlayVibrationWithCallback(SetVibrateFlags);
-        Debug.Log("I'M VIBRATING BABYYYY");
     }
     
     //Called when a warning noise is needed. Plays the currently loaded one, then loads a new one.
@@ -155,8 +153,7 @@ public class spt_monsterAudio : NetworkBehaviour
         if (!isServer) return;
         wngSoundInd = Random.Range(0, warningSounds.Length + 1);
         wngVibInd = Random.Range(0, warningSounds.Length + 1);
-        Debug.Log("WARNING VIBRATIONS: " + wngVibInd);
-        Debug.Log("LENGTH: " + warningSounds.Length);
+
         if (wngVibInd % 2 == 0)
          {
             warningVibration = true;
