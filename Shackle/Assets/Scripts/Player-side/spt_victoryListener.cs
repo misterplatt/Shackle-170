@@ -103,7 +103,6 @@ public class    spt_victoryListener : MonoBehaviour
             spt_LayeredAudioManager.musicPlay = false;
             transitionA.Play();
             StartCoroutine(transitionRumble());
-            // StartCoroutine(transitionRumbleShit());
 
             //update dda
             GameObject.Find("DDA").GetComponent<spt_DDAStorage>().incrementDiffValue();
