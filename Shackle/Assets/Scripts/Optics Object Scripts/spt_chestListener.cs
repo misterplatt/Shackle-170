@@ -20,11 +20,13 @@ namespace VRStandardAssets.Examples
         public static bool local_laserHitLock = false;
         public static bool local_isChestOpen = false;
         private bool once = false;
+        private Vector3 initialRotation;
         private Vector3 spherePos;
         private AudioSource aSource;
 
         protected override void Start()
         {
+            initialRotation = transform.parent.rotation.eulerAngles;
             spherePos = transform.FindChild("sphereCastPoint").position;
             aSource = GetComponent<AudioSource>();
         }
@@ -36,7 +38,7 @@ namespace VRStandardAssets.Examples
             //Check for laser collision while no laser has hit the lock
             if (!local_laserHitLock) {
                 //Accumulate list of colliders intersecting the chest lock's collider
-                Collider[] hitColliders = Physics.OverlapSphere(spherePos, .25f);
+                Collider[] hitColliders = Physics.OverlapSphere(spherePos, .15f);
                 //Check each collider
                 foreach (Collider col in hitColliders)
                 {
@@ -70,9 +72,13 @@ namespace VRStandardAssets.Examples
         public override void resetItem()
         {
             //Chest will do things, sound will play
+            transform.parent.eulerAngles = initialRotation;
+            //aSource.clip = DARASFRESHSOUND;
+            aSource.Play();
 
             //Uncomment below line when the other code (the stuff to close the chest in-scene) is implemented
-            //GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("isChestOpen", false, "mdl_chestLock");
+            local_isChestOpen = false;
+            spt_WorldState.worldStateChanged = true;
         }
 
     }
