@@ -67,7 +67,7 @@ namespace VRStandardAssets.Examples
                 //GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("isChestOpen", true, "mdl_chestLock");
             }
 
-            if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == false) {
+            if (once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == false) {
                 //Chest will do things, sound will play
                 transform.parent.eulerAngles = initialRotation;
                 aSource.clip = DARASFRESHSOUND;
