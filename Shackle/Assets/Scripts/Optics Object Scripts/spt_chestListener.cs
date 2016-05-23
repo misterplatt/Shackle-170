@@ -66,25 +66,26 @@ namespace VRStandardAssets.Examples
                 go.GetComponent<ParticleSystem>().enableEmission = true;
                 //GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("isChestOpen", true, "mdl_chestLock");
             }
+
+            if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == false) {
+                //Chest will do things, sound will play
+                transform.parent.eulerAngles = initialRotation;
+                aSource.clip = DARASFRESHSOUND;
+                aSource.Play();
+
+                //Uncomment below line when the other code (the stuff to close the chest in-scene) is implemented
+                local_isChestOpen = false;
+                local_laserHitLock = false;
+                spt_WorldState.worldStateChanged = true;
+                once = false;
+            }
         }
 
         public override void resetItem()
         {
-            //Chest will do things, sound will play
-            transform.parent.eulerAngles = initialRotation;
-            aSource.clip = DARASFRESHSOUND;
-            aSource.Play();
-
-            Invoke("resetOnce", 2f);
-            //Uncomment below line when the other code (the stuff to close the chest in-scene) is implemented
             local_isChestOpen = false;
             local_laserHitLock = false;
             spt_WorldState.worldStateChanged = true;
-
-            //once = false;
         }
-
-        void resetOnce() { once = false; }
-
     }
 }
