@@ -30368,7 +30368,7 @@ MonoBehaviour:
   gateItemName: 
   holdTime: 0
   m_InteractiveItem: {fileID: 1779084281}
-  keyDoorThrown: {fileID: 8300000, guid: 240e4d1e83a0a8d4aa90e939b648e692, type: 3}
+  keyDoorThrown: {fileID: 8300000, guid: b119db52859b32b478c5b26906e4934c, type: 3}
 --- !u!114 &1779084281
 MonoBehaviour:
   m_ObjectHideFlags: 0
