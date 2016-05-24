@@ -53,15 +53,15 @@ namespace VRStandardAssets.Examples
                 currentState = false;
                 fManager.updateFuseStates(switchNumber, currentState);
                 transform.position = initalPosition; //Resets the position before performing the translation
-                if (currentState == true) transform.Translate(new Vector3(0, 0, -.3f));
-                else if (currentState == false) transform.Translate(new Vector3(0, 0, .3f));
+                if (currentState == true) transform.Translate(new Vector3(-.1f, 0, 0));
+                else if (currentState == false) transform.Translate(new Vector3(.1f, 0, 0));
             }
             else if (switchNumber != 0) {
                 currentState = (Random.value > 0.5f);
                 fManager.updateFuseStates(switchNumber, currentState);
                 transform.position = initalPosition; //Resets the position before performing the translation
-                if (currentState == true) transform.Translate(new Vector3(0, 0, -.3f));
-                else if (currentState == false) transform.Translate(new Vector3(0, 0, .3f));
+                if (currentState == true) transform.Translate(new Vector3(-.1f, 0, 0));
+                else if (currentState == false) transform.Translate(new Vector3(.1f, 0, 0));
             }
         }
     }
