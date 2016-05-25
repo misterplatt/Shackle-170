@@ -36,6 +36,7 @@ public class spt_lossListener : NetworkBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (SceneManager.GetActiveScene().name == "LoadScreen") return;
+        if (player == null) player = this.transform.root.gameObject;
         if (spt_playerControls.startButtonPressed() && !loss) toggleLossMenu();
         if (lossMenu) checkLossMenuInput();
 
