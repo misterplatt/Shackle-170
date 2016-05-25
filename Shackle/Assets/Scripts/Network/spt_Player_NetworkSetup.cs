@@ -44,8 +44,17 @@ public class spt_Player_NetworkSetup : NetworkBehaviour {
     {
         if (spawnAdjustment == false)
         {
-            this.transform.position = GameObject.Find("Spawn_A").transform.position;
-            spawnAdjustment = true;
+            if (isServer)
+            {
+                spawnAdjustment = true;
+                return;
+            }
+            else
+            {
+                this.transform.position = GameObject.Find("Spawn_B").transform.position;
+                spawnAdjustment = true;
+
+            }
         }
     }
     
