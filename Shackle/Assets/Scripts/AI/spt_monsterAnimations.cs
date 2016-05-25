@@ -50,6 +50,11 @@ public class spt_monsterAnimations : NetworkBehaviour {
             Invoke("particlesOn", 30);
             particlesTimed = true;
         }
+        Light[] eyes = this.GetComponentsInChildren<Light>();
+        for (int i = 0; i < eyes.Length; i++)
+        {
+            eyes[i].enabled = render;
+        }
     }
 
     // This function handles the monster's attack animation.
