@@ -361,7 +361,8 @@ namespace VRStandardAssets.Utils
         [Command]
         public void Cmd_SyncMirrors(Vector3 m1Rot, Vector3 m2Rot)
         {
-            mirrorH1.transform.localEulerAngles = new Vector3(m1Rot.x, m1Rot.y + 180.0F, m1Rot.z);
+            
+            mirrorH1.transform.localEulerAngles = new Vector3(m1Rot.x, -1*m1Rot.y + 180.0F, m1Rot.z);
             mirrorH2.transform.localEulerAngles = new Vector3(m2Rot.x, m2Rot.y + 180.0F, m2Rot.z);
         }
 
