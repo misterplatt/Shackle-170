@@ -19,13 +19,13 @@ public class spt_Player_NetworkSetup : NetworkBehaviour {
     AudioListener audiolistener;
 
     bool spawnAdjustment;
-
+    Vector3 spawnPos;
     // Use this for initialization
     void Start () {
 
         spawnAdjustment = false;
-
-        if(isLocalPlayer)
+        spawnPos = new Vector3(0.0F, 2.1F, -1.0F);
+        if (isLocalPlayer)
         {
 
             //GameObject mCam = GameObject.Find("Main Camera");
@@ -42,6 +42,8 @@ public class spt_Player_NetworkSetup : NetworkBehaviour {
 
     void Update()
     {
+        if (isServer) return;
+        if ( !this.transform.position.Equals(spawnPos) )this.transform.position = spawnPos;
         if (spawnAdjustment == false)
         {
             if (isServer)
