@@ -17,4 +17,9 @@ public class spt_ManagerLevelStorage : MonoBehaviour {
         if (SceneManager.GetActiveScene().name == "LoadScreen") return;
         currentLevel = SceneManager.GetActiveScene().name;
     }
+
+    public void cli_reconnect()
+    {
+
+    }
 }
