@@ -223,8 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2218422c13e8b364394c0e2174dcf596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  METRICS_ENABLED: 1
-  filename: 
 --- !u!114 &11415932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -260,6 +258,7 @@ MonoBehaviour:
   warningSounds:
   - {fileID: 0}
   ambientSounds: []
+  attackSound: {fileID: 0}
 --- !u!114 &11455570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -278,6 +277,9 @@ MonoBehaviour:
   whichPlayer: 0
   isAttacking: 0
   clientRecievedSignal: 0
+  upperThreshold: 250
+  lowerThreshold: 200
+  angerUpdateDisabled: 0
 --- !u!114 &11474906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,6 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionName: 
   interactionItemName: 
+  drawerOpen: 0
 --- !u!114 &11476180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -303,6 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pLoss: 0
+  animIndex: 0
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
