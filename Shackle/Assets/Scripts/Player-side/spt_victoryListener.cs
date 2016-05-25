@@ -133,9 +133,9 @@ public class    spt_victoryListener : MonoBehaviour
         string lvlName = SceneManager.GetActiveScene().name;
         if (lvlName == "net_SpookyGarage")
         {
-            nextLevel = "net_RangerOutpost";
+            nextLevel = "net_RangerOutpost_crash";
         }
-        else if (lvlName == "net_RangerOutpost")
+        else if (lvlName == "net_RangerOutpost_crash")
         {
             nextLevel = "net_OpticsLab";
         }
