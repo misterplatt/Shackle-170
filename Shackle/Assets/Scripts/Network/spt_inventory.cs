@@ -339,7 +339,7 @@ public class spt_inventory : NetworkBehaviour {
         if ( player == null )
         {
             //find the client player and just it. 
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Players");
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
             foreach ( GameObject thisPlayer in players)
             {
                 if (!thisPlayer.GetComponent<NetworkIdentity>().isLocalPlayer) player = thisPlayer;
