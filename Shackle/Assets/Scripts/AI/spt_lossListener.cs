@@ -19,20 +19,26 @@ public class spt_lossListener : NetworkBehaviour {
     int index;
     bool gotIndex = false;
     bool once = false;
+    bool lossMenu;
     public bool loss;
 
     GameObject player;
     spt_monsterAudio monsterAudio;
 
 
-    void Start()
-    {
+    void Start() {
+        if (SceneManager.GetActiveScene().name == "LoadScreen") return;
         monsterAudio = GameObject.Find("MonsterStandin").GetComponent<spt_monsterAudio>();
         loss = false;
+        lossMenu = false;
         player = this.transform.root.gameObject;
     }
 	// Update is called once per frame
 	void Update () {
+        if (SceneManager.GetActiveScene().name == "LoadScreen") return;
+        if (spt_playerControls.startButtonPressed() && !loss) toggleLossMenu();
+        if (lossMenu) checkLossMenuInput();
+
         if (spt_playerControls.aButtonPressed() && loss)
         {
             Debug.Log("Restarting");
@@ -87,4 +93,30 @@ public class spt_lossListener : NetworkBehaviour {
             }
         }
 	}
+
+    private void toggleLossMenu() {
+        if (!this.transform.root.gameObject.GetComponent<NetworkIdentity>().isLocalPlayer) return;
+        lossMenu = !lossMenu;
+        transform.FindChild("LossControls").gameObject.GetComponent<RawImage>().enabled = lossMenu;
+    }
+
+    private void checkLossMenuInput() {
+        if (!this.transform.root.gameObject.GetComponent<NetworkIdentity>().isLocalPlayer) return;
+
+        spt_LobbyPlayer lobbyControls = this.transform.root.gameObject.GetComponent<spt_LobbyPlayer>();
+        NetworkIdentity nid = this.transform.root.gameObject.GetComponent<NetworkIdentity>();
+
+        if ( spt_playerControls.aButtonPressed() ) {
+            //if host, restart
+            if (nid.isServer) lobbyControls.restartLevel();
+            else lobbyControls.Cmd_restartLevel();
+            //if client, ask host to restart
+        }
+        else if ( spt_playerControls.bButtonPressed() ) {
+            //if host, restart
+            if (nid.isServer) lobbyControls.quitLevel();
+            //if client, ask host to restart
+            else lobbyControls.Cmd_quit();
+        }
+    }
 }

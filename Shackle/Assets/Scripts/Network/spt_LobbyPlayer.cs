@@ -8,9 +8,10 @@ public class spt_LobbyPlayer : NetworkBehaviour {
     [SyncVar]
     public bool isReady;
 
-	// Use this for initialization
+	// Use this for initialization and player spawn position
 	void Start () {
         isReady = false;
+        Debug.Log(GameObject.Find("NetworkManager").GetComponent<NetworkManager>().startPositions.ToString() );
 	}
 	
 	// Update is called once per frame
@@ -24,8 +25,31 @@ public class spt_LobbyPlayer : NetworkBehaviour {
         }
 	}
 
+    //Game Loop Functions
+    public void quitLevel() {
+        if (!isServer) return;
+        GameObject.Find("NetworkManager").GetComponent<NetworkManager>().StopHost();
+    }
+
+    public void restartLevel() {
+        if (!isServer) return;
+        GameObject.Find("NetworkManager").GetComponent<NetworkManager>().ServerChangeScene("LoadScreen");
+    }
+
     [Command]
     public void Cmd_updateReady( bool rdy ) {
         isReady = rdy;
+
+    }
+
+    //Game Loop Commands
+    [Command]
+    public void Cmd_restartLevel() {
+        restartLevel();
+    }
+
+    [Command]
+    public void Cmd_quit() {
+        quitLevel();
     }
 }

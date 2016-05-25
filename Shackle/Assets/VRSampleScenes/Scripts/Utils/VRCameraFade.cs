@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
 namespace VRStandardAssets.Utils
@@ -39,7 +40,7 @@ namespace VRStandardAssets.Utils
             if (m_FadeInOnStart)
             {
                 m_FadeImage.color = m_FadeColor;
-                FadeIn(true);
+                if (SceneManager.GetActiveScene().name != "LoadScreen") FadeIn(true);
             }
         }
 
@@ -55,7 +56,7 @@ namespace VRStandardAssets.Utils
             if (m_FadeInOnSceneLoad)
             {
                 m_FadeImage.color = m_FadeColor;
-                FadeIn(true);
+                if (SceneManager.GetActiveScene().name != "LoadScreen") FadeIn(true);
             }
         }
 

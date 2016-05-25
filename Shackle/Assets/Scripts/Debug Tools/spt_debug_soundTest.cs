@@ -7,13 +7,7 @@ public class spt_debug_soundTest : MonoBehaviour {
 
     // Array of warning noises. This array needs to be instantiated in the Unity editor.
     public AudioClip sound;
-
-
-    // Use this for initialization
-    void Start () {
-
-    }
-	
+    	
 	// Update is called once per frame
 	void Update () {
         if (source == null)

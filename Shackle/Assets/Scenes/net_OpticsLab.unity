@@ -1687,7 +1687,7 @@ GameObject:
   - 114: {fileID: 198115429}
   m_Layer: 0
   m_Name: Spawn_A
-  m_TagString: Untagged
+  m_TagString: spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1923,7 +1923,7 @@ GameObject:
   - 114: {fileID: 218670285}
   m_Layer: 0
   m_Name: Spawn_B
-  m_TagString: Untagged
+  m_TagString: spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14737,6 +14737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playCrashSound: 0
+  localPlayer: 
 --- !u!114 &1185700721
 MonoBehaviour:
   m_ObjectHideFlags: 0

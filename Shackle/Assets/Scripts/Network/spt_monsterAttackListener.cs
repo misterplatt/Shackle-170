@@ -15,7 +15,7 @@ public class spt_monsterAttackListener : NetworkBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (isServer |!isLocalPlayer) return;
-        if (SceneManager.GetActiveScene().name == "net_playerlobby") return;
+        if (SceneManager.GetActiveScene().name == "net_playerlobby" || SceneManager.GetActiveScene().name == "LoadScreen") return;
         GameObject monster = GameObject.FindGameObjectWithTag("monster");
         spt_monsterMotivation moto = monster.GetComponent<spt_monsterMotivation>();
         spt_monsterAnimations anim = monster.GetComponent<spt_monsterAnimations>();

@@ -73,6 +73,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
     void Start() {
         if (!isServer) return;
+        if (SceneManager.GetActiveScene().name == "LoadScreen") return;
         List<dev_LogicPair> devtool_PuzzleStates = GameObject.Find("PuzzleStates").GetComponent<spt_Events>().devtool_PuzzleStates;
 
         for (int index = 0; index < devtool_PuzzleStates.Count; ++index) {

@@ -10,6 +10,7 @@ This is the base class used in the heirarchy of item cases in the game.
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using VRStandardAssets.Utils;
 
@@ -31,8 +32,8 @@ namespace VRStandardAssets.Examples
         protected bool holding = false;
         protected float timer = 0;
 
-        private void OnEnable()
-        {
+        private void OnEnable() {
+            if (SceneManager.GetActiveScene().name == "LoadScreen") return;
             m_InteractiveItem.OnOver += HandleOver;
             m_InteractiveItem.OnOut += HandleOut;
             m_InteractiveItem.OnClick += HandleClick;

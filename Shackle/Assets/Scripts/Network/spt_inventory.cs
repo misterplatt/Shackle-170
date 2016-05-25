@@ -331,9 +331,9 @@ public class spt_inventory : NetworkBehaviour {
     void CmdinitSpawn(string pName)
     {
         Debug.Log(pName + " has connected.");
-
         GameObject.Find(pName).GetComponent<spt_inventory>().inventory.Add("Hand");
         GameObject.Find(pName).transform.Find("Camera Player/VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
+        
     }
 
     //remove item removes the given item from the inventory on the server by string reference

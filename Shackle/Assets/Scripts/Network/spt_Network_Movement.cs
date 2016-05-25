@@ -11,6 +11,7 @@
 
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class spt_Network_Movement : NetworkBehaviour {
@@ -44,6 +45,7 @@ public class spt_Network_Movement : NetworkBehaviour {
     void Start()
     {
 
+        if (SceneManager.GetActiveScene().name == "LoadScreen") return;
         mListener = GameObject.Find("WorldState").GetComponent<spt_Network_MovementListener>();
         lStickInput = 0.0F;
 
@@ -113,6 +115,7 @@ public class spt_Network_Movement : NetworkBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        if (SceneManager.GetActiveScene().name == "LoadScreen") return;
         if (mListener == null && isServer) mListener = GameObject.Find("WorldState").GetComponent<spt_Network_MovementListener>();
         if (!isLocalPlayer) return;
 
