@@ -3113,6 +3113,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!1 &598107557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 598107558}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &598107558
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 598107557}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.24, y: -0.8475299, z: 11.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
 --- !u!1001 &602423821
 Prefab:
   m_ObjectHideFlags: 0
@@ -6885,6 +6912,14 @@ Prefab:
       propertyPath: waypoints.Array.size
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 11485246, guid: 3454290df89df8646b5f5ff8766600b2, type: 2}
+      propertyPath: interactables.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485246, guid: 3454290df89df8646b5f5ff8766600b2, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 486384, guid: 3454290df89df8646b5f5ff8766600b2, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7033,6 +7068,38 @@ Prefab:
       propertyPath: m_Name
       value: MonsterStandin
       objectReference: {fileID: 0}
+    - target: {fileID: 11485246, guid: 3454290df89df8646b5f5ff8766600b2, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.data[0].x
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485246, guid: 3454290df89df8646b5f5ff8766600b2, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.data[0].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485246, guid: 3454290df89df8646b5f5ff8766600b2, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.data[0].z
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485246, guid: 3454290df89df8646b5f5ff8766600b2, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.data[1].x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485246, guid: 3454290df89df8646b5f5ff8766600b2, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.data[1].z
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485246, guid: 3454290df89df8646b5f5ff8766600b2, type: 2}
+      propertyPath: interactableAnimationStartingPositions.Array.data[1].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485246, guid: 3454290df89df8646b5f5ff8766600b2, type: 2}
+      propertyPath: interactables.Array.data[0]
+      value: 
+      objectReference: {fileID: 31361512}
+    - target: {fileID: 11485246, guid: 3454290df89df8646b5f5ff8766600b2, type: 2}
+      propertyPath: interactables.Array.data[1]
+      value: 
+      objectReference: {fileID: 11099269}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3454290df89df8646b5f5ff8766600b2, type: 2}
   m_IsPrefabParent: 0

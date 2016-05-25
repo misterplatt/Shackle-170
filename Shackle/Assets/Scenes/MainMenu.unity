@@ -952,8 +952,8 @@ MonoBehaviour:
   m_PlayerPrefab: {fileID: 155344, guid: 962f373abafb463448ed848274fcbe4c, type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 1
-  m_OfflineScene: MainMenu
-  m_OnlineScene: net_RangerOutpost
+  m_OfflineScene: VRMainMenu
+  m_OnlineScene: net_SpookyGarage
   m_SpawnPrefabs: []
   m_CustomConfig: 0
   m_MaxConnections: 4
@@ -1365,7 +1365,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447812, guid: 962f373abafb463448ed848274fcbe4c, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 962f373abafb463448ed848274fcbe4c, type: 2}
