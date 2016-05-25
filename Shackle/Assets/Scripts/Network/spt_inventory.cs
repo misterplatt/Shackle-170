@@ -39,7 +39,7 @@ public class spt_inventory : NetworkBehaviour {
     [SyncVar]
     public bool invChanged = true;
     private bool retryInit = false;
-    private string name = "";
+
     //LERP and information for inventory icon positions.
     public int activeItem = 0;
     public float lerpSpeed = 5;
@@ -87,7 +87,7 @@ public class spt_inventory : NetworkBehaviour {
 
         //if not the local player, don't do anything as it's meaningless
         if (!isLocalPlayer) return;
-        if (retryInit) CmdinitSpawn(name);
+
         if (Input.GetKeyDown(KeyCode.E)) dbg_printInventory();
         lookingObject = m_EyeRaycaster.CurrentInteractible;
 
@@ -336,16 +336,18 @@ public class spt_inventory : NetworkBehaviour {
     {
         GameObject player = GameObject.Find(pName);
         Debug.Log(pName + " has connected.");
-        if (player == null)
+        if ( player == null )
         {
-            retryInit = true;
-            name = pName;
-            return;
+            //find the client player and just it. 
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Players");
+            foreach ( GameObject thisPlayer in players)
+            {
+                if (!thisPlayer.GetComponent<NetworkIdentity>().isLocalPlayer) player = thisPlayer;
+            }
         }
-
         GameObject.Find(pName).GetComponent<spt_inventory>().inventory.Add("Hand");
         GameObject.Find(pName).transform.Find("Camera Player/VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
-        retryInit = false;
+        
     }
 
     //remove item removes the given item from the inventory on the server by string reference
