@@ -5573,6 +5573,30 @@ Prefab:
       propertyPath: m_Center.z
       value: 0.36846113
       objectReference: {fileID: 0}
+    - target: {fileID: 403342, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 405672, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 417060, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 471800, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 492438, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 496082, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.375
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11490200, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
     - {fileID: 11499568, guid: 50de7f5dafbcda34fb77adbbb80c5150, type: 2}
@@ -18514,7 +18538,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5cc95df87ca634e448c16aa8a3860f45, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 5cc95df87ca634e448c16aa8a3860f45, type: 3}
       propertyPath: m_Controller
@@ -21619,7 +21643,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 440040, guid: 50543e0ca6c26ce4a9603202d3230c78, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50543e0ca6c26ce4a9603202d3230c78, type: 2}
@@ -22494,6 +22518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playCrashSound: 0
+  localPlayer: 
 --- !u!114 &1185700721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30343,7 +30368,7 @@ MonoBehaviour:
   gateItemName: 
   holdTime: 0
   m_InteractiveItem: {fileID: 1779084281}
-  keyDoorThrown: {fileID: 8300000, guid: 240e4d1e83a0a8d4aa90e939b648e692, type: 3}
+  keyDoorThrown: {fileID: 8300000, guid: b119db52859b32b478c5b26906e4934c, type: 3}
 --- !u!114 &1779084281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34074,7 +34099,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 415322, guid: bf0c9367eccce3246acc45bb3c4dcdb2, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf0c9367eccce3246acc45bb3c4dcdb2, type: 2}

@@ -252,16 +252,16 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("puzzleCompletion", true, "MonsterStandin");
                 }
                 //If a laser has intersected with the chest lock, update server state
-                if (VRStandardAssets.Examples.spt_chestListener.local_laserHitLock)
+                if (VRStandardAssets.Examples.spt_chestListener.local_laserHitLock != PuzzleStates[1].state)
                 {
                     Debug.Log("Updating laserHitLock on the network to " + VRStandardAssets.Examples.spt_chestListener.local_laserHitLock);
-                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("laserHitLock", true, "mdl_chestLock");
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("laserHitLock", VRStandardAssets.Examples.spt_chestListener.local_laserHitLock, "mdl_chestLock");
                 }
                 //If chest has been opened, update server state
-                if (VRStandardAssets.Examples.spt_chestListener.local_isChestOpen)
+                if (VRStandardAssets.Examples.spt_chestListener.local_isChestOpen != PuzzleStates[13].state)
                 {
                     Debug.Log("Updating isChestOpen on the network to " + VRStandardAssets.Examples.spt_chestListener.local_isChestOpen);
-                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isChestOpen", true, "mdl_chestLock");
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isChestOpen", VRStandardAssets.Examples.spt_chestListener.local_isChestOpen, "mdl_chestLock");
                 }
                 //If a laser has intersected with the security panel, update server state
                 if (VRStandardAssets.Examples.spt_panelListener.local_laserHitPanel)
