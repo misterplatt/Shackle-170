@@ -13,7 +13,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
-public class spt_mainMenu_btns_vr : NetworkBehaviour
+public class spt_mainMenu_btns_vr : MonoBehaviour
 {
 
     // Use this for initialization
