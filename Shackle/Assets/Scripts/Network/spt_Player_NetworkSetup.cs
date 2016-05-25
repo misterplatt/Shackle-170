@@ -17,9 +17,14 @@ public class spt_Player_NetworkSetup : NetworkBehaviour {
     Camera FPSCharacterCam;
     [SerializeField]
     AudioListener audiolistener;
+
+    bool spawnAdjustment;
+
     // Use this for initialization
     void Start () {
-	
+
+        spawnAdjustment = false;
+
         if(isLocalPlayer)
         {
 
@@ -34,5 +39,14 @@ public class spt_Player_NetworkSetup : NetworkBehaviour {
         }
         
 	}
+
+    void Update()
+    {
+        if (spawnAdjustment == false)
+        {
+            this.transform.position = GameObject.Find("Spawn_A").transform.position;
+            spawnAdjustment = true;
+        }
+    }
     
 }
