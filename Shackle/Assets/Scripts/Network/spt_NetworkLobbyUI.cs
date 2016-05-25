@@ -29,12 +29,14 @@ public class spt_NetworkLobbyUI : MonoBehaviour {
 
         if (monster != null)
         {
+            /*
             if(monster.GetComponent<spt_monsterMovement>().pLoss && Input.anyKeyDown)
             {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().outputMetrics();
                 manager.StopHost();
                 manager.StopClient();
             }
+            */
         }
 
 

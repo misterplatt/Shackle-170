@@ -19,7 +19,7 @@ public class spt_lossListener : NetworkBehaviour {
     int index;
     bool gotIndex = false;
     bool once = false;
-    bool lossMenu;
+    public bool lossMenu;
     public bool loss;
 
     GameObject player;
@@ -39,6 +39,7 @@ public class spt_lossListener : NetworkBehaviour {
         if (spt_playerControls.startButtonPressed() && !loss) toggleLossMenu();
         if (lossMenu) checkLossMenuInput();
 
+        /*
         if (spt_playerControls.aButtonPressed() && loss)
         {
             Debug.Log("Restarting");
@@ -57,6 +58,7 @@ public class spt_lossListener : NetworkBehaviour {
                 GameObject.Find("NetworkManager").GetComponent<NetworkManager>().StopHost();
             }
         }
+        */
         // If the network exists, and the playerLoss even hasn't already been found in the Puzzle states, find and save its index
         if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates != null && !gotIndex)
         {
@@ -82,7 +84,12 @@ public class spt_lossListener : NetworkBehaviour {
                 Debug.Log(transform.parent.parent.parent.name + " " + player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].name);
                 GetComponent<Text>().text = "You lose";
                 GetComponent<Text>().enabled = true;
-                transform.FindChild("LossControls").gameObject.GetComponent<RawImage>().enabled = true;
+
+                if (!this.transform.root.gameObject.GetComponent<NetworkIdentity>().isLocalPlayer) {
+                    transform.FindChild("LossControls").gameObject.GetComponent<RawImage>().enabled = true;
+                    lossMenu = true;
+                }
+
                 loss = true;
                 //transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
                 once = true;
@@ -94,7 +101,7 @@ public class spt_lossListener : NetworkBehaviour {
         }
 	}
 
-    private void toggleLossMenu() {
+    public void toggleLossMenu() {
         if (!this.transform.root.gameObject.GetComponent<NetworkIdentity>().isLocalPlayer) return;
         lossMenu = !lossMenu;
         transform.FindChild("LossControls").gameObject.GetComponent<RawImage>().enabled = lossMenu;
