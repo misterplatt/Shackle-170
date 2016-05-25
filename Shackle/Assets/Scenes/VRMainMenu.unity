@@ -216,12 +216,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 958504138}
   m_RootOrder: 2
---- !u!114 &96917422 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11459458, guid: 940571fd8032a9a408436b9f6421e961,
-    type: 2}
-  m_PrefabInternal: {fileID: 287333574}
-  m_Script: {fileID: 11500000, guid: e06057b779b5f0444808254c22cd2022, type: 3}
 --- !u!1 &101291725
 GameObject:
   m_ObjectHideFlags: 0
@@ -2492,29 +2486,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 547407441}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 236122272}
-        m_MethodName: startBroadcast
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 96917422}
-        m_MethodName: hostGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &547407441
@@ -7456,18 +7428,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1730813675}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 96917422}
-        m_MethodName: connect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1730813675

@@ -27,26 +27,29 @@ public class spt_mainMenu_btns_vr : MonoBehaviour
         spt_ManagerMenuInterface menu = manager.GetComponent<spt_ManagerMenuInterface>();
         spt_NetworkDiscovery discifc = disc.GetComponent<spt_NetworkDiscovery>();
 
-        Button join = transform.Find("btn_join").gameObject.GetComponent<Button>();
-        Button host = transform.Find("btn_hose").gameObject.GetComponent<Button>();
+        Button join = transform.Find("Play/btn_join").gameObject.GetComponent<Button>();
+        Button host = transform.Find("Play/btn_host").gameObject.GetComponent<Button>();
         
         join.onClick.AddListener(() => { menu.connect(); });
         host.onClick.AddListener(() => {
-            discifc.startBroadcast();
             menu.hostGame();
         });
+        
 
     }
 
     void unloadScenes()
     {
         GameObject manager = GameObject.Find("NetworkManager");
+
+        /*
         if ( manager.GetComponent<spt_NetworkManager_setSpawn>().isNetworkActive )
         {    
             manager.GetComponent<spt_NetworkManager_setSpawn>().StopAllCoroutines();
             manager.GetComponent<spt_NetworkManager_setSpawn>().StopHost();
             manager.GetComponent<spt_NetworkManager_setSpawn>().StopClient();
         }
+        */
 
         Debug.Log("Unloading Scenes...");
         SceneManager.UnloadScene("net_SpookyGarage");
