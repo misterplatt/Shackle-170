@@ -278,7 +278,6 @@ GameObject:
   - 114: {fileID: 11432606}
   - 114: {fileID: 11402042}
   - 114: {fileID: 11439126}
-  - 114: {fileID: 11441750}
   - 82: {fileID: 8260378}
   - 81: {fileID: 8136720}
   - 114: {fileID: 11497552}
@@ -1147,28 +1146,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &11441750
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcf996105f54e834cba0ef6b43bc402e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lStickInput: 0
-  hostAnimator_var: 0
-  clientAnimator_var: 0
-  lastCli_lStick: 0
-  mListener: {fileID: 0}
-  host: {fileID: 0}
-  toggleStick: 0
-  revStick: 0
-  animator: {fileID: 0}
-  pModel: {fileID: 0}
-  pSpawn: {fileID: 0}
 --- !u!114 &11442908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1260,6 +1237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e46aa0b99caec4da7a9c70c9b05433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lossMenu: 0
   loss: 0
 --- !u!114 &11453624
 MonoBehaviour:

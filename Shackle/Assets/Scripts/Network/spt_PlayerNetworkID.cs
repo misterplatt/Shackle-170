@@ -17,11 +17,11 @@ public class spt_PlayerNetworkID : NetworkBehaviour {
     [Client]
     void getNetIdentity() {
         playerNetID = GetComponent<NetworkIdentity>().netId;
-        CmdTellServerID(makeUniqueIdentity() );
+        CmdTellServerID( makeUniqueIdentity() );
     }
 
     string makeUniqueIdentity() {
-        string uniqueName = "Player " + playerNetID.ToString();
+        string uniqueName = "Player " + (isServer ? "1" : "2");
         return uniqueName;
     }
 

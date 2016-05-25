@@ -8,6 +8,9 @@ public class spt_NetworkManager_setSpawn : NetworkManager {
 
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId) {
         Vector3 playerSpawnPos = new Vector3(0.0F, 0.0F, 0.0F);
+        Vector3 spawnA = new Vector3(0.0F, 0.0F, 0.0F);
+        Vector3 spawnB = new Vector3(0.0F, 0.0F, 0.0F);
+
         GameObject[] spawns = GameObject.FindGameObjectsWithTag("spawn");
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -23,15 +26,16 @@ public class spt_NetworkManager_setSpawn : NetworkManager {
         }
 
         foreach (GameObject spawn in spawns ) {
-            if (spawn.name == target) {
-                playerSpawnPos = spawn.transform.position;
-
-                Debug.Log(spawn.name);
-            }
+            if (spawn.name == "Spawn_A") spawnA = spawn.transform.position;
+            else spawnB = spawn.transform.position;
         }
+
+        if (target == "Spawn_A") playerSpawnPos = spawnA;
+        if (playerSpawnPos.Equals(new Vector3(0.0F, 0.0F, 0.0F)) || target == "Spawn_B") playerSpawnPos = spawnB;
+
         GameObject player = (GameObject)GameObject.Instantiate(playerPrefab, playerSpawnPos, rotation);
         NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
     }
     
-
+    
 }

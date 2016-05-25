@@ -38,6 +38,7 @@ public class spt_inventory : NetworkBehaviour {
     //A sync variable which dictates if the inventory UI should update
     [SyncVar]
     public bool invChanged = true;
+    private bool retryInit = false;
 
     //LERP and information for inventory icon positions.
     public int activeItem = 0;
@@ -59,6 +60,8 @@ public class spt_inventory : NetworkBehaviour {
         }
 
         activeItem = 0;
+        activeSlotNumber = 0;
+        invChanged = true;
         //initialize Inventory with hand as active object, set slot 1 sprite
         if (isServer)
         {            
@@ -85,6 +88,7 @@ public class spt_inventory : NetworkBehaviour {
         //if not the local player, don't do anything as it's meaningless
         if (!isLocalPlayer) return;
 
+        if (Input.GetKeyDown(KeyCode.E)) dbg_printInventory();
         lookingObject = m_EyeRaycaster.CurrentInteractible;
 
         if (Input.GetKeyDown(KeyCode.F)) dbg_serverPrintInventory();
@@ -330,7 +334,18 @@ public class spt_inventory : NetworkBehaviour {
     [Command]
     void CmdinitSpawn(string pName)
     {
+        GameObject player = GameObject.Find(pName);
         Debug.Log(pName + " has connected.");
+        if ( player == null )
+        {
+            //find the client player and just it. 
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            foreach ( GameObject thisPlayer in players)
+            {
+                Debug.Log("Checking : " + thisPlayer.name);
+                if (!thisPlayer.GetComponent<NetworkIdentity>().isLocalPlayer) player = thisPlayer;
+            }
+        }
         GameObject.Find(pName).GetComponent<spt_inventory>().inventory.Add("Hand");
         GameObject.Find(pName).transform.Find("Camera Player/VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;
         
