@@ -31,7 +31,7 @@ public class spt_NetworkManager_setSpawn : NetworkManager {
         }
 
         if (target == "Spawn_A") playerSpawnPos = spawnA;
-        if (playerSpawnPos == new Vector3(0.0F, 0.0F, 0.0F) || target == "Spawn_B") playerSpawnPos = spawnB;
+        if (playerSpawnPos.Equals(new Vector3(0.0F, 0.0F, 0.0F)) || target == "Spawn_B") playerSpawnPos = spawnB;
 
         GameObject player = (GameObject)GameObject.Instantiate(playerPrefab, playerSpawnPos, rotation);
         NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
