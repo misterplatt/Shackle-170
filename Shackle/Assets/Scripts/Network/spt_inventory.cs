@@ -342,6 +342,7 @@ public class spt_inventory : NetworkBehaviour {
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
             foreach ( GameObject thisPlayer in players)
             {
+                Debug.Log("Checking : " + thisPlayer.name);
                 if (!thisPlayer.GetComponent<NetworkIdentity>().isLocalPlayer) player = thisPlayer;
             }
         }

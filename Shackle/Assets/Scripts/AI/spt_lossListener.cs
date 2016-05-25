@@ -35,31 +35,11 @@ public class spt_lossListener : NetworkBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        if (SceneManager.GetActiveScene().name == "LoadScreen") return;
+        if (SceneManager.GetActiveScene().name == "LoadScreen" || SceneManager.GetActiveScene().name == "net_playerlobby") return;
         if (player == null) player = this.transform.root.gameObject;
         if (spt_playerControls.startButtonPressed() && !loss) toggleLossMenu();
         if (lossMenu) checkLossMenuInput();
 
-        /*
-        if (spt_playerControls.aButtonPressed() && loss)
-        {
-            Debug.Log("Restarting");
-            if (this.transform.root.gameObject.GetComponent<NetworkIdentity>().isServer)
-            {
-                Debug.Log("Now : " + SceneManager.GetActiveScene().name);
-                GameObject.Find("NetworkManager").GetComponent<NetworkManager>().ServerChangeScene(SceneManager.GetActiveScene().name);
-            }
-
-        }
-        else if (spt_playerControls.bButtonPressed() && loss)
-        {
-            Debug.Log("MainMenu");
-            if (this.transform.root.gameObject.GetComponent<NetworkIdentity>().isServer)
-            {
-                GameObject.Find("NetworkManager").GetComponent<NetworkManager>().StopHost();
-            }
-        }
-        */
         // If the network exists, and the playerLoss even hasn't already been found in the Puzzle states, find and save its index
         if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates != null && !gotIndex)
         {
