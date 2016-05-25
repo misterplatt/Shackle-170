@@ -92,8 +92,8 @@ namespace VRStandardAssets.Utils
             {
                 mirrorH1 = GameObject.Find("mdl_mirrorHandle (2)");
                 mirrorH2 = GameObject.Find("mdl_mirrorHandle (3)");
-                m1RotLast = mirrorH1.transform.rotation.eulerAngles;
-                m2RotLast = mirrorH2.transform.rotation.eulerAngles;
+                m1RotLast = mirrorH1.transform.localEulerAngles;
+                m2RotLast = mirrorH2.transform.localEulerAngles;
             }
         }
 
@@ -102,8 +102,8 @@ namespace VRStandardAssets.Utils
             if (mirrorH1 == null && SceneManager.GetActiveScene().name == "net_OpticsLab") {
                 mirrorH1 = GameObject.Find("mdl_mirrorHandle (2)");
                 mirrorH2 = GameObject.Find("mdl_mirrorHandle (3)");
-                m1RotLast = mirrorH1.transform.rotation.eulerAngles;
-                m2RotLast = mirrorH2.transform.rotation.eulerAngles;
+                m1RotLast = mirrorH1.transform.localEulerAngles;
+                m2RotLast = mirrorH2.transform.localEulerAngles;
             }
 
 
@@ -349,9 +349,9 @@ namespace VRStandardAssets.Utils
 
             if ( (!mirrorH1.transform.rotation.eulerAngles.Equals(m1RotLast) ) || (!mirrorH2.transform.rotation.eulerAngles.Equals(m2RotLast)) )
             {
-                Cmd_SyncMirrors(mirrorH1.transform.rotation.eulerAngles, mirrorH2.transform.rotation.eulerAngles);
-                m1RotLast = mirrorH1.transform.rotation.eulerAngles;
-                m2RotLast = mirrorH2.transform.rotation.eulerAngles;
+                Cmd_SyncMirrors(mirrorH1.transform.localEulerAngles, mirrorH2.transform.localEulerAngles);
+                m1RotLast = mirrorH1.transform.localEulerAngles ;
+                m2RotLast = mirrorH2.transform.localEulerAngles;
             }
                             
             
@@ -362,8 +362,8 @@ namespace VRStandardAssets.Utils
         public void Cmd_SyncMirrors(Vector3 m1Rot, Vector3 m2Rot)
         {
             
-            mirrorH1.transform.localEulerAngles = new Vector3(m1Rot.x, -1*m1Rot.y + 180.0F, m1Rot.z + 180.0F);
-            mirrorH2.transform.localEulerAngles = new Vector3(m2Rot.x, m2Rot.y + 180.0F, m2Rot.z);
+            mirrorH1.transform.localEulerAngles = new Vector3(m1Rot.x, m1Rot.y, m1Rot.z);
+            mirrorH2.transform.localEulerAngles = new Vector3(m2Rot.x, m2Rot.y, m2Rot.z);
         }
 
         
