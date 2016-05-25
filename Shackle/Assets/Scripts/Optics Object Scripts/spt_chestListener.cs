@@ -23,6 +23,7 @@ namespace VRStandardAssets.Examples
         private Vector3 initialRotation;
         private AudioSource aSource;
         public AudioClip DARASFRESHSOUND;
+        public AudioClip chestOpen;
 
         protected override void Start()
         {
@@ -55,6 +56,7 @@ namespace VRStandardAssets.Examples
             //If the laser has hit the lock, open the chest
             if (!once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == true)
             {
+                aSource.clip = chestOpen;
                 aSource.Play();
                 local_laserHitLock = true;
                 local_isChestOpen = true;
