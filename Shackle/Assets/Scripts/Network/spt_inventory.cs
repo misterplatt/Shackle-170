@@ -132,7 +132,7 @@ public class spt_inventory : NetworkBehaviour {
     public GameObject retrieveObjectFromInventory(int index) {
         if (index >= inventory.Count || index < 0) {
             Debug.Log("Error : RetrieveObjectFromInventory called with index " + index );
-            return null;
+            GameObject.Find(inventory[index]);
         }
         return GameObject.Find(inventory[index]);
     }
