@@ -59,6 +59,8 @@ public class spt_inventory : NetworkBehaviour {
         }
 
         activeItem = 0;
+        activeSlotNumber = 0;
+        invChanged = true;
         //initialize Inventory with hand as active object, set slot 1 sprite
         if (isServer)
         {            
@@ -85,6 +87,7 @@ public class spt_inventory : NetworkBehaviour {
         //if not the local player, don't do anything as it's meaningless
         if (!isLocalPlayer) return;
 
+        if (Input.GetKeyDown(KeyCode.E)) dbg_printInventory();
         lookingObject = m_EyeRaycaster.CurrentInteractible;
 
         if (Input.GetKeyDown(KeyCode.F)) dbg_serverPrintInventory();
@@ -132,7 +135,7 @@ public class spt_inventory : NetworkBehaviour {
     public GameObject retrieveObjectFromInventory(int index) {
         if (index >= inventory.Count || index < 0) {
             Debug.Log("Error : RetrieveObjectFromInventory called with index " + index );
-            GameObject.Find(inventory[index]);
+            return null;
         }
         return GameObject.Find(inventory[index]);
     }
