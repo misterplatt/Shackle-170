@@ -8,8 +8,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 412234}
-  - 114: {fileID: 11416730}
+  - 114: {fileID: 11468184}
   - 114: {fileID: 11459458}
+  - 114: {fileID: 11419202}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11416730
+--- !u!114 &11419202
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -37,21 +38,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 133768}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -822479833, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Script: {fileID: 11500000, guid: abf82eb48b91c204b9c3be99b7369def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NetworkPort: 17750
+  currentLevel: 
+--- !u!114 &11459458
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e06057b779b5f0444808254c22cd2022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+--- !u!114 &11468184
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05dfb73bc31200e48946bdb2b9d3ea21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NetworkPort: 7777
   m_ServerBindToIP: 0
   m_ServerBindAddress: 
   m_NetworkAddress: localhost
   m_DontDestroyOnLoad: 1
-  m_RunInBackground: 0
+  m_RunInBackground: 1
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
-  m_LogLevel: 1
+  m_LogLevel: 2
   m_PlayerPrefab: {fileID: 155344, guid: 962f373abafb463448ed848274fcbe4c, type: 2}
   m_AutoCreatePlayer: 1
-  m_PlayerSpawnMethod: 1
+  m_PlayerSpawnMethod: 0
   m_OfflineScene: VRMainMenu
   m_OnlineScene: net_playerlobby
   m_SpawnPrefabs: []
@@ -83,29 +108,17 @@ MonoBehaviour:
     m_ReactorMaximumReceivedMessages: 1024
     m_ReactorMaximumSentMessages: 1024
     m_MaxPacketSize: 2000
-  m_Channels: 0500000000000000
+  m_Channels: 
   m_UseWebSockets: 0
   m_UseSimulator: 0
-  m_SimulatedLatency: 2
-  m_PacketLossPercentage: 2
+  m_SimulatedLatency: 1
+  m_PacketLossPercentage: 0
   m_MatchHost: mm.unet.unity3d.com
   m_MatchPort: 443
   isNetworkActive: 0
   matchMaker: {fileID: 0}
   matchName: default
   matchSize: 4
---- !u!114 &11459458
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e06057b779b5f0444808254c22cd2022, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 11416730}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
