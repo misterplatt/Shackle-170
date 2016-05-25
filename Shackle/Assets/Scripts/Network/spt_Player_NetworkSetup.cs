@@ -51,7 +51,7 @@ public class spt_Player_NetworkSetup : NetworkBehaviour {
             }
             else
             {
-                this.transform.position = GameObject.Find("Spawn_B").transform.position;
+                this.transform.position = new Vector3(0.0F, 2.1F, -1.0F);
                 spawnAdjustment = true;
 
             }
