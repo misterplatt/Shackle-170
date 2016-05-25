@@ -215,7 +215,6 @@ public class spt_Network_Movement : NetworkBehaviour {
             else
             {
                 spawn.transform.position = this.transform.position - (new Vector3(0F, 0F, playerSeperation));
-
             }
         }
     }
