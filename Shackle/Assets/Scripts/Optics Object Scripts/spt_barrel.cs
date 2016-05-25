@@ -64,7 +64,7 @@ namespace VRStandardAssets.Examples
                 inventorySpt.removeItm("mdl_matchbox");
                 Invoke("FireSound", 3f);
 
-                Invoke("DestroyPoster", 6f);
+                Invoke("DestroyPoster", 2f);
                 // Replace above line with the burn function on the new poster model
 
                 GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("barrelExplosion", true, "mdl_barrel");
@@ -83,7 +83,7 @@ namespace VRStandardAssets.Examples
         //Brief function to be invoked on matchbox interaction
         void DestroyPoster()
         {
-            Destroy(GameObject.Find("Poster"));
+            GameObject.Find("mdl_poster").GetComponent<PosterScript>().Burn();
             transform.FindChild("Fire").gameObject.SetActive(false);
         }
 

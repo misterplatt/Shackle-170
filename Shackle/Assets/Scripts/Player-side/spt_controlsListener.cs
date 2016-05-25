@@ -16,13 +16,10 @@ using UnityEngine.SceneManagement;
 public class spt_controlsListener : MonoBehaviour {
 
     private RawImage imageref;
-    public Sprite controls_noMove;
 
 	// Use this for initialization
 	void Start () {
         imageref = GetComponent<RawImage>();
-        //If level is garage, change image to omit "Grip chair" controls
-        if (SceneManager.GetActiveScene().name == "net_SpookyGarage") imageref.texture = controls_noMove.texture;
 	}
 	
 	// Update is called once per frame

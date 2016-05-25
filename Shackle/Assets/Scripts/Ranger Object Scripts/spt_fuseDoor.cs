@@ -21,6 +21,7 @@ namespace VRStandardAssets.Examples
         private AudioSource aSource;
         public AudioClip doorOpen;
         public AudioClip doorSlam;
+        private bool didItReset = false;
 
         public static bool local_fuseBoxOpen = false;
         public static bool local_fuseDoorSlam = false;
@@ -34,6 +35,13 @@ namespace VRStandardAssets.Examples
         {
             //DEBUG KEY: Simulates keyDoor slam
             if (Input.GetKeyDown(KeyCode.X)) resetItem();
+
+            if (didItReset)
+            {
+                aSource.PlayOneShot(doorSlam);
+                didItReset = false;
+                GetComponent<Animation>().Play("fuseDoor_slam");
+            }
         }
 
 
@@ -69,6 +77,7 @@ namespace VRStandardAssets.Examples
             //We shouldn't need to modify any puzzle states here, as the fusebox door swings back out to open after being slammed
             if (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[7].state == true) {
                 aSource.PlayOneShot(doorSlam);
+                didItReset = true;
                 GetComponent<Animation>().Play("fuseDoor_slam");
             }
         }

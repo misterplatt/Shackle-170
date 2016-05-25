@@ -38,7 +38,7 @@ namespace VRStandardAssets.Examples
             base.Update();
 
             //Accumulate list of colliders intersecting the mirrors collider
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, .25f);
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, .1f);
 
             //Check each collider
             foreach (Collider col in hitColliders) {
