@@ -3,7 +3,7 @@
  * Created by: Lauren Cunningham
  * Networking Modifications by : Ryan Connors
  * 
- * Last Revision Date: 4/29/2016
+ * Last Revision Date: 5/26/2016
  * 
  * This file is the one that ultimately governs the monster's movements. **/
 
@@ -99,6 +99,8 @@ public class spt_monsterMovement : NetworkBehaviour {
         if (agent.remainingDistance <= 5 && agent.remainingDistance > 2 && currentWaypoint == 999)
         {
             animIndex = 1;
+            if (opticsLabScript != null && monsterPuzzleCompletionIndex != -1 && networkScript.PuzzleStates[monsterPuzzleCompletionIndex].state == true)
+                animIndex = 2;
             //animationScript.animator.SetInteger("animation", 1);
         }
 

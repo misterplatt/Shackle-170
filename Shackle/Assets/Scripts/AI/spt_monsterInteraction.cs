@@ -34,8 +34,6 @@ public class spt_monsterInteraction : MonoBehaviour {
 
     private bool loadedTheNetwork = false;
 
-    public bool drawerOpen = false;
-
     private bool interactionGate = false;
 
 	// Use this for initialization
