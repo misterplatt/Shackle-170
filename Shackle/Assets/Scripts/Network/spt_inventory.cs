@@ -31,9 +31,10 @@ public class spt_inventory : NetworkBehaviour {
     public Texture fistSprite;
     public Texture unreachableSprite;
     public Texture none;
+
     private int MAX_SLOTS = 4;
     private VRInteractiveItem lookingObject;
-
+    
     [SerializeField] private VREyeRaycaster m_EyeRaycaster;
     //A sync variable which dictates if the inventory UI should update
     [SyncVar]
@@ -338,13 +339,7 @@ public class spt_inventory : NetworkBehaviour {
         Debug.Log(pName + " has connected.");
         if ( player == null )
         {
-            //find the client player and just it. 
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-            foreach ( GameObject thisPlayer in players)
-            {
-                Debug.Log("Checking : " + thisPlayer.name);
-                if (!thisPlayer.GetComponent<NetworkIdentity>().isLocalPlayer) player = thisPlayer;
-            }
+            GameObject.Find("WorldState").GetComponent<spt_WorldState>().retryInv = true;
         }
         GameObject.Find(pName).GetComponent<spt_inventory>().inventory.Add("Hand");
         GameObject.Find(pName).transform.Find("Camera Player/VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;

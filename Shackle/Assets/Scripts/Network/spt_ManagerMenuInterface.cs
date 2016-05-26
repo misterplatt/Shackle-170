@@ -13,6 +13,11 @@ public class spt_ManagerMenuInterface : NetworkBehaviour {
         manager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
     }
 
+    void Start()
+    {
+
+    }
+
     public void showIp()
     {
         //Get the ip text field and update it. 

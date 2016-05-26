@@ -10,6 +10,7 @@
 
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 using System.Collections;
 
 public class spt_WorldState : NetworkBehaviour {
@@ -18,6 +19,7 @@ public class spt_WorldState : NetworkBehaviour {
     [SyncVar]
     public bool playCrashSound = false;
     public string localPlayer;
+    public bool retryInv = false;
 
     void Start()
     {
@@ -30,5 +32,24 @@ public class spt_WorldState : NetworkBehaviour {
                 localPlayer = player.name;
             }
         }
+    }
+
+    void Update()
+    {
+        if (retryInv)
+        {
+            retryInvSetup();
+        }
+    }
+
+    public void retryInvSetup()
+    {
+        //initialize the player 2 inventory if for some reason it has previously failed.
+        GameObject player = GameObject.Find("Player 2");
+        if (player == null) return;
+
+        player.GetComponent<spt_inventory>().inventory.Add("Hand");
+        player.transform.Find("Camera Player/VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = player.GetComponent<spt_inventory>().handSprite;
+        retryInv = false;
     }
 }
