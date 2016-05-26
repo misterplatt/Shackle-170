@@ -136,7 +136,6 @@ public class spt_inventory : NetworkBehaviour {
     //grab correct game object from the scene by inventory string reference given the index.
     public GameObject retrieveObjectFromInventory(int index) {
         if (index >= inventory.Count || index < 0) {
-            Debug.Log("Error : RetrieveObjectFromInventory called with index " + index );
             return null;
         }
         return GameObject.Find(inventory[index]);
@@ -148,8 +147,8 @@ public class spt_inventory : NetworkBehaviour {
         if (m_EyeRaycaster.racyCastTouch)
         {
             reticleTex = transform.Find("Camera Player/VRCameraUI/GUIReticle").gameObject;
-            Debug.Log("activeItem : " + activeItem);
-            reticleTex.GetComponent<RawImage>().texture = retrieveObjectFromInventory(activeItem).GetComponent<GUITexture>().texture;
+            GameObject texObj = retrieveObjectFromInventory(activeItem);
+            if (texObj != null) reticleTex.GetComponent<RawImage>().texture = texObj.GetComponent<GUITexture>().texture;
         }
         else
         {
@@ -247,10 +246,13 @@ public class spt_inventory : NetworkBehaviour {
         reticleUpdate();
 
         //Move selection bar below the new active item
-        selectionBar.transform.localPosition = new Vector3(
-        transform.Find("Camera Player/VRCameraUI/InventorySlot" + activeSlotNumber).transform.localPosition.x,
-            selectionBar.transform.localPosition.y,
-            selectionBar.transform.localPosition.z);
+        Transform invSlot = transform.Find("Camera Player/VRCameraUI/InventorySlot" + activeSlotNumber);
+        if (invSlot != null) {
+            selectionBar.transform.localPosition = new Vector3(
+            transform.Find("Camera Player/VRCameraUI/InventorySlot" + activeSlotNumber).transform.localPosition.x,
+                selectionBar.transform.localPosition.y,
+                selectionBar.transform.localPosition.z);
+        }
     }
 
     /*void inspectItem() {
@@ -336,7 +338,6 @@ public class spt_inventory : NetworkBehaviour {
     void CmdinitSpawn(string pName)
     {
         GameObject player = GameObject.Find(pName);
-        Debug.Log(pName + " has connected.");
         if ( player == null )
         {
             GameObject.Find("WorldState").GetComponent<spt_WorldState>().retryInv = true;

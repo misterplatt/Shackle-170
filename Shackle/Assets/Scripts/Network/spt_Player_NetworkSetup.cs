@@ -43,7 +43,6 @@ public class spt_Player_NetworkSetup : NetworkBehaviour {
     void Update()
     {
         if (isServer) return;
-        Debug.Log(spawnPos);
         if ( !this.transform.position.Equals(spawnPos) )this.transform.position = spawnPos;
         if (spawnAdjustment == false)
         {
