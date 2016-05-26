@@ -88,6 +88,7 @@ namespace VRStandardAssets.Examples
         virtual protected void HandleClick()
         {
             inventorySpt = GetComponent<VRInteractiveItem>().inventoryScript;
+            Debug.Log(inventorySpt.retrieveObjectFromInventory(inventorySpt.activeItem).name);
             if (Input.GetButtonDown("aButton") && inventorySpt.retrieveObjectFromInventory(inventorySpt.activeItem).name.Contains(gateItemName)) {
                 clickSuccess();
             }
@@ -96,6 +97,7 @@ namespace VRStandardAssets.Examples
         //To be modified in child scripts when A button has pressed over an object with the correct item active
         virtual protected void clickSuccess()
         {
+            Debug.Log("Show click state");
         }
 
         //Handle the DoubleClick event
@@ -111,6 +113,7 @@ namespace VRStandardAssets.Examples
             {
                 holding = true;
                 selectionRadial.enabled = true;
+                Debug.Log("Show down state");
                 //m_Renderer.material = m_DownMaterial;
             }
             if (holding)

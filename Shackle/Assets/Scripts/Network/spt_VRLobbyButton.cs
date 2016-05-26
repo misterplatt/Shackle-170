@@ -67,7 +67,7 @@ namespace VRStandardAssets.Examples
 
         public string translateButton(string buttonName)
         {
-
+            Debug.Log("translate : " + buttonName);
             if (buttonName.Contains("Garage"))
             {
                 return "net_SpookyGarage";

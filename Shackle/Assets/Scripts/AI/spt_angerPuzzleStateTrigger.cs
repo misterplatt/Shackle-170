@@ -29,8 +29,7 @@ public class spt_angerPuzzleStateTrigger : MonoBehaviour {
 	void Update () {
         if (network == null)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null) network = player.GetComponent<spt_NetworkPuzzleLogic>();
+            network = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
         }
         else
         {

@@ -1073,18 +1073,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 11468184, guid: 940571fd8032a9a408436b9f6421e961, type: 2}
-      propertyPath: m_LogLevel
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11468184, guid: 940571fd8032a9a408436b9f6421e961, type: 2}
-      propertyPath: m_AutoCreatePlayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11468184, guid: 940571fd8032a9a408436b9f6421e961, type: 2}
-      propertyPath: m_PlayerSpawnMethod
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 940571fd8032a9a408436b9f6421e961, type: 2}
   m_IsPrefabParent: 0
@@ -8623,10 +8611,6 @@ Prefab:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 11449488, guid: 4b400c06bc3bc764398a2f6141d869d4, type: 2}
-      propertyPath: m_Text
-      value: localhost
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403424, guid: 4b400c06bc3bc764398a2f6141d869d4, type: 2}
       propertyPath: m_Text
       value: 128.114.52.
       objectReference: {fileID: 0}

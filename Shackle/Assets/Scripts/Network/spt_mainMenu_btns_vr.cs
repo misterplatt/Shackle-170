@@ -38,20 +38,6 @@ public class spt_mainMenu_btns_vr : MonoBehaviour
 
     }
 
-    void Update() {
-        //debug connect local
-        if ( Input.GetKeyDown(KeyCode.F12) ) {
-            GameObject manager = GameObject.Find("NetworkManager");
-            spt_ManagerMenuInterface menu = manager.GetComponent<spt_ManagerMenuInterface>();
-            menu.connectLocal();
-        }
-        if (Input.GetKeyDown(KeyCode.F11)) {
-            GameObject manager = GameObject.Find("NetworkManager");
-            spt_ManagerMenuInterface menu = manager.GetComponent<spt_ManagerMenuInterface>();
-            menu.hostGame();
-        }
-    }
-
     void unloadScenes()
     {
         GameObject manager = GameObject.Find("NetworkManager");
@@ -64,7 +50,8 @@ public class spt_mainMenu_btns_vr : MonoBehaviour
             manager.GetComponent<spt_NetworkManager_setSpawn>().StopClient();
         }
         */
-        
+
+        Debug.Log("Unloading Scenes...");
         SceneManager.UnloadScene("net_SpookyGarage");
         SceneManager.UnloadScene("net_RangerOutpost");
         SceneManager.UnloadScene("net_OpticsLab");

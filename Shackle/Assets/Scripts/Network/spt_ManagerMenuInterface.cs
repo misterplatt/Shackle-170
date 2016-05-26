@@ -31,6 +31,12 @@ public class spt_ManagerMenuInterface : NetworkBehaviour {
 
         if (Input.GetKeyDown(KeyCode.F10)) connectLocal();
 
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().outputMetrics();
+            manager.StopHost();
+            manager.StopClient();
+        }
     }
 
     void OnApplicationQuit()
@@ -41,8 +47,7 @@ public class spt_ManagerMenuInterface : NetworkBehaviour {
     public void connectLocal()
     {
         manager.StopHost();
-        NetworkDiscovery ndisc = GameObject.Find("NetworkDiscovery").GetComponent<NetworkDiscovery>();
-        if (ndisc.running) ndisc.StopBroadcast();
+        GameObject.Find("NetworkDiscovery").GetComponent<NetworkDiscovery>().StopBroadcast();
         manager.networkAddress = "localhost";
        // manager.networkPort = 17750;
         manager.StartClient();

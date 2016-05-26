@@ -74,9 +74,9 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
         {
             GameObject.Find("Painting_Canvas").transform.Find("Play/txt_gameDetected").gameObject.SetActive(true);
         }
-        
+
         //if input field is being used, override ip.
-        if (ipField != null && ipField.GetComponent<InputField>().text.Length > 0)
+        if (ipField.GetComponent<InputField>().text.Length > 0)
         {
             ip = ipField.GetComponent<InputField>().text;
             return;
@@ -116,6 +116,7 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
     void listGames()
     {
         if (notChecked) notChecked = true;
+        Debug.Log("Listing Games...");
         if (discovery.broadcastsReceived == null)
         {
             return;
@@ -124,6 +125,7 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
         if (discovery.broadcastsReceived.Count == 0)
         {
             ip = "";
+            Debug.Log("No Count");
             return;
         }
 
