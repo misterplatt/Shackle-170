@@ -122,7 +122,7 @@ public class spt_monsterMovement : NetworkBehaviour {
             }
         }
         // If the monster is interacting with an item...
-        else if (agent.remainingDistance <= 1 && currentWaypoint == 888)
+        else if (agent.remainingDistance <= 2 && currentWaypoint == 888)
         {
             animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
             interactionScript = GameObject.FindObjectOfType(typeof(spt_monsterInteraction)) as spt_monsterInteraction;
