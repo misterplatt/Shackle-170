@@ -21,7 +21,7 @@ namespace VRStandardAssets.Examples
     public class spt_barrel : spt_baseInteractiveObject
     {
         private bool once = false;
-        public Texture emptyTube;
+        //public Texture emptyTube;
         private AudioSource aSource;
         public AudioClip matchStrike;
         public AudioClip beakerPour;
@@ -29,10 +29,12 @@ namespace VRStandardAssets.Examples
         public static bool local_beakerPoured = false;
         private bool matchLit = false;
 
+        /*
         protected override void Update()
         {
             if (GameObject.Find( GameObject.Find("WorldState").GetComponent<spt_WorldState>().localPlayer).GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[14].state == true) GameObject.Find("mdl_beaker").GetComponent<GUITexture>().texture = emptyTube;
         }
+        */
 
         protected override void Start()
         {
@@ -50,6 +52,7 @@ namespace VRStandardAssets.Examples
                 spt_WorldState.worldStateChanged = true;
                 aSource.clip = beakerPour;
                 aSource.Play();
+                inventorySpt.removeItm("mdl_beaker");
                 gateItemName = "mdl_matchbox";
                 once = true;
                 //GameObject.Find("mdl_beaker").GetComponent<GUITexture>().texture = emptyTube;
