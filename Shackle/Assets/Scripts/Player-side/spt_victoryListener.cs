@@ -137,6 +137,7 @@ public class    spt_victoryListener : MonoBehaviour
         }
         else if (lvlName == "net_RangerOutpost_crash")
         {
+            Debug.Log("Right...  I guess I just thought...");
             nextLevel = "net_OpticsLab";
         }
         else return;
