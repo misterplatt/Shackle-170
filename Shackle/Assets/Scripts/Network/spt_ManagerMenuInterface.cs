@@ -46,16 +46,7 @@ public class spt_ManagerMenuInterface : NetworkBehaviour {
 
         GameObject joinButton = GameObject.Find("Painting_Canvas").transform.Find("Play/btn_join").gameObject;
         GameObject ipField = GameObject.Find("InputField");
-
-        if (ip == "")
-        {
-            GameObject.Find("Painting_Canvas").transform.Find("Play/txt_gameDetected").gameObject.SetActive(false);
-        }
-        else
-        {
-            GameObject.Find("Painting_Canvas").transform.Find("Play/txt_gameDetected").gameObject.SetActive(true);
-        }
-        Debug.Log("kk");
+        ip = ipField.GetComponentInChildren<Text>().text;
 
         if (Input.GetKeyDown(KeyCode.F10)) connectLocal();
 

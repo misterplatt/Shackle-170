@@ -74,7 +74,6 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
         {
             GameObject.Find("Painting_Canvas").transform.Find("Play/txt_gameDetected").gameObject.SetActive(true);
         }
-        Debug.Log("kk");
         //if input field is being used, override ip.
         if (ipField != null && ipField.GetComponent<InputField>().text.Length > 0)
         {
