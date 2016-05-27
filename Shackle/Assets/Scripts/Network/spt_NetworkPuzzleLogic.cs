@@ -72,7 +72,6 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
 
     void Start() {
-        PuzzleStates = new SyncListLogicPair();
         if (!isServer) return;
         //PuzzleStates = new SyncListLogicPair();
         if (SceneManager.GetActiveScene().name == "LoadScreen") return;
