@@ -41,11 +41,6 @@ namespace VRStandardAssets.Examples
             aSource = GetComponent<AudioSource>();
         }
 
-        protected override void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.M)) holdSuccess();
-        }
-
         //Open the garage if opener is used on door for holdTime seconds
         override protected void holdSuccess()
         {
@@ -58,7 +53,6 @@ namespace VRStandardAssets.Examples
                 aSource.clip = beakerPour;
                 aSource.Play();
                 inventorySpt.removeItm("mdl_beaker");
-                transform.FindChild("spt_sludge").gameObject.GetComponent<SpriteRenderer>().enabled = true; //Enable sludge
                 gateItemName = "mdl_matchbox";
                 once = true;
                 //GameObject.Find("mdl_beaker").GetComponent<GUITexture>().texture = emptyTube;
@@ -80,7 +74,6 @@ namespace VRStandardAssets.Examples
 
                 //Little explosion particle upon lighting barrel
                 GameObject go = (GameObject)Instantiate(Resources.Load("Explosion - Copy"), new Vector3(2.734f, 1.511f, 5.369f), Quaternion.Euler(0, 0, 0));
-                transform.FindChild("spt_sludge").gameObject.GetComponent<SpriteRenderer>().enabled = true; //Remove sludge
                 once = true;
             }
 
