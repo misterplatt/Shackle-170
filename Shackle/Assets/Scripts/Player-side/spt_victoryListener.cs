@@ -91,7 +91,8 @@ public class    spt_victoryListener : MonoBehaviour
         if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[0].state == false) once = false;
         if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count == 0) return;
         //If the puzzleCompletion puzzlestate is true, set Win Text to visible and start camera fadeout      
-        //Debug.Log("once : " + once );  
+        Debug.Log("once : " + once );  
+
         if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[0].state == true && !once)
         {
             /* monster.angerUpdateDisabled = true;
