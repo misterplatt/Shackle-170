@@ -44,7 +44,8 @@ public class    spt_victoryListener : MonoBehaviour
     {
         monster = GameObject.FindObjectOfType<spt_monsterMotivation>();
         manager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
-        once = false
+        once = false;
+
         //If a victory light exists, retrieve it's AudioSource and Light components
         if (GameObject.Find("victory_light") != null) {
             transitionA = GameObject.Find("victory_light").GetComponent<AudioSource>();
