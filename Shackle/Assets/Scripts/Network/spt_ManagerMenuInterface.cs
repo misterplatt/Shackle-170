@@ -21,8 +21,13 @@ public class spt_ManagerMenuInterface : NetworkBehaviour {
     public void showIp()
     {
         //Get the ip text field and update it. 
-        Text iptxt = GameObject.Find("txt_IP").GetComponent<Text>();
-        iptxt.text = "Your IP : " + Network.player.ipAddress;
+        GameObject ipTxt = GameObject.Find("txt_IP");
+        Text iptxt = null;
+        if (ipTxt != null)
+        {
+            iptxt = ipTxt.GetComponent<Text>();
+            iptxt.text = "Your IP : " + Network.player.ipAddress;
+        }
     }
 
     void Update()
