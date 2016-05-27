@@ -76,7 +76,7 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
         }
 
         //if input field is being used, override ip.
-        if (ipField.GetComponent<InputField>().text.Length > 0)
+        if (ipField != null && ipField.GetComponent<InputField>().text.Length > 0)
         {
             ip = ipField.GetComponent<InputField>().text;
             return;
