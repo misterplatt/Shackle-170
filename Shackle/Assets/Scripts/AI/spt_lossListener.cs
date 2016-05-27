@@ -28,7 +28,8 @@ public class spt_lossListener : NetworkBehaviour {
 
     void Start() {
         if (SceneManager.GetActiveScene().name == "LoadScreen") return;
-        monsterAudio = GameObject.Find("MonsterStandin").GetComponent<spt_monsterAudio>();
+        GameObject monster = GameObject.Find("MonsterStandin");
+        if ( monster != null )monsterAudio = GameObject.Find("MonsterStandin").GetComponent<spt_monsterAudio>();
         loss = false;
         lossMenu = false;
         player = this.transform.root.gameObject;

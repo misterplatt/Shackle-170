@@ -2947,59 +2947,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 90078217}
   m_RootOrder: 36
---- !u!1 &211421741
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 211421744}
-  - 114: {fileID: 211421743}
-  - 114: {fileID: 211421742}
-  m_Layer: 0
-  m_Name: Debug_Tools
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &211421742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 211421741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e950db6c144775147994bfd716116028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  source: {fileID: 0}
-  sound: {fileID: 8300000, guid: cc77e18dc38020545bf23d02d0c4a7b3, type: 3}
---- !u!114 &211421743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 211421741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9467dcd634e73042b5cb55c1dc37f1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &211421744
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 211421741}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8018003, y: 0.19329262, z: 2.0968056}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
 --- !u!1 &217511415
 GameObject:
   m_ObjectHideFlags: 0
@@ -16656,6 +16603,9 @@ MonoBehaviour:
   distanceBeforeLerp: 0.6
   distanceBeforeFreeze: 0.1
   currentState: 0
+  anchored: 1
+  startPoint: {x: 0, y: 0, z: 0}
+  startRotation: {x: 0, y: 0, z: 0, w: 0}
   endPoint: {fileID: 0}
 --- !u!114 &1062713345
 MonoBehaviour:
@@ -18380,6 +18330,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playCrashSound: 0
+  localPlayer: 
+  retryInv: 0
 --- !u!114 &1185700721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20663,7 +20615,7 @@ Transform:
   - {fileID: 950585450}
   - {fileID: 988709791}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!1 &1347983690
 GameObject:
   m_ObjectHideFlags: 0
@@ -29982,6 +29934,9 @@ MonoBehaviour:
   distanceBeforeLerp: 0.6
   distanceBeforeFreeze: 0.1
   currentState: 0
+  anchored: 1
+  startPoint: {x: 0, y: 0, z: 0}
+  startRotation: {x: 0, y: 0, z: 0, w: 0}
   endPoint: {fileID: 0}
 --- !u!114 &1987510805
 MonoBehaviour:

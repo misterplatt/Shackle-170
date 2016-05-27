@@ -22,10 +22,7 @@ public class spt_mainMenu_btns_vr : MonoBehaviour
         unloadScenes();
 
         GameObject manager = GameObject.Find("NetworkManager");
-        GameObject disc = GameObject.Find("NetworkDiscovery");
-
         spt_ManagerMenuInterface menu = manager.GetComponent<spt_ManagerMenuInterface>();
-        spt_NetworkDiscovery discifc = disc.GetComponent<spt_NetworkDiscovery>();
 
         Button join = transform.Find("Play/btn_join").gameObject.GetComponent<Button>();
         Button host = transform.Find("Play/btn_host").gameObject.GetComponent<Button>();
@@ -50,8 +47,7 @@ public class spt_mainMenu_btns_vr : MonoBehaviour
             manager.GetComponent<spt_NetworkManager_setSpawn>().StopClient();
         }
         */
-
-        Debug.Log("Unloading Scenes...");
+        
         SceneManager.UnloadScene("net_SpookyGarage");
         SceneManager.UnloadScene("net_RangerOutpost");
         SceneManager.UnloadScene("net_OpticsLab");
