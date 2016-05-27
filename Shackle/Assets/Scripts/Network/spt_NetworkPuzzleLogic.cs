@@ -161,7 +161,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                     Debug.Log("Updating correctChannelEntered on the network to " + VRStandardAssets.Examples.spt_remoteEnter.local_correctChannelEntered);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("correctChannelEntered", true, "mdl_TV");
                 }
-                //If a player has used the garage door opener on the garage door, update server state
+                //If a player has used the key on the garage lock, update server state
                 if (VRStandardAssets.Examples.spt_garageLock.local_garageDoorUnlocked)
                 {
                     Debug.Log("Updating garageDoorOpen on the network to " + VRStandardAssets.Examples.spt_garageLock.local_garageDoorUnlocked);
@@ -187,6 +187,12 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 {
                     Debug.Log("Updating bucketOnShelf on the network to " + VRStandardAssets.Examples.spt_bucketChuck.local_bucketOnShelf);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isBucketOnShelf", VRStandardAssets.Examples.spt_bucketChuck.local_bucketOnShelf, "mdl_bucket");
+                }
+                //If a player has used the garage opener on the garage door, update server state
+                if (VRStandardAssets.Examples.spt_garageDoor.local_garageOpeningAttempt != PuzzleStates[10].state)
+                {
+                    Debug.Log("Updating garageOpeningAttempt on the network to " + VRStandardAssets.Examples.spt_garageDoor.local_garageOpeningAttempt);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("garageOpeningAttempt", VRStandardAssets.Examples.spt_garageDoor.local_garageOpeningAttempt, "mdl_garageDoor");
                 }
             }
 

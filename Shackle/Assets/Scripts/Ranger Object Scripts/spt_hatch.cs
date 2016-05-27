@@ -19,12 +19,16 @@ namespace VRStandardAssets.Examples
         private AudioSource aSource;
         public AudioClip failedOpen;
         public AudioClip successfulOpen;
+
+        public Animation hatchAnimations;
+
         public static bool local_puzzleCompletion;
         public static bool local_puzzleCompletionMonster;
 
         override protected void Start()
         {
             aSource = GetComponent<AudioSource>();
+            hatchAnimations = transform.FindChild("mdl_hatchDoor").gameObject.GetComponent<Animation>();
         }
 
         //Plug HandleClick
@@ -38,6 +42,7 @@ namespace VRStandardAssets.Examples
             {
                 aSource.clip = successfulOpen;
                 aSource.Play();
+                hatchAnimations.Play("hatchOpen_unlocked");
                 //NPL Update
                 //local_puzzleCompletion = true;
                 //spt_WorldState.worldStateChanged = true;
@@ -53,6 +58,7 @@ namespace VRStandardAssets.Examples
             {
                 aSource.clip = failedOpen;
                 aSource.Play();
+                hatchAnimations.Play("hatchOpen_locked");
                 holding = false;
             }
         }

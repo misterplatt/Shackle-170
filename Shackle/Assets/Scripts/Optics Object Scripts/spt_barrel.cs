@@ -21,7 +21,7 @@ namespace VRStandardAssets.Examples
     public class spt_barrel : spt_baseInteractiveObject
     {
         private bool once = false;
-        public Texture emptyTube;
+        //public Texture emptyTube;
         private AudioSource aSource;
         public AudioClip matchStrike;
         public AudioClip beakerPour;
@@ -29,14 +29,21 @@ namespace VRStandardAssets.Examples
         public static bool local_beakerPoured = false;
         private bool matchLit = false;
 
+        /*
         protected override void Update()
         {
             if (GameObject.Find( GameObject.Find("WorldState").GetComponent<spt_WorldState>().localPlayer).GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[14].state == true) GameObject.Find("mdl_beaker").GetComponent<GUITexture>().texture = emptyTube;
         }
+        */
 
         protected override void Start()
         {
             aSource = GetComponent<AudioSource>();
+        }
+
+        protected override void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.M)) holdSuccess();
         }
 
         //Open the garage if opener is used on door for holdTime seconds
@@ -50,6 +57,8 @@ namespace VRStandardAssets.Examples
                 spt_WorldState.worldStateChanged = true;
                 aSource.clip = beakerPour;
                 aSource.Play();
+                inventorySpt.removeItm("mdl_beaker");
+                transform.FindChild("spr_sludge").gameObject.GetComponent<SpriteRenderer>().enabled = true; //Enable sludge
                 gateItemName = "mdl_matchbox";
                 once = true;
                 //GameObject.Find("mdl_beaker").GetComponent<GUITexture>().texture = emptyTube;
@@ -60,10 +69,9 @@ namespace VRStandardAssets.Examples
             {
                 aSource.clip = matchStrike;
                 aSource.Play();
-                transform.FindChild("Fire").gameObject.SetActive(true);
                 inventorySpt.removeItm("mdl_matchbox");
                 Invoke("FireSound", 3f);
-
+                transform.FindChild("spr_sludge").gameObject.GetComponent<SpriteRenderer>().enabled = false; //Remove sludge
                 Invoke("DestroyPoster", 2f);
                 // Replace above line with the burn function on the new poster model
 
@@ -84,7 +92,6 @@ namespace VRStandardAssets.Examples
         void DestroyPoster()
         {
             GameObject.Find("mdl_poster").GetComponent<PosterScript>().Burn();
-            transform.FindChild("Fire").gameObject.SetActive(false);
         }
 
         //Brief function to be invoked for the fire sound
