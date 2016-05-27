@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
 public class spt_ManagerMenuInterface : NetworkBehaviour {
 
     public NetworkManager manager;
-
+    string ip = "";
 
     void Awake()
     {
@@ -33,6 +34,28 @@ public class spt_ManagerMenuInterface : NetworkBehaviour {
     void Update()
     {
         GameObject monster = GameObject.Find("MonsterStandin");
+        if (SceneManager.GetActiveScene().name != "VRMainMenu") return;
+        /*
+        if (currentTime - lastInit > 5.0F && !discovery.isServer)
+        {
+            discovery.StopBroadcast();
+            discovery.StartAsClient();
+            listGames();
+        }
+        */
+
+        GameObject joinButton = GameObject.Find("Painting_Canvas").transform.Find("Play/btn_join").gameObject;
+        GameObject ipField = GameObject.Find("InputField");
+
+        if (ip == "")
+        {
+            GameObject.Find("Painting_Canvas").transform.Find("Play/txt_gameDetected").gameObject.SetActive(false);
+        }
+        else
+        {
+            GameObject.Find("Painting_Canvas").transform.Find("Play/txt_gameDetected").gameObject.SetActive(true);
+        }
+        Debug.Log("kk");
 
         if (Input.GetKeyDown(KeyCode.F10)) connectLocal();
 
@@ -60,22 +83,15 @@ public class spt_ManagerMenuInterface : NetworkBehaviour {
 
     public void connect()
     {
-        try {
-            
-            if (manager.networkAddress == Network.player.ipAddress) manager.networkAddress = "localhost";
-            
-        }
-        catch {
-            manager.networkAddress = "localhost";
-        }
+        if (ip == "") return;
+        manager.networkAddress = ip;
         //manager.networkPort = 17750;
         manager.StartClient();
     }
 
     public void hostGame()
     {
+        manager.StopHost();
         manager.StartHost();
-        //manager.StopHost();
-        
     }
 }
