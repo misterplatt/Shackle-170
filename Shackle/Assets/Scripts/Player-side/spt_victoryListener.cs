@@ -57,6 +57,7 @@ public class    spt_victoryListener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         // added vibrations here so the game would not freeze like how it does with my implementation in spt_playerControls
         if (vibrationz == true)
         {
@@ -85,10 +86,12 @@ public class    spt_victoryListener : MonoBehaviour
             transitionA.Play();
             StartCoroutine(transitionRumble());
         }
+
         GameObject player = GameObject.FindWithTag("Player");
+        if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[0].state == false) once = false;
         if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count == 0) return;
         //If the puzzleCompletion puzzlestate is true, set Win Text to visible and start camera fadeout      
-        Debug.Log("once : " + once );  
+        //Debug.Log("once : " + once );  
         if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[0].state == true && !once)
         {
             /* monster.angerUpdateDisabled = true;
