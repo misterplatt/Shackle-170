@@ -39,10 +39,10 @@ public class spt_monsterAnimations : NetworkBehaviour {
 
     public void Update()
     {
+        Debug.LogWarning("render is set to: " + render);
         SkinnedMeshRenderer renderer = this.GetComponent<SkinnedMeshRenderer>();
-        if ( renderer != null)
-            renderer.enabled = render;
-        SkinnedMeshRenderer[] renderers = this.GetComponentsInChildren<SkinnedMeshRenderer>();
+        SkinnedMeshRenderer[] renderers = this.transform.GetChild(0).GetComponentsInChildren<SkinnedMeshRenderer>();
+        Debug.LogWarning("Found skinned mesh renderers: " + renderers.Length);
         for (int i = 0; i < renderers.Length; i++)
             renderers[i].enabled = render;
         if (!particlesTimed)

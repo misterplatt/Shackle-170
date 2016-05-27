@@ -100,7 +100,7 @@ public class spt_monsterInteraction : MonoBehaviour {
                                 interactionItemName = network.PuzzleStates[indecies[i]].itemName;
                                 Debug.LogWarning("Interacting with: " + network.PuzzleStates[indecies[i]].itemName);
                                 animationScript.interactWithObject(interactionItemName);
-                                interactWithObject(network.PuzzleStates[indecies[i]].name, network.PuzzleStates[indecies[i]].itemName);
+                                //interactWithObject(network.PuzzleStates[indecies[i]].name, network.PuzzleStates[indecies[i]].itemName);
                             }
                         }
                     }

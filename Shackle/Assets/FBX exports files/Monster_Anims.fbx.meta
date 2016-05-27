@@ -3,7 +3,7 @@ guid: ac36bea0cbcb23943be349f051c33524
 timeCreated: 1459703191
 licenseType: Free
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 18
   fileIDToRecycleName:
     100000: body
     100002: Hood_Geo
@@ -706,6 +706,7 @@ ModelImporter:
     7400000: Monster_Idle
     7400002: Monster_Attack
     7400004: Monster_Death
+    7400006: Monster_Interact_Swipe
     9500000: //RootNode
     13700000: body
     13700002: Hood_Geo
@@ -723,7 +724,6 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
@@ -731,9 +731,9 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 0
-    animationRotationError: 0.5
-    animationPositionError: 0.5
-    animationScaleError: 0.5
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations:
@@ -747,7 +747,6 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
       loopBlendOrientation: 0
@@ -1434,7 +1433,6 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Monster_Attack
       takeName: Take 001
@@ -1445,7 +1443,6 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -2132,7 +2129,6 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Monster_Death
       takeName: Take 001
@@ -2143,7 +2139,6 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -2828,11 +2823,702 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Monster_Interact_Swipe
+      takeName: Take 001
+      firstFrame: 197
+      lastFrame: 229
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: monster_export:group1
+        weight: 1
+      - path: monster_export:group1/monster_export:polySurface14
+        weight: 1
+      - path: monster_export:group1/monster_export:polySurface34
+        weight: 1
+      - path: monster_export:group1/monster_export:polySurface77
+        weight: 1
+      - path: Monster_Rig_01
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_ExtraNodes
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_ExtraNodes/Monster_Rig_01_NeckLengthCX
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_ExtraNodes/Monster_Rig_01_SpineLengthCX
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_EyeAimCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_EyeAimCG/Monster_Rig_01_EyeAimC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_EyeAimCG/Monster_Rig_01_EyeAimC/Monster_Rig_01_lEyeAimC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_EyeAimCG/Monster_Rig_01_EyeAimC/Monster_Rig_01_rEyeAimC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_HeadCG2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_HeadCG2/Monster_Rig_01_HeadCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_HeadCG2/Monster_Rig_01_HeadCG/Monster_Rig_01_HeadC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_HeadCG2/Monster_Rig_01_HeadCG/Monster_Rig_01_HeadC/Monster_Rig_01_NeckLengthCXlstr03G
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_HeadCG2/Monster_Rig_01_HeadCG/Monster_Rig_01_HeadC/Monster_Rig_01_NeckLengthCXlstr03G/Monster_Rig_01_NeckLengthCXlstr03
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_HeadJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_HeadJ/Monster_Rig_01_JawJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_HeadJ/Monster_Rig_01_lEyeJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_HeadJ/Monster_Rig_01_rEyeJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_JawCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_JawCG/Monster_Rig_01_JawC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lArmIKFKG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lArmIKFKG/Monster_Rig_01_lShoulderJFK
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lArmIKFKG/Monster_Rig_01_lShoulderJIK
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lArmIKFKG/Monster_Rig_01_lShoulderJIK/Monster_Rig_01_lElbowJIK
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lArmLengthOriginLctr
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lArmLengthOriginLctr/Monster_Rig_01_lArmLengthEndLctr
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lArmSwitchCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lArmSwitchCG/Monster_Rig_01_lArmSwitchC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lClavicleCG2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lClavicleCG2/Monster_Rig_01_lClavicleCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lClavicleCG2/Monster_Rig_01_lClavicleCG/Monster_Rig_01_lClavicleC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lElbowFKCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lElbowFKCG/Monster_Rig_01_lElbowFKC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lElbowIKCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lElbowIKCG/Monster_Rig_01_lElbowIKC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lElbowJFKG2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lElbowJFKG2/Monster_Rig_01_lElbowJFKG1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lElbowJFKG2/Monster_Rig_01_lElbowJFKG1/Monster_Rig_01_lElbowJFK
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger1J1CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger1J1CG/Monster_Rig_01_lFinger1J1CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger1J1CG/Monster_Rig_01_lFinger1J1CRotG/Monster_Rig_01_lFinger1J1C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger1J2CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger1J2CG/Monster_Rig_01_lFinger1J2CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger1J2CG/Monster_Rig_01_lFinger1J2CRotG/Monster_Rig_01_lFinger1J2C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger1J3CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger1J3CG/Monster_Rig_01_lFinger1J3CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger1J3CG/Monster_Rig_01_lFinger1J3CRotG/Monster_Rig_01_lFinger1J3C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger2J1CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger2J1CG/Monster_Rig_01_lFinger2J1CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger2J1CG/Monster_Rig_01_lFinger2J1CRotG/Monster_Rig_01_lFinger2J1C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger2J2CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger2J2CG/Monster_Rig_01_lFinger2J2CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger2J2CG/Monster_Rig_01_lFinger2J2CRotG/Monster_Rig_01_lFinger2J2C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger2J3CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger2J3CG/Monster_Rig_01_lFinger2J3CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger2J3CG/Monster_Rig_01_lFinger2J3CRotG/Monster_Rig_01_lFinger2J3C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger3J1CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger3J1CG/Monster_Rig_01_lFinger3J1CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger3J1CG/Monster_Rig_01_lFinger3J1CRotG/Monster_Rig_01_lFinger3J1C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger3J2CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger3J2CG/Monster_Rig_01_lFinger3J2CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger3J2CG/Monster_Rig_01_lFinger3J2CRotG/Monster_Rig_01_lFinger3J2C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger3J3CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger3J3CG/Monster_Rig_01_lFinger3J3CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger3J3CG/Monster_Rig_01_lFinger3J3CRotG/Monster_Rig_01_lFinger3J3C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger4J1CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger4J1CG/Monster_Rig_01_lFinger4J1CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger4J1CG/Monster_Rig_01_lFinger4J1CRotG/Monster_Rig_01_lFinger4J1C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger4J2CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger4J2CG/Monster_Rig_01_lFinger4J2CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger4J2CG/Monster_Rig_01_lFinger4J2CRotG/Monster_Rig_01_lFinger4J2C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger4J3CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger4J3CG/Monster_Rig_01_lFinger4J3CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lPalmCG/Monster_Rig_01_lPalmC/Monster_Rig_01_lFinger4J3CG/Monster_Rig_01_lFinger4J3CRotG/Monster_Rig_01_lFinger4J3C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lShoulderFKCG2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lShoulderFKCG2/Monster_Rig_01_lShoulderFKCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lShoulderFKCG2/Monster_Rig_01_lShoulderFKCG/Monster_Rig_01_lShoulderFKC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lShoulderIKLockLctr
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lShoulderIKLockLctr/Monster_Rig_01_lElbowIKLockLctr
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lShoulderIKLockLctr/Monster_Rig_01_lElbowIKLockLctr/Monster_Rig_01_lWristIKLockLctr
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristFKCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristFKCG/Monster_Rig_01_lWristFKC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristIKCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristIKCG/Monster_Rig_01_lWristIKC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJFKG2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJFKG2/Monster_Rig_01_lWristJFKG1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJFKG2/Monster_Rig_01_lWristJFKG1/Monster_Rig_01_lWristJFK
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lThumbJ1CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lThumbJ1CG/Monster_Rig_01_lThumbJ1CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lThumbJ1CG/Monster_Rig_01_lThumbJ1CRotG/Monster_Rig_01_lThumbJ1C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lThumbJ2CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lThumbJ2CG/Monster_Rig_01_lThumbJ2CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lThumbJ2CG/Monster_Rig_01_lThumbJ2CRotG/Monster_Rig_01_lThumbJ2C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lThumbJ3CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lThumbJ3CG/Monster_Rig_01_lThumbJ3CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lThumbJ3CG/Monster_Rig_01_lThumbJ3CRotG/Monster_Rig_01_lThumbJ3C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lWristJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lWristJ/Monster_Rig_01_lPalmJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lWristJ/Monster_Rig_01_lPalmJ/Monster_Rig_01_lFinger1J1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lWristJ/Monster_Rig_01_lPalmJ/Monster_Rig_01_lFinger1J1/Monster_Rig_01_lFinger1J2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lWristJ/Monster_Rig_01_lPalmJ/Monster_Rig_01_lFinger1J1/Monster_Rig_01_lFinger1J2/Monster_Rig_01_lFinger1J3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lWristJ/Monster_Rig_01_lPalmJ/Monster_Rig_01_lFinger2J1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lWristJ/Monster_Rig_01_lPalmJ/Monster_Rig_01_lFinger2J1/Monster_Rig_01_lFinger2J2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lWristJ/Monster_Rig_01_lPalmJ/Monster_Rig_01_lFinger2J1/Monster_Rig_01_lFinger2J2/Monster_Rig_01_lFinger2J3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lWristJ/Monster_Rig_01_lPalmJ/Monster_Rig_01_lFinger3J1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lWristJ/Monster_Rig_01_lPalmJ/Monster_Rig_01_lFinger3J1/Monster_Rig_01_lFinger3J2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lWristJ/Monster_Rig_01_lPalmJ/Monster_Rig_01_lFinger3J1/Monster_Rig_01_lFinger3J2/Monster_Rig_01_lFinger3J3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lWristJ/Monster_Rig_01_lPalmJ/Monster_Rig_01_lFinger4J1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lWristJ/Monster_Rig_01_lPalmJ/Monster_Rig_01_lFinger4J1/Monster_Rig_01_lFinger4J2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lWristJ/Monster_Rig_01_lPalmJ/Monster_Rig_01_lFinger4J1/Monster_Rig_01_lFinger4J2/Monster_Rig_01_lFinger4J3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lWristJ/Monster_Rig_01_lThumbJ1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lWristJ/Monster_Rig_01_lThumbJ1/Monster_Rig_01_lThumbJ2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJG2/Monster_Rig_01_lWristJG1/Monster_Rig_01_lWristJ/Monster_Rig_01_lThumbJ1/Monster_Rig_01_lThumbJ2/Monster_Rig_01_lThumbJ3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJIKProxyG2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJIKProxyG2/Monster_Rig_01_lWristJIKProxyG1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_lWristJIKProxyG2/Monster_Rig_01_lWristJIKProxyG1/Monster_Rig_01_lWristJIKProxy
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_MainHipCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_MainHipCG/Monster_Rig_01_MainHipC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_MainHipCG/Monster_Rig_01_MainHipC/Monster_Rig_01_SpineLengthCXlstr01G
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_MainHipCG/Monster_Rig_01_MainHipC/Monster_Rig_01_SpineLengthCXlstr01G/Monster_Rig_01_SpineLengthCXlstr01
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_Neck01CurveCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_Neck01CurveCG/Monster_Rig_01_Neck01CurveC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_Neck01J
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_Neck02CurveCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_Neck02CurveCG/Monster_Rig_01_Neck02CurveC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_Neck02J
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_NeckMidIKCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_NeckMidIKCG/Monster_Rig_01_NeckMidIKCG2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_NeckMidIKCG/Monster_Rig_01_NeckMidIKCG2/Monster_Rig_01_NeckMidIKC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_NeckMidIKCG/Monster_Rig_01_NeckMidIKCG2/Monster_Rig_01_NeckMidIKC/Monster_Rig_01_NeckLengthCXlstr02G
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_NeckMidIKCG/Monster_Rig_01_NeckMidIKCG2/Monster_Rig_01_NeckMidIKC/Monster_Rig_01_NeckLengthCXlstr02G/Monster_Rig_01_NeckLengthCXlstr02
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rArmIKFKG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rArmIKFKG/Monster_Rig_01_rShoulderJFK
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rArmIKFKG/Monster_Rig_01_rShoulderJIK
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rArmIKFKG/Monster_Rig_01_rShoulderJIK/Monster_Rig_01_rElbowJIK
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rArmLengthOriginLctr
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rArmLengthOriginLctr/Monster_Rig_01_rArmLengthEndLctr
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rArmSwitchCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rArmSwitchCG/Monster_Rig_01_rArmSwitchC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rClavicleCG2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rClavicleCG2/Monster_Rig_01_rClavicleCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rClavicleCG2/Monster_Rig_01_rClavicleCG/Monster_Rig_01_rClavicleC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rElbowFKCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rElbowFKCG/Monster_Rig_01_rElbowFKC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rElbowIKCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rElbowIKCG/Monster_Rig_01_rElbowIKC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rElbowJFKG2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rElbowJFKG2/Monster_Rig_01_rElbowJFKG1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rElbowJFKG2/Monster_Rig_01_rElbowJFKG1/Monster_Rig_01_rElbowJFK
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_ROOTJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger1J1CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger1J1CG/Monster_Rig_01_rFinger1J1CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger1J1CG/Monster_Rig_01_rFinger1J1CRotG/Monster_Rig_01_rFinger1J1C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger1J2CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger1J2CG/Monster_Rig_01_rFinger1J2CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger1J2CG/Monster_Rig_01_rFinger1J2CRotG/Monster_Rig_01_rFinger1J2C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger1J3CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger1J3CG/Monster_Rig_01_rFinger1J3CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger1J3CG/Monster_Rig_01_rFinger1J3CRotG/Monster_Rig_01_rFinger1J3C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger2J1CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger2J1CG/Monster_Rig_01_rFinger2J1CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger2J1CG/Monster_Rig_01_rFinger2J1CRotG/Monster_Rig_01_rFinger2J1C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger2J2CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger2J2CG/Monster_Rig_01_rFinger2J2CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger2J2CG/Monster_Rig_01_rFinger2J2CRotG/Monster_Rig_01_rFinger2J2C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger2J3CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger2J3CG/Monster_Rig_01_rFinger2J3CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger2J3CG/Monster_Rig_01_rFinger2J3CRotG/Monster_Rig_01_rFinger2J3C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger3J1CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger3J1CG/Monster_Rig_01_rFinger3J1CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger3J1CG/Monster_Rig_01_rFinger3J1CRotG/Monster_Rig_01_rFinger3J1C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger3J2CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger3J2CG/Monster_Rig_01_rFinger3J2CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger3J2CG/Monster_Rig_01_rFinger3J2CRotG/Monster_Rig_01_rFinger3J2C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger3J3CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger3J3CG/Monster_Rig_01_rFinger3J3CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger3J3CG/Monster_Rig_01_rFinger3J3CRotG/Monster_Rig_01_rFinger3J3C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger4J1CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger4J1CG/Monster_Rig_01_rFinger4J1CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger4J1CG/Monster_Rig_01_rFinger4J1CRotG/Monster_Rig_01_rFinger4J1C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger4J2CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger4J2CG/Monster_Rig_01_rFinger4J2CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger4J2CG/Monster_Rig_01_rFinger4J2CRotG/Monster_Rig_01_rFinger4J2C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger4J3CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger4J3CG/Monster_Rig_01_rFinger4J3CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rPalmCG/Monster_Rig_01_rPalmC/Monster_Rig_01_rFinger4J3CG/Monster_Rig_01_rFinger4J3CRotG/Monster_Rig_01_rFinger4J3C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rShoulderFKCG2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rShoulderFKCG2/Monster_Rig_01_rShoulderFKCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rShoulderFKCG2/Monster_Rig_01_rShoulderFKCG/Monster_Rig_01_rShoulderFKC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rShoulderIKLockLctr
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rShoulderIKLockLctr/Monster_Rig_01_rElbowIKLockLctr
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rShoulderIKLockLctr/Monster_Rig_01_rElbowIKLockLctr/Monster_Rig_01_rWristIKLockLctr
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristFKCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristFKCG/Monster_Rig_01_rWristFKC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristIKCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristIKCG/Monster_Rig_01_rWristIKC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJFKG2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJFKG2/Monster_Rig_01_rWristJFKG1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJFKG2/Monster_Rig_01_rWristJFKG1/Monster_Rig_01_rWristJFK
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rThumbJ1CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rThumbJ1CG/Monster_Rig_01_rThumbJ1CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rThumbJ1CG/Monster_Rig_01_rThumbJ1CRotG/Monster_Rig_01_rThumbJ1C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rThumbJ2CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rThumbJ2CG/Monster_Rig_01_rThumbJ2CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rThumbJ2CG/Monster_Rig_01_rThumbJ2CRotG/Monster_Rig_01_rThumbJ2C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rThumbJ3CG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rThumbJ3CG/Monster_Rig_01_rThumbJ3CRotG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rThumbJ3CG/Monster_Rig_01_rThumbJ3CRotG/Monster_Rig_01_rThumbJ3C
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rWristJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rWristJ/Monster_Rig_01_rPalmJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rWristJ/Monster_Rig_01_rPalmJ/Monster_Rig_01_rFinger1J1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rWristJ/Monster_Rig_01_rPalmJ/Monster_Rig_01_rFinger1J1/Monster_Rig_01_rFinger1J2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rWristJ/Monster_Rig_01_rPalmJ/Monster_Rig_01_rFinger1J1/Monster_Rig_01_rFinger1J2/Monster_Rig_01_rFinger1J3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rWristJ/Monster_Rig_01_rPalmJ/Monster_Rig_01_rFinger2J1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rWristJ/Monster_Rig_01_rPalmJ/Monster_Rig_01_rFinger2J1/Monster_Rig_01_rFinger2J2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rWristJ/Monster_Rig_01_rPalmJ/Monster_Rig_01_rFinger2J1/Monster_Rig_01_rFinger2J2/Monster_Rig_01_rFinger2J3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rWristJ/Monster_Rig_01_rPalmJ/Monster_Rig_01_rFinger3J1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rWristJ/Monster_Rig_01_rPalmJ/Monster_Rig_01_rFinger3J1/Monster_Rig_01_rFinger3J2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rWristJ/Monster_Rig_01_rPalmJ/Monster_Rig_01_rFinger3J1/Monster_Rig_01_rFinger3J2/Monster_Rig_01_rFinger3J3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rWristJ/Monster_Rig_01_rPalmJ/Monster_Rig_01_rFinger4J1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rWristJ/Monster_Rig_01_rPalmJ/Monster_Rig_01_rFinger4J1/Monster_Rig_01_rFinger4J2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rWristJ/Monster_Rig_01_rPalmJ/Monster_Rig_01_rFinger4J1/Monster_Rig_01_rFinger4J2/Monster_Rig_01_rFinger4J3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rWristJ/Monster_Rig_01_rThumbJ1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rWristJ/Monster_Rig_01_rThumbJ1/Monster_Rig_01_rThumbJ2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJG2/Monster_Rig_01_rWristJG1/Monster_Rig_01_rWristJ/Monster_Rig_01_rThumbJ1/Monster_Rig_01_rThumbJ2/Monster_Rig_01_rThumbJ3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJIKProxyG2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJIKProxyG2/Monster_Rig_01_rWristJIKProxyG1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_rWristJIKProxyG2/Monster_Rig_01_rWristJIKProxyG1/Monster_Rig_01_rWristJIKProxy
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lForearmJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lPalmJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lPalmJ/Monster_Rig_01_SH_lFinger1J1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lPalmJ/Monster_Rig_01_SH_lFinger1J1/Monster_Rig_01_SH_lFinger1J2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lPalmJ/Monster_Rig_01_SH_lFinger1J1/Monster_Rig_01_SH_lFinger1J2/Monster_Rig_01_SH_lFinger1J3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lPalmJ/Monster_Rig_01_SH_lFinger1J1/Monster_Rig_01_SH_lFinger1J2/Monster_Rig_01_SH_lFinger1J3/Monster_Rig_01_SH_lFinger1JTip
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lPalmJ/Monster_Rig_01_SH_lFinger2J1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lPalmJ/Monster_Rig_01_SH_lFinger2J1/Monster_Rig_01_SH_lFinger2J2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lPalmJ/Monster_Rig_01_SH_lFinger2J1/Monster_Rig_01_SH_lFinger2J2/Monster_Rig_01_SH_lFinger2J3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lPalmJ/Monster_Rig_01_SH_lFinger2J1/Monster_Rig_01_SH_lFinger2J2/Monster_Rig_01_SH_lFinger2J3/Monster_Rig_01_SH_lFinger2JTip
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lPalmJ/Monster_Rig_01_SH_lFinger3J1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lPalmJ/Monster_Rig_01_SH_lFinger3J1/Monster_Rig_01_SH_lFinger3J2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lPalmJ/Monster_Rig_01_SH_lFinger3J1/Monster_Rig_01_SH_lFinger3J2/Monster_Rig_01_SH_lFinger3J3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lPalmJ/Monster_Rig_01_SH_lFinger3J1/Monster_Rig_01_SH_lFinger3J2/Monster_Rig_01_SH_lFinger3J3/Monster_Rig_01_SH_lFinger3JTip
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lPalmJ/Monster_Rig_01_SH_lFinger4J1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lPalmJ/Monster_Rig_01_SH_lFinger4J1/Monster_Rig_01_SH_lFinger4J2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lPalmJ/Monster_Rig_01_SH_lFinger4J1/Monster_Rig_01_SH_lFinger4J2/Monster_Rig_01_SH_lFinger4J3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lPalmJ/Monster_Rig_01_SH_lFinger4J1/Monster_Rig_01_SH_lFinger4J2/Monster_Rig_01_SH_lFinger4J3/Monster_Rig_01_SH_lFinger4JTip
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lThumbJ1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lThumbJ1/Monster_Rig_01_SH_lThumbJ2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lThumbJ1/Monster_Rig_01_SH_lThumbJ2/Monster_Rig_01_SH_lThumbJ3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_lClavicleJ/Monster_Rig_01_SH_lShoulderJ/Monster_Rig_01_SH_lElbowJ/Monster_Rig_01_SH_lWristJ/Monster_Rig_01_SH_lThumbJ1/Monster_Rig_01_SH_lThumbJ2/Monster_Rig_01_SH_lThumbJ3/Monster_Rig_01_SH_lThumbJTip
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_Neck01J
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_Neck01J/Monster_Rig_01_SH_Neck02J
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_Neck01J/Monster_Rig_01_SH_Neck02J/Monster_Rig_01_SH_HeadJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_Neck01J/Monster_Rig_01_SH_Neck02J/Monster_Rig_01_SH_HeadJ/Monster_Rig_01_SH_HeadTipJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_Neck01J/Monster_Rig_01_SH_Neck02J/Monster_Rig_01_SH_HeadJ/Monster_Rig_01_SH_JawJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_Neck01J/Monster_Rig_01_SH_Neck02J/Monster_Rig_01_SH_HeadJ/Monster_Rig_01_SH_JawJ/Monster_Rig_01_SH_JawTipJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_Neck01J/Monster_Rig_01_SH_Neck02J/Monster_Rig_01_SH_HeadJ/Monster_Rig_01_SH_lEyeJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_Neck01J/Monster_Rig_01_SH_Neck02J/Monster_Rig_01_SH_HeadJ/Monster_Rig_01_SH_rEyeJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rForearmJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rPalmJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rPalmJ/Monster_Rig_01_SH_rFinger1J1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rPalmJ/Monster_Rig_01_SH_rFinger1J1/Monster_Rig_01_SH_rFinger1J2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rPalmJ/Monster_Rig_01_SH_rFinger1J1/Monster_Rig_01_SH_rFinger1J2/Monster_Rig_01_SH_rFinger1J3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rPalmJ/Monster_Rig_01_SH_rFinger1J1/Monster_Rig_01_SH_rFinger1J2/Monster_Rig_01_SH_rFinger1J3/Monster_Rig_01_SH_rFinger1JTip
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rPalmJ/Monster_Rig_01_SH_rFinger2J1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rPalmJ/Monster_Rig_01_SH_rFinger2J1/Monster_Rig_01_SH_rFinger2J2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rPalmJ/Monster_Rig_01_SH_rFinger2J1/Monster_Rig_01_SH_rFinger2J2/Monster_Rig_01_SH_rFinger2J3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rPalmJ/Monster_Rig_01_SH_rFinger2J1/Monster_Rig_01_SH_rFinger2J2/Monster_Rig_01_SH_rFinger2J3/Monster_Rig_01_SH_rFinger2JTip
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rPalmJ/Monster_Rig_01_SH_rFinger3J1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rPalmJ/Monster_Rig_01_SH_rFinger3J1/Monster_Rig_01_SH_rFinger3J2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rPalmJ/Monster_Rig_01_SH_rFinger3J1/Monster_Rig_01_SH_rFinger3J2/Monster_Rig_01_SH_rFinger3J3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rPalmJ/Monster_Rig_01_SH_rFinger3J1/Monster_Rig_01_SH_rFinger3J2/Monster_Rig_01_SH_rFinger3J3/Monster_Rig_01_SH_rFinger3JTip
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rPalmJ/Monster_Rig_01_SH_rFinger4J1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rPalmJ/Monster_Rig_01_SH_rFinger4J1/Monster_Rig_01_SH_rFinger4J2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rPalmJ/Monster_Rig_01_SH_rFinger4J1/Monster_Rig_01_SH_rFinger4J2/Monster_Rig_01_SH_rFinger4J3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rPalmJ/Monster_Rig_01_SH_rFinger4J1/Monster_Rig_01_SH_rFinger4J2/Monster_Rig_01_SH_rFinger4J3/Monster_Rig_01_SH_rFinger4JTip
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rThumbJ1
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rThumbJ1/Monster_Rig_01_SH_rThumbJ2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rThumbJ1/Monster_Rig_01_SH_rThumbJ2/Monster_Rig_01_SH_rThumbJ3
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SH_ROOTmotionJ/Monster_Rig_01_SH_ROOTJ/Monster_Rig_01_SH_Spine01J/Monster_Rig_01_SH_Spine02J/Monster_Rig_01_SH_SpineTopJ/Monster_Rig_01_SH_rClavicleJ/Monster_Rig_01_SH_rShoulderJ/Monster_Rig_01_SH_rElbowJ/Monster_Rig_01_SH_rWristJ/Monster_Rig_01_SH_rThumbJ1/Monster_Rig_01_SH_rThumbJ2/Monster_Rig_01_SH_rThumbJ3/Monster_Rig_01_SH_rThumbJTip
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_Spine01CurveCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_Spine01CurveCG/Monster_Rig_01_Spine01CurveC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_Spine01J
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_Spine02CurveCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_Spine02CurveCG/Monster_Rig_01_Spine02CurveC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_Spine02J
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineMidIKCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineMidIKCG/Monster_Rig_01_SpineMidIKCG2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineMidIKCG/Monster_Rig_01_SpineMidIKCG2/Monster_Rig_01_SpineMidIKC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineMidIKCG/Monster_Rig_01_SpineMidIKCG2/Monster_Rig_01_SpineMidIKC/Monster_Rig_01_SpineLengthCXlstr02G
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineMidIKCG/Monster_Rig_01_SpineMidIKCG2/Monster_Rig_01_SpineMidIKC/Monster_Rig_01_SpineLengthCXlstr02G/Monster_Rig_01_SpineLengthCXlstr02
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineTopIKCG2
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineTopIKCG2/Monster_Rig_01_SpineTopIKCG
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineTopIKCG2/Monster_Rig_01_SpineTopIKCG/Monster_Rig_01_SpineTopIKC
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineTopIKCG2/Monster_Rig_01_SpineTopIKCG/Monster_Rig_01_SpineTopIKC/Monster_Rig_01_NeckLengthCXlstr01G
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineTopIKCG2/Monster_Rig_01_SpineTopIKCG/Monster_Rig_01_SpineTopIKC/Monster_Rig_01_NeckLengthCXlstr01G/Monster_Rig_01_NeckLengthCXlstr01
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineTopIKCG2/Monster_Rig_01_SpineTopIKCG/Monster_Rig_01_SpineTopIKC/Monster_Rig_01_SpineLengthCXlstr03G
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineTopIKCG2/Monster_Rig_01_SpineTopIKCG/Monster_Rig_01_SpineTopIKC/Monster_Rig_01_SpineLengthCXlstr03G/Monster_Rig_01_SpineLengthCXlstr03
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineTopJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineTopJ/Monster_Rig_01_lClavicleJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineTopJ/Monster_Rig_01_lClavicleJ/Monster_Rig_01_lShoulderJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineTopJ/Monster_Rig_01_lClavicleJ/Monster_Rig_01_lShoulderJ/Monster_Rig_01_lElbowJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineTopJ/Monster_Rig_01_lClavicleJ/Monster_Rig_01_lShoulderJ/Monster_Rig_01_lElbowJ/Monster_Rig_01_lForearmJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineTopJ/Monster_Rig_01_rClavicleJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineTopJ/Monster_Rig_01_rClavicleJ/Monster_Rig_01_rShoulderJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineTopJ/Monster_Rig_01_rClavicleJ/Monster_Rig_01_rShoulderJ/Monster_Rig_01_rElbowJ
+        weight: 1
+      - path: Monster_Rig_01/Monster_Rig_01_MainC/Monster_Rig_01_SpineTopJ/Monster_Rig_01_rClavicleJ/Monster_Rig_01_rShoulderJ/Monster_Rig_01_rElbowJ/Monster_Rig_01_rForearmJ
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -2849,19 +3535,20 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
     normalImportMode: 0
-    tangentImportMode: 4
+    tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []
     skeleton: []
-    armTwist: 0.5
-    foreArmTwist: 0.5
-    upperLegTwist: 0.5
-    legTwist: 0.5
-    armStretch: 0.05
-    legStretch: 0.05
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
     feetSpacing: 0
     rootMotionBoneName: Monster_Rig_01_SH_ROOTmotionJ
     hasTranslationDoF: 0

@@ -3,7 +3,7 @@
  * Created by: Lauren Cunningham
  * Networking Modifications by : Ryan Connors
  * 
- * Last Revision Date: 5/26/2016
+ * Last Revision Date: 5/27/2016
  * 
  * This file is the one that ultimately governs the monster's movements. **/
 
@@ -45,6 +45,8 @@ public class spt_monsterMovement : NetworkBehaviour {
 
     private bool navMeshInitialized = false;
     private bool waypointInitialized = false;
+
+    private bool disengageActivated = false;
 
     // Use this for initialization
 	void Start () {
@@ -126,10 +128,17 @@ public class spt_monsterMovement : NetworkBehaviour {
         // If the monster is interacting with an item...
         else if (agent.remainingDistance <= 2 && currentWaypoint == 888)
         {
-            animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
-            interactionScript = GameObject.FindObjectOfType(typeof(spt_monsterInteraction)) as spt_monsterInteraction;
-            animationScript.disengageInteraction();
-            interactionScript.interactWithObject(interactionScript.getInteractionName(), interactionScript.getInteractionItemName());
+            if (!disengageActivated)
+            {
+                animIndex = 3;
+                Invoke("disengageInteraction", 1.5f);
+                disengageActivated = true;
+            }
+            
+            //animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
+            //interactionScript = GameObject.FindObjectOfType(typeof(spt_monsterInteraction)) as spt_monsterInteraction;
+            //animationScript.disengageInteraction();
+            //interactionScript.interactWithObject(interactionScript.getInteractionName(), interactionScript.getInteractionItemName());
         }
 
         else if (agent.remainingDistance <= 2 && currentWaypoint != 999 && currentWaypoint != 888 && currentWaypoint != 777)
@@ -160,5 +169,15 @@ public class spt_monsterMovement : NetworkBehaviour {
     private void loss()
     {
         
+    }
+
+    private void disengageInteraction()
+    {
+        animIndex = 0;
+        animationScript = GameObject.FindObjectOfType(typeof(spt_monsterAnimations)) as spt_monsterAnimations;
+        interactionScript = GameObject.FindObjectOfType(typeof(spt_monsterInteraction)) as spt_monsterInteraction;
+        interactionScript.interactWithObject(interactionScript.getInteractionName(), interactionScript.getInteractionItemName());
+        animationScript.disengageInteraction();
+        disengageActivated = false;
     }
 }
