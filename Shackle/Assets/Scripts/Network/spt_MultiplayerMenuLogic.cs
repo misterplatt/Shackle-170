@@ -29,7 +29,7 @@ public class spt_MultiplayerMenuLogic : MonoBehaviour {
     int pCount;
 
     void Start() {
-        serverListener = GameObject.Find("NetworkDiscovery").GetComponent<spt_NetworkDiscovery>();
+        //serverListener = GameObject.Find("NetworkDiscovery").GetComponent<spt_NetworkDiscovery>();
         nlm = GameObject.Find("LobbyManager").GetComponent<NetworkLobbyManager>();
         inLobby = true;
         pCount = 0;
@@ -205,7 +205,7 @@ public class spt_MultiplayerMenuLogic : MonoBehaviour {
     public void cancelHost() {
         setUIStatus("UI_LobbyHost", false);
         setUIStatus("UI_LobbySearch", true);
-        serverListener.stopAllDiscovery();
+        //serverListener.stopAllDiscovery();
         inLobby = false;
         nlm.StopHost();
     }
