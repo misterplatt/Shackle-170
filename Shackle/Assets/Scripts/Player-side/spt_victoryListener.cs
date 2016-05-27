@@ -87,7 +87,8 @@ public class    spt_victoryListener : MonoBehaviour
         }
         GameObject player = GameObject.FindWithTag("Player");
         if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count == 0) return;
-        //If the puzzleCompletion puzzlestate is true, set Win Text to visible and start camera fadeout        
+        //If the puzzleCompletion puzzlestate is true, set Win Text to visible and start camera fadeout      
+        Debug.Log("once : " + once );  
         if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[0].state == true && !once)
         {
             /* monster.angerUpdateDisabled = true;
