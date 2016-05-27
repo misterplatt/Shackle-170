@@ -14,7 +14,7 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -5886,7 +5886,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: e694146f06b7f4067a6c150f0682ef06, type: 2}
+  - {fileID: 2100000, guid: 3d9b4a45dcfa7427492cfa07a686375f, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -13033,7 +13033,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: e694146f06b7f4067a6c150f0682ef06, type: 2}
+  - {fileID: 2100000, guid: 4a1f647b7e8ce42159e64ea4a7577a46, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -15914,6 +15914,14 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f20d19a1f71a344be9ee0c0585bd16f4, type: 3}
+      propertyPath: m_Name
+      value: mdl_hatchDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: f20d19a1f71a344be9ee0c0585bd16f4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.008
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f20d19a1f71a344be9ee0c0585bd16f4, type: 3}
   m_IsPrefabParent: 0
@@ -16058,8 +16066,9 @@ MonoBehaviour:
   gateItemName: mdl_pickaxe
   holdTime: 3
   m_InteractiveItem: {fileID: 813129980}
-  failedOpen: {fileID: 0}
-  successfulOpen: {fileID: 0}
+  failedOpen: {fileID: 8300000, guid: 1391388b76ab3f046aaca786f1fae898, type: 3}
+  successfulOpen: {fileID: 8300000, guid: 67b1b2a4c13a0d74b99fd79e63592454, type: 3}
+  hatchAnimations: {fileID: 0}
 --- !u!65 &813129983
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28991,8 +29000,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1667185506}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -0.011999926, y: 0.4518, z: 0.35933337}
-  m_LocalScale: {x: 0.3526863, y: 0.1693454, z: 0.6666667}
+  m_LocalPosition: {x: 0.007, y: 0.452, z: 0.007}
+  m_LocalScale: {x: 1.580823, y: 1.636343, z: 0.6666667}
   m_Children: []
   m_Father: {fileID: 813129977}
   m_RootOrder: 1
@@ -33619,7 +33628,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: e694146f06b7f4067a6c150f0682ef06, type: 2}
+  - {fileID: 2100000, guid: 1419a64bcba21460c8dc6a219e9d15c3, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

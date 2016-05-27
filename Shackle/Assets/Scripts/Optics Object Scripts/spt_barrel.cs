@@ -58,7 +58,7 @@ namespace VRStandardAssets.Examples
                 aSource.clip = beakerPour;
                 aSource.Play();
                 inventorySpt.removeItm("mdl_beaker");
-                transform.FindChild("spt_sludge").gameObject.GetComponent<SpriteRenderer>().enabled = true; //Enable sludge
+                transform.FindChild("spr_sludge").gameObject.GetComponent<SpriteRenderer>().enabled = true; //Enable sludge
                 gateItemName = "mdl_matchbox";
                 once = true;
                 //GameObject.Find("mdl_beaker").GetComponent<GUITexture>().texture = emptyTube;
@@ -71,7 +71,7 @@ namespace VRStandardAssets.Examples
                 aSource.Play();
                 inventorySpt.removeItm("mdl_matchbox");
                 Invoke("FireSound", 3f);
-
+                transform.FindChild("spr_sludge").gameObject.GetComponent<SpriteRenderer>().enabled = false; //Remove sludge
                 Invoke("DestroyPoster", 2f);
                 // Replace above line with the burn function on the new poster model
 
@@ -79,7 +79,6 @@ namespace VRStandardAssets.Examples
 
                 //Little explosion particle upon lighting barrel
                 GameObject go = (GameObject)Instantiate(Resources.Load("Explosion - Copy"), new Vector3(2.734f, 1.511f, 5.369f), Quaternion.Euler(0, 0, 0));
-                transform.FindChild("spt_sludge").gameObject.GetComponent<SpriteRenderer>().enabled = true; //Remove sludge
                 once = true;
             }
 
