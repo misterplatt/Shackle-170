@@ -47,7 +47,6 @@ public class spt_NetworkLobby_ButtonSync : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(this.transform.root.gameObject.name + " : " + p1Connected + " | " + p2Connected +  " | " + p1Ready + " | " + p2Ready);        
         if (SceneManager.GetActiveScene().name != "net_playerlobby") return;
         updateButtons();
         levelTransitionCheck();
@@ -117,7 +116,6 @@ public class spt_NetworkLobby_ButtonSync : NetworkBehaviour {
 
     void levelTransitionCheck() {
         if (!isServer) return;
-        Debug.Log(selectedLevel);
         if ((!( p1Ready && p2Ready )) || selectedLevel == "") return;
 
         manager.ServerChangeScene(selectedLevel);

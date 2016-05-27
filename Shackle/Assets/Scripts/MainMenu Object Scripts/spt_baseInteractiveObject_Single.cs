@@ -92,7 +92,7 @@ namespace VRStandardAssets.Examples
         //To be modified in child scripts when A button has pressed over an object with the correct item active
         virtual protected void clickSuccess()
         {
-            Debug.Log("Show click state");
+
         }
 
         //Handle the DoubleClick event
@@ -107,7 +107,6 @@ namespace VRStandardAssets.Examples
             {
                 holding = true;
                 selectionRadial.enabled = true;
-                Debug.Log("Show down state");
                 //m_Renderer.material = m_DownMaterial;
             }
             if (holding)

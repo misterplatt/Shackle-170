@@ -11,7 +11,7 @@ public class spt_LobbyPlayer : NetworkBehaviour {
 	// Use this for initialization and player spawn position
 	void Start () {
         isReady = false;
-        Debug.Log(GameObject.Find("NetworkManager").GetComponent<NetworkManager>().startPositions.ToString() );
+
 	}
 	
 	// Update is called once per frame

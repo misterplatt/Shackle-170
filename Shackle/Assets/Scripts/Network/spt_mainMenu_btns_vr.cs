@@ -47,8 +47,7 @@ public class spt_mainMenu_btns_vr : MonoBehaviour
             manager.GetComponent<spt_NetworkManager_setSpawn>().StopClient();
         }
         */
-
-        Debug.Log("Unloading Scenes...");
+        
         SceneManager.UnloadScene("net_SpookyGarage");
         SceneManager.UnloadScene("net_RangerOutpost");
         SceneManager.UnloadScene("net_OpticsLab");
