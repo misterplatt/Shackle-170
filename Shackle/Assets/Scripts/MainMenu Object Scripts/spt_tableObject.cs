@@ -48,7 +48,7 @@ namespace VRStandardAssets.Examples
         protected override void holdSuccess()
         {
             //If they held A on the garbage can, quit the game
-            if (gameObject.name == "mdl_garbageCan" || Input.GetKeyDown(KeyCode.U)) Application.Quit();
+            if (gameObject.name == "mdl_garbageCan") Application.Quit();
 
             foreach (Transform child in GameObject.Find("Painting_Canvas").transform) {
                 if(child.name != "Vignette") child.gameObject.SetActive(false);

@@ -69,7 +69,6 @@ namespace VRStandardAssets.Examples
             {
                 aSource.clip = matchStrike;
                 aSource.Play();
-                transform.FindChild("Fire").gameObject.SetActive(true);
                 inventorySpt.removeItm("mdl_matchbox");
                 Invoke("FireSound", 3f);
 
@@ -94,7 +93,6 @@ namespace VRStandardAssets.Examples
         void DestroyPoster()
         {
             GameObject.Find("mdl_poster").GetComponent<PosterScript>().Burn();
-            transform.FindChild("Fire").gameObject.SetActive(false);
         }
 
         //Brief function to be invoked for the fire sound
