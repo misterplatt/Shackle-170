@@ -7669,6 +7669,9 @@ MonoBehaviour:
   - eventName: playBucketCollisionNoise
     item: {fileID: 11099269}
     isMonstInteractable: 0
+  - eventName: garageOpeningAttempt
+    item: {fileID: 1019155234}
+    isMonstInteractable: 0
 --- !u!4 &1515300599
 Transform:
   m_ObjectHideFlags: 0
