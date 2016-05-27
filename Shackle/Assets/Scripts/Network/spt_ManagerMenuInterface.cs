@@ -75,6 +75,6 @@ public class spt_ManagerMenuInterface : NetworkBehaviour {
     public void hostGame()
     {
         manager.StopHost();
-        manager.StartHost();
+ 
     }
 }
