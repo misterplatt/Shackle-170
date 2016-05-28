@@ -139,6 +139,10 @@ public class    spt_victoryListener : MonoBehaviour
         {
             nextLevel = "net_OpticsLab";
         }
+        else if (lvlName == "net_OpticsLab")
+        {
+            nextLevel = "net_FinalScene";
+        }
         else return;
 
         //if hosting, start new level
