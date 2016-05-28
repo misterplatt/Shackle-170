@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class WaterPlanes : MonoBehaviour
 {
@@ -8,25 +9,40 @@ public class WaterPlanes : MonoBehaviour
 	private Transform planeA;
 	private Transform planeB;
 
+    private bool active = false;
+
 	void Awake ()
 	{
 		planeA = transform.Find("PlaneA");
 		planeB = transform.Find("PlaneB");
 	}
 
-	void Update ()
-	{
-		planeA.Translate(direction);
-		planeB.Translate(direction);
+    void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "net_FinalScene") active = true;
+        if (active) {
+            planeA.GetComponent<MeshRenderer>().enabled = true;
+            planeB.GetComponent<MeshRenderer>().enabled = true;
+            StartCoroutine("ScreenRain");
+        }
+    }
 
-		if(planeA.localPosition.y <= -0.65f)
-		{
-			planeA.Translate(reset);
-		}
+    //Coroutine to animate screen rain
+    IEnumerator ScreenRain() {
+        while (true) {
+            planeA.Translate(direction);
+            planeB.Translate(direction);
 
-		if(planeB.localPosition.y <= -0.65f)
-		{
-			planeB.Translate(reset);
-		}
-	}
+            if (planeA.localPosition.y <= -0.65f)
+            {
+                planeA.Translate(reset);
+            }
+
+            if (planeB.localPosition.y <= -0.65f)
+            {
+                planeB.Translate(reset);
+            }
+            yield return null;
+        }
+    }
 }
