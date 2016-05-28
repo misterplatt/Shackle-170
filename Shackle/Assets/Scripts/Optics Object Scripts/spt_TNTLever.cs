@@ -61,7 +61,7 @@ namespace VRStandardAssets.Examples
                 if (transform.name == "leverB") local_leverBPressed = true;
                 spt_WorldState.worldStateChanged = true;
                 pressed = true;
-                Invoke("raiseLever", 1.5f);
+                Invoke("raiseLever", 4f);
             }
         }
 
