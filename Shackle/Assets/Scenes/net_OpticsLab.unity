@@ -14,7 +14,7 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -2897,7 +2897,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 345086970}
   chestSlam: {fileID: 8300000, guid: ad92a66eb8bdbc349ad42df973aec637, type: 3}
-  chestUnlock: {fileID: 8300000, guid: 7338204c079ee84489e6a07194c8b56c, type: 3}
+  chestUnlock: {fileID: 8300000, guid: f4c5456723c6f6c49bd4a66ca6aa10ea, type: 3}
   chestOpen: {fileID: 8300000, guid: 7338204c079ee84489e6a07194c8b56c, type: 3}
 --- !u!82 &345086973
 AudioSource:
@@ -4267,6 +4267,7 @@ MonoBehaviour:
   m_InteractiveItem: {fileID: 413152161}
   leverPushSound: {fileID: 8300000, guid: d784559d732ae3c48b27ea480d8d42d4, type: 3}
   leverReleasedSound: {fileID: 8300000, guid: 0688b13f030d9d742bb57d1a1f5b96a7, type: 3}
+  explosion: {fileID: 8300000, guid: 6bf8c7b09b0ba0441b91b61968a11c2f, type: 3}
 --- !u!114 &413152161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13536,7 +13537,7 @@ Transform:
   m_LocalScale: {x: 0.04912533, y: 1.878698, z: 0.052123923}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1185700719
 GameObject:
   m_ObjectHideFlags: 0
@@ -16965,6 +16966,7 @@ MonoBehaviour:
   m_InteractiveItem: {fileID: 1601597883}
   leverPushSound: {fileID: 8300000, guid: d784559d732ae3c48b27ea480d8d42d4, type: 3}
   leverReleasedSound: {fileID: 8300000, guid: 0688b13f030d9d742bb57d1a1f5b96a7, type: 3}
+  explosion: {fileID: 8300000, guid: 6bf8c7b09b0ba0441b91b61968a11c2f, type: 3}
 --- !u!114 &1601597883
 MonoBehaviour:
   m_ObjectHideFlags: 0

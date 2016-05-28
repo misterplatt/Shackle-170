@@ -93,6 +93,12 @@ namespace VRStandardAssets.Examples
                 aSource.clip = chestSlam;
                 aSource.Play();
 
+                //Closing vibrations
+                spt_victoryListener.Both = true;
+                spt_victoryListener.vibrationTime = 1.5f;
+                spt_victoryListener.vibrationForce = 1f;
+                spt_victoryListener.vibrationz = true;
+
                 //Uncomment below line when the other code (the stuff to close the chest in-scene) is implemented
                 local_isChestOpen = false;
                 local_laserHitLock = false;

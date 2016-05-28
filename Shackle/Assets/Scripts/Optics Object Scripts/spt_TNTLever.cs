@@ -21,6 +21,7 @@ namespace VRStandardAssets.Examples
         private AudioSource aSource;
         public AudioClip leverPushSound;
         public AudioClip leverReleasedSound;
+        public AudioClip explosion;
         public static bool local_leverAPressed = false;
         public static bool local_leverBPressed = false;
 
@@ -37,6 +38,8 @@ namespace VRStandardAssets.Examples
         {
             base.Update();
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[10].state == true && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[11].state == true) {
+                aSource.clip = explosion;
+                if(!aSource.isPlaying) aSource.Play();
                 spt_NetworkPuzzleLogic networkScript = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
                 for (int i = 0; i < networkScript.PuzzleStates.Count; i++)
                 {

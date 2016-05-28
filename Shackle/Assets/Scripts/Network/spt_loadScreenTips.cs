@@ -16,7 +16,8 @@ public class spt_loadScreenTips : MonoBehaviour {
 
     private string[] tips = { "The monster gives warning as it nears, keep an ear out.",
         "Using your flashlights at the same time can be dangerous.",
-        "Communication is key - be sure to tell each other what you see." };
+        "Communication is key - be sure to tell each other what you see.",
+        "Beware - loud sounds attract the monster as well as light."};
 
 	// Use this for initialization
 	void Start () {
