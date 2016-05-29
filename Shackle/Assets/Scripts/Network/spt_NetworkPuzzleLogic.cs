@@ -84,6 +84,8 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                                     devtool_PuzzleStates[index].item.name,
                                     devtool_PuzzleStates[index].isMonstInteractable
             ));
+
+            PuzzleStates.Dirty(index);
         }
         this.loaded = true;
     }
