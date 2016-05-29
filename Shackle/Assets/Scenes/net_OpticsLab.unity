@@ -3920,6 +3920,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 376995907}
   - 65: {fileID: 376995905}
+  - 111: {fileID: 376995908}
   m_Layer: 0
   m_Name: hi
   m_TagString: Untagged
@@ -3971,6 +3972,20 @@ Transform:
   - {fileID: 345086967}
   m_Father: {fileID: 376995906}
   m_RootOrder: 2
+--- !u!111 &376995908
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 376995904}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &377390009
 GameObject:
   m_ObjectHideFlags: 0
