@@ -93,6 +93,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
     void restartStates()
     {
+        if (!isLocalPlayer) return;
         for (int index = 0; index < PuzzleStates.Count; ++index)
         {
 
