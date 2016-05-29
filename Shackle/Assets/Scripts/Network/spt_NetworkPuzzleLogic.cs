@@ -94,13 +94,20 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     void restartStates()
     {
         if (!isLocalPlayer) return;
-        for (int index = 0; index < PuzzleStates.Count; ++index)
-        {
+        if (!isServer) return;
 
-            GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic(PuzzleStates[index].name, false, PuzzleStates[index].itemName);
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) { 
+            spt_NetworkPuzzleLogic pLogic = GetComponent<spt_NetworkPuzzleLogic>();
 
+            for (int index = 0; index < pLogic.PuzzleStates.Count; ++index)
+            {
+
+                pLogic.(PuzzleStates[index].name, false, PuzzleStates[index].itemName);
+                pLogic.PuzzleStates.Dirty(index);
+            }
+
+            this.loaded = true;
         }
-        this.loaded = true;
     }
 
     void Update()
