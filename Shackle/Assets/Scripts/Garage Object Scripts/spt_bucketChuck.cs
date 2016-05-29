@@ -39,6 +39,7 @@ namespace VRStandardAssets.Examples
         override protected void Update()
         {
             base.Update();
+            if (moveOnLocalZ == true) transform.Translate(new Vector3(0, 0, spt_playerControls.leftThumb("Horizontal")) * Time.deltaTime * moveSpeed * HaydenIdea);
             //DEBUG KEY: Simulates bucket chuck
             if (Input.GetKeyDown(KeyCode.X)) resetItem();
 

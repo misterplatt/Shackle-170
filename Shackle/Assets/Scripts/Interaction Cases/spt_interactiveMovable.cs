@@ -72,10 +72,9 @@ namespace VRStandardAssets.Examples
 
                 if (movingSound != null){
                     if ((moveOnLocalX == true && spt_playerControls.leftThumb("Horizontal") != 0) || ((moveOnLocalY == true || moveOnLocalZ == true) && spt_playerControls.leftThumb("Vertical") != 0)){
-                        if (!once)
+                        if (!aSource.isPlaying)
                         {
                             aSource.Play();
-                            once = true;
                         }
                     }
                 }

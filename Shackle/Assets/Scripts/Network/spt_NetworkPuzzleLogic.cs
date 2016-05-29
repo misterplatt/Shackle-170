@@ -71,7 +71,9 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     private spt_monsterAudio monsterAudio;
 
 
-    void Start() {
+    void Start()
+    {
+        this.loaded = false;
         if (!isServer) return;
         //PuzzleStates = new SyncListLogicPair();
         if (SceneManager.GetActiveScene().name == "LoadScreen") return;
@@ -84,12 +86,26 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                                     devtool_PuzzleStates[index].item.name,
                                     devtool_PuzzleStates[index].isMonstInteractable
             ));
+
+            PuzzleStates.Dirty(index);
+        }
+    }
+
+    void restartStates()
+    {
+        for (int index = 0; index < PuzzleStates.Count; ++index)
+        {
+
+            GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic(PuzzleStates[index].name, false, PuzzleStates[index].itemName);
+
         }
         this.loaded = true;
     }
 
     void Update()
     {
+        Debug.Log(this.loaded); 
+        if (!this.loaded) restartStates();
         if (!isLocalPlayer) return;
         //if (SceneManager.GetActiveScene().name == "LobbyManager") return;
 
@@ -131,7 +147,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
         }
         //If a state has been changed locally, find out which one and update the state's networked version
         //Debug.Log("worldStateChanged : " + spt_WorldState.worldStateChanged);
-        if (spt_WorldState.worldStateChanged)
+        if (spt_WorldState.worldStateChanged && this.loaded)
         {
 
             //If garage is loaded, check the following puzzle states
