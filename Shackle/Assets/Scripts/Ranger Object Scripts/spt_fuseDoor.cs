@@ -53,9 +53,7 @@ namespace VRStandardAssets.Examples
         {
             aSource.clip = doorOpen;
             aSource.Play();
-            //transform.parent.Translate(new Vector3(1.4f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED  
-            transform.Translate(new Vector3(-.2f, 0, 0));
-            transform.Rotate(new Vector3(0, -150, 0));
+            GetComponent<Animation>().Play("fuseDoor_open");
 
             //Set the car keyfob up to be a manipulate object
             spt_interactiveItemManipulate keyFobManipulate = transform.FindChild("mdl_carKeyfob").gameObject.GetComponent<spt_interactiveItemManipulate>();
