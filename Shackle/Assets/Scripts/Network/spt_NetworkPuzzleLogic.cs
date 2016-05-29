@@ -67,6 +67,8 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     [SyncVar]
     public SyncListLogicPair PuzzleStates = new SyncListLogicPair();
     private spt_NetworkPuzzleLogic NPL;
+
+    [SyncVar]
     public bool loaded = false;
     private spt_monsterAudio monsterAudio;
 
@@ -109,13 +111,12 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 pLogic.PuzzleStates.Dirty(index);
             }
 
-            this.loaded = true;
+            pLogic.loaded = true;
         }
     }
 
     void Update()
     {
-        Debug.Log(this.loaded); 
         if (!this.loaded) restartStates();
         if (!isLocalPlayer) return;
         //if (SceneManager.GetActiveScene().name == "LobbyManager") return;
