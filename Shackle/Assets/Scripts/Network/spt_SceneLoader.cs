@@ -12,7 +12,7 @@ public class spt_SceneLoader : NetworkBehaviour {
         Debug.Log("Loading");        
         string level = GameObject.Find("NetworkManager").GetComponent<spt_ManagerLevelStorage>().currentLevel;
         Debug.Log(level);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(7);
         GameObject.Find("NetworkManager").GetComponent<NetworkManager>().ServerChangeScene( level );
     }
 }

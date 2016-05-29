@@ -34,13 +34,17 @@ namespace VRStandardAssets.Examples
             if(!once){
                 local_garageDoorUnlocked = true;
                 spt_WorldState.worldStateChanged = true;
-                transform.localScale = new Vector3(.7f, transform.localScale.y, transform.localScale.z);
-                transform.Translate(new Vector3(-.15f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
-                once = true;
                 garageLockSound.Play();
+                Invoke("SlideLock", .7f);
+                once = true;
                 transform.GetComponent<Collider>().enabled = false;
                 holding = false;
             }
+        }
+
+        void SlideLock() {
+            transform.localScale = new Vector3(.7f, transform.localScale.y, transform.localScale.z);
+            transform.Translate(new Vector3(-.15f, 0, 0));
         }
     }
 }

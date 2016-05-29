@@ -22,13 +22,20 @@ namespace VRStandardAssets.Examples
         private bool once = false;
         private Vector3 initialRotation;
         private AudioSource aSource;
-        public AudioClip DARASFRESHSOUND;
+        public AudioClip chestSlam;
+        public AudioClip chestUnlock;
         public AudioClip chestOpen;
+
+        private float timer = 0f;
+        private float completionTime = 2f;
+
+        private Animation discAnimations;
 
         protected override void Start()
         {
             initialRotation = transform.parent.rotation.eulerAngles;
             aSource = GetComponent<AudioSource>();
+            discAnimations = transform.FindChild("mdl_chestLockDisc").gameObject.GetComponent<Animation>();
         }
 
         // Update is called once per frame
@@ -39,18 +46,29 @@ namespace VRStandardAssets.Examples
             if (!local_laserHitLock) {
                 //Accumulate list of colliders intersecting the chest lock's collider
                 Collider[] hitColliders = Physics.OverlapSphere(transform.position, .1f);
+                if (hitColliders.Length <= 2) timer = 0;
                 //Check each collider
                 foreach (Collider col in hitColliders)
                 {
                     if (col.gameObject.tag == "laser")
                     {
-                        //If a laser has hit the lock, set the corresponding puzzle state to true
-                        local_laserHitLock = true;
-                        local_isChestOpen = true;
-                        spt_WorldState.worldStateChanged = true;
+                        //Play spinning anim and sound, increment timer
+                        timer += Time.deltaTime;
+                        discAnimations.Play("chestLock_spin");
+                        aSource.clip = chestUnlock;
+                        if (!aSource.isPlaying) aSource.Play();
                     }
                     
                 }
+            }
+
+            //If a laser has hit the lock for long enough, set the corresponding puzzle state to true
+            if (timer > completionTime) {
+                local_laserHitLock = true;
+                local_isChestOpen = true;
+                spt_WorldState.worldStateChanged = true;
+                
+                timer = 0;
             }
             
             //If the laser has hit the lock, open the chest
@@ -72,8 +90,14 @@ namespace VRStandardAssets.Examples
             if (once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == false) {
                 //Chest will do things, sound will play
                 transform.parent.eulerAngles = initialRotation;
-                aSource.clip = DARASFRESHSOUND;
+                aSource.clip = chestSlam;
                 aSource.Play();
+
+                //Closing vibrations
+                spt_victoryListener.Both = true;
+                spt_victoryListener.vibrationTime = 1.5f;
+                spt_victoryListener.vibrationForce = 1f;
+                spt_victoryListener.vibrationz = true;
 
                 //Uncomment below line when the other code (the stuff to close the chest in-scene) is implemented
                 local_isChestOpen = false;

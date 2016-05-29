@@ -2276,10 +2276,12 @@ MonoBehaviour:
   gateItemName: 
   holdTime: 0
   m_InteractiveItem: {fileID: 283800196}
+  completionTime: 3
   trapDoorA: {fileID: 840597779}
   trapDoorB: {fileID: 1876637589}
   leverA: {fileID: 1449950420}
   leverB: {fileID: 911469453}
+  criticalHeat: {fileID: 8300000, guid: 57770c6d3f5c6814c9c0cb155a726660, type: 3}
   panelBurning: {fileID: 8300000, guid: deca8135d1fdca0488b87dc500eed929, type: 3}
   systemMeltDown: {fileID: 8300000, guid: d0fe91e05cbceca4888e3f36d6fa9fe8, type: 3}
   hatchOpening: {fileID: 8300000, guid: 3aa5989390117a749bf3c701bc152119, type: 3}
@@ -2789,6 +2791,30 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.0508081
       objectReference: {fileID: 0}
+    - target: {fileID: 119708, guid: ad5bed212bd9b7743a21016e725f4f31, type: 2}
+      propertyPath: m_Name
+      value: mdl_chestLockDisc
+      objectReference: {fileID: 0}
+    - target: {fileID: 481570, guid: ad5bed212bd9b7743a21016e725f4f31, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 497050, guid: ad5bed212bd9b7743a21016e725f4f31, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 433880, guid: ad5bed212bd9b7743a21016e725f4f31, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 472920, guid: ad5bed212bd9b7743a21016e725f4f31, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 448342, guid: ad5bed212bd9b7743a21016e725f4f31, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad5bed212bd9b7743a21016e725f4f31, type: 2}
   m_IsPrefabParent: 0
@@ -2870,7 +2896,8 @@ MonoBehaviour:
   gateItemName: 
   holdTime: 0
   m_InteractiveItem: {fileID: 345086970}
-  DARASFRESHSOUND: {fileID: 8300000, guid: ad92a66eb8bdbc349ad42df973aec637, type: 3}
+  chestSlam: {fileID: 8300000, guid: ad92a66eb8bdbc349ad42df973aec637, type: 3}
+  chestUnlock: {fileID: 8300000, guid: f4c5456723c6f6c49bd4a66ca6aa10ea, type: 3}
   chestOpen: {fileID: 8300000, guid: 7338204c079ee84489e6a07194c8b56c, type: 3}
 --- !u!82 &345086973
 AudioSource:
@@ -2946,6 +2973,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!1 &345086974 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 119708, guid: ad5bed212bd9b7743a21016e725f4f31, type: 2}
+  m_PrefabInternal: {fileID: 345086966}
+--- !u!111 &345086975
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 345086974}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 0eb98fa53e8434b41b5338a1db6b9342, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &352742233
 GameObject:
   m_ObjectHideFlags: 0
@@ -4221,6 +4267,7 @@ MonoBehaviour:
   m_InteractiveItem: {fileID: 413152161}
   leverPushSound: {fileID: 8300000, guid: d784559d732ae3c48b27ea480d8d42d4, type: 3}
   leverReleasedSound: {fileID: 8300000, guid: 0688b13f030d9d742bb57d1a1f5b96a7, type: 3}
+  explosion: {fileID: 8300000, guid: 6bf8c7b09b0ba0441b91b61968a11c2f, type: 3}
 --- !u!114 &413152161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16741,7 +16788,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1589334654}
   m_LocalRotation: {x: 0.6796724, y: -0.19505252, z: 0.1950526, w: 0.67967236}
-  m_LocalPosition: {x: -2.559, y: 1.822, z: 0.322}
+  m_LocalPosition: {x: -2.505, y: 1.822, z: 0.355}
   m_LocalScale: {x: 0.04912533, y: 1.878698, z: 0.052123923}
   m_Children: []
   m_Father: {fileID: 0}
@@ -16919,6 +16966,7 @@ MonoBehaviour:
   m_InteractiveItem: {fileID: 1601597883}
   leverPushSound: {fileID: 8300000, guid: d784559d732ae3c48b27ea480d8d42d4, type: 3}
   leverReleasedSound: {fileID: 8300000, guid: 0688b13f030d9d742bb57d1a1f5b96a7, type: 3}
+  explosion: {fileID: 8300000, guid: 6bf8c7b09b0ba0441b91b61968a11c2f, type: 3}
 --- !u!114 &1601597883
 MonoBehaviour:
   m_ObjectHideFlags: 0

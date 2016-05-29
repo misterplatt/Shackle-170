@@ -42,14 +42,13 @@ namespace VRStandardAssets.Examples
             {
                 aSource.clip = successfulOpen;
                 aSource.Play();
-                hatchAnimations.Play("hatchOpen_unlocked");
                 //NPL Update
                 //local_puzzleCompletion = true;
                 //spt_WorldState.worldStateChanged = true;
 
                 transform.Translate(new Vector3(0, .38f, 0));
                 transform.eulerAngles = new Vector3(-30, 0, 0);
-
+                Invoke("UnlockedAnimation", 3.5f);
                 local_puzzleCompletionMonster = true;
                 spt_WorldState.worldStateChanged = true;
                 holding = false;
@@ -58,9 +57,20 @@ namespace VRStandardAssets.Examples
             {
                 aSource.clip = failedOpen;
                 aSource.Play();
-                hatchAnimations.Play("hatchOpen_locked");
+                Invoke("LockedAnimation", .3f);
                 holding = false;
             }
+        }
+
+        void LockedAnimation()
+        {
+            hatchAnimations.Play("hatchOpen_locked");
+        }
+
+        void UnlockedAnimation()
+        {
+            hatchAnimations.Play("hatchOpen_unlocked");
+
         }
     }
 }

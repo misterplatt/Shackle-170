@@ -70,15 +70,14 @@ namespace VRStandardAssets.Examples
                 aSource.clip = matchStrike;
                 aSource.Play();
                 inventorySpt.removeItm("mdl_matchbox");
-                Invoke("FireSound", 3f);
-                transform.FindChild("spr_sludge").gameObject.GetComponent<SpriteRenderer>().enabled = false; //Remove sludge
+                Invoke("FireSound", .5f);
                 Invoke("DestroyPoster", 2f);
                 // Replace above line with the burn function on the new poster model
 
                 GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("barrelExplosion", true, "mdl_barrel");
 
                 //Little explosion particle upon lighting barrel
-                GameObject go = (GameObject)Instantiate(Resources.Load("Explosion - Copy"), new Vector3(2.734f, 1.511f, 5.369f), Quaternion.Euler(0, 0, 0));
+                
                 once = true;
             }
 
@@ -99,6 +98,8 @@ namespace VRStandardAssets.Examples
         {
             aSource.clip = posterFire;
             aSource.Play();
+            transform.FindChild("spr_sludge").gameObject.GetComponent<SpriteRenderer>().enabled = false; //Remove sludge
+            GameObject go = (GameObject)Instantiate(Resources.Load("Explosion - Copy"), new Vector3(2.734f, 1.511f, 5.369f), Quaternion.Euler(0, 0, 0));
         }
     }
 }

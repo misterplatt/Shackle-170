@@ -19,10 +19,13 @@ namespace VRStandardAssets.Examples
         private AudioSource unscrewingAC;
         public static int screwsLeft;
 
+        private AudioSource aSource;
+
         override protected void Start()
         {
             unscrewingAC = GetComponent<AudioSource>();
             screwsLeft = 4;
+            aSource = transform.parent.GetComponent<AudioSource>();
         }
 
     //Plug HandleClick
@@ -35,7 +38,10 @@ namespace VRStandardAssets.Examples
             screwsLeft--;
             gameObject.SetActive(false);
             unscrewingAC.Stop();
-            if(screwsLeft <= 0) transform.parent.GetComponent<Animation>().Play("screwDoor_open"); //.transform.Translate(new Vector3(-1.4f, 0, 0)); //PLACEHOLDER FUNCTIONALITY UNTIL MODEL IS IMPORTED
+            if (screwsLeft <= 0) {
+                transform.parent.GetComponent<Animation>().Play("screwDoor_open");
+                aSource.Play();
+            } 
             holding = false;
         }
 

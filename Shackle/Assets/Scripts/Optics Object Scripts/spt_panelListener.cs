@@ -20,12 +20,16 @@ namespace VRStandardAssets.Examples
 
         private bool once = false;
 
+        private float timer = 0f;
+        public float completionTime = 4f;
+
         public GameObject trapDoorA;
         public GameObject trapDoorB;
         public GameObject leverA;
         public GameObject leverB;
         private AudioSource aSource;
         private AudioSource childSource;
+        public AudioClip criticalHeat;
         public AudioClip panelBurning;
         public AudioClip systemMeltDown;
         public AudioClip hatchOpening;
@@ -46,22 +50,32 @@ namespace VRStandardAssets.Examples
             {
                 //Accumulate list of colliders intersecting the chest lock's collider
                 Collider[] hitColliders = Physics.OverlapSphere(transform.position, .3f);
-
+                if (hitColliders.Length <= 2) timer = 0;
                 //Check each collider
                 foreach (Collider col in hitColliders)
                 {
                     if (col.gameObject.tag == "laser")
                     {
+                        //Play burning and critical heat sound, increment timer
+                        timer += Time.deltaTime;
                         aSource.clip = panelBurning;
-                        aSource.Play();
-                        Invoke("SystemMelting", 4f);
-                        Invoke("Melted", systemMeltDown.length + 4f);
-
-                        //If a laser has hit the panel, set the corresponding puzzle state to true
-                        local_laserHitPanel = true;
-                        spt_WorldState.worldStateChanged = true;
+                        if(!aSource.isPlaying) aSource.Play();
+                        childSource.clip = criticalHeat;
+                        if (!childSource.isPlaying) childSource.Play();
                     }
                 }
+            }
+
+            if (timer > completionTime)
+            {
+                //If a laser has hit the panel for completionTime seconds, set the corresponding puzzle state to true
+                childSource.clip = systemMeltDown;
+                childSource.Play();
+                Invoke("Melted", systemMeltDown.length);
+                local_laserHitPanel = true;
+                spt_WorldState.worldStateChanged = true;
+
+                timer = 0;
             }
 
             //If the laser has hit the panel, open the trapdoors and raise the TNT Levers
@@ -85,7 +99,7 @@ namespace VRStandardAssets.Examples
 
         void SystemMelting()
         {
-            childSource.Play();
+            
         }
 
         void Melted()
