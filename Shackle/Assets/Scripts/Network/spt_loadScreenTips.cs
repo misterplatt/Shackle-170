@@ -21,7 +21,7 @@ public class spt_loadScreenTips : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        GetComponent<Text>().text = tips[Random.Range(0,tips.Length)];
+        if(GetComponent<Text>().text == "This should have been set to a random tip!") GetComponent<Text>().text = tips[Random.Range(0,tips.Length)];
 	}
     
 }

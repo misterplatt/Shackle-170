@@ -78,7 +78,8 @@ namespace VRStandardAssets.Examples
                 aSource.Play();
                 local_laserHitLock = true;
                 local_isChestOpen = true;
-                transform.parent.eulerAngles = new Vector3(-50,270,0);
+                //transform.parent.eulerAngles = new Vector3(-50,270,0);
+                transform.parent.GetComponent<Animation>().Play("chestOpen");
                 once = true;
 
                 //Smoke Particles
@@ -89,7 +90,8 @@ namespace VRStandardAssets.Examples
 
             if (once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == false) {
                 //Chest will do things, sound will play
-                transform.parent.eulerAngles = initialRotation;
+                //transform.parent.eulerAngles = initialRotation;
+                transform.parent.GetComponent<Animation>().Play("chestSlam");
                 aSource.clip = chestSlam;
                 aSource.Play();
 

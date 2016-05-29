@@ -6925,7 +6925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aea2d49eedffff4695f567d6cd95ca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdTime: 2
+  holdTime: 1.5
   m_InteractiveItemSingle: {fileID: 1531718952}
   textToActivate: {fileID: 497462336}
   moduleToActivate: {fileID: 568124292}
