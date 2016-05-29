@@ -72,7 +72,6 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
 
     void Start() {
-        this.loaded = false;
         if (!isServer) return;
         //PuzzleStates = new SyncListLogicPair();
         if (SceneManager.GetActiveScene().name == "LoadScreen") return;
@@ -88,11 +87,23 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
             PuzzleStates.Dirty(index);
         }
+        this.loaded = false;
+    }
+
+    void restartStates()
+    {
+        for (int index = 0; index < PuzzleStates.Count; ++index)
+        {
+
+            GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic(PuzzleStates[index].name, false, PuzzleStates[index].itemName);
+
+        }
         this.loaded = true;
     }
 
     void Update()
     {
+        if (!this.loaded) restartStates();
         if (!isLocalPlayer) return;
         //if (SceneManager.GetActiveScene().name == "LobbyManager") return;
 
