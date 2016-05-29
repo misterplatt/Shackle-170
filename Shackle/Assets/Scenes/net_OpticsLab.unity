@@ -2451,7 +2451,7 @@ MonoBehaviour:
   trapDoorB: {fileID: 1876637589}
   leverA: {fileID: 1449950420}
   leverB: {fileID: 911469453}
-  criticalHeat: {fileID: 8300000, guid: 57770c6d3f5c6814c9c0cb155a726660, type: 3}
+  criticalHeat: {fileID: 8300000, guid: 4c6589915df22cb4187b121a55cceae1, type: 3}
   panelBurning: {fileID: 8300000, guid: deca8135d1fdca0488b87dc500eed929, type: 3}
   systemMeltDown: {fileID: 8300000, guid: d0fe91e05cbceca4888e3f36d6fa9fe8, type: 3}
   hatchOpening: {fileID: 8300000, guid: 3aa5989390117a749bf3c701bc152119, type: 3}
