@@ -76,6 +76,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     void Start()
     {
         this.loaded = false;
+        restartStates();
         if (!isServer) return;
         //PuzzleStates = new SyncListLogicPair();
         if (SceneManager.GetActiveScene().name == "LoadScreen") return;
@@ -95,29 +96,49 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
     void restartStates()
     {
-        if (!isLocalPlayer) return;
-        if (!isServer) return;
-
-        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) { 
-            spt_NetworkPuzzleLogic pLogic = GetComponent<spt_NetworkPuzzleLogic>();
-
-            for (int index = 0; index < pLogic.PuzzleStates.Count; ++index)
-            {
-
-                pLogic.PuzzleStates[index] = new LogicTuple(pLogic.PuzzleStates[index].name,
-                                    false,
-                                    pLogic.PuzzleStates[index].itemName,
-                                    pLogic.PuzzleStates[index].isMonsterInteractable);
-                pLogic.PuzzleStates.Dirty(index);
-            }
-
-            pLogic.loaded = true;
+        if (SceneManager.GetActiveScene().name == "net_SpookyGarage")
+        {
+            VRStandardAssets.Examples.spt_garageDoor.local_puzzleCompletion = false;
+            VRStandardAssets.Examples.spt_remotePower.local_TVpowerState = false;
+            VRStandardAssets.Examples.spt_extensionCord.local_extCordPlugged = false;
+            VRStandardAssets.Examples.spt_remoteEnter.local_correctChannelEntered = false;
+            VRStandardAssets.Examples.spt_garageLock.local_garageDoorUnlocked = false;
+            VRStandardAssets.Examples.spt_outletKill.local_playerDeath = false;
+            VRStandardAssets.Examples.spt_garageDoor.local_puzzleCompletionMonster = false;
+            VRStandardAssets.Examples.spt_bucketCollision.local_bucketCollision = false;
+            VRStandardAssets.Examples.spt_bucketChuck.local_bucketOnShelf = false;
+            VRStandardAssets.Examples.spt_garageDoor.local_garageOpeningAttempt = false;
         }
+        else if (SceneManager.GetActiveScene().name == "net_RangerOutpost_crash" || SceneManager.GetActiveScene().name == "net_RangerOutpost")
+        {
+            VRStandardAssets.Examples.spt_hatch.local_puzzleCompletion = false;
+            VRStandardAssets.Examples.spt_fuseDoor.local_fuseBoxOpen = false;
+            VRStandardAssets.Examples.spt_fuseDoor.local_fuseDoorSlam = false;
+            VRStandardAssets.Examples.spt_fuseManager.local_correctFuseCombo = false;
+            VRStandardAssets.Examples.spt_fobButton_new.local_keyFobPressed = false;
+            VRStandardAssets.Examples.spt_fobButton_new.local_carCrash = false;
+            VRStandardAssets.Examples.spt_hatch.local_puzzleCompletionMonster = false;
+        }
+        else if (SceneManager.GetActiveScene().name == "net_OpticsLab")
+        {
+            VRStandardAssets.Examples.spt_TNTLever.local_puzzleCompletion = false;
+            VRStandardAssets.Examples.spt_chestListener.local_laserHitLock = false;
+            VRStandardAssets.Examples.spt_chestListener.local_isChestOpen = false;
+            VRStandardAssets.Examples.spt_panelListener.local_laserHitPanel = false;
+            VRStandardAssets.Examples.spt_laserSwitch.local_isLaserOn = false;
+            VRStandardAssets.Examples.spt_keypad.local_doorOpen = false;
+            VRStandardAssets.Examples.spt_TNTLever.local_leverAPressed = false;
+            VRStandardAssets.Examples.spt_TNTLever.local_leverBPressed = false;
+            VRStandardAssets.Examples.spt_barrel.local_beakerPoured = false;
+        }
+
+        spt_WorldState.worldStateChanged = false;
     }
+    
+    
 
     void Update()
     {
-        if (!this.loaded) restartStates();
         if (!isLocalPlayer) return;
         //if (SceneManager.GetActiveScene().name == "LobbyManager") return;
 
@@ -159,7 +180,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
         }
         //If a state has been changed locally, find out which one and update the state's networked version
         //Debug.Log("worldStateChanged : " + spt_WorldState.worldStateChanged);
-        if (spt_WorldState.worldStateChanged && this.loaded)
+        if (spt_WorldState.worldStateChanged)
         {
 
             //If garage is loaded, check the following puzzle states
@@ -268,12 +289,6 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                 {
                     Debug.Log("Updating garageDoorOpen on the network to " + VRStandardAssets.Examples.spt_hatch.local_puzzleCompletionMonster);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("puzzleCompletionMonster", true, "MonsterStandin");
-                }
-                //If a player has pressed the key fob, update server state
-                if (VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed)
-                {
-                    Debug.Log("Updating keyFobPressed on the network to " + VRStandardAssets.Examples.spt_fobButton.local_keyFobPressed);
-                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("keyFobPressed", true, "mdl_carKeyfob");
                 }
             }
 
