@@ -2599,7 +2599,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1 &547407438
 GameObject:
   m_ObjectHideFlags: 0
@@ -6925,7 +6925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aea2d49eedffff4695f567d6cd95ca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdTime: 0.5
+  holdTime: 2
   m_InteractiveItemSingle: {fileID: 1531718952}
   textToActivate: {fileID: 497462336}
   moduleToActivate: {fileID: 568124292}
