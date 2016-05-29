@@ -102,7 +102,10 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
             for (int index = 0; index < pLogic.PuzzleStates.Count; ++index)
             {
 
-                pLogic.(PuzzleStates[index].name, false, PuzzleStates[index].itemName);
+                pLogic.PuzzleStates[index] = new LogicTuple(pLogic.PuzzleStates[index].name,
+                                    false,
+                                    pLogic.PuzzleStates[index].itemName,
+                                    pLogic.PuzzleStates[index].isMonsterInteractable);
                 pLogic.PuzzleStates.Dirty(index);
             }
 
