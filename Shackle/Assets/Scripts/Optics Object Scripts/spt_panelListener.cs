@@ -20,8 +20,8 @@ namespace VRStandardAssets.Examples
 
         private bool once = false;
 
-        private float timer = 0f;
-        public float completionTime = 4f;
+        private float timerino = 0f;
+        public float completionTime;
 
         public GameObject trapDoorA;
         public GameObject trapDoorB;
@@ -38,6 +38,7 @@ namespace VRStandardAssets.Examples
         // Use this for initialization
         override protected void Start()
         {
+            completionTime = 8f;
             aSource = GetComponent<AudioSource>();
             childSource = GameObject.Find("SecurityMeltdownObject").GetComponent<AudioSource>();
         }
@@ -50,32 +51,41 @@ namespace VRStandardAssets.Examples
             {
                 //Accumulate list of colliders intersecting the chest lock's collider
                 Collider[] hitColliders = Physics.OverlapSphere(transform.position, .3f);
-                if (hitColliders.Length <= 2) timer = 0;
+                if (hitColliders.Length <= 2) timerino = 0;
                 //Check each collider
                 foreach (Collider col in hitColliders)
                 {
                     if (col.gameObject.tag == "laser")
                     {
-                        //Play burning and critical heat sound, increment timer
-                        timer += Time.deltaTime;
+                        //Play burning and critical heat sound, increment timerino
+                        timerino += Time.deltaTime;
                         aSource.clip = panelBurning;
                         if(!aSource.isPlaying) aSource.Play();
                         childSource.clip = criticalHeat;
-                        if (!childSource.isPlaying) childSource.Play();
+                        if (!childSource.isPlaying)
+                        {
+                            childSource.loop = true;
+                            childSource.Play();
+                        }
                     }
                 }
             }
 
-            if (timer > completionTime)
+            Debug.Log("HAYDEN CAN'T CODE FOR SHIT" + timerino);
+
+            if (timerino > completionTime)
             {
                 //If a laser has hit the panel for completionTime seconds, set the corresponding puzzle state to true
+                Debug.Log("COMPLETION TIME" + completionTime);
+                Debug.Log("PENIS " + timerino);
+                childSource.loop = false;
                 childSource.clip = systemMeltDown;
                 childSource.Play();
                 Invoke("Melted", systemMeltDown.length);
                 local_laserHitPanel = true;
                 spt_WorldState.worldStateChanged = true;
 
-                timer = 0;
+                timerino = 0;
             }
 
             //If the laser has hit the panel, open the trapdoors and raise the TNT Levers
