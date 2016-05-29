@@ -71,7 +71,9 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
     private spt_monsterAudio monsterAudio;
 
 
-    void Start() {
+    void Start()
+    {
+        this.loaded = false;
         if (!isServer) return;
         //PuzzleStates = new SyncListLogicPair();
         if (SceneManager.GetActiveScene().name == "LoadScreen") return;
@@ -87,7 +89,6 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
             PuzzleStates.Dirty(index);
         }
-        this.loaded = false;
     }
 
     void restartStates()
@@ -103,6 +104,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
     void Update()
     {
+        Debug.Log(this.loaded); 
         if (!this.loaded) restartStates();
         if (!isLocalPlayer) return;
         //if (SceneManager.GetActiveScene().name == "LobbyManager") return;
