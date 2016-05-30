@@ -23,6 +23,7 @@ public class spt_lossListener : NetworkBehaviour {
     public bool loss;
 
     GameObject player;
+    GameObject monster;
     spt_monsterAudio monsterAudio;
 
 
@@ -74,6 +75,15 @@ public class spt_lossListener : NetworkBehaviour {
 
                 loss = true;
                 transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(2, false);
+                GameObject[] playerModels = GameObject.FindGameObjectsWithTag("pModel");
+                GameObject monster = GameObject.Find("MonsterStandin");
+                for (int i = 0; i < playerModels.Length; i++)
+                {
+                    if (playerModels[i].transform.position.z > 0 && monster.transform.position.z > 0) //Attacking the host
+                        playerModels[i].transform.GetChild(3).gameObject.SetActive(true);
+                    else if (playerModels[i].transform.position.z < 0 && monster.transform.position.z < 0) //Attacking the client
+                        playerModels[i].transform.GetChild(3).gameObject.SetActive(true);
+                }
                 once = true;
                 spt_LayeredAudioManager.musicPlay = false;
 
