@@ -26,6 +26,7 @@ namespace VRStandardAssets.Examples
 
         public bool currentState = false;
         public bool anchored = true;
+        private bool inFrontOfPlayer = false;
         bool outOfView = false;
         [HideInInspector] public Vector3 startPoint;
         [HideInInspector] public Quaternion startRotation;
@@ -46,11 +47,18 @@ namespace VRStandardAssets.Examples
         }
 
         override protected void Update() {
+            //For fuse door: if the object's parent is animating, temporarily stop lerping, then set new startpoint after animation stops
+            if (transform.parent.GetComponent<Animation>() != null && transform.parent.GetComponent<Animation>().isPlaying) anchored = false;
+            else if (anchored == false)
+            {
+                startPoint = transform.position;
+                startRotation = transform.rotation;
+                anchored = true;
+            } 
+
             //If the object has been clicked (A button) in the world, lerp it in front of the player and enable rotation with right thumbstick
             if (currentState == true)
             {
-                //panelObj.SetActive(true); //USE IF VIGNETTE IS WANTED
-                
                 //If it has children, activate their colliders
                 if (transform.childCount > 0) BroadcastMessage("childActive", true);
                 endPoint.tag = "manipulation";

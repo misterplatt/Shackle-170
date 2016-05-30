@@ -40,7 +40,7 @@ namespace VRStandardAssets.Utils
             if (m_FadeInOnStart)
             {
                 m_FadeImage.color = m_FadeColor;
-                if (SceneManager.GetActiveScene().name != "LoadScreen") FadeIn(true);
+                FadeIn(true);
             }
         }
 
@@ -56,7 +56,7 @@ namespace VRStandardAssets.Utils
             if (m_FadeInOnSceneLoad)
             {
                 m_FadeImage.color = m_FadeColor;
-                if (SceneManager.GetActiveScene().name != "LoadScreen") FadeIn(true);
+                FadeIn(true);
             }
         }
 

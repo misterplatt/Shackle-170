@@ -3733,6 +3733,7 @@ GameObject:
   - 114: {fileID: 11456808}
   - 195: {fileID: 19591742}
   - 136: {fileID: 13691226}
+  - 114: {fileID: 11418256}
   m_Layer: 0
   m_Name: MonsterFinal
   m_TagString: monster
@@ -9045,7 +9046,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173210}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.3568783, y: -3.951063, z: 1.0636232}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 423360}
@@ -9624,7 +9625,7 @@ Animator:
   m_GameObject: {fileID: 173210}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ac36bea0cbcb23943be349f051c33524, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 499d4e3e91143434792e828abf7e76a9, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -9710,7 +9711,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: {fileID: 0}
-  spawns: []
+  spawns:
+  - {fileID: 0}
+  - {fileID: 0}
   darknessPlane: {fileID: 0}
   angerLevel: 0
   whichPlayer: 0
@@ -9732,7 +9735,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionName: 
   interactionItemName: 
-  drawerOpen: 0
+--- !u!114 &11418256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28523d80d3aab92478b7f1c974e502ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11421664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9846,8 +9859,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pLoss: 0
   animIndex: 0
-  waypoints: []
-  garageScript: {fileID: 0}
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  garageScript: {fileID: 11418256}
   rangerOutpostScript: {fileID: 0}
   opticsLabScript: {fileID: 0}
   currentWaypoint: 0
@@ -9870,8 +9903,12 @@ MonoBehaviour:
   render: 0
   attackSpawnAStartingPosition: {x: 0, y: 0, z: 10}
   attackSpawnBStartingPosition: {x: 0, y: 0, z: -10}
-  interactables: []
-  interactableAnimationStartingPositions: []
+  interactables:
+  - {fileID: 0}
+  - {fileID: 0}
+  interactableAnimationStartingPositions:
+  - {x: 4.5, y: 0, z: 4.5}
+  - {x: -3, y: 0, z: 11}
 --- !u!136 &13691226
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -9914,7 +9951,7 @@ SkinnedMeshRenderer:
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
-  m_Mesh: {fileID: 4300014, guid: ac36bea0cbcb23943be349f051c33524, type: 3}
+  m_Mesh: {fileID: 4300026, guid: ac36bea0cbcb23943be349f051c33524, type: 3}
   m_Bones:
   - {fileID: 402782}
   - {fileID: 437812}
@@ -10016,7 +10053,7 @@ SkinnedMeshRenderer:
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
-  m_Mesh: {fileID: 4300012, guid: ac36bea0cbcb23943be349f051c33524, type: 3}
+  m_Mesh: {fileID: 4300024, guid: ac36bea0cbcb23943be349f051c33524, type: 3}
   m_Bones:
   - {fileID: 402782}
   - {fileID: 437812}
@@ -10057,7 +10094,7 @@ SkinnedMeshRenderer:
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
-  m_Mesh: {fileID: 4300016, guid: ac36bea0cbcb23943be349f051c33524, type: 3}
+  m_Mesh: {fileID: 4300030, guid: ac36bea0cbcb23943be349f051c33524, type: 3}
   m_Bones:
   - {fileID: 402782}
   - {fileID: 437812}
@@ -10126,7 +10163,7 @@ SkinnedMeshRenderer:
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
-  m_Mesh: {fileID: 4300010, guid: ac36bea0cbcb23943be349f051c33524, type: 3}
+  m_Mesh: {fileID: 4300022, guid: ac36bea0cbcb23943be349f051c33524, type: 3}
   m_Bones:
   - {fileID: 461472}
   - {fileID: 469896}
@@ -10177,7 +10214,7 @@ SkinnedMeshRenderer:
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
-  m_Mesh: {fileID: 4300008, guid: ac36bea0cbcb23943be349f051c33524, type: 3}
+  m_Mesh: {fileID: 4300020, guid: ac36bea0cbcb23943be349f051c33524, type: 3}
   m_Bones:
   - {fileID: 461472}
   - {fileID: 469896}
