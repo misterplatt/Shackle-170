@@ -26,7 +26,7 @@ namespace VRStandardAssets.Examples
         public AudioClip chestUnlock;
         public AudioClip chestOpen;
 
-        private float timer = 0f;
+        private float timerino = 0f;
         private float completionTime = 2f;
 
         private Animation discAnimations;
@@ -46,14 +46,14 @@ namespace VRStandardAssets.Examples
             if (!local_laserHitLock) {
                 //Accumulate list of colliders intersecting the chest lock's collider
                 Collider[] hitColliders = Physics.OverlapSphere(transform.position, .1f);
-                if (hitColliders.Length <= 2) timer = 0;
+                if (hitColliders.Length <= 2) timerino = 0;
                 //Check each collider
                 foreach (Collider col in hitColliders)
                 {
                     if (col.gameObject.tag == "laser")
                     {
-                        //Play spinning anim and sound, increment timer
-                        timer += Time.deltaTime;
+                        //Play spinning anim and sound, increment timerino
+                        timerino += Time.deltaTime;
                         discAnimations.Play("chestLock_spin");
                         aSource.clip = chestUnlock;
                         if (!aSource.isPlaying) aSource.Play();
@@ -63,12 +63,12 @@ namespace VRStandardAssets.Examples
             }
 
             //If a laser has hit the lock for long enough, set the corresponding puzzle state to true
-            if (timer > completionTime) {
+            if (timerino > completionTime) {
                 local_laserHitLock = true;
                 local_isChestOpen = true;
                 spt_WorldState.worldStateChanged = true;
                 
-                timer = 0;
+                timerino = 0;
             }
             
             //If the laser has hit the lock, open the chest

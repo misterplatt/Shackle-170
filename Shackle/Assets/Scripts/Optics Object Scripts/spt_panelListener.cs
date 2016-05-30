@@ -29,11 +29,15 @@ namespace VRStandardAssets.Examples
         public GameObject leverB;
         private AudioSource aSource;
         private AudioSource childSource;
-        public AudioClip criticalHeat;
+        public AudioClip criticalError;
         public AudioClip panelBurning;
         public AudioClip systemMeltDown;
         public AudioClip hatchOpening;
+        public AudioClip systemStartup;
+        public AudioClip systemLooping;
         private bool didSystemMelt = false;
+        private bool oncerino = false;
+        private bool errorDetected = false;
 
         // Use this for initialization
         override protected void Start()
@@ -49,6 +53,18 @@ namespace VRStandardAssets.Examples
             //Check for laser collision while no laser has hit the lock
             if (!local_laserHitPanel)
             {
+                if (!oncerino)
+                {
+                    childSource.clip = systemStartup;
+                    childSource.Play();
+                    oncerino = true;
+                }
+                if (!childSource.isPlaying)
+                {
+                    childSource.clip = systemLooping;
+                    childSource.loop = true;
+                    childSource.Play();
+                }
                 //Accumulate list of colliders intersecting the chest lock's collider
                 Collider[] hitColliders = Physics.OverlapSphere(transform.position, .3f);
                 if (hitColliders.Length <= 2) timerino = 0;
@@ -61,23 +77,20 @@ namespace VRStandardAssets.Examples
                         timerino += Time.deltaTime;
                         aSource.clip = panelBurning;
                         if(!aSource.isPlaying) aSource.Play();
-                        childSource.clip = criticalHeat;
-                        if (!childSource.isPlaying)
+                        childSource.clip = criticalError;
+                        if (!errorDetected)
                         {
                             childSource.loop = true;
                             childSource.Play();
+                            errorDetected = true;
                         }
                     }
                 }
             }
 
-            Debug.Log("HAYDEN CAN'T CODE FOR SHIT" + timerino);
-
             if (timerino > completionTime)
             {
                 //If a laser has hit the panel for completionTime seconds, set the corresponding puzzle state to true
-                Debug.Log("COMPLETION TIME" + completionTime);
-                Debug.Log("PENIS " + timerino);
                 childSource.loop = false;
                 childSource.clip = systemMeltDown;
                 childSource.Play();
