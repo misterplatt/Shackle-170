@@ -2548,6 +2548,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: 95ac806013ebec9409f738dbd5bbe57a, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 95ac806013ebec9409f738dbd5bbe57a, type: 2}
+  - {fileID: 7400000, guid: 5dfa1a12ca9b5db41bce116f38d003ed, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -2986,7 +2987,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 138348, guid: ff6d4df19f2366e45a3bfdddce672b71, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff6d4df19f2366e45a3bfdddce672b71, type: 2}
@@ -5101,8 +5102,8 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 75a2cf592b0eb4f8d9465dda4f27ea81, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 688889295}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.17, y: -0.0014998913, z: 6.9121}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
+  m_LocalPosition: {x: -2.172582, y: -0.0014998913, z: 6.8751397}
   m_LocalScale: {x: 2.7075639, y: 2.7075648, z: 2.7075648}
   m_Children: []
   m_Father: {fileID: 885048209}
@@ -10730,7 +10731,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1779084275
 Transform:
   m_ObjectHideFlags: 0

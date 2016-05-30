@@ -56,10 +56,10 @@ namespace VRStandardAssets.Examples
             GetComponent<Animation>().Play("fuseDoor_open");
 
             //Set the car keyfob up to be a manipulate object
-            spt_interactiveItemManipulate keyFobManipulate = transform.FindChild("mdl_carKeyfob").gameObject.GetComponent<spt_interactiveItemManipulate>();
-            keyFobManipulate.startPoint = transform.FindChild("mdl_carKeyfob").position;
-            keyFobManipulate.startRotation = transform.FindChild("mdl_carKeyfob").rotation;
-            keyFobManipulate.anchored = true;
+            //spt_interactiveItemManipulate keyFobManipulate = transform.FindChild("mdl_carKeyfob").gameObject.GetComponent<spt_interactiveItemManipulate>();
+            //keyFobManipulate.startPoint = transform.FindChild("mdl_carKeyfob").position;
+            //keyFobManipulate.startRotation = transform.FindChild("mdl_carKeyfob").rotation;
+            //keyFobManipulate.anchored = true;
 
             //NPL Update
             local_fuseBoxOpen = true;

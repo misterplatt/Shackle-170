@@ -97,12 +97,9 @@ namespace VRStandardAssets.Examples
                 trapDoorA.GetComponent<AudioSource>().Play();
                 trapDoorB.GetComponent<AudioSource>().Play();
 
-                trapDoorA.transform.FindChild("mdl_hatchDoorR").Translate(Vector3.left);
-                trapDoorA.transform.FindChild("mdl_hatchDoorL").Translate(Vector3.right);
-                trapDoorB.transform.FindChild("mdl_hatchDoorR").Translate(Vector3.left);
-                trapDoorB.transform.FindChild("mdl_hatchDoorL").Translate(Vector3.right);
-                leverA.transform.Translate(Vector3.up);
-                leverB.transform.Translate(Vector3.up);
+                trapDoorA.transform.GetComponent<Animation>().Play("TNTOpen");
+                trapDoorB.transform.GetComponent<Animation>().Play("TNTOpen");
+                Invoke("raisePlungers", 1.25f);
                 once = true;
             }
         }
@@ -110,6 +107,11 @@ namespace VRStandardAssets.Examples
         void SystemMelting()
         {
             
+        }
+
+        void raisePlungers() {
+            leverA.transform.parent.GetComponent<Animation>().Play("TNTRiseA");
+            leverB.transform.parent.GetComponent<Animation>().Play("TNTRiseB");
         }
 
         void Melted()
