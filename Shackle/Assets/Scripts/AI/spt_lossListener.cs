@@ -59,7 +59,7 @@ public class spt_lossListener : NetworkBehaviour {
         if (gotIndex)
         {
             if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count == 0) return;
-            if ((player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].state == true)) //&& !once)
+            if ((player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].state == true) && !once)
             {
                 //Host side loss
                 monsterAudio.playAttackSound();
@@ -73,7 +73,7 @@ public class spt_lossListener : NetworkBehaviour {
                 }
 
                 loss = true;
-                //transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
+                transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(2, false);
                 once = true;
                 spt_LayeredAudioManager.musicPlay = false;
 
