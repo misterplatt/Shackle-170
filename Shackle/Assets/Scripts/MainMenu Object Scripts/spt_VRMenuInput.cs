@@ -27,6 +27,13 @@ namespace VRStandardAssets.Examples
             input = GetComponent<InputField>();
         }
 
+        void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.KeypadEnter))
+            {
+                holdSuccess();
+            }
+        }
 
         //Set button color to red while reticle is over the object
         protected override void HandleOver()
