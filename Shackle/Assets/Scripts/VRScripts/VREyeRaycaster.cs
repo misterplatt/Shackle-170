@@ -271,9 +271,10 @@ namespace VRStandardAssets.Utils
             }
             else if (currentInteractibleName.Contains("mirrorPickup") && Input.GetButtonDown("aButton"))
             {
+                spt_inventory pInv = GetComponent<spt_inventory>();
                 GameObject mirror = GameObject.Find(currentInteractibleName);
                 if (mirror.transform.parent.name.Contains("mirrorHandle")) return;
-                Cmd_SendMirrorToHell(currentInteractibleName);
+                if (pInv.inventory[pInv.activeItem] == "Hand") Cmd_SendMirrorToHell(currentInteractibleName);
             }
         }        
 
