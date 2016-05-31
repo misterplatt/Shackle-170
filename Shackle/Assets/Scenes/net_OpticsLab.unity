@@ -2457,7 +2457,6 @@ GameObject:
   - 33: {fileID: 256124869}
   - 23: {fileID: 256124868}
   - 65: {fileID: 256124858}
-  - 111: {fileID: 256124865}
   m_Layer: 0
   m_Name: Poster_Wall
   m_TagString: Untagged
@@ -2476,7 +2475,6 @@ GameObject:
   - 33: {fileID: 256124878}
   - 23: {fileID: 256124877}
   - 65: {fileID: 256124859}
-  - 111: {fileID: 256124864}
   m_Layer: 0
   m_Name: A_Wall
   m_TagString: Untagged
@@ -2495,7 +2493,6 @@ GameObject:
   - 33: {fileID: 256124872}
   - 23: {fileID: 256124871}
   - 65: {fileID: 256124860}
-  - 111: {fileID: 256124866}
   m_Layer: 0
   m_Name: Panel_Wall
   m_TagString: Untagged
@@ -2514,7 +2511,6 @@ GameObject:
   - 33: {fileID: 256124875}
   - 23: {fileID: 256124874}
   - 65: {fileID: 256124861}
-  - 111: {fileID: 256124863}
   m_Layer: 0
   m_Name: B_Wall
   m_TagString: Untagged
@@ -2612,66 +2608,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.864553, y: 0.1603458, z: 14.804533}
   m_Center: {x: 0.37851453, y: -2.2935581, z: -0.018702507}
---- !u!111 &256124863
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 256124855}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 5fdfab42568b75b48bb5294e35c96fb8, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 5fdfab42568b75b48bb5294e35c96fb8, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!111 &256124864
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 256124853}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 529e3f40ad815314d88ea787c65e5669, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 529e3f40ad815314d88ea787c65e5669, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!111 &256124865
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 256124852}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: b989ef919f1faae4da6920c2cb00f606, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: b989ef919f1faae4da6920c2cb00f606, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!111 &256124866
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 256124854}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 16a7f9020dd0e374b8b2edc15b2fa6bd, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 16a7f9020dd0e374b8b2edc15b2fa6bd, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!4 &256124867
 Transform:
   m_ObjectHideFlags: 0

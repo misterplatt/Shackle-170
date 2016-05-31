@@ -85,10 +85,6 @@ public class    spt_victoryListener : MonoBehaviour
         {
             spt_LayeredAudioManager.musicPlay = false;
             transitionA.Play();
-            foreach (Transform child in GameObject.Find("labWalls").transform)
-            {
-                child.gameObject.GetComponent<Animation>().Play();
-            }
             StartCoroutine(transitionRumble());
         }
 
@@ -117,9 +113,6 @@ public class    spt_victoryListener : MonoBehaviour
             else {
                 transitionA.clip = finalTransition;
                 StartCoroutine(finalRumble());
-                foreach (Transform child in GameObject.Find("labWalls").transform) {
-                    child.gameObject.GetComponent<Animation>().Play();
-                }
             }
             //spt_LayeredAudioManager.musicPlay = false;
             transitionA.Play();
