@@ -103,12 +103,15 @@ public class    spt_victoryListener : MonoBehaviour
             //GameObject.Find("player_B_light").GetComponent<Light>().enabled = true;
             transform.parent.FindChild("FadePanel").GetComponent<VRStandardAssets.Utils.VRCameraFade>().FadeOut(false);
             once = true;
-            spt_LayeredAudioManager.musicPlay = false;
-            transitionA.Play();
+            if (SceneManager.GetActiveScene().name != "net_OpticsLab")
+            {
+                spt_LayeredAudioManager.musicPlay = false;
+                transitionA.Play();
+                StartCoroutine(transitionRumble());
+            }
+            //spt_LayeredAudioManager.musicPlay = false;
+            //transitionA.Play();
             //StartCoroutine(transitionRumble());
-            spt_LayeredAudioManager.musicPlay = false;
-            transitionA.Play();
-            StartCoroutine(transitionRumble());
 
             //update dda
             GameObject.Find("DDA").GetComponent<spt_DDAStorage>().incrementDiffValue();
