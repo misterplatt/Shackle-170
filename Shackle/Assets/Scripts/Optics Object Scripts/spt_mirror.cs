@@ -51,7 +51,7 @@ namespace VRStandardAssets.Examples
             }
             //Set emitsLaser to true if the count is at least 2
             bool laserPresent = (laserCount > 1);
-            if (gameObject.name == "mdl_mirrorPickup (4)")
+            /*if (gameObject.name == "mdl_mirrorPickup (4)")
             {
                if (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[8].state == false) mirrorSync.emitsLaser = false;
                else mirrorSync.emitsLaser = laserPresent;
@@ -59,8 +59,9 @@ namespace VRStandardAssets.Examples
             else
             {
                 mirrorSync.emitsLaser = laserPresent;
-            }
+            }*/
 
+            mirrorSync.emitsLaser = laserPresent;
             //Set the mesh and collider's enable state based on emitsLaser
             laserMesh.enabled = mirrorSync.emitsLaser;
             laserCollider.enabled = mirrorSync.emitsLaser;
