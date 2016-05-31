@@ -9781,7 +9781,7 @@ MonoBehaviour:
   gateItemName: Hand
   holdTime: 0
   m_InteractiveItem: {fileID: 1411639701}
-  movingSound: {fileID: 0}
+  movingSound: {fileID: 8300000, guid: 6652719c0ecc968458b8f0b5583a3aaf, type: 3}
   HaydenIdea: -1
   moveSpeed: 1
   moveOnLocalX: 0
