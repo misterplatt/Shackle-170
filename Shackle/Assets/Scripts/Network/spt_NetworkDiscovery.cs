@@ -66,14 +66,6 @@ public class spt_NetworkDiscovery : NetworkBehaviour {
         GameObject joinButton = GameObject.Find("Painting_Canvas").transform.Find("Play/btn_join").gameObject;
         GameObject ipField = GameObject.Find("InputField");
 
-        if (ip == "")
-        {
-            GameObject.Find("Painting_Canvas").transform.Find("Play/txt_gameDetected").gameObject.SetActive(false);
-        }
-        else
-        {
-            GameObject.Find("Painting_Canvas").transform.Find("Play/txt_gameDetected").gameObject.SetActive(true);
-        }
         //if input field is being used, override ip.
         if (ipField != null && ipField.GetComponent<InputField>().text.Length > 0)
         {
