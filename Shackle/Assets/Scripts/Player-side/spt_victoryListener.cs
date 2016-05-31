@@ -23,6 +23,7 @@ public class    spt_victoryListener : MonoBehaviour
     private bool once = false;
     private bool expandLight = false;
     private AudioSource transitionA;
+    public AudioClip finalTransition;
     private Light winLight;
     private spt_monsterMotivation monster;
     NetworkManager manager;
@@ -84,6 +85,10 @@ public class    spt_victoryListener : MonoBehaviour
         {
             spt_LayeredAudioManager.musicPlay = false;
             transitionA.Play();
+            foreach (Transform child in GameObject.Find("labWalls").transform)
+            {
+                child.gameObject.GetComponent<Animation>().Play();
+            }
             StartCoroutine(transitionRumble());
         }
 
@@ -106,11 +111,18 @@ public class    spt_victoryListener : MonoBehaviour
             if (SceneManager.GetActiveScene().name != "net_OpticsLab")
             {
                 spt_LayeredAudioManager.musicPlay = false;
-                transitionA.Play();
+                //transitionA.Play();
                 StartCoroutine(transitionRumble());
             }
+            else {
+                transitionA.clip = finalTransition;
+                StartCoroutine(finalRumble());
+                foreach (Transform child in GameObject.Find("labWalls").transform) {
+                    child.gameObject.GetComponent<Animation>().Play();
+                }
+            }
             //spt_LayeredAudioManager.musicPlay = false;
-            //transitionA.Play();
+            transitionA.Play();
             //StartCoroutine(transitionRumble());
 
             //update dda
@@ -198,5 +210,11 @@ public class    spt_victoryListener : MonoBehaviour
         //spt_playerControls.controllerVibration("Both", 1.0f, 2.2);  
     }
 
+    // Calls the controller to rumble based off the transition sounds
+    IEnumerator finalRumble()
+    {
+        //MAKE ME DARA
+        yield return null;
+    }
 
 }

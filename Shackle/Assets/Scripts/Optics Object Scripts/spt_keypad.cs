@@ -37,8 +37,7 @@ namespace VRStandardAssets.Examples
         override protected void holdSuccess()
         {
             if (!once) {
-                transform.FindChild("lab_doors/left_door").transform.Translate(Vector3.right * 0.8f);
-                transform.FindChild("lab_doors/right_door").transform.Translate(Vector3.left * 1f);
+                transform.FindChild("lab_doors").gameObject.GetComponent<Animation>().Play("labDoor_open");
                 holding = false;
                 once = true;
                 //Invoke("CloseDoors", openDuration);

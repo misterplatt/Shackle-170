@@ -22,6 +22,10 @@ namespace VRStandardAssets.Examples
         public AudioClip leverPushSound;
         public AudioClip leverReleasedSound;
         public AudioClip explosion;
+
+        private Light leverLightA;
+        private Light leverLightB;
+
         public static bool local_leverAPressed = false;
         public static bool local_leverBPressed = false;
 
@@ -32,6 +36,8 @@ namespace VRStandardAssets.Examples
         protected override void Start()
         {
             aSource = GetComponent<AudioSource>();
+            leverLightA = transform.parent.FindChild("leverLight_A").gameObject.GetComponent<Light>();
+            leverLightB = transform.parent.FindChild("leverLight_B").gameObject.GetComponent<Light>();
         }
 
         protected override void Update()
@@ -60,8 +66,16 @@ namespace VRStandardAssets.Examples
                 aSource.Play();
                 transform.Translate(Vector3.down * .1f);
                 Debug.Log("I AM " + transform.name + ". HEAR ME ROAR");
-                if (transform.name == "leverA") local_leverAPressed = true;
-                if (transform.name == "leverB") local_leverBPressed = true;
+                if (transform.name == "leverA")
+                {
+                    local_leverAPressed = true;
+                    leverLightA.enabled = true;
+                }
+                if (transform.name == "leverB")
+                {
+                    local_leverBPressed = true;
+                    leverLightA.enabled = true;
+                }
                 spt_WorldState.worldStateChanged = true;
                 pressed = true;
                 Invoke("raiseLever", 2f);
@@ -77,8 +91,16 @@ namespace VRStandardAssets.Examples
             aSource.Play();
             transform.Translate(Vector3.up * .1f);
             Debug.Log("I AM " + transform.name + ". HEAR ME ROAR");
-            if (transform.name == "leverA") local_leverAPressed = false;
-            if (transform.name == "leverB") local_leverBPressed = false;
+            if (transform.name == "leverA")
+            {
+                local_leverAPressed = false;
+                leverLightA.enabled = false;
+            }
+            if (transform.name == "leverB")
+            {
+                local_leverBPressed = false;
+                leverLightA.enabled = false;
+            }
             spt_WorldState.worldStateChanged = true;
             pressed = false;
         }
