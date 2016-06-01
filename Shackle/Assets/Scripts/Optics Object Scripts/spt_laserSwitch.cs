@@ -44,7 +44,8 @@ namespace VRStandardAssets.Examples
 
         override protected void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Comma)) resetItem();
+            Debug.Log("ONCE " + once);
+            if (Input.GetKeyDown(KeyCode.Comma)) resetItem();
             if (Input.GetKeyDown(KeyCode.L))
             {
 
@@ -65,6 +66,7 @@ namespace VRStandardAssets.Examples
             {
                 if (!once)
                 {
+                    Debug.Log("FUCK ME AND MY DUMBASS BRAIN");
                     laserMesh.enabled = true;
                     laserCollider.enabled = true;
                     aSource.clip = laserStart;
@@ -87,9 +89,9 @@ namespace VRStandardAssets.Examples
                 local_isLaserOn = false;
                 spt_WorldState.worldStateChanged = true;
             }
-            laserMesh.enabled = currentState;
-            laserCollider.enabled = currentState;
-            local_isLaserOn = currentState;
+            //laserMesh.enabled = currentState;
+            //laserCollider.enabled = currentState;
+            //local_isLaserOn = currentState;
 
         }
 
