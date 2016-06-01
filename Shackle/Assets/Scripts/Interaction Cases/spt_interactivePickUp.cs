@@ -31,7 +31,13 @@ namespace VRStandardAssets.Examples
         {
             Debug.Log("Show click state");
             inventorySpt = GetComponent<VRInteractiveItem>().inventoryScript;
-            inventorySpt.pickUp(gameObject);
+
+            if (inventorySpt.inventory.Count < 5)
+            {
+                inventorySpt.pickUp(gameObject);
+                transform.position = Vector3.down * 1000; //PLACEHOLDER: Sends objects to hell to prevent inventory breaking
+            }
+
             if (secondarySound != null)
             {
                 aSource.clip = secondarySound;
@@ -39,7 +45,6 @@ namespace VRStandardAssets.Examples
             }
             else aSource.Play();
             //gameObject.SetActive(false); //Desired functionality
-            transform.position = Vector3.down * 1000; //PLACEHOLDER: Sends objects to hell to prevent inventory breaking
         }
 
         //Ignore handle down

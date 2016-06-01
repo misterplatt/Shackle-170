@@ -1131,10 +1131,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 11468184, guid: 940571fd8032a9a408436b9f6421e961, type: 2}
-      propertyPath: m_NetworkPort
-      value: 18675
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 940571fd8032a9a408436b9f6421e961, type: 2}
   m_IsPrefabParent: 0
