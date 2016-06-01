@@ -58,7 +58,7 @@ public class    spt_victoryListener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (SceneManager.GetActiveScene().name == "net_playerlobby") return;
         // added vibrations here so the game would not freeze like how it does with my implementation in spt_playerControls
         if (vibrationz == true)
         {

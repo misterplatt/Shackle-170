@@ -46,7 +46,7 @@ public class spt_ManagerMenuInterface : NetworkBehaviour {
 
         GameObject joinButton = GameObject.Find("Painting_Canvas").transform.Find("Play/btn_join").gameObject;
         GameObject ipField = GameObject.Find("InputField");
-        ip = ipField.GetComponentInChildren<Text>().text;
+        if (ipField != null) ip = ipField.GetComponentInChildren<Text>().text;
 
         if (Input.GetKeyDown(KeyCode.F10)) connectLocal();
 

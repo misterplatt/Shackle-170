@@ -343,6 +343,7 @@ public class spt_inventory : NetworkBehaviour {
         if ( player == null )
         {
             GameObject.Find("WorldState").GetComponent<spt_WorldState>().retryInv = true;
+            return;
         }
         GameObject.Find(pName).GetComponent<spt_inventory>().inventory.Add("Hand");
         GameObject.Find(pName).transform.Find("Camera Player/VRCameraUI/InventorySlot1").gameObject.GetComponent<RawImage>().texture = handSprite;

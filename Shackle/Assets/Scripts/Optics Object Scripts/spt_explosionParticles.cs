@@ -26,6 +26,9 @@ public class spt_explosionParticles : MonoBehaviour {
 	void Update () {
         if (network == null)
         {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player == null) return;
+
             network = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
             for (int i = 0; i < network.PuzzleStates.Count; i++)
             {
