@@ -32,7 +32,7 @@ public class spt_inventory : NetworkBehaviour {
     public Texture unreachableSprite;
     public Texture none;
 
-    private int MAX_SLOTS = 4;
+    private int MAX_SLOTS = 5;
     private VRInteractiveItem lookingObject;
     
     [SerializeField] private VREyeRaycaster m_EyeRaycaster;
