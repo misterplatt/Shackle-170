@@ -11,8 +11,9 @@ using System.Collections;
 
 public class spt_explosionParticles : MonoBehaviour {
 
-    private int playerATNT = -1;
-    private int playerBTNT = -1;
+    //private int playerATNT = -1;
+    //private int playerBTNT = -1;
+    private int explosionTimeIndex = -1;
     private spt_NetworkPuzzleLogic network;
 
     private bool once = false;
@@ -32,15 +33,18 @@ public class spt_explosionParticles : MonoBehaviour {
             network = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>();
             for (int i = 0; i < network.PuzzleStates.Count; i++)
             {
-                if (network.PuzzleStates[i].name == "leverAPressed")
+                /*if (network.PuzzleStates[i].name == "leverAPressed")
                     playerATNT = i;
                 if (network.PuzzleStates[i].name == "leverBPressed")
-                    playerBTNT = i;
+                    playerBTNT = i;*/
+                if (network.PuzzleStates[i].name == "explosionTime")
+                    explosionTimeIndex = i;
             }
         }
         else
         {
-            if ((network.PuzzleStates[playerATNT].state == true) && (network.PuzzleStates[playerBTNT].state == true))
+            //if ((network.PuzzleStates[playerATNT].state == true) && (network.PuzzleStates[playerBTNT].state == true))
+            if (network.PuzzleStates[explosionTimeIndex].state == true)
             {
                 if (!once)
                 {

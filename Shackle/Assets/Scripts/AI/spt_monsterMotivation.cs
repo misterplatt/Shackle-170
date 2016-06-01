@@ -231,6 +231,8 @@ public class spt_monsterMotivation : NetworkBehaviour {
                 clientThreat = clientThreat + i;
             }
         }
+
+        Debug.Log("Monster anger is: " + angerLevel);
     }
 
     //Updates the anger caused by player movement
