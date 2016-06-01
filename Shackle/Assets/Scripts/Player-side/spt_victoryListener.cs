@@ -207,7 +207,41 @@ public class    spt_victoryListener : MonoBehaviour
     IEnumerator finalRumble()
     {
         //MAKE ME DARA
-        yield return null;
+        Both = true;
+        vibrationTime = 11f;
+        vibrationForce = .1f;
+        vibrationz = true;
+        // I know this is extremely ugly code, just want to see if it works
+        yield return new WaitForSeconds(1f);
+        vibrationForce += .1f;
+        yield return new WaitForSeconds(1f);
+        vibrationForce += .1f;
+        yield return new WaitForSeconds(1f);
+        vibrationForce += .1f;
+        yield return new WaitForSeconds(1f);
+        vibrationForce += .1f;
+        yield return new WaitForSeconds(1f);
+        vibrationForce += .1f;
+        yield return new WaitForSeconds(1f);
+        vibrationForce += .1f;
+        yield return new WaitForSeconds(1f);
+        vibrationForce += .1f;
+        yield return new WaitForSeconds(1f);
+        vibrationForce += .1f;
+        yield return new WaitForSeconds(1f);
+        vibrationForce += .1f;
+        yield return new WaitForSeconds(1f);
+        vibrationForce += .1f;
+
+        //Actual solution if the top calls work
+        /*
+        
+        for (int i = 0; i < 10; i++)
+        {
+            yield return new WaitForSeconds(1f);
+            vibrationForce += .1f;
+        }
+        */
     }
 
 }

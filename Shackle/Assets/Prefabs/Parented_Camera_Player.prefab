@@ -1023,6 +1023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 971ec99a8c15c72468ee2b256557cf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finalTransition: {fileID: 8300000, guid: 4a3ec202a9d32534ba28b4ee35b667ed, type: 3}
 --- !u!114 &11409054
 MonoBehaviour:
   m_ObjectHideFlags: 1
