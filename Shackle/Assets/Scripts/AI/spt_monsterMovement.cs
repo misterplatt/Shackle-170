@@ -102,7 +102,10 @@ public class spt_monsterMovement : NetworkBehaviour {
         {
             animIndex = 1;
             if (opticsLabScript != null && monsterPuzzleCompletionIndex != -1 && networkScript.PuzzleStates[monsterPuzzleCompletionIndex].state == true)
+            {
                 animIndex = 2;
+                networkScript.updatePuzzleState("explosionTime", true, "MonsterStandin");
+            }
             //animationScript.animator.SetInteger("animation", 1);
         }
 
