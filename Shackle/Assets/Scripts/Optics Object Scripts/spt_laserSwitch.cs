@@ -19,7 +19,7 @@ namespace VRStandardAssets.Examples
     public class spt_laserSwitch : spt_baseInteractiveObject
     {
         [SerializeField] LayerMask laserLayers;
-        private bool currentState = false;
+        private bool currentState;
 
         private MeshRenderer laserMesh;
         private BoxCollider laserCollider;
@@ -34,6 +34,7 @@ namespace VRStandardAssets.Examples
         private bool once = false;
 
         override protected void Start() {
+            currentState = false;
             metalSwitchOff = transform.FindChild("Joystick_switch").GetComponent<MeshRenderer>();
             metalSwitchOn = transform.FindChild("Joystick_switch (1)").GetComponent<MeshRenderer>();
             laserMesh = transform.FindChild("Laser").gameObject.GetComponent<MeshRenderer>();
@@ -41,14 +42,25 @@ namespace VRStandardAssets.Examples
             aSource = GetComponent<AudioSource>();
         }
 
-        protected override void Update()
+        override protected void Update()
         {
-            if (Input.GetKeyDown(KeyCode.L)) currentState = !currentState;
-            //GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", true, "Joystick_base")
+            if(Input.GetKeyDown(KeyCode.Comma)) resetItem();
+            if (Input.GetKeyDown(KeyCode.L))
+            {
 
-            currentState = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state;
+                currentState = !currentState;
+                local_isLaserOn = !local_isLaserOn;
+                spt_WorldState.worldStateChanged = true;
+                Debug.Log("FUCKING LOCAL LASER " + local_isLaserOn);
+                Debug.Log("GOD DANG PUZZLE STATE " + GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state);
+                Debug.Log("FUCK YOU RYAN YOU FUCKING TWAT" + currentState);
+            }
+            Debug.Log("FUCKING LOCAL LASER " + local_isLaserOn);
+            Debug.Log("GOD DANG PUZZLE STATE " + GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state);
+            Debug.Log("FUCK YOU Dara YOU FUCKING TWAT" + currentState);
+            //GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", true, "Joystick_base")
             //Change laser LineRenderer's enabled status on switch click
-            if (currentState == true)
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true)
             {
                 if (!once)
                 {
@@ -60,17 +72,20 @@ namespace VRStandardAssets.Examples
                 metalSwitchOff.enabled = false;
                 metalSwitchOn.enabled = true;
             }
-            else if (currentState == false)
+            else if (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == false)
             {
                 aSource.loop = false;
                 aSource.Stop();
                 metalSwitchOff.enabled = true;
                 metalSwitchOn.enabled = false;
                 once = false;
+                local_isLaserOn = false;
+                spt_WorldState.worldStateChanged = true;
             }
             laserMesh.enabled = currentState;
             laserCollider.enabled = currentState;
             local_isLaserOn = currentState;
+
         }
 
         override protected void clickSuccess()
@@ -108,8 +123,11 @@ namespace VRStandardAssets.Examples
                 local_isLaserOn = false;
                 spt_WorldState.worldStateChanged = true;
 
+
                 //GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", false, "Joystick_base");
             }
+            //currentState = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state;
+
         }
 
         //Plug handleDown
