@@ -50,13 +50,13 @@ public class spt_NetworkLobbyUI : MonoBehaviour {
     //clearly this shouldn't be used outside of development.
     public void connectLocal() {
         manager.networkAddress = "localhost";
-        manager.networkPort = 7777;
+        manager.networkPort = 18675;
         manager.StartClient();
     }
 
     public void connectLAN() {
         manager.networkAddress = GameObject.Find("InputField").GetComponent<InputField>().text;
-        manager.networkPort = 7777;
+        manager.networkPort = 18675;
         manager.StartClient();
     }
 
