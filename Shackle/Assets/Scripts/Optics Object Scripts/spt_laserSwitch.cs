@@ -56,8 +56,8 @@ namespace VRStandardAssets.Examples
                 //Debug.Log("FUCK YOU RYAN YOU FUCKING TWAT" + currentState);
             }
             //Debug.Log("FUCKING LOCAL LASER " + local_isLaserOn);
-            //Debug.Log("GOD DANG PUZZLE STATE " + GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state);
-            //Debug.Log("FUCK YOU Dara YOU FUCKING TWAT" + currentState);
+            Debug.Log("GOD DANG PUZZLE STATE " + GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state);
+            Debug.Log("FUCK YOU Dara YOU FUCKING TWAT" + currentState);
             //GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", true, "Joystick_base")
             //Change laser LineRenderer's enabled status on switch click
 
@@ -65,8 +65,8 @@ namespace VRStandardAssets.Examples
             {
                 if (!once)
                 {
-                    laserMesh.enabled = currentState;
-                    laserCollider.enabled = currentState;
+                    laserMesh.enabled = true;
+                    laserCollider.enabled = true;
                     aSource.clip = laserStart;
                     aSource.Play();
                     once = true;
@@ -77,8 +77,8 @@ namespace VRStandardAssets.Examples
             }
             else if (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == false)
             {
-                laserMesh.enabled = currentState;
-                laserCollider.enabled = currentState;
+                laserMesh.enabled = false;
+                laserCollider.enabled = false;
                 aSource.loop = false;
                 aSource.Stop();
                 metalSwitchOff.enabled = true;
