@@ -15,6 +15,7 @@
  *  These allow for easy interractions between the players' actions and the monster. **/
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System;
 
@@ -66,6 +67,7 @@ public class spt_angerObject : MonoBehaviour {
     }
 
     public void toggleVisibility(){
+        if (SceneManager.GetActiveScene().name == "net_playerlobby") return;
         getData().toggleVisibility();
 
         //if the object becomes visible...
