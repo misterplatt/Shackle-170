@@ -76,7 +76,7 @@ namespace VRStandardAssets.Examples
         override protected void clickSuccess()
         {
             currentState = !currentState;
-
+            Debug.Log("TOUCHING STICK");
             //Change laser LineRenderer's enabled status on switch click
             if (currentState == true)
             {
@@ -125,7 +125,7 @@ namespace VRStandardAssets.Examples
 
         public override void resetItem()
         {
-            if(GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true) clickSuccess();
+            if(GameObject.FindGameObjectWithTag(GameObject.Find("WorldState").GetComponent<spt_WorldState>().localPlayer).GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true) clickSuccess();
         }
     }
 }
