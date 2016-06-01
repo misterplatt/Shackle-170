@@ -19,7 +19,7 @@ namespace VRStandardAssets.Examples
     public class spt_laserSwitch : spt_baseInteractiveObject
     {
         [SerializeField] LayerMask laserLayers;
-        private bool currentState;
+        private bool currentState = false;
 
         private MeshRenderer laserMesh;
         private BoxCollider laserCollider;
@@ -34,7 +34,6 @@ namespace VRStandardAssets.Examples
         private bool once = false;
 
         override protected void Start() {
-            currentState = false;
             metalSwitchOff = transform.FindChild("Joystick_switch").GetComponent<MeshRenderer>();
             metalSwitchOn = transform.FindChild("Joystick_switch (1)").GetComponent<MeshRenderer>();
             laserMesh = transform.FindChild("Laser").gameObject.GetComponent<MeshRenderer>();
@@ -42,25 +41,17 @@ namespace VRStandardAssets.Examples
             aSource = GetComponent<AudioSource>();
         }
 
-        override protected void Update()
+        protected override void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Comma)) resetItem();
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-
-                currentState = !currentState;
-                local_isLaserOn = !local_isLaserOn;
-                spt_WorldState.worldStateChanged = true;
-            }
+            if (Input.GetKeyDown(KeyCode.L)) currentState = !currentState;
             //GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", true, "Joystick_base")
-            
+
+            currentState = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state;
             //Change laser LineRenderer's enabled status on switch click
-            if (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true)
+            if (currentState == true)
             {
                 if (!once)
                 {
-                    laserMesh.enabled = true;
-                    laserCollider.enabled = true;
                     aSource.clip = laserStart;
                     aSource.Play();
                     once = true;
@@ -69,22 +60,17 @@ namespace VRStandardAssets.Examples
                 metalSwitchOff.enabled = false;
                 metalSwitchOn.enabled = true;
             }
-            else if (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == false)
+            else if (currentState == false)
             {
-                laserMesh.enabled = false;
-                laserCollider.enabled = false;
                 aSource.loop = false;
                 aSource.Stop();
                 metalSwitchOff.enabled = true;
                 metalSwitchOn.enabled = false;
                 once = false;
-                local_isLaserOn = false;
-                spt_WorldState.worldStateChanged = true;
             }
-            //laserMesh.enabled = currentState;
-            //laserCollider.enabled = currentState;
-            //local_isLaserOn = currentState;
-
+            laserMesh.enabled = currentState;
+            laserCollider.enabled = currentState;
+            local_isLaserOn = currentState;
         }
 
         override protected void clickSuccess()
@@ -122,11 +108,8 @@ namespace VRStandardAssets.Examples
                 local_isLaserOn = false;
                 spt_WorldState.worldStateChanged = true;
 
-
                 //GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", false, "Joystick_base");
             }
-            //currentState = GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state;
-
         }
 
         //Plug handleDown
