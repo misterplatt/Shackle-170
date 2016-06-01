@@ -3103,7 +3103,7 @@ MonoBehaviour:
   leverB: {fileID: 911469453}
   criticalError: {fileID: 8300000, guid: 44f5f4df6a9a7dd44b44cac1b508ef55, type: 3}
   panelBurning: {fileID: 8300000, guid: deca8135d1fdca0488b87dc500eed929, type: 3}
-  systemMeltDown: {fileID: 8300000, guid: d0fe91e05cbceca4888e3f36d6fa9fe8, type: 3}
+  systemMeltDown: {fileID: 8300000, guid: 45dcc4214907d0649bc8c337fec4c28f, type: 3}
   hatchOpening: {fileID: 8300000, guid: 3aa5989390117a749bf3c701bc152119, type: 3}
   systemStartup: {fileID: 8300000, guid: d566a69fe5dbfe840ae2808723e8d806, type: 3}
   systemLooping: {fileID: 8300000, guid: 9edbf07ddd0713c41b6d94fba7fbcaec, type: 3}

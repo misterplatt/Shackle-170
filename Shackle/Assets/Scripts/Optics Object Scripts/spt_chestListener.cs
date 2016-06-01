@@ -27,12 +27,13 @@ namespace VRStandardAssets.Examples
         public AudioClip chestOpen;
 
         private float timerino = 0f;
-        private float completionTime = 2f;
+        private float completionTime = 0f;
 
         private Animation discAnimations;
 
         protected override void Start()
         {
+            completionTime = 6.9f;
             initialRotation = transform.parent.rotation.eulerAngles;
             aSource = GetComponent<AudioSource>();
             discAnimations = transform.FindChild("mdl_chestLockDisc").gameObject.GetComponent<Animation>();
@@ -57,8 +58,7 @@ namespace VRStandardAssets.Examples
                         discAnimations.Play("chestLock_spin");
                         aSource.clip = chestUnlock;
                         if (!aSource.isPlaying) aSource.Play();
-                    }
-                    
+                    }                    
                 }
             }
 
