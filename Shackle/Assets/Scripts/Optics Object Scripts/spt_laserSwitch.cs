@@ -57,7 +57,7 @@ namespace VRStandardAssets.Examples
             //GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", true, "Joystick_base")
 
             //Change laser LineRenderer's enabled status on switch click
-            if (GameObject.FindGameObjectWithTag(GameObject.Find("WorldState").GetComponent<spt_WorldState>().localPlayer).GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true)
+            if (GameObject.Find(GameObject.Find("WorldState").GetComponent<spt_WorldState>().localPlayer).GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true)
             {
                 if (!once)
                 {
@@ -71,7 +71,7 @@ namespace VRStandardAssets.Examples
                 metalSwitchOff.enabled = false;
                 metalSwitchOn.enabled = true;
             }
-            else if (GameObject.FindGameObjectWithTag(GameObject.Find("WorldState").GetComponent<spt_WorldState>().localPlayer).GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == false)
+            else if (GameObject.Find(GameObject.Find("WorldState").GetComponent<spt_WorldState>().localPlayer).GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == false)
             {
                 laserMesh.enabled = false;
                 laserCollider.enabled = false;
@@ -144,7 +144,7 @@ namespace VRStandardAssets.Examples
 
         public override void resetItem()
         {
-            if (GameObject.FindGameObjectWithTag(GameObject.Find("WorldState").GetComponent<spt_WorldState>().localPlayer).GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true) clickSuccess();
+            if (GameObject.Find(GameObject.Find("WorldState").GetComponent<spt_WorldState>().localPlayer).GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true) clickSuccess();
         }
     }
 }
