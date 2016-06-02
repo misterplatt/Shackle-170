@@ -43,7 +43,8 @@ public class spt_attackListener : MonoBehaviour {
         if (puzzleCompletionMonsterIndex != -1)
         {
             angerFlashlight = gameObject.GetComponent<spt_angerObject>();
-            GameObject _monster = GameObject.Find("MonsterStandin");
+            GameObject _monster = null;
+            if (monster == null) _monster = GameObject.Find("MonsterStandin");
             if (monster != null) monster = _monster.GetComponent<spt_monsterMotivation>();
             flashlight = gameObject.transform.parent.GetChild(4).GetComponent<Light>();
 
