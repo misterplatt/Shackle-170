@@ -38,7 +38,7 @@ public class spt_keyDoorCollision : MonoBehaviour {
 
     public void OnCollisionEnter(Collision c)
     {
-        if (network.PuzzleStates[doorThrownIndex].state == false && soundEnabled)
+        if (network != null && network.PuzzleStates[doorThrownIndex].state == false && soundEnabled)
             network.Cmd_UpdatePuzzleLogic("keyDoorThrowableNoise", true, "mdl_cabinetDoor");
     }
 
