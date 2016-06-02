@@ -332,13 +332,13 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("doorOpen", true, "mdl_keypad+doors");
                 }
                 //If player A has pressed their TNT lever, update server state. State reverts after lever has risen after x seconds.
-                if (VRStandardAssets.Examples.spt_TNTLeverA.local_leverAPressed != PuzzleStates[10].state)
+                if (isServer && VRStandardAssets.Examples.spt_TNTLeverA.local_leverAPressed != PuzzleStates[10].state)
                 {
                     Debug.Log("Updating leverAPressed on the network to " + VRStandardAssets.Examples.spt_TNTLeverA.local_leverAPressed);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("leverAPressed", VRStandardAssets.Examples.spt_TNTLeverA.local_leverAPressed, "mdl_TNTLeverA");
                 }
                 //If player B has pressed their TNT lever, update server state. State reverts after lever has risen after x seconds.
-                if (VRStandardAssets.Examples.spt_TNTLeverB.local_leverBPressed != PuzzleStates[11].state)
+                if (!isServer && VRStandardAssets.Examples.spt_TNTLeverB.local_leverBPressed != PuzzleStates[11].state)
                 {
                     Debug.Log("Updating leverBPressed on the network to " + VRStandardAssets.Examples.spt_TNTLeverB.local_leverBPressed);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("leverBPressed", VRStandardAssets.Examples.spt_TNTLeverB.local_leverBPressed, "mdl_TNTLeverB");

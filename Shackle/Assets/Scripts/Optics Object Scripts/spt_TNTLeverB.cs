@@ -46,12 +46,10 @@ namespace VRStandardAssets.Examples
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[10].state == true)
             {
                 leverLightB.enabled = true;
-                spt_TNTLeverA.local_leverAPressed = true;
             }
             else
             {
                 leverLightB.enabled = false;
-                spt_TNTLeverA.local_leverAPressed = false;
             }
 
             //If both levers are pressed, cue win
