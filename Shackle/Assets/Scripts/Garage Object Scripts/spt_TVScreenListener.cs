@@ -3,9 +3,10 @@ spt_TVScreenListener
 
 Author(s): Hayden Platt, Dara Diba
 
-Revision 2
+Revision 3
 
 Listens for event cues to show and alter TV screen sprite and sound.
+Added possibility of static broadcast playing instead of normal static
 */
 
 using UnityEngine;
@@ -19,12 +20,17 @@ public class spt_TVScreenListener : NetworkBehaviour {
 
     private SpriteRenderer staticSprite;
     private Light staticLight;
+    public AudioClip normalStatic;
+    public AudioClip scaryStatic;
+    private bool scaryStaticPlayed;
     
     void Start(){
         tvStaticSound = GetComponent<AudioSource>();
         staticSprite = GetComponent<SpriteRenderer>();
         staticLight = GetComponent<Light>();
         soundPlayed = false;
+        scaryStaticPlayed = false;
+
     }
 
     // Update is called once per frame
@@ -52,8 +58,10 @@ public class spt_TVScreenListener : NetworkBehaviour {
             staticLight.color = Color.green;
             staticSprite.enabled = true;
             staticLight.enabled = true;
+            if (!tvStaticSound.isPlaying) soundPlayed = false;
             if (!soundPlayed)
             {
+                RollTheStaticDie();
                 tvStaticSound.Play();
                 soundPlayed = true;
             }
@@ -69,5 +77,17 @@ public class spt_TVScreenListener : NetworkBehaviour {
             tvStaticSound.Stop();
             soundPlayed = false;
         }
+    }
+
+    // Quick function to play either scary static for a period or normal static
+    void RollTheStaticDie()
+    {
+        if (Random.Range(0f, 5f) > 3.5 && scaryStaticPlayed == false)
+        {
+            tvStaticSound.clip = scaryStatic;
+            tvStaticSound.loop = false;
+            scaryStaticPlayed = true;
+        }
+        else tvStaticSound.clip = normalStatic;
     }
 }

@@ -12522,6 +12522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf4c104168bf5b4c9ce4397bdbcc107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalStatic: {fileID: 8300000, guid: fb575850f171cfd468cbf8803d1e8f61, type: 3}
+  scaryStatic: {fileID: 8300000, guid: 2d8aaa68f2fc33046919c907609d7f48, type: 3}
 --- !u!114 &2125305270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12567,7 +12569,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.385
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   Priority: 128
