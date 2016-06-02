@@ -57,7 +57,7 @@ namespace VRStandardAssets.Examples
             //GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("isLaserOn", true, "Joystick_base")
 
             //Change laser LineRenderer's enabled status on switch click
-            if (GameObject.Find(GameObject.Find("WorldState").GetComponent<spt_WorldState>().localPlayer).GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true)
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == true)
             {
                 if (!once)
                 {
