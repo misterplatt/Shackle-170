@@ -14,7 +14,7 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -4656,8 +4656,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15.278739, y: 2.7500997, z: 5.5150037}
-  m_Center: {x: -0.04886366, y: 1.3098266, z: 2.7918348}
+  m_Size: {x: 12.112853, y: 2.7501, z: 5.515003}
+  m_Center: {x: 1.5340751, y: 1.3098264, z: 2.7918146}
 --- !u!4 &376995906
 Transform:
   m_ObjectHideFlags: 0
