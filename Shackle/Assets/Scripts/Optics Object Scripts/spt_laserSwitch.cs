@@ -71,7 +71,7 @@ namespace VRStandardAssets.Examples
                 metalSwitchOff.enabled = false;
                 metalSwitchOn.enabled = true;
             }
-            else if (GameObject.Find(GameObject.Find("WorldState").GetComponent<spt_WorldState>().localPlayer).GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == false)
+            else if (GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[4].state == false)
             {
                 laserMesh.enabled = false;
                 laserCollider.enabled = false;
