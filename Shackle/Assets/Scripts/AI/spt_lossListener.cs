@@ -97,8 +97,8 @@ public class spt_lossListener : NetworkBehaviour {
         if (!this.transform.root.gameObject.GetComponent<NetworkIdentity>().isLocalPlayer) return;
         lossMenu = !lossMenu;
         transform.FindChild("LossControls").gameObject.GetComponent<RawImage>().enabled = lossMenu;
-        transform.parent.FindChild("Tooltip/TooltipImage").gameObject.GetComponent<RawImage>().enabled = !lossMenu;
-        transform.parent.FindChild("Tooltip/TooltipText").gameObject.GetComponent<Text>().enabled = !lossMenu;
+        transform.parent.FindChild("Tooltip/TooltipImage").gameObject.GetComponent<RawImage>().enabled = lossMenu;
+        transform.parent.FindChild("Tooltip/TooltipText").gameObject.GetComponent<Text>().enabled = lossMenu;
     }
 
     private void checkLossMenuInput() {
