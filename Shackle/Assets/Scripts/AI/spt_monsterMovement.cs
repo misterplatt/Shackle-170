@@ -154,7 +154,7 @@ public class spt_monsterMovement : NetworkBehaviour {
         int numOptions = waypointGraph[currentWaypoint].Length;
         int newDestination = UnityEngine.Random.Range(0, numOptions);
         currentWaypoint = waypointGraph[currentWaypoint][newDestination];
-        agent.SetDestination(waypoints[currentWaypoint].position);
+        if(currentWaypoint < waypoints.Length) agent.SetDestination(waypoints[currentWaypoint].position);
     }
 
     public void setDestination(Transform t){
