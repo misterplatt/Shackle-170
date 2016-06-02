@@ -121,14 +121,14 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
         }
         else if (SceneManager.GetActiveScene().name == "net_OpticsLab")
         {
-            VRStandardAssets.Examples.spt_TNTLever.local_puzzleCompletion = false;
+            VRStandardAssets.Examples.spt_TNTLeverA.local_puzzleCompletion = false;
             VRStandardAssets.Examples.spt_chestListener.local_laserHitLock = false;
             VRStandardAssets.Examples.spt_chestListener.local_isChestOpen = false;
             VRStandardAssets.Examples.spt_panelListener.local_laserHitPanel = false;
             VRStandardAssets.Examples.spt_laserSwitch.local_isLaserOn = false;
             VRStandardAssets.Examples.spt_keypad.local_doorOpen = false;
-            VRStandardAssets.Examples.spt_TNTLever.local_leverAPressed = false;
-            VRStandardAssets.Examples.spt_TNTLever.local_leverBPressed = false;
+            VRStandardAssets.Examples.spt_TNTLeverA.local_leverAPressed = false;
+            VRStandardAssets.Examples.spt_TNTLeverB.local_leverBPressed = false;
             VRStandardAssets.Examples.spt_barrel.local_beakerPoured = false;
         }
 
@@ -296,9 +296,9 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
             if (SceneManager.GetActiveScene().name == "net_OpticsLab")
             {
                 //If both levers are pressed at the same time, update server state
-                if (VRStandardAssets.Examples.spt_TNTLever.local_puzzleCompletion)
+                if (VRStandardAssets.Examples.spt_TNTLeverA.local_puzzleCompletion)
                 {
-                    Debug.Log("Updating puzzleCompletion on the network to " + VRStandardAssets.Examples.spt_TNTLever.local_puzzleCompletion);
+                    Debug.Log("Updating puzzleCompletion on the network to " + VRStandardAssets.Examples.spt_TNTLeverA.local_puzzleCompletion);
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("puzzleCompletion", true, "MonsterStandin");
                 }
                 //If a laser has intersected with the chest lock, update server state
@@ -332,16 +332,16 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
                     GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("doorOpen", true, "mdl_keypad+doors");
                 }
                 //If player A has pressed their TNT lever, update server state. State reverts after lever has risen after x seconds.
-                if (VRStandardAssets.Examples.spt_TNTLever.local_leverAPressed != PuzzleStates[10].state)
+                if (VRStandardAssets.Examples.spt_TNTLeverA.local_leverAPressed != PuzzleStates[10].state)
                 {
-                    Debug.Log("Updating leverAPressed on the network to " + VRStandardAssets.Examples.spt_TNTLever.local_leverAPressed);
-                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("leverAPressed", VRStandardAssets.Examples.spt_TNTLever.local_leverAPressed, "mdl_TNTLeverA");
+                    Debug.Log("Updating leverAPressed on the network to " + VRStandardAssets.Examples.spt_TNTLeverA.local_leverAPressed);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("leverAPressed", VRStandardAssets.Examples.spt_TNTLeverA.local_leverAPressed, "mdl_TNTLeverA");
                 }
                 //If player B has pressed their TNT lever, update server state. State reverts after lever has risen after x seconds.
-                if (VRStandardAssets.Examples.spt_TNTLever.local_leverBPressed != PuzzleStates[11].state)
+                if (VRStandardAssets.Examples.spt_TNTLeverB.local_leverBPressed != PuzzleStates[11].state)
                 {
-                    Debug.Log("Updating leverBPressed on the network to " + VRStandardAssets.Examples.spt_TNTLever.local_leverBPressed);
-                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("leverBPressed", VRStandardAssets.Examples.spt_TNTLever.local_leverBPressed, "mdl_TNTLeverB");
+                    Debug.Log("Updating leverBPressed on the network to " + VRStandardAssets.Examples.spt_TNTLeverB.local_leverBPressed);
+                    GetComponent<spt_NetworkPuzzleLogic>().Cmd_UpdatePuzzleLogic("leverBPressed", VRStandardAssets.Examples.spt_TNTLeverB.local_leverBPressed, "mdl_TNTLeverB");
                 }
                 //If player A uses the flammable liquid, update server state and change to empty beaker sprite.
                 if (VRStandardAssets.Examples.spt_barrel.local_beakerPoured != PuzzleStates[14].state)

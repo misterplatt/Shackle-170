@@ -16,7 +16,7 @@ using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.Examples
 {
-    public class spt_TNTLever : spt_baseInteractiveObject
+    public class spt_TNTLeverA : spt_baseInteractiveObject
     {
         private AudioSource aSource;
         public AudioClip leverPushSound;
@@ -27,7 +27,6 @@ namespace VRStandardAssets.Examples
         private Light leverLightB;
 
         public static bool local_leverAPressed = false;
-        public static bool local_leverBPressed = false;
 
         public static bool local_puzzleCompletion = false;
 
@@ -43,6 +42,11 @@ namespace VRStandardAssets.Examples
         protected override void Update()
         {
             base.Update();
+            //If client side lever is pressed, enable leverLightB, otherwise disable
+            if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[11].state == true) leverLightB.enabled = true;
+            else leverLightB.enabled = true;
+
+            //If both levers are pressed, cue win
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[10].state == true && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[11].state == true) {
                 aSource.clip = explosion;
                 if(!aSource.isPlaying) aSource.Play();
@@ -60,23 +64,19 @@ namespace VRStandardAssets.Examples
 
         override protected void clickSuccess()
         {
-            Debug.Log("PRESSING" + pressed);
+            //If the lever is not currently pressed...
             if (!pressed) {
+                //Play pressing audio and move lever
                 aSource.clip = leverPushSound;
                 aSource.Play();
                 transform.Translate(Vector3.down * .1f);
-                Debug.Log("I AM " + transform.name + ". HEAR ME ROAR");
-                if (transform.name == "leverA")
-                {
-                    local_leverAPressed = true;
-                    leverLightA.enabled = true;
-                }
-                if (transform.name == "leverB")
-                {
-                    local_leverBPressed = true;
-                    leverLightA.enabled = true;
-                }
+                leverLightA.enabled = true;
+
+                //NPL Update
+                local_leverAPressed = true;
                 spt_WorldState.worldStateChanged = true;
+
+                //Make it so the lever can't be pressed until 2 seconds later
                 pressed = true;
                 Invoke("raiseLever", 2f);
             }
@@ -87,21 +87,17 @@ namespace VRStandardAssets.Examples
 
         //Function which raises the lever 
         void raiseLever() {
+            //Play rising audio and move lever
             aSource.clip = leverReleasedSound;
             aSource.Play();
             transform.Translate(Vector3.up * .1f);
-            Debug.Log("I AM " + transform.name + ". HEAR ME ROAR");
-            if (transform.name == "leverA")
-            {
-                local_leverAPressed = false;
-                leverLightA.enabled = false;
-            }
-            if (transform.name == "leverB")
-            {
-                local_leverBPressed = false;
-                leverLightA.enabled = false;
-            }
+            leverLightA.enabled = false;
+
+            //NPL Update
+            local_leverAPressed = false;
             spt_WorldState.worldStateChanged = true;
+
+            //Make it so the lever can be pressed again
             pressed = false;
         }
     }

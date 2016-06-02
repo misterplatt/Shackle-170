@@ -5164,7 +5164,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 413152158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a647e41dd17edb5419efc784b67ca304, type: 3}
+  m_Script: {fileID: 11500000, guid: 3dc76fc34d0fc6e4c867f039d7ca01a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gateItemName: Hand
