@@ -17146,7 +17146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   devtool_PuzzleStates:
   - eventName: puzzleCompletion
-    item: {fileID: 0}
+    item: {fileID: 357248668}
     isMonstInteractable: 0
   - eventName: laserHitLock
     item: {fileID: 345086968}
@@ -17155,7 +17155,7 @@ MonoBehaviour:
     item: {fileID: 283800190}
     isMonstInteractable: 0
   - eventName: playerLoss
-    item: {fileID: 0}
+    item: {fileID: 357248668}
     isMonstInteractable: 0
   - eventName: isLaserOn
     item: {fileID: 1789032113}
@@ -17182,7 +17182,7 @@ MonoBehaviour:
     item: {fileID: 911469453}
     isMonstInteractable: 0
   - eventName: puzzleCompletionMonster
-    item: {fileID: 0}
+    item: {fileID: 357248668}
     isMonstInteractable: 0
   - eventName: isChestOpen
     item: {fileID: 345086968}
