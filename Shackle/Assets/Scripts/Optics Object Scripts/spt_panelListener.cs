@@ -102,7 +102,7 @@ namespace VRStandardAssets.Examples
             }
 
             //If the laser has hit the panel, open the trapdoors and raise the TNT Levers
-            if (!once && GameObject.Find(GameObject.Find("WorldState").GetComponent<spt_WorldState>().localPlayer).GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true && didSystemMelt)
+            if (!once && GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[2].state == true && didSystemMelt)
             {
                 //TEMP FUNCTIONALITY UNTIL MODELS ARE IMPORTED
                 trapDoorA.GetComponent<AudioSource>().clip = hatchOpening;
