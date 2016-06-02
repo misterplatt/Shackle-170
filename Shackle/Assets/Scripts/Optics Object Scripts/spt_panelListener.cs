@@ -1,9 +1,9 @@
 ﻿/*
 spt_panelListener
 
-Author(s): Hayden Platt, Dara Diba
+Author(s): Hayden Platt, Dara Diba, Lauren Cunningham   
 
-Revision 2
+Revision 3
 
 Listener for the panel burning. Once the laser has hit the panel,
 this script opens the trap doors and raises the TNT Levers.
@@ -99,6 +99,18 @@ namespace VRStandardAssets.Examples
                 spt_WorldState.worldStateChanged = true;
 
                 timerino = 0;
+
+                ParticleSystem parentSystem = gameObject.transform.GetChild(2).GetComponent<ParticleSystem>();
+                ParticleSystem[] childrenSystems = gameObject.transform.GetChild(2).GetComponentsInChildren<ParticleSystem>();
+                //parentSystem.enableEmission = true;
+                //parentSystem.Stop();
+                parentSystem.Play();
+                foreach (ParticleSystem system in childrenSystems)
+                {
+                    //system.enableEmission = false;
+                    //system.Stop();
+                    system.Play();
+                }
             }
 
             //If the laser has hit the panel, open the trapdoors and raise the TNT Levers

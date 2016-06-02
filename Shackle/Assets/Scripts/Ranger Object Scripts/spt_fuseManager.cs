@@ -93,13 +93,13 @@ namespace VRStandardAssets.Examples
             ParticleSystem parentSystem = gameObject.transform.GetChild(1).GetComponent<ParticleSystem>();
             ParticleSystem[] childrenSystems = gameObject.transform.GetChild(1).GetComponentsInChildren<ParticleSystem>();
             //parentSystem.enableEmission = true;
-            //parentSystem.Stop();
-            parentSystem.Play();
+            parentSystem.Stop();
+            //parentSystem.Play();
             foreach (ParticleSystem system in childrenSystems)
             {
                 //system.enableEmission = false;
-                //system.Stop();
-                system.Play();
+                system.Stop();
+                //system.Play();
             }
         }
     }
