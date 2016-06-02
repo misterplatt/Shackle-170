@@ -43,8 +43,16 @@ namespace VRStandardAssets.Examples
         {
             base.Update();
             //If host side lever is pressed, enable leverLightB, otherwise disable
-            if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[10].state == true) leverLightB.enabled = true;
-            else leverLightB.enabled = false;
+            if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[10].state == true)
+            {
+                leverLightB.enabled = true;
+                spt_TNTLeverA.local_leverAPressed = true;
+            }
+            else
+            {
+                leverLightB.enabled = false;
+                spt_TNTLeverA.local_leverAPressed = false;
+            }
 
             //If both levers are pressed, cue win
             if (GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[10].state == true && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[11].state == true)
