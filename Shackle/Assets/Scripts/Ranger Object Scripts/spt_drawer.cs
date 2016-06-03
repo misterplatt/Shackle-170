@@ -71,6 +71,7 @@ namespace VRStandardAssets.Examples
 
                 if (movingSound != null)
                 {
+                    aSource.clip = movingSound;
                     if ((moveOnLocalX == true && spt_playerControls.leftThumb("Horizontal") != 0) || ((moveOnLocalY == true || moveOnLocalZ == true) && spt_playerControls.leftThumb("Vertical") != 0))
                     {
                         if (!once)

@@ -44,6 +44,7 @@ public class spt_TVScreenListener : NetworkBehaviour {
             staticLight.enabled = true;
             if (!soundPlayed)
             {
+                tvStaticSound.loop = true;
                 tvStaticSound.Play();
                 soundPlayed = true;
             }

@@ -86,6 +86,7 @@ namespace VRStandardAssets.Examples
                         }
                     }
                 }
+                childSource.Stop();
             }
 
             if (timerino > completionTime)

@@ -60,6 +60,7 @@ namespace VRStandardAssets.Examples
                         if (!aSource.isPlaying) aSource.Play();
                     }                    
                 }
+                aSource.Stop();
             }
 
             //If a laser has hit the lock for long enough, set the corresponding puzzle state to true
@@ -70,9 +71,9 @@ namespace VRStandardAssets.Examples
                 
                 timerino = 0;
             }
-            
+
             //If the laser has hit the lock, open the chest
-            if (!once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == true)
+            if (!aSource.isPlaying && !once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == true)
             {
                 aSource.clip = chestOpen;
                 aSource.Play();
@@ -91,8 +92,8 @@ namespace VRStandardAssets.Examples
             if (once && GameObject.FindWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[1].state == false) {
                 //Chest will do things, sound will play
                 //transform.parent.eulerAngles = initialRotation;
-                transform.parent.GetComponent<Animation>().Play("chestSlam");
                 aSource.clip = chestSlam;
+                transform.parent.GetComponent<Animation>().Play("chestSlam");
                 aSource.Play();
 
                 //Closing vibrations

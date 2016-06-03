@@ -9597,6 +9597,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 1411639701}
   movingSound: {fileID: 8300000, guid: 6652719c0ecc968458b8f0b5583a3aaf, type: 3}
+  slamSound: {fileID: 8300000, guid: 1f16ea47bb6880243ba4d74adc99115b, type: 3}
   HaydenIdea: -1
   moveSpeed: 1
   moveOnLocalX: 0
@@ -12192,6 +12193,7 @@ MonoBehaviour:
   holdTime: 0
   m_InteractiveItem: {fileID: 2014594131}
   movingSound: {fileID: 0}
+  slamSound: {fileID: 0}
   HaydenIdea: -1
   moveSpeed: 1
   moveOnLocalX: 0
