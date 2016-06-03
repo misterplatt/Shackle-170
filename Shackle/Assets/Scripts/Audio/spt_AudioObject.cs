@@ -10,6 +10,7 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class spt_AudioObject : MonoBehaviour {
 
@@ -27,5 +28,10 @@ public class spt_AudioObject : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
             instance = this;
         }
+    }
+
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().name != "net_SpookyGarage" || SceneManager.GetActiveScene().name != "net_RangerOutpost_crash" || SceneManager.GetActiveScene().name != "net_OpticsLab") Destroy(gameObject);
     }
 }

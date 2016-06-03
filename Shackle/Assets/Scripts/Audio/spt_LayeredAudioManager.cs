@@ -42,11 +42,7 @@ public class spt_LayeredAudioManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update(){
-        if (SceneManager.GetActiveScene().name == "net_SpookyGarage" || SceneManager.GetActiveScene().name == "net_RangerOutpost_crash" || SceneManager.GetActiveScene().name == "net_OpticsLab")
-        {
-            musicPlay = true;
-            DontDestroyOnLoad(gameObject);
-        }
+        if (SceneManager.GetActiveScene().name == "net_SpookyGarage" || SceneManager.GetActiveScene().name == "net_RangerOutpost_crash" || SceneManager.GetActiveScene().name == "net_OpticsLab") musicPlay = true;
         monster = GameObject.FindObjectOfType<spt_monsterMotivation>();
         if (!musicPlay) shutThisBitchDown();
         if (monster != null && musicPlay)
