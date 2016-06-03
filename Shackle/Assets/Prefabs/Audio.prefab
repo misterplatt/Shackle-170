@@ -261,6 +261,7 @@ GameObject:
   - 114: {fileID: 11425122}
   - 114: {fileID: 11415498}
   - 114: {fileID: 11454672}
+  - 114: {fileID: 11431806}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -1617,7 +1618,7 @@ MonoBehaviour:
   m_Script: {fileID: -139544205, guid: d5b0b5b607d95f648a4ada5ab4cd4683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dontDestroyOnLoad: 1
+  _dontDestroyOnLoad: 0
   _audioSourcePool: 0
   _audioSourcePoolFadeInTime: 0
   _audioSourcePoolFadeOutTime: 0
@@ -1729,6 +1730,17 @@ MonoBehaviour:
   _syncWithMusicTime: 0
   _markers: []
   _regions: []
+--- !u!114 &11431806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859fd52a5ad8b0541978c431af13ff3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11438300
 MonoBehaviour:
   m_ObjectHideFlags: 1
