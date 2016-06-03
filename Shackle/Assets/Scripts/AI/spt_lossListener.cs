@@ -60,7 +60,7 @@ public class spt_lossListener : NetworkBehaviour {
         if (gotIndex)
         {
             if (player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates.Count == 0) return;
-            if ((player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].state == true) && !once)
+            if (((player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].state == true) || loss) && !once)
             {
                 //Host side loss
                 monsterAudio.playAttackSound();
