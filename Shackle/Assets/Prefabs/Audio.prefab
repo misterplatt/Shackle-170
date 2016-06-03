@@ -260,6 +260,7 @@ GameObject:
   - 4: {fileID: 440040}
   - 114: {fileID: 11425122}
   - 114: {fileID: 11415498}
+  - 114: {fileID: 11454672}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -1626,7 +1627,7 @@ MonoBehaviour:
   _createEventListeners: 0
   _useFullPathForEventListeners: 0
   _transitionThreshold: 1
-  _volumeThreshold: 0
+  _volumeThreshold: 0.46299999952316284
   _audioBusManager:
     _audioBuses: []
   _enableDebugLog: 0
@@ -2268,6 +2269,17 @@ MonoBehaviour:
   _fadeInType: 1
   _fadeOutType: 1
   _regionVolume: 1
+--- !u!114 &11454672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859fd52a5ad8b0541978c431af13ff3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11455246
 MonoBehaviour:
   m_ObjectHideFlags: 1
