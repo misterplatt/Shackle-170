@@ -22,6 +22,7 @@ namespace VRStandardAssets.Examples
         private bool moved = false;
         private Vector3 initialPosition;
         public AudioClip movingSound;
+        public AudioClip slamSound;
         private AudioSource aSource;
         private bool once;
         public int HaydenIdea = 1;
@@ -54,8 +55,6 @@ namespace VRStandardAssets.Examples
             aSource = GetComponent<AudioSource>();
             if (movingSound != null) aSource.clip = movingSound;
             once = false;
-
-            //bucketSliding = GetComponent<AudioSource>();
         }
 
         override protected void Update()
@@ -141,6 +140,8 @@ namespace VRStandardAssets.Examples
         {
             Debug.Log("Drawer reset called");
             transform.position = initialPosition;
+            aSource.clip = slamSound;
+            aSource.Play();
             GameObject.FindGameObjectWithTag("Player").GetComponent<spt_NetworkPuzzleLogic>().updatePuzzleState("deskDrawerOpen", false, "mdl_Drawer");
         }
     }
