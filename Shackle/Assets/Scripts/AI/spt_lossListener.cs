@@ -67,6 +67,7 @@ public class spt_lossListener : NetworkBehaviour {
                 Debug.Log(transform.parent.parent.parent.name + " " + player.GetComponent<spt_NetworkPuzzleLogic>().PuzzleStates[index].name);
                 GetComponent<Text>().text = "You lose";
                 GetComponent<Text>().enabled = true;
+                spt_LayeredAudioManager.shutThisBitchDown();
 
                 if (!this.transform.root.gameObject.GetComponent<NetworkIdentity>().isLocalPlayer) {
                     transform.FindChild("LossControls").gameObject.GetComponent<RawImage>().enabled = true;
@@ -107,11 +108,13 @@ public class spt_lossListener : NetworkBehaviour {
 
         if ( spt_playerControls.aButtonPressed() ) {
             //if host, restart
+            spt_LayeredAudioManager.shutThisBitchDown();
             if (nid.isServer) lobbyControls.restartLevel();
             else lobbyControls.Cmd_restartLevel();
             //if client, ask host to restart
         }
         else if ( spt_playerControls.bButtonPressed() ) {
+            spt_LayeredAudioManager.shutThisBitchDown();
             //if host, restart
             if (nid.isServer) lobbyControls.quitLevel();
             //if client, ask host to restart

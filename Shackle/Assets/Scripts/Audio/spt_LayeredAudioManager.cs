@@ -109,7 +109,7 @@ public class spt_LayeredAudioManager : MonoBehaviour {
         }
     }
 
-    IEnumerator shutThisBitchDown()
+    public static IEnumerator shutThisBitchDown()
     {
         yield return new WaitForSeconds(5f);
         Fabric.EventManager.Instance.SetParameter("BackgroundMusic", "SecondLayer", 0f, null);

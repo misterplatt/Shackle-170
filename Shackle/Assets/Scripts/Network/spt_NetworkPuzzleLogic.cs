@@ -160,6 +160,7 @@ public class spt_NetworkPuzzleLogic : NetworkBehaviour {
 
             uiMessager.transform.FindChild("LossControls").gameObject.GetComponent<RawImage>().enabled = true;
             uiMessager.GetComponent<spt_lossListener>().lossMenu = true;
+            spt_LayeredAudioManager.shutThisBitchDown();
             //path to return to main menu.
 
 
